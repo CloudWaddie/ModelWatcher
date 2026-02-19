@@ -71,14 +71,20 @@ jobs:
           git fetch origin master
           git reset --hard origin/master
           
-          # Copy scan results (state.json is created by the scan)
-          mkdir -p logs
-          cp logs/state.json ./latest.json 2>/dev/null || true
+          # Check if state.json changed from previous
+          if [ -f logs/state.json ]; then
+            if git diff --quiet origin/master -- logs/state.json; then
+              echo "No model changes detected - skipping commit"
+              exit 0
+            fi
+          fi
+          
+          # Copy scan results to logs folder
           cp logs/scan-*.json logs/ 2>/dev/null || true
           
           # Add and commit (only if there are changes)
           # Force add logs folder since it's gitignored
-          git add -f logs/ latest.json || true
+          git add -f logs/ || true
           if ! git diff --quiet --staged; then
             git commit -m "Update logs - $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push origin master
