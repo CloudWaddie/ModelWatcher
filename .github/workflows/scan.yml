@@ -70,8 +70,9 @@ jobs:
           git config --global user.name "ModelWatcher"
           git config --global user.email "modelwatcher@github.com"
           
-          # Ensure we're on master and it's up to date
-          git status
+          # Fetch latest and rebase to handle concurrent runs
+          git fetch origin master
+          git rebase origin/master || true
           
           # Copy scan results (state.json is created by the scan)
           mkdir -p logs
