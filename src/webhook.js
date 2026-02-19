@@ -209,17 +209,33 @@ export function createRemovedModelsEmbed(endpointName, models) {
 }
 
 /**
+ * Format a single change as a git diff style string
+ * @param {string} key - Property name that changed
+ * @param {Object} change - Object with old and new values
+ * @returns {string} - Formatted diff string
+ */
+function formatDiffLine(key, change) {
+  const oldVal = change.old !== undefined ? JSON.stringify(change.old) : '(none)';
+  const newVal = change.new !== undefined ? JSON.stringify(change.new) : '(none)';
+  return `- ${key}: ${oldVal}\n+ ${key}: ${newVal}`;
+}
+
+/**
  * Create Discord embed for updated models
  * @param {string} endpointName - Name of the endpoint
  * @param {Array} updates - Array of updated models with changes
+ * @param {string} commitSha - Optional commit SHA for direct link
  * @returns {Object} - Discord embed object
  */
-export function createUpdatedModelsEmbed(endpointName, updates) {
+export function createUpdatedModelsEmbed(endpointName, updates, commitSha = null) {
   const maxPerField = 10;
   const maxTotal = 20;
   const fields = [];
   
-  const diffUrl = 'https://github.com/CloudWaddie/ModelWatcher/commits/master/logs/state.json';
+  const baseUrl = 'https://github.com/CloudWaddie/ModelWatcher';
+  const diffUrl = commitSha 
+    ? `${baseUrl}/commit/${commitSha}`
+    : `${baseUrl}/commits/master/logs/state.json`;
   
   if (updates.length > maxTotal) {
     return {
@@ -241,9 +257,11 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
   for (let i = 0; i < updates.length; i += maxPerField) {
     const chunk = updates.slice(i, i + maxPerField);
     const changeList = chunk.map(u => {
-      const changeKeys = Object.keys(u.changes).join(', ');
-      return `${u.model.id}: ${changeKeys}`;
-    }).join('\n');
+      const changeLines = Object.entries(u.changes).map(([key, change]) => {
+        return formatDiffLine(key, change);
+      }).join('\n');
+      return `**${u.model.id}**\n${changeLines}`;
+    }).join('\n\n');
     
     const label = updates.length > maxPerField 
       ? `Updated Models (${i + 1}-${Math.min(i + maxPerField, updates.length)})`
@@ -251,7 +269,7 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
     
     fields.push({
       name: label,
-      value: '```\n' + changeList + '\n```'
+      value: '```diff\n' + changeList + '\n```'
     });
   }
 
@@ -305,9 +323,10 @@ export function createErrorEmbed(endpointName, error) {
  * Create a summary embed for scan results with changes
  * @param {Object} summary - Scan summary
  * @param {Array} results - Endpoint results
+ * @param {string} commitSha - Optional commit SHA for direct link
  * @returns {Object} - Discord embed object
  */
-export function createSummaryEmbed(summary, results) {
+export function createSummaryEmbed(summary, results, commitSha = null) {
   const successCount = results.filter(r => r.success).length;
   const failCount = results.filter(r => !r.success).length;
   
@@ -337,7 +356,10 @@ export function createSummaryEmbed(summary, results) {
   }
 
   const changeEmoji = summary.addedCount > 0 ? '📈' : summary.removedCount > 0 ? '📉' : '➡️';
-  const diffUrl = 'https://github.com/CloudWaddie/ModelWatcher/commits/master/logs/state.json';
+  const baseUrl = 'https://github.com/CloudWaddie/ModelWatcher';
+  const diffUrl = commitSha 
+    ? `${baseUrl}/commit/${commitSha}`
+    : `${baseUrl}/commits/master/logs/state.json`;
 
   return {
     username: 'Model Watcher',
@@ -405,9 +427,10 @@ export function createCompactSummaryEmbed(results) {
  * @param {Array} results - Scan results from all endpoints
  * @param {Object} allChanges - Changes detected across all endpoints
  * @param {Array} endpoints - Endpoint configurations (to get group mapping)
+ * @param {string} commitSha - Optional commit SHA for direct link
  * @returns {Promise<void>}
  */
-export async function processNotifications(config, results, allChanges, endpoints) {
+export async function processNotifications(config, results, allChanges, endpoints, commitSha = null) {
   if (!config.enabled) {
     console.log('Discord notifications disabled');
     return;
@@ -491,7 +514,7 @@ export async function processNotifications(config, results, allChanges, endpoint
 
     // Send summary only if there are changes
     if (hasChanges && notifyOn.includes('summary_with_changes')) {
-      await sendDiscordWebhook(webhookUrl, withUrl(createSummaryEmbed(summary, groupResultsList)));
+      await sendDiscordWebhook(webhookUrl, withUrl(createSummaryEmbed(summary, groupResultsList, commitSha)));
     }
 
     // Send endpoint errors (skip if API key not configured)
@@ -528,7 +551,7 @@ export async function processNotifications(config, results, allChanges, endpoint
     if (notifyOn.includes('model_updated')) {
       for (const [endpoint, changes] of Object.entries(groupChangesList)) {
         if (changes.updated && changes.updated.length > 0) {
-          await sendDiscordWebhook(webhookUrl, withUrl(createUpdatedModelsEmbed(endpoint, changes.updated)));
+          await sendDiscordWebhook(webhookUrl, withUrl(createUpdatedModelsEmbed(endpoint, changes.updated, commitSha)));
         }
       }
     }

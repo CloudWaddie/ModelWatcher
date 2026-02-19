@@ -156,7 +156,8 @@ async function main() {
   
   // Process Discord notifications
   console.log('\nProcessing notifications...');
-  await processNotifications(config.discord, results, allChanges, config.endpoints);
+  const commitSha = process.env.GITHUB_SHA || null;
+  await processNotifications(config.discord, results, allChanges, config.endpoints, commitSha);
   
   // Summary
   console.log('\n' + '='.repeat(50));
