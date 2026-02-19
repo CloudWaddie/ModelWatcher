@@ -151,6 +151,14 @@ function normalizeModels(data, endpoint) {
     }));
   }
 
+  // Deduplicate by ID (some APIs like Mistral return aliases as separate entries with same ID)
+  const seen = new Set();
+  models = models.filter(m => {
+    if (seen.has(m.id)) return false;
+    seen.add(m.id);
+    return true;
+  });
+
   // Sort by ID
   models.sort((a, b) => a.id.localeCompare(b.id));
 
