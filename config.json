@@ -1,0 +1,79 @@
+{
+  "$schema": "./config.schema.json",
+  "endpoints": [
+    {
+      "name": "OpenAI",
+      "baseUrl": "https://api.openai.com/v1",
+      "apiKeyEnv": "OPENAI_API_KEY",
+      "modelsEndpoint": "/models"
+    },
+    {
+      "name": "Anthropic",
+      "baseUrl": "https://api.anthropic.com/v1",
+      "apiKeyEnv": "ANTHROPIC_API_KEY",
+      "modelsEndpoint": "/models"
+    },
+    {
+      "name": "Ollama",
+      "baseUrl": "http://localhost:11434/api",
+      "apiKeyEnv": "OLLAMA_API_KEY",
+      "modelsEndpoint": "/tags"
+    },
+    {
+      "name": "LocalAI",
+      "baseUrl": "http://localhost:8080/v1",
+      "apiKeyEnv": "LOCALAI_API_KEY",
+      "modelsEndpoint": "/models"
+    },
+    {
+      "name": "Together AI",
+      "baseUrl": "https://api.together.ai/v1",
+      "apiKeyEnv": "TOGETHER_API_KEY",
+      "modelsEndpoint": "/models"
+    },
+    {
+      "name": "Groq",
+      "baseUrl": "https://api.groq.com/openai/v1",
+      "apiKeyEnv": "GROQ_API_KEY",
+      "modelsEndpoint": "/models"
+    },
+    {
+      "name": "Fireworks AI",
+      "baseUrl": "https://api.fireworks.ai/inference/v1",
+      "apiKeyEnv": "FIREWORKS_API_KEY",
+      "modelsEndpoint": "/models"
+    },
+    {
+      "name": "DeepInfra",
+      "baseUrl": "https://api.deepinfra.com/v1/openai",
+      "apiKeyEnv": "DEEPINFRA_API_KEY",
+      "modelsEndpoint": "/models"
+    },
+    {
+      "name": "Mistral",
+      "baseUrl": "https://api.mistral.ai/v1",
+      "apiKeyEnv": "MISTRAL_API_KEY",
+      "modelsEndpoint": "/models"
+    },
+    {
+      "name": "Cohere",
+      "baseUrl": "https://api.cohere.ai/v1",
+      "apiKeyEnv": "COHERE_API_KEY",
+      "modelsEndpoint": "/models"
+    }
+  ],
+  "scan": {
+    "timeout": 30000,
+    "retryAttempts": 2,
+    "retryDelay": 1000
+  },
+  "logging": {
+    "outputDir": "./logs",
+    "historyDays": 30
+  },
+  "discord": {
+    "enabled": true,
+    "webhookEnv": "WEBHOOK",
+    "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error"]
+  }
+}

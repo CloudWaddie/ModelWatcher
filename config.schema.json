@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Model Finder Configuration",
+  "type": "object",
+  "required": ["endpoints"],
+  "properties": {
+    "endpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "baseUrl", "apiKeyEnv"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Display name for the endpoint"
+          },
+          "baseUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Base URL for the API"
+          },
+          "apiKeyEnv": {
+            "type": "string",
+            "description": "Environment variable name containing the API key"
+          },
+          "modelsEndpoint": {
+            "type": "string",
+            "default": "/models",
+            "description": "Path to fetch models list"
+          },
+          "headers": {
+            "type": "object",
+            "description": "Additional headers required by the API"
+          }
+        }
+      }
+    },
+    "scan": {
+      "type": "object",
+      "properties": {
+        "timeout": {
+          "type": "number",
+          "default": 30000
+        },
+        "retryAttempts": {
+          "type": "number",
+          "default": 2
+        },
+        "retryDelay": {
+          "type": "number",
+          "default": 1000
+        }
+      }
+    },
+    "logging": {
+      "type": "object",
+      "properties": {
+        "outputDir": {
+          "type": "string",
+          "default": "./logs"
+        },
+        "historyDays": {
+          "type": "number",
+          "default": 30
+        }
+      }
+    },
+    "discord": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "webhookEnv": {
+          "type": "string",
+          "default": "WEBHOOK"
+        },
+        "notifyOn": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["new_model", "removed_model", "model_updated", "endpoint_error"]
+          },
+          "default": ["new_model", "removed_model", "model_updated", "endpoint_error"]
+        }
+      }
+    }
+  }
+}
