@@ -209,14 +209,24 @@ export function createRemovedModelsEmbed(endpointName, models) {
 }
 
 /**
+ * Format a value for display in diff
+ */
+function formatValue(val) {
+  if (val === null || val === undefined) return '(none)';
+  if (Array.isArray(val)) return val.join(', ');
+  if (typeof val === 'object') return JSON.stringify(val);
+  return String(val);
+}
+
+/**
  * Format a single change as a git diff style string
  * @param {string} key - Property name that changed
  * @param {Object} change - Object with old and new values
  * @returns {string} - Formatted diff string
  */
 function formatDiffLine(key, change) {
-  const oldVal = change.old !== undefined ? String(change.old) : '(none)';
-  const newVal = change.new !== undefined ? String(change.new) : '(none)';
+  const oldVal = formatValue(change.old);
+  const newVal = formatValue(change.new);
   return `-${key}: ${oldVal}\n+${key}: ${newVal}`;
 }
 
@@ -260,7 +270,7 @@ export function createUpdatedModelsEmbed(endpointName, updates, commitSha = null
       const changeLines = Object.entries(u.changes).map(([key, change]) => {
         return formatDiffLine(key, change);
       }).join('\n');
-      return `**${u.model.id}**\n\`\`\`diff\n${changeLines}\n\`\`\``;
+      return `**${u.model.id}**\n\`\`\`\n${changeLines}\n\`\`\``;
     }).join('\n');
     
     // Truncate if too long (Discord max field value is 1024)
