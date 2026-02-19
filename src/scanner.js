@@ -30,10 +30,16 @@ export async function fetchModels(endpoint, timeout = 30000) {
     ...endpoint.headers
   };
 
-  // Some APIs (like Anthropic) use a different auth header
+  // Some APIs use different auth/headers
   if (endpoint.name === 'Anthropic') {
     headers['x-api-key'] = apiKey;
     delete headers['Authorization'];
+  }
+
+  // GitHub Models uses different headers
+  if (endpoint.name === 'GitHub Models') {
+    headers['Accept'] = 'application/vnd.github+json';
+    headers['X-GitHub-Api-Version'] = '2022-11-28';
   }
 
   try {
@@ -95,7 +101,19 @@ function normalizeModels(data, endpoint) {
       ...m
     }));
   }
-  // Anthropic format: { data: [{ id: ..., ... }] }
+  // GitHub Models format: [{ id: ..., name: ..., publisher: ..., ... }]
+  else if (endpoint.name === 'GitHub Models' && Array.isArray(data)) {
+    models = data.map(m => ({
+      id: m.id,
+      name: m.name || m.id,
+      publisher: m.publisher,
+      registry: m.registry,
+      summary: m.summary,
+      html_url: m.html_url,
+      ...m
+    }));
+  }
+  // Anthropic/Ollama/Cohere/Mistral format: array or { models: [...] }
   else if (Array.isArray(data)) {
     models = data.map(m => ({
       id: m.id || m.name,

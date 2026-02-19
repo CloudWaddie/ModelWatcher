@@ -17,6 +17,7 @@ Hourly scanner for OpenAI-compatible API endpoints with Discord notifications.
 | OpenAI | `OPENAI_API_KEY` | `https://api.openai.com/v1` |
 | Anthropic | `ANTHROPIC_API_KEY` | `https://api.anthropic.com/v1` |
 | Google Gemini | `GEMINI_API_KEY` | `https://generativelanguage.googleapis.com/v1beta/openai` |
+| GitHub Models | `GH_MODELS_API_KEY` | `https://models.github.ai` |
 | Groq | `GROQ_API_KEY` | `https://api.groq.com/openai/v1` |
 | Mistral | `MISTRAL_API_KEY` | `https://api.mistral.ai/v1` |
 | Cohere | `COHERE_API_KEY` | `https://api.cohere.ai/v1` |
@@ -24,6 +25,8 @@ Hourly scanner for OpenAI-compatible API endpoints with Discord notifications.
 | DeepInfra | `DEEPINFRA_API_KEY` | `https://api.deepinfra.com/v1/openai` |
 | Fireworks AI | `FIREWORKS_API_KEY` | `https://api.fireworks.ai/inference/v1` |
 | OpenRouter | `OPENROUTER_API_KEY` | `https://openrouter.ai/api/v1` |
+
+**Note:** GitHub Models requires a PAT (Personal Access Token) with `models` scope.
 
 ## Quick Start
 
