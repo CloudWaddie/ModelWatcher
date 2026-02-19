@@ -89,19 +89,19 @@ export async function sendDiscordWebhook(webhookUrl, payload) {
  * @returns {Object} - Discord embed object
  */
 export function createNewModelsEmbed(endpointName, models) {
-  const maxPerField = 15;
+  const maxPerField = 10;
   const fields = [];
   
   for (let i = 0; i < models.length; i += maxPerField) {
     const chunk = models.slice(i, i + maxPerField);
-    const modelList = chunk.map(m => `• \`${m.id}\``).join('\n');
+    const modelList = chunk.map(m => m.id).join('\n');
     const label = models.length > maxPerField 
       ? `New Models (${i + 1}-${Math.min(i + maxPerField, models.length)})`
       : 'New Models';
     
     fields.push({
       name: label,
-      value: modelList
+      value: '```\n' + modelList + '\n```'
     });
   }
 
@@ -129,19 +129,19 @@ export function createNewModelsEmbed(endpointName, models) {
  * @returns {Object} - Discord embed object
  */
 export function createRemovedModelsEmbed(endpointName, models) {
-  const maxPerField = 15;
+  const maxPerField = 10;
   const fields = [];
   
   for (let i = 0; i < models.length; i += maxPerField) {
     const chunk = models.slice(i, i + maxPerField);
-    const modelList = chunk.map(m => `• \`${m.id}\``).join('\n');
+    const modelList = chunk.map(m => m.id).join('\n');
     const label = models.length > maxPerField 
       ? `Removed Models (${i + 1}-${Math.min(i + maxPerField, models.length)})`
       : 'Removed Models';
     
     fields.push({
       name: label,
-      value: modelList
+      value: '```\n' + modelList + '\n```'
     });
   }
 
@@ -176,7 +176,7 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
     const chunk = updates.slice(i, i + maxPerField);
     const changeList = chunk.map(u => {
       const changeKeys = Object.keys(u.changes).join(', ');
-      return `• \`${u.model.id}\`\n  ↳ Changed: ${changeKeys}`;
+      return `${u.model.id}: ${changeKeys}`;
     }).join('\n');
     
     const label = updates.length > maxPerField 
@@ -185,7 +185,7 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
     
     fields.push({
       name: label,
-      value: changeList
+      value: '```\n' + changeList + '\n```'
     });
   }
 
