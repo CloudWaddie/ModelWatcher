@@ -323,9 +323,13 @@ export async function processNotifications(config, results, allChanges) {
     await sendDiscordWebhook(webhookUrl, createCompactSummaryEmbed(results));
   }
 
-  // Send endpoint errors
+  // Send endpoint errors (skip if API key not configured)
   if (notifyOn.includes('endpoint_error')) {
     for (const result of results) {
+      // Skip endpoints that weren't configured (no API key)
+      if (!result.success && result.error && result.configured === false) {
+        continue;
+      }
       if (!result.success && result.error) {
         await sendDiscordWebhook(webhookUrl, createErrorEmbed(result.endpoint, result.error));
       }

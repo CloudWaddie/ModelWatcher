@@ -16,6 +16,7 @@ export async function fetchModels(endpoint, timeout = 30000) {
   if (!apiKey) {
     return {
       success: false,
+      configured: false, // Not an error - user just didn't configure this endpoint
       error: `API key not found in env variable: ${endpoint.apiKeyEnv}`,
       endpoint: endpoint.name
     };
