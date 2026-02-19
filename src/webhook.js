@@ -217,7 +217,7 @@ export function createRemovedModelsEmbed(endpointName, models) {
 function formatDiffLine(key, change) {
   const oldVal = change.old !== undefined ? JSON.stringify(change.old) : '(none)';
   const newVal = change.new !== undefined ? JSON.stringify(change.new) : '(none)';
-  return `- ${key}: ${oldVal}\n+ ${key}: ${newVal}`;
+  return `~ ${key}: ${oldVal} → ${newVal}`;
 }
 
 /**
@@ -269,7 +269,7 @@ export function createUpdatedModelsEmbed(endpointName, updates, commitSha = null
     
     fields.push({
       name: label,
-      value: '```diff\n' + changeList + '\n```'
+      value: '```\n' + changeList + '\n```'
     });
   }
 
