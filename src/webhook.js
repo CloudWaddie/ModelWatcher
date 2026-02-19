@@ -219,13 +219,15 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
   const maxTotal = 20;
   const fields = [];
   
+  const diffUrl = 'https://github.com/CloudWaddie/ModelWatcher/commits/master/logs/state.json';
+  
   if (updates.length > maxTotal) {
     return {
       username: 'Model Watcher',
       avatar_url: LOGO_URL,
       embeds: [{
         title: '🔄 Models Updated',
-        description: `**${endpointName}** has **${updates.length}** model updates ${getRelativeTimestamp()}.\n\nFull list: [logs/state.json](https://github.com/CloudWaddie/ModelWatcher/blob/master/logs/state.json)`,
+        description: `**${endpointName}** has **${updates.length}** model updates ${getRelativeTimestamp()}.\n\nView changes: [GitHub Diff](${diffUrl})`,
         color: 0xF59E0B,
         timestamp: new Date().toISOString(),
         footer: {
@@ -258,7 +260,7 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
     avatar_url: LOGO_URL,
     embeds: [{
       title: '🔄 Models Updated',
-      description: `**${endpointName}** has ${updates.length} model update${updates.length > 1 ? 's' : ''} ${getRelativeTimestamp()}.`,
+      description: `**${endpointName}** has ${updates.length} model update${updates.length > 1 ? 's' : ''} ${getRelativeTimestamp()}.\n\nView changes: [GitHub Diff](${diffUrl})`,
       color: 0xF59E0B,
       fields,
       timestamp: new Date().toISOString(),
@@ -335,13 +337,14 @@ export function createSummaryEmbed(summary, results) {
   }
 
   const changeEmoji = summary.addedCount > 0 ? '📈' : summary.removedCount > 0 ? '📉' : '➡️';
+  const diffUrl = 'https://github.com/CloudWaddie/ModelWatcher/commits/master/logs/state.json';
 
   return {
     username: 'Model Watcher',
     avatar_url: LOGO_URL,
     embeds: [{
       title: '🔍 Model Scan Complete',
-      description: `${changeEmoji} Scanned **${results.length}** endpoints | ${successCount} success, ${failCount} failed ${getRelativeTimestamp()}`,
+      description: `${changeEmoji} Scanned **${results.length}** endpoints | ${successCount} success, ${failCount} failed ${getRelativeTimestamp()}\n\nView changes: [GitHub Diff](${diffUrl})`,
       color,
       fields: [
         {
