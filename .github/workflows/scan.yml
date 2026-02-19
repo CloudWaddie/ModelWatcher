@@ -79,7 +79,8 @@ jobs:
           cp logs/scan-*.json logs/ 2>/dev/null || true
           
           # Add and commit (only if there are changes)
-          git add -A
+          # Force add logs folder since it's gitignored
+          git add -f logs/ latest.json || true
           if ! git diff --quiet --staged; then
             git commit -m "Update logs - $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push origin master
