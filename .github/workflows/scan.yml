@@ -70,6 +70,8 @@ jobs:
           find logs -type f -mtime +30 -delete
           
       - name: Commit results to models branch
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           # Create a temporary directory for the models branch
           cd $GITHUB_WORKSPACE
