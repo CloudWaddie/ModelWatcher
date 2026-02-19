@@ -4,6 +4,7 @@ import axios from 'axios';
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 
 const MAX_EMBEDS_PER_MESSAGE = 10;
+const MAX_MODELS_PER_EMBED = 50;
 
 /**
  * Send a Discord webhook notification
@@ -18,27 +19,61 @@ export async function sendDiscordWebhook(webhookUrl, payload) {
   }
 
   try {
-    // Check if we need to split into multiple messages
     const embeds = payload.embeds || [];
-    if (embeds.length > MAX_EMBEDS_PER_MESSAGE) {
-      // Split embeds into chunks of MAX_EMBEDS_PER_MESSAGE
-      for (let i = 0; i < embeds.length; i += MAX_EMBEDS_PER_MESSAGE) {
-        const chunk = embeds.slice(i, i + MAX_EMBEDS_PER_MESSAGE);
-        const chunkPayload = {
-          username: payload.username,
-          avatar_url: payload.avatar_url,
-          embeds: chunk
-        };
-        await axios.post(webhookUrl, chunkPayload, {
-          headers: { 'Content-Type': 'application/json' }
-        });
+    const allEmbeds = [];
+
+    // Split embeds that have too many models into multiple embeds
+    for (const embed of embeds) {
+      if (embed.fields && embed.fields.length > 0) {
+        // Count total models across all fields
+        let totalModels = 0;
+        for (const field of embed.fields) {
+          const lines = field.value.split('\n').filter(l => l.trim());
+          totalModels += lines.length;
+        }
+
+        if (totalModels > MAX_MODELS_PER_EMBED) {
+          // Split into multiple embeds
+          let currentEmbed = { ...embed, fields: [] };
+          let currentCount = 0;
+
+          for (const field of embed.fields) {
+            const fieldCount = field.value.split('\n').filter(l => l.trim()).length;
+
+            if (currentCount + fieldCount > MAX_MODELS_PER_EMBED && currentEmbed.fields.length > 0) {
+              allEmbeds.push(currentEmbed);
+              currentEmbed = { ...embed, fields: [] };
+              currentCount = 0;
+            }
+
+            currentEmbed.fields.push(field);
+            currentCount += fieldCount;
+          }
+
+          if (currentEmbed.fields.length > 0) {
+            allEmbeds.push(currentEmbed);
+          }
+        } else {
+          allEmbeds.push(embed);
+        }
+      } else {
+        allEmbeds.push(embed);
       }
-      return true;
     }
 
-    const response = await axios.post(webhookUrl, payload, {
-      headers: { 'Content-Type': 'application/json' }
-    });
+    // Send in chunks of MAX_EMBEDS_PER_MESSAGE
+    for (let i = 0; i < allEmbeds.length; i += MAX_EMBEDS_PER_MESSAGE) {
+      const chunk = allEmbeds.slice(i, i + MAX_EMBEDS_PER_MESSAGE);
+      const chunkPayload = {
+        username: payload.username,
+        avatar_url: payload.avatar_url,
+        embeds: chunk
+      };
+      await axios.post(webhookUrl, chunkPayload, {
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
     return true;
   } catch (err) {
     const details = err.response?.data ? JSON.stringify(err.response.data) : err.message;

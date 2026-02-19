@@ -70,16 +70,24 @@ jobs:
           git config --global user.name "ModelWatcher"
           git config --global user.email "modelwatcher@github.com"
           
+          # Save the new scan state before resetting
+          cp logs/state.json /tmp/state-new.json 2>/dev/null || true
+          
           # Fetch latest and reset to handle concurrent runs
           git fetch origin master
           git reset --hard origin/master
           
-          # Check if state.json changed from previous
-          if [ -f logs/state.json ]; then
-            if git diff --quiet origin/master -- logs/state.json; then
+          # Check if state.json changed from previous (compare new scan vs origin)
+          if [ -f /tmp/state-new.json ] && [ -f logs/state.json ]; then
+            if diff -q /tmp/state-new.json logs/state.json > /dev/null 2>&1; then
               echo "No model changes detected - skipping commit"
               exit 0
             fi
+            # Copy the new state back
+            cp /tmp/state-new.json logs/state.json
+          elif [ ! -f logs/state.json ]; then
+            # No previous state, copy new one
+            cp /tmp/state-new.json logs/state.json 2>/dev/null || true
           fi
           
           # Copy scan results to logs folder
