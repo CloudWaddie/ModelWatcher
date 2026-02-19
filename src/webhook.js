@@ -19,17 +19,6 @@ export async function sendDiscordWebhook(webhookUrl, payload) {
   }
 
   try {
-    // Debug: log what we're sending (without sensitive data)
-    const debugPayload = JSON.parse(JSON.stringify(payload));
-    if (debugPayload.embeds) {
-      debugPayload.embeds = debugPayload.embeds.map(e => ({
-        title: e.title,
-        description: e.description?.substring(0, 100),
-        fields: e.fields?.map(f => ({ name: f.name, value: f.value?.substring(0, 50) }))
-      }));
-    }
-    console.log('Sending webhook:', JSON.stringify(debugPayload, null, 2));
-    
     const embeds = payload.embeds || [];
     const allEmbeds = [];
 
@@ -226,9 +215,9 @@ export function createRemovedModelsEmbed(endpointName, models) {
  * @returns {string} - Formatted diff string
  */
 function formatDiffLine(key, change) {
-  const oldVal = change.old !== undefined ? JSON.stringify(change.old) : '(none)';
-  const newVal = change.new !== undefined ? JSON.stringify(change.new) : '(none)';
-  return `~ ${key}: ${oldVal} → ${newVal}`;
+  const oldVal = change.old !== undefined ? String(change.old) : '(none)';
+  const newVal = change.new !== undefined ? String(change.new) : '(none)';
+  return `-${key}: ${oldVal}\n+${key}: ${newVal}`;
 }
 
 /**
@@ -271,8 +260,8 @@ export function createUpdatedModelsEmbed(endpointName, updates, commitSha = null
       const changeLines = Object.entries(u.changes).map(([key, change]) => {
         return formatDiffLine(key, change);
       }).join('\n');
-      return `**${u.model.id}**\n${changeLines}`;
-    }).join('\n\n');
+      return `**${u.model.id}**\n\`\`\`diff\n${changeLines}\n\`\`\``;
+    }).join('\n');
     
     // Truncate if too long (Discord max field value is 1024)
     let truncatedList = changeList;
