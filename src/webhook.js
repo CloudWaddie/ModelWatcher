@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Discord has issues with GitHub raw URLs sometimes, use embed without custom avatar
-const LOGO_URL = null;
+// Use GitHub raw URL for logo
+const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 
 /**
  * Send a Discord webhook notification

@@ -62,19 +62,17 @@ jobs:
           git config --global user.name "ModelWatcher"
           git config --global user.email "modelwatcher@github.com"
           
-          # Create models branch if it doesn't exist
-          git fetch origin models || git checkout -b models
+          # Fetch and checkout models branch
+          git fetch origin models 2>/dev/null || true
+          git checkout -B models origin/models 2>/dev/null || git checkout -B models
           
-          # Checkout models branch
-          git checkout models || git checkout -b models
-          
-          # Copy scan results
-          cp logs/state.json . || true
-          cp -r logs/scan-*.json . 2>/dev/null || true
+          # Copy scan results (keep historical logs)
+          cp logs/state.json ./latest.json || true
+          cp logs/scan-*.json . 2>/dev/null || true
           
           # Add and commit
           git add -A
           git diff --staged --quiet && echo "No changes to commit" || git commit -m "Update models - $(date -u +'%Y-%m-%d %H:%M UTC')"
           
-          # Push
-          git push origin models || true
+          # Force push to preserve history
+          git push -f origin models || true
