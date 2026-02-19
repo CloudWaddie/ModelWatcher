@@ -3,6 +3,8 @@ import axios from 'axios';
 // Use GitHub raw URL for logo
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 
+const MAX_EMBEDS_PER_MESSAGE = 10;
+
 /**
  * Send a Discord webhook notification
  * @param {string} webhookUrl - Discord webhook URL
@@ -16,12 +18,29 @@ export async function sendDiscordWebhook(webhookUrl, payload) {
   }
 
   try {
+    // Check if we need to split into multiple messages
+    const embeds = payload.embeds || [];
+    if (embeds.length > MAX_EMBEDS_PER_MESSAGE) {
+      // Split embeds into chunks of MAX_EMBEDS_PER_MESSAGE
+      for (let i = 0; i < embeds.length; i += MAX_EMBEDS_PER_MESSAGE) {
+        const chunk = embeds.slice(i, i + MAX_EMBEDS_PER_MESSAGE);
+        const chunkPayload = {
+          username: payload.username,
+          avatar_url: payload.avatar_url,
+          embeds: chunk
+        };
+        await axios.post(webhookUrl, chunkPayload, {
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      return true;
+    }
+
     const response = await axios.post(webhookUrl, payload, {
       headers: { 'Content-Type': 'application/json' }
     });
     return true;
   } catch (err) {
-    // Log more details for debugging
     const details = err.response?.data ? JSON.stringify(err.response.data) : err.message;
     console.error('Failed to send Discord webhook:', err.response?.status, details);
     return false;
