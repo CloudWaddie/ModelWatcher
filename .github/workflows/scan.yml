@@ -80,21 +80,25 @@ jobs:
           git fetch origin master
           git reset --hard origin/master
           
-          # Check if state.json changed from previous (compare new scan vs origin)
-          if [ -f /tmp/state-new.json ] && [ -f logs/state.json ]; then
-            if diff -q /tmp/state-new.json logs/state.json > /dev/null 2>&1; then
-              echo "No model changes detected - skipping commit"
-              exit 0
-            fi
-            # Copy the new state back
+          # Create logs dir and copy new state if we have one
+          mkdir -p logs
+          if [ -f /tmp/state-new.json ]; then
             cp /tmp/state-new.json logs/state.json
-          elif [ ! -f logs/state.json ]; then
-            # No previous state, copy new one
-            cp /tmp/state-new.json logs/state.json 2>/dev/null || true
           fi
           
           # Copy scan results to logs folder
           cp logs/scan-*.json logs/ 2>/dev/null || true
+          
+          # Check if there are actual changes to commit
+          # Compare new state.json with origin's (if it exists)
+          if [ -f logs/state.json ]; then
+            ORIG_HASH=$(git show origin/master:logs/state.json 2>/dev/null | sha256sum | cut -d' ' -f1 || echo "empty")
+            NEW_HASH=$(sha256sum logs/state.json | cut -d' ' -f1)
+            if [ "$ORIG_HASH" = "$NEW_HASH" ] && [ "$ORIG_HASH" != "empty" ]; then
+              echo "No model changes detected - skipping commit"
+              exit 0
+            fi
+          fi
           
           # Add and commit (only if there are changes)
           # Force add logs folder since it's gitignored
