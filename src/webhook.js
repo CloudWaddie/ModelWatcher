@@ -19,6 +19,17 @@ export async function sendDiscordWebhook(webhookUrl, payload) {
   }
 
   try {
+    // Debug: log what we're sending (without sensitive data)
+    const debugPayload = JSON.parse(JSON.stringify(payload));
+    if (debugPayload.embeds) {
+      debugPayload.embeds = debugPayload.embeds.map(e => ({
+        title: e.title,
+        description: e.description?.substring(0, 100),
+        fields: e.fields?.map(f => ({ name: f.name, value: f.value?.substring(0, 50) }))
+      }));
+    }
+    console.log('Sending webhook:', JSON.stringify(debugPayload, null, 2));
+    
     const embeds = payload.embeds || [];
     const allEmbeds = [];
 
@@ -263,13 +274,19 @@ export function createUpdatedModelsEmbed(endpointName, updates, commitSha = null
       return `**${u.model.id}**\n${changeLines}`;
     }).join('\n\n');
     
+    // Truncate if too long (Discord max field value is 1024)
+    let truncatedList = changeList;
+    if (changeList.length > 1000) {
+      truncatedList = changeList.substring(0, 997) + '...';
+    }
+    
     const label = updates.length > maxPerField 
       ? `Updated Models (${i + 1}-${Math.min(i + maxPerField, updates.length)})`
       : 'Updated Models';
     
     fields.push({
       name: label,
-      value: '```\n' + changeList + '\n```'
+      value: truncatedList
     });
   }
 
