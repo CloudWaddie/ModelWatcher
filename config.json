@@ -5,55 +5,71 @@
       "name": "OpenAI",
       "baseUrl": "https://api.openai.com/v1",
       "apiKeyEnv": "OPENAI_API_KEY",
-      "modelsEndpoint": "/models"
+      "modelsEndpoint": "/models",
+      "group": "default"
     },
     {
       "name": "Anthropic",
       "baseUrl": "https://api.anthropic.com/v1",
       "apiKeyEnv": "ANTHROPIC_API_KEY",
-      "modelsEndpoint": "/models"
+      "modelsEndpoint": "/models",
+      "group": "default"
     },
     {
       "name": "Together AI",
       "baseUrl": "https://api.together.ai/v1",
       "apiKeyEnv": "TOGETHER_API_KEY",
-      "modelsEndpoint": "/models"
+      "modelsEndpoint": "/models",
+      "group": "small"
     },
     {
       "name": "Groq",
       "baseUrl": "https://api.groq.com/openai/v1",
       "apiKeyEnv": "GROQ_API_KEY",
-      "modelsEndpoint": "/models"
+      "modelsEndpoint": "/models",
+      "group": "small"
     },
     {
       "name": "Fireworks AI",
       "baseUrl": "https://api.fireworks.ai/inference/v1",
       "apiKeyEnv": "FIREWORKS_API_KEY",
-      "modelsEndpoint": "/models"
+      "modelsEndpoint": "/models",
+      "group": "small"
     },
     {
       "name": "DeepInfra",
       "baseUrl": "https://api.deepinfra.com/v1/openai",
       "apiKeyEnv": "DEEPINFRA_API_KEY",
-      "modelsEndpoint": "/models"
+      "modelsEndpoint": "/models",
+      "group": "small"
     },
     {
       "name": "Mistral",
       "baseUrl": "https://api.mistral.ai/v1",
       "apiKeyEnv": "MISTRAL_API_KEY",
-      "modelsEndpoint": "/models"
+      "modelsEndpoint": "/models",
+      "group": "small"
     },
     {
       "name": "Cohere",
       "baseUrl": "https://api.cohere.ai/v1",
       "apiKeyEnv": "COHERE_API_KEY",
-      "modelsEndpoint": "/models"
+      "modelsEndpoint": "/models",
+      "group": "small"
     },
     {
       "name": "Google Gemini",
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai",
       "apiKeyEnv": "GEMINI_API_KEY",
-      "modelsEndpoint": "/models"
+      "modelsEndpoint": "/models",
+      "group": "default"
+    },
+    {
+      "name": "OpenRouter",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY",
+      "modelsEndpoint": "/models",
+      "group": "small"
     }
   ],
   "scan": {
@@ -67,8 +83,16 @@
   },
   "discord": {
     "enabled": true,
-    "webhookEnv": "WEBHOOK",
-    "url": "https://github.com/CloudWaddie/ModelWatcher",
-    "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
+    "webhooks": {
+      "default": {
+        "webhookEnv": "WEBHOOK",
+        "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
+      },
+      "small": {
+        "webhookEnv": "WEBHOOK_SMALL",
+        "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
+      }
+    },
+    "url": "https://github.com/CloudWaddie/ModelWatcher"
   }
 }

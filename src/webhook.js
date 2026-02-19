@@ -283,93 +283,132 @@ export function createCompactSummaryEmbed(results) {
  * @param {Object} config - Discord configuration
  * @param {Array} results - Scan results from all endpoints
  * @param {Object} allChanges - Changes detected across all endpoints
+ * @param {Array} endpoints - Endpoint configurations (to get group mapping)
  * @returns {Promise<void>}
  */
-export async function processNotifications(config, results, allChanges) {
+export async function processNotifications(config, results, allChanges, endpoints) {
   if (!config.enabled) {
     console.log('Discord notifications disabled');
     return;
   }
 
-  const webhookUrl = process.env[config.webhookEnv];
-  const notifyOn = config.notifyOn || [];
+  const webhooks = config.webhooks || {};
   const embedUrl = config.url || null;
 
-  if (!webhookUrl) {
-    console.log('Discord webhook URL not set (WEBHOOK env), skipping notifications');
-    return;
+  // Build endpoint -> group mapping
+  const endpointGroups = {};
+  for (const ep of endpoints) {
+    endpointGroups[ep.name] = ep.group || 'default';
   }
 
-  let totalAdded = 0;
-  let totalRemoved = 0;
-  let totalUpdated = 0;
+  // Group changes by webhook group
+  const groupChanges = {};
+  const groupResults = {};
   
-  for (const changes of Object.values(allChanges)) {
-    if (changes.summary) {
-      totalAdded += changes.summary.addedCount;
-      totalRemoved += changes.summary.removedCount;
-      totalUpdated += changes.summary.updatedCount;
+  for (const [endpointName, changes] of Object.entries(allChanges)) {
+    const group = endpointGroups[endpointName] || 'default';
+    if (!groupChanges[group]) {
+      groupChanges[group] = {};
+      groupResults[group] = [];
     }
+    groupChanges[group][endpointName] = changes;
+  }
+  
+  for (const result of results) {
+    const group = endpointGroups[result.endpoint] || 'default';
+    if (!groupResults[group]) {
+      groupResults[group] = [];
+    }
+    groupResults[group].push(result);
   }
 
-  const hasChanges = totalAdded > 0 || totalRemoved > 0 || totalUpdated > 0;
-
-  const summary = {
-    addedCount: totalAdded,
-    removedCount: totalRemoved,
-    updatedCount: totalUpdated
-  };
-
-  // Helper to add URL to embed
-  const withUrl = (payload) => {
-    if (embedUrl && payload.embeds?.[0]) {
-      payload.embeds[0].url = embedUrl;
+  // Process each group
+  for (const [groupName, groupConfig] of Object.entries(webhooks)) {
+    const webhookUrl = process.env[groupConfig.webhookEnv];
+    const notifyOn = groupConfig.notifyOn || [];
+    
+    if (!webhookUrl) {
+      console.log(`Discord webhook for group "${groupName}" not set (${groupConfig.webhookEnv} env), skipping`);
+      continue;
     }
-    return payload;
-  };
 
-  // Send summary only if there are changes (not when there's no changes)
-  // The detailed embeds (new_model, removed_model, etc.) will be sent below
-  if (hasChanges && notifyOn.includes('summary_with_changes')) {
-    await sendDiscordWebhook(webhookUrl, withUrl(createSummaryEmbed(summary, results)));
-  }
-
-  // Send endpoint errors (skip if API key not configured)
-  if (notifyOn.includes('endpoint_error')) {
-    for (const result of results) {
-      // Skip endpoints that weren't configured (no API key)
-      if (!result.success && result.error && result.configured === false) {
-        continue;
-      }
-      if (!result.success && result.error) {
-        await sendDiscordWebhook(webhookUrl, withUrl(createErrorEmbed(result.endpoint, result.error)));
-      }
+    const groupChangesList = groupChanges[groupName] || {};
+    const groupResultsList = groupResults[groupName] || [];
+    
+    // Skip if no results for this group
+    if (groupResultsList.length === 0) {
+      continue;
     }
-  }
 
-  // Send new models notifications
-  if (notifyOn.includes('new_model')) {
-    for (const [endpoint, changes] of Object.entries(allChanges)) {
-      if (changes.added && changes.added.length > 0) {
-        await sendDiscordWebhook(webhookUrl, withUrl(createNewModelsEmbed(endpoint, changes.added)));
+    let totalAdded = 0;
+    let totalRemoved = 0;
+    let totalUpdated = 0;
+    
+    for (const changes of Object.values(groupChangesList)) {
+      if (changes.summary) {
+        totalAdded += changes.summary.addedCount;
+        totalRemoved += changes.summary.removedCount;
+        totalUpdated += changes.summary.updatedCount;
       }
     }
-  }
 
-  // Send removed models notifications
-  if (notifyOn.includes('removed_model')) {
-    for (const [endpoint, changes] of Object.entries(allChanges)) {
-      if (changes.removed && changes.removed.length > 0) {
-        await sendDiscordWebhook(webhookUrl, withUrl(createRemovedModelsEmbed(endpoint, changes.removed)));
+    const hasChanges = totalAdded > 0 || totalRemoved > 0 || totalUpdated > 0;
+
+    const summary = {
+      addedCount: totalAdded,
+      removedCount: totalRemoved,
+      updatedCount: totalUpdated
+    };
+
+    // Helper to add URL to embed
+    const withUrl = (payload) => {
+      if (embedUrl && payload.embeds?.[0]) {
+        payload.embeds[0].url = embedUrl;
+      }
+      return payload;
+    };
+
+    // Send summary only if there are changes
+    if (hasChanges && notifyOn.includes('summary_with_changes')) {
+      await sendDiscordWebhook(webhookUrl, withUrl(createSummaryEmbed(summary, groupResultsList)));
+    }
+
+    // Send endpoint errors (skip if API key not configured)
+    if (notifyOn.includes('endpoint_error')) {
+      for (const result of groupResultsList) {
+        if (!result.success && result.error && result.configured === false) {
+          continue;
+        }
+        if (!result.success && result.error) {
+          await sendDiscordWebhook(webhookUrl, withUrl(createErrorEmbed(result.endpoint, result.error)));
+        }
       }
     }
-  }
 
-  // Send updated models notifications
-  if (notifyOn.includes('model_updated')) {
-    for (const [endpoint, changes] of Object.entries(allChanges)) {
-      if (changes.updated && changes.updated.length > 0) {
-        await sendDiscordWebhook(webhookUrl, withUrl(createUpdatedModelsEmbed(endpoint, changes.updated)));
+    // Send new models notifications
+    if (notifyOn.includes('new_model')) {
+      for (const [endpoint, changes] of Object.entries(groupChangesList)) {
+        if (changes.added && changes.added.length > 0) {
+          await sendDiscordWebhook(webhookUrl, withUrl(createNewModelsEmbed(endpoint, changes.added)));
+        }
+      }
+    }
+
+    // Send removed models notifications
+    if (notifyOn.includes('removed_model')) {
+      for (const [endpoint, changes] of Object.entries(groupChangesList)) {
+        if (changes.removed && changes.removed.length > 0) {
+          await sendDiscordWebhook(webhookUrl, withUrl(createRemovedModelsEmbed(endpoint, changes.removed)));
+        }
+      }
+    }
+
+    // Send updated models notifications
+    if (notifyOn.includes('model_updated')) {
+      for (const [endpoint, changes] of Object.entries(groupChangesList)) {
+        if (changes.updated && changes.updated.length > 0) {
+          await sendDiscordWebhook(webhookUrl, withUrl(createUpdatedModelsEmbed(endpoint, changes.updated)));
+        }
       }
     }
   }

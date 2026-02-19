@@ -156,7 +156,7 @@ async function main() {
   
   // Process Discord notifications
   console.log('\nProcessing notifications...');
-  await processNotifications(config.discord, results, allChanges);
+  await processNotifications(config.discord, results, allChanges, config.endpoints);
   
   // Summary
   console.log('\n' + '='.repeat(50));
