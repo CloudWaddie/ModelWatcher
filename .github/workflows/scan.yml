@@ -18,6 +18,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         
+      - name: Fetch models branch for state
+        run: |
+          git fetch origin models 2>/dev/null || true
+          git checkout -B models origin/models 2>/dev/null || true
+          # Restore previous state if exists
+          if [ -f latest.json ]; then
+            mkdir -p logs
+            cp latest.json logs/state.json
+          fi
+          
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
