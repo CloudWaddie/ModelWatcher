@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
+
 /**
  * Send a Discord webhook notification
  * @param {string} webhookUrl - Discord webhook URL
@@ -48,7 +50,7 @@ export function createNewModelsEmbed(endpointName, models) {
 
   return {
     username: 'Model Watcher',
-    avatar_url: 'https://i.imgur.com/AfFp7pu.png',
+    avatar_url: 'LOGO_URL',
     embeds: [{
       title: '🆕 New Models Detected',
       description: `**${endpointName}** just added ${models.length} new model${models.length > 1 ? 's' : ''}!`,
@@ -57,7 +59,7 @@ export function createNewModelsEmbed(endpointName, models) {
       timestamp: new Date().toISOString(),
       footer: {
         text: 'Model Watcher • AI Model Scanner',
-        icon_url: 'https://i.imgur.com/AfFp7pu.png'
+        icon_url: 'LOGO_URL'
       }
     }]
   };
@@ -88,7 +90,7 @@ export function createRemovedModelsEmbed(endpointName, models) {
 
   return {
     username: 'Model Watcher',
-    avatar_url: 'https://i.imgur.com/AfFp7pu.png',
+    avatar_url: 'LOGO_URL',
     embeds: [{
       title: '🗑️ Models Removed',
       description: `**${endpointName}** removed ${models.length} model${models.length > 1 ? 's' : ''}.`,
@@ -97,7 +99,7 @@ export function createRemovedModelsEmbed(endpointName, models) {
       timestamp: new Date().toISOString(),
       footer: {
         text: 'Model Watcher • AI Model Scanner',
-        icon_url: 'https://i.imgur.com/AfFp7pu.png'
+        icon_url: 'LOGO_URL'
       }
     }]
   };
@@ -132,7 +134,7 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
 
   return {
     username: 'Model Watcher',
-    avatar_url: 'https://i.imgur.com/AfFp7pu.png',
+    avatar_url: 'LOGO_URL',
     embeds: [{
       title: '🔄 Models Updated',
       description: `**${endpointName}** has ${updates.length} model update${updates.length > 1 ? 's' : ''}.`,
@@ -141,7 +143,7 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
       timestamp: new Date().toISOString(),
       footer: {
         text: 'Model Watcher • AI Model Scanner',
-        icon_url: 'https://i.imgur.com/AfFp7pu.png'
+        icon_url: 'LOGO_URL'
       }
     }]
   };
@@ -156,7 +158,7 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
 export function createErrorEmbed(endpointName, error) {
   return {
     username: 'Model Watcher',
-    avatar_url: 'https://i.imgur.com/AfFp7pu.png',
+    avatar_url: 'LOGO_URL',
     embeds: [{
       title: '⚠️ Endpoint Error',
       description: `Failed to fetch models from **${endpointName}**`,
@@ -170,7 +172,7 @@ export function createErrorEmbed(endpointName, error) {
       timestamp: new Date().toISOString(),
       footer: {
         text: 'Model Watcher • AI Model Scanner',
-        icon_url: 'https://i.imgur.com/AfFp7pu.png'
+        icon_url: 'LOGO_URL'
       }
     }]
   };
@@ -215,7 +217,7 @@ export function createSummaryEmbed(summary, results) {
 
   return {
     username: 'Model Watcher',
-    avatar_url: 'https://i.imgur.com/AfFp7pu.png',
+    avatar_url: 'LOGO_URL',
     embeds: [{
       title: '🔍 Model Scan Complete',
       description: `${changeEmoji} Scanned **${results.length}** endpoints | ${successCount} success, ${failCount} failed`,
@@ -231,7 +233,7 @@ export function createSummaryEmbed(summary, results) {
       timestamp: new Date().toISOString(),
       footer: {
         text: 'Model Watcher • Hourly Scan',
-        icon_url: 'https://i.imgur.com/AfFp7pu.png'
+        icon_url: 'LOGO_URL'
       }
     }]
   };
@@ -253,7 +255,7 @@ export function createCompactSummaryEmbed(results) {
 
   return {
     username: 'Model Watcher',
-    avatar_url: 'https://i.imgur.com/AfFp7pu.png',
+    avatar_url: 'LOGO_URL',
     embeds: [{
       title: '✅ No Model Changes',
       description: `Scanned **${results.length}** endpoints - no changes detected`,
@@ -267,7 +269,7 @@ export function createCompactSummaryEmbed(results) {
       timestamp: new Date().toISOString(),
       footer: {
         text: 'Model Watcher • Hourly Scan',
-        icon_url: 'https://i.imgur.com/AfFp7pu.png'
+        icon_url: 'LOGO_URL'
       }
     }]
   };
