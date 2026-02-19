@@ -146,6 +146,7 @@ function normalizeModels(data, endpoint) {
     models = data.data.map(m => ({
       id: m.id,
       name: m.id,
+      created: typeof m.created === 'string' ? parseInt(m.created) : m.created,
       ...m
     }));
   }
@@ -241,7 +242,12 @@ function getModelChanges(oldModel, newModel) {
   // Compare all properties
   const allKeys = new Set([...Object.keys(oldModel), ...Object.keys(newModel)]);
   
+  // Fields to ignore in comparison
+  const IGNORED_FIELDS = ['created'];
+  
   for (const key of allKeys) {
+    if (IGNORED_FIELDS.includes(key)) continue;
+
     const oldVal = JSON.stringify(oldModel[key]);
     const newVal = JSON.stringify(newModel[key]);
     

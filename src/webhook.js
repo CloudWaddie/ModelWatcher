@@ -83,6 +83,15 @@ export async function sendDiscordWebhook(webhookUrl, payload) {
 }
 
 /**
+ * Get Discord relative timestamp string
+ * @returns {string} - Discord timestamp format
+ */
+function getRelativeTimestamp() {
+  const unixSeconds = Math.floor(Date.now() / 1000);
+  return `<t:${unixSeconds}:R>`;
+}
+
+/**
  * Create a nicely formatted Discord embed for new models
  * @param {string} endpointName - Name of the endpoint
  * @param {Array} models - Array of new models
@@ -100,7 +109,7 @@ export function createNewModelsEmbed(endpointName, models) {
       avatar_url: LOGO_URL,
       embeds: [{
         title: '🆕 New Models Detected',
-        description: `**${endpointName}** added **${models.length}** new models!\n\nFull list: [logs/state.json](https://github.com/CloudWaddie/ModelWatcher/blob/master/logs/state.json)`,
+        description: `**${endpointName}** added **${models.length}** new models ${getRelativeTimestamp()}!\n\nFull list: [logs/state.json](https://github.com/CloudWaddie/ModelWatcher/blob/master/logs/state.json)`,
         color: 0x10B981,
         timestamp: new Date().toISOString(),
         footer: {
@@ -129,7 +138,7 @@ export function createNewModelsEmbed(endpointName, models) {
     avatar_url: LOGO_URL,
     embeds: [{
       title: '🆕 New Models Detected',
-      description: `**${endpointName}** just added ${models.length} new model${models.length > 1 ? 's' : ''}!`,
+      description: `**${endpointName}** just added ${models.length} new model${models.length > 1 ? 's' : ''} ${getRelativeTimestamp()}!`,
       color: 0x10B981,
       fields,
       timestamp: new Date().toISOString(),
@@ -158,7 +167,7 @@ export function createRemovedModelsEmbed(endpointName, models) {
       avatar_url: LOGO_URL,
       embeds: [{
         title: '🗑️ Models Removed',
-        description: `**${endpointName}** removed **${models.length}** models.\n\nFull list: [logs/state.json](https://github.com/CloudWaddie/ModelWatcher/blob/master/logs/state.json)`,
+        description: `**${endpointName}** removed **${models.length}** models ${getRelativeTimestamp()}.\n\nFull list: [logs/state.json](https://github.com/CloudWaddie/ModelWatcher/blob/master/logs/state.json)`,
         color: 0xEF4444,
         timestamp: new Date().toISOString(),
         footer: {
@@ -187,7 +196,7 @@ export function createRemovedModelsEmbed(endpointName, models) {
     avatar_url: LOGO_URL,
     embeds: [{
       title: '🗑️ Models Removed',
-      description: `**${endpointName}** removed ${models.length} model${models.length > 1 ? 's' : ''}.`,
+      description: `**${endpointName}** removed ${models.length} model${models.length > 1 ? 's' : ''} ${getRelativeTimestamp()}.`,
       color: 0xEF4444,
       fields,
       timestamp: new Date().toISOString(),
@@ -216,7 +225,7 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
       avatar_url: LOGO_URL,
       embeds: [{
         title: '🔄 Models Updated',
-        description: `**${endpointName}** has **${updates.length}** model updates.\n\nFull list: [logs/state.json](https://github.com/CloudWaddie/ModelWatcher/blob/master/logs/state.json)`,
+        description: `**${endpointName}** has **${updates.length}** model updates ${getRelativeTimestamp()}.\n\nFull list: [logs/state.json](https://github.com/CloudWaddie/ModelWatcher/blob/master/logs/state.json)`,
         color: 0xF59E0B,
         timestamp: new Date().toISOString(),
         footer: {
@@ -249,7 +258,7 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
     avatar_url: LOGO_URL,
     embeds: [{
       title: '🔄 Models Updated',
-      description: `**${endpointName}** has ${updates.length} model update${updates.length > 1 ? 's' : ''}.`,
+      description: `**${endpointName}** has ${updates.length} model update${updates.length > 1 ? 's' : ''} ${getRelativeTimestamp()}.`,
       color: 0xF59E0B,
       fields,
       timestamp: new Date().toISOString(),
@@ -273,7 +282,7 @@ export function createErrorEmbed(endpointName, error) {
     avatar_url: LOGO_URL,
     embeds: [{
       title: '⚠️ Endpoint Error',
-      description: `Failed to fetch models from **${endpointName}**`,
+      description: `Failed to fetch models from **${endpointName}** ${getRelativeTimestamp()}`,
       color: 0xF97316,
       fields: [
         {
@@ -332,7 +341,7 @@ export function createSummaryEmbed(summary, results) {
     avatar_url: LOGO_URL,
     embeds: [{
       title: '🔍 Model Scan Complete',
-      description: `${changeEmoji} Scanned **${results.length}** endpoints | ${successCount} success, ${failCount} failed`,
+      description: `${changeEmoji} Scanned **${results.length}** endpoints | ${successCount} success, ${failCount} failed ${getRelativeTimestamp()}`,
       color,
       fields: [
         {
@@ -370,7 +379,7 @@ export function createCompactSummaryEmbed(results) {
     avatar_url: LOGO_URL,
     embeds: [{
       title: '✅ No Model Changes',
-      description: `Scanned **${results.length}** endpoints - no changes detected`,
+      description: `Scanned **${results.length}** endpoints - no changes detected ${getRelativeTimestamp()}`,
       color: 0x6B7280,
       fields: [
         {
