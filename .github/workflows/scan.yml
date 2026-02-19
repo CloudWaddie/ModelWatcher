@@ -70,9 +70,9 @@ jobs:
           git config --global user.name "ModelWatcher"
           git config --global user.email "modelwatcher@github.com"
           
-          # Fetch latest and rebase to handle concurrent runs
+          # Fetch latest and reset to handle concurrent runs
           git fetch origin master
-          git rebase origin/master || true
+          git reset --hard origin/master
           
           # Copy scan results (state.json is created by the scan)
           mkdir -p logs
