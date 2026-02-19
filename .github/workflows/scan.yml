@@ -40,6 +40,7 @@ jobs:
           DEEPINFRA_API_KEY: ${{ secrets.DEEPINFRA_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run scan
         
       - name: Upload logs
