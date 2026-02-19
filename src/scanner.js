@@ -32,7 +32,8 @@ export async function fetchModels(endpoint, timeout = 30000) {
 
   // Some APIs use different auth/headers
   if (endpoint.name === 'Anthropic') {
-    headers['x-api-key'] = apiKey;
+    headers['X-Api-Key'] = apiKey;
+    headers['anthropic-version'] = '2023-06-01';
     delete headers['Authorization'];
   }
 
