@@ -1,48 +1,63 @@
 {
-  "timestamp": "2026-02-19T06:14:51.556Z",
-  "endpoints": {
-    "OpenAI": {
+  "timestamp": "2026-02-19T06:14:51.558Z",
+  "scan": {
+    "totalEndpoints": 9,
+    "successful": 1,
+    "failed": 8
+  },
+  "results": [
+    {
+      "endpoint": "OpenAI",
       "success": false,
-      "models": [],
+      "modelCount": 0,
       "error": "API key not found in env variable: OPENAI_API_KEY"
     },
-    "Anthropic": {
+    {
+      "endpoint": "Anthropic",
       "success": false,
-      "models": [],
+      "modelCount": 0,
       "error": "API key not found in env variable: ANTHROPIC_API_KEY"
     },
-    "Together AI": {
+    {
+      "endpoint": "Together AI",
       "success": false,
-      "models": [],
+      "modelCount": 0,
       "error": "API key not found in env variable: TOGETHER_API_KEY"
     },
-    "Groq": {
+    {
+      "endpoint": "Groq",
       "success": false,
-      "models": [],
+      "modelCount": 0,
       "error": "API key not found in env variable: GROQ_API_KEY"
     },
-    "Fireworks AI": {
+    {
+      "endpoint": "Fireworks AI",
       "success": false,
-      "models": [],
+      "modelCount": 0,
       "error": "API key not found in env variable: FIREWORKS_API_KEY"
     },
-    "DeepInfra": {
+    {
+      "endpoint": "DeepInfra",
       "success": false,
-      "models": [],
+      "modelCount": 0,
       "error": "API key not found in env variable: DEEPINFRA_API_KEY"
     },
-    "Mistral": {
+    {
+      "endpoint": "Mistral",
       "success": false,
-      "models": [],
+      "modelCount": 0,
       "error": "API key not found in env variable: MISTRAL_API_KEY"
     },
-    "Cohere": {
+    {
+      "endpoint": "Cohere",
       "success": false,
-      "models": [],
+      "modelCount": 0,
       "error": "API key not found in env variable: COHERE_API_KEY"
     },
-    "Google Gemini": {
+    {
+      "endpoint": "Google Gemini",
       "success": true,
+      "modelCount": 46,
       "models": [
         {
           "id": "models/aqa",
@@ -367,6 +382,66 @@
           "display_name": "Veo 3.1"
         }
       ]
+    }
+  ],
+  "changes": {
+    "OpenAI": {
+      "error": "API key not found in env variable: OPENAI_API_KEY",
+      "added": [],
+      "removed": [],
+      "updated": []
+    },
+    "Anthropic": {
+      "error": "API key not found in env variable: ANTHROPIC_API_KEY",
+      "added": [],
+      "removed": [],
+      "updated": []
+    },
+    "Together AI": {
+      "error": "API key not found in env variable: TOGETHER_API_KEY",
+      "added": [],
+      "removed": [],
+      "updated": []
+    },
+    "Groq": {
+      "error": "API key not found in env variable: GROQ_API_KEY",
+      "added": [],
+      "removed": [],
+      "updated": []
+    },
+    "Fireworks AI": {
+      "error": "API key not found in env variable: FIREWORKS_API_KEY",
+      "added": [],
+      "removed": [],
+      "updated": []
+    },
+    "DeepInfra": {
+      "error": "API key not found in env variable: DEEPINFRA_API_KEY",
+      "added": [],
+      "removed": [],
+      "updated": []
+    },
+    "Mistral": {
+      "error": "API key not found in env variable: MISTRAL_API_KEY",
+      "added": [],
+      "removed": [],
+      "updated": []
+    },
+    "Cohere": {
+      "error": "API key not found in env variable: COHERE_API_KEY",
+      "added": [],
+      "removed": [],
+      "updated": []
+    },
+    "Google Gemini": {
+      "added": [],
+      "removed": [],
+      "updated": [],
+      "summary": {
+        "addedCount": 0,
+        "removedCount": 0,
+        "updatedCount": 0
+      }
     }
   }
 }
