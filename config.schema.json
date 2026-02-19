@@ -76,13 +76,17 @@
           "type": "string",
           "default": "WEBHOOK"
         },
+        "url": {
+          "type": "string",
+          "description": "URL to show in embeds (e.g., GitHub repo)"
+        },
         "notifyOn": {
           "type": "array",
           "items": {
             "type": "string",
-            "enum": ["new_model", "removed_model", "model_updated", "endpoint_error"]
+            "enum": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
           },
-          "default": ["new_model", "removed_model", "model_updated", "endpoint_error"]
+          "default": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
         }
       }
     }

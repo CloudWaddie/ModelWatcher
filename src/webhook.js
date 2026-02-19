@@ -293,6 +293,7 @@ export async function processNotifications(config, results, allChanges) {
 
   const webhookUrl = process.env[config.webhookEnv];
   const notifyOn = config.notifyOn || [];
+  const embedUrl = config.url || null;
 
   if (!webhookUrl) {
     console.log('Discord webhook URL not set (WEBHOOK env), skipping notifications');
@@ -319,10 +320,18 @@ export async function processNotifications(config, results, allChanges) {
     updatedCount: totalUpdated
   };
 
+  // Helper to add URL to embed
+  const withUrl = (payload) => {
+    if (embedUrl && payload.embeds?.[0]) {
+      payload.embeds[0].url = embedUrl;
+    }
+    return payload;
+  };
+
   // Send summary only if there are changes (not when there's no changes)
   // The detailed embeds (new_model, removed_model, etc.) will be sent below
   if (hasChanges && notifyOn.includes('summary_with_changes')) {
-    await sendDiscordWebhook(webhookUrl, createSummaryEmbed(summary, results));
+    await sendDiscordWebhook(webhookUrl, withUrl(createSummaryEmbed(summary, results)));
   }
 
   // Send endpoint errors (skip if API key not configured)
@@ -333,7 +342,7 @@ export async function processNotifications(config, results, allChanges) {
         continue;
       }
       if (!result.success && result.error) {
-        await sendDiscordWebhook(webhookUrl, createErrorEmbed(result.endpoint, result.error));
+        await sendDiscordWebhook(webhookUrl, withUrl(createErrorEmbed(result.endpoint, result.error)));
       }
     }
   }
@@ -342,7 +351,7 @@ export async function processNotifications(config, results, allChanges) {
   if (notifyOn.includes('new_model')) {
     for (const [endpoint, changes] of Object.entries(allChanges)) {
       if (changes.added && changes.added.length > 0) {
-        await sendDiscordWebhook(webhookUrl, createNewModelsEmbed(endpoint, changes.added));
+        await sendDiscordWebhook(webhookUrl, withUrl(createNewModelsEmbed(endpoint, changes.added)));
       }
     }
   }
@@ -351,7 +360,7 @@ export async function processNotifications(config, results, allChanges) {
   if (notifyOn.includes('removed_model')) {
     for (const [endpoint, changes] of Object.entries(allChanges)) {
       if (changes.removed && changes.removed.length > 0) {
-        await sendDiscordWebhook(webhookUrl, createRemovedModelsEmbed(endpoint, changes.removed));
+        await sendDiscordWebhook(webhookUrl, withUrl(createRemovedModelsEmbed(endpoint, changes.removed)));
       }
     }
   }
@@ -360,7 +369,7 @@ export async function processNotifications(config, results, allChanges) {
   if (notifyOn.includes('model_updated')) {
     for (const [endpoint, changes] of Object.entries(allChanges)) {
       if (changes.updated && changes.updated.length > 0) {
-        await sendDiscordWebhook(webhookUrl, createUpdatedModelsEmbed(endpoint, changes.updated));
+        await sendDiscordWebhook(webhookUrl, withUrl(createUpdatedModelsEmbed(endpoint, changes.updated)));
       }
     }
   }
