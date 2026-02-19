@@ -55,3 +55,26 @@ jobs:
         run: |
           # Clean up logs older than 30 days
           find logs -type f -mtime +30 -delete
+          
+      - name: Commit results to models branch
+        run: |
+          # Configure git
+          git config --global user.name "ModelWatcher"
+          git config --global user.email "modelwatcher@github.com"
+          
+          # Create models branch if it doesn't exist
+          git fetch origin models || git checkout -b models
+          
+          # Checkout models branch
+          git checkout models || git checkout -b models
+          
+          # Copy scan results
+          cp logs/state.json . || true
+          cp -r logs/scan-*.json . 2>/dev/null || true
+          
+          # Add and commit
+          git add -A
+          git diff --staged --quiet && echo "No changes to commit" || git commit -m "Update models - $(date -u +'%Y-%m-%d %H:%M UTC')"
+          
+          # Push
+          git push origin models || true
