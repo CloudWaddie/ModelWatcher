@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
+      - name: Ensure logs folder exists
+        run: mkdir -p logs
+        
       - name: Run model scan
         env:
           WEBHOOK: ${{ secrets.WEBHOOK }}

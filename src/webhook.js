@@ -90,7 +90,26 @@ export async function sendDiscordWebhook(webhookUrl, payload) {
  */
 export function createNewModelsEmbed(endpointName, models) {
   const maxPerField = 10;
+  const maxTotal = 20;
   const fields = [];
+  
+  // If too many models, just show count
+  if (models.length > maxTotal) {
+    return {
+      username: 'Model Watcher',
+      avatar_url: LOGO_URL,
+      embeds: [{
+        title: '🆕 New Models Detected',
+        description: `**${endpointName}** added **${models.length}** new models!\n\nFull list: [logs/state.json](https://github.com/CloudWaddie/ModelWatcher/blob/master/logs/state.json)`,
+        color: 0x10B981,
+        timestamp: new Date().toISOString(),
+        footer: {
+          text: 'Model Watcher • AI Model Scanner',
+          icon_url: LOGO_URL
+        }
+      }]
+    };
+  }
   
   for (let i = 0; i < models.length; i += maxPerField) {
     const chunk = models.slice(i, i + maxPerField);
@@ -130,7 +149,25 @@ export function createNewModelsEmbed(endpointName, models) {
  */
 export function createRemovedModelsEmbed(endpointName, models) {
   const maxPerField = 10;
+  const maxTotal = 20;
   const fields = [];
+  
+  if (models.length > maxTotal) {
+    return {
+      username: 'Model Watcher',
+      avatar_url: LOGO_URL,
+      embeds: [{
+        title: '🗑️ Models Removed',
+        description: `**${endpointName}** removed **${models.length}** models.\n\nFull list: [logs/state.json](https://github.com/CloudWaddie/ModelWatcher/blob/master/logs/state.json)`,
+        color: 0xEF4444,
+        timestamp: new Date().toISOString(),
+        footer: {
+          text: 'Model Watcher • AI Model Scanner',
+          icon_url: LOGO_URL
+        }
+      }]
+    };
+  }
   
   for (let i = 0; i < models.length; i += maxPerField) {
     const chunk = models.slice(i, i + maxPerField);
@@ -170,7 +207,25 @@ export function createRemovedModelsEmbed(endpointName, models) {
  */
 export function createUpdatedModelsEmbed(endpointName, updates) {
   const maxPerField = 10;
+  const maxTotal = 20;
   const fields = [];
+  
+  if (updates.length > maxTotal) {
+    return {
+      username: 'Model Watcher',
+      avatar_url: LOGO_URL,
+      embeds: [{
+        title: '🔄 Models Updated',
+        description: `**${endpointName}** has **${updates.length}** model updates.\n\nFull list: [logs/state.json](https://github.com/CloudWaddie/ModelWatcher/blob/master/logs/state.json)`,
+        color: 0xF59E0B,
+        timestamp: new Date().toISOString(),
+        footer: {
+          text: 'Model Watcher • AI Model Scanner',
+          icon_url: LOGO_URL
+        }
+      }]
+    };
+  }
   
   for (let i = 0; i < updates.length; i += maxPerField) {
     const chunk = updates.slice(i, i + maxPerField);
