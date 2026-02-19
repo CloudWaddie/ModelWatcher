@@ -167,9 +167,18 @@ async function main() {
   // Cleanup old logs
   logger.cleanupOldLogs();
   
-  // Exit with appropriate code
-  const hasErrors = results.some(r => !r.success);
-  process.exit(hasErrors ? 1 : 0);
+  // Exit with appropriate code - only fail if ALL endpoints failed
+  const allFailed = results.every(r => !r.success);
+  const hasChanges = totalAdded > 0 || totalRemoved > 0 || totalUpdated > 0;
+  
+  // Exit 0 if: at least one succeeded OR no API keys were configured (graceful)
+  // Exit 1 only if: all endpoints failed (actual error)
+  if (allFailed) {
+    console.log('\nAll endpoints failed - check API keys and endpoints');
+    process.exit(1);
+  }
+  
+  process.exit(0);
 }
 
 // Run if called directly
