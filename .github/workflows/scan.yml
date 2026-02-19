@@ -25,12 +25,15 @@ jobs:
         
       - name: Fetch models branch for state
         run: |
+          # Fetch models branch to get previous state (stay on master)
           git fetch origin models 2>/dev/null || true
-          git checkout -B models origin/models 2>/dev/null || true
-          # Restore previous state if exists
-          if [ -f latest.json ]; then
+          if git rev-parse --verify origin/models >/dev/null 2>&1; then
+            # Restore previous state if exists
             mkdir -p logs
-            cp latest.json logs/state.json
+            git show origin/models:latest.json > logs/state.json 2>/dev/null || echo "{}" > logs/state.json
+          else
+            mkdir -p logs
+            echo "{}" > logs/state.json
           fi
           
       - name: Setup Node.js
