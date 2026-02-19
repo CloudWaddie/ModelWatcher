@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - master
 
 permissions:
   contents: write
@@ -22,19 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ github.token }}
-        
-      - name: Fetch models branch for state
-        run: |
-          # Fetch models branch to get previous state (stay on master)
-          git fetch origin models 2>/dev/null || true
-          if git rev-parse --verify origin/models >/dev/null 2>&1; then
-            # Restore previous state if exists
-            mkdir -p logs
-            git show origin/models:latest.json > logs/state.json 2>/dev/null || echo "{}" > logs/state.json
-          else
-            mkdir -p logs
-            echo "{}" > logs/state.json
-          fi
+          fetch-depth: 1
           
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -74,7 +62,7 @@ jobs:
           # Clean up logs older than 30 days
           find logs -type f -mtime +30 -delete
           
-      - name: Commit results to models branch
+      - name: Commit results to master
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -82,24 +70,20 @@ jobs:
           git config --global user.name "ModelWatcher"
           git config --global user.email "modelwatcher@github.com"
           
-          # Fetch or create models branch
-          git fetch origin models 2>/dev/null || true
-          if git rev-parse --verify origin/models >/dev/null 2>&1; then
-            git checkout -B models origin/models
-          else
-            git checkout -B models
-          fi
+          # Ensure we're on master and it's up to date
+          git status
           
-          # Copy scan results
-          cp logs/state.json ./latest.json || true
-          cp logs/scan-*.json . 2>/dev/null || true
+          # Copy scan results (state.json is created by the scan)
+          mkdir -p logs
+          cp logs/state.json ./latest.json 2>/dev/null || true
+          cp logs/scan-*.json logs/ 2>/dev/null || true
           
           # Add and commit (only if there are changes)
+          git add -A
           if ! git diff --quiet --staged; then
-            git add -A
-            git commit -m "Update models - $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git push -f origin models
-            echo "Updated models branch"
+            git commit -m "Update logs - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push origin master
+            echo "Updated logs on master branch"
           else
             echo "No changes to commit"
           fi
