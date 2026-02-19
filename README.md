@@ -23,8 +23,6 @@ Hourly scanner for OpenAI-compatible API endpoints with Discord notifications.
 | Together AI | `TOGETHER_API_KEY` | `https://api.together.ai/v1` |
 | DeepInfra | `DEEPINFRA_API_KEY` | `https://api.deepinfra.com/v1/openai` |
 | Fireworks AI | `FIREWORKS_API_KEY` | `https://api.fireworks.ai/inference/v1` |
-| Ollama | `OLLAMA_API_KEY` | `http://localhost:11434/api` |
-| LocalAI | `LOCALAI_API_KEY` | `http://localhost:8080/v1` |
 
 ## Quick Start
 

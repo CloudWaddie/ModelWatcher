@@ -14,18 +14,6 @@
       "modelsEndpoint": "/models"
     },
     {
-      "name": "Ollama",
-      "baseUrl": "http://localhost:11434/api",
-      "apiKeyEnv": "OLLAMA_API_KEY",
-      "modelsEndpoint": "/tags"
-    },
-    {
-      "name": "LocalAI",
-      "baseUrl": "http://localhost:8080/v1",
-      "apiKeyEnv": "LOCALAI_API_KEY",
-      "modelsEndpoint": "/models"
-    },
-    {
       "name": "Together AI",
       "baseUrl": "https://api.together.ai/v1",
       "apiKeyEnv": "TOGETHER_API_KEY",
@@ -80,6 +68,6 @@
   "discord": {
     "enabled": true,
     "webhookEnv": "WEBHOOK",
-    "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error"]
+    "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
   }
 }

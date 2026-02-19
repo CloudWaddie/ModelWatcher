@@ -9,6 +9,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -68,21 +71,50 @@ jobs:
           
       - name: Commit results to models branch
         run: |
-          # Configure git
-          git config --global user.name "ModelWatcher"
-          git config --global user.email "modelwatcher@github.com"
+          # Create a temporary directory for the models branch
+          cd $GITHUB_WORKSPACE
           
-          # Fetch and checkout models branch
-          git fetch origin models 2>/dev/null || true
-          git checkout -B models origin/models 2>/dev/null || git checkout -B models
+          # Get current models branch SHA if exists
+          MODELS_SHA=$(gh api repos/CloudWaddie/ModelWatcher/branches/models --jq '.commit.sha' 2>/dev/null || echo "")
           
-          # Copy scan results (keep historical logs)
-          cp logs/state.json ./latest.json || true
-          cp logs/scan-*.json . 2>/dev/null || true
+          # Copy scan results
+          mkdir -p /tmp/models
+          cp logs/state.json /tmp/models/latest.json
+          cp logs/scan-*.json /tmp/models/ 2>/dev/null || true
           
-          # Add and commit
-          git add -A
-          git diff --staged --quiet && echo "No changes to commit" || git commit -m "Update models - $(date -u +'%Y-%m-%d %H:%M UTC')"
+          # Use GitHub API to create/update the branch
+          cd /tmp/models
           
-          # Force push to preserve history
-          git push -f origin models || true
+          # Create blobs for each file
+          declare -A FILE_BLOBS
+          for file in *.json; do
+            [ -f "$file" ] || continue
+            BLOB=$(echo "$(cat $file)" | gh api --method POST repos/CloudWaddie/ModelWatcher/git/blobs --field content=@- --field encoding=utf-8 --jq '.sha')
+            FILE_BLOBS["$file"]=$BLOB
+          done
+          
+          # Build tree
+          TREE_ITEMS=""
+          for file in "${!FILE_BLOBS[@]}"; do
+            TREE_ITEMS="$TREE_ITEMS {\"path\":\"$file\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"${FILE_BLOBS[$file]}\"},"
+          done
+          
+          [ -z "$TREE_ITEMS" ] && echo "No files to commit" && exit 0
+          
+          TREE_JSON="[${TREE_ITEMS%,}]"
+          TREE_SHA=$(echo "$TREE_JSON" | gh api --method POST repos/CloudWaddie/ModelWatcher/git/trees --field tree=@- --jq '.sha')
+          
+          # Create commit
+          PARENT_FLAG=""
+          if [ -n "$MODELS_SHA" ]; then
+            PARENT_FLAG=",\"parents\":[\"$MODELS_SHA\"]"
+          fi
+          
+          COMMIT_JSON="{\"message\":\"Update models - $(date -u +'%Y-%m-%d %H:%M UTC')\",\"tree\":\"$TREE_SHA\"$PARENT_FLAG}"
+          COMMIT_SHA=$(echo "$COMMIT_JSON" | gh api --method POST repos/CloudWaddie/ModelWatcher/git/commits --field json=@- --jq '.sha')
+          
+          # Update or create branch ref
+          echo "{\"sha\":\"$COMMIT_SHA\",\"force\":true}" | gh api --method PUT repos/CloudWaddie/ModelWatcher/git/refs/heads/models --field json=@- || \
+            echo "{\"ref\":\"refs/heads/models\",\"sha\":\"$COMMIT_SHA\"}" | gh api --method POST repos/CloudWaddie/ModelWatcher/git/refs --field json=@-
+          
+          echo "Updated models branch with latest scan"
