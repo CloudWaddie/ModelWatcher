@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
+// Discord has issues with GitHub raw URLs sometimes, use embed without custom avatar
+const LOGO_URL = null;
 
 /**
  * Send a Discord webhook notification
@@ -15,12 +16,14 @@ export async function sendDiscordWebhook(webhookUrl, payload) {
   }
 
   try {
-    await axios.post(webhookUrl, payload, {
+    const response = await axios.post(webhookUrl, payload, {
       headers: { 'Content-Type': 'application/json' }
     });
     return true;
   } catch (err) {
-    console.error('Failed to send Discord webhook:', err.message);
+    // Log more details for debugging
+    const details = err.response?.data ? JSON.stringify(err.response.data) : err.message;
+    console.error('Failed to send Discord webhook:', err.response?.status, details);
     return false;
   }
 }
@@ -50,7 +53,7 @@ export function createNewModelsEmbed(endpointName, models) {
 
   return {
     username: 'Model Watcher',
-    avatar_url: 'LOGO_URL',
+    avatar_url: LOGO_URL,
     embeds: [{
       title: '🆕 New Models Detected',
       description: `**${endpointName}** just added ${models.length} new model${models.length > 1 ? 's' : ''}!`,
@@ -59,7 +62,7 @@ export function createNewModelsEmbed(endpointName, models) {
       timestamp: new Date().toISOString(),
       footer: {
         text: 'Model Watcher • AI Model Scanner',
-        icon_url: 'LOGO_URL'
+        icon_url: LOGO_URL
       }
     }]
   };
@@ -90,7 +93,7 @@ export function createRemovedModelsEmbed(endpointName, models) {
 
   return {
     username: 'Model Watcher',
-    avatar_url: 'LOGO_URL',
+    avatar_url: LOGO_URL,
     embeds: [{
       title: '🗑️ Models Removed',
       description: `**${endpointName}** removed ${models.length} model${models.length > 1 ? 's' : ''}.`,
@@ -99,7 +102,7 @@ export function createRemovedModelsEmbed(endpointName, models) {
       timestamp: new Date().toISOString(),
       footer: {
         text: 'Model Watcher • AI Model Scanner',
-        icon_url: 'LOGO_URL'
+        icon_url: LOGO_URL
       }
     }]
   };
@@ -134,7 +137,7 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
 
   return {
     username: 'Model Watcher',
-    avatar_url: 'LOGO_URL',
+    avatar_url: LOGO_URL,
     embeds: [{
       title: '🔄 Models Updated',
       description: `**${endpointName}** has ${updates.length} model update${updates.length > 1 ? 's' : ''}.`,
@@ -143,7 +146,7 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
       timestamp: new Date().toISOString(),
       footer: {
         text: 'Model Watcher • AI Model Scanner',
-        icon_url: 'LOGO_URL'
+        icon_url: LOGO_URL
       }
     }]
   };
@@ -158,7 +161,7 @@ export function createUpdatedModelsEmbed(endpointName, updates) {
 export function createErrorEmbed(endpointName, error) {
   return {
     username: 'Model Watcher',
-    avatar_url: 'LOGO_URL',
+    avatar_url: LOGO_URL,
     embeds: [{
       title: '⚠️ Endpoint Error',
       description: `Failed to fetch models from **${endpointName}**`,
@@ -172,7 +175,7 @@ export function createErrorEmbed(endpointName, error) {
       timestamp: new Date().toISOString(),
       footer: {
         text: 'Model Watcher • AI Model Scanner',
-        icon_url: 'LOGO_URL'
+        icon_url: LOGO_URL
       }
     }]
   };
@@ -217,7 +220,7 @@ export function createSummaryEmbed(summary, results) {
 
   return {
     username: 'Model Watcher',
-    avatar_url: 'LOGO_URL',
+    avatar_url: LOGO_URL,
     embeds: [{
       title: '🔍 Model Scan Complete',
       description: `${changeEmoji} Scanned **${results.length}** endpoints | ${successCount} success, ${failCount} failed`,
@@ -233,7 +236,7 @@ export function createSummaryEmbed(summary, results) {
       timestamp: new Date().toISOString(),
       footer: {
         text: 'Model Watcher • Hourly Scan',
-        icon_url: 'LOGO_URL'
+        icon_url: LOGO_URL
       }
     }]
   };
@@ -255,7 +258,7 @@ export function createCompactSummaryEmbed(results) {
 
   return {
     username: 'Model Watcher',
-    avatar_url: 'LOGO_URL',
+    avatar_url: LOGO_URL,
     embeds: [{
       title: '✅ No Model Changes',
       description: `Scanned **${results.length}** endpoints - no changes detected`,
@@ -269,7 +272,7 @@ export function createCompactSummaryEmbed(results) {
       timestamp: new Date().toISOString(),
       footer: {
         text: 'Model Watcher • Hourly Scan',
-        icon_url: 'LOGO_URL'
+        icon_url: LOGO_URL
       }
     }]
   };
@@ -316,11 +319,10 @@ export async function processNotifications(config, results, allChanges) {
     updatedCount: totalUpdated
   };
 
-  // Send summary if there are changes or if configured to always send
-  if (hasChanges) {
+  // Send summary only if there are changes (not when there's no changes)
+  // The detailed embeds (new_model, removed_model, etc.) will be sent below
+  if (hasChanges && notifyOn.includes('summary_with_changes')) {
     await sendDiscordWebhook(webhookUrl, createSummaryEmbed(summary, results));
-  } else if (notifyOn.includes('summary_always')) {
-    await sendDiscordWebhook(webhookUrl, createCompactSummaryEmbed(results));
   }
 
   // Send endpoint errors (skip if API key not configured)
