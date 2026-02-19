@@ -42,6 +42,12 @@ export async function fetchModels(endpoint, timeout = 30000) {
     headers['X-GitHub-Api-Version'] = '2022-11-28';
   }
 
+  // ElevenLabs uses xi-api-key header
+  if (endpoint.name === 'ElevenLabs') {
+    headers['xi-api-key'] = apiKey;
+    delete headers['Authorization'];
+  }
+
   try {
     const response = await axios.get(url, {
       headers,
