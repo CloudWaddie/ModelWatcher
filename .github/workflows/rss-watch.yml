@@ -51,7 +51,7 @@ jobs:
           
           # Fetch latest and reset
           git fetch origin master
-          to handle concurrent runs git reset --hard origin/master
+          git reset --hard origin/master
           
           # Create logs dir and copy new state if we have one
           mkdir -p logs
