@@ -54,7 +54,7 @@ function saveState(statePath, state) {
  */
 function convertToFixupx(text) {
   if (!text) return '';
-  return text.replace(/rss\.fixupfixupx\.com\//g, 'fixupx.com/').replace(/xcancel\.com\//g, 'fixupx.com/').replace(/x\.com\//g, 'fixupx.com/').replace(/twitter\.com\//g, 'fixupx.com/');
+  return text.replace(/rss\.fixupfixupx\.com\//g, 'fixupx.com/').replace(/nitter\.net\//g, 'fixupx.com/').replace(/xcancel\.com\//g, 'fixupx.com/').replace(/x\.com\//g, 'fixupx.com/').replace(/twitter\.com\//g, 'fixupx.com/');
 }
 
 /**
@@ -63,7 +63,7 @@ function convertToFixupx(text) {
  * @returns {Promise<Array>} Array of feed items
  */
 async function fetchUserFeed(username) {
-  const url = `https://xcancel.com/${username}/rss`;
+  const url = `https://nitter.net/${username}/rss`;
   console.log(`Fetching RSS feed for @${username}...`);
   
   try {
