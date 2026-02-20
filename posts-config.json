@@ -1,0 +1,23 @@
+{
+  "$schema": "./posts-config.schema.json",
+  "xcancel": {
+    "users": [
+      "elonmusk",
+      "sama",
+      "AndrewYNg",
+      "ylecun",
+      "JeffDean"
+    ]
+  },
+  "webhook": {
+    "enabled": true,
+    "webhookEnv": "POSTS_WEBHOOK"
+  },
+  "state": {
+    "file": "./logs/posts-state.json"
+  },
+  "scan": {
+    "intervalMinutes": 10,
+    "timeout": 30000
+  }
+}

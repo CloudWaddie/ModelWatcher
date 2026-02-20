@@ -1,0 +1,19 @@
+{
+  "$schema": "./rss-config.schema.json",
+  "xcancel": {
+    "users": [
+      "aileaksofficial"
+    ]
+  },
+  "webhook": {
+    "enabled": true,
+    "webhookEnv": "RSS_WEBHOOK"
+  },
+  "state": {
+    "file": "./logs/rss-state.json"
+  },
+  "scan": {
+    "intervalMinutes": 10,
+    "timeout": 30000
+  }
+}
