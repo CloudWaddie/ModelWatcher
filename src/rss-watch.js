@@ -208,7 +208,7 @@ function createNewPostsEmbed(username, posts) {
     const postList = chunk.map(p => {
       const postId = extractPostId(p.guid || p.link);
       const title = p.title.substring(0, 80);
-      return `[${title}...](${p.link})`;
+      return `[${title}...](${convertToFixupx(p.link)})`;
     }).join('\n');
     
     const label = posts.length > maxPerField 
