@@ -54,7 +54,12 @@ function saveState(statePath, state) {
  */
 function convertToFixupx(text) {
   if (!text) return '';
-  return text.replace(/x\.com\//g, 'fixupx.com/').replace(/twitter\.com\//g, 'fixupx.com/');
+  // Use negative lookbehind to avoid converting fixupx.com to fixupfixupx.com
+  return text.replace(/fixupfixupx\.com\//g, 'fixupx.com/')
+    .replace(/nitter\.net\//g, 'fixupx.com/')
+    .replace(/xcancel\.com\//g, 'fixupx.com/')
+    .replace(/(?<!fixup)x\.com\//g, 'fixupx.com/')  // Only convert x.com if not preceded by 'fixup'
+    .replace(/twitter\.com\//g, 'fixupx.com/');
 }
 
 /**
@@ -166,66 +171,30 @@ async function sendDiscordWebhook(webhookUrl, payload) {
 }
 
 /**
- * Create Discord embed for new posts
+ * Create Discord message for new posts (plain text, no embeds)
  * @param {string} username - Twitter username
  * @param {Array} posts - Array of new posts
- * @returns {Object} Discord embed object
+ * @returns {Object} Discord message object with plain text content
  */
-function createNewPostsEmbed(username, posts) {
-  const maxPerField = 5;
-  const maxTotal = 10;
-  const fields = [];
-  
+function createNewPostsMessage(username, posts) {
   // If too many posts, just show count
-  if (posts.length > maxTotal) {
+  if (posts.length > 10) {
     return {
       username: 'Twitter Watcher',
       avatar_url: LOGO_URL,
-      embeds: [{
-        title: '🐦 New Posts from @' + username,
-        description: `@${username} posted **${posts.length}** new tweets!\n\nCheck the timeline for details.`,
-        color: 0x1DA1F2,
-        timestamp: new Date().toISOString(),
-        footer: {
-          text: 'Twitter Watcher • XCancel RSS',
-          icon_url: LOGO_URL
-        }
-      }]
+      content: `🐦 **New Posts from @${username}**\n\n@${username} posted **${posts.length}** new tweets!\n\nCheck the timeline for details.`
     };
   }
-  
-  for (let i = 0; i < posts.length; i += maxPerField) {
-    const chunk = posts.slice(i, i + maxPerField);
-    const postList = chunk.map(p => {
-      const postId = extractPostId(p.guid || p.link);
-      const title = p.title.substring(0, 80);
-      return `[${title}...](${p.link})`;
-    }).join('\n');
-    
-    const label = posts.length > maxPerField 
-      ? `Posts (${i + 1}-${Math.min(i + maxPerField, posts.length)})`
-      : 'Recent Posts';
-    
-    fields.push({
-      name: label,
-      value: postList
-    });
-  }
+
+  const postList = posts.map(p => {
+    const title = p.title.substring(0, 80);
+    return `• [${title}...](${p.link})`;
+  }).join('\n');
 
   return {
     username: 'Twitter Watcher',
     avatar_url: LOGO_URL,
-    embeds: [{
-      title: '🐦 New Posts from @' + username,
-      description: `@${username} just posted ${posts.length} new tweet${posts.length > 1 ? 's' : ''}!`,
-      color: 0x1DA1F2,
-      fields,
-      timestamp: new Date().toISOString(),
-      footer: {
-        text: 'Twitter Watcher • XCancel RSS',
-        icon_url: LOGO_URL
-      }
-    }]
+    content: `🐦 **New Posts from @${username}**\n\n@${username} just posted ${posts.length} new tweet${posts.length > 1 ? 's' : ''}!\n\n${postList}`
   };
 }
 
@@ -278,8 +247,8 @@ async function main() {
       console.log(`Found ${newPosts.length} new posts from @${username}`);
       
       // Send webhook notification
-      const embed = createNewPostsEmbed(username, newPosts);
-      await sendDiscordWebhook(webhookUrl, embed);
+      const message = createNewPostsMessage(username, newPosts);
+      await sendDiscordWebhook(webhookUrl, message);
       
       totalNewPosts += newPosts.length;
       
