@@ -54,7 +54,13 @@ function saveState(statePath, state) {
  */
 function convertToFixupx(text) {
   if (!text) return '';
-  return text.replace(/fixupfixupx\.com\//g, 'fixupx.com/').replace(/rss\.fixupfixupx\.com\//g, 'fixupx.com/').replace(/nitter\.net\//g, 'fixupx.com/').replace(/xcancel\.com\//g, 'fixupx.com/').replace(/x\.com\//g, 'fixupx.com/').replace(/twitter\.com\//g, 'fixupx.com/');
+  // Use negative lookbehind to avoid converting fixupx.com to fixupfixupx.com
+  return text.replace(/fixupfixupx\.com\//g, 'fixupx.com/')
+    .replace(/rss\.fixupfixupx\.com\//g, 'fixupx.com/')
+    .replace(/nitter\.net\//g, 'fixupx.com/')
+    .replace(/xcancel\.com\//g, 'fixupx.com/')
+    .replace(/(?<!fixup)x\.com\//g, 'fixupx.com/')  // Only convert x.com if not preceded by 'fixup'
+    .replace(/twitter\.com\//g, 'fixupx.com/');
 }
 
 /**
