@@ -103,8 +103,8 @@ jobs:
           fi
           
           # Add and commit (only if there are changes)
-          # Force add only state.json since scan files have timestamps
-          git add -f logs/state.json || true
+          # Force add logs folder since it's gitignored
+          git add -f logs/ || true
           if ! git diff --quiet --staged; then
             git commit -m "Update logs - $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push origin master
