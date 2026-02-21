@@ -68,7 +68,6 @@ export class Logger {
    */
   saveState(results) {
     const state = {
-      timestamp: new Date().toISOString(),
       endpoints: {}
     };
 
