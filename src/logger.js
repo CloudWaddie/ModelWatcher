@@ -42,6 +42,27 @@ export class Logger {
   }
 
   /**
+   * Strip timestamp fields from models to avoid unnecessary commits
+   * The 'created' field is already ignored in comparison (scanner.js),
+   * but we also strip it from saved state to prevent hash changes
+   * @param {Array} models - Array of model objects
+   * @returns {Array} - Models with timestamp fields removed
+   */
+  stripTimestamps(models) {
+    if (!Array.isArray(models)) return models;
+    
+    const TIMESTAMP_FIELDS = ['created', 'updated', 'modified_at'];
+    
+    return models.map(model => {
+      const stripped = { ...model };
+      for (const field of TIMESTAMP_FIELDS) {
+        delete stripped[field];
+      }
+      return stripped;
+    });
+  }
+
+  /**
    * Save current scan state
    * @param {Array} results - Current scan results
    */
@@ -54,7 +75,7 @@ export class Logger {
     for (const result of results) {
       state.endpoints[result.endpoint] = {
         success: result.success,
-        models: result.models || [],
+        models: this.stripTimestamps(result.models || []),
         error: result.error
       };
     }
