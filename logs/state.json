@@ -466,6 +466,12 @@
           "object": "model"
         },
         {
+          "id": "gpt-audio-1.5",
+          "name": "gpt-audio-1.5",
+          "owned_by": "system",
+          "object": "model"
+        },
+        {
           "id": "gpt-audio-2025-08-28",
           "name": "gpt-audio-2025-08-28",
           "owned_by": "system",
@@ -3696,26 +3702,6 @@
           "object": "model",
           "running": false,
           "display_name": "Gemma 3 1b it",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/gemma-3-270m",
-          "name": "google/gemma-3-270m",
-          "object": "model",
-          "running": false,
-          "display_name": "Gemma 3 270M",
           "config": {
             "chat_template": null,
             "stop": [],
@@ -8509,6 +8495,17 @@
           "supports_image_input": true,
           "supports_tools": true,
           "context_length": 262144
+        },
+        {
+          "id": "accounts/fireworks/models/llama-v3-8b-instruct",
+          "name": "accounts/fireworks/models/llama-v3-8b-instruct",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": false,
+          "context_length": 8192
         },
         {
           "id": "accounts/fireworks/models/minimax-m2p1",
@@ -15046,7 +15043,7 @@
             "top_p": null,
             "frequency_penalty": null
           },
-          "expiration_date": null
+          "expiration_date": "2026-02-24"
         },
         {
           "id": "deepseek/deepseek-r1-distill-llama-70b",
