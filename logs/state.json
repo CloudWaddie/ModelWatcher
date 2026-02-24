@@ -14967,54 +14967,6 @@
           "expiration_date": null
         },
         {
-          "id": "deepseek/deepseek-r1-0528:free",
-          "name": "DeepSeek: R1 0528 (free)",
-          "canonical_slug": "deepseek/deepseek-r1-0528",
-          "hugging_face_id": "deepseek-ai/DeepSeek-R1-0528",
-          "description": "May 28th update to the [original DeepSeek R1](/deepseek/deepseek-r1) Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens. It's 671B parameters in size, with 37B active in an inference pass.\n\nFully open-source model.",
-          "context_length": 163840,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "DeepSeek",
-            "instruct_type": "deepseek-r1"
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 163840,
-            "max_completion_tokens": 163840,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "expiration_date": "2026-02-24"
-        },
-        {
           "id": "deepseek/deepseek-r1-distill-llama-70b",
           "name": "DeepSeek: R1 Distill Llama 70B",
           "canonical_slug": "deepseek/deepseek-r1-distill-llama-70b",
@@ -15235,13 +15187,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000026",
-            "completion": "0.00000038",
-            "input_cache_read": "0.00000013"
+            "prompt": "0.00000025",
+            "completion": "0.0000004"
           },
           "top_provider": {
             "context_length": 163840,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 163840,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -28057,7 +28008,7 @@
           "canonical_slug": "z-ai/glm-4.7-20251222",
           "hugging_face_id": "zai-org/GLM-4.7",
           "description": "GLM-4.7 is Z.ai’s latest flagship model, featuring upgrades in two key areas: enhanced programming capabilities and more stable multi-step reasoning/execution. It demonstrates significant improvements in executing complex agent tasks while delivering more natural conversational experiences and superior front-end aesthetics.",
-          "context_length": 202752,
+          "context_length": 200000,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -28070,13 +28021,18 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000038",
-            "completion": "0.0000017",
-            "input_cache_read": "0.00000019"
+            "prompt": "0.0000003",
+            "completion": "0.0000014",
+            "request": "0",
+            "image": "0",
+            "web_search": "0",
+            "internal_reasoning": "0",
+            "input_cache_read": "0.00000015",
+            "input_cache_write": "0.0000006"
           },
           "top_provider": {
-            "context_length": 202752,
-            "max_completion_tokens": 65535,
+            "context_length": 200000,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
