@@ -460,6 +460,12 @@
           "object": "model"
         },
         {
+          "id": "gpt-5.3-codex",
+          "name": "gpt-5.3-codex",
+          "owned_by": "system",
+          "object": "model"
+        },
+        {
           "id": "gpt-audio",
           "name": "gpt-audio",
           "owned_by": "system",
@@ -6776,26 +6782,6 @@
           }
         },
         {
-          "id": "Qwen/Qwen3-235B-A22B-Instruct-2507-FP8",
-          "name": "Qwen/Qwen3-235B-A22B-Instruct-2507-FP8",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 235B A22b Instruct 2507 Fp8",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
           "name": "Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
           "object": "model",
@@ -6845,26 +6831,6 @@
             "hourly": 0,
             "input": 0.65,
             "output": 3,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-235B-A22B-Thinking-2507-FP8",
-          "name": "Qwen/Qwen3-235B-A22B-Thinking-2507-FP8",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 235B A22b Thinking 2507 Fp8",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -12350,6 +12316,48 @@
             "top_p"
           ],
           "default_parameters": {},
+          "expiration_date": null
+        },
+        {
+          "id": "aion-labs/aion-2.0",
+          "name": "AionLabs: Aion-2.0",
+          "canonical_slug": "aion-labs/aion-2.0-20260223",
+          "hugging_face_id": null,
+          "description": "Aion-2.0 is a variant of DeepSeek V3.2 optimized for immersive roleplaying and storytelling. It is particularly strong at introducing tension, crises, and conflict into stories, making narratives feel more engaging. It also handles mature and darker themes with more nuance and depth.",
+          "context_length": 131072,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000008",
+            "completion": "0.0000016"
+          },
+          "top_provider": {
+            "context_length": 131072,
+            "max_completion_tokens": 32768,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "temperature",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "frequency_penalty": null
+          },
           "expiration_date": null
         },
         {
@@ -22702,6 +22710,60 @@
             "structured_outputs",
             "tool_choice",
             "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "frequency_penalty": null
+          },
+          "expiration_date": null
+        },
+        {
+          "id": "openai/gpt-5.3-codex",
+          "name": "OpenAI: GPT-5.3-Codex",
+          "canonical_slug": "openai/gpt-5.3-codex-20260224",
+          "hugging_face_id": "",
+          "description": "GPT-5.3-Codex is OpenAI’s most advanced agentic coding model, combining the frontier software engineering performance of GPT-5.2-Codex with the broader reasoning and professional knowledge capabilities of GPT-5.2. It achieves state-of-the-art results on SWE-Bench Pro and strong performance on Terminal-Bench 2.0 and OSWorld-Verified, reflecting improved multi-language coding, terminal proficiency, and real-world computer-use skills. The model is optimized for long-running, tool-using workflows and supports interactive steering during execution, making it suitable for complex development tasks, debugging, deployment, and iterative product work.\n\nBeyond coding, GPT-5.3-Codex performs strongly on structured knowledge-work benchmarks such as GDPval, supporting tasks like document drafting, spreadsheet analysis, slide creation, and operational research across domains. It is trained with enhanced cybersecurity awareness, including vulnerability identification capabilities, and deployed with additional safeguards for high-risk use cases. Compared to prior Codex models, it is more token-efficient and approximately 25% faster, targeting professional end-to-end workflows that span reasoning, execution, and computer interaction.",
+          "context_length": 400000,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000175",
+            "completion": "0.000014",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000175"
+          },
+          "top_provider": {
+            "context_length": 400000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "top_logprobs"
           ],
           "default_parameters": {
             "temperature": null,
