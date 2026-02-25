@@ -17224,7 +17224,11 @@
           "per_request_limits": null,
           "supported_parameters": [
             "max_tokens",
+            "response_format",
+            "structured_outputs",
             "temperature",
+            "tool_choice",
+            "tools",
             "top_p"
           ],
           "default_parameters": {},
@@ -24156,6 +24160,7 @@
             "min_p",
             "presence_penalty",
             "repetition_penalty",
+            "response_format",
             "seed",
             "stop",
             "temperature",
@@ -24190,8 +24195,8 @@
             "instruct_type": "chatml"
           },
           "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000002"
+            "prompt": "0.00000020000000000000002",
+            "completion": "0.00000020000000000000002"
           },
           "top_provider": {
             "context_length": 32768,
@@ -24235,8 +24240,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000002"
+            "prompt": "0.00000020000000000000002",
+            "completion": "0.00000020000000000000002"
           },
           "top_provider": {
             "context_length": 32768,
