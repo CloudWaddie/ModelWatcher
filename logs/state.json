@@ -15648,6 +15648,7 @@
             "max_tokens",
             "response_format",
             "seed",
+            "stop",
             "structured_outputs",
             "temperature",
             "top_p"
@@ -26246,6 +26247,162 @@
           "expiration_date": null
         },
         {
+          "id": "qwen/qwen3.5-122b-a10b",
+          "name": "Qwen: Qwen3.5-122B-A10B",
+          "canonical_slug": "qwen/qwen3.5-122b-a10b-20260224",
+          "hugging_face_id": "Qwen/Qwen3.5-122B-A10B",
+          "description": "The Qwen3.5 122B-A10B native vision-language model is built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. In terms of overall performance, this model is second only to Qwen3.5-397B-A17B. Its text capabilities significantly outperform those of Qwen3-235B-2507, and its visual capabilities surpass those of Qwen3-VL-235B.",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen3",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000004",
+            "completion": "0.0000032"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 65536,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.6,
+            "top_p": 0.95,
+            "frequency_penalty": null
+          },
+          "expiration_date": null
+        },
+        {
+          "id": "qwen/qwen3.5-27b",
+          "name": "Qwen: Qwen3.5-27B",
+          "canonical_slug": "qwen/qwen3.5-27b-20260224",
+          "hugging_face_id": "Qwen/Qwen3.5-27B",
+          "description": "The Qwen3.5 27B native vision-language Dense model incorporates a linear attention mechanism, delivering fast response times while balancing inference speed and performance. Its overall capabilities are comparable to those of the Qwen3.5-122B-A10B.",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen3",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000003",
+            "completion": "0.0000024"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 65536,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.6,
+            "top_p": 0.95,
+            "frequency_penalty": null
+          },
+          "expiration_date": null
+        },
+        {
+          "id": "qwen/qwen3.5-35b-a3b",
+          "name": "Qwen: Qwen3.5-35B-A3B",
+          "canonical_slug": "qwen/qwen3.5-35b-a3b-20260224",
+          "hugging_face_id": "Qwen/Qwen3.5-35B-A3B",
+          "description": "The Qwen3.5 Series 35B-A3B is a native vision-language model designed with a hybrid architecture that integrates linear attention mechanisms and a sparse mixture-of-experts model, achieving higher inference efficiency. Its overall performance is comparable to that of the Qwen3.5-27B.",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen3",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000025",
+            "completion": "0.000002"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 65536,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "frequency_penalty": null
+          },
+          "expiration_date": null
+        },
+        {
           "id": "qwen/qwen3.5-397b-a17b",
           "name": "Qwen: Qwen3.5 397B A17B",
           "canonical_slug": "qwen/qwen3.5-397b-a17b-20260216",
@@ -26298,6 +26455,56 @@
           "default_parameters": {
             "temperature": 0.6,
             "top_p": 0.95,
+            "frequency_penalty": null
+          },
+          "expiration_date": null
+        },
+        {
+          "id": "qwen/qwen3.5-flash-02-23",
+          "name": "Qwen: Qwen3.5-Flash",
+          "canonical_slug": "qwen/qwen3.5-flash-20260224",
+          "hugging_face_id": null,
+          "description": "The Qwen3.5 native vision-language Flash models are built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. Compared to the 3 series, these models deliver a leap forward in performance for both pure text and multimodal tasks, offering fast response times while balancing inference speed and overall performance.",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen3",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.0000004"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 65536,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
             "frequency_penalty": null
           },
           "expiration_date": null
