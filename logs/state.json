@@ -14245,6 +14245,56 @@
           "expiration_date": null
         },
         {
+          "id": "bytedance-seed/seed-2.0-mini",
+          "name": "ByteDance Seed: Seed-2.0-Mini",
+          "canonical_slug": "bytedance-seed/seed-2.0-mini-20260224",
+          "hugging_face_id": "",
+          "description": "Seed-2.0-mini targets latency-sensitive, high-concurrency, and cost-sensitive scenarios, emphasizing fast response and flexible inference deployment. It delivers performance comparable to ByteDance-Seed-1.6, supports 256k context, four reasoning effort modes (minimal/low/medium/high), multimodal understanding, and is optimized for lightweight tasks where cost and speed take priority.",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.0000004"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "frequency_penalty": null
+          },
+          "expiration_date": null
+        },
+        {
           "id": "bytedance/ui-tars-1.5-7b",
           "name": "ByteDance: UI-TARS 7B ",
           "canonical_slug": "bytedance/ui-tars-1.5-7b",
