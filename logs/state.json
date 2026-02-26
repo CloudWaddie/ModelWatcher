@@ -7286,13 +7286,18 @@
           "id": "Qwen/Qwen3.5-397B-A17B-FP8",
           "name": "Qwen/Qwen3.5-397B-A17B-FP8",
           "object": "model",
+          "type": "chat",
           "running": false,
           "display_name": "Qwen3.5 397B A17b Fp8",
+          "organization": "Qwen",
+          "context_length": 262144,
           "config": {
             "chat_template": null,
-            "stop": [],
+            "stop": [
+              "<|im_end|>"
+            ],
             "bos_token": null,
-            "eos_token": null
+            "eos_token": "<|im_end|>"
           },
           "pricing": {
             "hourly": 0,
@@ -17054,7 +17059,7 @@
             "top_p"
           ],
           "default_parameters": {
-            "temperature": null,
+            "temperature": 0.1,
             "top_p": null,
             "frequency_penalty": null
           },
