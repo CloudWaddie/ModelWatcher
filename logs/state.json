@@ -2377,33 +2377,6 @@
           }
         },
         {
-          "id": "Alibaba-NLP/gte-modernbert-base",
-          "name": "Alibaba-NLP/gte-modernbert-base",
-          "object": "model",
-          "type": "embedding",
-          "running": false,
-          "display_name": "Gte Modernbert Base",
-          "organization": "Alibaba Nlp",
-          "link": "https://huggingface.co/api/models/Alibaba-NLP/gte-modernbert-base",
-          "license": "apache-2.0",
-          "context_length": 8192,
-          "config": {
-            "chat_template": null,
-            "stop": [
-              "[PAD]"
-            ],
-            "bos_token": "[PAD]",
-            "eos_token": "[PAD]"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.08,
-            "output": 0.08,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "allenai/Molmo-7B-D-0924",
           "name": "allenai/Molmo-7B-D-0924",
           "object": "model",
@@ -2553,51 +2526,6 @@
           "display_name": "FLUX.1 [dev]",
           "organization": "Black Forest Labs",
           "link": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "black-forest-labs/FLUX.1-dev-lora",
-          "name": "black-forest-labs/FLUX.1-dev-lora",
-          "object": "model",
-          "type": "image",
-          "running": false,
-          "display_name": "FLUX.1 [dev] LoRA",
-          "organization": "Black Forest Labs",
-          "link": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "black-forest-labs/FLUX.1-kontext-dev",
-          "name": "black-forest-labs/FLUX.1-kontext-dev",
-          "object": "model",
-          "type": "image",
-          "running": false,
-          "display_name": "FLUX.1 Kontext [dev]",
-          "organization": "Black Forest Labs",
           "config": {
             "chat_template": null,
             "stop": [],
@@ -4809,34 +4737,6 @@
           }
         },
         {
-          "id": "meta-llama/Llama-Guard-3-11B-Vision-Turbo",
-          "name": "meta-llama/Llama-Guard-3-11B-Vision-Turbo",
-          "object": "model",
-          "type": "moderation",
-          "running": false,
-          "display_name": "Meta Llama Guard 3 11B Vision Turbo",
-          "organization": "Meta",
-          "link": "https://huggingface.co/meta-llama/Llama-Guard-3-11B-Vision",
-          "license": "llama",
-          "context_length": 131072,
-          "config": {
-            "chat_template": "{%- if messages|length % 2 == 0 -%}\n    {%- set role = 'Agent' -%}\n{%-  else -%}\n    {%-  set role = 'User' -%}\n{%-  endif -%}\n{%-  if categories is not defined -%}\n    {%-  \n        set categories = ({\n            \"S1\": \"Violent Crimes.\",\n            \"S2\": \"Non-Violent Crimes.\",\n            \"S3\": \"Sex Crimes.\",\n            \"S4\": \"Child Exploitation.\",\n            \"S5\": \"Defamation.\",\n            \"S6\": \"Specialized Advice.\",\n            \"S7\": \"Privacy.\",\n            \"S8\": \"Intellectual Property.\",\n            \"S9\": \"Indiscriminate Weapons.\",\n            \"S10\": \"Hate.\",\n            \"S11\": \"Self-Harm.\",\n            \"S12\": \"Sexual Content.\",\n            \"S13\": \"Elections.\",\n        })\n    -%}\n{%-  endif -%}\n\n{{- \"<|begin_of_text|><|start_header_id|>user<|end_header_id|>\\n\\n\" -}}\n{%- set ns = namespace(contains_image=false) -%}\n{%-  for message in messages -%}\n    {%- for content in message['content'] -%}\n        {%- if content['type'] == 'image' or content['type'] == 'image_url' -%}\n            {%- set ns.contains_image = true -%}\n        {%- endif -%}\n    {%- endfor -%}\n{%- endfor -%}\n{%- if ns.contains_image -%}\n{{- \"<|image|> \"-}}\n{%- endif -%}\n{{- \"Task: Check if there is unsafe content in '\" + role + \"' messages in conversations according our safety policy with the below categories.\\n\\n\" -}}\n{{- \"<BEGIN UNSAFE CONTENT CATEGORIES>\\n\"-}}\n\n{%-  for key in categories -%}\n    {%-  if key not in excluded_category_keys -%}\n        {{-key + \": \" + categories[key] + \"\\n\" -}}\n    {%-  endif -%}\n{%-  endfor -%}\n\n{{- \"<END UNSAFE CONTENT CATEGORIES>\\n\\n\"-}}\n{{- \"<BEGIN CONVERSATION>\\n\\n\"-}}\n{%-  for message in messages -%}\n    {%-  if (message['role'] == 'user') != (loop.index0 % 2 == 0) -%}\n        {{ raise_exception('Conversation roles must alternate user/assistant/user/assistant/...')-}}\n    {%-  endif -%}\n    {%-  set content = message['content'] -%}\n    {%-  if message['role'] == 'user' -%}\n        {%-  set role = 'User' -%}\n    {%-  elif message['role'] == 'assistant' -%}\n        {%-  set role = 'Agent' -%}\n    {%-  endif -%}\n    {%-  for content in message['content'] | selectattr('type', 'equalto', 'text') -%}\n{{- role + ': ' + content['text'] | trim + '\\n\\n'-}}\n    {%-  endfor -%}\n{%-  endfor -%}\n{{- \"<END CONVERSATION>\\n\\n\"-}}\n{{- \"Provide your safety assessment for ONLY THE LAST \" + role + \" message in the above conversation:\\n\"-}}\n{{- \" - First line must read 'safe' or 'unsafe'.\\n\"-}}\n{{- \" - If unsafe, a second line must include a comma-separated list of violated categories. <|eot_id|><|start_header_id|>assistant<|end_header_id|>\"-}}",
-            "stop": [
-              "<|eot_id|>",
-              "<|eom_id|>"
-            ],
-            "bos_token": "<|begin_of_text|>",
-            "eos_token": "<|eot_id|>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.18000000000000002,
-            "output": 0.18000000000000002,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "meta-llama/Llama-Guard-4-12B",
           "name": "meta-llama/Llama-Guard-4-12B",
           "object": "model",
@@ -5384,25 +5284,18 @@
           "id": "mistralai/Ministral-3-14B-Instruct-2512",
           "name": "mistralai/Ministral-3-14B-Instruct-2512",
           "object": "model",
-          "type": "chat",
           "running": false,
           "display_name": "Ministral 3 14B Instruct 2512",
-          "organization": "Mistralai",
-          "link": "https://huggingface.co/api/models/mistralai/Ministral-3-14B-Instruct-2512",
-          "license": "apache-2.0",
-          "context_length": 262144,
           "config": {
             "chat_template": null,
-            "stop": [
-              ""
-            ],
+            "stop": [],
             "bos_token": null,
             "eos_token": null
           },
           "pricing": {
             "hourly": 0,
-            "input": 0.2,
-            "output": 0.2,
+            "input": 0,
+            "output": 0,
             "base": 0,
             "finetune": 0
           }
