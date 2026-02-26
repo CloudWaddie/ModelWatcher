@@ -2469,31 +2469,6 @@
           }
         },
         {
-          "id": "BAAI/bge-base-en-v1.5",
-          "name": "BAAI/bge-base-en-v1.5",
-          "object": "model",
-          "type": "embedding",
-          "running": false,
-          "display_name": "BAAI-Bge-Base-1.5",
-          "organization": "BAAI",
-          "link": "https://huggingface.co/api/models/BAAI/bge-base-en-v1.5",
-          "license": "MIT",
-          "context_length": 512,
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": "[PAD]",
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.008,
-            "output": 0.008,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "BAAI/bge-large-en-v1.5",
           "name": "BAAI/bge-large-en-v1.5",
           "object": "model",
@@ -2513,29 +2488,6 @@
             "hourly": 0,
             "input": 0.016,
             "output": 0.016,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "black-forest-labs/FLUX.1-dev",
-          "name": "black-forest-labs/FLUX.1-dev",
-          "object": "model",
-          "type": "image",
-          "running": false,
-          "display_name": "FLUX.1 [dev]",
-          "organization": "Black Forest Labs",
-          "link": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -4277,33 +4229,6 @@
           }
         },
         {
-          "id": "marin-community/marin-8b-instruct",
-          "name": "marin-community/marin-8b-instruct",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Marin 8B Instruct",
-          "organization": "Marin Community",
-          "link": "https://huggingface.co/api/models/marin-community/marin-8b-instruct",
-          "license": "apache-2.0",
-          "context_length": 4096,
-          "config": {
-            "chat_template": null,
-            "stop": [
-              "<|eot_id|>"
-            ],
-            "bos_token": "<|begin_of_text|>",
-            "eos_token": "<|eot_id|>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.18000000000000002,
-            "output": 0.18000000000000002,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "meta-llama/Llama-2-13b-chat-hf",
           "name": "meta-llama/Llama-2-13b-chat-hf",
           "object": "model",
@@ -5324,26 +5249,18 @@
           "id": "mistralai/Mistral-7B-Instruct-v0.2",
           "name": "mistralai/Mistral-7B-Instruct-v0.2",
           "object": "model",
-          "type": "chat",
           "running": false,
           "display_name": "Mistral (7B) Instruct v0.2",
-          "organization": "mistralai",
-          "link": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2",
-          "license": "apache-2.0",
-          "context_length": 32768,
           "config": {
-            "chat_template": "{% if messages[0]['role'] == 'system' %}{% set loop_messages = messages[1:] %}{% set system_message = messages[0]['content'] %}{% else %}{% set loop_messages = messages %}{% set system_message = false %}{% endif %}{% for message in loop_messages %}{% if loop.index0 == 0 and system_message != false %}{% set content = '<<SYS>>\\n' + system_message + '\\n<</SYS>>\\n\\n' + message['content'] %}{% else %}{% set content = message['content'] %}{% endif %}{% if message['role'] == 'user' or message['role'] == 'tool' %}{{ bos_token + '[INST] ' + content + ' [/INST]' }}{% elif message['role'] == 'system' %}{{ '<<SYS>>\\n' + content + '\\n<</SYS>>\\n\\n' }}{% elif message['role'] == 'assistant' %}{{ ' '  + content + ' ' + eos_token }}{% endif %}{% endfor %}",
-            "stop": [
-              "[/INST]",
-              "</s>"
-            ],
-            "bos_token": "<s>",
-            "eos_token": "</s>"
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
           },
           "pricing": {
             "hourly": 0,
-            "input": 0.2,
-            "output": 0.2,
+            "input": 0,
+            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -17548,7 +17465,6 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
-            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -18614,11 +18530,8 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
-            "logit_bias",
             "max_tokens",
-            "min_p",
             "presence_penalty",
-            "repetition_penalty",
             "response_format",
             "seed",
             "stop",
@@ -18626,7 +18539,6 @@
             "temperature",
             "tool_choice",
             "tools",
-            "top_k",
             "top_p"
           ],
           "default_parameters": {
@@ -18813,51 +18725,6 @@
             "presence_penalty",
             "repetition_penalty",
             "seed",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.3
-          },
-          "expiration_date": null
-        },
-        {
-          "id": "mistralai/mistral-7b-instruct-v0.2",
-          "name": "Mistral: Mistral 7B Instruct v0.2",
-          "canonical_slug": "mistralai/mistral-7b-instruct-v0.2",
-          "hugging_face_id": "mistralai/Mistral-7B-Instruct-v0.2",
-          "description": "A high-performing, industry-standard 7.3B parameter model, with optimizations for speed and context length.\n\nAn improved version of [Mistral 7B Instruct](/modelsmistralai/mistral-7b-instruct-v0.1), with the following changes:\n\n- 32k context window (vs 8k context in v0.1)\n- Rope-theta = 1e6\n- No Sliding-Window Attention",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": "mistral"
-          },
-          "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000002"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "stop",
             "temperature",
             "top_k",
             "top_p"
