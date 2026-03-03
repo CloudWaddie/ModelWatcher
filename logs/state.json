@@ -15076,7 +15076,10 @@
           "default_parameters": {
             "temperature": 1,
             "top_p": 0.95,
-            "frequency_penalty": null
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "expiration_date": null
         },
@@ -18728,51 +18731,6 @@
           "expiration_date": null
         },
         {
-          "id": "mistralai/mistral-7b-instruct",
-          "name": "Mistral: Mistral 7B Instruct",
-          "canonical_slug": "mistralai/mistral-7b-instruct",
-          "hugging_face_id": "mistralai/Mistral-7B-Instruct-v0.3",
-          "description": "A high-performing, industry-standard 7.3B parameter model, with optimizations for speed and context length.\n\n*Mistral 7B Instruct has multiple version variants, and this is intended to be the latest version.*",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": "mistral"
-          },
-          "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000002"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": 4096,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.3
-          },
-          "expiration_date": null
-        },
-        {
           "id": "mistralai/mistral-7b-instruct-v0.1",
           "name": "Mistral: Mistral 7B Instruct v0.1",
           "canonical_slug": "mistralai/mistral-7b-instruct-v0.1",
@@ -18806,51 +18764,6 @@
             "presence_penalty",
             "repetition_penalty",
             "seed",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.3
-          },
-          "expiration_date": null
-        },
-        {
-          "id": "mistralai/mistral-7b-instruct-v0.3",
-          "name": "Mistral: Mistral 7B Instruct v0.3",
-          "canonical_slug": "mistralai/mistral-7b-instruct-v0.3",
-          "hugging_face_id": "mistralai/Mistral-7B-Instruct-v0.3",
-          "description": "A high-performing, industry-standard 7.3B parameter model, with optimizations for speed and context length.\n\nAn improved version of [Mistral 7B Instruct v0.2](/models/mistralai/mistral-7b-instruct-v0.2), with the following changes:\n\n- Extended vocabulary to 32768\n- Supports v3 Tokenizer\n- Supports function calling\n\nNOTE: Support for function calling depends on the provider.",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": "mistral"
-          },
-          "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000002"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": 4096,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "stop",
             "temperature",
             "top_k",
             "top_p"
