@@ -6999,6 +6999,26 @@
           }
         },
         {
+          "id": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+          "name": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+          "object": "model",
+          "running": false,
+          "display_name": "Qwen3 Vl 235B A22b Instruct",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0
+          }
+        },
+        {
           "id": "Qwen/Qwen3-VL-235B-A22B-Instruct-FP8",
           "name": "Qwen/Qwen3-VL-235B-A22B-Instruct-FP8",
           "object": "model",
@@ -7120,6 +7140,29 @@
           }
         },
         {
+          "id": "Qwen/Qwen3.5-397B-A17B-FP4",
+          "name": "Qwen/Qwen3.5-397B-A17B-FP4",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Qwen3.5-397B-A17B FP4",
+          "organization": "Qwen",
+          "context_length": 262144,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0.6,
+            "output": 3.6,
+            "base": 0,
+            "finetune": 0
+          }
+        },
+        {
           "id": "Qwen/Qwen3.5-397B-A17B-FP8",
           "name": "Qwen/Qwen3.5-397B-A17B-FP8",
           "object": "model",
@@ -7135,6 +7178,26 @@
             ],
             "bos_token": null,
             "eos_token": "<|im_end|>"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0
+          }
+        },
+        {
+          "id": "Qwen/Qwen3.5-9B",
+          "name": "Qwen/Qwen3.5-9B",
+          "object": "model",
+          "running": false,
+          "display_name": "Qwen3.5 9B",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
           },
           "pricing": {
             "hourly": 0,
@@ -9193,24 +9256,6 @@
             "tags": [
               "vision"
             ]
-          }
-        },
-        {
-          "id": "meta-llama/Llama-3.2-3B-Instruct",
-          "name": "meta-llama/Llama-3.2-3B-Instruct",
-          "owned_by": "deepinfra",
-          "root": "meta-llama/Llama-3.2-3B-Instruct",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "The Meta Llama 3.2 collection of multilingual large language models (LLMs) is a collection of pretrained and instruction-tuned generative models in 1B and 3B sizes (text in/text out)",
-            "context_length": 131072,
-            "max_tokens": 131072,
-            "pricing": {
-              "input_tokens": 0.02,
-              "output_tokens": 0.02
-            },
-            "tags": []
           }
         },
         {
@@ -17604,7 +17649,7 @@
           "canonical_slug": "meta-llama/llama-3.2-3b-instruct",
           "hugging_face_id": "meta-llama/Llama-3.2-3B-Instruct",
           "description": "Llama 3.2 3B is a 3-billion-parameter multilingual large language model, optimized for advanced natural language processing tasks like dialogue generation, reasoning, and summarization. Designed with the latest transformer architecture, it supports eight languages, including English, Spanish, and Hindi, and is adaptable for additional languages.\n\nTrained on 9 trillion tokens, the Llama 3.2 3B model excels in instruction-following, complex reasoning, and tool use. Its balanced performance makes it ideal for applications needing accuracy and efficiency in text generation across multilingual settings.\n\nClick here for the [original model card](https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD.md).\n\nUsage of this model is subject to [Meta's Acceptable Use Policy](https://www.llama.com/llama3/use-policy/).",
-          "context_length": 131072,
+          "context_length": 80000,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -17617,12 +17662,12 @@
             "instruct_type": "llama3"
           },
           "pricing": {
-            "prompt": "0.00000002",
-            "completion": "0.00000002"
+            "prompt": "0.000000051",
+            "completion": "0.00000034"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 16384,
+            "context_length": 80000,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -17633,7 +17678,6 @@
             "min_p",
             "presence_penalty",
             "repetition_penalty",
-            "response_format",
             "seed",
             "stop",
             "temperature",
@@ -27250,8 +27294,8 @@
           "expiration_date": null
         },
         {
-          "id": "upstage/solar-pro-3:free",
-          "name": "Upstage: Solar Pro 3 (free)",
+          "id": "upstage/solar-pro-3",
+          "name": "Upstage: Solar Pro 3",
           "canonical_slug": "upstage/solar-pro-3",
           "hugging_face_id": "",
           "description": "Solar Pro 3 is Upstage's powerful Mixture-of-Experts (MoE) language model. With 102B total parameters and 12B active parameters per forward pass, it delivers exceptional performance while maintaining computational efficiency. Optimized for Korean with English and Japanese support.",
@@ -27268,8 +27312,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0",
-            "completion": "0"
+            "prompt": "0.00000015",
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000015"
           },
           "top_provider": {
             "context_length": 128000,
@@ -27295,7 +27340,7 @@
             "presence_penalty": null,
             "repetition_penalty": null
           },
-          "expiration_date": "2026-03-02"
+          "expiration_date": null
         },
         {
           "id": "writer/palmyra-x5",
