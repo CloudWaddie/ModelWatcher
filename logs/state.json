@@ -5849,25 +5849,18 @@
           "id": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
           "name": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
           "object": "model",
-          "type": "chat",
           "running": false,
           "display_name": "Nvidia Nemotron Nano 9B V2",
-          "organization": "Nvidia",
-          "link": "https://huggingface.co/api/models/nvidia/NVIDIA-Nemotron-Nano-9B-v2",
-          "license": "other nvidia-open-model-license",
-          "context_length": 131072,
           "config": {
             "chat_template": null,
-            "stop": [
-              "<SPECIAL_12>"
-            ],
-            "bos_token": "<s>",
-            "eos_token": "<SPECIAL_12>"
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
           },
           "pricing": {
             "hourly": 0,
-            "input": 0.060000000000000005,
-            "output": 0.25,
+            "input": 0,
+            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -7105,25 +7098,18 @@
           "id": "Qwen/Qwen3-VL-32B-Instruct",
           "name": "Qwen/Qwen3-VL-32B-Instruct",
           "object": "model",
-          "type": "chat",
           "running": false,
           "display_name": "Qwen3-VL-32B-Instruct",
-          "organization": "Qwen",
-          "link": "https://huggingface.co/Qwen/Qwen3-VL-32B-Instruct",
-          "license": "apache-2.0",
-          "context_length": 262144,
           "config": {
             "chat_template": null,
-            "stop": [
-              "<|im_end|>"
-            ],
+            "stop": [],
             "bos_token": null,
-            "eos_token": "<|im_end|>"
+            "eos_token": null
           },
           "pricing": {
             "hourly": 0,
-            "input": 0.5,
-            "output": 1.5,
+            "input": 0,
+            "output": 0,
             "base": 0,
             "finetune": 0
           }
