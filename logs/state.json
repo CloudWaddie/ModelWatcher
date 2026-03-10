@@ -3926,15 +3926,15 @@
           }
         },
         {
-          "id": "hexgrad/Kokoro-82M",
-          "name": "hexgrad/Kokoro-82M",
+          "id": "hexgrad/kokoro-82m",
+          "name": "hexgrad/kokoro-82m",
           "object": "model",
           "type": "audio",
           "running": false,
           "display_name": "Kokoro 82M",
           "organization": "Hexgrad",
-          "link": "https://huggingface.co/hexgrad/Kokoro-82M",
-          "license": "apache2",
+          "link": "https://huggingface.co/api/models/hexgrad/Kokoro-82M",
+          "license": "apache-2.0",
           "config": {
             "chat_template": null,
             "stop": [],
@@ -3943,8 +3943,8 @@
           },
           "pricing": {
             "hourly": 0,
-            "input": 0.27,
-            "output": 0.85,
+            "input": 4,
+            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -22337,7 +22337,10 @@
           "default_parameters": {
             "temperature": null,
             "top_p": null,
-            "frequency_penalty": null
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "expiration_date": null
         },
@@ -22431,7 +22434,10 @@
           "default_parameters": {
             "temperature": null,
             "top_p": null,
-            "frequency_penalty": null
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "expiration_date": null
         },
@@ -22479,7 +22485,10 @@
           "default_parameters": {
             "temperature": null,
             "top_p": null,
-            "frequency_penalty": null
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "expiration_date": null
         },
@@ -22526,7 +22535,10 @@
           "default_parameters": {
             "temperature": null,
             "top_p": null,
-            "frequency_penalty": null
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "expiration_date": null
         },
@@ -22575,7 +22587,10 @@
           "default_parameters": {
             "temperature": null,
             "top_p": null,
-            "frequency_penalty": null
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "expiration_date": null
         },
@@ -26742,50 +26757,6 @@
             "tools",
             "top_k",
             "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "expiration_date": null
-        },
-        {
-          "id": "raifle/sorcererlm-8x22b",
-          "name": "SorcererLM 8x22B",
-          "canonical_slug": "raifle/sorcererlm-8x22b",
-          "hugging_face_id": "rAIfle/SorcererLM-8x22b-bf16",
-          "description": "SorcererLM is an advanced RP and storytelling model, built as a Low-rank 16-bit LoRA fine-tuned on [WizardLM-2 8x22B](/microsoft/wizardlm-2-8x22b).\n\n- Advanced reasoning and emotional intelligence for engaging and immersive interactions\n- Vivid writing capabilities enriched with spatial and contextual awareness\n- Enhanced narrative depth, promoting creative and dynamic storytelling",
-          "context_length": 16000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": "vicuna"
-          },
-          "pricing": {
-            "prompt": "0.0000045",
-            "completion": "0.0000045"
-          },
-          "top_provider": {
-            "context_length": 16000,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "temperature",
-            "top_k",
             "top_p"
           ],
           "default_parameters": {},
