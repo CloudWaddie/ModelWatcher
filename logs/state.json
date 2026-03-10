@@ -14776,11 +14776,11 @@
           "pricing": {
             "prompt": "0.0000002",
             "completion": "0.00000077",
-            "input_cache_read": "0.00000013"
+            "input_cache_read": "0.000000135"
           },
           "top_provider": {
             "context_length": 163840,
-            "max_completion_tokens": 163840,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -16920,7 +16920,7 @@
             "top_p": null,
             "frequency_penalty": null
           },
-          "expiration_date": null
+          "expiration_date": "2026-04-15"
         },
         {
           "id": "inception/mercury-2",
@@ -18121,49 +18121,6 @@
           "expiration_date": null
         },
         {
-          "id": "meta-llama/llama-guard-2-8b",
-          "name": "Meta: LlamaGuard 2 8B",
-          "canonical_slug": "meta-llama/llama-guard-2-8b",
-          "hugging_face_id": "meta-llama/Meta-Llama-Guard-2-8B",
-          "description": "This safeguard model has 8B parameters and is based on the Llama 3 family. Just like is predecessor, [LlamaGuard 1](https://huggingface.co/meta-llama/LlamaGuard-7b), it can do both prompt and response classification.\n\nLlamaGuard 2 acts as a normal LLM would, generating text that indicates whether the given input/output is safe/unsafe. If deemed unsafe, it will also share the content categories violated.\n\nFor best results, please use raw prompt input or the `/completions` endpoint, instead of the chat API.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
-          "context_length": 8192,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Llama3",
-            "instruct_type": "none"
-          },
-          "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000002"
-          },
-          "top_provider": {
-            "context_length": 8192,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "expiration_date": "2026-02-25"
-        },
-        {
           "id": "meta-llama/llama-guard-3-8b",
           "name": "Llama Guard 3 8B",
           "canonical_slug": "meta-llama/llama-guard-3-8b",
@@ -18957,8 +18914,10 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
+            "repetition_penalty",
             "response_format",
             "seed",
             "stop",
@@ -18966,6 +18925,7 @@
             "temperature",
             "tool_choice",
             "tools",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -26616,6 +26576,64 @@
             "temperature": 0.6,
             "top_p": 0.95,
             "frequency_penalty": null
+          },
+          "expiration_date": null
+        },
+        {
+          "id": "qwen/qwen3.5-9b",
+          "name": "Qwen: Qwen3.5-9B",
+          "canonical_slug": "qwen/qwen3.5-9b-20260310",
+          "hugging_face_id": "Qwen/Qwen3.5-9B",
+          "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design with early fusion of multimodal tokens, allowing the model to process and reason across text and images within the same context.",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen3",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.00000015"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": null,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "expiration_date": null
         },
