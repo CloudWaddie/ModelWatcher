@@ -5758,6 +5758,26 @@
           }
         },
         {
+          "id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+          "name": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+          "object": "model",
+          "running": false,
+          "display_name": "Nvidia Nemotron 3 Super 120B A12b Fp8",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0
+          }
+        },
+        {
           "id": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
           "name": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
           "object": "model",
@@ -20544,7 +20564,7 @@
           "canonical_slug": "nvidia/nemotron-3-super-120b-a12b-20230311",
           "hugging_face_id": "",
           "description": "NVIDIA Nemotron 3 Super is a 120B-parameter open hybrid MoE model, activating just 12B parameters for maximum compute efficiency and accuracy in complex multi-agent applications. Built on a hybrid Mamba-Transformer Mixture-of-Experts architecture with multi-token prediction (MTP), it delivers over 50% higher token generation compared to leading open models.\n \nThe model features a 1M token context window for long-term agent coherence, cross-document reasoning, and multi-step task planning. Latent MoE enables calling 4 experts for the inference cost of only one, improving intelligence and generalization. Multi-environment RL training across 10+ environments delivers leading accuracy on benchmarks including AIME 2025, TerminalBench, and SWE-Bench Verified.\n \nFully open with weights, datasets, and recipes under the NVIDIA Open License, Nemotron 3 Super allows easy customization and secure deployment anywhere — from workstation to cloud.",
-          "context_length": 1000000,
+          "context_length": 262144,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -20565,8 +20585,8 @@
             "internal_reasoning": "0"
           },
           "top_provider": {
-            "context_length": 1000000,
-            "max_completion_tokens": null,
+            "context_length": 262144,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -29357,6 +29377,24 @@
       "success": true,
       "models": [
         {
+          "id": "grok-3",
+          "name": "grok-3",
+          "owned_by": "xai",
+          "object": "model"
+        },
+        {
+          "id": "grok-3-mini",
+          "name": "grok-3-mini",
+          "owned_by": "xai",
+          "object": "model"
+        },
+        {
+          "id": "grok-4-0709",
+          "name": "grok-4-0709",
+          "owned_by": "xai",
+          "object": "model"
+        },
+        {
           "id": "grok-4-1-fast-non-reasoning",
           "name": "grok-4-1-fast-non-reasoning",
           "owned_by": "xai",
@@ -29365,6 +29403,18 @@
         {
           "id": "grok-4-1-fast-reasoning",
           "name": "grok-4-1-fast-reasoning",
+          "owned_by": "xai",
+          "object": "model"
+        },
+        {
+          "id": "grok-4-fast-non-reasoning",
+          "name": "grok-4-fast-non-reasoning",
+          "owned_by": "xai",
+          "object": "model"
+        },
+        {
+          "id": "grok-4-fast-reasoning",
+          "name": "grok-4-fast-reasoning",
           "owned_by": "xai",
           "object": "model"
         },
