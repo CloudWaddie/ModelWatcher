@@ -4691,31 +4691,6 @@
           }
         },
         {
-          "id": "meta-llama/LlamaGuard-2-8b",
-          "name": "meta-llama/LlamaGuard-2-8b",
-          "object": "model",
-          "type": "moderation",
-          "running": false,
-          "display_name": "Meta Llama Guard 2 8B",
-          "organization": "Meta",
-          "link": "https://huggingface.co/meta-llama/Meta-Llama-Guard-2-8B",
-          "license": "Llama-3 (Other)",
-          "context_length": 8192,
-          "config": {
-            "chat_template": "{% if messages.length % 2 == 0 %}{% set final_role = 'Agent' %}{% else %}{% set final_role = 'User' %}{% endif %}[INST] Task: Check if there is unsafe content in '{{ final_role }}' messages in conversations according our safety policy with the below categories.\n\n<BEGIN UNSAFE CONTENT CATEGORIES>\nS1: Violent Crimes.\nS2: Non-Violent Crimes.\nS3: Sex Crimes.\nS4: Child Exploitation.\nS5: Specialized Advice.\nS6: Privacy.\nS7: Intellectual Property.\nS8: Indiscriminate Weapons.\nS9: Hate.\nS10: Self-Harm.\nS11: Sexual Content.\n<END UNSAFE CONTENT CATEGORIES>\n\n<BEGIN CONVERSATION>\n\n{% for message in messages %}{% if message['role'] == 'user' and loop.index0 % 2 == 0 %}User: {{ message['content'].trim() }}{% elif message['role'] == 'assistant' and loop.index0 % 2 != 0 %}Agent: {{ message['content'].trim() }}{% else %}{{ raise_exception('Conversation roles must alternate user/assistant/user/assistant/...') }}{% endif %}{% if loop.last %}{% set role = message['role'] %}{% endif %}{{ '\n\n' }}{% endfor %}<END CONVERSATION>\n\nProvide your safety assessment for ONLY THE LAST {{ role }} message in the above conversation:\n - First line must read 'safe' or 'unsafe'.\n - If unsafe, a second line must include a comma-separated list of violated categories. [/INST]",
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.2,
-            "output": 0.2,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "meta-llama/Meta-Llama-3-70B-Instruct-Turbo",
           "name": "meta-llama/Meta-Llama-3-70B-Instruct-Turbo",
           "object": "model",
@@ -18806,8 +18781,10 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
+            "repetition_penalty",
             "response_format",
             "seed",
             "stop",
@@ -18815,6 +18792,7 @@
             "temperature",
             "tool_choice",
             "tools",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -20562,7 +20540,7 @@
           "id": "nvidia/nemotron-3-super-120b-a12b:free",
           "name": "NVIDIA: Nemotron 3 Super (free)",
           "canonical_slug": "nvidia/nemotron-3-super-120b-a12b-20230311",
-          "hugging_face_id": "",
+          "hugging_face_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
           "description": "NVIDIA Nemotron 3 Super is a 120B-parameter open hybrid MoE model, activating just 12B parameters for maximum compute efficiency and accuracy in complex multi-agent applications. Built on a hybrid Mamba-Transformer Mixture-of-Experts architecture with multi-token prediction (MTP), it delivers over 50% higher token generation compared to leading open models.\n \nThe model features a 1M token context window for long-term agent coherence, cross-document reasoning, and multi-step task planning. Latent MoE enables calling 4 experts for the inference cost of only one, improving intelligence and generalization. Multi-environment RL training across 10+ environments delivers leading accuracy on benchmarks including AIME 2025, TerminalBench, and SWE-Bench Verified.\n \nFully open with weights, datasets, and recipes under the NVIDIA Open License, Nemotron 3 Super allows easy customization and secure deployment anywhere — from workstation to cloud.",
           "context_length": 262144,
           "architecture": {
@@ -21897,7 +21875,10 @@
           "default_parameters": {
             "temperature": null,
             "top_p": null,
-            "frequency_penalty": null
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "expiration_date": null
         },
@@ -22147,7 +22128,14 @@
             "tool_choice",
             "tools"
           ],
-          "default_parameters": {},
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
           "expiration_date": null
         },
         {
@@ -22192,7 +22180,14 @@
             "tool_choice",
             "tools"
           ],
-          "default_parameters": {},
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
           "expiration_date": null
         },
         {
