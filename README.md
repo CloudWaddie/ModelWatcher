@@ -1,52 +1,50 @@
 # Model Watcher
 
-Hourly scanner for OpenAI-compatible API endpoints with Discord notifications.
+ scanners for AI APIs, USPTO trademarks, and releases with Discord notifications.
 
 ## Features
 
-- Scans multiple OpenAI-compatible APIs hourly
-- Detects new, removed, and updated models
-- Sends Discord notifications via webhook (with group support)
+- **API Scanner** - Scans multiple OpenAI-compatible APIs hourly, detects new/removed/updated models
+- **USPTO Watcher** - Tracks trademark filings from tech companies
+- **Releases Watcher** - Tracks GitHub releases and npm package updates
+- **RSS/X Watcher** - Monitors RSS feeds and X.com accounts
+- Discord notifications via webhooks (with group support)
 - JSON logging with full change diffs
 - API key sanitization in all logs
 
-## Supported Endpoints
+## Trackers
 
-| Provider | Env Variable | Base URL |
-|----------|--------------|----------|
-| OpenAI | `OPENAI_API_KEY` | `https://api.openai.com/v1` |
-| Anthropic | `ANTHROPIC_API_KEY` | `https://api.anthropic.com/v1` |
-| Google Gemini | `GEMINI_API_KEY` | `https://generativelanguage.googleapis.com/v1beta/openai` |
-| GitHub Models | `GH_MODELS_API_KEY` | `https://models.github.ai` |
-| Groq | `GROQ_API_KEY` | `https://api.groq.com/openai/v1` |
-| Mistral | `MISTRAL_API_KEY` | `https://api.mistral.ai/v1` |
-| Cohere | `COHERE_API_KEY` | `https://api.cohere.ai/v1` |
-| Together AI | `TOGETHER_API_KEY` | `https://api.together.ai/v1` |
-| DeepInfra | `DEEPINFRA_API_KEY` | `https://api.deepinfra.com/v1/openai` |
-| Fireworks AI | `FIREWORKS_API_KEY` | `https://api.fireworks.ai/inference/v1` |
-| OpenRouter | `OPENROUTER_API_KEY` | `https://openrouter.ai/api/v1` |
-| xAI (Grok) | `XAI_API_KEY` | `https://api.x.ai/v1` |
+### API Scanner (`npm run scan`)
+Scans OpenAI-compatible API endpoints for model changes.
 
-**Note:** GitHub Models requires a PAT (Personal Access Token) with `models` scope.
+### USPTO Watcher (`npm run uspto`)
+Tracks trademark filings from uspto.report. Requires `USPTO_WEBHOOK` secret.
+
+### Releases Watcher (`npm run releases`)
+Tracks GitHub releases and npm package updates. Requires `RELEASES_WEBHOOK` secret.
+
+### RSS/X Watcher (`npm run rss`, `npm run posts`)
+Monitors RSS feeds and X.com accounts.
 
 ## Quick Start
 
 1. **Fork or clone this repo**
 
 2. **Add secrets to GitHub** (Settings → Secrets and variables → Actions):
-   - `WEBHOOK` - Your main Discord webhook URL (for big providers)
-   - `WEBHOOK_SMALL` - Optional secondary webhook (for smaller providers)
-   - `OPENAI_API_KEY` - Your OpenAI API key
-   - Add any other API keys for providers you want to scan
+   - `WEBHOOK` - Discord webhook for API scanner
+   - `USPTO_WEBHOOK` - Discord webhook for USPTO tracker
+   - `RELEASES_WEBHOOK` - Discord webhook for releases tracker
+   - `RSS_WEBHOOK` - Discord webhook for RSS/X watcher
+   - API keys for providers you want to scan
 
-3. **Customize config.json** - Edit endpoints to add/remove providers
+3. **Customize config files** - Edit `config.json`, `uspto-config.json`, `releases-config.json`
 
 4. **Run manually** - Use GitHub Actions "Run workflow" button
 
 ## Configuration
 
+### API Scanner
 Edit `config.json`:
-
 ```json
 {
   "endpoints": [
@@ -57,60 +55,33 @@ Edit `config.json`:
       "modelsEndpoint": "/models",
       "group": "default"
     }
-  ],
-  "scan": {
-    "timeout": 30000,
-    "retryAttempts": 2,
-    "retryDelay": 1000
-  },
-  "logging": {
-    "outputDir": "./logs",
-    "historyDays": 30
-  },
-  "discord": {
-    "enabled": true,
-    "webhooks": {
-      "default": {
-        "webhookEnv": "WEBHOOK",
-        "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
-      },
-      "small": {
-        "webhookEnv": "WEBHOOK_SMALL",
-        "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
-      }
-    },
-    "url": "https://github.com/CloudWaddie/ModelWatcher"
-  }
+  ]
 }
 ```
 
-### Endpoint Groups
-
-Assign endpoints to webhook groups using the `group` field:
-
-- `default` - Uses the `default` webhook config
-- Any custom group name - Uses the matching webhook config
-
-### Notification Options
-
-`notifyOn` supports:
-- `new_model` - New models detected
-- `removed_model` - Models removed
-- `model_updated` - Model properties changed
-- `endpoint_error` - API endpoint errors
-- `summary_with_changes` - Send summary only when there are changes
-
-## Adding Custom Endpoints
-
-Add any OpenAI-compatible endpoint:
-
+### USPTO Watcher
+Edit `uspto-config.json`:
 ```json
 {
-  "name": "My Provider",
-  "baseUrl": "https://api.myprovider.com/v1",
-  "apiKeyEnv": "MY_PROVIDER_API_KEY",
-  "modelsEndpoint": "/models",
-  "group": "default"
+  "companies": [
+    { "name": "Google LLC", "slug": "Google-L-L-C" },
+    { "name": "OpenAI OpCo LLC", "slug": "Openai-Opco-L-L-C" }
+  ]
+}
+```
+
+### Releases Watcher
+Edit `releases-config.json`:
+```json
+{
+  "github": {
+    "repositories": [
+      { "owner": "openai", "repo": "openai-python" }
+    ]
+  },
+  "npm": {
+    "packages": ["openai", "anthropic"]
+  }
 }
 ```
 
@@ -120,11 +91,12 @@ Add any OpenAI-compatible endpoint:
 # Install dependencies
 npm install
 
-# Run locally (requires env vars)
-WEBHOOK=https://discord.com/api/webhooks/... \
-WEBHOOK_SMALL=https://discord.com/api/webhooks/... \
-OPENAI_API_KEY=sk-... \
-npm run scan
+# Run scanners (requires appropriate env vars)
+npm run scan        # API scanner
+npm run uspto       # USPTO tracker
+npm run releases    # GitHub/npm tracker
+npm run rss        # RSS watcher
+npm run posts      # X.com watcher
 ```
 
 ## Security

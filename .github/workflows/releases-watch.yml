@@ -1,0 +1,80 @@
+name: Releases Watcher
+
+on:
+  schedule:
+    # Run every 30 minutes
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+          fetch-depth: 1
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Ensure logs folder exists
+        run: mkdir -p logs
+        
+      - name: Run releases scan
+        env:
+          RELEASES_WEBHOOK: ${{ secrets.RELEASES_WEBHOOK }}
+        run: npm run releases
+        
+      - name: Commit results to master
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Configure git with token
+          git config --global user.name "ModelWatcher"
+          git config --global user.email "modelwatcher@github.com"
+          
+          # Save the new state before resetting
+          cp logs/releases-state.json /tmp/releases-state-new.json 2>/dev/null || true
+          
+          # Fetch latest and reset
+          git fetch origin master
+          git reset --hard origin/master
+          
+          # Create logs dir and copy new state if we have one
+          mkdir -p logs
+          if [ -f /tmp/releases-state-new.json ]; then
+            cp /tmp/releases-state-new.json logs/releases-state.json
+          fi
+          
+          # Check if there are actual changes to commit
+          if [ -f logs/releases-state.json ]; then
+            ORIG_HASH=$(git show origin/master:logs/releases-state.json 2>/dev/null | sha256sum | cut -d' ' -f1 || echo "empty")
+            NEW_HASH=$(sha256sum logs/releases-state.json | cut -d' ' -f1)
+            if [ "$ORIG_HASH" = "$NEW_HASH" ] && [ "$ORIG_HASH" != "empty" ]; then
+              echo "No release changes detected - skipping commit"
+              exit 0
+            fi
+          fi
+          
+          # Add and commit (only if there are changes)
+          git add -f logs/releases-state.json || true
+          if ! git diff --quiet --staged; then
+            git commit -m "Update releases state - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push origin master
+            echo "Updated releases state on master branch"
+          else
+            echo "No changes to commit"
+          fi

@@ -1,0 +1,47 @@
+{
+  "$schema": "./releases-config.schema.json",
+  "github": {
+    "repositories": [
+      {
+        "owner": "openai",
+        "repo": "openai-python"
+      },
+      {
+        "owner": "anthropics",
+        "repo": "anthropic-sdk-python"
+      },
+      {
+        "owner": "mistralai",
+        "repo": "mistralai"
+      },
+      {
+        "owner": "meta-llama",
+        "repo": "llama"
+      },
+      {
+        "owner": "deepseek-ai",
+        "repo": "deepseek-chat"
+      }
+    ]
+  },
+  "npm": {
+    "packages": [
+      "openai",
+      "anthropic",
+      "mistralai",
+      "@meta-llama/llama",
+      "deepseek-sdk"
+    ]
+  },
+  "webhook": {
+    "enabled": true,
+    "webhookEnv": "RELEASES_WEBHOOK"
+  },
+  "state": {
+    "file": "./logs/releases-state.json"
+  },
+  "scan": {
+    "intervalMinutes": 30,
+    "timeout": 30000
+  }
+}
