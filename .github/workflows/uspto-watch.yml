@@ -1,0 +1,86 @@
+name: USPTO Watcher
+
+on:
+  schedule:
+    # Run every hour
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+          fetch-depth: 1
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Install Playwright browsers
+        run: npx playwright install firefox
+        
+      - name: Fetch Camoufox browser
+        run: npx camoufox-js fetch
+        
+      - name: Ensure logs folder exists
+        run: mkdir -p logs
+        
+      - name: Run USPTO scan
+        env:
+          USPTO_WEBHOOK: ${{ secrets.USPTO_WEBHOOK }}
+        run: npm run uspto
+        
+      - name: Commit results to master
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Configure git with token
+          git config --global user.name "ModelWatcher"
+          git config --global user.email "modelwatcher@github.com"
+          
+          # Save the new state before resetting
+          cp logs/uspto-state.json /tmp/uspto-state-new.json 2>/dev/null || true
+          
+          # Fetch latest and reset
+          git fetch origin master
+          git reset --hard origin/master
+          
+          # Create logs dir and copy new state if we have one
+          mkdir -p logs
+          if [ -f /tmp/uspto-state-new.json ]; then
+            cp /tmp/uspto-state-new.json logs/uspto-state.json
+          fi
+          
+          # Check if there are actual changes to commit
+          if [ -f logs/uspto-state.json ]; then
+            ORIG_HASH=$(git show origin/master:logs/uspto-state.json 2>/dev/null | sha256sum | cut -d' ' -f1 || echo "empty")
+            NEW_HASH=$(sha256sum logs/uspto-state.json | cut -d' ' -f1)
+            if [ "$ORIG_HASH" = "$NEW_HASH" ] && [ "$ORIG_HASH" != "empty" ]; then
+              echo "No USPTO changes detected - skipping commit"
+              exit 0
+            fi
+          fi
+          
+          # Add and commit (only if there are changes)
+          git add -f logs/uspto-state.json || true
+          if ! git diff --quiet --staged; then
+            git commit -m "Update USPTO state - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push origin master
+            echo "Updated USPTO state on master branch"
+          else
+            echo "No changes to commit"
+          fi

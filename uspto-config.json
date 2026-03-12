@@ -1,0 +1,48 @@
+{
+  "$schema": "./uspto-config.schema.json",
+  "companies": [
+    {
+      "name": "Google LLC",
+      "slug": "Google-L-L-C"
+    },
+    {
+      "name": "OpenAI OpCo LLC",
+      "slug": "Openai-Opco-L-L-C"
+    },
+    {
+      "name": "Anthropic PBC",
+      "slug": "Anthropic-Pbc"
+    },
+    {
+      "name": "Microsoft Corp",
+      "slug": "Microsoft-Corp"
+    },
+    {
+      "name": "Mistral L.L.C",
+      "slug": "Mistral-L-L-C"
+    },
+    {
+      "name": "Hangzhou Deepseek Artificial Intelligence Co Ltd",
+      "slug": "Hangzhou-Deepseek-Artificial-Intelligence-Co-L-T-D"
+    },
+    {
+      "name": "Meta Platforms Inc",
+      "slug": "Meta-Platforms-Inc"
+    },
+    {
+      "name": "xAI Inc",
+      "slug": "X-Ai-Corp"
+    }
+  ],
+  "webhook": {
+    "enabled": true,
+    "webhookEnv": "USPTO_WEBHOOK"
+  },
+  "state": {
+    "file": "./logs/uspto-state.json"
+  },
+  "scan": {
+    "intervalMinutes": 60,
+    "timeout": 30000
+  }
+}

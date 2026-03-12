@@ -8,13 +8,21 @@
     "scan": "node src/index.js",
     "posts": "node src/posts.js",
     "rss": "node src/rss-watch.js",
+    "uspto": "node src/uspto-watch.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
-  "keywords": ["openai", "api", "scanner", "discord", "webhook"],
+  "keywords": [
+    "openai",
+    "api",
+    "scanner",
+    "discord",
+    "webhook"
+  ],
   "license": "MIT",
   "dependencies": {
     "axios": "^1.6.0",
-    "dotenv": "^16.3.1"
-  },
-  "devDependencies": {}
+    "camoufox-js": "^0.9.1",
+    "dotenv": "^16.3.1",
+    "playwright": "^1.58.2"
+  }
 }
