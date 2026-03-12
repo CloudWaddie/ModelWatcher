@@ -250,7 +250,7 @@ async function main() {
   console.log('Starting trademark check...');
 
   const config = loadConfig();
-  const statePath = config.state?.file || './logs/uspto-state.json';
+  const statePath = join(__dirname, '..', config.state?.file || 'logs/uspto-state.json');
   const state = loadState(statePath);
 
   const webhookUrl = process.env[config.webhook?.webhookEnv];
