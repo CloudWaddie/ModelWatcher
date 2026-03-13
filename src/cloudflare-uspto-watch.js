@@ -116,14 +116,17 @@ async function waitForCrawl(accountId, apiToken, jobId, maxAttempts = 60, delayM
     
     if (status === 'completed') {
       return response.data.result;
-    } else if (status === 'errored') {
-      throw new Error('Crawl job encountered an error');
-    } else if (status === 'cancelled_due_to_timeout') {
-      throw new Error('Crawl job timed out');
-    } else if (status === 'cancelled_due_to_limits') {
-      throw new Error('Crawl job cancelled due to account limits');
-    } else if (status === 'cancelled_by_user') {
-      throw new Error('Crawl job was cancelled');
+    }
+
+    const errorMessages = {
+      'errored': 'Crawl job encountered an error',
+      'cancelled_due_to_timeout': 'Crawl job timed out',
+      'cancelled_due_to_limits': 'Crawl job cancelled due to account limits',
+      'cancelled_by_user': 'Crawl job was cancelled'
+    };
+
+    if (errorMessages[status]) {
+      throw new Error(errorMessages[status]);
     }
     
     // Still running, wait and poll again
