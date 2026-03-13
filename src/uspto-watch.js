@@ -76,7 +76,7 @@ async function fetchCompanyFilings(companySlug, proxyConfig = null) {
 
     // Add proxy configuration if enabled
     if (proxyConfig && proxyConfig.enabled && proxyConfig.url) {
-      console.log(`Using proxy: ${proxyConfig.url}`);
+      console.log(`Using proxy: ${proxyConfig.url.replace(/\/\/.*@/, '//')}`);
       
       const proxy = {
         server: proxyConfig.url
