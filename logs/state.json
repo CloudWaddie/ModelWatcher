@@ -18779,6 +18779,51 @@
           "expiration_date": null
         },
         {
+          "id": "minimax/minimax-m2.5:free",
+          "name": "MiniMax: MiniMax M2.5 (free)",
+          "canonical_slug": "minimax/minimax-m2.5-20260211",
+          "hugging_face_id": "MiniMaxAI/MiniMax-M2.5",
+          "description": "MiniMax-M2.5 is a SOTA large language model designed for real-world productivity. Trained in a diverse range of complex real-world digital working environments, M2.5 builds upon the coding expertise of M2.1 to extend into general office work, reaching fluency in generating and operating Word, Excel, and Powerpoint files, context switching between diverse software environments, and working across different agent and human teams. Scoring 80.2% on SWE-Bench Verified, 51.3% on Multi-SWE-Bench, and 76.3% on BrowseComp, M2.5 is also more token efficient than previous generations, having been trained to optimize its actions and output through planning.",
+          "context_length": 196608,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 196608,
+            "max_completion_tokens": 196608,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "seed",
+            "stop",
+            "temperature",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "frequency_penalty": null
+          },
+          "expiration_date": null
+        },
+        {
           "id": "mistralai/codestral-2508",
           "name": "Mistral: Codestral 2508",
           "canonical_slug": "mistralai/codestral-2508",
@@ -28873,6 +28918,55 @@
             "temperature": 1,
             "top_p": 0.95,
             "frequency_penalty": null
+          },
+          "expiration_date": null
+        },
+        {
+          "id": "z-ai/glm-5-turbo",
+          "name": "Z.ai: GLM 5 Turbo",
+          "canonical_slug": "z-ai/glm-5-turbo-20260315",
+          "hugging_face_id": "",
+          "description": "GLM-5 Turbo is a new model from Z.ai designed for fast inference and strong performance in agent-driven environments such as OpenClaw scenarios. It is deeply optimized for real-world agent workflows involving long execution chains, with improved complex instruction decomposition, tool use, scheduled and persistent execution, and overall stability across extended tasks.",
+          "context_length": 202752,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000096",
+            "completion": "0.0000032",
+            "input_cache_read": "0.000000192"
+          },
+          "top_provider": {
+            "context_length": 202752,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "expiration_date": null
         }
