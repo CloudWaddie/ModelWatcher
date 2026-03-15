@@ -4915,33 +4915,6 @@
           }
         },
         {
-          "id": "meta-llama/Meta-Llama-3.1-70B-Instruct-Reference",
-          "name": "meta-llama/Meta-Llama-3.1-70B-Instruct-Reference",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Meta Llama 3.1 70B Instruct",
-          "organization": "Meta",
-          "link": "",
-          "license": "llama",
-          "context_length": 8192,
-          "config": {
-            "chat_template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
-            "stop": [
-              "<|eot_id|>"
-            ],
-            "bos_token": "<|begin_of_text|>",
-            "eos_token": "<|eot_id|>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.9,
-            "output": 0.9,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
           "name": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
           "object": "model",
