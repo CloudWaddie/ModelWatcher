@@ -2,10 +2,99 @@ import { Camoufox } from 'camoufox-js';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { execSync } from 'child_process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
+
+/**
+ * Check if Xvfb is available (for virtual display)
+ */
+function isXvfbAvailable() {
+  try {
+    execSync('which Xvfb', { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Wait for Cloudflare "Just a moment..." challenge to disappear
+ */
+async function waitForCloudflareChallenge(page, timeout = 30000) {
+  try {
+    await page.waitForFunction(
+      () => {
+        const body = document.body;
+        if (!body) return false;
+        const text = body.textContent || '';
+        // Check for Cloudflare challenge indicators
+        if (text.includes('Just a moment') || text.includes('Cloudflare')) {
+          return false;
+        }
+        // Check for cf- scripts
+        if (document.querySelector('#cf-ccsp') || document.querySelector('.cf-browser')) {
+          return false;
+        }
+        return true;
+      },
+      { timeout }
+    );
+    return true;
+  } catch (e) {
+    console.log('Cloudflare challenge did not clear within timeout');
+    return false;
+  }
+}
+
+/**
+ * Handle and click Turnstile CAPTCHA if present
+ */
+async function handleCaptcha(page) {
+  try {
+    // Check for Turnstile (Cloudflare CAPTCHA)
+    try {
+      const turnstileFrame = page.frameLocator('iframe[src*="turnstile"]');
+      // The clickable element inside the Turnstile iframe. This may need adjustment.
+      const turnstileElement = turnstileFrame.locator('input[type="checkbox"], #challenge-stage');
+      if (await turnstileElement.count() > 0) {
+        console.log('Detected Turnstile CAPTCHA, attempting to click...');
+        await turnstileElement.first().click({ timeout: 5000 });
+        console.log('Clicked Turnstile element');
+        await page.waitForTimeout(2000);
+      }
+    } catch (e) {
+      // No Turnstile found or an error occurred, which is acceptable.
+    }
+    
+    // Check for hCaptcha
+    const hCaptchaFrame = page.frameLocator('iframe[src*="hcaptcha"], iframe[name*="hcaptcha"]');
+    try {
+      await hCaptchaFrame.locator('.hcaptcha-checkbox').click({ timeout: 3000 });
+      console.log('Clicked hCaptcha');
+      await page.waitForTimeout(2000);
+    } catch (e) {
+      // No hCaptcha found
+    }
+    
+    // Check for reCAPTCHA
+    const recaptchaFrame = page.frameLocator('iframe[src*="recaptcha"]');
+    try {
+      await recaptchaFrame.locator('.recaptcha-checkbox').click({ timeout: 3000 });
+      console.log('Clicked reCAPTCHA');
+      await page.waitForTimeout(2000);
+    } catch (e) {
+      // No reCAPTCHA found
+    }
+    
+    return true;
+  } catch (error) {
+    console.log('CAPTCHA handling error:', error.message);
+    return false;
+  }
+}
 
 /**
  * Load configuration from uspto-config.json
@@ -56,15 +145,23 @@ function saveState(statePath, state) {
 }
 
 /**
- * Fetch trademark filings using Camoufox browser with DOM parsing
+ * Fetch trademark filings using Camoufox browser with virtual display and CAPTCHA handling
  */
 async function fetchCompanyFilings(companySlug) {
   console.log(`Fetching USPTO data for ${companySlug}...`);
 
   let browser;
   try {
+    // Determine if we should use virtual display
+    const useVirtualDisplay = isXvfbAvailable();
+    
+    if (useVirtualDisplay) {
+      console.log('Using virtual display (Xvfb) for headless browser');
+    }
+
+    // Launch Camoufox with virtual display support
     browser = await Camoufox({
-      headless: true,
+      headless: useVirtualDisplay ? 'virtual' : true,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -80,6 +177,12 @@ async function fetchCompanyFilings(companySlug) {
       timeout: 60000
     });
 
+    // Wait for Cloudflare challenge to resolve
+    await waitForCloudflareChallenge(page, 30000);
+    
+    // Handle any CAPTCHA challenges
+    await handleCaptcha(page);
+    
     // Wait for the table to be present
     await page.waitForSelector('table', { timeout: 15000 });
 
