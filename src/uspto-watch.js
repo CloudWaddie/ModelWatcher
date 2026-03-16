@@ -147,111 +147,113 @@ function saveState(statePath, state) {
 /**
  * Fetch trademark filings using Camoufox browser with virtual display and CAPTCHA handling
  */
-async function fetchCompanyFilings(companySlug) {
+async function fetchCompanyFilings(companySlug, maxRetries = 3) {
   console.log(`Fetching USPTO data for ${companySlug}...`);
 
-  let browser;
-  try {
-    // Determine if we should use virtual display
-    const useVirtualDisplay = isXvfbAvailable();
-    
-    if (useVirtualDisplay) {
-      console.log('Using virtual display (Xvfb) for headless browser');
-    }
-
-    // Launch Camoufox with virtual display support
-    browser = await Camoufox({
-      headless: useVirtualDisplay ? 'virtual' : true,
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-gpu'
-      ]
-    });
-
-    const page = await browser.newPage();
-    
-    await page.goto(`https://uspto.report/company/${companySlug}`, {
-      waitUntil: 'domcontentloaded',
-      timeout: 60000
-    });
-
-    // Wait for Cloudflare challenge to resolve
-    await waitForCloudflareChallenge(page, 30000);
-    
-    // Handle any CAPTCHA challenges
-    await handleCaptcha(page);
-    
-    // Wait for the table to be present
-    await page.waitForSelector('table', { timeout: 15000 });
-
-    // Scroll to the bottom to trigger lazy-loading
-    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-
-    // Wait for network activity to cease
-    await page.waitForLoadState('networkidle', { timeout: 20000 });
-
-    // Parse using DOM APIs - more robust than regex
-    const filings = await page.evaluate(() => {
-      const results = [];
-      const rows = Array.from(document.querySelectorAll('table tr'));
-
-      for (const row of rows) {
-        const link = row.querySelector('a[href^="/TM/"]');
-        if (!link) continue;
-
-        const url = link.href;
-        const serialMatch = url.match(/\/TM\/(\d+)/);
-        const serial = serialMatch ? serialMatch[1] : null;
-        if (!serial) continue;
-
-        // Get mark name - prefer text content over div parsing
-        const markElement = link.querySelector('div');
-        let mark = markElement ? markElement.textContent.trim() : null;
-        if (!mark) {
-          // Try getting from alt attribute
-          const img = link.querySelector('img');
-          if (img) mark = img.alt || 'Symbol/Image';
-        }
-
-        // Get date
-        const dateElement = row.querySelector('div[style*="float: right"]');
-        const dateMatch = dateElement ? dateElement.textContent.match(/(\d{4}-\d{2}-\d{2})/) : null;
-        const date = dateMatch ? dateMatch[1] : null;
-
-        // Get image
-        const img = link.querySelector('img');
-        const imageUrl = img && img.src ? img.src : null;
-
-        if (serial && mark && date) {
-          results.push({
-            serial,
-            mark,
-            date,
-            url,
-            imageUrl: imageUrl || `https://uspto.report/TM/${serial}/mark.png`
-          });
-        }
+  let lastError;
+  
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    let browser;
+    try {
+      const useVirtualDisplay = isXvfbAvailable();
+      
+      if (useVirtualDisplay) {
+        console.log('Using virtual display (Xvfb) for headless browser');
       }
 
-      // Sort by date (newest first)
-      results.sort((a, b) => new Date(b.date) - new Date(a.date));
+      browser = await Camoufox({
+        headless: useVirtualDisplay ? 'virtual' : true,
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-gpu'
+        ]
+      });
 
-      return results;
-    });
+      const page = await browser.newPage();
+      
+      await page.goto(`https://uspto.report/company/${companySlug}`, {
+        waitUntil: 'domcontentloaded',
+        timeout: 60000
+      });
+
+      await waitForCloudflareChallenge(page, 30000);
+      
+      await handleCaptcha(page);
+      
+      await page.waitForSelector('table', { timeout: 30000 });
+
+      await page.waitForTimeout(3000);
+
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+
+      await page.waitForTimeout(2000);
+
+      const filings = await page.evaluate(() => {
+        const results = [];
+        const rows = Array.from(document.querySelectorAll('table tr'));
+
+        for (const row of rows) {
+          const link = row.querySelector('a[href^="/TM/"]');
+          if (!link) continue;
+
+          const url = link.href;
+          const serialMatch = url.match(/\/TM\/(\d+)/);
+          const serial = serialMatch ? serialMatch[1] : null;
+          if (!serial) continue;
+
+          const markElement = link.querySelector('div');
+          let mark = markElement ? markElement.textContent.trim() : null;
+          if (!mark) {
+            const img = link.querySelector('img');
+            if (img) mark = img.alt || 'Symbol/Image';
+          }
+
+          const dateElement = row.querySelector('div[style*="float: right"]');
+          const dateMatch = dateElement ? dateElement.textContent.match(/(\d{4}-\d{2}-\d{2})/) : null;
+          const date = dateMatch ? dateMatch[1] : null;
+
+          const img = link.querySelector('img');
+          const imageUrl = img && img.src ? img.src : null;
+
+          if (serial && mark && date) {
+            results.push({
+              serial,
+              mark,
+              date,
+              url,
+              imageUrl: imageUrl || `https://uspto.report/TM/${serial}/mark.png`
+            });
+          }
+        }
+
+        results.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        return results;
+      });
+      
+      console.log(`Found ${filings.length} trademark filings for ${companySlug}`);
+      return filings;
     
-    console.log(`Found ${filings.length} trademark filings for ${companySlug}`);
-    return filings;
-    
-  } catch (error) {
-    console.error(`Failed to fetch USPTO data for ${companySlug}:`, error.message);
-    return [];
-  } finally {
-    if (browser) {
-      await browser.close();
+    } catch (error) {
+      console.error(`Attempt ${attempt}/${maxRetries} failed for ${companySlug}:`, error.message);
+      lastError = error;
+      
+      if (attempt < maxRetries) {
+        const delay = Math.pow(2, attempt) * 2000;
+        console.log(`Retrying in ${delay/1000} seconds...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+      }
+    } finally {
+      if (browser) {
+        await browser.close();
+      }
     }
   }
+  
+  console.error(`All ${maxRetries} attempts failed for ${companySlug}:`, lastError?.message);
+  return [];
 }
 
 /**
