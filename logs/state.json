@@ -11843,7 +11843,8 @@
           "description": "Mistral Small 4.",
           "max_context_length": 262144,
           "aliases": [
-            "mistral-small-latest"
+            "mistral-small-latest",
+            "mistral-vibe-cli-fast"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
@@ -11872,7 +11873,8 @@
           "description": "Mistral Small 4.",
           "max_context_length": 262144,
           "aliases": [
-            "mistral-small-2603"
+            "mistral-small-2603",
+            "mistral-vibe-cli-fast"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
@@ -11962,6 +11964,36 @@
             "open-mistral-nemo",
             "open-mistral-nemo-2407",
             "mistral-tiny-2407"
+          ],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.3,
+          "type": "base"
+        },
+        {
+          "id": "mistral-vibe-cli-fast",
+          "name": "mistral-small-2603",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": true,
+            "function_calling": true,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": true,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": false
+          },
+          "description": "Mistral Small 4.",
+          "max_context_length": 262144,
+          "aliases": [
+            "mistral-small-2603",
+            "mistral-small-latest"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
