@@ -751,63 +751,603 @@
           "name": "claude-3-haiku-20240307",
           "type": "model",
           "display_name": "Claude Haiku 3",
-          "created_at": "2024-03-07T00:00:00Z"
+          "created_at": "2024-03-07T00:00:00Z",
+          "max_input_tokens": 200000,
+          "max_tokens": 4096,
+          "capabilities": {
+            "batch": {
+              "supported": true
+            },
+            "citations": {
+              "supported": false
+            },
+            "code_execution": {
+              "supported": false
+            },
+            "context_management": {
+              "supported": false,
+              "clear_tool_uses_20250919": {
+                "supported": false
+              },
+              "clear_thinking_20251015": {
+                "supported": false
+              },
+              "compact_20260112": {
+                "supported": false
+              }
+            },
+            "effort": {
+              "supported": false,
+              "low": {
+                "supported": false
+              },
+              "medium": {
+                "supported": false
+              },
+              "high": {
+                "supported": false
+              },
+              "max": {
+                "supported": false
+              }
+            },
+            "image_input": {
+              "supported": true
+            },
+            "pdf_input": {
+              "supported": false
+            },
+            "structured_outputs": {
+              "supported": false
+            },
+            "thinking": {
+              "supported": false,
+              "types": {
+                "enabled": {
+                  "supported": false
+                },
+                "adaptive": {
+                  "supported": false
+                }
+              }
+            }
+          }
         },
         {
           "id": "claude-haiku-4-5-20251001",
           "name": "claude-haiku-4-5-20251001",
           "type": "model",
           "display_name": "Claude Haiku 4.5",
-          "created_at": "2025-10-15T00:00:00Z"
+          "created_at": "2025-10-15T00:00:00Z",
+          "max_input_tokens": 200000,
+          "max_tokens": 64000,
+          "capabilities": {
+            "batch": {
+              "supported": true
+            },
+            "citations": {
+              "supported": true
+            },
+            "code_execution": {
+              "supported": false
+            },
+            "context_management": {
+              "supported": true,
+              "clear_tool_uses_20250919": {
+                "supported": true
+              },
+              "clear_thinking_20251015": {
+                "supported": true
+              },
+              "compact_20260112": {
+                "supported": false
+              }
+            },
+            "effort": {
+              "supported": false,
+              "low": {
+                "supported": false
+              },
+              "medium": {
+                "supported": false
+              },
+              "high": {
+                "supported": false
+              },
+              "max": {
+                "supported": false
+              }
+            },
+            "image_input": {
+              "supported": true
+            },
+            "pdf_input": {
+              "supported": true
+            },
+            "structured_outputs": {
+              "supported": true
+            },
+            "thinking": {
+              "supported": true,
+              "types": {
+                "enabled": {
+                  "supported": true
+                },
+                "adaptive": {
+                  "supported": false
+                }
+              }
+            }
+          }
         },
         {
           "id": "claude-opus-4-1-20250805",
           "name": "claude-opus-4-1-20250805",
           "type": "model",
           "display_name": "Claude Opus 4.1",
-          "created_at": "2025-08-05T00:00:00Z"
+          "created_at": "2025-08-05T00:00:00Z",
+          "max_input_tokens": 200000,
+          "max_tokens": 32000,
+          "capabilities": {
+            "batch": {
+              "supported": true
+            },
+            "citations": {
+              "supported": true
+            },
+            "code_execution": {
+              "supported": false
+            },
+            "context_management": {
+              "supported": true,
+              "clear_tool_uses_20250919": {
+                "supported": true
+              },
+              "clear_thinking_20251015": {
+                "supported": true
+              },
+              "compact_20260112": {
+                "supported": false
+              }
+            },
+            "effort": {
+              "supported": false,
+              "low": {
+                "supported": false
+              },
+              "medium": {
+                "supported": false
+              },
+              "high": {
+                "supported": false
+              },
+              "max": {
+                "supported": false
+              }
+            },
+            "image_input": {
+              "supported": true
+            },
+            "pdf_input": {
+              "supported": true
+            },
+            "structured_outputs": {
+              "supported": true
+            },
+            "thinking": {
+              "supported": true,
+              "types": {
+                "enabled": {
+                  "supported": true
+                },
+                "adaptive": {
+                  "supported": false
+                }
+              }
+            }
+          }
         },
         {
           "id": "claude-opus-4-20250514",
           "name": "claude-opus-4-20250514",
           "type": "model",
           "display_name": "Claude Opus 4",
-          "created_at": "2025-05-22T00:00:00Z"
+          "created_at": "2025-05-22T00:00:00Z",
+          "max_input_tokens": 200000,
+          "max_tokens": 32000,
+          "capabilities": {
+            "batch": {
+              "supported": true
+            },
+            "citations": {
+              "supported": true
+            },
+            "code_execution": {
+              "supported": false
+            },
+            "context_management": {
+              "supported": true,
+              "clear_tool_uses_20250919": {
+                "supported": true
+              },
+              "clear_thinking_20251015": {
+                "supported": true
+              },
+              "compact_20260112": {
+                "supported": false
+              }
+            },
+            "effort": {
+              "supported": false,
+              "low": {
+                "supported": false
+              },
+              "medium": {
+                "supported": false
+              },
+              "high": {
+                "supported": false
+              },
+              "max": {
+                "supported": false
+              }
+            },
+            "image_input": {
+              "supported": true
+            },
+            "pdf_input": {
+              "supported": true
+            },
+            "structured_outputs": {
+              "supported": false
+            },
+            "thinking": {
+              "supported": true,
+              "types": {
+                "enabled": {
+                  "supported": true
+                },
+                "adaptive": {
+                  "supported": false
+                }
+              }
+            }
+          }
         },
         {
           "id": "claude-opus-4-5-20251101",
           "name": "claude-opus-4-5-20251101",
           "type": "model",
           "display_name": "Claude Opus 4.5",
-          "created_at": "2025-11-24T00:00:00Z"
+          "created_at": "2025-11-24T00:00:00Z",
+          "max_input_tokens": 200000,
+          "max_tokens": 64000,
+          "capabilities": {
+            "batch": {
+              "supported": true
+            },
+            "citations": {
+              "supported": true
+            },
+            "code_execution": {
+              "supported": true
+            },
+            "context_management": {
+              "supported": true,
+              "clear_tool_uses_20250919": {
+                "supported": true
+              },
+              "clear_thinking_20251015": {
+                "supported": true
+              },
+              "compact_20260112": {
+                "supported": false
+              }
+            },
+            "effort": {
+              "supported": true,
+              "low": {
+                "supported": true
+              },
+              "medium": {
+                "supported": true
+              },
+              "high": {
+                "supported": true
+              },
+              "max": {
+                "supported": false
+              }
+            },
+            "image_input": {
+              "supported": true
+            },
+            "pdf_input": {
+              "supported": true
+            },
+            "structured_outputs": {
+              "supported": true
+            },
+            "thinking": {
+              "supported": true,
+              "types": {
+                "enabled": {
+                  "supported": true
+                },
+                "adaptive": {
+                  "supported": false
+                }
+              }
+            }
+          }
         },
         {
           "id": "claude-opus-4-6",
           "name": "claude-opus-4-6",
           "type": "model",
           "display_name": "Claude Opus 4.6",
-          "created_at": "2026-02-04T00:00:00Z"
+          "created_at": "2026-02-04T00:00:00Z",
+          "max_input_tokens": 1000000,
+          "max_tokens": 128000,
+          "capabilities": {
+            "batch": {
+              "supported": true
+            },
+            "citations": {
+              "supported": true
+            },
+            "code_execution": {
+              "supported": true
+            },
+            "context_management": {
+              "supported": true,
+              "clear_tool_uses_20250919": {
+                "supported": true
+              },
+              "clear_thinking_20251015": {
+                "supported": true
+              },
+              "compact_20260112": {
+                "supported": true
+              }
+            },
+            "effort": {
+              "supported": true,
+              "low": {
+                "supported": true
+              },
+              "medium": {
+                "supported": true
+              },
+              "high": {
+                "supported": true
+              },
+              "max": {
+                "supported": true
+              }
+            },
+            "image_input": {
+              "supported": true
+            },
+            "pdf_input": {
+              "supported": true
+            },
+            "structured_outputs": {
+              "supported": true
+            },
+            "thinking": {
+              "supported": true,
+              "types": {
+                "enabled": {
+                  "supported": true
+                },
+                "adaptive": {
+                  "supported": true
+                }
+              }
+            }
+          }
         },
         {
           "id": "claude-sonnet-4-20250514",
           "name": "claude-sonnet-4-20250514",
           "type": "model",
           "display_name": "Claude Sonnet 4",
-          "created_at": "2025-05-22T00:00:00Z"
+          "created_at": "2025-05-22T00:00:00Z",
+          "max_input_tokens": 1000000,
+          "max_tokens": 64000,
+          "capabilities": {
+            "batch": {
+              "supported": true
+            },
+            "citations": {
+              "supported": true
+            },
+            "code_execution": {
+              "supported": false
+            },
+            "context_management": {
+              "supported": true,
+              "clear_tool_uses_20250919": {
+                "supported": true
+              },
+              "clear_thinking_20251015": {
+                "supported": true
+              },
+              "compact_20260112": {
+                "supported": false
+              }
+            },
+            "effort": {
+              "supported": false,
+              "low": {
+                "supported": false
+              },
+              "medium": {
+                "supported": false
+              },
+              "high": {
+                "supported": false
+              },
+              "max": {
+                "supported": false
+              }
+            },
+            "image_input": {
+              "supported": true
+            },
+            "pdf_input": {
+              "supported": true
+            },
+            "structured_outputs": {
+              "supported": false
+            },
+            "thinking": {
+              "supported": true,
+              "types": {
+                "enabled": {
+                  "supported": true
+                },
+                "adaptive": {
+                  "supported": false
+                }
+              }
+            }
+          }
         },
         {
           "id": "claude-sonnet-4-5-20250929",
           "name": "claude-sonnet-4-5-20250929",
           "type": "model",
           "display_name": "Claude Sonnet 4.5",
-          "created_at": "2025-09-29T00:00:00Z"
+          "created_at": "2025-09-29T00:00:00Z",
+          "max_input_tokens": 1000000,
+          "max_tokens": 64000,
+          "capabilities": {
+            "batch": {
+              "supported": true
+            },
+            "citations": {
+              "supported": true
+            },
+            "code_execution": {
+              "supported": true
+            },
+            "context_management": {
+              "supported": true,
+              "clear_tool_uses_20250919": {
+                "supported": true
+              },
+              "clear_thinking_20251015": {
+                "supported": true
+              },
+              "compact_20260112": {
+                "supported": false
+              }
+            },
+            "effort": {
+              "supported": false,
+              "low": {
+                "supported": false
+              },
+              "medium": {
+                "supported": false
+              },
+              "high": {
+                "supported": false
+              },
+              "max": {
+                "supported": false
+              }
+            },
+            "image_input": {
+              "supported": true
+            },
+            "pdf_input": {
+              "supported": true
+            },
+            "structured_outputs": {
+              "supported": true
+            },
+            "thinking": {
+              "supported": true,
+              "types": {
+                "enabled": {
+                  "supported": true
+                },
+                "adaptive": {
+                  "supported": false
+                }
+              }
+            }
+          }
         },
         {
           "id": "claude-sonnet-4-6",
           "name": "claude-sonnet-4-6",
           "type": "model",
           "display_name": "Claude Sonnet 4.6",
-          "created_at": "2026-02-17T00:00:00Z"
+          "created_at": "2026-02-17T00:00:00Z",
+          "max_input_tokens": 1000000,
+          "max_tokens": 128000,
+          "capabilities": {
+            "batch": {
+              "supported": true
+            },
+            "citations": {
+              "supported": true
+            },
+            "code_execution": {
+              "supported": true
+            },
+            "context_management": {
+              "supported": true,
+              "clear_tool_uses_20250919": {
+                "supported": true
+              },
+              "clear_thinking_20251015": {
+                "supported": true
+              },
+              "compact_20260112": {
+                "supported": true
+              }
+            },
+            "effort": {
+              "supported": true,
+              "low": {
+                "supported": true
+              },
+              "medium": {
+                "supported": true
+              },
+              "high": {
+                "supported": true
+              },
+              "max": {
+                "supported": true
+              }
+            },
+            "image_input": {
+              "supported": true
+            },
+            "pdf_input": {
+              "supported": true
+            },
+            "structured_outputs": {
+              "supported": true
+            },
+            "thinking": {
+              "supported": true,
+              "types": {
+                "enabled": {
+                  "supported": true
+                },
+                "adaptive": {
+                  "supported": true
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -2425,86 +2965,6 @@
       "success": true,
       "models": [
         {
-          "id": "agentica-org/DeepCoder-14B-Preview",
-          "name": "agentica-org/DeepCoder-14B-Preview",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepcoder 14B Preview",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "allenai/Molmo-7B-D-0924",
-          "name": "allenai/Molmo-7B-D-0924",
-          "object": "model",
-          "running": false,
-          "display_name": "Molmo 7B D 0924",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "arcee-ai/trinity-large-preview",
-          "name": "arcee-ai/trinity-large-preview",
-          "object": "model",
-          "running": false,
-          "display_name": "Trinity Large Preview",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "arcee-ai/trinity-mini",
-          "name": "arcee-ai/trinity-mini",
-          "object": "model",
-          "running": false,
-          "display_name": "Trinity Mini",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "arize-ai/qwen-2-1.5b-instruct",
           "name": "arize-ai/qwen-2-1.5b-instruct",
           "object": "model",
@@ -2526,26 +2986,6 @@
             "hourly": 0,
             "input": 0.1,
             "output": 0.1,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "BAAI/bge-base-en-v1.5",
-          "name": "BAAI/bge-base-en-v1.5",
-          "object": "model",
-          "running": false,
-          "display_name": "BAAI-Bge-Base-1.5",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -2938,146 +3378,6 @@
           }
         },
         {
-          "id": "codellama/CodeLlama-7b-hf",
-          "name": "codellama/CodeLlama-7b-hf",
-          "object": "model",
-          "running": false,
-          "display_name": "Code Llama (7B)",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepcogito/cogito-v1-preview-llama-3B",
-          "name": "deepcogito/cogito-v1-preview-llama-3B",
-          "object": "model",
-          "running": false,
-          "display_name": "Cogito V1 Preview Llama 3B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepcogito/cogito-v1-preview-llama-70B",
-          "name": "deepcogito/cogito-v1-preview-llama-70B",
-          "object": "model",
-          "running": false,
-          "display_name": "Cogito V1 Preview Llama 70B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepcogito/cogito-v1-preview-llama-70B-Turbo",
-          "name": "deepcogito/cogito-v1-preview-llama-70B-Turbo",
-          "object": "model",
-          "running": false,
-          "display_name": "Cogito V1 Preview Llama 70B Turbo",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepcogito/cogito-v1-preview-llama-8B",
-          "name": "deepcogito/cogito-v1-preview-llama-8B",
-          "object": "model",
-          "running": false,
-          "display_name": "Cogito V1 Preview Llama 8B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepcogito/cogito-v1-preview-qwen-14B",
-          "name": "deepcogito/cogito-v1-preview-qwen-14B",
-          "object": "model",
-          "running": false,
-          "display_name": "Cogito V1 Preview Qwen 14B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepcogito/cogito-v1-preview-qwen-32B",
-          "name": "deepcogito/cogito-v1-preview-qwen-32B",
-          "object": "model",
-          "running": false,
-          "display_name": "Cogito V1 Preview Qwen 32B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "deepcogito/cogito-v2-1-671b",
           "name": "deepcogito/cogito-v2-1-671b",
           "object": "model",
@@ -3097,126 +3397,6 @@
             "hourly": 0,
             "input": 1.25,
             "output": 1.25,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepgram/aura-2",
-          "name": "deepgram/aura-2",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepgram Aura 2",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepgram/flux",
-          "name": "deepgram/flux",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepgram Flux",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepgram/nova-3-en",
-          "name": "deepgram/nova-3-en",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepgram Nova 3",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepgram/nova-3-multi",
-          "name": "deepgram/nova-3-multi",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepgram Nova 3 Multilingual",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepseek-ai/deepseek-coder-33b-instruct",
-          "name": "deepseek-ai/deepseek-coder-33b-instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepseek Coder 33B Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepseek-ai/DeepSeek-OCR-2",
-          "name": "deepseek-ai/DeepSeek-OCR-2",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepseek OCR 2",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -3306,146 +3486,6 @@
           }
         },
         {
-          "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
-          "name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
-          "object": "model",
-          "running": false,
-          "display_name": "DeepSeek R1 Distill Qwen 1.5B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-          "name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-          "object": "model",
-          "running": false,
-          "display_name": "DeepSeek R1 Distill Qwen 14B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
-          "name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
-          "object": "model",
-          "running": false,
-          "display_name": "DeepSeek R1 Distill Qwen 7B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepseek-ai/DeepSeek-R1-Original",
-          "name": "deepseek-ai/DeepSeek-R1-Original",
-          "object": "model",
-          "running": false,
-          "display_name": "DeepSeek R1 (Original)",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepseek-ai/DeepSeek-V3-0324",
-          "name": "deepseek-ai/DeepSeek-V3-0324",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepseek V3 0324",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepseek-ai/DeepSeek-V3-Base",
-          "name": "deepseek-ai/DeepSeek-V3-Base",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepseek V3 Base",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepseek-ai/DeepSeek-V3-DE",
-          "name": "deepseek-ai/DeepSeek-V3-DE",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepseek V3",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "deepseek-ai/DeepSeek-V3.1",
           "name": "deepseek-ai/DeepSeek-V3.1",
           "object": "model",
@@ -3474,86 +3514,6 @@
           }
         },
         {
-          "id": "deepseek-ai/DeepSeek-V3.1-Base",
-          "name": "deepseek-ai/DeepSeek-V3.1-Base",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepseek V3.1 Base",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepseek-ai/DeepSeek-V3.1-Terminus",
-          "name": "deepseek-ai/DeepSeek-V3.1-Terminus",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepseek V3.1 Terminus",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepseek-ai/DeepSeek-V3.2",
-          "name": "deepseek-ai/DeepSeek-V3.2",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepseek V3.2",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "deepseek-ai/DeepSeek-V3.2-Exp",
-          "name": "deepseek-ai/DeepSeek-V3.2-Exp",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepseek V3.2 Exp",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "essentialai/rnj-1-instruct",
           "name": "essentialai/rnj-1-instruct",
           "object": "model",
@@ -3573,26 +3533,6 @@
             "hourly": 0,
             "input": 0.15,
             "output": 0.15,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "facebook/cwm",
-          "name": "facebook/cwm",
-          "object": "model",
-          "running": false,
-          "display_name": "Facebook CWM",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -3649,226 +3589,6 @@
           "running": false,
           "display_name": "Gemini 3 (Nano Banana Pro)",
           "organization": "Google",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/gemma-2-27b-it",
-          "name": "google/gemma-2-27b-it",
-          "object": "model",
-          "running": false,
-          "display_name": "Gemma-2 Instruct (27B)",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/gemma-2-9b-it",
-          "name": "google/gemma-2-9b-it",
-          "object": "model",
-          "running": false,
-          "display_name": "Gemma 2 9B It",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/gemma-2b-it",
-          "name": "google/gemma-2b-it",
-          "object": "model",
-          "running": false,
-          "display_name": "Gemma 2B It",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/gemma-3-12b-it",
-          "name": "google/gemma-3-12b-it",
-          "object": "model",
-          "running": false,
-          "display_name": "Gemma 3 12B It",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/gemma-3-1b-it",
-          "name": "google/gemma-3-1b-it",
-          "object": "model",
-          "running": false,
-          "display_name": "Gemma 3 1b it",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/gemma-3-1b-pt",
-          "name": "google/gemma-3-1b-pt",
-          "object": "model",
-          "running": false,
-          "display_name": "Gemma 3 1B Pt",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/gemma-3-270m-it",
-          "name": "google/gemma-3-270m-it",
-          "object": "model",
-          "running": false,
-          "display_name": "Gemma 3 270M It",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/gemma-3-27b-it",
-          "name": "google/gemma-3-27b-it",
-          "object": "model",
-          "running": false,
-          "display_name": "Gemma 3 27B It",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/gemma-3-27b-pt",
-          "name": "google/gemma-3-27b-pt",
-          "object": "model",
-          "running": false,
-          "display_name": "Gemma 3 27B Pt",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/gemma-3-4b-it",
-          "name": "google/gemma-3-4b-it",
-          "object": "model",
-          "running": false,
-          "display_name": "Gemma 3 4b it",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/gemma-3-4b-pt",
-          "name": "google/gemma-3-4b-pt",
-          "object": "model",
-          "running": false,
-          "display_name": "Gemma 3 4B Pt",
           "config": {
             "chat_template": null,
             "stop": [],
@@ -3962,26 +3682,6 @@
           "running": false,
           "display_name": "Google Imagen 4.0 Ultra",
           "organization": "Google",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "google/medgemma-27b-text-it",
-          "name": "google/medgemma-27b-text-it",
-          "object": "model",
-          "running": false,
-          "display_name": "Medgemma 27B Text It",
           "config": {
             "chat_template": null,
             "stop": [],
@@ -4425,86 +4125,6 @@
           }
         },
         {
-          "id": "meta-llama/Llama-2-13b-chat-hf",
-          "name": "meta-llama/Llama-2-13b-chat-hf",
-          "object": "model",
-          "running": false,
-          "display_name": "LLaMA-2 Chat (13B)",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Llama-2-7b-chat-hf",
-          "name": "meta-llama/Llama-2-7b-chat-hf",
-          "object": "model",
-          "running": false,
-          "display_name": "meta-llama/Llama-2-7b-chat-hf",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Llama-3-8b-chat-hf",
-          "name": "meta-llama/Llama-3-8b-chat-hf",
-          "object": "model",
-          "running": false,
-          "display_name": "Meta Llama 3 8B Instruct Reference",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Llama-3.1-405B",
-          "name": "meta-llama/Llama-3.1-405B",
-          "object": "model",
-          "running": false,
-          "display_name": "Llama 3.1 405B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "meta-llama/Llama-3.1-405B-Instruct",
           "name": "meta-llama/Llama-3.1-405B-Instruct",
           "object": "model",
@@ -4528,46 +4148,6 @@
             "hourly": 0,
             "input": 3.5,
             "output": 3.5,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Llama-3.1-8B-Instruct",
-          "name": "meta-llama/Llama-3.1-8B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Llama 3.1 8B Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Llama-3.2-1B",
-          "name": "meta-llama/Llama-3.2-1B",
-          "object": "model",
-          "running": false,
-          "display_name": "Llama 3.2 1B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -4600,66 +4180,6 @@
           }
         },
         {
-          "id": "meta-llama/Llama-3.2-3B",
-          "name": "meta-llama/Llama-3.2-3B",
-          "object": "model",
-          "running": false,
-          "display_name": "Meta Llama 3.2 3B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Llama-3.2-3B-Instruct",
-          "name": "meta-llama/Llama-3.2-3B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Meta Llama 3.2 3B Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Llama-3.3-70B-Instruct",
-          "name": "meta-llama/Llama-3.3-70B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "meta-llama/Llama-3.3-70B-Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
           "name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
           "object": "model",
@@ -4683,26 +4203,6 @@
             "hourly": 0,
             "input": 0.88,
             "output": 0.88,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Llama-4-Maverick-17B-128E",
-          "name": "meta-llama/Llama-4-Maverick-17B-128E",
-          "object": "model",
-          "running": false,
-          "display_name": "Llama 4 Maverick 17B 128E",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -4737,26 +4237,6 @@
           }
         },
         {
-          "id": "meta-llama/Llama-4-Scout-17B-16E",
-          "name": "meta-llama/Llama-4-Scout-17B-16E",
-          "object": "model",
-          "running": false,
-          "display_name": "Llama 4 Scout (17Bx16E)",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
           "name": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
           "object": "model",
@@ -4785,26 +4265,6 @@
           }
         },
         {
-          "id": "meta-llama/Llama-4-Scout-17B-16E-Instruct-64k",
-          "name": "meta-llama/Llama-4-Scout-17B-16E-Instruct-64k",
-          "object": "model",
-          "running": false,
-          "display_name": "Llama 4 Scout 17B 16E Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "meta-llama/Llama-Guard-4-12B",
           "name": "meta-llama/Llama-Guard-4-12B",
           "object": "model",
@@ -4827,46 +4287,6 @@
             "hourly": 0,
             "input": 0.2,
             "output": 0.2,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Meta-Llama-3-70B-Instruct-Turbo",
-          "name": "meta-llama/Meta-Llama-3-70B-Instruct-Turbo",
-          "object": "model",
-          "running": false,
-          "display_name": "Meta Llama 3 70B Instruct Turbo",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Meta-Llama-3-8B",
-          "name": "meta-llama/Meta-Llama-3-8B",
-          "object": "model",
-          "running": false,
-          "display_name": "Meta Llama 3 8B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -4927,46 +4347,6 @@
           }
         },
         {
-          "id": "meta-llama/Meta-Llama-3.1-70B",
-          "name": "meta-llama/Meta-Llama-3.1-70B",
-          "object": "model",
-          "running": false,
-          "display_name": "Llama 3.1 70B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Meta-Llama-3.1-70B-Instruct",
-          "name": "meta-llama/Meta-Llama-3.1-70B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Meta Llama 3.1 70B Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
           "name": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
           "object": "model",
@@ -4990,46 +4370,6 @@
             "hourly": 0,
             "input": 0.88,
             "output": 0.88,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Meta-Llama-3.1-8B",
-          "name": "meta-llama/Meta-Llama-3.1-8B",
-          "object": "model",
-          "running": false,
-          "display_name": "Meta Llama 3.1 8B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-          "name": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Meta Llama 3.1 8B Instruct Reference",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -5112,26 +4452,6 @@
           }
         },
         {
-          "id": "minimax/speech-2.6-turbo",
-          "name": "minimax/speech-2.6-turbo",
-          "object": "model",
-          "running": false,
-          "display_name": "Minimax Speech 2.6 Turbo",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "minimax/video-01-director",
           "name": "minimax/video-01-director",
           "object": "model",
@@ -5139,86 +4459,6 @@
           "running": false,
           "display_name": "MiniMax 01 Director",
           "organization": "minimax",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "MiniMaxAI/MiniMax-M1-40k",
-          "name": "MiniMaxAI/MiniMax-M1-40k",
-          "object": "model",
-          "running": false,
-          "display_name": "Minimax M1 40K",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "MiniMaxAI/MiniMax-M1-80k",
-          "name": "MiniMaxAI/MiniMax-M1-80k",
-          "object": "model",
-          "running": false,
-          "display_name": "Minimax M1 80K",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "MiniMaxAI/MiniMax-M2",
-          "name": "MiniMaxAI/MiniMax-M2",
-          "object": "model",
-          "running": false,
-          "display_name": "MiniMax M2",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "MiniMaxAI/MiniMax-M2.1",
-          "name": "MiniMaxAI/MiniMax-M2.1",
-          "object": "model",
-          "running": false,
-          "display_name": "Minimax M2.1",
           "config": {
             "chat_template": null,
             "stop": [],
@@ -5258,126 +4498,6 @@
           }
         },
         {
-          "id": "MiniMaxAI/MiniMax-M2.5-FP4",
-          "name": "MiniMaxAI/MiniMax-M2.5-FP4",
-          "object": "model",
-          "running": false,
-          "display_name": "MiniMax M2.5 FP4",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "mistralai/Devstral-Small-2505",
-          "name": "mistralai/Devstral-Small-2505",
-          "object": "model",
-          "running": false,
-          "display_name": "Devstral Small 2505",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "mistralai/Magistral-Small-2506",
-          "name": "mistralai/Magistral-Small-2506",
-          "object": "model",
-          "running": false,
-          "display_name": "Magistral Small 2506",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "mistralai/Ministral-3-14B-Instruct-2512",
-          "name": "mistralai/Ministral-3-14B-Instruct-2512",
-          "object": "model",
-          "running": false,
-          "display_name": "Ministral 3 14B Instruct 2512",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "mistralai/Mistral-7B-Instruct-v0.1",
-          "name": "mistralai/Mistral-7B-Instruct-v0.1",
-          "object": "model",
-          "running": false,
-          "display_name": "Mistral (7B) Instruct v0.1",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "mistralai/Mistral-7B-Instruct-v0.2",
-          "name": "mistralai/Mistral-7B-Instruct-v0.2",
-          "object": "model",
-          "running": false,
-          "display_name": "Mistral (7B) Instruct v0.2",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "mistralai/Mistral-7B-Instruct-v0.3",
           "name": "mistralai/Mistral-7B-Instruct-v0.3",
           "object": "model",
@@ -5400,26 +4520,6 @@
             "hourly": 0,
             "input": 0.2,
             "output": 0.2,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "mistralai/Mistral-7B-v0.1",
-          "name": "mistralai/Mistral-7B-v0.1",
-          "object": "model",
-          "running": false,
-          "display_name": "Mistral 7B v0.1",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -5453,26 +4553,6 @@
           }
         },
         {
-          "id": "mistralai/Mixtral-8x22B-Instruct-v0.1",
-          "name": "mistralai/Mixtral-8x22B-Instruct-v0.1",
-          "object": "model",
-          "running": false,
-          "display_name": "Mixtral 8X22b Instruct V0.1",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "mistralai/Mixtral-8x7B-Instruct-v0.1",
           "name": "mistralai/Mixtral-8x7B-Instruct-v0.1",
           "object": "model",
@@ -5501,66 +4581,6 @@
           }
         },
         {
-          "id": "mistralai/Mixtral-8x7B-v0.1",
-          "name": "mistralai/Mixtral-8x7B-v0.1",
-          "object": "model",
-          "running": false,
-          "display_name": "Mixtral 8X7b V0.1",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "mixedbread-ai/mxbai-rerank-large-v2",
-          "name": "mixedbread-ai/mxbai-rerank-large-v2",
-          "object": "model",
-          "running": false,
-          "display_name": "Mxbai Rerank Large V2",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "moonshotai/Kimi-K2-Thinking",
-          "name": "moonshotai/Kimi-K2-Thinking",
-          "object": "model",
-          "running": false,
-          "display_name": "Kimi K2 Thinking",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "moonshotai/Kimi-K2.5",
           "name": "moonshotai/Kimi-K2.5",
           "object": "model",
@@ -5583,326 +4603,6 @@
             "hourly": 0,
             "input": 0.5,
             "output": 2.8,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "moonshotai/Kimi-K2.5-fp4",
-          "name": "moonshotai/Kimi-K2.5-fp4",
-          "object": "model",
-          "running": false,
-          "display_name": "Kimi K2.5 Fp4",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nim/meta/llama-3.1-70b-instruct",
-          "name": "nim/meta/llama-3.1-70b-instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "nim/meta/llama-3.1-70b-instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nim/meta/llama-3.1-8b-instruct",
-          "name": "nim/meta/llama-3.1-8b-instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "nim/meta/llama-3.1-8b-instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nim/meta/llama-3.2-11b-vision-instruct",
-          "name": "nim/meta/llama-3.2-11b-vision-instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "nim/meta/llama-3.2-11b-vision-instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nim/meta/llama-3.2-90b-vision-instruct",
-          "name": "nim/meta/llama-3.2-90b-vision-instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "nim/meta/llama-3.2-90b-vision-instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nim/meta/llama-3.3-70b-instruct",
-          "name": "nim/meta/llama-3.3-70b-instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "nim/meta/llama-3.3-70b-instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nim/mistralai/mixtral-8x22b-instruct-v01",
-          "name": "nim/mistralai/mixtral-8x22b-instruct-v01",
-          "object": "model",
-          "running": false,
-          "display_name": "nim/mistralai/mixtral-8x22b-instruct-v01",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nim/mistralai/mixtral-8x7b-instruct-v01",
-          "name": "nim/mistralai/mixtral-8x7b-instruct-v01",
-          "object": "model",
-          "running": false,
-          "display_name": "nim/mistralai/mixtral-8x7b-instruct-v01",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nim/nv-mistralai/mistral-nemo-12b-instruct",
-          "name": "nim/nv-mistralai/mistral-nemo-12b-instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "nim/nv-mistralai/mistral-nemo-12b-instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nim/nvidia/llama-3.1-nemotron-70b-instruct",
-          "name": "nim/nvidia/llama-3.1-nemotron-70b-instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "nim/nvidia/llama-3.1-nemotron-70b-instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nim/nvidia/llama-3.3-nemotron-super-49b-v1",
-          "name": "nim/nvidia/llama-3.3-nemotron-super-49b-v1",
-          "object": "model",
-          "running": false,
-          "display_name": "nim/nvidia/llama-3.3-nemotron-super-49b-v1",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO",
-          "name": "NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO",
-          "object": "model",
-          "running": false,
-          "display_name": "Nous Hermes 2 Mixtral 8X7B Dpo",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nvidia/Llama-3.1-Nemotron-70B-Instruct-HF",
-          "name": "nvidia/Llama-3.1-Nemotron-70B-Instruct-HF",
-          "object": "model",
-          "running": false,
-          "display_name": "Llama 3.1 Nemotron 70B Instruct HF",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
-          "name": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
-          "object": "model",
-          "running": false,
-          "display_name": "Nvidia Nemotron 3 Nano 30B A3b Bf16",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
-          "name": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
-          "object": "model",
-          "running": false,
-          "display_name": "Nvidia Nemotron 3 Super 120B A12b Fp8",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
-          "name": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
-          "object": "model",
-          "running": false,
-          "display_name": "Nvidia Nemotron Nano 9B V2",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -6166,186 +4866,6 @@
           }
         },
         {
-          "id": "Qwen/Qwen2-1.5B",
-          "name": "Qwen/Qwen2-1.5B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen 2 (1.5B)",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2-1.5B-Instruct",
-          "name": "Qwen/Qwen2-1.5B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen 2 Instruct (1.5B)",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2-72B",
-          "name": "Qwen/Qwen2-72B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen 2 (72B)",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2-72B-Instruct",
-          "name": "Qwen/Qwen2-72B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2 72B Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2-7B",
-          "name": "Qwen/Qwen2-7B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen 2 (7B)",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2-VL-72B-Instruct",
-          "name": "Qwen/Qwen2-VL-72B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2-VL (72B) Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2.5-1.5B",
-          "name": "Qwen/Qwen2.5-1.5B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2.5 1.5B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2.5-1.5B-Instruct",
-          "name": "Qwen/Qwen2.5-1.5B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2.5 1.5B Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2.5-14B",
-          "name": "Qwen/Qwen2.5-14B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2.5 14B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "Qwen/Qwen2.5-14B-Instruct",
           "name": "Qwen/Qwen2.5-14B-Instruct",
           "object": "model",
@@ -6368,106 +4888,6 @@
             "hourly": 0,
             "input": 0.8,
             "output": 0.8,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2.5-32B",
-          "name": "Qwen/Qwen2.5-32B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2.5 32B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2.5-32B-Instruct",
-          "name": "Qwen/Qwen2.5-32B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2.5 32B Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2.5-3B",
-          "name": "Qwen/Qwen2.5-3B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2.5 3B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2.5-3B-Instruct",
-          "name": "Qwen/Qwen2.5-3B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2.5 3B Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2.5-72B",
-          "name": "Qwen/Qwen2.5-72B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2.5 72B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -6500,66 +4920,6 @@
           }
         },
         {
-          "id": "Qwen/Qwen2.5-72B-Instruct-Turbo",
-          "name": "Qwen/Qwen2.5-72B-Instruct-Turbo",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2.5 72B Instruct Turbo",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2.5-7B",
-          "name": "Qwen/Qwen2.5-7B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2.5 7B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2.5-7B-Instruct",
-          "name": "Qwen/Qwen2.5-7B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2.5 7B Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "Qwen/Qwen2.5-7B-Instruct-Turbo",
           "name": "Qwen/Qwen2.5-7B-Instruct-Turbo",
           "object": "model",
@@ -6582,186 +4942,6 @@
             "hourly": 0,
             "input": 0.3,
             "output": 0.3,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2.5-Coder-32B-Instruct",
-          "name": "Qwen/Qwen2.5-Coder-32B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen 2.5 Coder 32B Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen2.5-VL-72B-Instruct",
-          "name": "Qwen/Qwen2.5-VL-72B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen2.5-VL (72B) Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-0.6B",
-          "name": "Qwen/Qwen3-0.6B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 0.6B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-0.6B-Base",
-          "name": "Qwen/Qwen3-0.6B-Base",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 0.6B Base",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-1.7B",
-          "name": "Qwen/Qwen3-1.7B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 1.7B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-1.7B-Base",
-          "name": "Qwen/Qwen3-1.7B-Base",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 1.7B Base",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-14B",
-          "name": "Qwen/Qwen3-14B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 14B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-14B-Base",
-          "name": "Qwen/Qwen3-14B-Base",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 14B Base",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-235B-A22B-fp8",
-          "name": "Qwen/Qwen3-235B-A22B-fp8",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 235B A22B FP8",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -6816,206 +4996,6 @@
             "hourly": 0,
             "input": 0.65,
             "output": 3,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-30B-A3B",
-          "name": "Qwen/Qwen3-30B-A3B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 30B A3b",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-30B-A3B-Base",
-          "name": "Qwen/Qwen3-30B-A3B-Base",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 30B A3b Base",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
-          "name": "Qwen/Qwen3-30B-A3B-Instruct-2507",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 30B A3b Instruct 2507",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-32B",
-          "name": "Qwen/Qwen3-32B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 32B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-32B-FP8",
-          "name": "Qwen/Qwen3-32B-FP8",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 32B Fp8",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-4B",
-          "name": "Qwen/Qwen3-4B",
-          "object": "model",
-          "running": false,
-          "display_name": "",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-4B-Base",
-          "name": "Qwen/Qwen3-4B-Base",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 4B Base",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-8B",
-          "name": "Qwen/Qwen3-8B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 8B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-8B-Base",
-          "name": "Qwen/Qwen3-8B-Base",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 8B Base",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
-          "name": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 Coder 30B A3b Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -7100,126 +5080,6 @@
           }
         },
         {
-          "id": "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8",
-          "name": "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 Next 80B A3b Instruct Fp8",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-Next-80B-A3B-Thinking",
-          "name": "Qwen/Qwen3-Next-80B-A3B-Thinking",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 Next 80B A3b Thinking",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-VL-235B-A22B-Instruct",
-          "name": "Qwen/Qwen3-VL-235B-A22B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 Vl 235B A22b Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-VL-235B-A22B-Instruct-FP8",
-          "name": "Qwen/Qwen3-VL-235B-A22B-Instruct-FP8",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3-VL-235B-A22B-Instruct-FP8",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-VL-235B-A22B-Thinking-FP8",
-          "name": "Qwen/Qwen3-VL-235B-A22B-Thinking-FP8",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3 Vl 235B A22b Thinking Fp8",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-VL-32B-Instruct",
-          "name": "Qwen/Qwen3-VL-32B-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3-VL-32B-Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "Qwen/Qwen3-VL-8B-Instruct",
           "name": "Qwen/Qwen3-VL-8B-Instruct",
           "object": "model",
@@ -7242,26 +5102,6 @@
             "hourly": 0,
             "input": 0.18000000000000002,
             "output": 0.68,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3.5-35B-A3B",
-          "name": "Qwen/Qwen3.5-35B-A3B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3.5 35B A3b",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -7294,46 +5134,6 @@
           }
         },
         {
-          "id": "Qwen/Qwen3.5-397B-A17B-FP4",
-          "name": "Qwen/Qwen3.5-397B-A17B-FP4",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3.5-397B-A17B FP4",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3.5-397B-A17B-FP8",
-          "name": "Qwen/Qwen3.5-397B-A17B-FP8",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3.5 397B A17b Fp8",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "Qwen/Qwen3.5-9B",
           "name": "Qwen/Qwen3.5-9B",
           "object": "model",
@@ -7353,166 +5153,6 @@
             "hourly": 0,
             "input": 0.1,
             "output": 0.15,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3.5-9B-FP8",
-          "name": "Qwen/Qwen3.5-9B-FP8",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen3.5 9B Fp8",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/QwQ-32B",
-          "name": "Qwen/QwQ-32B",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen QwQ-32B",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Qwen/QwQ-32B-Preview",
-          "name": "Qwen/QwQ-32B-Preview",
-          "object": "model",
-          "running": false,
-          "display_name": "Qwen QwQ-32B-Preview",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "rica40325/10_14dpo",
-          "name": "rica40325/10_14dpo",
-          "object": "model",
-          "running": false,
-          "display_name": "10_14Dpo",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "rime-labs/rime-arcana-v2",
-          "name": "rime-labs/rime-arcana-v2",
-          "object": "model",
-          "running": false,
-          "display_name": "Rime Labs Arcana v2",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "rime-labs/rime-arcana-v3",
-          "name": "rime-labs/rime-arcana-v3",
-          "object": "model",
-          "running": false,
-          "display_name": "Rime Labs Arcana v3",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "rime-labs/rime-arcana-v3-turbo",
-          "name": "rime-labs/rime-arcana-v3-turbo",
-          "object": "model",
-          "running": false,
-          "display_name": "Rime Labs Arcana v3 Turbo",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "rime-labs/rime-mist-v2",
-          "name": "rime-labs/rime-mist-v2",
-          "object": "model",
-          "running": false,
-          "display_name": "Rime Labs Mist v2",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -7547,106 +5187,6 @@
           "running": false,
           "display_name": "Juggernaut Pro Flux by RunDiffusion 1.0.0",
           "organization": "RunDiffusion",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Salesforce/Llama-Rank-V1",
-          "name": "Salesforce/Llama-Rank-V1",
-          "object": "model",
-          "running": false,
-          "display_name": "Salesforce Llama Rank V1 (8B)",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "salesforce/sarvam-m",
-          "name": "salesforce/sarvam-m",
-          "object": "model",
-          "running": false,
-          "display_name": "Sarvam M",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "salesforce/texteval-v3-7b-qwen-b",
-          "name": "salesforce/texteval-v3-7b-qwen-b",
-          "object": "model",
-          "running": false,
-          "display_name": "Salesforce Textevalv3 7B Qwen",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "sarvamai/sarvam-m",
-          "name": "sarvamai/sarvam-m",
-          "object": "model",
-          "running": false,
-          "display_name": "Sarvam M",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "sarvamai/sarvam-translate",
-          "name": "sarvamai/sarvam-translate",
-          "object": "model",
-          "running": false,
-          "display_name": "sarvamai/sarvam-translate",
           "config": {
             "chat_template": null,
             "stop": [],
@@ -7714,26 +5254,6 @@
           }
         },
         {
-          "id": "smarterdx/atlas-v3-spotlight",
-          "name": "smarterdx/atlas-v3-spotlight",
-          "object": "model",
-          "running": false,
-          "display_name": "Atlas V3 Spotlight",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "stabilityai/stable-diffusion-3-medium",
           "name": "stabilityai/stable-diffusion-3-medium",
           "object": "model",
@@ -7778,106 +5298,6 @@
           }
         },
         {
-          "id": "togethercomputer/DeepCoder-14B-Preview",
-          "name": "togethercomputer/DeepCoder-14B-Preview",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepcoder 14B Preview",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "togethercomputer/deepcogito-cogito-v2-preview-llama-109B-MoE",
-          "name": "togethercomputer/deepcogito-cogito-v2-preview-llama-109B-MoE",
-          "object": "model",
-          "running": false,
-          "display_name": "Deepcogito Cogito V2 Preview Llama 109B Moe",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "togethercomputer/EssentialAI-RNJ-1-Instruct",
-          "name": "togethercomputer/EssentialAI-RNJ-1-Instruct",
-          "object": "model",
-          "running": false,
-          "display_name": "EssentialAI Rnj-1 Instruct",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "togethercomputer/Larp-Qwen14b-250805",
-          "name": "togethercomputer/Larp-Qwen14b-250805",
-          "object": "model",
-          "running": false,
-          "display_name": "Larp Qwen14b 250805",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "togethercomputer/meta-llama-3.1-8B-Instruct-AWQ-INT4",
-          "name": "togethercomputer/meta-llama-3.1-8B-Instruct-AWQ-INT4",
-          "object": "model",
-          "running": false,
-          "display_name": "Meta Llama 3.1 8B Instruct Awq Int4",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "togethercomputer/MoA-1-Turbo",
           "name": "togethercomputer/MoA-1-Turbo",
           "object": "model",
@@ -7888,46 +5308,6 @@
           "link": "https://github.com/togethercomputer/MoA",
           "license": null,
           "context_length": 32768,
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "togethercomputer/nltpt-guard-w8a16",
-          "name": "togethercomputer/nltpt-guard-w8a16",
-          "object": "model",
-          "running": false,
-          "display_name": "Nltpt Guard W8a16",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "upstage/SOLAR-10.7B-Instruct-v1.0",
-          "name": "upstage/SOLAR-10.7B-Instruct-v1.0",
-          "object": "model",
-          "running": false,
-          "display_name": "Upstage SOLAR Instruct v1 (11B)",
           "config": {
             "chat_template": null,
             "stop": [],
@@ -8108,26 +5488,6 @@
           }
         },
         {
-          "id": "zai-org/GLM-4.5V",
-          "name": "zai-org/GLM-4.5V",
-          "object": "model",
-          "running": false,
-          "display_name": "GLM 4.5V",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "zai-org/GLM-4.6",
           "name": "zai-org/GLM-4.6",
           "object": "model",
@@ -8199,46 +5559,6 @@
             "hourly": 0,
             "input": 1,
             "output": 3.2,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "zai-org/GLM-5-FP4",
-          "name": "zai-org/GLM-5-FP4",
-          "object": "model",
-          "running": false,
-          "display_name": "GLM 5 Fp4",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "zai-org/GLM-OCR",
-          "name": "zai-org/GLM-OCR",
-          "object": "model",
-          "running": false,
-          "display_name": "GLM OCR",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
             "base": 0,
             "finetune": 0
           }
@@ -10403,8 +7723,8 @@
           "object": "model",
           "metadata": {
             "description": "Over the past few months, we have observed increasingly clear trends toward scaling both total parameters and context lengths in the pursuit of more powerful and agentic artificial intelligence (AI). We are excited to share our latest advancements in addressing these demands, centered on improving scaling efficiency through innovative model architecture. We call this next-generation foundation models Qwen3-Next.",
-            "context_length": 131072,
-            "max_tokens": 131072,
+            "context_length": 262144,
+            "max_tokens": 262144,
             "pricing": {
               "input_tokens": 0.09,
               "output_tokens": 1.1
@@ -20093,7 +17413,7 @@
           "default_parameters": {
             "temperature": 0.3
           },
-          "expiration_date": null
+          "expiration_date": "2026-03-29"
         },
         {
           "id": "mistralai/mistral-small-3.2-24b-instruct",
@@ -26085,7 +23405,7 @@
             "top_p"
           ],
           "default_parameters": {},
-          "expiration_date": null
+          "expiration_date": "2026-03-29"
         },
         {
           "id": "qwen/qwen3-8b",
@@ -26525,7 +23845,7 @@
           "canonical_slug": "qwen/qwen3-next-80b-a3b-instruct-2509",
           "hugging_face_id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
           "description": "Qwen3-Next-80B-A3B-Instruct is an instruction-tuned chat model in the Qwen3-Next series optimized for fast, stable responses without “thinking” traces. It targets complex tasks across reasoning, code generation, knowledge QA, and multilingual use, while remaining robust on alignment and formatting. Compared with prior Qwen3 instruct variants, it focuses on higher throughput and stability on ultra-long inputs and multi-turn dialogues, making it well-suited for RAG, tool use, and agentic workflows that require consistent final answers rather than visible chain-of-thought.\n\nThe model employs scaling-efficient training and decoding to improve parameter efficiency and inference speed, and has been validated on a broad set of public benchmarks where it reaches or approaches larger Qwen3 systems in several categories while outperforming earlier mid-sized baselines. It is best used as a general assistant, code helper, and long-context task solver in production settings where deterministic, instruction-following outputs are preferred.",
-          "context_length": 131072,
+          "context_length": 262144,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -26542,7 +23862,7 @@
             "completion": "0.0000011"
           },
           "top_provider": {
-            "context_length": 131072,
+            "context_length": 262144,
             "max_completion_tokens": null,
             "is_moderated": false
           },
