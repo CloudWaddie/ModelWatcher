@@ -187,7 +187,7 @@ async function fetchCompanyFilings(companySlug, maxRetries = 3) {
   let usedProxy = false;
   let proxyFailed = false;
   
-  for (let attempt = 1; attempt <= maxRetries || (proxyConfig && !proxyFailed && usedProxy); attempt++) {
+  for (let attempt = 1; attempt <= maxRetries || (proxyFailed && attempt === maxRetries + 1); attempt++) {
     let browser;
     try {
       const useVirtualDisplay = isXvfbAvailable();
@@ -303,7 +303,7 @@ async function fetchCompanyFilings(companySlug, maxRetries = 3) {
       console.error(`Attempt ${attempt}/${maxRetries} failed for ${companySlug}:`, error.message);
       
       // Mark proxy as failed if we were using it and got a connection/timeout error
-      if (useProxy && (error.message.includes('timeout') || error.message.includes('connect') || error.message.includes('proxy') || error.message.includes('403') || error.message.includes('blocked'))) {
+      if (useProxy && ['timeout', 'connect', 'proxy', '403', 'blocked'].some(keyword => error.message.includes(keyword))) {
         console.log('Proxy failed, will retry without proxy');
         proxyFailed = true;
       }
