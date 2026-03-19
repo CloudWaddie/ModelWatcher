@@ -26,8 +26,10 @@ function getProxyConfig() {
   // Parse proxy URL (supports: http://user:pass@host:port or socks5://user:pass@host:port)
   try {
     const url = new URL(proxyUrl);
+    // Convert socks5 to http for better browser compatibility
+    const protocol = url.protocol === 'socks5:' ? 'http:' : url.protocol;
     return {
-      server: `${url.protocol}//${url.host}`,
+      server: `${protocol}//${url.host}`,
       username: url.username,
       password: url.password
     };
@@ -197,6 +199,8 @@ async function fetchCompanyFilings(companySlug, maxRetries = 3) {
 
       const camoufoxOptions = {
         headless: useVirtualDisplay ? 'virtual' : true,
+        // geoip is heavily recommended when using proxies for proper geolocation routing
+        geoip: proxyConfig ? true : false,
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
