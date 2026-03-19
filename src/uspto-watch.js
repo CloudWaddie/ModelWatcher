@@ -236,37 +236,49 @@ async function fetchCompanyFilings(companySlug, maxRetries = 3) {
 
       const filings = await page.evaluate(() => {
         const results = [];
-        const rows = Array.from(document.querySelectorAll('table tr'));
+        // Use table.table for specificity - site has multiple tables
+        const rows = document.querySelectorAll('table.table tbody tr');
 
         for (const row of rows) {
-          const link = row.querySelector('a[href^="/TM/"]');
+          const cells = row.querySelectorAll('td');
+          if (cells.length < 2) continue; // Skip header/invalid rows
+
+          // Get link from FIRST cell
+          const firstCell = cells[0];
+          const link = firstCell.querySelector('a[href*="/TM/"]');
           if (!link) continue;
 
-          const url = link.href;
-          const serialMatch = url.match(/\/TM\/(\d+)/);
+          const href = link.getAttribute('href');
+          const serialMatch = href.match(/\/TM\/(\d+)/);
           const serial = serialMatch ? serialMatch[1] : null;
           if (!serial) continue;
 
-          const markElement = link.querySelector('div');
-          let mark = markElement ? markElement.textContent.trim() : null;
+          // Get mark and date from SECOND cell (contains both)
+          const secondCell = cells[1];
+          const markDiv = secondCell.querySelector('div[style*="float: left"]');
+          let mark = markDiv ? markDiv.textContent.trim() : null;
+
+          // Fallback: use img alt from first cell
           if (!mark) {
-            const img = link.querySelector('img');
-            if (img) mark = img.alt || 'Symbol/Image';
+            const img = firstCell.querySelector('img');
+            if (img) mark = img.alt?.replace(/^"|"$/g, '').trim() || 'Symbol/Image';
           }
 
-          const dateElement = row.querySelector('div[style*="float: right"]');
-          const dateMatch = dateElement ? dateElement.textContent.match(/(\d{4}-\d{2}-\d{2})/) : null;
+          // Get date from second cell's float: right div
+          const dateDiv = secondCell.querySelector('div[style*="float: right"]');
+          const dateMatch = dateDiv ? dateDiv.textContent.match(/(\d{4}-\d{2}-\d{2})/) : null;
           const date = dateMatch ? dateMatch[1] : null;
 
-          const img = link.querySelector('img');
-          const imageUrl = img && img.src ? img.src : null;
+          // Get image URL from first cell
+          const img = firstCell.querySelector('img');
+          const imageUrl = img && img.src ? 'https://uspto.report' + img.getAttribute('src') : null;
 
           if (serial && mark && date) {
             results.push({
               serial,
               mark,
               date,
-              url,
+              url: 'https://uspto.report' + href,
               imageUrl: imageUrl || `https://uspto.report/TM/${serial}/mark.png`
             });
           }
