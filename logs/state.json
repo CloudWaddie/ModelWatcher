@@ -7835,6 +7835,26 @@
           }
         },
         {
+          "id": "Qwen/Qwen3.5-27B",
+          "name": "Qwen/Qwen3.5-27B",
+          "object": "model",
+          "running": false,
+          "display_name": "Qwen3.5 27B",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0
+          }
+        },
+        {
           "id": "Qwen/Qwen3.5-35B-A3B",
           "name": "Qwen/Qwen3.5-35B-A3B",
           "object": "model",
@@ -16196,12 +16216,12 @@
           },
           "pricing": {
             "prompt": "0.00000021",
-            "completion": "0.00000079",
-            "input_cache_read": "0.0000001300000002"
+            "completion": "0.00000078",
+            "input_cache_read": "0.000000105"
           },
           "top_provider": {
             "context_length": 163840,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -29880,13 +29900,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000004",
+            "prompt": "0.00000039",
             "completion": "0.00000175",
-            "input_cache_read": "0.00000008"
+            "input_cache_read": "0.000000195"
           },
           "top_provider": {
             "context_length": 202752,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 65535,
             "is_moderated": false
           },
           "per_request_limits": null,
