@@ -9,6 +9,30 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 
 /**
+ * Get Webshare.io proxy configuration from environment
+ * Format: username:password@hostname:port or full proxy URL
+ */
+function getProxyConfig() {
+  const proxyUrl = process.env.WEBSHARE_PROXY_URL;
+  if (!proxyUrl) {
+    return null;
+  }
+  
+  // Parse proxy URL (supports: http://user:pass@host:port or socks5://user:pass@host:port)
+  try {
+    const url = new URL(proxyUrl);
+    return {
+      server: `${url.protocol}//${url.host}`,
+      username: url.username,
+      password: url.password
+    };
+  } catch (e) {
+    console.error('Invalid proxy URL format:', proxyUrl);
+    return null;
+  }
+}
+
+/**
  * Check if Xvfb is available (for virtual display)
  */
 function isXvfbAvailable() {
@@ -161,7 +185,12 @@ async function fetchCompanyFilings(companySlug, maxRetries = 3) {
         console.log('Using virtual display (Xvfb) for headless browser');
       }
 
-      browser = await Camoufox({
+      const proxyConfig = getProxyConfig();
+      if (proxyConfig) {
+        console.log(`Using Webshare.io proxy: ${proxyConfig.server}`);
+      }
+
+      const camoufoxOptions = {
         headless: useVirtualDisplay ? 'virtual' : true,
         args: [
           '--no-sandbox',
@@ -169,7 +198,17 @@ async function fetchCompanyFilings(companySlug, maxRetries = 3) {
           '--disable-dev-shm-usage',
           '--disable-gpu'
         ]
-      });
+      };
+
+      if (proxyConfig) {
+        camoufoxOptions.proxy = {
+          server: proxyConfig.server,
+          username: proxyConfig.username,
+          password: proxyConfig.password
+        };
+      }
+
+      browser = await Camoufox(camoufoxOptions);
 
       const page = await browser.newPage();
       

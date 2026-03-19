@@ -38,7 +38,17 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install firefox
         
+      - name: Cache Camoufox browser
+        id: cache-camoufox
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/camoufox
+          key: camoufox-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            camoufox-${{ runner.os }}-
+
       - name: Fetch Camoufox browser
+        if: steps.cache-camoufox.outputs.cache-hit != 'true'
         run: npx camoufox-js fetch
         
       - name: Ensure logs folder exists
@@ -47,6 +57,7 @@ jobs:
       - name: Run USPTO scan
         env:
           USPTO_WEBHOOK: ${{ secrets.USPTO_WEBHOOK }}
+          WEBSHARE_PROXY_URL: ${{ secrets.WEBSHARE_PROXY_URL }}
         run: npm run uspto
         
       - name: Commit results to master
