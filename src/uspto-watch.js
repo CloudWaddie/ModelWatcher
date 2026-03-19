@@ -177,13 +177,17 @@ function saveState(statePath, state) {
 
 /**
  * Fetch trademark filings using Camoufox browser with virtual display and CAPTCHA handling
+ * Falls back to non-proxy mode if proxy fails (e.g., Cloudflare blocks or quota exceeded)
  */
 async function fetchCompanyFilings(companySlug, maxRetries = 3) {
   console.log(`Fetching USPTO data for ${companySlug}...`);
 
   let lastError;
+  const proxyConfig = getProxyConfig();
+  let usedProxy = false;
+  let proxyFailed = false;
   
-  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+  for (let attempt = 1; attempt <= maxRetries || (proxyFailed && attempt === maxRetries + 1); attempt++) {
     let browser;
     try {
       const useVirtualDisplay = isXvfbAvailable();
@@ -192,15 +196,18 @@ async function fetchCompanyFilings(companySlug, maxRetries = 3) {
         console.log('Using virtual display (Xvfb) for headless browser');
       }
 
-      const proxyConfig = getProxyConfig();
-      if (proxyConfig) {
+      const useProxy = proxyConfig && !proxyFailed;
+      if (useProxy) {
         console.log(`Using Webshare.io proxy: ${proxyConfig.server}`);
+        usedProxy = true;
+      } else if (proxyFailed) {
+        console.log('Retrying without proxy (proxy previously failed)');
       }
 
       const camoufoxOptions = {
         headless: useVirtualDisplay ? 'virtual' : true,
         // geoip is heavily recommended when using proxies for proper geolocation routing
-        geoip: proxyConfig ? true : false,
+        geoip: useProxy ? true : false,
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
@@ -209,7 +216,7 @@ async function fetchCompanyFilings(companySlug, maxRetries = 3) {
         ]
       };
 
-      if (proxyConfig) {
+      if (useProxy) {
         camoufoxOptions.proxy = proxyConfig;
       }
 
@@ -294,6 +301,13 @@ async function fetchCompanyFilings(companySlug, maxRetries = 3) {
     
     } catch (error) {
       console.error(`Attempt ${attempt}/${maxRetries} failed for ${companySlug}:`, error.message);
+      
+      // Mark proxy as failed if we were using it and got a connection/timeout error
+      if (useProxy && ['timeout', 'connect', 'proxy', '403', 'blocked'].some(keyword => error.message.includes(keyword))) {
+        console.log('Proxy failed, will retry without proxy');
+        proxyFailed = true;
+      }
+      
       lastError = error;
       
       if (attempt < maxRetries) {
