@@ -75,7 +75,7 @@ async function waitForCloudflareChallenge(page, timeout = 30000) {
       if (bodyText.includes('Just a moment')) {
         return { success: false, reason: 'cloudflare_stuck' };
       }
-    } catch {}
+    } catch (evalError) { console.log(`Could not evaluate page content after challenge timeout: ${evalError.message}`); }
     return { success: false, reason: 'timeout' };
   }
 }
@@ -241,12 +241,12 @@ async function fetchCompanyFilings(companySlug, maxRetries = 2) {
         console.log(`Cloudflare challenge did not clear: ${challengeResult.reason || 'unknown'}`);
         if (!needsProxyRetry && proxyAvailable) {
           needsProxyRetry = true;
-          throw new Error('cloudflare_stuck');
+          throw new Error(ERROR_REASONS.CLOUDFLARE_STUCK);
         } else if (needsProxyRetry && !proxyRetryFailed) {
           proxyRetryFailed = true;
-          throw new Error('proxy_failed');
+          throw new Error(ERROR_REASONS.PROXY_FAILED);
         }
-        throw new Error('unrecoverable');
+        throw new Error(ERROR_REASONS.UNRECOVERABLE);
       }
       
       await handleCaptcha(page);
