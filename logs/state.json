@@ -13655,55 +13655,6 @@
           "expiration_date": null
         },
         {
-          "id": "allenai/molmo-2-8b",
-          "name": "AllenAI: Molmo2 8B",
-          "canonical_slug": "allenai/molmo-2-8b-20260109",
-          "hugging_face_id": "allenai/Molmo2-8B",
-          "description": "Molmo2-8B is an open vision-language model developed by the Allen Institute for AI (Ai2) as part of the Molmo2 family, supporting image, video, and multi-image understanding and grounding. It is based on Qwen3-8B and uses SigLIP 2 as its vision backbone, outperforming other open-weight, open-data models on short videos, counting, and captioning, while remaining competitive on long-video tasks.",
-          "context_length": 36864,
-          "architecture": {
-            "modality": "text+image+video->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "video"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000002"
-          },
-          "top_provider": {
-            "context_length": 36864,
-            "max_completion_tokens": 36864,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "presence_penalty",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "expiration_date": "2026-03-23"
-        },
-        {
           "id": "allenai/olmo-2-0325-32b-instruct",
           "name": "AllenAI: Olmo 2 32B Instruct",
           "canonical_slug": "allenai/olmo-2-0325-32b-instruct",
@@ -13785,106 +13736,6 @@
             "frequency_penalty": null
           },
           "expiration_date": null
-        },
-        {
-          "id": "allenai/olmo-3-7b-instruct",
-          "name": "AllenAI: Olmo 3 7B Instruct",
-          "canonical_slug": "allenai/olmo-3-7b-instruct-20251121",
-          "hugging_face_id": "allenai/Olmo-3-7B-Instruct",
-          "description": "Olmo 3 7B Instruct is a supervised instruction-fine-tuned variant of the Olmo 3 7B base model, optimized for instruction-following, question-answering, and natural conversational dialogue. By leveraging high-quality instruction data and an open training pipeline, it delivers strong performance across everyday NLP tasks while remaining accessible and easy to integrate. Developed by Ai2 under the Apache 2.0 license, the model offers a transparent, community-friendly option for instruction-driven applications.",
-          "context_length": 65536,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.0000002"
-          },
-          "top_provider": {
-            "context_length": 65536,
-            "max_completion_tokens": 65536,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.6,
-            "top_p": 0.95,
-            "frequency_penalty": null
-          },
-          "expiration_date": "2026-03-23"
-        },
-        {
-          "id": "allenai/olmo-3-7b-think",
-          "name": "AllenAI: Olmo 3 7B Think",
-          "canonical_slug": "allenai/olmo-3-7b-think-20251121",
-          "hugging_face_id": "allenai/Olmo-3-7B-Think",
-          "description": "Olmo 3 7B Think is a research-oriented language model in the Olmo family designed for advanced reasoning and instruction-driven tasks. It excels at multi-step problem solving, logical inference, and maintaining coherent conversational context. Developed by Ai2 under the Apache 2.0 license, Olmo 3 7B Think supports transparent, fully open experimentation and provides a lightweight yet capable foundation for academic research and practical NLP workflows.",
-          "context_length": 65536,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000012",
-            "completion": "0.0000002"
-          },
-          "top_provider": {
-            "context_length": 65536,
-            "max_completion_tokens": 65536,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logit_bias",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.6,
-            "top_p": 0.95,
-            "frequency_penalty": null
-          },
-          "expiration_date": "2026-03-23"
         },
         {
           "id": "allenai/olmo-3.1-32b-instruct",
@@ -13986,7 +13837,7 @@
             "top_p": 0.95,
             "frequency_penalty": null
           },
-          "expiration_date": null
+          "expiration_date": "2026-04-06"
         },
         {
           "id": "alpindale/goliath-120b",
