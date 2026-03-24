@@ -16142,9 +16142,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
             "max_tokens",
-            "min_p",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
@@ -18773,50 +18771,6 @@
           "expiration_date": null
         },
         {
-          "id": "meta-llama/llama-3.1-405b",
-          "name": "Meta: Llama 3.1 405B (base)",
-          "canonical_slug": "meta-llama/llama-3.1-405b",
-          "hugging_face_id": "meta-llama/llama-3.1-405B",
-          "description": "Meta's latest class of model (Llama 3.1) launched with a variety of sizes & flavors. This is the base 405B pre-trained version.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Llama3",
-            "instruct_type": "none"
-          },
-          "pricing": {
-            "prompt": "0.000004",
-            "completion": "0.000004"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": 32768,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "expiration_date": null
-        },
-        {
           "id": "meta-llama/llama-3.1-70b-instruct",
           "name": "Meta: Llama 3.1 70B Instruct",
           "canonical_slug": "meta-llama/llama-3.1-70b-instruct",
@@ -21009,53 +20963,6 @@
             "temperature",
             "tool_choice",
             "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.3
-          },
-          "expiration_date": null
-        },
-        {
-          "id": "mistralai/pixtral-12b",
-          "name": "Mistral: Pixtral 12B",
-          "canonical_slug": "mistralai/pixtral-12b",
-          "hugging_face_id": "mistralai/Pixtral-12B-2409",
-          "description": "The first multi-modal, text+image-to-text model from Mistral AI. Its weights were launched via torrent: https://x.com/mistralai/status/1833758285167722836.",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000010000000000000001",
-            "completion": "0.00000010000000000000001"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "temperature",
             "top_k",
             "top_p"
           ],
@@ -25924,51 +25831,6 @@
           "expiration_date": null
         },
         {
-          "id": "qwen/qwen-2.5-vl-7b-instruct",
-          "name": "Qwen: Qwen2.5-VL 7B Instruct",
-          "canonical_slug": "qwen/qwen-2-vl-7b-instruct",
-          "hugging_face_id": "Qwen/Qwen2.5-VL-7B-Instruct",
-          "description": "Qwen2.5 VL 7B is a multimodal LLM from the Qwen Team with the following key enhancements:\n\n- SoTA understanding of images of various resolution & ratio: Qwen2.5-VL achieves state-of-the-art performance on visual understanding benchmarks, including MathVista, DocVQA, RealWorldQA, MTVQA, etc.\n\n- Understanding videos of 20min+: Qwen2.5-VL can understand videos over 20 minutes for high-quality video-based question answering, dialog, content creation, etc.\n\n- Agent that can operate your mobiles, robots, etc.: with the abilities of complex reasoning and decision making, Qwen2.5-VL can be integrated with devices like mobile phones, robots, etc., for automatic operation based on visual environment and text instructions.\n\n- Multilingual Support: to serve global users, besides English and Chinese, Qwen2.5-VL now supports the understanding of texts in different languages inside images, including most European languages, Japanese, Korean, Arabic, Vietnamese, etc.\n\nFor more details, see this [blog post](https://qwenlm.github.io/blog/qwen2-vl/) and [GitHub repo](https://github.com/QwenLM/Qwen2-VL).\n\nUsage of this model is subject to [Tongyi Qianwen LICENSE AGREEMENT](https://huggingface.co/Qwen/Qwen1.5-110B-Chat/blob/main/LICENSE).",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Qwen",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000020000000000000002",
-            "completion": "0.00000020000000000000002"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "expiration_date": null
-        },
-        {
           "id": "qwen/qwen-max",
           "name": "Qwen: Qwen-Max ",
           "canonical_slug": "qwen/qwen-max-2025-01-25",
@@ -27416,9 +27278,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
             "max_tokens",
-            "min_p",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
