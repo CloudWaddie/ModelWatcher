@@ -11062,6 +11062,27 @@
           }
         },
         {
+          "id": "Qwen/Qwen3.5-0.8B",
+          "name": "Qwen/Qwen3.5-0.8B",
+          "owned_by": "deepinfra",
+          "root": "Qwen/Qwen3.5-0.8B",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Qwen3.5-0.8B is Alibaba's smallest model in the Qwen3.5 series, featuring a hybrid Gated Delta Networks and sparse Mixture-of-Experts architecture. Despite its compact size, it supports a 262K token context window, 201 languages, thinking/reasoning mode, and tool calling. Ideal for edge deployments, resource-constrained environments, and lightweight inference tasks.",
+            "context_length": 262144,
+            "max_tokens": 262144,
+            "pricing": {
+              "input_tokens": 0.01,
+              "output_tokens": 0.05
+            },
+            "tags": [
+              "vision",
+              "reasoning_effort"
+            ]
+          }
+        },
+        {
           "id": "Qwen/Qwen3.5-122B-A10B",
           "name": "Qwen/Qwen3.5-122B-A10B",
           "owned_by": "deepinfra",
@@ -11069,7 +11090,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "",
+            "description": "Qwen3.5-122B-A10B is a large Mixture-of-Experts model from Alibaba's Qwen3.5 series with 122B total parameters and 10B activated per token. It features a 262K token context window (extensible to 1M with YaRN), thinking/reasoning mode, tool calling, and support for 201 languages. Excels at complex reasoning, coding, multimodal understanding, and agentic tasks with the efficiency of sparse activation.",
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
@@ -11077,6 +11098,133 @@
               "output_tokens": 2.9000000000000004
             },
             "tags": [
+              "vision",
+              "reasoning_effort"
+            ]
+          }
+        },
+        {
+          "id": "Qwen/Qwen3.5-27B",
+          "name": "Qwen/Qwen3.5-27B",
+          "owned_by": "deepinfra",
+          "root": "Qwen/Qwen3.5-27B",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Qwen3.5-27B is Alibaba's largest dense Qwen3.5 model, delivering near-frontier quality across reasoning, coding, and instruction following. It features a 262K token context window (extensible to 1M), thinking/reasoning mode, tool calling, multi-token prediction, and support for 201 languages. Best suited for production deployments and complex enterprise tasks requiring top-tier performance.",
+            "context_length": 262144,
+            "max_tokens": 262144,
+            "pricing": {
+              "input_tokens": 0.26,
+              "output_tokens": 2.5999999999999996
+            },
+            "tags": [
+              "vision",
+              "reasoning_effort"
+            ]
+          }
+        },
+        {
+          "id": "Qwen/Qwen3.5-2B",
+          "name": "Qwen/Qwen3.5-2B",
+          "owned_by": "deepinfra",
+          "root": "Qwen/Qwen3.5-2B",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Qwen3.5-2B is a compact yet capable model from Alibaba's Qwen3.5 series. It features a 262K token context window, support for 201 languages, thinking/reasoning mode, and tool calling for agentic workflows. A strong choice for prototyping, fine-tuning, and efficient multilingual deployments.",
+            "context_length": 262144,
+            "max_tokens": 262144,
+            "pricing": {
+              "input_tokens": 0.02,
+              "output_tokens": 0.1
+            },
+            "tags": [
+              "vision",
+              "reasoning_effort"
+            ]
+          }
+        },
+        {
+          "id": "Qwen/Qwen3.5-35B-A3B",
+          "name": "Qwen/Qwen3.5-35B-A3B",
+          "owned_by": "deepinfra",
+          "root": "Qwen/Qwen3.5-35B-A3B",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Qwen3.5-35B-A3B is an efficient Mixture-of-Experts model from Alibaba's Qwen3.5 series with 35B total parameters and only 3B activated per token. It features a 262K token context window (extensible to 1M with YaRN), thinking/reasoning mode, tool calling, and support for 201 languages. Delivers strong performance on reasoning, coding, and vision-language tasks at a fraction of the compute cost.",
+            "context_length": 262144,
+            "max_tokens": 262144,
+            "pricing": {
+              "input_tokens": 0.21999999999999997,
+              "output_tokens": 2.2
+            },
+            "tags": [
+              "vision",
+              "reasoning_effort"
+            ]
+          }
+        },
+        {
+          "id": "Qwen/Qwen3.5-397B-A17B",
+          "name": "Qwen/Qwen3.5-397B-A17B",
+          "owned_by": "deepinfra",
+          "root": "Qwen/Qwen3.5-397B-A17B",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Qwen3.5-397B-A17B is Alibaba's most capable Qwen3.5 model, a Mixture-of-Experts architecture with 397B total parameters and 17B activated per token. It features a 262K token context window (extensible to 1M with YaRN), thinking/reasoning mode, tool calling with MCP integration, and support for 201 languages. Sets state-of-the-art results on reasoning, coding, math, and multimodal benchmarks.",
+            "context_length": 262144,
+            "max_tokens": 262144,
+            "pricing": {
+              "input_tokens": 0.54,
+              "output_tokens": 3.4
+            },
+            "tags": [
+              "vision",
+              "reasoning_effort"
+            ]
+          }
+        },
+        {
+          "id": "Qwen/Qwen3.5-4B",
+          "name": "Qwen/Qwen3.5-4B",
+          "owned_by": "deepinfra",
+          "root": "Qwen/Qwen3.5-4B",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Qwen3.5-4B is a mid-size model from Alibaba's Qwen3.5 series that delivers a strong balance of performance and efficiency. It features a 262K token context window (extensible to 1M with YaRN), thinking/reasoning mode, tool calling, and support for 201 languages. Well-suited for complex reasoning, code generation, and agentic applications.",
+            "context_length": 262144,
+            "max_tokens": 262144,
+            "pricing": {
+              "input_tokens": 0.030000000000000002,
+              "output_tokens": 0.15
+            },
+            "tags": [
+              "vision",
+              "reasoning_effort"
+            ]
+          }
+        },
+        {
+          "id": "Qwen/Qwen3.5-9B",
+          "name": "Qwen/Qwen3.5-9B",
+          "owned_by": "deepinfra",
+          "root": "Qwen/Qwen3.5-9B",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Qwen3.5-9B is a high-performance model from Alibaba's Qwen3.5 series with a hybrid Gated Delta Networks and sparse MoE architecture. It features a 262K token context window, thinking/reasoning mode, tool calling, multi-token prediction, and support for 201 languages. Excels at reasoning, coding, instruction following, and long-context tasks.",
+            "context_length": 262144,
+            "max_tokens": 262144,
+            "pricing": {
+              "input_tokens": 0.04,
+              "output_tokens": 0.2
+            },
+            "tags": [
+              "vision",
               "reasoning_effort"
             ]
           }
@@ -11215,6 +11363,27 @@
           "parent": null,
           "object": "model",
           "metadata": null
+        },
+        {
+          "id": "stepfun-ai/Step-3.5-Flash",
+          "name": "stepfun-ai/Step-3.5-Flash",
+          "owned_by": "deepinfra",
+          "root": "stepfun-ai/Step-3.5-Flash",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Step 3.5 Flash is an open-source reasoning model by StepFun with 196B total parameters (11B active) using Mixture of Experts. It features a 256K context window, deep reasoning, tool calling, and agentic capabilities, achieving 97.3 on AIME 2025 and 74.4% on SWE-bench Verified.",
+            "context_length": 262144,
+            "max_tokens": 262144,
+            "pricing": {
+              "input_tokens": 0.1,
+              "output_tokens": 0.3,
+              "cache_read_tokens": 0.020000000000000004
+            },
+            "tags": [
+              "prompt_cache"
+            ]
+          }
         },
         {
           "id": "thenlper/gte-base",
@@ -28618,7 +28787,7 @@
           "canonical_slug": "stepfun/step-3.5-flash",
           "hugging_face_id": "stepfun-ai/Step-3.5-Flash",
           "description": "Step 3.5 Flash is StepFun's most capable open-source foundation model. Built on a sparse Mixture of Experts (MoE) architecture, it selectively activates only 11B of its 196B parameters per token. It is a reasoning model that is incredibly speed efficient even at long contexts.",
-          "context_length": 256000,
+          "context_length": 262144,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -28636,8 +28805,8 @@
             "input_cache_read": "0.00000002"
           },
           "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": 256000,
+            "context_length": 262144,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -28645,10 +28814,16 @@
             "frequency_penalty",
             "include_reasoning",
             "max_tokens",
+            "min_p",
+            "presence_penalty",
             "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
             "stop",
             "temperature",
             "tools",
+            "top_k",
             "top_p"
           ],
           "default_parameters": {
