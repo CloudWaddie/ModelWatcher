@@ -76,21 +76,9 @@
           "object": "model"
         },
         {
-          "id": "gpt-4-0125-preview",
-          "name": "gpt-4-0125-preview",
-          "owned_by": "system",
-          "object": "model"
-        },
-        {
           "id": "gpt-4-0613",
           "name": "gpt-4-0613",
           "owned_by": "openai",
-          "object": "model"
-        },
-        {
-          "id": "gpt-4-1106-preview",
-          "name": "gpt-4-1106-preview",
-          "owned_by": "system",
           "object": "model"
         },
         {
@@ -102,12 +90,6 @@
         {
           "id": "gpt-4-turbo-2024-04-09",
           "name": "gpt-4-turbo-2024-04-09",
-          "owned_by": "system",
-          "object": "model"
-        },
-        {
-          "id": "gpt-4-turbo-preview",
-          "name": "gpt-4-turbo-preview",
           "owned_by": "system",
           "object": "model"
         },
@@ -7671,6 +7653,32 @@
             ],
             "bos_token": null,
             "eos_token": "<|endoftext|>"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0
+          }
+        },
+        {
+          "id": "Qwen/Qwen3-4B-Instruct-2507",
+          "name": "Qwen/Qwen3-4B-Instruct-2507",
+          "uuid": "model-039c8a49-bbdb-4074-9403-5c0ee5783fc8",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Qwen3 4B Instruct 2507",
+          "organization": "Qwen",
+          "link": "https://huggingface.co/api/models/Qwen/Qwen3-4B-Instruct-2507",
+          "license": "apache-2.0",
+          "context_length": 262144,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": "<|im_end|>"
           },
           "pricing": {
             "hourly": 0,
