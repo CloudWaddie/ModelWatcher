@@ -265,53 +265,51 @@ async function processUrl(page, url, patterns, timeout) {
   };
   
   try {
-    // Collect responses
     const responses = [];
+    const pendingHandlers = [];
     
-    page.on('response', async (response) => {
-      try {
-        const contentType = response.headers()['content-type'] || '';
-        const status = response.status();
-        
-        // Only process successful HTML responses
-        if (status < 200 || status >= 300) return;
-        if (!contentType.includes('text/html') && !contentType.includes('text/plain')) return;
-        
-        // Skip binary responses
-        if (isBinaryResponse(contentType)) return;
-        
-        // Get response body
-        let body;
+    const responseHandler = async (response) => {
+      const handlerPromise = (async () => {
         try {
-          body = await response.text();
+          const contentType = response.headers()['content-type'] || '';
+          const status = response.status();
+          
+          if (status < 200 || status >= 300) return;
+          if (!contentType.includes('text/html') && !contentType.includes('text/plain')) return;
+          if (isBinaryResponse(contentType)) return;
+          
+          let body;
+          try {
+            body = await response.text();
+          } catch (e) {
+            return;
+          }
+          
+          if (body.length > MAX_RESPONSE_SIZE) {
+            body = body.slice(0, MAX_RESPONSE_SIZE);
+          }
+          
+          if (looksLikeBinary(body)) return;
+          
+          responses.push(body);
         } catch (e) {
-          return;
         }
-        
-        // Skip large responses
-        if (body.length > MAX_RESPONSE_SIZE) {
-          body = body.slice(0, MAX_RESPONSE_SIZE);
-        }
-        
-        // Skip binary-looking content
-        if (looksLikeBinary(body)) return;
-        
-        responses.push(body);
-      } catch (e) {
-        // Ignore response processing errors
-      }
-    });
+      })();
+      pendingHandlers.push(handlerPromise);
+    };
     
-    // Navigate to URL
+    page.on('response', responseHandler);
+    
     await page.goto(url, {
       waitUntil: 'domcontentloaded',
       timeout
     });
     
-    // Wait a bit for dynamic content
     await page.waitForTimeout(2000);
     
-    // Get page content as fallback
+    page.removeListener('response', responseHandler);
+    await Promise.all(pendingHandlers);
+    
     const pageContent = await page.content();
     responses.push(pageContent);
     
