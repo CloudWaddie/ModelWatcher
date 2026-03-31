@@ -11788,62 +11788,6 @@
           "type": "base"
         },
         {
-          "id": "devstral-small-latest",
-          "name": "labs-devstral-small-2512",
-          "owned_by": "mistralai",
-          "object": "model",
-          "capabilities": {
-            "completion_chat": true,
-            "function_calling": true,
-            "reasoning": false,
-            "completion_fim": false,
-            "fine_tuning": false,
-            "vision": true,
-            "ocr": false,
-            "classification": false,
-            "moderation": false,
-            "audio": false,
-            "audio_transcription": false,
-            "audio_transcription_realtime": false,
-            "audio_speech": false
-          },
-          "description": "Official labs-devstral-small-2512 Mistral AI model",
-          "max_context_length": 262144,
-          "aliases": [],
-          "deprecation": "2026-03-31T12:00:00Z",
-          "deprecation_replacement_model": "devstral-latest",
-          "default_model_temperature": 0.2,
-          "type": "base"
-        },
-        {
-          "id": "labs-devstral-small-2512",
-          "name": "labs-devstral-small-2512",
-          "owned_by": "mistralai",
-          "object": "model",
-          "capabilities": {
-            "completion_chat": true,
-            "function_calling": true,
-            "reasoning": false,
-            "completion_fim": false,
-            "fine_tuning": false,
-            "vision": true,
-            "ocr": false,
-            "classification": false,
-            "moderation": false,
-            "audio": false,
-            "audio_transcription": false,
-            "audio_transcription_realtime": false,
-            "audio_speech": false
-          },
-          "description": "Official labs-devstral-small-2512 Mistral AI model",
-          "max_context_length": 262144,
-          "aliases": [],
-          "deprecation": "2026-03-31T12:00:00Z",
-          "deprecation_replacement_model": "devstral-latest",
-          "default_model_temperature": 0.2,
-          "type": "base"
-        },
-        {
           "id": "labs-leanstral-2603",
           "name": "labs-leanstral-2603",
           "owned_by": "mistralai",
@@ -12556,34 +12500,6 @@
           "deprecation": "2026-06-30T12:00:00Z",
           "deprecation_replacement_model": "mistral-moderation-2603",
           "default_model_temperature": null,
-          "type": "base"
-        },
-        {
-          "id": "mistral-ocr-2503",
-          "name": "mistral-ocr-2503",
-          "owned_by": "mistralai",
-          "object": "model",
-          "capabilities": {
-            "completion_chat": false,
-            "function_calling": true,
-            "reasoning": false,
-            "completion_fim": false,
-            "fine_tuning": false,
-            "vision": true,
-            "ocr": true,
-            "classification": false,
-            "moderation": false,
-            "audio": false,
-            "audio_transcription": false,
-            "audio_transcription_realtime": false,
-            "audio_speech": false
-          },
-          "description": "Official mistral-ocr-2503 Mistral AI model",
-          "max_context_length": 16384,
-          "aliases": [],
-          "deprecation": "2026-03-31T12:00:00Z",
-          "deprecation_replacement_model": "mistral-ocr-latest",
-          "default_model_temperature": 0,
           "type": "base"
         },
         {
@@ -19871,13 +19787,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000019",
-            "completion": "0.00000115",
-            "input_cache_read": "0.000000095"
+            "prompt": "0.00000018",
+            "completion": "0.0000011",
+            "input_cache_read": "0.0000001"
           },
           "top_provider": {
             "context_length": 196608,
-            "max_completion_tokens": 65536,
+            "max_completion_tokens": 196608,
             "is_moderated": false
           },
           "per_request_limits": null,
