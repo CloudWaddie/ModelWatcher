@@ -265,10 +265,8 @@ async function processUrl(page, url, patterns, timeout) {
   };
   
   try {
-    // Set up response interception
+    // Collect responses
     const responses = [];
-    
-    await page.setRequestInterception(true);
     
     page.on('response', async (response) => {
       try {
