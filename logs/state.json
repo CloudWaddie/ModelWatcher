@@ -24630,6 +24630,8 @@
             "stop",
             "structured_outputs",
             "temperature",
+            "tool_choice",
+            "tools",
             "top_logprobs",
             "top_p"
           ],
@@ -24683,6 +24685,8 @@
             "stop",
             "structured_outputs",
             "temperature",
+            "tool_choice",
+            "tools",
             "top_logprobs",
             "top_p"
           ],
@@ -28293,7 +28297,7 @@
           },
           "top_provider": {
             "context_length": 1000000,
-            "max_completion_tokens": 65536,
+            "max_completion_tokens": 32000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -28311,11 +28315,11 @@
             "top_p"
           ],
           "default_parameters": {
-            "temperature": null,
-            "top_p": null,
+            "temperature": 1,
+            "top_p": 1,
             "top_k": null,
             "frequency_penalty": null,
-            "presence_penalty": null,
+            "presence_penalty": 0,
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
@@ -29563,10 +29567,11 @@
           "description": "Grok 4 is xAI's latest reasoning model with a 256k context window. It supports parallel tool calling, structured outputs, and both image and text inputs. Note that reasoning is not exposed, reasoning cannot be disabled, and the reasoning effort cannot be specified. Pricing increases once the total tokens in a given request is greater than 128k tokens. See more details on the [xAI docs](https://docs.x.ai/docs/models/grok-4-0709)",
           "context_length": 256000,
           "architecture": {
-            "modality": "text+image->text",
+            "modality": "text+image+file->text",
             "input_modalities": [
               "image",
-              "text"
+              "text",
+              "file"
             ],
             "output_modalities": [
               "text"
@@ -29600,7 +29605,14 @@
             "top_logprobs",
             "top_p"
           ],
-          "default_parameters": {},
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
           "knowledge_cutoff": "2025-07-31",
           "expiration_date": null
         },
@@ -29612,10 +29624,11 @@
           "description": "Grok 4 Fast is xAI's latest multimodal model with SOTA cost-efficiency and a 2M token context window. It comes in two flavors: non-reasoning and reasoning. Read more about the model on xAI's [news post](http://x.ai/news/grok-4-fast).\n\nReasoning can be enabled/disabled using the `reasoning` `enabled` parameter in the API. [Learn more in our docs](https://openrouter.ai/docs/use-cases/reasoning-tokens#controlling-reasoning-tokens)",
           "context_length": 2000000,
           "architecture": {
-            "modality": "text+image->text",
+            "modality": "text+image+file->text",
             "input_modalities": [
               "text",
-              "image"
+              "image",
+              "file"
             ],
             "output_modalities": [
               "text"
@@ -29652,7 +29665,10 @@
           "default_parameters": {
             "temperature": null,
             "top_p": null,
-            "frequency_penalty": null
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "knowledge_cutoff": "2025-09-30",
           "expiration_date": null
@@ -29665,10 +29681,11 @@
           "description": "Grok 4.1 Fast is xAI's best agentic tool calling model that shines in real-world use cases like customer support and deep research. 2M context window.\n\nReasoning can be enabled/disabled using the `reasoning` `enabled` parameter in the API. [Learn more in our docs](https://openrouter.ai/docs/use-cases/reasoning-tokens#controlling-reasoning-tokens)",
           "context_length": 2000000,
           "architecture": {
-            "modality": "text+image->text",
+            "modality": "text+image+file->text",
             "input_modalities": [
               "text",
-              "image"
+              "image",
+              "file"
             ],
             "output_modalities": [
               "text"
@@ -29705,7 +29722,10 @@
           "default_parameters": {
             "temperature": 0.7,
             "top_p": 0.95,
-            "frequency_penalty": null
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "knowledge_cutoff": null,
           "expiration_date": null
@@ -29774,10 +29794,11 @@
           "description": "Grok 4.20 Multi-Agent Beta is a variant of xAI’s Grok 4.20 designed for collaborative, agent-based workflows. Multiple agents operate in parallel to conduct deep research, coordinate tool use, and synthesize information across complex tasks.\n\nReasoning effort behavior:\n- low / medium: 4 agents\n- high / xhigh: 16 agents",
           "context_length": 2000000,
           "architecture": {
-            "modality": "text+image->text",
+            "modality": "text+image+file->text",
             "input_modalities": [
               "text",
-              "image"
+              "image",
+              "file"
             ],
             "output_modalities": [
               "text"
