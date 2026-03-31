@@ -4,22 +4,22 @@
     {
       "name": "Google Gemini - Gemini Models",
       "url": "https://gemini.google.com/",
-      "patterns": ["gemini-[0-9]+(?:[a-z]+)?(?:\.[0-9]+)*"]
+      "patterns": ["gemini-[0-9]+(?:[a-z]+)?(?:\\\\.[0-9]+)*"]
     },
     {
       "name": "ChatGPT - Model Names",
       "url": "https://chatgpt.com/",
-      "patterns": ["gpt-[0-9]+(?:o)?(?:[a-z]+)?(?:\.[0-9]+)*"]
+      "patterns": ["gpt-[0-9]+(?:[a-z0-9-]+)?(?:\\\\.[0-9]+)*"]
     },
     {
       "name": "Claude - Model Names",
       "url": "https://claude.ai/",
-      "patterns": ["claude-[a-z]+-[0-9]+(?:o)?(?:[a-z]+)?(?:\.[0-9]+)*"]
+      "patterns": ["claude-[a-z]+-[0-9]+(?:[a-z]+)?(?:\\\\.[0-9]+)*"]
     },
     {
       "name": "Grok - xAI Models",
       "url": "https://grok.com",
-      "patterns": ["grok-[0-9]+(?:o)?(?:[a-z]+)?(?:\.[0-9]+)*"]
+      "patterns": ["grok-[0-9]+(?:[a-z]+)?(?:\\\\.[0-9]+)*"]
     }
   ],
   "webhook": {
