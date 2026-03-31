@@ -12617,58 +12617,6 @@
           "expiration_date": null
         },
         {
-          "id": "kwaipilot/kat-coder-pro",
-          "name": "Kwaipilot: KAT-Coder-Pro V1",
-          "canonical_slug": "kwaipilot/kat-coder-pro-v1",
-          "hugging_face_id": "",
-          "description": "KAT-Coder-Pro V1 is KwaiKAT's most advanced agentic coding model in the KAT-Coder series. Designed specifically for agentic coding tasks, it excels in real-world software engineering scenarios, achieving 73.4% solve rate on the SWE-Bench Verified benchmark. \n\nThe model has been optimized for tool-use capability, multi-turn interaction, instruction following, generalization, and comprehensive capabilities through a multi-stage training process, including mid-training, supervised fine-tuning (SFT), reinforcement fine-tuning (RFT), and scalable agentic RL.",
-          "context_length": 256000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000000207",
-            "completion": "0.000000828",
-            "input_cache_read": "0.0000000414"
-          },
-          "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": 128000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "knowledge_cutoff": null,
-          "expiration_date": null
-        },
-        {
           "id": "kwaipilot/kat-coder-pro-v2",
           "name": "Kwaipilot: KAT-Coder-Pro V2",
           "canonical_slug": "kwaipilot/kat-coder-pro-v2-20260327",
@@ -23083,12 +23031,11 @@
           },
           "pricing": {
             "prompt": "0.0000001",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000002"
+            "completion": "0.0000003"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -23104,6 +23051,7 @@
             "seed",
             "stop",
             "temperature",
+            "tool_choice",
             "tools",
             "top_k",
             "top_p"
