@@ -305,7 +305,7 @@ async function processUrl(page, url, patterns, timeout) {
       timeout
     });
     
-    await page.waitForTimeout(2000);
+    await page.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => {});
     
     page.removeListener('response', responseHandler);
     await Promise.all(pendingHandlers);
