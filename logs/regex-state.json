@@ -1,27 +1,47 @@
 {
   "https://gemini.google.com/": {
     "patterns": {
-      "gemini-[0-9]+(?:[a-z]+)?(?:\\\\.[0-9]+)*": {
+      "gemini-[0-9]+(?:[a-z0-9.-]+)*": {
         "count": 18,
         "matchedStrings": [
-          "gemini-2",
-          "gemini-3"
+          "gemini-2.0-flash",
+          "gemini-2.5-flash",
+          "gemini-2.5-flash-preview-04-17",
+          "gemini-2.5-flash-preview-05-20",
+          "gemini-2.5-flash-preview-09-2025",
+          "gemini-2.5-flash-image-preview",
+          "gemini-3-pro-image-preview-11-2025",
+          "gemini-2.5-flash-preview-tts",
+          "gemini-3-flash-preview"
         ],
-        "timestamp": 1775011169532
+        "timestamp": 1775017420150
       }
     }
   },
   "https://chatgpt.com/": {
     "patterns": {
-      "gpt-[0-9]+(?:[a-z0-9-]+)?(?:\\\\.[0-9]+)*": {
-        "count": 12,
+      "gpt-[0-9]+(?:[a-z0-9.-]+)*": {
+        "count": 58,
         "matchedStrings": [
           "gpt-4o",
+          "gpt-5.4",
+          "GPT-5.4",
+          "gpt-5.4-mini",
+          "GPT-5.4-Mini",
+          "gpt-4o-mini",
+          "gpt-5-3",
+          "gpt-5-mini",
+          "GPT-5-mini",
+          "GPT-5.3",
+          "gpt-5-2",
+          "GPT-5.2",
+          "gpt-5-1",
+          "GPT-5.1",
           "gpt-5",
           "GPT-5",
-          "gpt-4o-mini"
+          "GPT-4"
         ],
-        "timestamp": 1775011175108
+        "timestamp": 1775017426329
       }
     }
   },
@@ -43,7 +63,16 @@
           "grok-3",
           "grok-420"
         ],
-        "timestamp": 1775011188711
+        "timestamp": 1775017437195
+      }
+    }
+  },
+  "https://claude.ai/new": {
+    "patterns": {
+      "claude-[a-z]+-[0-9]+(?:[a-z]+)?(?:\\\\.[0-9]+)*": {
+        "count": 0,
+        "matchedStrings": [],
+        "timestamp": 1775017431663
       }
     }
   }
