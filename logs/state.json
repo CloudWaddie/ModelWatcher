@@ -14012,20 +14012,27 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000025",
-            "completion": "0.0000009",
-            "input_cache_read": "0.00000006"
+            "prompt": "0.00000022",
+            "completion": "0.00000085"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 80000,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "max_tokens",
+            "presence_penalty",
             "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
@@ -27291,7 +27298,7 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": "2026-04-03"
         },
         {
           "id": "qwen/qwen3.6-plus:free",
