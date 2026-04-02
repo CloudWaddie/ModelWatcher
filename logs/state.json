@@ -17015,7 +17015,7 @@
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 65536,
+            "max_completion_tokens": 65535,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -20805,7 +20805,6 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
-            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -20814,8 +20813,6 @@
             "seed",
             "stop",
             "temperature",
-            "tool_choice",
-            "tools",
             "top_k",
             "top_p"
           ],
