@@ -6128,6 +6128,60 @@
           }
         },
         {
+          "id": "Qwen/Qwen3-8B",
+          "name": "Qwen/Qwen3-8B",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Qwen3 8B",
+          "organization": "Qwen",
+          "link": "https://huggingface.co/api/models/Qwen/Qwen3-8B",
+          "license": "apache-2.0",
+          "context_length": 40960,
+          "config": {
+            "chat_template": null,
+            "stop": [
+              "<|im_end|>"
+            ],
+            "bos_token": null,
+            "eos_token": "<|im_end|>"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0
+          }
+        },
+        {
+          "id": "Qwen/Qwen3-8B-Base",
+          "name": "Qwen/Qwen3-8B-Base",
+          "object": "model",
+          "type": "language",
+          "running": false,
+          "display_name": "Qwen3 8B Base",
+          "organization": "Qwen",
+          "link": "https://huggingface.co/api/models/Qwen/Qwen3-8B-Base",
+          "license": "apache-2.0",
+          "context_length": 32768,
+          "config": {
+            "chat_template": null,
+            "stop": [
+              "<|endoftext|>"
+            ],
+            "bos_token": null,
+            "eos_token": "<|endoftext|>"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0
+          }
+        },
+        {
           "id": "Qwen/Qwen3-8B-Lora",
           "name": "Qwen/Qwen3-8B-Lora",
           "object": "model",
