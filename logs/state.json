@@ -5994,35 +5994,6 @@
           }
         },
         {
-          "id": "Qwen/Qwen2.5-VL-72B-Instruct",
-          "name": "Qwen/Qwen2.5-VL-72B-Instruct",
-          "uuid": "endpoint-0de709e6-fce9-4457-9591-b650b7338796",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Qwen2.5-VL (72B) Instruct",
-          "organization": "Qwen",
-          "link": "https://huggingface.co/api/models/Qwen/Qwen2.5-VL-72B-Instruct",
-          "license": "tongyi-qianwen",
-          "context_length": 32768,
-          "config": {
-            "chat_template": "{% set image_count = namespace(value=0) %}{% set video_count = namespace(value=0) %}{% for message in messages %}{% if loop.first and message['role'] != 'system' %}<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n{% endif %}<|im_start|>{{ message['role'] }}\n{% if message['content'] is string %}{{ message['content'] }}<|im_end|>\n{% else %}{% for content in message['content'] %}{% if content['type'] == 'image' or 'image' in content or 'image_url' in content %}{% set image_count.value = image_count.value + 1 %}{% if add_vision_id %}Picture {{ image_count.value }}: {% endif %}<|vision_start|><|image_pad|><|vision_end|>{% elif content['type'] == 'video' or 'video' in content %}{% set video_count.value = video_count.value + 1 %}{% if add_vision_id %}Video {{ video_count.value }}: {% endif %}<|vision_start|><|video_pad|><|vision_end|>{% elif 'text' in content %}{{ content['text'] }}{% endif %}{% endfor %}<|im_end|>\n{% endif %}{% endfor %}{% if add_generation_prompt %}<|im_start|>assistant\n{% endif %}",
-            "stop": [
-              "<|im_end|>",
-              "<|endoftext|>"
-            ],
-            "bos_token": null,
-            "eos_token": "<|im_end|>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 1.95,
-            "output": 8,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "Qwen/Qwen3-0.6B",
           "name": "Qwen/Qwen3-0.6B",
           "object": "model",
@@ -11845,14 +11816,9 @@
           "model": "c4ai-aya-expanse-32b"
         },
         {
-          "id": "c4ai-aya-expanse-8b",
-          "name": "c4ai-aya-expanse-8b",
-          "model": "c4ai-aya-expanse-8b"
-        },
-        {
-          "id": "c4ai-aya-vision-8b",
-          "name": "c4ai-aya-vision-8b",
-          "model": "c4ai-aya-vision-8b"
+          "id": "c4ai-aya-vision-32b",
+          "name": "c4ai-aya-vision-32b",
+          "model": "c4ai-aya-vision-32b"
         },
         {
           "id": "command-a-reasoning-08-2025",
@@ -11870,14 +11836,14 @@
           "model": "command-r-08-2024"
         },
         {
+          "id": "command-r7b-12-2024",
+          "name": "command-r7b-12-2024",
+          "model": "command-r7b-12-2024"
+        },
+        {
           "id": "command-r7b-arabic-02-2025",
           "name": "command-r7b-arabic-02-2025",
           "model": "command-r7b-arabic-02-2025"
-        },
-        {
-          "id": "embed-english-light-v2.0",
-          "name": "embed-english-light-v2.0",
-          "model": "embed-english-light-v2.0"
         },
         {
           "id": "embed-english-light-v3.0",
@@ -11888,11 +11854,6 @@
           "id": "embed-english-light-v3.0-image",
           "name": "embed-english-light-v3.0-image",
           "model": "embed-english-light-v3.0-image"
-        },
-        {
-          "id": "embed-english-v2.0",
-          "name": "embed-english-v2.0",
-          "model": "embed-english-v2.0"
         },
         {
           "id": "embed-english-v3.0",
@@ -11913,6 +11874,16 @@
           "id": "embed-multilingual-light-v3.0-image",
           "name": "embed-multilingual-light-v3.0-image",
           "model": "embed-multilingual-light-v3.0-image"
+        },
+        {
+          "id": "embed-multilingual-v3.0-image",
+          "name": "embed-multilingual-v3.0-image",
+          "model": "embed-multilingual-v3.0-image"
+        },
+        {
+          "id": "embed-v4.0",
+          "name": "embed-v4.0",
+          "model": "embed-v4.0"
         },
         {
           "id": "rerank-multilingual-v3.0",
@@ -11983,7 +11954,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/ai21/jamba-large-1.7/endpoints"
+          }
         },
         {
           "id": "aion-labs/aion-1.0",
@@ -12022,7 +11996,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/aion-labs/aion-1.0/endpoints"
+          }
         },
         {
           "id": "aion-labs/aion-1.0-mini",
@@ -12061,7 +12038,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/aion-labs/aion-1.0-mini/endpoints"
+          }
         },
         {
           "id": "aion-labs/aion-2.0",
@@ -12105,7 +12085,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/aion-labs/aion-2.0-20260223/endpoints"
+          }
         },
         {
           "id": "aion-labs/aion-rp-llama-3.1-8b",
@@ -12142,7 +12125,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/aion-labs/aion-rp-llama-3.1-8b/endpoints"
+          }
         },
         {
           "id": "alfredpros/codellama-7b-instruct-solidity",
@@ -12186,7 +12172,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/alfredpros/codellama-7b-instruct-solidity/endpoints"
+          }
         },
         {
           "id": "alibaba/tongyi-deepresearch-30b-a3b",
@@ -12242,7 +12231,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/alibaba/tongyi-deepresearch-30b-a3b/endpoints"
+          }
         },
         {
           "id": "allenai/olmo-2-0325-32b-instruct",
@@ -12275,7 +12267,10 @@
           "supported_parameters": [],
           "default_parameters": {},
           "knowledge_cutoff": "2024-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/allenai/olmo-2-0325-32b-instruct/endpoints"
+          }
         },
         {
           "id": "allenai/olmo-3-32b-think",
@@ -12327,7 +12322,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/allenai/olmo-3-32b-think-20251121/endpoints"
+          }
         },
         {
           "id": "allenai/olmo-3.1-32b-instruct",
@@ -12379,7 +12377,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/allenai/olmo-3.1-32b-instruct-20251215/endpoints"
+          }
         },
         {
           "id": "alpindale/goliath-120b",
@@ -12428,7 +12429,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/alpindale/goliath-120b/endpoints"
+          }
         },
         {
           "id": "amazon/nova-2-lite-v1",
@@ -12478,7 +12482,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/amazon/nova-2-lite-v1/endpoints"
+          }
         },
         {
           "id": "amazon/nova-lite-v1",
@@ -12519,7 +12526,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/amazon/nova-lite-v1/endpoints"
+          }
         },
         {
           "id": "amazon/nova-micro-v1",
@@ -12559,7 +12569,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/amazon/nova-micro-v1/endpoints"
+          }
         },
         {
           "id": "amazon/nova-premier-v1",
@@ -12605,7 +12618,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/amazon/nova-premier-v1/endpoints"
+          }
         },
         {
           "id": "amazon/nova-pro-v1",
@@ -12646,7 +12662,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/amazon/nova-pro-v1/endpoints"
+          }
         },
         {
           "id": "anthracite-org/magnum-v4-72b",
@@ -12695,7 +12714,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthracite-org/magnum-v4-72b/endpoints"
+          }
         },
         {
           "id": "anthropic/claude-3-haiku",
@@ -12739,7 +12761,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-3-haiku/endpoints"
+          }
         },
         {
           "id": "anthropic/claude-3.5-haiku",
@@ -12788,7 +12813,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-07-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-3-5-haiku/endpoints"
+          }
         },
         {
           "id": "anthropic/claude-3.7-sonnet",
@@ -12840,7 +12868,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-10-31",
-          "expiration_date": "2026-05-05"
+          "expiration_date": "2026-05-05",
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-3-7-sonnet-20250219/endpoints"
+          }
         },
         {
           "id": "anthropic/claude-3.7-sonnet:thinking",
@@ -12891,7 +12922,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-10-31",
-          "expiration_date": "2026-05-05"
+          "expiration_date": "2026-05-05",
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-3-7-sonnet-20250219/endpoints"
+          }
         },
         {
           "id": "anthropic/claude-haiku-4.5",
@@ -12944,7 +12978,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4.5-haiku-20251001/endpoints"
+          }
         },
         {
           "id": "anthropic/claude-opus-4",
@@ -12996,7 +13033,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4-opus-20250522/endpoints"
+          }
         },
         {
           "id": "anthropic/claude-opus-4.1",
@@ -13050,7 +13090,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4.1-opus-20250805/endpoints"
+          }
         },
         {
           "id": "anthropic/claude-opus-4.5",
@@ -13104,7 +13147,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4.5-opus-20251124/endpoints"
+          }
         },
         {
           "id": "anthropic/claude-opus-4.6",
@@ -13161,7 +13207,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4.6-opus-20260205/endpoints"
+          }
         },
         {
           "id": "anthropic/claude-sonnet-4",
@@ -13213,7 +13262,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4-sonnet-20250522/endpoints"
+          }
         },
         {
           "id": "anthropic/claude-sonnet-4.5",
@@ -13270,7 +13322,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4.5-sonnet-20250929/endpoints"
+          }
         },
         {
           "id": "anthropic/claude-sonnet-4.6",
@@ -13327,7 +13382,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4.6-sonnet-20260217/endpoints"
+          }
         },
         {
           "id": "arcee-ai/coder-large",
@@ -13371,7 +13429,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/arcee-ai/coder-large/endpoints"
+          }
         },
         {
           "id": "arcee-ai/maestro-reasoning",
@@ -13415,7 +13476,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/arcee-ai/maestro-reasoning/endpoints"
+          }
         },
         {
           "id": "arcee-ai/spotlight",
@@ -13460,7 +13524,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/arcee-ai/spotlight/endpoints"
+          }
         },
         {
           "id": "arcee-ai/trinity-large-preview:free",
@@ -13508,7 +13575,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/arcee-ai/trinity-large-preview/endpoints"
+          }
         },
         {
           "id": "arcee-ai/trinity-large-thinking",
@@ -13565,7 +13635,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/arcee-ai/trinity-large-thinking/endpoints"
+          }
         },
         {
           "id": "arcee-ai/trinity-mini",
@@ -13613,7 +13686,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/arcee-ai/trinity-mini-20251201/endpoints"
+          }
         },
         {
           "id": "arcee-ai/trinity-mini:free",
@@ -13661,7 +13737,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": "2026-04-10"
+          "expiration_date": "2026-04-10",
+          "links": {
+            "details": "/api/v1/models/arcee-ai/trinity-mini-20251201/endpoints"
+          }
         },
         {
           "id": "arcee-ai/virtuoso-large",
@@ -13707,7 +13786,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/arcee-ai/virtuoso-large/endpoints"
+          }
         },
         {
           "id": "baidu/ernie-4.5-21b-a3b",
@@ -13756,7 +13838,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/baidu/ernie-4.5-21b-a3b/endpoints"
+          }
         },
         {
           "id": "baidu/ernie-4.5-21b-a3b-thinking",
@@ -13805,7 +13890,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/baidu/ernie-4.5-21b-a3b-thinking/endpoints"
+          }
         },
         {
           "id": "baidu/ernie-4.5-300b-a47b",
@@ -13850,7 +13938,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/baidu/ernie-4.5-300b-a47b/endpoints"
+          }
         },
         {
           "id": "baidu/ernie-4.5-vl-28b-a3b",
@@ -13898,7 +13989,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/baidu/ernie-4.5-vl-28b-a3b/endpoints"
+          }
         },
         {
           "id": "baidu/ernie-4.5-vl-424b-a47b",
@@ -13944,7 +14038,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/baidu/ernie-4.5-vl-424b-a47b/endpoints"
+          }
         },
         {
           "id": "bytedance-seed/seed-1.6",
@@ -13995,7 +14092,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/bytedance-seed/seed-1.6-20250625/endpoints"
+          }
         },
         {
           "id": "bytedance-seed/seed-1.6-flash",
@@ -14046,7 +14146,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/bytedance-seed/seed-1.6-flash-20250625/endpoints"
+          }
         },
         {
           "id": "bytedance-seed/seed-2.0-lite",
@@ -14100,7 +14203,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/bytedance-seed/seed-2.0-lite-20260309/endpoints"
+          }
         },
         {
           "id": "bytedance-seed/seed-2.0-mini",
@@ -14151,7 +14257,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/bytedance-seed/seed-2.0-mini-20260224/endpoints"
+          }
         },
         {
           "id": "bytedance/ui-tars-1.5-7b",
@@ -14196,7 +14305,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/bytedance/ui-tars-1.5-7b/endpoints"
+          }
         },
         {
           "id": "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
@@ -14239,7 +14351,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-04-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/venice/uncensored/endpoints"
+          }
         },
         {
           "id": "cohere/command-a",
@@ -14283,7 +14398,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/cohere/command-a-03-2025/endpoints"
+          }
         },
         {
           "id": "cohere/command-r-08-2024",
@@ -14329,7 +14447,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/cohere/command-r-08-2024/endpoints"
+          }
         },
         {
           "id": "cohere/command-r-plus-08-2024",
@@ -14375,7 +14496,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/cohere/command-r-plus-08-2024/endpoints"
+          }
         },
         {
           "id": "cohere/command-r7b-12-2024",
@@ -14419,7 +14543,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/cohere/command-r7b-12-2024/endpoints"
+          }
         },
         {
           "id": "deepcogito/cogito-v2.1-671b",
@@ -14471,7 +14598,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepcogito/cogito-v2.1-671b-20251118/endpoints"
+          }
         },
         {
           "id": "deepseek/deepseek-chat",
@@ -14518,7 +14648,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-07-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-chat-v3/endpoints"
+          }
         },
         {
           "id": "deepseek/deepseek-chat-v3-0324",
@@ -14571,7 +14704,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-07-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-chat-v3-0324/endpoints"
+          }
         },
         {
           "id": "deepseek/deepseek-chat-v3.1",
@@ -14624,7 +14760,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-chat-v3.1/endpoints"
+          }
         },
         {
           "id": "deepseek/deepseek-r1",
@@ -14678,7 +14817,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2024-07-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-r1/endpoints"
+          }
         },
         {
           "id": "deepseek/deepseek-r1-0528",
@@ -14734,7 +14876,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-r1-0528/endpoints"
+          }
         },
         {
           "id": "deepseek/deepseek-r1-distill-llama-70b",
@@ -14781,7 +14926,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-07-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-r1-distill-llama-70b/endpoints"
+          }
         },
         {
           "id": "deepseek/deepseek-r1-distill-qwen-32b",
@@ -14827,7 +14975,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-07-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-r1-distill-qwen-32b/endpoints"
+          }
         },
         {
           "id": "deepseek/deepseek-v3.1-terminus",
@@ -14883,7 +15034,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-v3.1-terminus/endpoints"
+          }
         },
         {
           "id": "deepseek/deepseek-v3.2",
@@ -14944,7 +15098,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-v3.2-20251201/endpoints"
+          }
         },
         {
           "id": "deepseek/deepseek-v3.2-exp",
@@ -14999,7 +15156,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-07-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-v3.2-exp/endpoints"
+          }
         },
         {
           "id": "deepseek/deepseek-v3.2-speciale",
@@ -15053,7 +15213,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-v3.2-speciale-20251201/endpoints"
+          }
         },
         {
           "id": "eleutherai/llemma_7b",
@@ -15097,7 +15260,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-04-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/eleutherai/llemma_7b/endpoints"
+          }
         },
         {
           "id": "essentialai/rnj-1-instruct",
@@ -15149,7 +15315,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/essentialai/rnj-1-instruct/endpoints"
+          }
         },
         {
           "id": "google/gemini-2.0-flash-001",
@@ -15205,7 +15374,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": "2026-06-01"
+          "expiration_date": "2026-06-01",
+          "links": {
+            "details": "/api/v1/models/google/gemini-2.0-flash-001/endpoints"
+          }
         },
         {
           "id": "google/gemini-2.0-flash-lite-001",
@@ -15259,7 +15431,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": "2026-06-01"
+          "expiration_date": "2026-06-01",
+          "links": {
+            "details": "/api/v1/models/google/gemini-2.0-flash-lite-001/endpoints"
+          }
         },
         {
           "id": "google/gemini-2.5-flash",
@@ -15317,7 +15492,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-2.5-flash/endpoints"
+          }
         },
         {
           "id": "google/gemini-2.5-flash-image",
@@ -15369,7 +15547,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-2.5-flash-image/endpoints"
+          }
         },
         {
           "id": "google/gemini-2.5-flash-lite",
@@ -15427,7 +15608,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-2.5-flash-lite/endpoints"
+          }
         },
         {
           "id": "google/gemini-2.5-flash-lite-preview-09-2025",
@@ -15485,7 +15669,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-2.5-flash-lite-preview-09-2025/endpoints"
+          }
         },
         {
           "id": "google/gemini-2.5-pro",
@@ -15543,7 +15730,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-2.5-pro/endpoints"
+          }
         },
         {
           "id": "google/gemini-2.5-pro-preview",
@@ -15596,7 +15786,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-2.5-pro-preview-06-05/endpoints"
+          }
         },
         {
           "id": "google/gemini-2.5-pro-preview-05-06",
@@ -15654,7 +15847,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-2.5-pro-preview-03-25/endpoints"
+          }
         },
         {
           "id": "google/gemini-3-flash-preview",
@@ -15712,7 +15908,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-3-flash-preview-20251217/endpoints"
+          }
         },
         {
           "id": "google/gemini-3-pro-image-preview",
@@ -15766,7 +15965,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-3-pro-image-preview-20251120/endpoints"
+          }
         },
         {
           "id": "google/gemini-3.1-flash-image-preview",
@@ -15818,7 +16020,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-3.1-flash-image-preview-20260226/endpoints"
+          }
         },
         {
           "id": "google/gemini-3.1-flash-lite-preview",
@@ -15879,7 +16084,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-3.1-flash-lite-preview-20260303/endpoints"
+          }
         },
         {
           "id": "google/gemini-3.1-pro-preview",
@@ -15937,7 +16145,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-3.1-pro-preview-20260219/endpoints"
+          }
         },
         {
           "id": "google/gemini-3.1-pro-preview-customtools",
@@ -15995,7 +16206,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-3.1-pro-preview-customtools-20260219/endpoints"
+          }
         },
         {
           "id": "google/gemma-2-27b-it",
@@ -16037,7 +16251,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-2-27b-it/endpoints"
+          }
         },
         {
           "id": "google/gemma-2-9b-it",
@@ -16078,7 +16295,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-2-9b-it/endpoints"
+          }
         },
         {
           "id": "google/gemma-3-12b-it",
@@ -16126,7 +16346,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-3-12b-it/endpoints"
+          }
         },
         {
           "id": "google/gemma-3-12b-it:free",
@@ -16166,7 +16389,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-3-12b-it/endpoints"
+          }
         },
         {
           "id": "google/gemma-3-27b-it",
@@ -16218,7 +16444,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-3-27b-it/endpoints"
+          }
         },
         {
           "id": "google/gemma-3-27b-it:free",
@@ -16263,7 +16492,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-3-27b-it/endpoints"
+          }
         },
         {
           "id": "google/gemma-3-4b-it",
@@ -16309,7 +16541,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-3-4b-it/endpoints"
+          }
         },
         {
           "id": "google/gemma-3-4b-it:free",
@@ -16350,7 +16585,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-3-4b-it/endpoints"
+          }
         },
         {
           "id": "google/gemma-3n-e2b-it:free",
@@ -16389,7 +16627,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-3n-e2b-it/endpoints"
+          }
         },
         {
           "id": "google/gemma-3n-e4b-it",
@@ -16433,7 +16674,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-3n-e4b-it/endpoints"
+          }
         },
         {
           "id": "google/gemma-3n-e4b-it:free",
@@ -16472,7 +16716,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-3n-e4b-it/endpoints"
+          }
         },
         {
           "id": "google/gemma-4-26b-a4b-it",
@@ -16530,7 +16777,10 @@
             "top_k": 64
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-4-26b-a4b-it-20260403/endpoints"
+          }
         },
         {
           "id": "google/gemma-4-31b-it",
@@ -16566,6 +16816,7 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "reasoning",
@@ -16578,6 +16829,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -16589,7 +16841,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemma-4-31b-it-20260402/endpoints"
+          }
         },
         {
           "id": "google/lyria-3-clip-preview",
@@ -16637,7 +16892,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/lyria-3-clip-preview-20260330/endpoints"
+          }
         },
         {
           "id": "google/lyria-3-pro-preview",
@@ -16685,7 +16943,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/lyria-3-pro-preview-20260330/endpoints"
+          }
         },
         {
           "id": "gryphe/mythomax-l2-13b",
@@ -16735,7 +16996,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/gryphe/mythomax-l2-13b/endpoints"
+          }
         },
         {
           "id": "ibm-granite/granite-4.0-h-micro",
@@ -16781,7 +17045,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/ibm-granite/granite-4.0-h-micro/endpoints"
+          }
         },
         {
           "id": "inception/mercury",
@@ -16827,7 +17094,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": "2026-04-15"
+          "expiration_date": "2026-04-15",
+          "links": {
+            "details": "/api/v1/models/inception/mercury/endpoints"
+          }
         },
         {
           "id": "inception/mercury-2",
@@ -16878,7 +17148,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/inception/mercury-2-20260304/endpoints"
+          }
         },
         {
           "id": "inception/mercury-coder",
@@ -16924,7 +17197,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": "2026-04-15"
+          "expiration_date": "2026-04-15",
+          "links": {
+            "details": "/api/v1/models/inception/mercury-coder-small-beta/endpoints"
+          }
         },
         {
           "id": "inflection/inflection-3-pi",
@@ -16962,7 +17238,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/inflection/inflection-3-pi/endpoints"
+          }
         },
         {
           "id": "inflection/inflection-3-productivity",
@@ -17000,7 +17279,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/inflection/inflection-3-productivity/endpoints"
+          }
         },
         {
           "id": "kwaipilot/kat-coder-pro-v2",
@@ -17057,7 +17339,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/kwaipilot/kat-coder-pro-v2-20260327/endpoints"
+          }
         },
         {
           "id": "liquid/lfm-2-24b-a2b",
@@ -17108,7 +17393,10 @@
             "repetition_penalty": 1.05
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/liquid/lfm-2-24b-a2b-20260224/endpoints"
+          }
         },
         {
           "id": "liquid/lfm-2.5-1.2b-instruct:free",
@@ -17156,7 +17444,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/liquid/lfm-2.5-1.2b-instruct-20260120/endpoints"
+          }
         },
         {
           "id": "liquid/lfm-2.5-1.2b-thinking:free",
@@ -17206,7 +17497,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/liquid/lfm-2.5-1.2b-thinking-20260120/endpoints"
+          }
         },
         {
           "id": "mancer/weaver",
@@ -17255,7 +17549,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mancer/weaver/endpoints"
+          }
         },
         {
           "id": "meituan/longcat-flash-chat",
@@ -17305,7 +17602,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meituan/longcat-flash-chat/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-3-70b-instruct",
@@ -17348,7 +17648,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-3-70b-instruct/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-3-8b-instruct",
@@ -17396,7 +17699,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-3-8b-instruct/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-3.1-70b-instruct",
@@ -17443,7 +17749,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-3.1-70b-instruct/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-3.1-8b-instruct",
@@ -17493,7 +17802,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-3.1-8b-instruct/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-3.2-11b-vision-instruct",
@@ -17539,7 +17851,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-3.2-11b-vision-instruct/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-3.2-1b-instruct",
@@ -17581,7 +17896,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-3.2-1b-instruct/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-3.2-3b-instruct",
@@ -17623,7 +17941,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-3.2-3b-instruct/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-3.2-3b-instruct:free",
@@ -17664,7 +17985,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-3.2-3b-instruct/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-3.3-70b-instruct",
@@ -17715,7 +18039,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-3.3-70b-instruct/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-3.3-70b-instruct:free",
@@ -17758,7 +18085,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-3.3-70b-instruct/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-4-maverick",
@@ -17808,7 +18138,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-4-maverick-17b-128e-instruct/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-4-scout",
@@ -17857,7 +18190,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-4-scout-17b-16e-instruct/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-guard-3-8b",
@@ -17899,7 +18235,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-guard-3-8b/endpoints"
+          }
         },
         {
           "id": "meta-llama/llama-guard-4-12b",
@@ -17946,7 +18285,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-guard-4-12b/endpoints"
+          }
         },
         {
           "id": "microsoft/phi-4",
@@ -17994,7 +18336,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/microsoft/phi-4/endpoints"
+          }
         },
         {
           "id": "microsoft/wizardlm-2-8x22b",
@@ -18037,7 +18382,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-04-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/microsoft/wizardlm-2-8x22b/endpoints"
+          }
         },
         {
           "id": "minimax/minimax-01",
@@ -18079,7 +18427,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/minimax/minimax-01/endpoints"
+          }
         },
         {
           "id": "minimax/minimax-m1",
@@ -18130,7 +18481,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/minimax/minimax-m1/endpoints"
+          }
         },
         {
           "id": "minimax/minimax-m2",
@@ -18186,7 +18540,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/minimax/minimax-m2/endpoints"
+          }
         },
         {
           "id": "minimax/minimax-m2-her",
@@ -18228,7 +18585,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/minimax/minimax-m2-her-20260123/endpoints"
+          }
         },
         {
           "id": "minimax/minimax-m2.1",
@@ -18286,7 +18646,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/minimax/minimax-m2.1/endpoints"
+          }
         },
         {
           "id": "minimax/minimax-m2.5",
@@ -18349,7 +18712,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/minimax/minimax-m2.5-20260211/endpoints"
+          }
         },
         {
           "id": "minimax/minimax-m2.5:free",
@@ -18398,7 +18764,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/minimax/minimax-m2.5-20260211/endpoints"
+          }
         },
         {
           "id": "minimax/minimax-m2.7",
@@ -18448,7 +18817,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/minimax/minimax-m2.7-20260318/endpoints"
+          }
         },
         {
           "id": "mistralai/codestral-2508",
@@ -18496,7 +18868,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/codestral-2508/endpoints"
+          }
         },
         {
           "id": "mistralai/devstral-2512",
@@ -18546,7 +18921,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/devstral-2512/endpoints"
+          }
         },
         {
           "id": "mistralai/devstral-medium",
@@ -18594,7 +18972,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/devstral-medium-2507/endpoints"
+          }
         },
         {
           "id": "mistralai/devstral-small",
@@ -18642,7 +19023,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/devstral-small-2507/endpoints"
+          }
         },
         {
           "id": "mistralai/ministral-14b-2512",
@@ -18696,7 +19080,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/ministral-14b-2512/endpoints"
+          }
         },
         {
           "id": "mistralai/ministral-3b-2512",
@@ -18750,7 +19137,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/ministral-3b-2512/endpoints"
+          }
         },
         {
           "id": "mistralai/ministral-8b-2512",
@@ -18804,7 +19194,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/ministral-8b-2512/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-7b-instruct-v0.1",
@@ -18848,7 +19241,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2023-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-7b-instruct-v0.1/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-large",
@@ -18896,7 +19292,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2024-11-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-large/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-large-2407",
@@ -18944,7 +19343,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2024-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-large-2407/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-large-2411",
@@ -18992,7 +19394,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2024-07-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-large-2411/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-large-2512",
@@ -19043,7 +19448,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-large-2512/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-medium-3",
@@ -19092,7 +19500,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-medium-3/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-medium-3.1",
@@ -19141,7 +19552,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-medium-3.1/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-nemo",
@@ -19191,7 +19605,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2024-04-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-nemo/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-saba",
@@ -19239,7 +19656,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2024-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-saba-2502/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-small-24b-instruct-2501",
@@ -19288,7 +19708,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-small-24b-instruct-2501/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-small-2603",
@@ -19344,7 +19767,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-small-2603/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-small-3.1-24b-instruct",
@@ -19393,7 +19819,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-small-3.1-24b-instruct-2503/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-small-3.2-24b-instruct",
@@ -19445,7 +19874,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-small-3.2-24b-instruct-2506/endpoints"
+          }
         },
         {
           "id": "mistralai/mistral-small-creative",
@@ -19486,7 +19918,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": "2026-04-30"
+          "expiration_date": "2026-04-30",
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-small-creative-20251216/endpoints"
+          }
         },
         {
           "id": "mistralai/mixtral-8x22b-instruct",
@@ -19534,7 +19969,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2024-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mixtral-8x22b-instruct/endpoints"
+          }
         },
         {
           "id": "mistralai/mixtral-8x7b-instruct",
@@ -19584,7 +20022,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mixtral-8x7b-instruct/endpoints"
+          }
         },
         {
           "id": "mistralai/pixtral-large-2411",
@@ -19633,7 +20074,10 @@
             "temperature": 0.3
           },
           "knowledge_cutoff": "2024-07-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/pixtral-large-2411/endpoints"
+          }
         },
         {
           "id": "mistralai/voxtral-small-24b-2507",
@@ -19685,7 +20129,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/voxtral-small-24b-2507/endpoints"
+          }
         },
         {
           "id": "moonshotai/kimi-k2",
@@ -19730,7 +20177,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/moonshotai/kimi-k2/endpoints"
+          }
         },
         {
           "id": "moonshotai/kimi-k2-0905",
@@ -19782,7 +20232,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/moonshotai/kimi-k2-0905/endpoints"
+          }
         },
         {
           "id": "moonshotai/kimi-k2-thinking",
@@ -19838,7 +20291,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/moonshotai/kimi-k2-thinking-20251106/endpoints"
+          }
         },
         {
           "id": "moonshotai/kimi-k2.5",
@@ -19898,7 +20354,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/moonshotai/kimi-k2.5-0127/endpoints"
+          }
         },
         {
           "id": "morph/morph-v3-fast",
@@ -19939,7 +20398,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/morph/morph-v3-fast/endpoints"
+          }
         },
         {
           "id": "morph/morph-v3-large",
@@ -19980,7 +20442,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/morph/morph-v3-large/endpoints"
+          }
         },
         {
           "id": "nex-agi/deepseek-v3.1-nex-n1",
@@ -20026,7 +20491,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nex-agi/deepseek-v3.1-nex-n1/endpoints"
+          }
         },
         {
           "id": "nousresearch/hermes-2-pro-llama-3-8b",
@@ -20071,7 +20539,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nousresearch/hermes-2-pro-llama-3-8b/endpoints"
+          }
         },
         {
           "id": "nousresearch/hermes-3-llama-3.1-405b",
@@ -20116,7 +20587,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nousresearch/hermes-3-llama-3.1-405b/endpoints"
+          }
         },
         {
           "id": "nousresearch/hermes-3-llama-3.1-405b:free",
@@ -20157,7 +20631,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nousresearch/hermes-3-llama-3.1-405b/endpoints"
+          }
         },
         {
           "id": "nousresearch/hermes-3-llama-3.1-70b",
@@ -20202,7 +20679,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nousresearch/hermes-3-llama-3.1-70b/endpoints"
+          }
         },
         {
           "id": "nousresearch/hermes-4-405b",
@@ -20246,7 +20726,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nousresearch/hermes-4-405b/endpoints"
+          }
         },
         {
           "id": "nousresearch/hermes-4-70b",
@@ -20290,7 +20773,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nousresearch/hermes-4-70b/endpoints"
+          }
         },
         {
           "id": "nvidia/llama-3.1-nemotron-70b-instruct",
@@ -20337,7 +20823,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/llama-3.1-nemotron-70b-instruct/endpoints"
+          }
         },
         {
           "id": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
@@ -20389,7 +20878,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2024-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/llama-3.1-nemotron-ultra-253b-v1/endpoints"
+          }
         },
         {
           "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
@@ -20438,7 +20930,10 @@
           ],
           "default_parameters": null,
           "knowledge_cutoff": "2024-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/llama-3.3-nemotron-super-49b-v1.5/endpoints"
+          }
         },
         {
           "id": "nvidia/nemotron-3-nano-30b-a3b",
@@ -20491,7 +20986,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/nemotron-3-nano-30b-a3b/endpoints"
+          }
         },
         {
           "id": "nvidia/nemotron-3-nano-30b-a3b:free",
@@ -20537,7 +21035,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/nemotron-3-nano-30b-a3b/endpoints"
+          }
         },
         {
           "id": "nvidia/nemotron-3-super-120b-a12b",
@@ -20594,7 +21095,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/nemotron-3-super-120b-a12b-20230311/endpoints"
+          }
         },
         {
           "id": "nvidia/nemotron-3-super-120b-a12b:free",
@@ -20645,7 +21149,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/nemotron-3-super-120b-a12b-20230311/endpoints"
+          }
         },
         {
           "id": "nvidia/nemotron-nano-12b-v2-vl",
@@ -20698,7 +21205,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/nemotron-nano-12b-v2-vl/endpoints"
+          }
         },
         {
           "id": "nvidia/nemotron-nano-12b-v2-vl:free",
@@ -20746,7 +21256,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/nemotron-nano-12b-v2-vl/endpoints"
+          }
         },
         {
           "id": "nvidia/nemotron-nano-9b-v2",
@@ -20799,7 +21312,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/nemotron-nano-9b-v2/endpoints"
+          }
         },
         {
           "id": "nvidia/nemotron-nano-9b-v2:free",
@@ -20847,7 +21363,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/nemotron-nano-9b-v2/endpoints"
+          }
         },
         {
           "id": "openai/gpt-3.5-turbo",
@@ -20895,7 +21414,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2021-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-3.5-turbo/endpoints"
+          }
         },
         {
           "id": "openai/gpt-3.5-turbo-0613",
@@ -20943,7 +21465,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2021-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-3.5-turbo-0613/endpoints"
+          }
         },
         {
           "id": "openai/gpt-3.5-turbo-16k",
@@ -20991,7 +21516,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2021-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-3.5-turbo-16k/endpoints"
+          }
         },
         {
           "id": "openai/gpt-3.5-turbo-instruct",
@@ -21037,7 +21565,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2021-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-3.5-turbo-instruct/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4",
@@ -21085,7 +21616,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2021-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4-0314",
@@ -21133,7 +21667,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2021-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4-0314/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4-1106-preview",
@@ -21181,7 +21718,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-04-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4-1106-preview/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4-turbo",
@@ -21230,7 +21770,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4-turbo/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4-turbo-preview",
@@ -21278,7 +21821,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4-turbo-preview/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4.1",
@@ -21324,7 +21870,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4.1-2025-04-14/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4.1-mini",
@@ -21370,7 +21919,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4.1-mini-2025-04-14/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4.1-nano",
@@ -21416,7 +21968,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4.1-nano-2025-04-14/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4o",
@@ -21468,7 +22023,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4o/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4o-2024-05-13",
@@ -21519,7 +22077,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4o-2024-05-13/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4o-2024-08-06",
@@ -21571,7 +22132,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4o-2024-08-06/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4o-2024-11-20",
@@ -21623,7 +22187,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4o-2024-11-20/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4o-audio-preview",
@@ -21678,7 +22245,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4o-audio-preview/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4o-mini",
@@ -21730,7 +22300,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4o-mini/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4o-mini-2024-07-18",
@@ -21782,7 +22355,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4o-mini-2024-07-18/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4o-mini-search-preview",
@@ -21821,7 +22397,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4o-mini-search-preview-2025-03-11/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4o-search-preview",
@@ -21860,7 +22439,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4o-search-preview-2025-03-11/endpoints"
+          }
         },
         {
           "id": "openai/gpt-4o:extended",
@@ -21911,7 +22493,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4o/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5",
@@ -21964,7 +22549,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2024-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5-2025-08-07/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5-chat",
@@ -22006,7 +22594,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5-chat-2025-08-07/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5-codex",
@@ -22054,7 +22645,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5-codex/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5-image",
@@ -22113,7 +22707,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5-image/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5-image-mini",
@@ -22172,7 +22769,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5-image-mini/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5-mini",
@@ -22225,7 +22825,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2024-05-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5-mini-2025-08-07/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5-nano",
@@ -22278,7 +22881,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2024-05-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5-nano-2025-08-07/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5-pro",
@@ -22327,7 +22933,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5-pro-2025-10-06/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.1",
@@ -22380,7 +22989,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.1-20251113/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.1-chat",
@@ -22428,7 +23040,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.1-chat-20251113/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.1-codex",
@@ -22479,7 +23094,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.1-codex-20251113/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.1-codex-max",
@@ -22531,7 +23149,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.1-codex-max-20251204/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.1-codex-mini",
@@ -22582,7 +23203,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.1-codex-mini-20251113/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.2",
@@ -22635,7 +23259,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.2-20251211/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.2-chat",
@@ -22683,7 +23310,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.2-chat-20251211/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.2-codex",
@@ -22732,7 +23362,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.2-codex-20260114/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.2-pro",
@@ -22781,7 +23414,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.2-pro-20251211/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.3-chat",
@@ -22832,7 +23468,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.3-chat-20260303/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.3-codex",
@@ -22885,7 +23524,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.3-codex-20260224/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.4",
@@ -22938,7 +23580,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.4-20260305/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.4-mini",
@@ -22991,7 +23636,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2025-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.4-mini-20260317/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.4-nano",
@@ -23044,7 +23692,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2025-08-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.4-nano-20260317/endpoints"
+          }
         },
         {
           "id": "openai/gpt-5.4-pro",
@@ -23096,7 +23747,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.4-pro-20260305/endpoints"
+          }
         },
         {
           "id": "openai/gpt-audio",
@@ -23151,7 +23805,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-audio/endpoints"
+          }
         },
         {
           "id": "openai/gpt-audio-mini",
@@ -23206,7 +23863,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-audio-mini/endpoints"
+          }
         },
         {
           "id": "openai/gpt-oss-120b",
@@ -23264,7 +23924,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-oss-120b/endpoints"
+          }
         },
         {
           "id": "openai/gpt-oss-120b:free",
@@ -23310,7 +23973,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-oss-120b/endpoints"
+          }
         },
         {
           "id": "openai/gpt-oss-20b",
@@ -23369,7 +24035,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-oss-20b/endpoints"
+          }
         },
         {
           "id": "openai/gpt-oss-20b:free",
@@ -23415,7 +24084,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-oss-20b/endpoints"
+          }
         },
         {
           "id": "openai/gpt-oss-safeguard-20b",
@@ -23464,7 +24136,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-oss-safeguard-20b/endpoints"
+          }
         },
         {
           "id": "openai/o1",
@@ -23516,7 +24191,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/o1-2024-12-17/endpoints"
+          }
         },
         {
           "id": "openai/o1-pro",
@@ -23558,7 +24236,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/o1-pro/endpoints"
+          }
         },
         {
           "id": "openai/o3",
@@ -23604,7 +24285,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/o3-2025-04-16/endpoints"
+          }
         },
         {
           "id": "openai/o3-deep-research",
@@ -23662,7 +24346,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/o3-deep-research-2025-06-26/endpoints"
+          }
         },
         {
           "id": "openai/o3-mini",
@@ -23713,7 +24400,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/o3-mini-2025-01-31/endpoints"
+          }
         },
         {
           "id": "openai/o3-mini-high",
@@ -23761,7 +24451,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/o3-mini-high-2025-01-31/endpoints"
+          }
         },
         {
           "id": "openai/o3-pro",
@@ -23810,7 +24503,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/o3-pro-2025-06-10/endpoints"
+          }
         },
         {
           "id": "openai/o4-mini",
@@ -23856,7 +24552,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/o4-mini-2025-04-16/endpoints"
+          }
         },
         {
           "id": "openai/o4-mini-deep-research",
@@ -23914,7 +24613,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/o4-mini-deep-research-2025-06-26/endpoints"
+          }
         },
         {
           "id": "openai/o4-mini-high",
@@ -23964,7 +24666,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/o4-mini-high-2025-04-16/endpoints"
+          }
         },
         {
           "id": "openrouter/auto",
@@ -24028,7 +24733,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openrouter/auto/endpoints"
+          }
         },
         {
           "id": "openrouter/bodybuilder",
@@ -24065,7 +24773,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openrouter/bodybuilder/endpoints"
+          }
         },
         {
           "id": "openrouter/free",
@@ -24120,7 +24831,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openrouter/free/endpoints"
+          }
         },
         {
           "id": "perplexity/sonar",
@@ -24163,7 +24877,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/perplexity/sonar/endpoints"
+          }
         },
         {
           "id": "perplexity/sonar-deep-research",
@@ -24208,7 +24925,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/perplexity/sonar-deep-research/endpoints"
+          }
         },
         {
           "id": "perplexity/sonar-pro",
@@ -24251,7 +24971,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/perplexity/sonar-pro/endpoints"
+          }
         },
         {
           "id": "perplexity/sonar-pro-search",
@@ -24301,7 +25024,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/perplexity/sonar-pro-search/endpoints"
+          }
         },
         {
           "id": "perplexity/sonar-reasoning-pro",
@@ -24346,7 +25072,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/perplexity/sonar-reasoning-pro/endpoints"
+          }
         },
         {
           "id": "prime-intellect/intellect-3",
@@ -24397,7 +25126,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/prime-intellect/intellect-3-20251126/endpoints"
+          }
         },
         {
           "id": "qwen/qwen-2.5-72b-instruct",
@@ -24444,7 +25176,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen-2.5-72b-instruct/endpoints"
+          }
         },
         {
           "id": "qwen/qwen-2.5-7b-instruct",
@@ -24496,7 +25231,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen-2.5-7b-instruct/endpoints"
+          }
         },
         {
           "id": "qwen/qwen-2.5-coder-32b-instruct",
@@ -24538,7 +25276,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen-2.5-coder-32b-instruct/endpoints"
+          }
         },
         {
           "id": "qwen/qwen-max",
@@ -24581,7 +25322,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen-max-2025-01-25/endpoints"
+          }
         },
         {
           "id": "qwen/qwen-plus",
@@ -24624,7 +25368,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen-plus-2025-01-25/endpoints"
+          }
         },
         {
           "id": "qwen/qwen-plus-2025-07-28",
@@ -24671,7 +25418,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen-plus-2025-07-28/endpoints"
+          }
         },
         {
           "id": "qwen/qwen-plus-2025-07-28:thinking",
@@ -24720,7 +25470,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen-plus-2025-07-28/endpoints"
+          }
         },
         {
           "id": "qwen/qwen-turbo",
@@ -24763,7 +25516,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen-turbo-2024-11-01/endpoints"
+          }
         },
         {
           "id": "qwen/qwen-vl-max",
@@ -24810,7 +25566,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen-vl-max-2025-01-25/endpoints"
+          }
         },
         {
           "id": "qwen/qwen-vl-plus",
@@ -24852,7 +25611,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen-vl-plus/endpoints"
+          }
         },
         {
           "id": "qwen/qwen2.5-coder-7b-instruct",
@@ -24895,7 +25657,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen2.5-coder-7b-instruct/endpoints"
+          }
         },
         {
           "id": "qwen/qwen2.5-vl-32b-instruct",
@@ -24941,7 +25706,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen2.5-vl-32b-instruct/endpoints"
+          }
         },
         {
           "id": "qwen/qwen2.5-vl-72b-instruct",
@@ -24988,7 +25756,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen2.5-vl-72b-instruct/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-14b",
@@ -25040,7 +25811,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-14b-04-28/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-235b-a22b",
@@ -25084,7 +25858,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-235b-a22b-04-28/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-235b-a22b-2507",
@@ -25138,7 +25915,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-235b-a22b-07-25/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-235b-a22b-thinking-2507",
@@ -25193,7 +25973,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-235b-a22b-thinking-2507/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-30b-a3b",
@@ -25249,7 +26032,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-30b-a3b-04-28/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-30b-a3b-instruct-2507",
@@ -25298,7 +26084,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-30b-a3b-instruct-2507/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-30b-a3b-thinking-2507",
@@ -25350,7 +26139,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-30b-a3b-thinking-2507/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-32b",
@@ -25402,7 +26194,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-32b-04-28/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-8b",
@@ -25461,7 +26256,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-8b-04-28/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-coder",
@@ -25511,7 +26309,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-coder-480b-a35b-07-25/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-coder-30b-a3b-instruct",
@@ -25558,7 +26359,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-coder-30b-a3b-instruct/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-coder-flash",
@@ -25605,7 +26409,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-coder-flash/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-coder-next",
@@ -25659,7 +26466,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-coder-next-2025-02-03/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-coder-plus",
@@ -25707,7 +26517,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-coder-plus/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-coder:free",
@@ -25750,7 +26563,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-coder-480b-a35b-07-25/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-max",
@@ -25797,7 +26613,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-max/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-max-thinking",
@@ -25846,7 +26665,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-max-thinking-20260123/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-next-80b-a3b-instruct",
@@ -25895,7 +26717,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-next-80b-a3b-instruct-2509/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-next-80b-a3b-instruct:free",
@@ -25940,7 +26765,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-next-80b-a3b-instruct-2509/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-next-80b-a3b-thinking",
@@ -25995,7 +26823,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-next-80b-a3b-thinking-2509/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-vl-235b-a22b-instruct",
@@ -26050,7 +26881,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-vl-235b-a22b-instruct/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-vl-235b-a22b-thinking",
@@ -26107,7 +26941,10 @@
             "repetition_penalty": 1
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-vl-235b-a22b-thinking/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-vl-30b-a3b-instruct",
@@ -26164,7 +27001,10 @@
             "repetition_penalty": 1
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-vl-30b-a3b-instruct/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-vl-30b-a3b-thinking",
@@ -26221,7 +27061,10 @@
             "repetition_penalty": 1
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-vl-30b-a3b-thinking/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-vl-32b-instruct",
@@ -26271,7 +27114,10 @@
             "repetition_penalty": 1
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-vl-32b-instruct/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-vl-8b-instruct",
@@ -26325,7 +27171,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-vl-8b-instruct/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3-vl-8b-thinking",
@@ -26374,7 +27223,10 @@
             "top_p": 0.95
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3-vl-8b-thinking/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3.5-122b-a10b",
@@ -26436,7 +27288,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.5-122b-a10b-20260224/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3.5-27b",
@@ -26498,7 +27353,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.5-27b-20260224/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3.5-35b-a3b",
@@ -26560,7 +27418,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.5-35b-a3b-20260224/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3.5-397b-a17b",
@@ -26620,7 +27481,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.5-397b-a17b-20260216/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3.5-9b",
@@ -26681,7 +27545,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.5-9b-20260310/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3.5-flash-02-23",
@@ -26732,7 +27599,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.5-flash-20260224/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3.5-plus-02-15",
@@ -26783,7 +27653,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.5-plus-20260216/endpoints"
+          }
         },
         {
           "id": "qwen/qwen3.6-plus:free",
@@ -26837,7 +27710,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.6-plus-04-02/endpoints"
+          }
         },
         {
           "id": "qwen/qwq-32b",
@@ -26879,7 +27755,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwq-32b/endpoints"
+          }
         },
         {
           "id": "rekaai/reka-edge",
@@ -26933,7 +27812,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/rekaai/reka-edge-2603/endpoints"
+          }
         },
         {
           "id": "rekaai/reka-flash-3",
@@ -26984,7 +27866,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/rekaai/reka-flash-3/endpoints"
+          }
         },
         {
           "id": "relace/relace-apply-3",
@@ -27025,7 +27910,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/relace/relace-apply-3/endpoints"
+          }
         },
         {
           "id": "relace/relace-search",
@@ -27070,7 +27958,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/relace/relace-search-20251208/endpoints"
+          }
         },
         {
           "id": "sao10k/l3-euryale-70b",
@@ -27115,7 +28006,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/sao10k/l3-euryale-70b/endpoints"
+          }
         },
         {
           "id": "sao10k/l3-lunaris-8b",
@@ -27161,7 +28055,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/sao10k/l3-lunaris-8b/endpoints"
+          }
         },
         {
           "id": "sao10k/l3.1-70b-hanami-x1",
@@ -27206,7 +28103,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/sao10k/l3.1-70b-hanami-x1/endpoints"
+          }
         },
         {
           "id": "sao10k/l3.1-euryale-70b",
@@ -27253,7 +28153,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/sao10k/l3.1-euryale-70b/endpoints"
+          }
         },
         {
           "id": "sao10k/l3.3-euryale-70b",
@@ -27301,7 +28204,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/sao10k/l3.3-euryale-70b-v2.3/endpoints"
+          }
         },
         {
           "id": "stepfun/step-3.5-flash",
@@ -27354,7 +28260,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/stepfun/step-3.5-flash/endpoints"
+          }
         },
         {
           "id": "stepfun/step-3.5-flash:free",
@@ -27400,7 +28309,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/stepfun/step-3.5-flash/endpoints"
+          }
         },
         {
           "id": "switchpoint/router",
@@ -27442,7 +28354,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/switchpoint/router/endpoints"
+          }
         },
         {
           "id": "tencent/hunyuan-a13b-instruct",
@@ -27484,7 +28399,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/tencent/hunyuan-a13b-instruct/endpoints"
+          }
         },
         {
           "id": "thedrummer/cydonia-24b-v4.1",
@@ -27532,7 +28450,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-04-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/thedrummer/cydonia-24b-v4.1/endpoints"
+          }
         },
         {
           "id": "thedrummer/rocinante-12b",
@@ -27583,7 +28504,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-04-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/thedrummer/rocinante-12b/endpoints"
+          }
         },
         {
           "id": "thedrummer/skyfall-36b-v2",
@@ -27627,7 +28551,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/thedrummer/skyfall-36b-v2/endpoints"
+          }
         },
         {
           "id": "thedrummer/unslopnemo-12b",
@@ -27675,7 +28602,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-04-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/thedrummer/unslopnemo-12b/endpoints"
+          }
         },
         {
           "id": "tngtech/deepseek-r1t2-chimera",
@@ -27725,7 +28655,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2024-07-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/tngtech/deepseek-r1t2-chimera/endpoints"
+          }
         },
         {
           "id": "undi95/remm-slerp-l2-13b",
@@ -27775,7 +28708,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/undi95/remm-slerp-l2-13b/endpoints"
+          }
         },
         {
           "id": "upstage/solar-pro-3",
@@ -27825,7 +28761,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/upstage/solar-pro-3/endpoints"
+          }
         },
         {
           "id": "writer/palmyra-x5",
@@ -27868,7 +28807,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/writer/palmyra-x5-20250428/endpoints"
+          }
         },
         {
           "id": "x-ai/grok-3",
@@ -27917,7 +28859,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-02-28",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-3/endpoints"
+          }
         },
         {
           "id": "x-ai/grok-3-beta",
@@ -27965,7 +28910,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-02-28",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-3-beta/endpoints"
+          }
         },
         {
           "id": "x-ai/grok-3-mini",
@@ -28018,7 +28966,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-02-28",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-3-mini/endpoints"
+          }
         },
         {
           "id": "x-ai/grok-3-mini-beta",
@@ -28070,7 +29021,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2025-02-28",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-3-mini-beta/endpoints"
+          }
         },
         {
           "id": "x-ai/grok-4",
@@ -28127,7 +29081,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2025-07-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-4-07-09/endpoints"
+          }
         },
         {
           "id": "x-ai/grok-4-fast",
@@ -28184,7 +29141,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2025-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-4-fast/endpoints"
+          }
         },
         {
           "id": "x-ai/grok-4.1-fast",
@@ -28241,7 +29201,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-4.1-fast/endpoints"
+          }
         },
         {
           "id": "x-ai/grok-4.20",
@@ -28297,7 +29260,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2025-09-01",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-4.20-20260309/endpoints"
+          }
         },
         {
           "id": "x-ai/grok-4.20-multi-agent",
@@ -28352,7 +29318,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2025-09-01",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-4.20-multi-agent-20260309/endpoints"
+          }
         },
         {
           "id": "x-ai/grok-code-fast-1",
@@ -28401,7 +29370,10 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2025-09-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-code-fast-1/endpoints"
+          }
         },
         {
           "id": "xiaomi/mimo-v2-flash",
@@ -28457,7 +29429,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/xiaomi/mimo-v2-flash-20251210/endpoints"
+          }
         },
         {
           "id": "xiaomi/mimo-v2-omni",
@@ -28513,7 +29488,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/xiaomi/mimo-v2-omni-20260318/endpoints"
+          }
         },
         {
           "id": "xiaomi/mimo-v2-pro",
@@ -28566,7 +29544,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/xiaomi/mimo-v2-pro-20260318/endpoints"
+          }
         },
         {
           "id": "z-ai/glm-4-32b",
@@ -28609,7 +29590,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-4-32b-0414/endpoints"
+          }
         },
         {
           "id": "z-ai/glm-4.5",
@@ -28663,7 +29647,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-4.5/endpoints"
+          }
         },
         {
           "id": "z-ai/glm-4.5-air",
@@ -28717,7 +29704,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-4.5-air/endpoints"
+          }
         },
         {
           "id": "z-ai/glm-4.5-air:free",
@@ -28762,7 +29752,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-4.5-air/endpoints"
+          }
         },
         {
           "id": "z-ai/glm-4.5v",
@@ -28815,7 +29808,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-4.5v/endpoints"
+          }
         },
         {
           "id": "z-ai/glm-4.6",
@@ -28873,7 +29869,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-4.6/endpoints"
+          }
         },
         {
           "id": "z-ai/glm-4.6v",
@@ -28929,7 +29928,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-4.6-20251208/endpoints"
+          }
         },
         {
           "id": "z-ai/glm-4.7",
@@ -28987,7 +29989,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-4.7-20251222/endpoints"
+          }
         },
         {
           "id": "z-ai/glm-4.7-flash",
@@ -29042,7 +30047,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-4.7-flash-20260119/endpoints"
+          }
         },
         {
           "id": "z-ai/glm-5",
@@ -29099,7 +30107,10 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-5-20260211/endpoints"
+          }
         },
         {
           "id": "z-ai/glm-5-turbo",
@@ -29157,7 +30168,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-5-turbo-20260315/endpoints"
+          }
         },
         {
           "id": "z-ai/glm-5v-turbo",
@@ -29209,7 +30223,10 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-5v-turbo-20260401/endpoints"
+          }
         }
       ]
     },
