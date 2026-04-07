@@ -11510,6 +11510,28 @@
               "reasoning"
             ]
           }
+        },
+        {
+          "id": "zai-org/GLM-5.1",
+          "name": "zai-org/GLM-5.1",
+          "owned_by": "deepinfra",
+          "root": "zai-org/GLM-5.1",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "GLM-5.1 delivers significant improvements in coding, agentic tool usage, reasoning, role-play, and general chat quality. Besides,GLM-5.1 has outstanding capabilities in long-horizon agentic tasks like CUDA kernel optimization.",
+            "context_length": 202752,
+            "max_tokens": 202752,
+            "pricing": {
+              "input_tokens": 1.4,
+              "output_tokens": 4.4,
+              "cache_read_tokens": 0.260000006
+            },
+            "tags": [
+              "prompt_cache",
+              "reasoning"
+            ]
+          }
         }
       ]
     },
@@ -31676,6 +31698,68 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/z-ai/glm-5-turbo-20260315/endpoints"
+          }
+        },
+        {
+          "id": "z-ai/glm-5.1",
+          "name": "Z.ai: GLM 5.1",
+          "canonical_slug": "z-ai/glm-5.1-20260406",
+          "hugging_face_id": "zai-org/GLM-5.1",
+          "description": "GLM-5.1 delivers a major leap in coding capability, with particularly significant gains in handling long-horizon tasks. Unlike previous models built around minute-level interactions, GLM-5.1 can work independently and continuously on...",
+          "context_length": 202752,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000014",
+            "completion": "0.0000044",
+            "input_cache_read": "0.00000026"
+          },
+          "top_provider": {
+            "context_length": 202752,
+            "max_completion_tokens": 202752,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-5.1-20260406/endpoints"
           }
         },
         {
