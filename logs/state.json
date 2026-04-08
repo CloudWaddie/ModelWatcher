@@ -9089,6 +9089,17 @@
           "context_length": 202752
         },
         {
+          "id": "accounts/fireworks/models/glm-5p1",
+          "name": "accounts/fireworks/models/glm-5p1",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 202752
+        },
+        {
           "id": "accounts/fireworks/models/gpt-oss-120b",
           "name": "accounts/fireworks/models/gpt-oss-120b",
           "owned_by": "fireworks",
@@ -10261,27 +10272,6 @@
           }
         },
         {
-          "id": "MiniMaxAI/MiniMax-M2.1",
-          "name": "MiniMaxAI/MiniMax-M2.1",
-          "owned_by": "deepinfra",
-          "root": "MiniMaxAI/MiniMax-M2.1",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "MiniMax-M2.1 is a model optimized specifically for robustness in coding, tool use, instruction following, and long-horizon planning. From automating multilingual software development to executing complex, multi-step office workflows, MiniMax-M2.1 empowers developers to build the next generation of autonomous applications—all while being fully transparent, controllable, and accessible.",
-            "context_length": 196608,
-            "max_tokens": 196608,
-            "pricing": {
-              "input_tokens": 0.27,
-              "output_tokens": 0.95,
-              "cache_read_tokens": 0.0290000007
-            },
-            "tags": [
-              "prompt_cache"
-            ]
-          }
-        },
-        {
           "id": "MiniMaxAI/MiniMax-M2.5",
           "name": "MiniMaxAI/MiniMax-M2.5",
           "owned_by": "deepinfra",
@@ -10395,28 +10385,6 @@
             },
             "tags": [
               "vision",
-              "prompt_cache",
-              "reasoning"
-            ]
-          }
-        },
-        {
-          "id": "moonshotai/Kimi-K2.5-Turbo",
-          "name": "moonshotai/Kimi-K2.5-Turbo",
-          "owned_by": "deepinfra",
-          "root": "moonshotai/Kimi-K2.5-Turbo",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "",
-            "context_length": 262144,
-            "max_tokens": 262144,
-            "pricing": {
-              "input_tokens": 0.6,
-              "output_tokens": 2.9999999999999996,
-              "cache_read_tokens": 0.10000000199999999
-            },
-            "tags": [
               "prompt_cache",
               "reasoning"
             ]
