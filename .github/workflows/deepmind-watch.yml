@@ -1,0 +1,74 @@
+name: DeepMind Model Card Watcher
+
+on:
+  schedule:
+    # Run daily at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+          fetch-depth: 1
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Ensure logs folder exists
+        run: mkdir -p logs
+        
+      - name: Run DeepMind Model Card scan
+        env:
+          WEBHOOK_DEEPMIND: ${{ secrets.WEBHOOK_DEEPMIND }}
+        run: node src/deepmind-watch.js
+        
+      - name: Commit results to master
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config --global user.name "ModelWatcher"
+          git config --global user.email "modelwatcher@github.com"
+          
+          cp logs/deepmind-state.json /tmp/deepmind-state-new.json 2>/dev/null || true
+          
+          git fetch origin master
+          git reset --hard origin/master
+          
+          mkdir -p logs
+          if [ -f /tmp/deepmind-state-new.json ]; then
+            cp /tmp/deepmind-state-new.json logs/deepmind-state.json
+          fi
+          
+          if [ -f logs/deepmind-state.json ]; then
+            ORIG_HASH=$(git show origin/master:logs/deepmind-state.json 2>/dev/null | sha256sum | cut -d' ' -f1 || echo "empty")
+            NEW_HASH=$(sha256sum logs/deepmind-state.json | cut -d' ' -f1)
+            if [ "$ORIG_HASH" = "$NEW_HASH" ] && [ "$ORIG_HASH" != "empty" ]; then
+              echo "No model card changes detected - skipping commit"
+              exit 0
+            fi
+          fi
+          
+          git add -f logs/deepmind-state.json || true
+          if ! git diff --quiet --staged; then
+            git commit -m "Update DeepMind state - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push origin master
+            echo "Updated DeepMind state on master branch"
+          else
+            echo "No changes to commit"
+          fi

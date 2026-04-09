@@ -1,0 +1,30 @@
+{
+  "webhook": {
+    "enabled": true,
+    "webhookEnv": "WEBHOOK_DEEPMIND"
+  },
+  "state": {
+    "file": "./logs/deepmind-state.json"
+  },
+  "permutations": {
+    "patterns": [
+      "Gemini-{version}-{variant}-Model-Card.pdf",
+      "Gemini-Robotics-{variant}-Model-Card.pdf",
+      "Imagen-{version}-Model-Card.pdf",
+      "Veo-{version}-Model-Card.pdf",
+      "Lyria-{version}-Model-Card.pdf"
+    ],
+    "versions": ["4", "4-1", "3-1", "3", "2-5", "2"],
+    "variants": {
+      "Gemini": ["Pro", "Flash", "Flash-Lite", "Flash-Live", "Ultra", "Deep-Think", "Computer-Use", "Pro-Image"],
+      "Gemini-Robotics": ["On-Device"],
+      "Imagen": [""],
+      "Veo": [""],
+      "Lyria": [""]
+    }
+  },
+  "scan": {
+    "intervalMinutes": 1440,
+    "timeout": 10000
+  }
+}
