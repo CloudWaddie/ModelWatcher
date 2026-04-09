@@ -4472,6 +4472,34 @@
           }
         },
         {
+          "id": "google/gemma-4-31B-it",
+          "name": "google/gemma-4-31B-it",
+          "uuid": "endpoint-155df9cc-8c2f-4a04-8840-728681211a34",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Gemma 4 31B-it FP8",
+          "organization": "Google",
+          "link": "https://huggingface.co/api/models/google/gemma-4-31B-it",
+          "license": "apache-2.0",
+          "context_length": 262144,
+          "config": {
+            "chat_template": null,
+            "stop": [
+              "<eos>"
+            ],
+            "bos_token": "<bos>",
+            "eos_token": "<eos>"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0.2,
+            "output": 0.5,
+            "base": 0,
+            "finetune": 0
+          }
+        },
+        {
           "id": "google/imagen-4.0-fast",
           "name": "google/imagen-4.0-fast",
           "uuid": "endpoint-3ba3bc6f-fe2b-4446-9ec0-71e82ac3348d",
@@ -10506,11 +10534,9 @@
             "max_tokens": 262144,
             "pricing": {
               "input_tokens": 0.1,
-              "output_tokens": 0.5,
-              "cache_read_tokens": 0.1
+              "output_tokens": 0.5
             },
             "tags": [
-              "prompt_cache",
               "reasoning"
             ]
           }
@@ -29978,55 +30004,6 @@
           },
           "knowledge_cutoff": null,
           "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/stepfun/step-3.5-flash/endpoints"
-          }
-        },
-        {
-          "id": "stepfun/step-3.5-flash:free",
-          "name": "StepFun: Step 3.5 Flash (free)",
-          "canonical_slug": "stepfun/step-3.5-flash",
-          "hugging_face_id": "stepfun-ai/Step-3.5-Flash",
-          "description": "Step 3.5 Flash is StepFun's most capable open-source foundation model. Built on a sparse Mixture of Experts (MoE) architecture, it selectively activates only 11B of its 196B parameters per token....",
-          "context_length": 256000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": 256000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "stop",
-            "temperature",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "knowledge_cutoff": null,
-          "expiration_date": "2026-04-09",
           "links": {
             "details": "/api/v1/models/stepfun/step-3.5-flash/endpoints"
           }
