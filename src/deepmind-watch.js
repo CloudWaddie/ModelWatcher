@@ -110,7 +110,7 @@ async function checkModelCard(filename) {
     
     // Check content-length to confirm it's a real file (not an error page)
     const contentLength = response.headers['content-length'];
-    if (contentLength && parseInt(contentLength) > 100) {
+    if (contentLength && parseInt(contentLength, 10) > 100) {
       return { exists: true, url, filename, status: response.status };
     }
     
