@@ -16789,53 +16789,6 @@
           }
         },
         {
-          "id": "eleutherai/llemma_7b",
-          "name": "EleutherAI: Llemma 7b",
-          "canonical_slug": "eleutherai/llemma_7b",
-          "hugging_face_id": "EleutherAI/llemma_7b",
-          "description": "Llemma 7B is a language model for mathematics. It was initialized with Code Llama 7B weights, and trained on the Proof-Pile-2 for 200B tokens. Llemma models are particularly strong at...",
-          "context_length": 4096,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": "code-llama"
-          },
-          "pricing": {
-            "prompt": "0.0000008",
-            "completion": "0.0000012"
-          },
-          "top_provider": {
-            "context_length": 4096,
-            "max_completion_tokens": 4096,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "knowledge_cutoff": "2023-04-30",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/eleutherai/llemma_7b/endpoints"
-          }
-        },
-        {
           "id": "essentialai/rnj-1-instruct",
           "name": "EssentialAI: Rnj 1 Instruct",
           "canonical_slug": "essentialai/rnj-1-instruct",
