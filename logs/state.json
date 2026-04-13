@@ -6498,6 +6498,33 @@
           }
         },
         {
+          "id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+          "name": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Nvidia Nemotron 3 Super 120B A12b Bf16",
+          "organization": "Nvidia",
+          "link": "https://huggingface.co/api/models/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+          "license": "other nvidia-nemotron-open-model-license",
+          "context_length": 262144,
+          "config": {
+            "chat_template": null,
+            "stop": [
+              "<|im_end|>"
+            ],
+            "bos_token": "<s>",
+            "eos_token": "<|im_end|>"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0
+          }
+        },
+        {
           "id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
           "name": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
           "object": "model",
@@ -13353,7 +13380,138 @@
     },
     "Cohere": {
       "success": true,
-      "models": []
+      "models": [
+        {
+          "id": "c4ai-aya-expanse-32b",
+          "name": "c4ai-aya-expanse-32b",
+          "model": "c4ai-aya-expanse-32b"
+        },
+        {
+          "id": "c4ai-aya-vision-32b",
+          "name": "c4ai-aya-vision-32b",
+          "model": "c4ai-aya-vision-32b"
+        },
+        {
+          "id": "cohere-transcribe-03-2026",
+          "name": "cohere-transcribe-03-2026",
+          "model": "cohere-transcribe-03-2026"
+        },
+        {
+          "id": "command-a-03-2025",
+          "name": "command-a-03-2025",
+          "model": "command-a-03-2025"
+        },
+        {
+          "id": "command-a-reasoning-08-2025",
+          "name": "command-a-reasoning-08-2025",
+          "model": "command-a-reasoning-08-2025"
+        },
+        {
+          "id": "command-a-translate-08-2025",
+          "name": "command-a-translate-08-2025",
+          "model": "command-a-translate-08-2025"
+        },
+        {
+          "id": "command-a-vision-07-2025",
+          "name": "command-a-vision-07-2025",
+          "model": "command-a-vision-07-2025"
+        },
+        {
+          "id": "command-r-08-2024",
+          "name": "command-r-08-2024",
+          "model": "command-r-08-2024"
+        },
+        {
+          "id": "command-r-plus-08-2024",
+          "name": "command-r-plus-08-2024",
+          "model": "command-r-plus-08-2024"
+        },
+        {
+          "id": "command-r7b-12-2024",
+          "name": "command-r7b-12-2024",
+          "model": "command-r7b-12-2024"
+        },
+        {
+          "id": "command-r7b-arabic-02-2025",
+          "name": "command-r7b-arabic-02-2025",
+          "model": "command-r7b-arabic-02-2025"
+        },
+        {
+          "id": "embed-english-light-v3.0",
+          "name": "embed-english-light-v3.0",
+          "model": "embed-english-light-v3.0"
+        },
+        {
+          "id": "embed-english-light-v3.0-image",
+          "name": "embed-english-light-v3.0-image",
+          "model": "embed-english-light-v3.0-image"
+        },
+        {
+          "id": "embed-english-v3.0",
+          "name": "embed-english-v3.0",
+          "model": "embed-english-v3.0"
+        },
+        {
+          "id": "embed-english-v3.0-image",
+          "name": "embed-english-v3.0-image",
+          "model": "embed-english-v3.0-image"
+        },
+        {
+          "id": "embed-multilingual-light-v3.0",
+          "name": "embed-multilingual-light-v3.0",
+          "model": "embed-multilingual-light-v3.0"
+        },
+        {
+          "id": "embed-multilingual-light-v3.0-image",
+          "name": "embed-multilingual-light-v3.0-image",
+          "model": "embed-multilingual-light-v3.0-image"
+        },
+        {
+          "id": "embed-multilingual-v3.0",
+          "name": "embed-multilingual-v3.0",
+          "model": "embed-multilingual-v3.0"
+        },
+        {
+          "id": "embed-multilingual-v3.0-image",
+          "name": "embed-multilingual-v3.0-image",
+          "model": "embed-multilingual-v3.0-image"
+        },
+        {
+          "id": "embed-v4.0",
+          "name": "embed-v4.0",
+          "model": "embed-v4.0"
+        },
+        {
+          "id": "rerank-multilingual-v3.0",
+          "name": "rerank-multilingual-v3.0",
+          "model": "rerank-multilingual-v3.0"
+        },
+        {
+          "id": "rerank-v3.5",
+          "name": "rerank-v3.5",
+          "model": "rerank-v3.5"
+        },
+        {
+          "id": "rerank-v4.0-fast",
+          "name": "rerank-v4.0-fast",
+          "model": "rerank-v4.0-fast"
+        },
+        {
+          "id": "rerank-v4.0-pro",
+          "name": "rerank-v4.0-pro",
+          "model": "rerank-v4.0-pro"
+        },
+        {
+          "id": "tiny-aya-fire",
+          "name": "tiny-aya-fire",
+          "model": "tiny-aya-fire"
+        },
+        {
+          "id": "tiny-aya-water",
+          "name": "tiny-aya-water",
+          "model": "tiny-aya-water"
+        }
+      ]
     },
     "OpenRouter": {
       "success": true,
@@ -18164,12 +18322,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000012",
-            "completion": "0.0000004"
+            "prompt": "0.00000008",
+            "completion": "0.00000035",
+            "input_cache_read": "0.00000001"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -18179,6 +18338,7 @@
             "logit_bias",
             "logprobs",
             "max_tokens",
+            "min_p",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
@@ -18277,12 +18437,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000014",
-            "completion": "0.0000004"
+            "prompt": "0.00000013",
+            "completion": "0.00000038",
+            "input_cache_read": "0.0000000199999995"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
