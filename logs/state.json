@@ -19219,59 +19219,6 @@
           }
         },
         {
-          "id": "meituan/longcat-flash-chat",
-          "name": "Meituan: LongCat Flash Chat",
-          "canonical_slug": "meituan/longcat-flash-chat",
-          "hugging_face_id": "meituan-longcat/LongCat-Flash-Chat",
-          "description": "LongCat-Flash-Chat is a large-scale Mixture-of-Experts (MoE) model with 560B total parameters, of which 18.6B–31.3B (≈27B on average) are dynamically activated per input. It introduces a shortcut-connected MoE design to reduce...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000008",
-            "input_cache_read": "0.0000002"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 131072,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/meituan/longcat-flash-chat/endpoints"
-          }
-        },
-        {
           "id": "meta-llama/llama-3-70b-instruct",
           "name": "Meta: Llama 3 70B Instruct",
           "canonical_slug": "meta-llama/llama-3-70b-instruct",
