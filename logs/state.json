@@ -1547,6 +1547,13 @@
           "display_name": "Gemini Robotics-ER 1.5 Preview"
         },
         {
+          "id": "models/gemini-robotics-er-1.6-preview",
+          "name": "models/gemini-robotics-er-1.6-preview",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini Robotics-ER 1.6 Preview"
+        },
+        {
           "id": "models/gemma-3-12b-it",
           "name": "models/gemma-3-12b-it",
           "owned_by": "google",
@@ -8540,6 +8547,52 @@
           "type": "video",
           "running": false,
           "display_name": "Vidu Q1",
+          "organization": "Vidu",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0
+          }
+        },
+        {
+          "id": "vidu/vidu-q3",
+          "name": "vidu/vidu-q3",
+          "uuid": "endpoint-002dc245-03bd-4e03-bdb0-e3fd55e25aba",
+          "object": "model",
+          "type": "video",
+          "running": false,
+          "display_name": "Vidu Q3",
+          "organization": "Vidu",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0
+          }
+        },
+        {
+          "id": "vidu/vidu-q3-turbo",
+          "name": "vidu/vidu-q3-turbo",
+          "uuid": "endpoint-1381491a-63c3-4513-abdc-15005e5e85a3",
+          "object": "model",
+          "type": "video",
+          "running": false,
+          "display_name": "Vidu Q3 Turbo",
           "organization": "Vidu",
           "config": {
             "chat_template": null,
@@ -17812,50 +17865,6 @@
           }
         },
         {
-          "id": "google/gemma-2-9b-it",
-          "name": "Google: Gemma 2 9B",
-          "canonical_slug": "google/gemma-2-9b-it",
-          "hugging_face_id": "google/gemma-2-9b-it",
-          "description": "Gemma 2 9B by Google is an advanced, open-source language model that sets a new standard for efficiency and performance in its size class. Designed for a wide variety of...",
-          "context_length": 8192,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Gemini",
-            "instruct_type": "gemma"
-          },
-          "pricing": {
-            "prompt": "0.00000003",
-            "completion": "0.00000009"
-          },
-          "top_provider": {
-            "context_length": 8192,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "presence_penalty",
-            "repetition_penalty",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/google/gemma-2-9b-it/endpoints"
-          }
-        },
-        {
           "id": "google/gemma-3-12b-it",
           "name": "Google: Gemma 3 12B",
           "canonical_slug": "google/gemma-3-12b-it",
@@ -19825,8 +19834,8 @@
             "instruct_type": "none"
           },
           "pricing": {
-            "prompt": "0.00000002",
-            "completion": "0.00000006"
+            "prompt": "0.00000048",
+            "completion": "0.00000003"
           },
           "top_provider": {
             "context_length": 131072,
@@ -21872,11 +21881,12 @@
           },
           "pricing": {
             "prompt": "0.0000006",
-            "completion": "0.0000025"
+            "completion": "0.0000025",
+            "input_cache_read": "0.00000015"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -27245,52 +27255,6 @@
           }
         },
         {
-          "id": "qwen/qwen2.5-coder-7b-instruct",
-          "name": "Qwen: Qwen2.5 Coder 7B Instruct",
-          "canonical_slug": "qwen/qwen2.5-coder-7b-instruct",
-          "hugging_face_id": "Qwen/Qwen2.5-Coder-7B-Instruct",
-          "description": "Qwen2.5-Coder-7B-Instruct is a 7B parameter instruction-tuned language model optimized for code-related tasks such as code generation, reasoning, and bug fixing. Based on the Qwen2.5 architecture, it incorporates enhancements like RoPE,...",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Qwen",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000003",
-            "completion": "0.00000009"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/qwen/qwen2.5-coder-7b-instruct/endpoints"
-          }
-        },
-        {
           "id": "qwen/qwen2.5-vl-32b-instruct",
           "name": "Qwen: Qwen2.5 VL 32B Instruct",
           "canonical_slug": "qwen/qwen2.5-vl-32b-instruct",
@@ -31270,10 +31234,8 @@
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
-            "response_format",
             "seed",
             "stop",
-            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
