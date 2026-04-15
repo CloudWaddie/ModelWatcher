@@ -8678,52 +8678,6 @@
           }
         },
         {
-          "id": "Wan-AI/wan2.7-i2v",
-          "name": "Wan-AI/wan2.7-i2v",
-          "uuid": "endpoint-47e29650-3293-4538-bc90-fa3f07b159dc",
-          "object": "model",
-          "type": "video",
-          "running": false,
-          "display_name": "Wan 2.7 I2V",
-          "organization": "Wan-AI",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
-          "id": "Wan-AI/wan2.7-r2v",
-          "name": "Wan-AI/wan2.7-r2v",
-          "uuid": "endpoint-819be224-66c1-424d-8d79-7d527bcf278c",
-          "object": "model",
-          "type": "video",
-          "running": false,
-          "display_name": "Wan 2.7 R2V",
-          "organization": "Wan-AI",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0
-          }
-        },
-        {
           "id": "Wan-AI/wan2.7-t2v",
           "name": "Wan-AI/wan2.7-t2v",
           "uuid": "endpoint-4e24da5f-2274-44ad-8bf3-36dc47a8114a",
@@ -18770,55 +18724,6 @@
           }
         },
         {
-          "id": "inception/mercury",
-          "name": "Inception: Mercury",
-          "canonical_slug": "inception/mercury",
-          "hugging_face_id": "",
-          "description": "Mercury is the first diffusion large language model (dLLM). Applying a breakthrough discrete diffusion approach, the model runs 5-10x faster than even speed optimized models like GPT-4.1 Nano and Claude...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000025",
-            "completion": "0.00000075",
-            "input_cache_read": "0.000000025"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": 32000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "response_format",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools"
-          ],
-          "default_parameters": {
-            "temperature": 0,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "knowledge_cutoff": "2025-01-31",
-          "expiration_date": "2026-04-15",
-          "links": {
-            "details": "/api/v1/models/inception/mercury/endpoints"
-          }
-        },
-        {
           "id": "inception/mercury-2",
           "name": "Inception: Mercury 2",
           "canonical_slug": "inception/mercury-2-20260304",
@@ -18870,55 +18775,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/inception/mercury-2-20260304/endpoints"
-          }
-        },
-        {
-          "id": "inception/mercury-coder",
-          "name": "Inception: Mercury Coder",
-          "canonical_slug": "inception/mercury-coder-small-beta",
-          "hugging_face_id": "",
-          "description": "Mercury Coder is the first diffusion large language model (dLLM). Applying a breakthrough discrete diffusion approach, the model runs 5-10x faster than even speed optimized models like Claude 3.5 Haiku...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000025",
-            "completion": "0.00000075",
-            "input_cache_read": "0.000000025"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": 32000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "response_format",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools"
-          ],
-          "default_parameters": {
-            "temperature": 0,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "knowledge_cutoff": "2025-01-31",
-          "expiration_date": "2026-04-15",
-          "links": {
-            "details": "/api/v1/models/inception/mercury-coder-small-beta/endpoints"
           }
         },
         {
