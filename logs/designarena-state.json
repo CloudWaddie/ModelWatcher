@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776273225770,
+  "timestamp": 1776281255023,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -5487,6 +5487,19 @@
       }
     },
     {
+      "id": "hunyuan-3d-pro",
+      "displayName": "Hunyuan 3D Pro",
+      "provider": "tencent",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "worldmodel"
+        ]
+      }
+    },
+    {
       "id": "uigen-t3-14b-preview",
       "displayName": "UIGen T3",
       "provider": "tesslate",
@@ -6698,6 +6711,110 @@
           "multimodaltovideo"
         ]
       }
+    },
+    {
+      "id": "google_gemini_flash_lite_tts",
+      "displayName": "Google Gemini 2.5 Flash Lite TTS",
+      "provider": "google",
+      "active": false,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "minimax_speech_02_hd",
+      "displayName": "MiniMax Speech-02 HD",
+      "provider": "minimax",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "minimax_speech_25_turbo",
+      "displayName": "MiniMax Speech-2.5 Turbo",
+      "provider": "minimax",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "chatterbox_tts",
+      "displayName": "Chatterbox",
+      "provider": "chatterbox",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "maya1_tts",
+      "displayName": "Maya1",
+      "provider": "maya",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "grok_tts",
+      "displayName": "Grok TTS",
+      "provider": "xai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "inworld_tts",
+      "displayName": "Inworld TTS-1.5 Max",
+      "provider": "inworld",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "google_gemini_3_1_flash_tts",
+      "displayName": "Google Gemini 3.1 Flash TTS",
+      "provider": "google",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
     }
   ],
   "providers": [
@@ -7479,7 +7596,7 @@
     {
       "id": "amazon",
       "displayName": "Amazon",
-      "logoName": "amazon-logo.png",
+      "logoName": "amazon-polly.png",
       "website": "https://aws.amazon.com"
     },
     {
@@ -7752,7 +7869,7 @@
     {
       "id": "smallestai",
       "displayName": "Smallest AI",
-      "logoName": "smallest.jpeg"
+      "logoName": "smallest.png"
     },
     {
       "id": "odyssey",
@@ -7776,6 +7893,24 @@
       "id": "warp",
       "displayName": "warp",
       "logoName": "private.png"
+    },
+    {
+      "id": "chatterbox",
+      "displayName": "Chatterbox",
+      "logoName": "resemble-logo.png",
+      "website": "https://www.chatterbox.run"
+    },
+    {
+      "id": "maya",
+      "displayName": "Maya",
+      "logoName": "maya.jpg",
+      "website": "https://fal.ai"
+    },
+    {
+      "id": "inworld",
+      "displayName": "Inworld",
+      "logoName": "inworld-logo.png",
+      "website": "https://inworld.ai"
     }
   ],
   "pricing": [
@@ -8686,6 +8821,12 @@
       }
     },
     {
+      "id": "hunyuan-3d-pro",
+      "builders": {
+        "perGeneration": 0.5
+      }
+    },
+    {
       "id": "grok-2-image",
       "image": {
         "perImage": 0.07
@@ -8900,6 +9041,61 @@
       "id": "seedance-2.0-fast",
       "video": {
         "perSecond": 0.2419
+      }
+    },
+    {
+      "id": "google_gemini_flash_lite_tts",
+      "text": {
+        "input": 0.5,
+        "output": 10
+      }
+    },
+    {
+      "id": "minimax_speech_02_hd",
+      "text": {
+        "input": 0.1,
+        "output": 0
+      }
+    },
+    {
+      "id": "minimax_speech_25_turbo",
+      "text": {
+        "input": 0.1,
+        "output": 0
+      }
+    },
+    {
+      "id": "chatterbox_tts",
+      "text": {
+        "input": 0.025,
+        "output": 0
+      }
+    },
+    {
+      "id": "maya1_tts",
+      "video": {
+        "perSecond": 0.002
+      }
+    },
+    {
+      "id": "grok_tts",
+      "text": {
+        "input": 4.2,
+        "output": 0
+      }
+    },
+    {
+      "id": "inworld_tts",
+      "text": {
+        "input": 0.01,
+        "output": 0
+      }
+    },
+    {
+      "id": "google_gemini_3_1_flash_tts",
+      "text": {
+        "input": 0.5,
+        "output": 10
       }
     }
   ]
