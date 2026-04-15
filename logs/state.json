@@ -4479,8 +4479,8 @@
           },
           "pricing": {
             "hourly": 0,
-            "input": 0.02,
-            "output": 0.04,
+            "input": 0.060000000000000005,
+            "output": 0.12000000000000001,
             "base": 0,
             "finetune": 0
           }
@@ -19821,6 +19821,48 @@
             "stop",
             "temperature",
             "top_k",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "knowledge_cutoff": "2024-08-31",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-guard-4-12b/endpoints"
+          }
+        },
+        {
+          "id": "meta-llama/llama-guard-4-12b:free",
+          "name": "Meta: Llama Guard 4 12B (free)",
+          "canonical_slug": "meta-llama/llama-guard-4-12b",
+          "hugging_face_id": "meta-llama/Llama-Guard-4-12B",
+          "description": "Llama Guard 4 is a Llama 4 Scout-derived multimodal pretrained model, fine-tuned for content safety classification. Similar to previous versions, it can be used to classify content in both LLM...",
+          "context_length": 163840,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 163840,
+            "max_completion_tokens": 65000,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "max_tokens",
+            "seed",
+            "temperature",
             "top_p"
           ],
           "default_parameters": {},
