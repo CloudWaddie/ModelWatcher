@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776351687238,
+  "timestamp": 1776360120149,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -6815,6 +6815,25 @@
           "tts"
         ]
       }
+    },
+    {
+      "id": "claude-opus-4-7",
+      "displayName": "Claude Opus 4.7",
+      "provider": "anthropic",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      }
     }
   ],
   "providers": [
@@ -9096,6 +9115,13 @@
       "text": {
         "input": 0.5,
         "output": 10
+      }
+    },
+    {
+      "id": "claude-opus-4-7",
+      "text": {
+        "input": 5,
+        "output": 25
       }
     }
   ]
