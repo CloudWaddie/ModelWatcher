@@ -15051,42 +15051,6 @@
           }
         },
         {
-          "id": "allenai/olmo-2-0325-32b-instruct",
-          "name": "AllenAI: Olmo 2 32B Instruct",
-          "canonical_slug": "allenai/olmo-2-0325-32b-instruct",
-          "hugging_face_id": "allenai/OLMo-2-0325-32B-Instruct",
-          "description": "OLMo-2 32B Instruct is a supervised instruction-finetuned variant of the OLMo-2 32B March 2025 base model. It excels in complex reasoning and instruction-following tasks across diverse benchmarks such as GSM8K,...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000005",
-            "completion": "0.0000002"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [],
-          "default_parameters": {},
-          "knowledge_cutoff": "2024-10-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/allenai/olmo-2-0325-32b-instruct/endpoints"
-          }
-        },
-        {
           "id": "allenai/olmo-3-32b-think",
           "name": "AllenAI: Olmo 3 32B Think",
           "canonical_slug": "allenai/olmo-3-32b-think-20251121",
@@ -23027,6 +22991,8 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "repetition_penalty",
@@ -23038,6 +23004,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
