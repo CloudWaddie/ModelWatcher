@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776372993123,
+  "timestamp": 1776376404381,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -6834,6 +6834,51 @@
           "ascii"
         ]
       }
+    },
+    {
+      "id": "ernie-image",
+      "displayName": "ERNIE Image",
+      "provider": "baidu",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign"
+        ]
+      }
+    },
+    {
+      "id": "ernie-image-turbo",
+      "displayName": "ERNIE Image Turbo",
+      "provider": "baidu",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign"
+        ]
+      }
+    },
+    {
+      "id": "nucleus-image",
+      "displayName": "Nucleus Image",
+      "provider": "nucleusai",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign"
+        ]
+      }
     }
   ],
   "providers": [
@@ -7930,6 +7975,17 @@
       "displayName": "Inworld",
       "logoName": "inworld-logo.png",
       "website": "https://inworld.ai"
+    },
+    {
+      "id": "baidu",
+      "displayName": "Baidu",
+      "logoName": "baidu-ernie.png"
+    },
+    {
+      "id": "nucleusai",
+      "displayName": "Nucleus AI",
+      "logoName": "nucleus.png",
+      "website": "https://withnucleus.ai"
     }
   ],
   "pricing": [
@@ -9122,6 +9178,24 @@
       "text": {
         "input": 5,
         "output": 25
+      }
+    },
+    {
+      "id": "ernie-image",
+      "image": {
+        "perImage": 0.03
+      }
+    },
+    {
+      "id": "ernie-image-turbo",
+      "image": {
+        "perImage": 0.01
+      }
+    },
+    {
+      "id": "nucleus-image",
+      "image": {
+        "perImage": 0.01
       }
     }
   ]
