@@ -182,7 +182,9 @@ function createNewCardsEmbed(newCards) {
   
   for (let i = 0; i < newCards.length; i += maxPerField) {
     const chunk = newCards.slice(i, i + maxPerField);
-    const cardList = chunk.map(c => c.filename).join('\n');
+  for (let i = 0; i < newCards.length; i += 5) {
+    const chunk = newCards.slice(i, i + 5);
+    const cardList = chunk.map(c => c.url).join('\n');
     const label = newCards.length > maxPerField 
       ? `New Cards (${i + 1}-${Math.min(i + maxPerField, newCards.length)})`
       : 'New Model Cards';
