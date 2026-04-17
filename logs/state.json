@@ -12400,6 +12400,29 @@
           }
         },
         {
+          "id": "Qwen/Qwen3.5-35B-A3B",
+          "name": "Qwen/Qwen3.5-35B-A3B",
+          "owned_by": "deepinfra",
+          "root": "Qwen/Qwen3.5-35B-A3B",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Qwen3.5-35B-A3B is an efficient Mixture-of-Experts model from Alibaba's Qwen3.5 series with 35B total parameters and only 3B activated per token. It features a 262K token context window (extensible to 1M with YaRN), thinking/reasoning mode, tool calling, and support for 201 languages. Delivers strong performance on reasoning, coding, and vision-language tasks at a fraction of the compute cost.",
+            "context_length": 262144,
+            "max_tokens": 262144,
+            "pricing": {
+              "input_tokens": 0.2,
+              "output_tokens": 0.95,
+              "cache_read_tokens": 0.1
+            },
+            "tags": [
+              "vision",
+              "prompt_cache",
+              "reasoning_effort"
+            ]
+          }
+        },
+        {
           "id": "Qwen/Qwen3.5-397B-A17B",
           "name": "Qwen/Qwen3.5-397B-A17B",
           "owned_by": "deepinfra",
@@ -18120,7 +18143,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1048576,
+          "context_length": 1000000,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -18146,7 +18169,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1000000,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
