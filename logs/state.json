@@ -11267,13 +11267,11 @@
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
-              "input_tokens": 0.08,
-              "output_tokens": 0.35,
-              "cache_read_tokens": 0.01
+              "input_tokens": 0.12000000000000001,
+              "output_tokens": 0.38999999999999996
             },
             "tags": [
               "vision",
-              "prompt_cache",
               "reasoning"
             ]
           }
@@ -22943,15 +22941,19 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "repetition_penalty",
+            "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -22992,8 +22994,8 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
-            "logprobs",
             "max_tokens",
+            "min_p",
             "presence_penalty",
             "repetition_penalty",
             "response_format",
@@ -23004,7 +23006,6 @@
             "tool_choice",
             "tools",
             "top_k",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
