@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776459289645,
+  "timestamp": 1776462720834,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -725,7 +725,7 @@
       "displayName": "FLUX.2 Klein 9B",
       "provider": "black_forest_labs",
       "active": true,
-      "openSource": false,
+      "openSource": true,
       "router": false,
       "arenas": {
         "models": [
@@ -805,7 +805,7 @@
       "displayName": "FLUX.2 Klein 9B Edit",
       "provider": "black_forest_labs",
       "active": true,
-      "openSource": false,
+      "openSource": true,
       "router": false,
       "arenas": {
         "models": [
@@ -6039,7 +6039,7 @@
       "id": "violet",
       "displayName": "Violet",
       "provider": "violet",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -6906,6 +6906,36 @@
       "arenas": {
         "models": [
           "svg"
+        ]
+      }
+    },
+    {
+      "id": "flux-2-dev",
+      "displayName": "FLUX.2 [dev]",
+      "provider": "black_forest_labs",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "logo",
+          "image",
+          "graphicdesign"
+        ]
+      }
+    },
+    {
+      "id": "z-image-turbo",
+      "displayName": "Z-Image Turbo",
+      "provider": "alibaba",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "logo",
+          "image",
+          "graphicdesign"
         ]
       }
     }
@@ -9239,6 +9269,18 @@
       "text": {
         "input": 0,
         "output": 0.25
+      }
+    },
+    {
+      "id": "flux-2-dev",
+      "image": {
+        "perImage": 0.03
+      }
+    },
+    {
+      "id": "z-image-turbo",
+      "image": {
+        "perImage": 0.005
       }
     }
   ]
