@@ -9840,6 +9840,66 @@
           }
         },
         {
+          "id": "Wan-AI/wan2.7-i2v",
+          "name": "Wan-AI/wan2.7-i2v",
+          "uuid": "endpoint-47e29650-3293-4538-bc90-fa3f07b159dc",
+          "object": "model",
+          "type": "video",
+          "running": false,
+          "display_name": "Wan 2.7 I2V",
+          "organization": "Wan-AI",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": {
+              "example_price": 0.1,
+              "example_description": "per 5 seconds of video"
+            }
+          }
+        },
+        {
+          "id": "Wan-AI/wan2.7-r2v",
+          "name": "Wan-AI/wan2.7-r2v",
+          "uuid": "endpoint-819be224-66c1-424d-8d79-7d527bcf278c",
+          "object": "model",
+          "type": "video",
+          "running": false,
+          "display_name": "Wan 2.7 R2V",
+          "organization": "Wan-AI",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": {
+              "example_price": 0.1,
+              "example_description": "per 5 seconds of video"
+            }
+          }
+        },
+        {
           "id": "Wan-AI/wan2.7-t2v",
           "name": "Wan-AI/wan2.7-t2v",
           "uuid": "endpoint-4e24da5f-2274-44ad-8bf3-36dc47a8114a",
@@ -18143,7 +18203,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1048576,
+          "context_length": 1000000,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -18169,7 +18229,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1000000,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
@@ -30247,7 +30307,7 @@
           "canonical_slug": "qwen/qwen3.5-9b-20260310",
           "hugging_face_id": "Qwen/Qwen3.5-9B",
           "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
-          "context_length": 256000,
+          "context_length": 262144,
           "architecture": {
             "modality": "text+image+video->text",
             "input_modalities": [
@@ -30262,12 +30322,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000005",
+            "prompt": "0.0000001",
             "completion": "0.00000015"
           },
           "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": 32768,
+            "context_length": 262144,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
