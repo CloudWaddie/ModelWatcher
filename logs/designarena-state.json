@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776469733882,
+  "timestamp": 1776480985757,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -6938,6 +6938,21 @@
           "graphicdesign"
         ]
       }
+    },
+    {
+      "id": "imagineart-2.0",
+      "displayName": "ImagineArt 2.0",
+      "provider": "imagineart",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign"
+        ]
+      }
     }
   ],
   "providers": [
@@ -8045,6 +8060,12 @@
       "displayName": "Nucleus AI",
       "logoName": "nucleus.png",
       "website": "https://withnucleus.ai"
+    },
+    {
+      "id": "imagineart",
+      "displayName": "ImagineArt",
+      "logoName": "imagine.svg",
+      "website": "https://www.imagine.art"
     }
   ],
   "pricing": [
@@ -9281,6 +9302,12 @@
       "id": "z-image-turbo",
       "image": {
         "perImage": 0.005
+      }
+    },
+    {
+      "id": "imagineart-2.0",
+      "image": {
+        "perImage": 0.05
       }
     }
   ]
