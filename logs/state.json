@@ -17596,7 +17596,6 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
-            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -17609,7 +17608,6 @@
             "tool_choice",
             "tools",
             "top_k",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -19151,7 +19149,6 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
-            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -19159,7 +19156,6 @@
             "response_format",
             "seed",
             "stop",
-            "structured_outputs",
             "temperature",
             "top_k",
             "top_p"
@@ -20519,6 +20515,7 @@
             "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
@@ -20787,19 +20784,18 @@
             "instruct_type": "llama3"
           },
           "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.00000032"
+            "prompt": "0.00000012",
+            "completion": "0.00000038"
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": 16384,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
-            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -20812,7 +20808,6 @@
             "tool_choice",
             "tools",
             "top_k",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -28536,14 +28531,11 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
-            "include_reasoning",
             "logit_bias",
             "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
-            "reasoning",
-            "reasoning_effort",
             "repetition_penalty",
             "response_format",
             "seed",
