@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776555705205,
+  "timestamp": 1776569549573,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -422,6 +422,19 @@
     {
       "id": "claude-pptx-opus",
       "displayName": "Claude Opus 4.6 (PPTX)",
+      "provider": "claude_pptx",
+      "active": false,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "slides"
+        ]
+      }
+    },
+    {
+      "id": "claude-pptx-sonnet",
+      "displayName": "Claude Sonnet 4.6 (PPTX)",
       "provider": "claude_pptx",
       "active": true,
       "openSource": false,
