@@ -5028,11 +5028,11 @@
         {
           "id": "google/veo-3.0",
           "name": "google/veo-3.0",
-          "uuid": "endpoint-b537b379-6b0c-40cb-a381-3836f9fc64a1",
+          "uuid": "endpoint-test-duplicate-001",
           "object": "model",
           "type": "video",
           "running": false,
-          "display_name": "Google Veo 3.0",
+          "display_name": "Duplicate Test",
           "organization": "Google",
           "config": {
             "chat_template": null,
@@ -5050,8 +5050,8 @@
             "transcribe": 0,
             "image": 0,
             "video": {
-              "example_price": 1.6,
-              "example_description": "720p / 8s"
+              "example_price": 0.08,
+              "example_description": "test"
             }
           }
         },
@@ -18078,7 +18078,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1000000,
+          "context_length": 1048576,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -18104,7 +18104,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1000000,
+            "context_length": 1048576,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
