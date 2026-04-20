@@ -12494,27 +12494,6 @@
           }
         },
         {
-          "id": "Qwen/Qwen3.5-9B",
-          "name": "Qwen/Qwen3.5-9B",
-          "owned_by": "deepinfra",
-          "root": "Qwen/Qwen3.5-9B",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "Qwen3.5-9B is a high-performance model from Alibaba's Qwen3.5 series with a hybrid Gated Delta Networks and sparse MoE architecture. It features a 262K token context window, thinking/reasoning mode, tool calling, multi-token prediction, and support for 201 languages. Excels at reasoning, coding, instruction following, and long-context tasks.",
-            "context_length": 262144,
-            "max_tokens": 262144,
-            "pricing": {
-              "input_tokens": 0.04,
-              "output_tokens": 0.2
-            },
-            "tags": [
-              "vision",
-              "reasoning_effort"
-            ]
-          }
-        },
-        {
           "id": "Qwen/Qwen3.6-35B-A3B",
           "name": "Qwen/Qwen3.6-35B-A3B",
           "owned_by": "deepinfra",
@@ -18188,7 +18167,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1048576,
+          "context_length": 1000000,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -18214,7 +18193,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1000000,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
