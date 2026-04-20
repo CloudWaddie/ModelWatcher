@@ -10337,137 +10337,9 @@
       ]
     },
     "Fireworks AI": {
-      "success": true,
-      "models": [
-        {
-          "id": "accounts/cogito/models/cogito-671b-v2-p1",
-          "name": "accounts/cogito/models/cogito-671b-v2-p1",
-          "owned_by": "cogito",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": false,
-          "context_length": 163840
-        },
-        {
-          "id": "accounts/fireworks/models/deepseek-v3p1",
-          "name": "accounts/fireworks/models/deepseek-v3p1",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 163840
-        },
-        {
-          "id": "accounts/fireworks/models/deepseek-v3p2",
-          "name": "accounts/fireworks/models/deepseek-v3p2",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 163840
-        },
-        {
-          "id": "accounts/fireworks/models/flux-1-dev-fp8",
-          "name": "accounts/fireworks/models/flux-1-dev-fp8",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "FLUMINA_BASE_MODEL",
-          "supports_chat": false,
-          "supports_image_input": false,
-          "supports_tools": false
-        },
-        {
-          "id": "accounts/fireworks/models/flux-1-schnell-fp8",
-          "name": "accounts/fireworks/models/flux-1-schnell-fp8",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "FLUMINA_BASE_MODEL",
-          "supports_chat": false,
-          "supports_image_input": false,
-          "supports_tools": false
-        },
-        {
-          "id": "accounts/fireworks/models/flux-kontext-max",
-          "name": "accounts/fireworks/models/flux-kontext-max",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "FLUMINA_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": true,
-          "supports_tools": false
-        },
-        {
-          "id": "accounts/fireworks/models/flux-kontext-pro",
-          "name": "accounts/fireworks/models/flux-kontext-pro",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "FLUMINA_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": true,
-          "supports_tools": false
-        },
-        {
-          "id": "accounts/fireworks/models/glm-5",
-          "name": "accounts/fireworks/models/glm-5",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 202752
-        },
-        {
-          "id": "accounts/fireworks/models/glm-5p1",
-          "name": "accounts/fireworks/models/glm-5p1",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 202752
-        },
-        {
-          "id": "accounts/fireworks/models/gpt-oss-120b",
-          "name": "accounts/fireworks/models/gpt-oss-120b",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 131072
-        },
-        {
-          "id": "accounts/fireworks/models/kimi-k2p5",
-          "name": "accounts/fireworks/models/kimi-k2p5",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": true,
-          "supports_tools": true,
-          "context_length": 262144
-        },
-        {
-          "id": "accounts/fireworks/models/minimax-m2p7",
-          "name": "accounts/fireworks/models/minimax-m2p7",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 196608
-        }
-      ]
+      "success": false,
+      "models": [],
+      "error": "HTTP 412: Precondition Failed"
     },
     "DeepInfra": {
       "success": true,
@@ -18175,7 +18047,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1000000,
+          "context_length": 1048576,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -18201,7 +18073,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1000000,
+            "context_length": 1048576,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
