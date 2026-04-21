@@ -556,6 +556,12 @@
           "object": "model"
         },
         {
+          "id": "gpt-image-2",
+          "name": "gpt-image-2",
+          "owned_by": "system",
+          "object": "model"
+        },
+        {
           "id": "gpt-realtime",
           "name": "gpt-realtime",
           "owned_by": "system",
@@ -20107,6 +20113,63 @@
           }
         },
         {
+          "id": "inclusionai/ling-2.6-flash:free",
+          "name": "inclusionAI: Ling-2.6-flash (free)",
+          "canonical_slug": "inclusionai/ling-2.6-flash-20260421",
+          "hugging_face_id": "",
+          "description": "Ling-2.6-flash is an instant (instruct) model from inclusionAI with 104B total parameters and 7.4B active parameters, designed for real-world agents that require fast responses, strong execution, and high token efficiency....",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 32768,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "max_tokens",
+            "presence_penalty",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/inclusionai/ling-2.6-flash-20260421/endpoints"
+          }
+        },
+        {
           "id": "inflection/inflection-3-pi",
           "name": "Inflection: Inflection 3 Pi",
           "canonical_slug": "inflection/inflection-3-pi",
@@ -23246,6 +23309,7 @@
             "include_reasoning",
             "logit_bias",
             "max_tokens",
+            "min_p",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
@@ -27497,7 +27561,7 @@
           "name": "Auto Router",
           "canonical_slug": "openrouter/auto",
           "hugging_face_id": null,
-          "description": "Your prompt will be processed by a meta-model and routed to one of dozens of models (see below), optimizing for the best possible output. To see which model was used,...",
+          "description": "\"Your prompt will be processed by a meta-model and routed to one of dozens of models (see below), optimizing for the best possible output. To see which model was used,...",
           "context_length": 2000000,
           "architecture": {
             "modality": "text+image+file+audio+video->text+image",
@@ -27551,7 +27615,10 @@
           "default_parameters": {
             "temperature": null,
             "top_p": null,
-            "frequency_penalty": null
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "knowledge_cutoff": null,
           "expiration_date": null,
@@ -27706,6 +27773,49 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openrouter/free/endpoints"
+          }
+        },
+        {
+          "id": "openrouter/pareto-code",
+          "name": "Pareto Code Router",
+          "canonical_slug": "openrouter/pareto-code",
+          "hugging_face_id": "",
+          "description": "The Pareto Router is a way to have OpenRouter always pick a strong coding model for your needs without committing to a specific one. You express a single `min_coding_score` preference...",
+          "context_length": 200000,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Router",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "-1",
+            "completion": "-1"
+          },
+          "top_provider": {
+            "context_length": null,
+            "max_completion_tokens": null,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openrouter/pareto-code/endpoints"
           }
         },
         {
