@@ -14849,6 +14849,63 @@
       "success": true,
       "models": [
         {
+          "id": "~anthropic/claude-opus-latest",
+          "name": "Anthropic: Claude Opus Latest",
+          "canonical_slug": "~anthropic/claude-opus-latest",
+          "hugging_face_id": "",
+          "description": "This model always redirects to the latest model in the Claude Opus family.",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Router",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000005",
+            "completion": "0.000025",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000005",
+            "input_cache_write": "0.00000625"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/~anthropic/claude-opus-latest/endpoints"
+          }
+        },
+        {
           "id": "ai21/jamba-large-1.7",
           "name": "AI21: Jamba Large 1.7",
           "canonical_slug": "ai21/jamba-large-1.7",
@@ -23315,7 +23372,6 @@
             "include_reasoning",
             "logit_bias",
             "max_tokens",
-            "min_p",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
