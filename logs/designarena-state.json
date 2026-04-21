@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776802038954,
+  "timestamp": 1776808316213,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -647,7 +647,7 @@
       "id": "flux.1-krea-dev",
       "displayName": "FLUX.1 Krea Dev",
       "provider": "black_forest_labs",
-      "active": true,
+      "active": false,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -4253,7 +4253,7 @@
       "id": "dalle-3",
       "displayName": "DALL·E 3",
       "provider": "openai",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -7016,6 +7016,22 @@
           "ascii"
         ]
       }
+    },
+    {
+      "id": "gpt-image-2",
+      "displayName": "GPT Image 2",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "logo",
+          "image",
+          "graphicdesign",
+          "imagetoimage"
+        ]
+      }
     }
   ],
   "providers": [
@@ -9385,6 +9401,17 @@
       "text": {
         "input": 5,
         "output": 25
+      }
+    },
+    {
+      "id": "gpt-image-2",
+      "text": {
+        "input": 5,
+        "output": 10
+      },
+      "image": {
+        "input": 8,
+        "output": 30
       }
     }
   ]
