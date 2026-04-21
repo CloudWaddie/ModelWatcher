@@ -1344,6 +1344,20 @@
           "display_name": "Model that performs Attributed Question Answering."
         },
         {
+          "id": "models/deep-research-max-preview-04-2026",
+          "name": "models/deep-research-max-preview-04-2026",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Deep Research Max Preview (Apr-21-2026)"
+        },
+        {
+          "id": "models/deep-research-preview-04-2026",
+          "name": "models/deep-research-preview-04-2026",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Deep Research Preview (Apr-21-2026)"
+        },
+        {
           "id": "models/deep-research-pro-preview-12-2025",
           "name": "models/deep-research-pro-preview-12-2025",
           "owned_by": "google",
@@ -13663,6 +13677,146 @@
           "type": "base"
         },
         {
+          "id": "mistral-medium-2604",
+          "name": "mistral-medium-3-5",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": true,
+            "function_calling": true,
+            "reasoning": true,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": true,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": false
+          },
+          "description": "Official mistral-medium-3-5 Mistral AI model",
+          "max_context_length": 262144,
+          "aliases": [],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.7,
+          "type": "base"
+        },
+        {
+          "id": "mistral-medium-3",
+          "name": "mistral-medium-3-5",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": true,
+            "function_calling": true,
+            "reasoning": true,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": true,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": false
+          },
+          "description": "Official mistral-medium-3-5 Mistral AI model",
+          "max_context_length": 262144,
+          "aliases": [],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.7,
+          "type": "base"
+        },
+        {
+          "id": "mistral-medium-3-5",
+          "name": "mistral-medium-3-5",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": true,
+            "function_calling": true,
+            "reasoning": true,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": true,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": false
+          },
+          "description": "Official mistral-medium-3-5 Mistral AI model",
+          "max_context_length": 262144,
+          "aliases": [],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.7,
+          "type": "base"
+        },
+        {
+          "id": "mistral-medium-3.5",
+          "name": "mistral-medium-3-5",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": true,
+            "function_calling": true,
+            "reasoning": true,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": true,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": false
+          },
+          "description": "Official mistral-medium-3-5 Mistral AI model",
+          "max_context_length": 262144,
+          "aliases": [],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.7,
+          "type": "base"
+        },
+        {
+          "id": "mistral-medium-c21211-r0-75",
+          "name": "mistral-medium-3-5",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": true,
+            "function_calling": true,
+            "reasoning": true,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": true,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": false
+          },
+          "description": "Official mistral-medium-3-5 Mistral AI model",
+          "max_context_length": 262144,
+          "aliases": [],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.7,
+          "type": "base"
+        },
+        {
           "id": "mistral-medium-latest",
           "name": "mistral-medium-2508",
           "owned_by": "mistralai",
@@ -18096,7 +18250,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1000000,
+          "context_length": 1048576,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -18123,7 +18277,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1000000,
+            "context_length": 1048576,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
@@ -32777,13 +32931,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000698",
-            "completion": "0.0000044",
-            "input_cache_read": "0.00000026"
+            "prompt": "0.00000105",
+            "completion": "0.0000035",
+            "input_cache_read": "0.000000525"
           },
           "top_provider": {
             "context_length": 202752,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": 65535,
             "is_moderated": false
           },
           "per_request_limits": null,
