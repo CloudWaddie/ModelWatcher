@@ -13400,6 +13400,62 @@
           "type": "base"
         },
         {
+          "id": "mistral-embed-dim128-2510",
+          "name": "mistral-embed-dim128-2510",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": false
+          },
+          "description": "Official mistral-embed-dim128-2510 Mistral AI model",
+          "max_context_length": 8192,
+          "aliases": [],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": null,
+          "type": "base"
+        },
+        {
+          "id": "mistral-embed-dim256-2510",
+          "name": "mistral-embed-dim256-2510",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": false
+          },
+          "description": "Official mistral-embed-dim256-2510 Mistral AI model",
+          "max_context_length": 8192,
+          "aliases": [],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": null,
+          "type": "base"
+        },
+        {
           "id": "mistral-large-2411",
           "name": "mistral-large-2411",
           "owned_by": "mistralai",
@@ -19425,13 +19481,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008",
+            "prompt": "0.00000007",
             "completion": "0.00000035",
-            "input_cache_read": "0.00000001"
+            "input_cache_read": "0.00000004"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -29003,7 +29059,7 @@
           "pricing": {
             "prompt": "0.00000015",
             "completion": "0.0000008",
-            "input_cache_read": "0.00000012"
+            "input_cache_read": "0.00000011"
           },
           "top_provider": {
             "context_length": 262144,
@@ -32585,7 +32641,7 @@
           "canonical_slug": "z-ai/glm-5-20260211",
           "hugging_face_id": "zai-org/GLM-5",
           "description": "GLM-5 is Z.ai’s flagship open-source foundation model engineered for complex systems design and long-horizon agent workflows. Built for expert developers, it delivers production-grade performance on large-scale programming tasks, rivaling leading...",
-          "context_length": 80000,
+          "context_length": 202752,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -32598,12 +32654,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000072",
-            "completion": "0.0000023"
+            "prompt": "0.00000065",
+            "completion": "0.00000208",
+            "input_cache_read": "0.00000013"
           },
           "top_provider": {
-            "context_length": 80000,
-            "max_completion_tokens": 131072,
+            "context_length": 202752,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -32614,6 +32671,7 @@
             "logprobs",
             "max_tokens",
             "min_p",
+            "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
