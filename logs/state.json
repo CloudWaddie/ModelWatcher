@@ -3746,35 +3746,6 @@
           }
         },
         {
-          "id": "deepcogito/cogito-v2-1-671b",
-          "name": "deepcogito/cogito-v2-1-671b",
-          "uuid": "endpoint-057fe829-a0cc-491a-a71e-1819ee82d3d8",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Cogito v2.1 671B",
-          "organization": "Deepcogito",
-          "link": "https://huggingface.co/api/models/togethercomputer/cogito-671b-v2.1-exp-chkp-2",
-          "context_length": 163840,
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": "<｜begin▁of▁sentence｜>",
-            "eos_token": "<｜end▁of▁sentence｜>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 1.25,
-            "output": 1.25,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "deepgram/aura-2",
           "name": "deepgram/aura-2",
           "object": "model",
@@ -11305,8 +11276,8 @@
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
-              "input_tokens": 0.12000000000000001,
-              "output_tokens": 0.38999999999999996
+              "input_tokens": 0.07,
+              "output_tokens": 0.33999999999999997
             },
             "tags": [
               "vision",
@@ -18280,7 +18251,7 @@
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": 32768,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -18291,7 +18262,6 @@
             "logprobs",
             "max_tokens",
             "min_p",
-            "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
@@ -18496,7 +18466,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1048576,
+          "context_length": 1000000,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -18523,7 +18493,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1000000,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
@@ -19884,12 +19854,11 @@
           },
           "pricing": {
             "prompt": "0.00000007",
-            "completion": "0.00000035",
-            "input_cache_read": "0.00000004"
+            "completion": "0.00000034"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -19999,8 +19968,7 @@
           },
           "pricing": {
             "prompt": "0.00000013",
-            "completion": "0.00000038",
-            "input_cache_read": "0.0000000199999995"
+            "completion": "0.00000038"
           },
           "top_provider": {
             "context_length": 262144,
@@ -20406,7 +20374,7 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-04-29",
           "links": {
             "details": "/api/v1/models/inclusionai/ling-2.6-flash-20260421/endpoints"
           }
@@ -33296,7 +33264,6 @@
             "logprobs",
             "max_tokens",
             "min_p",
-            "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
