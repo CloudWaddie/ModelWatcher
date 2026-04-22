@@ -6942,6 +6942,36 @@
           }
         },
         {
+          "id": "moonshotai/Kimi-K2.6",
+          "name": "moonshotai/Kimi-K2.6",
+          "uuid": "endpoint-257f1462-b475-4dd5-b417-96fb54d0a513",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Kimi K2.6 Fp4",
+          "organization": "Moonshot AI",
+          "link": "https://huggingface.co/api/models/togethercomputer/Kimi-K2.6-FP4",
+          "context_length": 262144,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": "[BOS]",
+            "eos_token": "[EOS]"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 1.2,
+            "output": 4.5,
+            "base": 0,
+            "finetune": 0,
+            "cached_input": 0.2,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "nim/meta/llama-3.1-70b-instruct",
           "name": "nim/meta/llama-3.1-70b-instruct",
           "object": "model",
@@ -11697,9 +11727,9 @@
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
-              "input_tokens": 0.55,
-              "output_tokens": 2.5,
-              "cache_read_tokens": 0.14999999850000004
+              "input_tokens": 0.7499999999999999,
+              "output_tokens": 3.5,
+              "cache_read_tokens": 0.15
             },
             "tags": [
               "prompt_cache",
@@ -18466,7 +18496,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1000000,
+          "context_length": 1048576,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -18493,7 +18523,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1000000,
+            "context_length": 1048576,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
@@ -23504,13 +23534,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000008",
-            "completion": "0.0000035",
-            "input_cache_read": "0.0000002"
+            "prompt": "0.00000055",
+            "completion": "0.0000025",
+            "input_cache_read": "0.0000001499999985"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
