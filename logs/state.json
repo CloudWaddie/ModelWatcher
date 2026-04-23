@@ -12904,6 +12904,34 @@
           "type": "base"
         },
         {
+          "id": "codestral-edit-260225",
+          "name": "codestral-edit-260225",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": true,
+            "function_calling": true,
+            "reasoning": false,
+            "completion_fim": true,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": false
+          },
+          "description": "Official codestral-edit-260225 Mistral AI model",
+          "max_context_length": 32768,
+          "aliases": [],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.3,
+          "type": "base"
+        },
+        {
           "id": "codestral-embed",
           "name": "codestral-embed",
           "owned_by": "mistralai",
@@ -18443,7 +18471,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1048576,
+          "context_length": 1000000,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -18470,7 +18498,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1000000,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
@@ -19830,8 +19858,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007",
-            "completion": "0.00000034"
+            "prompt": "0.00000006",
+            "completion": "0.00000033"
           },
           "top_provider": {
             "context_length": 262144,
@@ -20297,6 +20325,63 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/inception/mercury-2-20260304/endpoints"
+          }
+        },
+        {
+          "id": "inclusionai/ling-2.6-1t:free",
+          "name": "inclusionAI: Ling-2.6-1T (free)",
+          "canonical_slug": "inclusionai/ling-2.6-1t-20260423",
+          "hugging_face_id": null,
+          "description": "Ling-2.6-1T is an instant (instruct) model from inclusionAI and the company’s trillion-parameter flagship, designed for real-world agents that require fast execution and high efficiency at scale. It uses a “fast...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 32768,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "max_tokens",
+            "presence_penalty",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/inclusionai/ling-2.6-1t-20260423/endpoints"
           }
         },
         {
@@ -22682,17 +22767,19 @@
             "instruct_type": "mistral"
           },
           "pricing": {
-            "prompt": "0.00000002",
-            "completion": "0.00000004"
+            "prompt": "0.00000001",
+            "completion": "0.00000003"
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": 16384,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -22705,6 +22792,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -23467,7 +23555,7 @@
           "canonical_slug": "moonshotai/kimi-k2.6-20260420",
           "hugging_face_id": "moonshotai/Kimi-K2.6",
           "description": "Kimi K2.6 is Moonshot AI's next-generation multimodal model, designed for long-horizon coding, coding-driven UI/UX generation, and multi-agent orchestration. It handles complex end-to-end coding tasks across Python, Rust, and Go, and...",
-          "context_length": 262144,
+          "context_length": 256000,
           "architecture": {
             "modality": "text+image->text",
             "input_modalities": [
@@ -23481,13 +23569,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000075",
+            "prompt": "0.00000056",
             "completion": "0.0000035",
-            "input_cache_read": "0.00000015"
+            "input_cache_read": "0.00000011"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": null,
+            "context_length": 256000,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
