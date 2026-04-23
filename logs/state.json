@@ -17207,6 +17207,61 @@
           }
         },
         {
+          "id": "baidu/qianfan-ocr-fast:free",
+          "name": "Baidu: Qianfan-OCR-Fast (free)",
+          "canonical_slug": "baidu/qianfan-ocr-fast-20260420",
+          "hugging_face_id": "",
+          "description": "Qianfan-OCR-Fast is a domain-specific multimodal large model purpose-built for OCR. By leveraging specialized OCR training data while preserving versatile multimodal intelligence, it provides a powerful performance upgrade over Qianfan-OCR.",
+          "context_length": 65536,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 65536,
+            "max_completion_tokens": 28672,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "seed",
+            "stop",
+            "temperature",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/baidu/qianfan-ocr-fast-20260420/endpoints"
+          }
+        },
+        {
           "id": "bytedance-seed/seed-1.6",
           "name": "ByteDance Seed: Seed 1.6",
           "canonical_slug": "bytedance-seed/seed-1.6-20250625",
@@ -18388,7 +18443,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1048576,
+          "context_length": 1000000,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -18415,7 +18470,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1000000,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
