@@ -15320,12 +15320,13 @@
           },
           "top_provider": {
             "context_length": 65536,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -17737,12 +17738,13 @@
           },
           "top_provider": {
             "context_length": 163840,
-            "max_completion_tokens": 163840,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -17788,7 +17790,7 @@
           },
           "top_provider": {
             "context_length": 163840,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -17955,7 +17957,7 @@
           },
           "top_provider": {
             "context_length": 163840,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -18020,6 +18022,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -18111,11 +18114,11 @@
           "pricing": {
             "prompt": "0.00000021",
             "completion": "0.00000079",
-            "input_cache_read": "0.0000001300000002"
+            "input_cache_read": "0.00000013"
           },
           "top_provider": {
             "context_length": 163840,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -18358,6 +18361,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "logprobs",
             "max_tokens",
             "min_p",
@@ -18508,7 +18512,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1000000,
+          "context_length": 1048576,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -18535,7 +18539,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1000000,
+            "context_length": 1048576,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
@@ -19480,12 +19484,13 @@
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -19493,7 +19498,10 @@
             "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
+            "tool_choice",
+            "tools",
             "top_k",
             "top_p"
           ],
@@ -19675,12 +19683,13 @@
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -20014,7 +20023,7 @@
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -20953,12 +20962,13 @@
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -21010,6 +21020,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "logprobs",
             "max_tokens",
             "min_p",
@@ -21064,6 +21075,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -21396,6 +21408,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -21487,7 +21500,7 @@
           },
           "top_provider": {
             "context_length": 163840,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -21542,6 +21555,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "logprobs",
             "max_tokens",
             "min_p",
@@ -21896,7 +21910,7 @@
           },
           "top_provider": {
             "context_length": 196608,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -22924,6 +22938,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -23079,7 +23094,7 @@
           },
           "top_provider": {
             "context_length": 128000,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -23234,6 +23249,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -23241,6 +23257,7 @@
             "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
@@ -23871,6 +23888,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -23957,12 +23975,13 @@
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -24105,6 +24124,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -24149,13 +24169,14 @@
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -24208,13 +24229,14 @@
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 228000,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -24429,13 +24451,14 @@
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -24534,13 +24557,14 @@
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -27273,7 +27297,7 @@
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -27382,7 +27406,7 @@
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -28586,6 +28610,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -28593,6 +28618,7 @@
             "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
@@ -29125,6 +29151,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "logprobs",
             "max_tokens",
             "min_p",
@@ -29220,7 +29247,7 @@
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -29332,13 +29359,14 @@
           },
           "top_provider": {
             "context_length": 40960,
-            "max_completion_tokens": 40960,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "logprobs",
             "max_tokens",
             "min_p",
@@ -29616,7 +29644,7 @@
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -30027,7 +30055,7 @@
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -30187,7 +30215,7 @@
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -31374,12 +31402,13 @@
           },
           "top_provider": {
             "context_length": 8192,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -31477,6 +31506,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -31527,6 +31557,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logit_bias",
             "logprobs",
             "max_tokens",
             "min_p",
@@ -31579,6 +31610,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -33471,17 +33503,18 @@
           "pricing": {
             "prompt": "0.00000006",
             "completion": "0.0000004",
-            "input_cache_read": "0.0000000100000002"
+            "input_cache_read": "0.00000001"
           },
           "top_provider": {
             "context_length": 202752,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -33533,7 +33566,7 @@
           },
           "top_provider": {
             "context_length": 202752,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
