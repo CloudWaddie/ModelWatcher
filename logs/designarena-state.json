@@ -1,5 +1,5 @@
 {
-  "timestamp": 1777057389450,
+  "timestamp": 1777064206295,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7070,6 +7070,26 @@
           "ascii"
         ]
       }
+    },
+    {
+      "id": "gpt-5.5",
+      "displayName": "GPT-5.5",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii",
+          "imagetohtml"
+        ]
+      }
     }
   ],
   "providers": [
@@ -9464,6 +9484,13 @@
       "text": {
         "input": 0.14,
         "output": 0.28
+      }
+    },
+    {
+      "id": "gpt-5.5",
+      "text": {
+        "input": 5,
+        "output": 30
       }
     }
   ]
