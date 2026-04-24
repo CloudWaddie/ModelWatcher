@@ -23715,6 +23715,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "max_tokens",
             "response_format",
             "structured_outputs",
             "temperature",
@@ -29587,9 +29588,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015",
+            "prompt": "0.00000014",
             "completion": "0.0000008",
-            "input_cache_read": "0.00000011"
+            "input_cache_read": "0.00000009"
           },
           "top_provider": {
             "context_length": 262144,
@@ -30907,6 +30908,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "max_tokens",
             "reasoning",
             "temperature",
             "tool_choice",
@@ -31502,6 +31504,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "max_tokens",
             "reasoning",
             "response_format",
             "structured_outputs",
@@ -31547,6 +31550,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "max_tokens",
             "presence_penalty",
             "reasoning",
             "stop",
@@ -31565,7 +31569,7 @@
             "repetition_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-05-08",
           "links": {
             "details": "/api/v1/models/tencent/hy3-preview-20260421/endpoints"
           }
@@ -33175,11 +33179,12 @@
           },
           "pricing": {
             "prompt": "0.0000003",
-            "completion": "0.0000009"
+            "completion": "0.0000009",
+            "input_cache_read": "0.00000005"
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": 24000,
             "is_moderated": false
           },
           "per_request_limits": null,
