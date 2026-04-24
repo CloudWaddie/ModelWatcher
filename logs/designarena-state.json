@@ -1,5 +1,5 @@
 {
-  "timestamp": 1777050317881,
+  "timestamp": 1777057389450,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7032,6 +7032,44 @@
           "imagetoimage"
         ]
       }
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "displayName": "DeepSeek-V4-Pro",
+      "provider": "deepseek",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "displayName": "DeepSeek-V4-Flash",
+      "provider": "deepseek",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      }
     }
   ],
   "providers": [
@@ -9412,6 +9450,20 @@
       "image": {
         "input": 8,
         "output": 30
+      }
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "text": {
+        "input": 1.74,
+        "output": 3.48
+      }
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "text": {
+        "input": 0.14,
+        "output": 0.28
       }
     }
   ]
