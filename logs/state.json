@@ -18366,10 +18366,12 @@
             "presence_penalty",
             "reasoning",
             "response_format",
+            "seed",
             "stop",
             "temperature",
             "tool_choice",
             "tools",
+            "top_k",
             "top_logprobs",
             "top_p"
           ],
@@ -31554,7 +31556,14 @@
             "top_k",
             "top_p"
           ],
-          "default_parameters": null,
+          "default_parameters": {
+            "temperature": 0.9,
+            "top_p": 1,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
           "knowledge_cutoff": null,
           "expiration_date": null,
           "links": {
