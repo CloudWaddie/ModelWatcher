@@ -12291,9 +12291,9 @@
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
-              "input_tokens": 0.21999999999999997,
+              "input_tokens": 0.3,
               "output_tokens": 1,
-              "cache_read_tokens": 0.022
+              "cache_read_tokens": 0.09999999899999999
             },
             "tags": [
               "prompt_cache"
@@ -18425,17 +18425,13 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
             "logprobs",
             "max_tokens",
-            "min_p",
             "presence_penalty",
             "reasoning",
-            "repetition_penalty",
             "response_format",
             "seed",
             "stop",
-            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
@@ -18518,7 +18514,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1048576,
+          "context_length": 1000000,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -18545,7 +18541,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1000000,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
@@ -29651,8 +29647,7 @@
           },
           "pricing": {
             "prompt": "0.00000022",
-            "completion": "0.000001",
-            "input_cache_read": "0.000000022"
+            "completion": "0.0000018"
           },
           "top_provider": {
             "context_length": 262144,
