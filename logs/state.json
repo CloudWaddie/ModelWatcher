@@ -6556,35 +6556,6 @@
           }
         },
         {
-          "id": "MiniMaxAI/MiniMax-M2.5",
-          "name": "MiniMaxAI/MiniMax-M2.5",
-          "uuid": "endpoint-bcaa71d1-8a5a-4391-b691-79598f501e18",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "MiniMax M2.5 FP4",
-          "organization": "MiniMaxAI",
-          "context_length": 196608,
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.3,
-            "output": 1.2,
-            "base": 0,
-            "finetune": 0,
-            "cached_input": 0.060000000000000005,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "MiniMaxAI/MiniMax-M2.5-FP4",
           "name": "MiniMaxAI/MiniMax-M2.5-FP4",
           "object": "model",
@@ -21046,63 +21017,6 @@
           }
         },
         {
-          "id": "inclusionai/ling-2.6-flash:free",
-          "name": "inclusionAI: Ling-2.6-flash (free)",
-          "canonical_slug": "inclusionai/ling-2.6-flash-20260421",
-          "hugging_face_id": "",
-          "description": "Ling-2.6-flash is an instant (instruct) model from inclusionAI with 104B total parameters and 7.4B active parameters, designed for real-world agents that require fast responses, strong execution, and high token efficiency....",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 32768,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "knowledge_cutoff": null,
-          "expiration_date": "2026-04-29",
-          "links": {
-            "details": "/api/v1/models/inclusionai/ling-2.6-flash-20260421/endpoints"
-          }
-        },
-        {
           "id": "inflection/inflection-3-pi",
           "name": "Inflection: Inflection 3 Pi",
           "canonical_slug": "inflection/inflection-3-pi",
@@ -23434,11 +23348,11 @@
           },
           "pricing": {
             "prompt": "0.00000002",
-            "completion": "0.00000004"
+            "completion": "0.00000003"
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": 16384,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -32126,52 +32040,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/qwen/qwen3.6-plus-04-02/endpoints"
-          }
-        },
-        {
-          "id": "qwen/qwq-32b",
-          "name": "Qwen: QwQ 32B",
-          "canonical_slug": "qwen/qwq-32b",
-          "hugging_face_id": "Qwen/QwQ-32B",
-          "description": "QwQ is the reasoning model of the Qwen series. Compared with conventional instruction-tuned models, QwQ, which is capable of thinking and reasoning, can achieve significantly enhanced performance in downstream tasks,...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Qwen",
-            "instruct_type": "qwq"
-          },
-          "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.00000058"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 131072,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "knowledge_cutoff": "2024-06-30",
-          "expiration_date": "2026-04-29",
-          "links": {
-            "details": "/api/v1/models/qwen/qwq-32b/endpoints"
           }
         },
         {
