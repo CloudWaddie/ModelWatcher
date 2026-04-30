@@ -10163,44 +10163,6 @@
       "success": true,
       "models": [
         {
-          "id": "allenai/Olmo-3.1-32B-Instruct",
-          "name": "allenai/Olmo-3.1-32B-Instruct",
-          "owned_by": "deepinfra",
-          "root": "allenai/Olmo-3.1-32B-Instruct",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "Olmo is a series of Open language models, developed by Allen Institute for AI (Ai2), designed to enable the science of language models. ",
-            "context_length": 65536,
-            "max_tokens": 65536,
-            "pricing": {
-              "input_tokens": 0.2,
-              "output_tokens": 0.6
-            },
-            "tags": []
-          }
-        },
-        {
-          "id": "allenai/olmOCR-2-7B-1025",
-          "name": "allenai/olmOCR-2-7B-1025",
-          "owned_by": "deepinfra",
-          "root": "allenai/olmOCR-2-7B-1025",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "olmOCR is a specialized AI tool that converts PDF documents into clean, structured text while preserving important formatting and layout information. What makes olmOCR particularly valuable for developers is its ability to handle challenging PDFs that traditional OCR tools struggle with—including complex layouts, poor-quality scans, handwritten text, and documents with mixed content types. Built on a fine-tuned 7B vision-language model, olmOCR provides enterprise-grade PDF processing at a fraction of the cost of proprietary solutions.",
-            "context_length": 16384,
-            "max_tokens": 16384,
-            "pricing": {
-              "input_tokens": 0.09,
-              "output_tokens": 0.19
-            },
-            "tags": [
-              "vision"
-            ]
-          }
-        },
-        {
           "id": "anthropic/claude-3-7-sonnet-latest",
           "name": "anthropic/claude-3-7-sonnet-latest",
           "owned_by": "deepinfra",
@@ -11252,24 +11214,6 @@
           }
         },
         {
-          "id": "meta-llama/Meta-Llama-3-8B-Instruct",
-          "name": "meta-llama/Meta-Llama-3-8B-Instruct",
-          "owned_by": "deepinfra",
-          "root": "meta-llama/Meta-Llama-3-8B-Instruct",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "Meta developed and released the Meta Llama 3 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8 and 70B sizes.",
-            "context_length": 8192,
-            "max_tokens": 8192,
-            "pricing": {
-              "input_tokens": 0.030000000000000002,
-              "output_tokens": 0.04
-            },
-            "tags": []
-          }
-        },
-        {
           "id": "meta-llama/Meta-Llama-3.1-70B-Instruct",
           "name": "meta-llama/Meta-Llama-3.1-70B-Instruct",
           "owned_by": "deepinfra",
@@ -11645,27 +11589,6 @@
           }
         },
         {
-          "id": "nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL",
-          "name": "nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL",
-          "owned_by": "deepinfra",
-          "root": "nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "NVIDIA Nemotron 2 Nano VL extends the Nemotron family into multi-modal reasoning and document intelligence. This auto-regressive vision-language model enables multi-image reasoning, video understanding, visual Q&A and document analysis and summarization. Optimized for enterprise AI workflows, it powers multimodal agentic systems such as visual copilots, document assistants, and knowledge automation pipelines.",
-            "context_length": 131072,
-            "max_tokens": 131072,
-            "pricing": {
-              "input_tokens": 0.2,
-              "output_tokens": 0.6
-            },
-            "tags": [
-              "vision",
-              "reasoning"
-            ]
-          }
-        },
-        {
           "id": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
           "name": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
           "owned_by": "deepinfra",
@@ -11745,26 +11668,6 @@
             "tags": [
               "reasoning_effort",
               "reasoning"
-            ]
-          }
-        },
-        {
-          "id": "PaddlePaddle/PaddleOCR-VL-0.9B",
-          "name": "PaddlePaddle/PaddleOCR-VL-0.9B",
-          "owned_by": "deepinfra",
-          "root": "PaddlePaddle/PaddleOCR-VL-0.9B",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "PaddleOCR-VL is a SOTA and resource-efficient model tailored for document parsing. Its core component is PaddleOCR-VL-0.9B, a compact yet powerful vision-language model (VLM) that integrates a NaViT-style dynamic resolution visual encoder with the ERNIE-4.5-0.3B language model to enable accurate element recognition. This innovative model efficiently supports 109 languages and excels in recognizing complex elements (e.g., text, tables, formulas, and charts), while maintaining minimal resource consumption. Through comprehensive evaluations on widely used public benchmarks and in-house benchmarks, PaddleOCR-VL achieves SOTA performance in both page-level document parsing and element-level recognition. It significantly outperforms existing solutions, exhibits strong competitiveness against top-tier VLMs, and delivers fast inference speeds. These strengths make it highly suitable for practical deployment in real-world scenarios.",
-            "context_length": 16384,
-            "max_tokens": 16384,
-            "pricing": {
-              "input_tokens": 0.14,
-              "output_tokens": 0.8
-            },
-            "tags": [
-              "vision"
             ]
           }
         },
@@ -15566,7 +15469,7 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-05-07",
           "links": {
             "details": "/api/v1/models/allenai/olmo-3.1-32b-instruct-20251215/endpoints"
           }
@@ -21229,7 +21132,7 @@
           ],
           "default_parameters": {},
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null,
+          "expiration_date": "2026-05-07",
           "links": {
             "details": "/api/v1/models/meta-llama/llama-3-8b-instruct/endpoints"
           }
@@ -24787,7 +24690,7 @@
             "frequency_penalty": null
           },
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-05-07",
           "links": {
             "details": "/api/v1/models/nvidia/nemotron-nano-12b-v2-vl/endpoints"
           }
@@ -33399,6 +33302,68 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/x-ai/grok-4.20-multi-agent-20260309/endpoints"
+          }
+        },
+        {
+          "id": "x-ai/grok-4.3",
+          "name": "xAI: Grok 4.3",
+          "canonical_slug": "x-ai/grok-4.3-20260430",
+          "hugging_face_id": null,
+          "description": "Grok 4.3 is a reasoning model from xAI. It accepts text and image inputs with text output, and is suited for agentic workflows, instruction-following tasks, and applications requiring high factual...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Grok",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000125",
+            "completion": "0.0000025",
+            "web_search": "0.005",
+            "input_cache_read": "0.0000002"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": null,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-4.3-20260430/endpoints"
           }
         },
         {
