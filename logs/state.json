@@ -14989,7 +14989,7 @@
           "canonical_slug": "~moonshotai/kimi-latest",
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the MoonshotAI Kimi family.",
-          "context_length": 262144,
+          "context_length": 262142,
           "architecture": {
             "modality": "text+image->text",
             "input_modalities": [
@@ -15003,13 +15003,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000075",
-            "completion": "0.0000035",
-            "input_cache_read": "0.00000015"
+            "prompt": "0.00000074",
+            "completion": "0.00000349",
+            "input_cache_read": "0.00000014"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 16384,
+            "context_length": 262142,
+            "max_completion_tokens": 262142,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -23831,7 +23831,7 @@
           "canonical_slug": "moonshotai/kimi-k2.6-20260420",
           "hugging_face_id": "moonshotai/Kimi-K2.6",
           "description": "Kimi K2.6 is Moonshot AI's next-generation multimodal model, designed for long-horizon coding, coding-driven UI/UX generation, and multi-agent orchestration. It handles complex end-to-end coding tasks across Python, Rust, and Go, and...",
-          "context_length": 262144,
+          "context_length": 262142,
           "architecture": {
             "modality": "text+image->text",
             "input_modalities": [
@@ -23845,13 +23845,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000075",
-            "completion": "0.0000035",
-            "input_cache_read": "0.00000015"
+            "prompt": "0.00000074",
+            "completion": "0.00000349",
+            "input_cache_read": "0.00000014"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 16384,
+            "context_length": 262142,
+            "max_completion_tokens": 262142,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -28518,6 +28518,63 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openrouter/free/endpoints"
+          }
+        },
+        {
+          "id": "openrouter/owl-alpha",
+          "name": "Owl Alpha",
+          "canonical_slug": "openrouter/owl-alpha",
+          "hugging_face_id": null,
+          "description": "Owl Alpha is a high-performance foundation model designed for agentic workloads. Natively supports tool use, and long-context tasks, with strong performance in code generation, automated workflows, and complex instruction execution....",
+          "context_length": 1048756,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 1048756,
+            "max_completion_tokens": 262144,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "logit_bias",
+            "max_tokens",
+            "presence_penalty",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openrouter/owl-alpha/endpoints"
           }
         },
         {
@@ -33540,7 +33597,7 @@
           "id": "xiaomi/mimo-v2.5",
           "name": "Xiaomi: MiMo-V2.5",
           "canonical_slug": "xiaomi/mimo-v2.5-20260422",
-          "hugging_face_id": null,
+          "hugging_face_id": "XiaomiMiMo/MiMo-V2.5",
           "description": "MiMo-V2.5 is a native omnimodal model by Xiaomi. It delivers Pro-level agentic performance at roughly half the inference cost, while surpassing MiMo-V2-Omni in multimodal perception across image and video understanding...",
           "context_length": 1048576,
           "architecture": {
@@ -33599,7 +33656,7 @@
           "id": "xiaomi/mimo-v2.5-pro",
           "name": "Xiaomi: MiMo-V2.5-Pro",
           "canonical_slug": "xiaomi/mimo-v2.5-pro-20260422",
-          "hugging_face_id": null,
+          "hugging_face_id": "XiaomiMiMo/MiMo-V2.5-Pro",
           "description": "MiMo-V2.5-Pro is Xiaomi’s flagship model, delivering strong performance in general agentic capabilities, complex software engineering, and long-horizon tasks, with top rankings on benchmarks such as ClawEval, GDPVal, and SWE-bench Pro....",
           "context_length": 1048576,
           "architecture": {
