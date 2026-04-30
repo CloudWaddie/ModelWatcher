@@ -13031,9 +13031,7 @@
           },
           "description": "Our efficient reasoning model released September 2025.",
           "max_context_length": 131072,
-          "aliases": [
-            "magistral-small-latest"
-          ],
+          "aliases": [],
           "deprecation": "2026-07-31T12:00:00Z",
           "deprecation_replacement_model": "mistral-small-latest",
           "default_model_temperature": 0.7,
@@ -13041,7 +13039,7 @@
         },
         {
           "id": "magistral-small-latest",
-          "name": "magistral-small-2509",
+          "name": "mistral-small-2603",
           "owned_by": "mistralai",
           "object": "model",
           "capabilities": {
@@ -13049,7 +13047,7 @@
             "function_calling": true,
             "reasoning": true,
             "completion_fim": false,
-            "fine_tuning": true,
+            "fine_tuning": false,
             "vision": true,
             "ocr": false,
             "classification": false,
@@ -13059,14 +13057,16 @@
             "audio_transcription_realtime": false,
             "audio_speech": false
           },
-          "description": "Our efficient reasoning model released September 2025.",
-          "max_context_length": 131072,
+          "description": "Mistral Small 4.",
+          "max_context_length": 262144,
           "aliases": [
-            "magistral-small-2509"
+            "mistral-small-2603",
+            "mistral-small-latest",
+            "mistral-vibe-cli-fast"
           ],
-          "deprecation": "2026-07-31T12:00:00Z",
-          "deprecation_replacement_model": "mistral-small-latest",
-          "default_model_temperature": 0.7,
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.3,
           "type": "base"
         },
         {
@@ -13916,7 +13916,8 @@
           "max_context_length": 262144,
           "aliases": [
             "mistral-small-latest",
-            "mistral-vibe-cli-fast"
+            "mistral-vibe-cli-fast",
+            "magistral-small-latest"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
@@ -13947,7 +13948,8 @@
           "max_context_length": 262144,
           "aliases": [
             "mistral-small-2603",
-            "mistral-vibe-cli-fast"
+            "mistral-vibe-cli-fast",
+            "magistral-small-latest"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
@@ -14042,7 +14044,8 @@
           "max_context_length": 262144,
           "aliases": [
             "mistral-small-2603",
-            "mistral-small-latest"
+            "mistral-small-latest",
+            "magistral-small-latest"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
@@ -27571,11 +27574,11 @@
           },
           "pricing": {
             "prompt": "0.000000039",
-            "completion": "0.00000019"
+            "completion": "0.00000018"
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -27697,7 +27700,6 @@
             "min_p",
             "presence_penalty",
             "reasoning",
-            "reasoning_effort",
             "repetition_penalty",
             "response_format",
             "seed",
