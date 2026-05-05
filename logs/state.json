@@ -1624,48 +1624,6 @@
           "display_name": "Gemini Robotics-ER 1.6 Preview"
         },
         {
-          "id": "models/gemma-3-12b-it",
-          "name": "models/gemma-3-12b-it",
-          "owned_by": "google",
-          "object": "model",
-          "display_name": "Gemma 3 12B"
-        },
-        {
-          "id": "models/gemma-3-1b-it",
-          "name": "models/gemma-3-1b-it",
-          "owned_by": "google",
-          "object": "model",
-          "display_name": "Gemma 3 1B"
-        },
-        {
-          "id": "models/gemma-3-27b-it",
-          "name": "models/gemma-3-27b-it",
-          "owned_by": "google",
-          "object": "model",
-          "display_name": "Gemma 3 27B"
-        },
-        {
-          "id": "models/gemma-3-4b-it",
-          "name": "models/gemma-3-4b-it",
-          "owned_by": "google",
-          "object": "model",
-          "display_name": "Gemma 3 4B"
-        },
-        {
-          "id": "models/gemma-3n-e2b-it",
-          "name": "models/gemma-3n-e2b-it",
-          "owned_by": "google",
-          "object": "model",
-          "display_name": "Gemma 3n E2B"
-        },
-        {
-          "id": "models/gemma-3n-e4b-it",
-          "name": "models/gemma-3n-e4b-it",
-          "owned_by": "google",
-          "object": "model",
-          "display_name": "Gemma 3n E4B"
-        },
-        {
           "id": "models/gemma-4-26b-a4b-it",
           "name": "models/gemma-4-26b-a4b-it",
           "owned_by": "google",
@@ -19855,50 +19813,6 @@
           }
         },
         {
-          "id": "google/gemma-3-12b-it:free",
-          "name": "Google: Gemma 3 12B (free)",
-          "canonical_slug": "google/gemma-3-12b-it",
-          "hugging_face_id": "google/gemma-3-12b-it",
-          "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities,...",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Gemini",
-            "instruct_type": "gemma"
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": 8192,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "seed",
-            "stop",
-            "temperature",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/google/gemma-3-12b-it/endpoints"
-          }
-        },
-        {
           "id": "google/gemma-3-27b-it",
           "name": "Google: Gemma 3 27B",
           "canonical_slug": "google/gemma-3-27b-it",
@@ -19942,55 +19856,6 @@
             "tool_choice",
             "tools",
             "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/google/gemma-3-27b-it/endpoints"
-          }
-        },
-        {
-          "id": "google/gemma-3-27b-it:free",
-          "name": "Google: Gemma 3 27B (free)",
-          "canonical_slug": "google/gemma-3-27b-it",
-          "hugging_face_id": "google/gemma-3-27b-it",
-          "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities,...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Gemini",
-            "instruct_type": "gemma"
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 8192,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "response_format",
-            "seed",
-            "stop",
-            "temperature",
             "top_p"
           ],
           "default_parameters": {
@@ -20058,94 +19923,6 @@
           }
         },
         {
-          "id": "google/gemma-3-4b-it:free",
-          "name": "Google: Gemma 3 4B (free)",
-          "canonical_slug": "google/gemma-3-4b-it",
-          "hugging_face_id": "google/gemma-3-4b-it",
-          "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities,...",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Gemini",
-            "instruct_type": "gemma"
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": 8192,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "response_format",
-            "seed",
-            "stop",
-            "temperature",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/google/gemma-3-4b-it/endpoints"
-          }
-        },
-        {
-          "id": "google/gemma-3n-e2b-it:free",
-          "name": "Google: Gemma 3n 2B (free)",
-          "canonical_slug": "google/gemma-3n-e2b-it",
-          "hugging_face_id": "google/gemma-3n-E2B-it",
-          "description": "Gemma 3n E2B IT is a multimodal, instruction-tuned model developed by Google DeepMind, designed to operate efficiently at an effective parameter size of 2B while leveraging a 6B architecture. Based...",
-          "context_length": 8192,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 8192,
-            "max_completion_tokens": 2048,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "response_format",
-            "seed",
-            "temperature",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/google/gemma-3n-e2b-it/endpoints"
-          }
-        },
-        {
           "id": "google/gemma-3n-e4b-it",
           "name": "Google: Gemma 3n 4B",
           "canonical_slug": "google/gemma-3n-e4b-it",
@@ -20183,49 +19960,6 @@
             "stop",
             "temperature",
             "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/google/gemma-3n-e4b-it/endpoints"
-          }
-        },
-        {
-          "id": "google/gemma-3n-e4b-it:free",
-          "name": "Google: Gemma 3n 4B (free)",
-          "canonical_slug": "google/gemma-3n-e4b-it",
-          "hugging_face_id": "google/gemma-3n-E4B-it",
-          "description": "Gemma 3n E4B-it is optimized for efficient execution on mobile and low-resource devices, such as phones, laptops, and tablets. It supports multimodal inputs—including text, visual data, and audio—enabling diverse tasks...",
-          "context_length": 8192,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 8192,
-            "max_completion_tokens": 2048,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "response_format",
-            "seed",
-            "temperature",
             "top_p"
           ],
           "default_parameters": {},
