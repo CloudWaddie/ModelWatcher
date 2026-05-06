@@ -1,5 +1,5 @@
 {
-  "timestamp": 1778049345110,
+  "timestamp": 1778059778832,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7866,6 +7866,22 @@
           "gamedev"
         ]
       }
+    },
+    {
+      "id": "uni-1.1",
+      "displayName": "UNI-1.1",
+      "provider": "lumalabs",
+      "active": false,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "logo",
+          "image",
+          "graphicdesign",
+          "imagetoimage"
+        ]
+      }
     }
   ],
   "providers": [
@@ -10608,6 +10624,12 @@
       "text": {
         "input": 1.25,
         "output": 2.5
+      }
+    },
+    {
+      "id": "uni-1.1",
+      "image": {
+        "perImage": 0.0404
       }
     }
   ]
