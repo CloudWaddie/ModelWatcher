@@ -1533,6 +1533,13 @@
           "display_name": "Nano Banana 2"
         },
         {
+          "id": "models/gemini-3.1-flash-lite",
+          "name": "models/gemini-3.1-flash-lite",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.1 Flash Lite"
+        },
+        {
           "id": "models/gemini-3.1-flash-lite-preview",
           "name": "models/gemini-3.1-flash-lite-preview",
           "owned_by": "google",
@@ -20648,8 +20655,8 @@
           }
         },
         {
-          "id": "inclusionai/ling-2.6-1t:free",
-          "name": "inclusionAI: Ling-2.6-1T (free)",
+          "id": "inclusionai/ling-2.6-1t",
+          "name": "inclusionAI: Ling-2.6-1T",
           "canonical_slug": "inclusionai/ling-2.6-1t-20260423",
           "hugging_face_id": null,
           "description": "Ling-2.6-1T is an instant (instruct) model from inclusionAI and the company’s trillion-parameter flagship, designed for real-world agents that require fast execution and high efficiency at scale. It uses a “fast...",
@@ -20666,8 +20673,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0",
-            "completion": "0"
+            "prompt": "0.0000003",
+            "completion": "0.0000025",
+            "input_cache_read": "0.00000006"
           },
           "top_provider": {
             "context_length": 262144,
@@ -20700,7 +20708,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2026-05-07",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/inclusionai/ling-2.6-1t-20260423/endpoints"
           }
