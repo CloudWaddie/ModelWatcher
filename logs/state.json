@@ -23973,7 +23973,6 @@
             "logprobs",
             "max_tokens",
             "min_p",
-            "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
@@ -31627,12 +31626,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
+            "prompt": "0.00000004",
             "completion": "0.00000015"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 81920,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -31647,6 +31646,7 @@
             "reasoning",
             "repetition_penalty",
             "response_format",
+            "seed",
             "stop",
             "structured_outputs",
             "temperature",
