@@ -3555,6 +3555,36 @@
           }
         },
         {
+          "id": "ByteDance/Seedream-5.0-lite",
+          "name": "ByteDance/Seedream-5.0-lite",
+          "uuid": "endpoint-90244fc5-096f-4bca-b5f2-79664175e2c4",
+          "object": "model",
+          "type": "image",
+          "running": false,
+          "display_name": "ByteDance Seedream 5.0 Lite",
+          "organization": "ByteDance",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": {
+              "example_price": 0.035,
+              "example_description": "Pricing is $0.035 for both 2K & 3K outputs"
+            },
+            "video": 0
+          }
+        },
+        {
           "id": "canopylabs/orpheus-3b-0.1-ft",
           "name": "canopylabs/orpheus-3b-0.1-ft",
           "object": "model",
@@ -22524,13 +22554,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000003",
-            "completion": "0.0000012",
-            "input_cache_read": "0.000000059"
+            "prompt": "0.000000299",
+            "completion": "0.0000012"
           },
           "top_provider": {
             "context_length": 196608,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
