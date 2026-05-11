@@ -1530,11 +1530,25 @@
           "display_name": "Gemini 3 Flash Preview"
         },
         {
+          "id": "models/gemini-3-flash-preview-agent",
+          "name": "models/gemini-3-flash-preview-agent",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3 Flash Preview (Agent)"
+        },
+        {
           "id": "models/gemini-3-pro-image-preview",
           "name": "models/gemini-3-pro-image-preview",
           "owned_by": "google",
           "object": "model",
           "display_name": "Nano Banana Pro"
+        },
+        {
+          "id": "models/gemini-3-pro-image-preview-agent",
+          "name": "models/gemini-3-pro-image-preview-agent",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3 Pro Image Preview (Agent)"
         },
         {
           "id": "models/gemini-3-pro-preview",
@@ -1551,6 +1565,13 @@
           "display_name": "Nano Banana 2"
         },
         {
+          "id": "models/gemini-3.1-flash-image-preview-agent",
+          "name": "models/gemini-3.1-flash-image-preview-agent",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.1 Flash Image Preview (Agent)"
+        },
+        {
           "id": "models/gemini-3.1-flash-lite",
           "name": "models/gemini-3.1-flash-lite",
           "owned_by": "google",
@@ -1563,6 +1584,13 @@
           "owned_by": "google",
           "object": "model",
           "display_name": "Gemini 3.1 Flash Lite Preview"
+        },
+        {
+          "id": "models/gemini-3.1-flash-lite-preview-agent",
+          "name": "models/gemini-3.1-flash-lite-preview-agent",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.1 Flash Lite Preview (Agent)"
         },
         {
           "id": "models/gemini-3.1-flash-live-preview",
@@ -1579,11 +1607,25 @@
           "display_name": "Gemini 3.1 Flash TTS Preview"
         },
         {
+          "id": "models/gemini-3.1-flash-tts-preview-agent",
+          "name": "models/gemini-3.1-flash-tts-preview-agent",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.1 Flash TTS Preview (Agent)"
+        },
+        {
           "id": "models/gemini-3.1-pro-preview",
           "name": "models/gemini-3.1-pro-preview",
           "owned_by": "google",
           "object": "model",
           "display_name": "Gemini 3.1 Pro Preview"
+        },
+        {
+          "id": "models/gemini-3.1-pro-preview-agent",
+          "name": "models/gemini-3.1-pro-preview-agent",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.1 Pro Preview (Agent)"
         },
         {
           "id": "models/gemini-3.1-pro-preview-customtools",
@@ -1691,11 +1733,25 @@
           "display_name": "Lyria 3 Clip Preview"
         },
         {
+          "id": "models/lyria-3-clip-preview-agent",
+          "name": "models/lyria-3-clip-preview-agent",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Lyria 3 Clip Preview (Agent)"
+        },
+        {
           "id": "models/lyria-3-pro-preview",
           "name": "models/lyria-3-pro-preview",
           "owned_by": "google",
           "object": "model",
           "display_name": "Lyria 3 Pro Preview"
+        },
+        {
+          "id": "models/lyria-3-pro-preview-agent",
+          "name": "models/lyria-3-pro-preview-agent",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Lyria 3 Pro Preview (Agent)"
         },
         {
           "id": "models/lyria-realtime-exp",
@@ -1710,6 +1766,27 @@
           "owned_by": "google",
           "object": "model",
           "display_name": "Nano Banana Pro"
+        },
+        {
+          "id": "models/omni-bag-autopush-iapi-agent",
+          "name": "models/omni-bag-autopush-iapi-agent",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Omni BAG Autopush IAPI (Agent)"
+        },
+        {
+          "id": "models/omni-bag-prod-iapi-agent",
+          "name": "models/omni-bag-prod-iapi-agent",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Omni BAG Prod IAPI (Agent)"
+        },
+        {
+          "id": "models/omni-bag-staging-iapi-agent",
+          "name": "models/omni-bag-staging-iapi-agent",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Omni BAG Staging IAPI (Agent)"
         },
         {
           "id": "models/veo-2.0-generate-001",
@@ -11332,6 +11409,27 @@
           }
         },
         {
+          "id": "google/gemma-4-31B-it-turbo",
+          "name": "google/gemma-4-31B-it-turbo",
+          "owned_by": "deepinfra",
+          "root": "google/gemma-4-31B-it-turbo",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "",
+            "context_length": 262144,
+            "max_tokens": 262144,
+            "pricing": {
+              "input_tokens": 0.12000000000000001,
+              "output_tokens": 0.37
+            },
+            "tags": [
+              "vision",
+              "reasoning"
+            ]
+          }
+        },
+        {
           "id": "Gryphe/MythoMax-L2-13b",
           "name": "Gryphe/MythoMax-L2-13b",
           "owned_by": "deepinfra",
@@ -16972,7 +17070,7 @@
           "name": "Arcee AI: Trinity Large Thinking",
           "canonical_slug": "arcee-ai/trinity-large-thinking",
           "hugging_face_id": "arcee-ai/Trinity-Large-Thinking",
-          "description": "Trinity Large Thinking is a powerful open source reasoning model from the team at Arcee AI. It shows strong performance in PinchBench, agentic workloads, and reasoning tasks. Launch video: https://youtu.be/Gc82AXLa0Rg?si=4RLn6WBz33qT--B7",
+          "description": "Trinity Large Thinking is a powerful open source reasoning model from the team at Arcee AI. It shows strong performance in PinchBench, agentic workloads, and reasoning tasks. Launch video: https://youtu.be/Gc82AXLa0Rg?si=4RLn6WBz33qT--B7...",
           "context_length": 262144,
           "architecture": {
             "modality": "text->text",
@@ -17034,7 +17132,7 @@
           "name": "Arcee AI: Trinity Large Thinking (free)",
           "canonical_slug": "arcee-ai/trinity-large-thinking",
           "hugging_face_id": "arcee-ai/Trinity-Large-Thinking",
-          "description": "Trinity Large Thinking is a powerful open source reasoning model from the team at Arcee AI. It shows strong performance in PinchBench, agentic workloads, and reasoning tasks. Launch video: https://youtu.be/Gc82AXLa0Rg?si=4RLn6WBz33qT--B7",
+          "description": "Trinity Large Thinking is a powerful open source reasoning model from the team at Arcee AI. It shows strong performance in PinchBench, agentic workloads, and reasoning tasks. Launch video: https://youtu.be/Gc82AXLa0Rg?si=4RLn6WBz33qT--B7...",
           "context_length": 262144,
           "architecture": {
             "modality": "text->text",
