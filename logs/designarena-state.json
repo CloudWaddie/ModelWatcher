@@ -1,5 +1,5 @@
 {
-  "timestamp": 1778475648450,
+  "timestamp": 1778493165243,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -3541,36 +3541,6 @@
       ],
       "display": {
         "color": "orange"
-      }
-    },
-    {
-      "id": "mistral_voxtral_small_2507",
-      "displayName": "Voxtral Small (2507)",
-      "provider": "mistral",
-      "active": false,
-      "openSource": true,
-      "router": false,
-      "arenas": {
-        "models": [
-          "tts"
-        ]
-      },
-      "inputModalities": [
-        "text",
-        "audio"
-      ]
-    },
-    {
-      "id": "mistral_voxtral_mini_2507",
-      "displayName": "Voxtral Mini (2507)",
-      "provider": "mistral",
-      "active": false,
-      "openSource": true,
-      "router": false,
-      "arenas": {
-        "models": [
-          "tts"
-        ]
       }
     },
     {
@@ -7893,6 +7863,19 @@
           "imagetoimage"
         ]
       }
+    },
+    {
+      "id": "voxtral-mini-tts-2603",
+      "displayName": "Voxtral Mini TTS (2603)",
+      "provider": "mistral",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
     }
   ],
   "providers": [
@@ -9022,6 +9005,12 @@
       "id": "orange",
       "displayName": "orange",
       "logoName": "private.png"
+    },
+    {
+      "id": "inworld_direct",
+      "displayName": "Inworld",
+      "logoName": "inworld-logo.png",
+      "website": "https://inworld.ai"
     }
   ],
   "pricing": [
@@ -9787,13 +9776,6 @@
       "text": {
         "input": 0.075,
         "output": 0.2
-      }
-    },
-    {
-      "id": "mistral_voxtral_small_2507",
-      "text": {
-        "input": 0.1,
-        "output": 0.3
       }
     },
     {
