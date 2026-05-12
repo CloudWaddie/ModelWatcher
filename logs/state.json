@@ -13245,7 +13245,8 @@
           "aliases": [
             "mistral-small-2603",
             "mistral-small-latest",
-            "mistral-vibe-cli-fast"
+            "mistral-vibe-cli-fast",
+            "mistral-small-2506"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
@@ -13609,15 +13610,15 @@
         },
         {
           "id": "mistral-medium",
-          "name": "mistral-medium-2508",
+          "name": "mistral-medium-3-5",
           "owned_by": "mistralai",
           "object": "model",
           "capabilities": {
             "completion_chat": true,
             "function_calling": true,
-            "reasoning": false,
+            "reasoning": true,
             "completion_fim": false,
-            "fine_tuning": true,
+            "fine_tuning": false,
             "vision": true,
             "ocr": false,
             "classification": false,
@@ -13627,16 +13628,12 @@
             "audio_transcription_realtime": false,
             "audio_speech": false
           },
-          "description": "Update on Mistral Medium 3 with improved capabilities.",
-          "max_context_length": 131072,
-          "aliases": [
-            "mistral-medium-2508",
-            "mistral-medium-latest",
-            "mistral-vibe-cli-with-tools"
-          ],
+          "description": "Official mistral-medium-3-5 Mistral AI model",
+          "max_context_length": 262144,
+          "aliases": [],
           "deprecation": null,
           "deprecation_replacement_model": null,
-          "default_model_temperature": 0.3,
+          "default_model_temperature": 1,
           "type": "base"
         },
         {
@@ -13669,15 +13666,15 @@
         },
         {
           "id": "mistral-medium-2508",
-          "name": "mistral-medium-2508",
+          "name": "mistral-medium-3-5",
           "owned_by": "mistralai",
           "object": "model",
           "capabilities": {
             "completion_chat": true,
             "function_calling": true,
-            "reasoning": false,
+            "reasoning": true,
             "completion_fim": false,
-            "fine_tuning": true,
+            "fine_tuning": false,
             "vision": true,
             "ocr": false,
             "classification": false,
@@ -13687,16 +13684,12 @@
             "audio_transcription_realtime": false,
             "audio_speech": false
           },
-          "description": "Update on Mistral Medium 3 with improved capabilities.",
-          "max_context_length": 131072,
-          "aliases": [
-            "mistral-medium-latest",
-            "mistral-medium",
-            "mistral-vibe-cli-with-tools"
-          ],
+          "description": "Official mistral-medium-3-5 Mistral AI model",
+          "max_context_length": 262144,
+          "aliases": [],
           "deprecation": null,
           "deprecation_replacement_model": null,
-          "default_model_temperature": 0.3,
+          "default_model_temperature": 1,
           "type": "base"
         },
         {
@@ -13841,15 +13834,15 @@
         },
         {
           "id": "mistral-medium-latest",
-          "name": "mistral-medium-2508",
+          "name": "mistral-medium-3-5",
           "owned_by": "mistralai",
           "object": "model",
           "capabilities": {
             "completion_chat": true,
             "function_calling": true,
-            "reasoning": false,
+            "reasoning": true,
             "completion_fim": false,
-            "fine_tuning": true,
+            "fine_tuning": false,
             "vision": true,
             "ocr": false,
             "classification": false,
@@ -13859,16 +13852,12 @@
             "audio_transcription_realtime": false,
             "audio_speech": false
           },
-          "description": "Update on Mistral Medium 3 with improved capabilities.",
-          "max_context_length": 131072,
-          "aliases": [
-            "mistral-medium-2508",
-            "mistral-medium",
-            "mistral-vibe-cli-with-tools"
-          ],
+          "description": "Official mistral-medium-3-5 Mistral AI model",
+          "max_context_length": 262144,
+          "aliases": [],
           "deprecation": null,
           "deprecation_replacement_model": null,
-          "default_model_temperature": 0.3,
+          "default_model_temperature": 1,
           "type": "base"
         },
         {
@@ -14049,13 +14038,13 @@
         },
         {
           "id": "mistral-small-2506",
-          "name": "mistral-small-2506",
+          "name": "mistral-small-2603",
           "owned_by": "mistralai",
           "object": "model",
           "capabilities": {
             "completion_chat": true,
             "function_calling": true,
-            "reasoning": false,
+            "reasoning": true,
             "completion_fim": false,
             "fine_tuning": false,
             "vision": true,
@@ -14067,11 +14056,16 @@
             "audio_transcription_realtime": false,
             "audio_speech": false
           },
-          "description": "Our latest enterprise-grade small model with the latest version released June 2025.",
-          "max_context_length": 131072,
-          "aliases": [],
-          "deprecation": "2026-07-31T12:00:00Z",
-          "deprecation_replacement_model": "mistral-small-latest",
+          "description": "Mistral Small 4.",
+          "max_context_length": 262144,
+          "aliases": [
+            "mistral-small-2603",
+            "mistral-small-latest",
+            "mistral-vibe-cli-fast",
+            "magistral-small-latest"
+          ],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
           "default_model_temperature": 0.3,
           "type": "base"
         },
@@ -14100,7 +14094,8 @@
           "aliases": [
             "mistral-small-latest",
             "mistral-vibe-cli-fast",
-            "magistral-small-latest"
+            "magistral-small-latest",
+            "mistral-small-2506"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
@@ -14132,7 +14127,8 @@
           "aliases": [
             "mistral-small-2603",
             "mistral-vibe-cli-fast",
-            "magistral-small-latest"
+            "magistral-small-latest",
+            "mistral-small-2506"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
@@ -14228,7 +14224,8 @@
           "aliases": [
             "mistral-small-2603",
             "mistral-small-latest",
-            "magistral-small-latest"
+            "magistral-small-latest",
+            "mistral-small-2506"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
@@ -14265,15 +14262,15 @@
         },
         {
           "id": "mistral-vibe-cli-with-tools",
-          "name": "mistral-medium-2508",
+          "name": "mistral-medium-3-5",
           "owned_by": "mistralai",
           "object": "model",
           "capabilities": {
             "completion_chat": true,
             "function_calling": true,
-            "reasoning": false,
+            "reasoning": true,
             "completion_fim": false,
-            "fine_tuning": true,
+            "fine_tuning": false,
             "vision": true,
             "ocr": false,
             "classification": false,
@@ -14283,16 +14280,12 @@
             "audio_transcription_realtime": false,
             "audio_speech": false
           },
-          "description": "Update on Mistral Medium 3 with improved capabilities.",
-          "max_context_length": 131072,
-          "aliases": [
-            "mistral-medium-2508",
-            "mistral-medium-latest",
-            "mistral-medium"
-          ],
+          "description": "Official mistral-medium-3-5 Mistral AI model",
+          "max_context_length": 262144,
+          "aliases": [],
           "deprecation": null,
           "deprecation_replacement_model": null,
-          "default_model_temperature": 0.3,
+          "default_model_temperature": 1,
           "type": "base"
         },
         {
@@ -16560,6 +16553,65 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/anthropic/claude-4.7-opus-20260416/endpoints"
+          }
+        },
+        {
+          "id": "anthropic/claude-opus-4.7-fast",
+          "name": "Anthropic: Claude Opus 4.7 (Fast)",
+          "canonical_slug": "anthropic/claude-4.7-opus-fast-20260512",
+          "hugging_face_id": null,
+          "description": "Fast-mode variant of [Opus 4.7](/anthropic/claude-opus-4.7) - identical capabilities with higher output speed at premium 6x pricing.\n\nLearn more in Anthropic's docs: https://platform.claude.com/docs/en/build-with-claude/fast-mode",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Claude",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00003",
+            "completion": "0.00015",
+            "web_search": "0.01",
+            "input_cache_read": "0.000003",
+            "input_cache_write": "0.0000375"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4.7-opus-fast-20260512/endpoints"
           }
         },
         {
@@ -23304,7 +23356,7 @@
           "canonical_slug": "mistralai/mistral-medium-3.1",
           "hugging_face_id": "",
           "description": "Mistral Medium 3.1 is an updated version of Mistral Medium 3, which is a high-performance enterprise-grade language model designed to deliver frontier-level capabilities at significantly reduced operational cost. It balances...",
-          "context_length": 131072,
+          "context_length": 262144,
           "architecture": {
             "modality": "text+image->text",
             "input_modalities": [
@@ -23323,7 +23375,7 @@
             "input_cache_read": "0.00000004"
           },
           "top_provider": {
-            "context_length": 131072,
+            "context_length": 262144,
             "max_completion_tokens": null,
             "is_moderated": false
           },
