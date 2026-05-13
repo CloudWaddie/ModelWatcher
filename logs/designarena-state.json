@@ -1,5 +1,5 @@
 {
-  "timestamp": 1778644635680,
+  "timestamp": 1778655187504,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -1522,11 +1522,25 @@
       "openSource": false,
       "router": false,
       "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
         "agents": [
           "agon_webapps",
           "agon_slides"
         ]
-      }
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     },
     {
       "id": "ember",
@@ -7299,8 +7313,10 @@
           "nativeapps"
         ]
       },
+      "vision": true,
       "inputModalities": [
-        "text"
+        "text",
+        "image"
       ]
     },
     {
@@ -7853,7 +7869,11 @@
           "mobileapps"
         ]
       },
-      "vision": true
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     },
     {
       "id": "orange",
