@@ -4111,38 +4111,6 @@
           }
         },
         {
-          "id": "deepseek-ai/DeepSeek-R1",
-          "name": "deepseek-ai/DeepSeek-R1",
-          "uuid": "endpoint-e98c33e5-aba4-4681-a904-2af36627ac32",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "DeepSeek R1-0528",
-          "organization": "DeepSeek",
-          "link": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
-          "context_length": 163840,
-          "config": {
-            "chat_template": "{% if not add_generation_prompt is defined %}{% set add_generation_prompt = false %}{% endif %}{% set is_first = false %}{% set is_tool = false %}{% set is_output_first = true %}{% set system_prompt = ''%}{% set is_first_sp = true %}{% set is_last_user = false %}{%- for message in messages %}{%- if message['role'] == 'system' %}{%- if is_first_sp %}{% set system_prompt = system_prompt + message['content'] %}{% set is_first_sp = false %}{%- else %}{% set system_prompt = system_prompt + '\n\n' + message['content'] %}{%- endif %}{%- endif %}{%- endfor %}{{ bos_token }}{{ system_prompt }}{%- for message in messages %}{% set content = message['content'] %}{%- if message['role'] == 'user' %}{%- set is_tool = false -%}{%- set is_first = false -%}{%- set is_last_user = true -%}{{'<｜User｜>' + content + '<｜Assistant｜>'}}{%- endif %}{%- if message['role'] == 'assistant' %}{% if '</think>' in content %}{% set content = content.split('</think>')[-1] %}{% endif %}{% endif %}{%- if message['role'] == 'assistant' and message['tool_calls'] is defined and message['tool_calls'] is not none %}{%- set is_last_user = false -%}{%- if is_tool %}{{'<｜tool▁outputs▁end｜>'}}{%- endif %}{%- set is_first = false %}{%- set is_tool = false -%}{%- set is_output_first = true %}{%- for tool in message['tool_calls'] %}{%- if not is_first %}{%- if content is none %}{{'<｜tool▁calls▁begin｜><｜tool▁call▁begin｜>' + tool['type'] + '<｜tool▁sep｜>' + tool['function']['name'] + '\n' + '```json' + '\n' + tool['function']['arguments'] + '\n' + '```' + '<｜tool▁call▁end｜>'}}{%- else %}{{content + '<｜tool▁calls▁begin｜><｜tool▁call▁begin｜>' + tool['type'] + '<｜tool▁sep｜>' + tool['function']['name'] + '\n' + '```json' + '\n' + tool['function']['arguments'] + '\n' + '```' + '<｜tool▁call▁end｜>'}}{%- endif %}{%- set is_first = true -%}{%- else %}{{'\n' + '<｜tool▁call▁begin｜>' + tool['type'] + '<｜tool▁sep｜>' + tool['function']['name'] + '\n' + '```json' + '\n' + tool['function']['arguments'] + '\n' + '```' + '<｜tool▁call▁end｜>'}}{%- endif %}{%- endfor %}{{'<｜tool▁calls▁end｜><｜end▁of▁sentence｜>'}}{%- endif %}{%- if message['role'] == 'assistant' and (message['tool_calls'] is not defined or message['tool_calls'] is none)%}{%- set is_last_user = false -%}{%- if is_tool %}{{'<｜tool▁outputs▁end｜>' + content + '<｜end▁of▁sentence｜>'}}{%- set is_tool = false -%}{%- else %}{{content + '<｜end▁of▁sentence｜>'}}{%- endif %}{%- endif %}{%- if message['role'] == 'tool' %}{%- set is_last_user = false -%}{%- set is_tool = true -%}{%- if is_output_first %}{{'<｜tool▁outputs▁begin｜><｜tool▁output▁begin｜>' + content + '<｜tool▁output▁end｜>'}}{%- set is_output_first = false %}{%- else %}{{'\n<｜tool▁output▁begin｜>' + content + '<｜tool▁output▁end｜>'}}{%- endif %}{%- endif %}{%- endfor -%}{% if is_tool %}{{'<｜tool▁outputs▁end｜>'}}{% endif %}{% if add_generation_prompt and not is_last_user and not is_tool %}{{'<｜Assistant｜>'}}{% endif %}",
-            "stop": [
-              "<｜end▁of▁sentence｜>"
-            ],
-            "bos_token": "<｜begin▁of▁sentence｜>",
-            "eos_token": "<｜end▁of▁sentence｜>",
-            "max_output_length": 12288
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 3,
-            "output": 7,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
           "name": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
           "uuid": "endpoint-6bf6649d-fdfb-47e7-8f39-be4c7516c96c",
@@ -4264,39 +4232,6 @@
             "hourly": 0,
             "input": 0,
             "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
-          "id": "deepseek-ai/DeepSeek-V3.1",
-          "name": "deepseek-ai/DeepSeek-V3.1",
-          "uuid": "endpoint-3aeb420a-6f30-485f-a486-a854d1c87136",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Deepseek V3.1",
-          "organization": "DeepSeek",
-          "link": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
-          "license": "mit",
-          "context_length": 131072,
-          "config": {
-            "chat_template": null,
-            "stop": [
-              "<｜end▁of▁sentence｜>"
-            ],
-            "bos_token": "<｜begin▁of▁sentence｜>",
-            "eos_token": "<｜end▁of▁sentence｜>",
-            "max_output_length": 40000
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.6,
-            "output": 1.7,
             "base": 0,
             "finetune": 0,
             "image_pixel": 0,
