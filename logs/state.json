@@ -15345,7 +15345,7 @@
           "canonical_slug": "~moonshotai/kimi-latest",
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the MoonshotAI Kimi family.",
-          "context_length": 262142,
+          "context_length": 262144,
           "architecture": {
             "modality": "text+image->text",
             "input_modalities": [
@@ -15361,11 +15361,11 @@
           "pricing": {
             "prompt": "0.00000074",
             "completion": "0.0000035",
-            "input_cache_read": "0.00000025"
+            "input_cache_read": "0.00000037"
           },
           "top_provider": {
-            "context_length": 262142,
-            "max_completion_tokens": 262142,
+            "context_length": 262144,
+            "max_completion_tokens": 65535,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -17680,6 +17680,62 @@
           }
         },
         {
+          "id": "baidu/qianfan-ocr-fast",
+          "name": "Baidu: Qianfan-OCR-Fast",
+          "canonical_slug": "baidu/qianfan-ocr-fast-20260420",
+          "hugging_face_id": "",
+          "description": "Qianfan-OCR-Fast is a domain-specific multimodal large model purpose-built for OCR. By leveraging specialized OCR training data while preserving versatile multimodal intelligence, it provides a powerful performance upgrade over Qianfan-OCR.",
+          "context_length": 65536,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000068",
+            "completion": "0.00000281"
+          },
+          "top_provider": {
+            "context_length": 65536,
+            "max_completion_tokens": 28672,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "seed",
+            "stop",
+            "temperature",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/baidu/qianfan-ocr-fast-20260420/endpoints"
+          }
+        },
+        {
           "id": "bytedance-seed/seed-1.6",
           "name": "ByteDance Seed: Seed 1.6",
           "canonical_slug": "bytedance-seed/seed-1.6-20250625",
@@ -18950,7 +19006,7 @@
           "canonical_slug": "deepseek/deepseek-v4-flash-20260423",
           "hugging_face_id": "deepseek-ai/DeepSeek-V4-Flash",
           "description": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window. It is designed for fast inference and...",
-          "context_length": 256000,
+          "context_length": 1048576,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -18967,8 +19023,8 @@
             "completion": "0"
           },
           "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": 256000,
+            "context_length": 1048576,
+            "max_completion_tokens": 384000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -24290,7 +24346,7 @@
           "canonical_slug": "moonshotai/kimi-k2.6-20260420",
           "hugging_face_id": "moonshotai/Kimi-K2.6",
           "description": "Kimi K2.6 is Moonshot AI's next-generation multimodal model, designed for long-horizon coding, coding-driven UI/UX generation, and multi-agent orchestration. It handles complex end-to-end coding tasks across Python, Rust, and Go, and...",
-          "context_length": 262142,
+          "context_length": 262144,
           "architecture": {
             "modality": "text+image->text",
             "input_modalities": [
@@ -24306,11 +24362,11 @@
           "pricing": {
             "prompt": "0.00000074",
             "completion": "0.0000035",
-            "input_cache_read": "0.00000025"
+            "input_cache_read": "0.00000037"
           },
           "top_provider": {
-            "context_length": 262142,
-            "max_completion_tokens": 262142,
+            "context_length": 262144,
+            "max_completion_tokens": 65535,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -31654,7 +31710,8 @@
           },
           "pricing": {
             "prompt": "0.00000039",
-            "completion": "0.00000234"
+            "completion": "0.00000234",
+            "input_cache_read": "0.000000195"
           },
           "top_provider": {
             "context_length": 262144,
@@ -34842,13 +34899,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000105",
-            "completion": "0.0000035",
-            "input_cache_read": "0.000000525"
+            "prompt": "0.00000098",
+            "completion": "0.00000308",
+            "input_cache_read": "0.000000182"
           },
           "top_provider": {
             "context_length": 202752,
-            "max_completion_tokens": 65535,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
