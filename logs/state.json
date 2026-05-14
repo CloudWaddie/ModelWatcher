@@ -3091,6 +3091,36 @@
           }
         },
         {
+          "id": "alibaba/happyhorse-1.0-r2v",
+          "name": "alibaba/happyhorse-1.0-r2v",
+          "uuid": "endpoint-320deb45-9a43-46b2-8393-32b466ce9bce",
+          "object": "model",
+          "type": "video",
+          "running": false,
+          "display_name": "HappyHorse 1.0 R2V",
+          "organization": "Alibaba",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": {
+              "example_price": 0.24,
+              "example_description": "Text/Image to Video at 720P: $0.14/sec and $0.24/sec at 1080p"
+            }
+          }
+        },
+        {
           "id": "alibaba/happyhorse-1.0-t2v",
           "name": "alibaba/happyhorse-1.0-t2v",
           "uuid": "endpoint-e65e99d1-97f1-443f-94e2-dd139e102897",
@@ -24150,8 +24180,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000004",
-            "completion": "0.000002"
+            "prompt": "0.0000006",
+            "completion": "0.0000025"
           },
           "top_provider": {
             "context_length": 262144,
@@ -24179,7 +24209,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": "2026-05-14",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/moonshotai/kimi-k2-0905/endpoints"
           }
@@ -34488,7 +34518,7 @@
           "canonical_slug": "z-ai/glm-4.6",
           "hugging_face_id": "zai-org/GLM-4.6",
           "description": "Compared with GLM-4.5, this generation brings several key improvements: Longer context window: The context window has been expanded from 128K to 200K tokens, enabling the model to handle more complex...",
-          "context_length": 204800,
+          "context_length": 202752,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -34501,12 +34531,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000039",
-            "completion": "0.0000019"
+            "prompt": "0.00000043",
+            "completion": "0.00000174",
+            "input_cache_read": "0.00000008"
           },
           "top_provider": {
-            "context_length": 204800,
-            "max_completion_tokens": 204800,
+            "context_length": 202752,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -34539,7 +34570,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": "2026-05-14",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/z-ai/glm-4.6/endpoints"
           }
