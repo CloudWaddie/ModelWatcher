@@ -7659,7 +7659,7 @@
           "display_name": "Pearl-ai Gemma-4-31B-it-pearl",
           "organization": "pearl.ai",
           "link": "https://huggingface.co/pearl-ai/Gemma-4-31B-it-pearl",
-          "context_length": 262144,
+          "context_length": 32000,
           "config": {
             "chat_template": null,
             "stop": [],
@@ -17607,6 +17607,7 @@
             "max_tokens",
             "presence_penalty",
             "repetition_penalty",
+            "response_format",
             "seed",
             "stop",
             "temperature",
@@ -21647,6 +21648,7 @@
             "min_p",
             "presence_penalty",
             "repetition_penalty",
+            "response_format",
             "seed",
             "stop",
             "temperature",
@@ -22396,6 +22398,7 @@
             "max_tokens",
             "presence_penalty",
             "repetition_penalty",
+            "response_format",
             "seed",
             "stop",
             "temperature",
@@ -24296,8 +24299,7 @@
           },
           "pricing": {
             "prompt": "0.0000006",
-            "completion": "0.0000025",
-            "input_cache_read": "0.00000015"
+            "completion": "0.0000025"
           },
           "top_provider": {
             "context_length": 262144,
@@ -33369,59 +33371,6 @@
           }
         },
         {
-          "id": "x-ai/grok-3",
-          "name": "xAI: Grok 3",
-          "canonical_slug": "x-ai/grok-3",
-          "hugging_face_id": "",
-          "description": "Grok 3 is the latest model from xAI. It's their flagship model that excels at enterprise use cases like data extraction, coding, and text summarization. Possesses deep domain knowledge in...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Grok",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000003",
-            "completion": "0.000015",
-            "web_search": "0.005",
-            "input_cache_read": "0.00000075"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logprobs",
-            "max_tokens",
-            "presence_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-02-28",
-          "expiration_date": "2026-05-15",
-          "links": {
-            "details": "/api/v1/models/x-ai/grok-3/endpoints"
-          }
-        },
-        {
           "id": "x-ai/grok-3-beta",
           "name": "xAI: Grok 3 Beta",
           "canonical_slug": "x-ai/grok-3-beta",
@@ -33471,63 +33420,6 @@
           "expiration_date": "2026-05-15",
           "links": {
             "details": "/api/v1/models/x-ai/grok-3-beta/endpoints"
-          }
-        },
-        {
-          "id": "x-ai/grok-3-mini",
-          "name": "xAI: Grok 3 Mini",
-          "canonical_slug": "x-ai/grok-3-mini",
-          "hugging_face_id": "",
-          "description": "A lightweight model that thinks before responding. Fast, smart, and great for logic-based tasks that do not require deep domain knowledge. The raw thinking traces are accessible.",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Grok",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000003",
-            "completion": "0.0000005",
-            "web_search": "0.005",
-            "input_cache_read": "0.000000075"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-02-28",
-          "expiration_date": "2026-05-15",
-          "links": {
-            "details": "/api/v1/models/x-ai/grok-3-mini/endpoints"
           }
         },
         {
@@ -33584,189 +33476,6 @@
           "expiration_date": "2026-05-15",
           "links": {
             "details": "/api/v1/models/x-ai/grok-3-mini-beta/endpoints"
-          }
-        },
-        {
-          "id": "x-ai/grok-4",
-          "name": "xAI: Grok 4",
-          "canonical_slug": "x-ai/grok-4-07-09",
-          "hugging_face_id": "",
-          "description": "Grok 4 is xAI's latest reasoning model with a 256k context window. It supports parallel tool calling, structured outputs, and both image and text inputs. Note that reasoning is not...",
-          "context_length": 256000,
-          "architecture": {
-            "modality": "text+image+file->text",
-            "input_modalities": [
-              "image",
-              "text",
-              "file"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Grok",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000003",
-            "completion": "0.000015",
-            "web_search": "0.005",
-            "input_cache_read": "0.00000075"
-          },
-          "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "seed",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-07-31",
-          "expiration_date": "2026-05-15",
-          "links": {
-            "details": "/api/v1/models/x-ai/grok-4-07-09/endpoints"
-          }
-        },
-        {
-          "id": "x-ai/grok-4-fast",
-          "name": "xAI: Grok 4 Fast",
-          "canonical_slug": "x-ai/grok-4-fast",
-          "hugging_face_id": "",
-          "description": "Grok 4 Fast is xAI's latest multimodal model with SOTA cost-efficiency and a 2M token context window. It comes in two flavors: non-reasoning and reasoning. Read more about the model...",
-          "context_length": 2000000,
-          "architecture": {
-            "modality": "text+image+file->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "file"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Grok",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000005",
-            "web_search": "0.005",
-            "input_cache_read": "0.00000005"
-          },
-          "top_provider": {
-            "context_length": 2000000,
-            "max_completion_tokens": 30000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "seed",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-09-30",
-          "expiration_date": "2026-05-15",
-          "links": {
-            "details": "/api/v1/models/x-ai/grok-4-fast/endpoints"
-          }
-        },
-        {
-          "id": "x-ai/grok-4.1-fast",
-          "name": "xAI: Grok 4.1 Fast",
-          "canonical_slug": "x-ai/grok-4.1-fast",
-          "hugging_face_id": "",
-          "description": "Grok 4.1 Fast is xAI's best agentic tool calling model that shines in real-world use cases like customer support and deep research. 2M context window. Reasoning can be enabled/disabled using...",
-          "context_length": 2000000,
-          "architecture": {
-            "modality": "text+image+file->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "file"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Grok",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000005",
-            "web_search": "0.005",
-            "input_cache_read": "0.00000005"
-          },
-          "top_provider": {
-            "context_length": 2000000,
-            "max_completion_tokens": 30000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "seed",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.7,
-            "top_p": 0.95,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": "2026-05-15",
-          "links": {
-            "details": "/api/v1/models/x-ai/grok-4.1-fast/endpoints"
           }
         },
         {
@@ -33950,66 +33659,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/x-ai/grok-4.3-20260430/endpoints"
-          }
-        },
-        {
-          "id": "x-ai/grok-code-fast-1",
-          "name": "xAI: Grok Code Fast 1",
-          "canonical_slug": "x-ai/grok-code-fast-1",
-          "hugging_face_id": "",
-          "description": "Grok Code Fast 1 is a speedy and economical reasoning model that excels at agentic coding. With reasoning traces visible in the response, developers can steer Grok Code for high-quality...",
-          "context_length": 256000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Grok",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000015",
-            "web_search": "0.005",
-            "input_cache_read": "0.00000002"
-          },
-          "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": 10000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-09-30",
-          "expiration_date": "2026-05-15",
-          "links": {
-            "details": "/api/v1/models/x-ai/grok-code-fast-1/endpoints"
           }
         },
         {
@@ -36010,18 +35659,6 @@
       "success": true,
       "models": [
         {
-          "id": "grok-3",
-          "name": "grok-3",
-          "owned_by": "xai",
-          "object": "model"
-        },
-        {
-          "id": "grok-3-mini",
-          "name": "grok-3-mini",
-          "owned_by": "xai",
-          "object": "model"
-        },
-        {
           "id": "grok-4-0709",
           "name": "grok-4-0709",
           "owned_by": "xai",
@@ -36084,12 +35721,6 @@
         {
           "id": "grok-imagine-image",
           "name": "grok-imagine-image",
-          "owned_by": "xai",
-          "object": "model"
-        },
-        {
-          "id": "grok-imagine-image-pro",
-          "name": "grok-imagine-image-pro",
           "owned_by": "xai",
           "object": "model"
         },
