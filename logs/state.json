@@ -4753,6 +4753,34 @@
           }
         },
         {
+          "id": "google/gemma-3-27b-it-lora",
+          "name": "google/gemma-3-27b-it-lora",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Gemma 3 27B It Lora",
+          "organization": "Google",
+          "config": {
+            "chat_template": "{{ bos_token }}\n{%- if messages[0]['role'] == 'system' -%}\n    {%- if messages[0]['content'] is string -%}\n        {%- set first_user_prefix = messages[0]['content'] + '\n\n' -%}\n    {%- else -%}\n        {%- set first_user_prefix = messages[0]['content'][0]['text'] + '\n\n' -%}\n    {%- endif -%}\n    {%- set loop_messages = messages[1:] -%}\n{%- else -%}\n    {%- set first_user_prefix = \"\" -%}\n    {%- set loop_messages = messages -%}\n{%- endif -%}\n{%- for message in loop_messages -%}\n    {%- if (message['role'] == 'user') != (loop.index0 % 2 == 0) -%}\n        {{ raise_exception(\"Conversation roles must alternate user/assistant/user/assistant/...\") }}\n    {%- endif -%}\n    {%- if (message['role'] == 'assistant') -%}\n        {%- set role = \"model\" -%}\n    {%- else -%}\n        {%- set role = message['role'] -%}\n    {%- endif -%}\n    {{ '<start_of_turn>' + role + '\n' + (first_user_prefix if loop.first else \"\") }}\n    {%- if message['content'] is string -%}\n        {{ message['content'] | trim }}\n    {%- elif message['content'] is iterable -%}\n        {%- for item in message['content'] -%}\n            {%- if item['type'] == 'image' -%}\n                {{ '<start_of_image>' }}\n            {%- elif item['type'] == 'text' -%}\n                {{ item['text'] | trim }}\n            {%- endif -%}\n        {%- endfor -%}\n    {%- else -%}\n        {{ raise_exception(\"Invalid content type\") }}\n    {%- endif -%}\n    {{ '<end_of_turn>\n' }}\n{%- endfor -%}\n{%- if add_generation_prompt -%}\n    {{'<start_of_turn>model\n'}}\n{%- endif -%}\n",
+            "stop": [
+              "<eos>"
+            ],
+            "bos_token": "<bos>",
+            "eos_token": "<eos>"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "google/gemma-3-27b-pt",
           "name": "google/gemma-3-27b-pt",
           "object": "model",
@@ -35889,18 +35917,6 @@
     "xAI (Grok)": {
       "success": true,
       "models": [
-        {
-          "id": "grok-4-1-fast-non-reasoning",
-          "name": "grok-4-1-fast-non-reasoning",
-          "owned_by": "xai",
-          "object": "model"
-        },
-        {
-          "id": "grok-4-fast-non-reasoning",
-          "name": "grok-4-fast-non-reasoning",
-          "owned_by": "xai",
-          "object": "model"
-        },
         {
           "id": "grok-4.20-0309-non-reasoning",
           "name": "grok-4.20-0309-non-reasoning",
