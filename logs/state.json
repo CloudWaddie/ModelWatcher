@@ -7651,6 +7651,34 @@
           }
         },
         {
+          "id": "pearl-ai/gemma-4-31b-it",
+          "name": "pearl-ai/gemma-4-31b-it",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Pearl-ai Gemma-4-31B-it-pearl",
+          "organization": "pearl.ai",
+          "link": "https://huggingface.co/pearl-ai/Gemma-4-31B-it-pearl",
+          "context_length": 262144,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0.27999999999999997,
+            "output": 0.86,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "pixverse/pixverse-v5",
           "name": "pixverse/pixverse-v5",
           "uuid": "endpoint-1588b5bc-5923-4672-be92-3199a579a18f",
@@ -18522,8 +18550,10 @@
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
+            "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
@@ -18955,7 +18985,7 @@
           "canonical_slug": "deepseek/deepseek-v4-flash-20260423",
           "hugging_face_id": "deepseek-ai/DeepSeek-V4-Flash",
           "description": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window. It is designed for fast inference and...",
-          "context_length": 1048576,
+          "context_length": 1048575,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -18968,13 +18998,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000126",
-            "completion": "0.000000252",
-            "input_cache_read": "0.0000000252"
+            "prompt": "0.000000112",
+            "completion": "0.000000224",
+            "input_cache_read": "0.000000022"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "context_length": 1048575,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -21569,6 +21599,7 @@
             "repetition_penalty",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "top_k",
             "top_p"
