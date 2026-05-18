@@ -5265,6 +5265,66 @@
           }
         },
         {
+          "id": "google/veo-3.1",
+          "name": "google/veo-3.1",
+          "uuid": "endpoint-b0a69f31-f14c-4825-9c01-cf20b5aeece9",
+          "object": "model",
+          "type": "video",
+          "running": false,
+          "display_name": "Veo 3.1",
+          "organization": "Google",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": {
+              "example_price": 0.08,
+              "example_description": "0.08/ per 4s at 720p without audio. .60/s with audio"
+            }
+          }
+        },
+        {
+          "id": "google/veo-3.1-lite",
+          "name": "google/veo-3.1-lite",
+          "uuid": "endpoint-0a06c93a-68ce-48f6-bfbf-d9a0337a073b",
+          "object": "model",
+          "type": "video",
+          "running": false,
+          "display_name": "Veo 3.1 Lite",
+          "organization": "Google",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": {
+              "example_price": 0.05,
+              "example_description": "0.05/s at 1080p without audio. 0.80/s with audio."
+            }
+          }
+        },
+        {
           "id": "google/veo-3.1-test-debug",
           "name": "google/veo-3.1-test-debug",
           "uuid": "endpoint-test-debug-001",
@@ -17568,7 +17628,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-05-21",
           "links": {
             "details": "/api/v1/models/arcee-ai/trinity-large-preview/endpoints"
           }
