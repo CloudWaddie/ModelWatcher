@@ -1521,6 +1521,13 @@
           "display_name": "Gemini 3.1 Pro Preview Custom Tools"
         },
         {
+          "id": "models/gemini-3.5-flash",
+          "name": "models/gemini-3.5-flash",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.5 Flash"
+        },
+        {
           "id": "models/gemini-embedding-001",
           "name": "models/gemini-embedding-001",
           "owned_by": "google",
@@ -15864,9 +15871,9 @@
             "input_modalities": [
               "text",
               "image",
+              "video",
               "file",
-              "audio",
-              "video"
+              "audio"
             ],
             "output_modalities": [
               "text"
@@ -15875,13 +15882,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000005",
-            "completion": "0.000003",
-            "image": "0.0000005",
-            "audio": "0.000001",
+            "prompt": "0.0000015",
+            "completion": "0.000009",
+            "image": "0.0000015",
+            "audio": "0.000003",
             "web_search": "0.014",
-            "internal_reasoning": "0.000003",
-            "input_cache_read": "0.00000005",
+            "internal_reasoning": "0.000009",
+            "input_cache_read": "0.00000015",
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
@@ -20807,6 +20814,72 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/google/gemini-3.1-pro-preview-customtools-20260219/endpoints"
+          }
+        },
+        {
+          "id": "google/gemini-3.5-flash",
+          "name": "Google: Gemini 3.5 Flash",
+          "canonical_slug": "google/gemini-3.5-flash-20260519",
+          "hugging_face_id": null,
+          "description": "Gemini 3.5 Flash is Google's high-efficiency multimodal model, bringing near-Pro level coding and reasoning at Flash-tier cost and speed. It is highly optimized for coding proficiency and parallel agentic execution...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+file+audio+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video",
+              "file",
+              "audio"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Gemini",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000015",
+            "completion": "0.000009",
+            "image": "0.0000015",
+            "audio": "0.000003",
+            "web_search": "0.014",
+            "internal_reasoning": "0.000009",
+            "input_cache_read": "0.00000015",
+            "input_cache_write": "0.00000008333333333333334"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 65536,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-3.5-flash-20260519/endpoints"
           }
         },
         {
