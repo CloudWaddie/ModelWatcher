@@ -11183,10 +11183,15 @@
               "output_tokens": 5
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11205,10 +11210,15 @@
               "output_tokens": 25
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11227,10 +11237,15 @@
               "output_tokens": 15
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11240,7 +11255,20 @@
           "root": "BAAI/bge-base-en-v1.5",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "BGE embedding is a general Embedding Model. It is pre-trained using retromae and trained on large-scale pair data using contrastive learning. Note that the goal of pre-training is to reconstruct the text, and the pre-trained model cannot be used for similarity calculation directly, it needs to be fine-tuned",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.005
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "BAAI/bge-en-icl",
@@ -11249,7 +11277,20 @@
           "root": "BAAI/bge-en-icl",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "A LLM-based embedding model with in-context learning capabilities that achieves SOTA performance on BEIR and AIR-Bench. It leverages few-shot examples to enhance task performance.",
+            "context_length": 8192,
+            "max_tokens": 8192,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "BAAI/bge-large-en-v1.5",
@@ -11258,7 +11299,20 @@
           "root": "BAAI/bge-large-en-v1.5",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "BGE embedding is a general Embedding Model. It is pre-trained using retromae and trained on large-scale pair data using contrastive learning. Note that the goal of pre-training is to reconstruct the text, and the pre-trained model cannot be used for similarity calculation directly, it needs to be fine-tuned",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "BAAI/bge-m3",
@@ -11267,7 +11321,20 @@
           "root": "BAAI/bge-m3",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "BGE-M3 is a versatile text embedding model that supports multi-functionality, multi-linguality, and multi-granularity, allowing it to perform dense retrieval, multi-vector retrieval, and sparse retrieval in over 100 languages and with input sizes up to 8192 tokens. The model can be used in a retrieval pipeline with hybrid retrieval and re-ranking to achieve higher accuracy and stronger generalization capabilities. BGE-M3 has shown state-of-the-art performance on several benchmarks, including MKQA, MLDR, and NarritiveQA, and can be used as a drop-in replacement for other embedding models like DPR and BGE-v1.5.",
+            "context_length": 8192,
+            "max_tokens": 8192,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "BAAI/bge-m3-multi",
@@ -11276,7 +11343,20 @@
           "root": "BAAI/bge-m3-multi",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "BGE-M3 is a multilingual text embedding model developed by BAAI, distinguished by its Multi-Linguality (supporting 100+ languages), Multi-Functionality (unified dense, multi-vector, and sparse retrieval), and Multi-Granularity (handling inputs from short queries to 8192-token documents). It achieves state-of-the-art retrieval performance across diverse benchmarks while maintaining a single model for multiple retrieval modes.",
+            "context_length": 8192,
+            "max_tokens": 8192,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "black-forest-labs/FLUX-1-dev",
@@ -11285,16 +11365,20 @@
           "root": "black-forest-labs/FLUX-1-dev",
           "parent": null,
           "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "black-forest-labs/FLUX-1-Redux-dev",
-          "name": "black-forest-labs/FLUX-1-Redux-dev",
-          "owned_by": "deepinfra",
-          "root": "black-forest-labs/FLUX-1-Redux-dev",
-          "parent": null,
-          "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "FLUX.1-dev is a state-of-the-art 12 billion parameter rectified flow transformer developed by Black Forest Labs. This model excels in text-to-image generation, providing highly accurate and detailed outputs. It is particularly well-regarded for its ability to follow complex prompts and generate anatomically accurate images, especially with challenging details like hands and faces.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.009000000000000001
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 1024,
+            "default_height": 1024,
+            "default_iterations": 25
+          }
         },
         {
           "id": "black-forest-labs/FLUX-1-schnell",
@@ -11303,7 +11387,20 @@
           "root": "black-forest-labs/FLUX-1-schnell",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "FLUX.1 [schnell] is a 12 billion parameter rectified flow transformer capable of generating images from text descriptions. This model offers cutting-edge output quality and competitive prompt following, matching the performance of closed source alternatives. Trained using latent adversarial diffusion distillation, FLUX.1 [schnell] can generate high-quality images in only 1 to 4 steps.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.0005
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 1024,
+            "default_height": 1024,
+            "default_iterations": 1
+          }
         },
         {
           "id": "black-forest-labs/FLUX-1.1-pro",
@@ -11312,7 +11409,20 @@
           "root": "black-forest-labs/FLUX-1.1-pro",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Black Forest Labs' latest state-of-the art proprietary model sporting top of the line prompt following, visual quality, details and output diversity.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.04
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 0,
+            "default_height": 0,
+            "default_iterations": 0
+          }
         },
         {
           "id": "black-forest-labs/FLUX-2-dev",
@@ -11321,7 +11431,20 @@
           "root": "black-forest-labs/FLUX-2-dev",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Brand-new Flux2 Dev introduces a faster, more modular architecture for next-generation image generation pipelines. It delivers improved performance, cleaner control APIs, and a significantly more flexible development workflow for custom inference setups.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.01
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 1024,
+            "default_height": 1024,
+            "default_iterations": 28
+          }
         },
         {
           "id": "black-forest-labs/FLUX-2-klein-4b",
@@ -11330,7 +11453,20 @@
           "root": "black-forest-labs/FLUX-2-klein-4b",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The fastest model of the Flux 2 family. Frontier visual intelligence — state-of-the-art image generation and editing from Black Forest Labs",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.013999999999999999
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 1024,
+            "default_height": 1024,
+            "default_iterations": 0
+          }
         },
         {
           "id": "black-forest-labs/FLUX-2-klein-9b",
@@ -11339,7 +11475,20 @@
           "root": "black-forest-labs/FLUX-2-klein-9b",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The best quality-to-latency ratio, production apps model of the Flux 2 family. Frontier visual intelligence — state-of-the-art image generation and editing from Black Forest Labs",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.015
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 1024,
+            "default_height": 1024,
+            "default_iterations": 0
+          }
         },
         {
           "id": "black-forest-labs/FLUX-2-max",
@@ -11348,7 +11497,20 @@
           "root": "black-forest-labs/FLUX-2-max",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The new top-tier image model from Black Forest Labs, significantly pushing image quality and editing consistency",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.1
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 0,
+            "default_height": 0,
+            "default_iterations": 0
+          }
         },
         {
           "id": "black-forest-labs/FLUX-2-pro",
@@ -11357,34 +11519,20 @@
           "root": "black-forest-labs/FLUX-2-pro",
           "parent": null,
           "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "black-forest-labs/FLUX-pro",
-          "name": "black-forest-labs/FLUX-pro",
-          "owned_by": "deepinfra",
-          "root": "black-forest-labs/FLUX-pro",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "black-forest-labs/FLUX.1-Kontext-dev",
-          "name": "black-forest-labs/FLUX.1-Kontext-dev",
-          "owned_by": "deepinfra",
-          "root": "black-forest-labs/FLUX.1-Kontext-dev",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Bria/blur_background",
-          "name": "Bria/blur_background",
-          "owned_by": "deepinfra",
-          "root": "Bria/blur_background",
-          "parent": null,
-          "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Multi-reference visual intelligence with unprecedented detail, color precision, and spatial reasoning. The most advanced image generation and editing model. Generate photorealistic images with precise control.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.015
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 0,
+            "default_height": 0,
+            "default_iterations": 0
+          }
         },
         {
           "id": "Bria/Bria-3.2",
@@ -11393,7 +11541,20 @@
           "root": "Bria/Bria-3.2",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Bria 3.2 is the next-generation commercial-ready text-to-image model. With just 4 billion parameters, it provides exceptional aesthetics and text rendering, evaluated to be on par to leading open-source models, and outperforming other licensed models.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.04
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 0,
+            "default_height": 0,
+            "default_iterations": 0
+          }
         },
         {
           "id": "Bria/Bria-3.2-vector",
@@ -11402,43 +11563,20 @@
           "root": "Bria/Bria-3.2-vector",
           "parent": null,
           "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Bria/enhance",
-          "name": "Bria/enhance",
-          "owned_by": "deepinfra",
-          "root": "Bria/enhance",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Bria/erase",
-          "name": "Bria/erase",
-          "owned_by": "deepinfra",
-          "root": "Bria/erase",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Bria/erase_foreground",
-          "name": "Bria/erase_foreground",
-          "owned_by": "deepinfra",
-          "root": "Bria/erase_foreground",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Bria/expand",
-          "name": "Bria/expand",
-          "owned_by": "deepinfra",
-          "root": "Bria/expand",
-          "parent": null,
-          "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Bria 3.2 is the next-generation commercial-ready text-to-image model. With just 4 billion parameters, it provides exceptional aesthetics and text rendering, evaluated to be on par to leading open-source models, and outperforming other licensed models.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.04
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 0,
+            "default_height": 0,
+            "default_iterations": 0
+          }
         },
         {
           "id": "Bria/fibo",
@@ -11447,43 +11585,20 @@
           "root": "Bria/fibo",
           "parent": null,
           "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Bria/fibo_edit",
-          "name": "Bria/fibo_edit",
-          "owned_by": "deepinfra",
-          "root": "Bria/fibo_edit",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Bria/gen_fill",
-          "name": "Bria/gen_fill",
-          "owned_by": "deepinfra",
-          "root": "Bria/gen_fill",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Bria/remove_background",
-          "name": "Bria/remove_background",
-          "owned_by": "deepinfra",
-          "root": "Bria/remove_background",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Bria/replace_background",
-          "name": "Bria/replace_background",
-          "owned_by": "deepinfra",
-          "root": "Bria/replace_background",
-          "parent": null,
-          "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "FIBO is an open-source, JSON-native text-to-image model trained on detailed structured descriptions (over 1,000+ words per image), providing fine-grained control over light, composition, and camera parameters.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.04
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 0,
+            "default_height": 0,
+            "default_iterations": 0
+          }
         },
         {
           "id": "ByteDance/Seed-1.8",
@@ -11502,10 +11617,15 @@
               "cache_read_tokens": 0.05
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11525,10 +11645,15 @@
               "cache_read_tokens": 0.1
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11548,10 +11673,15 @@
               "cache_read_tokens": 0.020000000000000004
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11571,10 +11701,15 @@
               "cache_read_tokens": 0.1
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11584,43 +11719,20 @@
           "root": "ByteDance/Seedream-4",
           "parent": null,
           "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "ByteDance/Seedream-4.5",
-          "name": "ByteDance/Seedream-4.5",
-          "owned_by": "deepinfra",
-          "root": "ByteDance/Seedream-4.5",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "ClarityAI/creative",
-          "name": "ClarityAI/creative",
-          "owned_by": "deepinfra",
-          "root": "ClarityAI/creative",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "ClarityAI/crystal",
-          "name": "ClarityAI/crystal",
-          "owned_by": "deepinfra",
-          "root": "ClarityAI/crystal",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "ClarityAI/flux",
-          "name": "ClarityAI/flux",
-          "owned_by": "deepinfra",
-          "root": "ClarityAI/flux",
-          "parent": null,
-          "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Seedream 4.0 is a SOTA multimodal image creation model built on leading architecture. It breaks through the boundaries of traditional text-to-image models by natively supporting text, single-image, and multi-image inputs. Users can freely combine text and images to achieve diverse creative modes within a single model—such as multi-image blending, image editing, and sequentially batch image generation, featuring subject consistency, making image creation more free and controllable.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.04
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 0,
+            "default_height": 0,
+            "default_iterations": 0
+          }
         },
         {
           "id": "deepseek-ai/DeepSeek-R1-0528",
@@ -11639,9 +11751,13 @@
               "cache_read_tokens": 0.35
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11660,8 +11776,12 @@
               "output_tokens": 2.9999999999999996
             },
             "tags": [
+              "chat",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11672,7 +11792,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "DeepSeek-R1-Distill-Llama-70B is a highly efficient language model that leverages knowledge distillation to achieve state-of-the-art performance. This model distills the reasoning patterns of larger models into a smaller, more agile architecture, resulting in exceptional results on benchmarks like AIME 2024, MATH-500, and LiveCodeBench. With 70 billion parameters, DeepSeek-R1-Distill-Llama-70B offers a unique balance of accuracy and efficiency, making it an ideal choice for a wide range of natural language processing tasks. ",
+            "description": "DeepSeek-R1-Distill-Llama-70B is a highly efficient language model that leverages knowledge distillation to achieve state-of-the-art performance. This model distills the reasoning patterns of larger models into a smaller, more agile architecture, resulting in exceptional results on benchmarks like AIME 2024, MATH-500, and LiveCodeBench. With 70 billion parameters, DeepSeek-R1-Distill-Llama-70B offers a unique balance of accuracy and efficiency, making it an ideal choice for a wide range of natural language processing tasks.",
             "context_length": 131072,
             "max_tokens": 131072,
             "pricing": {
@@ -11680,8 +11800,12 @@
               "output_tokens": 0.8
             },
             "tags": [
+              "chat",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11692,14 +11816,19 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "DeepSeek-V3, a strong Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token. To achieve efficient inference and cost-effective training, DeepSeek-V3 adopts Multi-head Latent Attention (MLA) and DeepSeekMoE architectures, which were thoroughly validated in DeepSeek-V2. ",
+            "description": "DeepSeek-V3, a strong Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token. To achieve efficient inference and cost-effective training, DeepSeek-V3 adopts Multi-head Latent Attention (MLA) and DeepSeekMoE architectures, which were thoroughly validated in DeepSeek-V2.",
             "context_length": 163840,
             "max_tokens": 163840,
             "pricing": {
               "input_tokens": 0.32,
               "output_tokens": 0.8899999999999999
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11719,8 +11848,12 @@
               "cache_read_tokens": 0.135
             },
             "tags": [
+              "chat",
               "prompt_cache"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11740,10 +11873,14 @@
               "cache_read_tokens": 0.1300000002
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11754,7 +11891,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "DeepSeek-V3.1 Terminus is an update to DeepSeek V3.1 that maintains the model's original capabilities while addressing issues reported by users, including language consistency and agent capabilities, further optimizing the model's performance in coding and search agents. It is a large hybrid reasoning model (671B parameters, 37B active) that supports both thinking and non-thinking modes. It extends the DeepSeek-V3 base with a two-phase long-context training process. Users can control the reasoning behaviour with the reasoning enabled boolean. Learn more in our docs  The model improves tool use, code generation, and reasoning efficiency, achieving performance comparable to DeepSeek-R1 on difficult benchmarks while responding more quickly. It supports structured tool calling, code agents, and search agents, making it suitable for research, coding, and agentic workflows.",
+            "description": "DeepSeek-V3.1 Terminus is an update to DeepSeek V3.1 that maintains the model's original capabilities while addressing issues reported by users, including language consistency and agent capabilities, further optimizing the model's performance in coding and search agents. It is a large hybrid reasoning model (671B parameters, 37B active) that supports both thinking and non-thinking modes. It extends the DeepSeek-V3 base with a two-phase long-context training process. Users can control the reasoning behaviour with the reasoning enabled boolean. Learn more in our docs The model improves tool use, code generation, and reasoning efficiency, achieving performance comparable to DeepSeek-R1 on difficult benchmarks while responding more quickly. It supports structured tool calling, code agents, and search agents, making it suitable for research, coding, and agentic workflows.",
             "context_length": 163840,
             "max_tokens": 163840,
             "pricing": {
@@ -11763,10 +11900,14 @@
               "cache_read_tokens": 0.12999999960000003
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11786,8 +11927,12 @@
               "cache_read_tokens": 0.13
             },
             "tags": [
+              "chat",
               "prompt_cache"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11807,9 +11952,13 @@
               "cache_read_tokens": 0.028000000000000004
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11829,27 +11978,13 @@
               "cache_read_tokens": 0.14499999419999998
             },
             "tags": [
+              "chat",
               "prompt_cache"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
-        },
-        {
-          "id": "deepseek-ai/Janus-Pro-1B",
-          "name": "deepseek-ai/Janus-Pro-1B",
-          "owned_by": "deepinfra",
-          "root": "deepseek-ai/Janus-Pro-1B",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "deepseek-ai/Janus-Pro-7B",
-          "name": "deepseek-ai/Janus-Pro-7B",
-          "owned_by": "deepinfra",
-          "root": "deepseek-ai/Janus-Pro-7B",
-          "parent": null,
-          "object": "model",
-          "metadata": null
         },
         {
           "id": "google/embeddinggemma-300m",
@@ -11858,7 +11993,20 @@
           "root": "google/embeddinggemma-300m",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "ChatGPT said: EmbeddingGemma is a 300M parameter multilingual open embedding model from Google DeepMind, designed for efficient deployment even on low-resource devices, producing high-quality text vector representations for tasks such as search, classification, clustering, and semantic similarity.",
+            "context_length": 2048,
+            "max_tokens": 2048,
+            "pricing": {
+              "input_tokens": 0.0019999999999999996
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "google/gemini-1.5-flash",
@@ -11868,7 +12016,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "Gemini 1.5 Flash is Google's foundation model that performs well at a variety of multimodal tasks such as visual understanding, classification, summarization, and creating content from image, audio and video. It's adept at processing visual and text inputs such as photographs, documents, infographics, and screenshots.  Gemini 1.5 Flash is designed for high-volume, high-frequency tasks where cost and latency matter. ",
+            "description": "Gemini 1.5 Flash is Google's foundation model that performs well at a variety of multimodal tasks such as visual understanding, classification, summarization, and creating content from image, audio and video. It's adept at processing visual and text inputs such as photographs, documents, infographics, and screenshots. Gemini 1.5 Flash is designed for high-volume, high-frequency tasks where cost and latency matter.",
             "context_length": 1000000,
             "max_tokens": 1000000,
             "pricing": {
@@ -11876,9 +12024,14 @@
               "output_tokens": 0.3
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11897,9 +12050,14 @@
               "output_tokens": 0.15
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11910,7 +12068,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "Gemini 2.5 Flash is Google's latest thinking model, designed to tackle increasingly complex problems. It's capable of reasoning through their thoughts before responding, resulting in enhanced performance and improved accuracy.  Gemini 2.5 Flash: best for balancing reasoning and speed.",
+            "description": "Gemini 2.5 Flash is Google's latest thinking model, designed to tackle increasingly complex problems. It's capable of reasoning through their thoughts before responding, resulting in enhanced performance and improved accuracy. Gemini 2.5 Flash: best for balancing reasoning and speed.",
             "context_length": 1000000,
             "max_tokens": 1000000,
             "pricing": {
@@ -11918,10 +12076,15 @@
               "output_tokens": 2.5
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11932,7 +12095,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "Gemini 2.5 Pro is Google's the most advanced thinking model, designed to tackle increasingly complex problems. Gemini 2.5 Pro leads common benchmarks by meaningful margins and showcases strong reasoning and code capabilities.  Gemini 2.5 models are thinking models, capable of reasoning through their thoughts before responding, resulting in enhanced performance and improved accuracy.  The Gemini 2.5 Pro model is now available on DeepInfra.",
+            "description": "Gemini 2.5 Pro is Google's the most advanced thinking model, designed to tackle increasingly complex problems. Gemini 2.5 Pro leads common benchmarks by meaningful margins and showcases strong reasoning and code capabilities. Gemini 2.5 models are thinking models, capable of reasoning through their thoughts before responding, resulting in enhanced performance and improved accuracy. The Gemini 2.5 Pro model is now available on DeepInfra.",
             "context_length": 1000000,
             "max_tokens": 1000000,
             "pricing": {
@@ -11940,10 +12103,15 @@
               "output_tokens": 10
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11953,7 +12121,18 @@
           "root": "google/gemini-3-pro-image",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Nano Banana Pro (Gemini 3 Pro Image) is designed to tackle the most challenging image generation by incorporating state-of-the-art reasoning capabilities. It is the best model for complex and multi-turn image generation and editing.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {},
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "google/gemini-3.1-flash-lite",
@@ -11971,10 +12150,15 @@
               "output_tokens": 1.4999999999999998
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -11993,10 +12177,15 @@
               "output_tokens": 11.999999999999998
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12015,8 +12204,13 @@
               "output_tokens": 0.13
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12035,8 +12229,13 @@
               "output_tokens": 0.16
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12055,8 +12254,13 @@
               "output_tokens": 0.08
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12075,9 +12279,14 @@
               "output_tokens": 0.33999999999999997
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12096,9 +12305,14 @@
               "output_tokens": 0.38
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12117,8 +12331,12 @@
               "output_tokens": 0.37
             },
             "tags": [
+              "chat",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12136,7 +12354,12 @@
               "input_tokens": 0.4,
               "output_tokens": 0.4
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12146,7 +12369,20 @@
           "root": "intfloat/e5-base-v2",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Text Embeddings by Weakly-Supervised Contrastive Pre-training. Model has 24 layers and 1024 out dim.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.005
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "intfloat/e5-large-v2",
@@ -12155,7 +12391,20 @@
           "root": "intfloat/e5-large-v2",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Text Embeddings by Weakly-Supervised Contrastive Pre-training. Model has 24 layers and 1024 out dim.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "intfloat/multilingual-e5-large",
@@ -12164,7 +12413,20 @@
           "root": "intfloat/multilingual-e5-large",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The Multilingual-E5-large model is a 24-layer text embedding model with an embedding size of 1024, trained on a mixture of multilingual datasets and supporting 100 languages.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "intfloat/multilingual-e5-large-instruct",
@@ -12173,7 +12435,20 @@
           "root": "intfloat/multilingual-e5-large-instruct",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The Multilingual-E5 models, initialized from XLM-RoBERTa, support up to 512 tokens per input — any longer text will be silently truncated. To ensure optimal performance, always prefix inputs with “query:” or “passage:”, as the model was explicitly trained with this format.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "meta-llama/Llama-3.2-11B-Vision-Instruct",
@@ -12183,7 +12458,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "Llama 3.2 11B Vision is a multimodal model with 11 billion parameters, designed to handle tasks combining visual and textual data. It excels in tasks such as image captioning and visual question answering, bridging the gap between language generation and visual reasoning. Pre-trained on a massive dataset of image-text pairs, it performs well in complex, high-accuracy image analysis.  Its ability to integrate visual understanding with language processing makes it an ideal solution for industries requiring comprehensive visual-linguistic AI applications, such as content creation, AI-driven customer service, and research.",
+            "description": "Llama 3.2 11B Vision is a multimodal model with 11 billion parameters, designed to handle tasks combining visual and textual data. It excels in tasks such as image captioning and visual question answering, bridging the gap between language generation and visual reasoning. Pre-trained on a massive dataset of image-text pairs, it performs well in complex, high-accuracy image analysis. Its ability to integrate visual understanding with language processing makes it an ideal solution for industries requiring comprehensive visual-linguistic AI applications, such as content creation, AI-driven customer service, and research.",
             "context_length": 131072,
             "max_tokens": 131072,
             "pricing": {
@@ -12191,8 +12466,13 @@
               "output_tokens": 0.245
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12210,7 +12490,12 @@
               "input_tokens": 0.1,
               "output_tokens": 0.32
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12229,8 +12514,13 @@
               "output_tokens": 0.6
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12249,8 +12539,13 @@
               "output_tokens": 0.3
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12269,8 +12564,13 @@
               "output_tokens": 0.18
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12288,7 +12588,12 @@
               "input_tokens": 0.4,
               "output_tokens": 0.4
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12306,7 +12611,12 @@
               "input_tokens": 0.4,
               "output_tokens": 0.4
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12324,7 +12634,12 @@
               "input_tokens": 0.02,
               "output_tokens": 0.05
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12342,7 +12657,12 @@
               "input_tokens": 0.02,
               "output_tokens": 0.030000000000000002
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12360,7 +12680,12 @@
               "input_tokens": 0.07,
               "output_tokens": 0.14
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12380,9 +12705,13 @@
               "cache_read_tokens": 0.03
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12400,7 +12729,12 @@
               "input_tokens": 0.02,
               "output_tokens": 0.04
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12411,14 +12745,19 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "Mistral Small 3 is a 24B-parameter language model optimized for low-latency performance across common AI tasks. Released under the Apache 2.0 license, it features both pre-trained and instruction-tuned versions designed for efficient local deployment.  The model achieves 81% accuracy on the MMLU benchmark and performs competitively with larger models like Llama 3.3 70B and Qwen 32B, while operating at three times the speed on equivalent hardware.",
+            "description": "Mistral Small 3 is a 24B-parameter language model optimized for low-latency performance across common AI tasks. Released under the Apache 2.0 license, it features both pre-trained and instruction-tuned versions designed for efficient local deployment. The model achieves 81% accuracy on the MMLU benchmark and performs competitively with larger models like Llama 3.3 70B and Qwen 32B, while operating at three times the speed on equivalent hardware.",
             "context_length": 32768,
             "max_tokens": 32768,
             "pricing": {
               "input_tokens": 0.05,
               "output_tokens": 0.08
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12437,8 +12776,13 @@
               "output_tokens": 0.2
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12448,7 +12792,20 @@
           "root": "mistralai/Voxtral-Mini-3B-2507",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Voxtral Mini is an enhancement of Ministral 3B, incorporating state-of-the-art audio input capabilities while retaining best-in-class text performance. It excels at speech transcription, translation and audio understanding.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "input_seconds": 0.0000166667
+            },
+            "tags": [
+              "stt"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "mistralai/Voxtral-Small-24B-2507",
@@ -12457,7 +12814,20 @@
           "root": "mistralai/Voxtral-Small-24B-2507",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Voxtral Small is an enhancement of Mistral Small 3, incorporating state-of-the-art audio input capabilities while retaining best-in-class text performance. It excels at speech transcription, translation and audio understanding.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "input_seconds": 0.00005
+            },
+            "tags": [
+              "stt"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "moonshotai/Kimi-K2.5",
@@ -12476,10 +12846,15 @@
               "cache_read_tokens": 0.070000002
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12499,9 +12874,13 @@
               "cache_read_tokens": 0.15
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12519,7 +12898,12 @@
               "input_tokens": 1,
               "output_tokens": 1
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12537,7 +12921,12 @@
               "input_tokens": 0.3,
               "output_tokens": 0.3
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12548,7 +12937,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "Llama-3.3-Nemotron-Super-49B-v1.5 is a large language model (LLM) optimized for advanced reasoning, conversational interactions, retrieval-augmented generation (RAG), and tool-calling tasks. Derived from Meta's Llama-3.3-70B-Instruct, it employs a Neural Architecture Search (NAS) approach, significantly enhancing efficiency and reducing memory requirements. ",
+            "description": "Llama-3.3-Nemotron-Super-49B-v1.5 is a large language model (LLM) optimized for advanced reasoning, conversational interactions, retrieval-augmented generation (RAG), and tool-calling tasks. Derived from Meta's Llama-3.3-70B-Instruct, it employs a Neural Architecture Search (NAS) approach, significantly enhancing efficiency and reducing memory requirements.",
             "context_length": 131072,
             "max_tokens": 131072,
             "pricing": {
@@ -12556,8 +12945,12 @@
               "output_tokens": 0.4
             },
             "tags": [
+              "chat",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12567,7 +12960,20 @@
           "root": "nvidia/llama-nemotron-embed-vl-1b-v2",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The llama-nemotron-embed-vl-1b-v2 is a high-performance multimodal embedding model designed to transform text queries and document images into dense vector representations for advanced retrieval systems. It excels at understanding complex visual content like charts, tables, and infographics.",
+            "context_length": 10240,
+            "max_tokens": 10240,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "nvidia/Nemotron-3-Nano-30B-A3B",
@@ -12585,8 +12991,12 @@
               "output_tokens": 0.2
             },
             "tags": [
+              "chat",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12605,9 +13015,14 @@
               "output_tokens": 0.8
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12626,8 +13041,12 @@
               "output_tokens": 0.5
             },
             "tags": [
+              "chat",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12638,7 +13057,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "NVIDIA-Nemotron-Nano-9B-v2 is a large language model (LLM) trained from scratch by NVIDIA, and designed as a unified model for both reasoning and non-reasoning tasks. It responds to user queries and tasks by first generating a reasoning trace and then concluding with a final response.  The model's reasoning capabilities can be controlled via a system prompt. If the user prefers the model to provide its final answer without intermediate reasoning traces, it can be configured to do so.",
+            "description": "NVIDIA-Nemotron-Nano-9B-v2 is a large language model (LLM) trained from scratch by NVIDIA, and designed as a unified model for both reasoning and non-reasoning tasks. It responds to user queries and tasks by first generating a reasoning trace and then concluding with a final response. The model's reasoning capabilities can be controlled via a system prompt. If the user prefers the model to provide its final answer without intermediate reasoning traces, it can be configured to do so.",
             "context_length": 131072,
             "max_tokens": 131072,
             "pricing": {
@@ -12646,8 +13065,12 @@
               "output_tokens": 0.16
             },
             "tags": [
+              "chat",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12666,9 +13089,13 @@
               "output_tokens": 0.19
             },
             "tags": [
+              "chat",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12687,9 +13114,13 @@
               "output_tokens": 0.6
             },
             "tags": [
+              "chat",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12708,9 +13139,13 @@
               "output_tokens": 0.14
             },
             "tags": [
+              "chat",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12720,7 +13155,20 @@
           "root": "openai/whisper-large-v3",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Whisper is a general-purpose speech recognition model. It is trained on a large dataset of diverse audio and is also a multi-task model that can perform multilingual speech recognition as well as speech translation and language identification.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "input_seconds": 0.0000075
+            },
+            "tags": [
+              "stt"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "openai/whisper-large-v3-turbo",
@@ -12729,7 +13177,20 @@
           "root": "openai/whisper-large-v3-turbo",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Whisper is a state-of-the-art model for automatic speech recognition (ASR) and speech translation, proposed in the paper \"Robust Speech Recognition via Large-Scale Weak Supervision\" by Alec Radford et al. from OpenAI. Trained on >5M hours of labeled data, Whisper demonstrates a strong ability to generalise to many datasets and domains in a zero-shot setting. Whisper large-v3-turbo is a finetuned version of a pruned Whisper large-v3. In other words, it's the exact same model, except that the number of decoding layers have reduced from 32 to 4. As a result, the model is way faster, at the expense of a minor quality degradation.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "input_seconds": 0.0000033300000000000003
+            },
+            "tags": [
+              "stt"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "PrunaAI/p-image",
@@ -12738,34 +13199,20 @@
           "root": "PrunaAI/p-image",
           "parent": null,
           "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "PrunaAI/p-image-Edit",
-          "name": "PrunaAI/p-image-Edit",
-          "owned_by": "deepinfra",
-          "root": "PrunaAI/p-image-Edit",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Qwen/Qwen-Image-Edit",
-          "name": "Qwen/Qwen-Image-Edit",
-          "owned_by": "deepinfra",
-          "root": "Qwen/Qwen-Image-Edit",
-          "parent": null,
-          "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Qwen/Qwen-Image-Edit-Max",
-          "name": "Qwen/Qwen-Image-Edit-Max",
-          "owned_by": "deepinfra",
-          "root": "Qwen/Qwen-Image-Edit-Max",
-          "parent": null,
-          "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "P-Image is a state-of-the-art real-time generation model with exceptional text rendering, fine-detail accuracy, and rock-solid prompt adherence. It’s built for instant creativity at high-fidelity images in about one second at a fraction of typical model costs.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.005
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 0,
+            "default_height": 0,
+            "default_iterations": 0
+          }
         },
         {
           "id": "Qwen/Qwen-Image-Max",
@@ -12774,7 +13221,20 @@
           "root": "Qwen/Qwen-Image-Max",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Compared with the Plus series, it significantly reduces the “AI-like” feel in generated images, enhancing their realism. It delivers more lifelike material textures for human subjects, finer and more detailed natural textures, and more visually appealing text rendering.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.075
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 0,
+            "default_height": 0,
+            "default_iterations": 0
+          }
         },
         {
           "id": "Qwen/Qwen2.5-72B-Instruct",
@@ -12791,7 +13251,12 @@
               "input_tokens": 0.36,
               "output_tokens": 0.4
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12802,7 +13267,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "Qwen3 is the latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models. Built upon extensive training, Qwen3 delivers groundbreaking advancements in reasoning, instruction-following, agent capabilities, and multilingual support. ",
+            "description": "Qwen3 is the latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models. Built upon extensive training, Qwen3 delivers groundbreaking advancements in reasoning, instruction-following, agent capabilities, and multilingual support.",
             "context_length": 40960,
             "max_tokens": 40960,
             "pricing": {
@@ -12810,9 +13275,13 @@
               "output_tokens": 0.24000000000000002
             },
             "tags": [
+              "chat",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12823,7 +13292,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "Qwen3-235B-A22B-Instruct-2507 is the updated version of the Qwen3-235B-A22B non-thinking mode, featuring Significant improvements in general capabilities, including instruction following, logical reasoning, text comprehension, mathematics, science, coding and tool usage.  ",
+            "description": "Qwen3-235B-A22B-Instruct-2507 is the updated version of the Qwen3-235B-A22B non-thinking mode, featuring Significant improvements in general capabilities, including instruction following, logical reasoning, text comprehension, mathematics, science, coding and tool usage.",
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
@@ -12831,8 +13300,12 @@
               "output_tokens": 0.1
             },
             "tags": [
+              "chat",
               "reasoning_effort"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12843,7 +13316,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "Qwen3-235B-A22B-Thinking-2507 is the Qwen3's new model with scaling the thinking capability of Qwen3-235B-A22B, improving both the quality and depth of reasoning. ",
+            "description": "Qwen3-235B-A22B-Thinking-2507 is the Qwen3's new model with scaling the thinking capability of Qwen3-235B-A22B, improving both the quality and depth of reasoning.",
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
@@ -12852,10 +13325,14 @@
               "cache_read_tokens": 0.20000000059999998
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12874,9 +13351,13 @@
               "output_tokens": 0.45
             },
             "tags": [
+              "chat",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12895,9 +13376,13 @@
               "output_tokens": 0.28
             },
             "tags": [
+              "chat",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12917,8 +13402,12 @@
               "cache_read_tokens": 0.09999999899999999
             },
             "tags": [
+              "chat",
               "prompt_cache"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -12928,7 +13417,20 @@
           "root": "Qwen/Qwen3-Embedding-0.6B",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks. Building upon the dense foundational models of the Qwen3 series, it provides a comprehensive range of text embeddings and reranking models in various sizes (0.6B, 4B, and 8B).",
+            "context_length": 32768,
+            "max_tokens": 32768,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "Qwen/Qwen3-Embedding-0.6B-batch",
@@ -12937,7 +13439,20 @@
           "root": "Qwen/Qwen3-Embedding-0.6B-batch",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks. Building upon the dense foundational models of the Qwen3 series, it provides a comprehensive range of text embeddings and reranking models in various sizes (0.6B, 4B, and 8B).",
+            "context_length": 32768,
+            "max_tokens": 32768,
+            "pricing": {
+              "input_tokens": 0.005
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "Qwen/Qwen3-Embedding-4B",
@@ -12946,7 +13461,20 @@
           "root": "Qwen/Qwen3-Embedding-4B",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks. Building upon the dense foundational models of the Qwen3 series, it provides a comprehensive range of text embeddings and reranking models in various sizes (0.6B, 4B, and 8B).",
+            "context_length": 32768,
+            "max_tokens": 32768,
+            "pricing": {
+              "input_tokens": 0.02
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "Qwen/Qwen3-Embedding-4B-batch",
@@ -12955,7 +13483,20 @@
           "root": "Qwen/Qwen3-Embedding-4B-batch",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks. Building upon the dense foundational models of the Qwen3 series, it provides a comprehensive range of text embeddings and reranking models in various sizes (0.6B, 4B, and 8B).",
+            "context_length": 32768,
+            "max_tokens": 32768,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "Qwen/Qwen3-Embedding-8B",
@@ -12964,7 +13505,20 @@
           "root": "Qwen/Qwen3-Embedding-8B",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks. Building upon the dense foundational models of the Qwen3 series, it provides a comprehensive range of text embeddings and reranking models in various sizes (0.6B, 4B, and 8B).",
+            "context_length": 32768,
+            "max_tokens": 32768,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "Qwen/Qwen3-Embedding-8B-batch",
@@ -12973,7 +13527,20 @@
           "root": "Qwen/Qwen3-Embedding-8B-batch",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks. Building upon the dense foundational models of the Qwen3 series, it provides a comprehensive range of text embeddings and reranking models in various sizes (0.6B, 4B, and 8B).",
+            "context_length": 32768,
+            "max_tokens": 32768,
+            "pricing": {
+              "input_tokens": 0.04
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "Qwen/Qwen3-Max",
@@ -12992,9 +13559,13 @@
               "cache_read_tokens": 0.24
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning_effort"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13014,9 +13585,13 @@
               "cache_read_tokens": 0.24
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning_effort"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13035,8 +13610,12 @@
               "output_tokens": 1.1
             },
             "tags": [
+              "chat",
               "reasoning_effort"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13046,7 +13625,20 @@
           "root": "Qwen/Qwen3-TTS-VoiceDesign",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "● Qwen3-TTS-VoiceDesign is a voice design variant of Qwen3-TTS by Alibaba's Qwen team. Instead of selecting from preset voices, you describe the voice you want in natural language — and the model generates speech in that voice. Key capabilities: - Natural language voice control — describe any voice with free text (e.g. \"a deep male voice with a calm, authoritative presence\", \"a young cheerful female with a warm and friendly tone\") - 10 languages — English, Chinese, Japanese, Korean, German, French, Russian, Spanish, Italian, Portuguese - Streaming support — real-time PCM streaming - Multiple output formats — WAV, MP3, FLAC, PCM Built on the same 1.7B parameter architecture as Qwen3-TTS, using discrete multi-codebook language modeling and a custom 12Hz acoustic tokenizer for high-quality end-to-end speech synthesis.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "input_characters": 20
+            },
+            "tags": [
+              "tts"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "Qwen/Qwen3-VL-235B-A22B-Instruct",
@@ -13056,7 +13648,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "Meet Qwen3-VL — the most powerful vision-language model in the Qwen series to date.  This generation delivers comprehensive upgrades across the board: superior text understanding & generation, deeper visual perception & reasoning, extended context length, enhanced spatial and video dynamics comprehension, and stronger agent interaction capabilities.",
+            "description": "Meet Qwen3-VL — the most powerful vision-language model in the Qwen series to date. This generation delivers comprehensive upgrades across the board: superior text understanding & generation, deeper visual perception & reasoning, extended context length, enhanced spatial and video dynamics comprehension, and stronger agent interaction capabilities.",
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
@@ -13065,10 +13657,15 @@
               "cache_read_tokens": 0.11000000000000001
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "prompt_cache",
               "reasoning_effort"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13079,7 +13676,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "Meet Qwen3-VL — the most powerful vision-language model in the Qwen series to date.  This generation delivers comprehensive upgrades across the board: superior text understanding & generation, deeper visual perception & reasoning, extended context length, enhanced spatial and video dynamics comprehension, and stronger agent interaction capabilities.",
+            "description": "Meet Qwen3-VL — the most powerful vision-language model in the Qwen series to date. This generation delivers comprehensive upgrades across the board: superior text understanding & generation, deeper visual perception & reasoning, extended context length, enhanced spatial and video dynamics comprehension, and stronger agent interaction capabilities.",
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
@@ -13087,9 +13684,14 @@
               "output_tokens": 0.6
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13108,10 +13710,15 @@
               "output_tokens": 0.05
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13130,10 +13737,15 @@
               "output_tokens": 2.4
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13152,10 +13764,15 @@
               "output_tokens": 2.5999999999999996
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13174,10 +13791,15 @@
               "output_tokens": 0.1
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13197,11 +13819,16 @@
               "cache_read_tokens": 0.05000000040000001
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "prompt_cache",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13221,11 +13848,16 @@
               "cache_read_tokens": 0.30000000099999996
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "prompt_cache",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13244,10 +13876,15 @@
               "output_tokens": 0.15
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13266,9 +13903,14 @@
               "output_tokens": 0.15
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13287,10 +13929,15 @@
               "output_tokens": 3.2
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13309,10 +13956,15 @@
               "output_tokens": 0.95
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "reasoning_effort",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13322,7 +13974,20 @@
           "root": "ResembleAI/chatterbox-multilingual",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "09/04 🔥 Introducing Chatterbox Multilingual in 23 Languages! We're excited to introduce Chatterbox and Chatterbox Multilingual, Resemble AI's production-grade open source TTS models. Chatterbox Multilingual supports Arabic, Danish, German, Greek, English, Spanish, Finnish, French, Hebrew, Hindi, Italian, Japanese, Korean, Malay, Dutch, Norwegian, Polish, Portuguese, Russian, Swedish, Swahili, Turkish, Chinese out of the box. Licensed under MIT, Chatterbox has been benchmarked against leading closed-source systems like ElevenLabs, and is consistently preferred in side-by-side evaluations.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "input_characters": 1
+            },
+            "tags": [
+              "tts"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "ResembleAI/chatterbox-turbo",
@@ -13331,7 +13996,20 @@
           "root": "ResembleAI/chatterbox-turbo",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Chatterbox is a family of three state-of-the-art, open-source text-to-speech models by Resemble AI. We are excited to introduce Chatterbox-Turbo, our most efficient model yet. Built on a streamlined 350M parameter architecture, Turbo delivers high-quality speech with less compute and VRAM than our previous models. We have also distilled the speech-token-to-mel decoder, previously a bottleneck, reducing generation from 10 steps to just one, while retaining high-fidelity audio output. Paralinguistic tags are now native to the Turbo model, allowing you to use [cough], [laugh], [chuckle], and more to add distinct realism. While Turbo was built primarily for low-latency voice agents, it excels at narration and creative workflows. If you like the model but need to scale or tune it for higher accuracy, check out our competitively priced TTS service (link).",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "input_characters": 1
+            },
+            "tags": [
+              "tts"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "Sao10K/L3-8B-Lunaris-v1-Turbo",
@@ -13348,7 +14026,12 @@
               "input_tokens": 0.04,
               "output_tokens": 0.05
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13366,7 +14049,12 @@
               "input_tokens": 0.85,
               "output_tokens": 0.85
             },
-            "tags": []
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13376,7 +14064,20 @@
           "root": "sentence-transformers/all-MiniLM-L12-v2",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "We present a sentence transformation model that generates semantically similar sentences. Our model is based on the Sentence-Transformers architecture and was trained on a large dataset of sentence pairs. We evaluate the effectiveness of our model by measuring its ability to generate similar sentences that are close to the original sentence in meaning.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.005
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "sentence-transformers/all-MiniLM-L6-v2",
@@ -13385,7 +14086,20 @@
           "root": "sentence-transformers/all-MiniLM-L6-v2",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "We present a sentence transformation model that achieves state-of-the-art results on various NLP tasks without requiring task-specific architectures or fine-tuning. Our approach leverages contrastive learning and utilizes a variety of datasets to learn robust sentence representations. We evaluate our model on several benchmarks and demonstrate its effectiveness in various applications such as text classification, sentiment analysis, named entity recognition, and question answering.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.005
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "sentence-transformers/all-mpnet-base-v2",
@@ -13394,7 +14108,20 @@
           "root": "sentence-transformers/all-mpnet-base-v2",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "A sentence transformation model that has been trained on a wide range of datasets, including but not limited to S2ORC, WikiAnwers, PAQ, Stack Exchange, and Yahoo! Answers. Our model can be used for various NLP tasks such as clustering, sentiment analysis, and question answering.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.005
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "sentence-transformers/clip-ViT-B-32",
@@ -13403,7 +14130,20 @@
           "root": "sentence-transformers/clip-ViT-B-32",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The CLIP model maps text and images to a shared vector space, enabling various applications such as image search, zero-shot image classification, and image clustering. The model can be used easily after installation, and its performance is demonstrated through zero-shot ImageNet validation set accuracy scores. Multilingual versions of the model are also available for 50+ languages.",
+            "context_length": 77,
+            "max_tokens": 77,
+            "pricing": {
+              "input_tokens": 0.005
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "sentence-transformers/clip-ViT-B-32-multilingual-v1",
@@ -13412,7 +14152,20 @@
           "root": "sentence-transformers/clip-ViT-B-32-multilingual-v1",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "This model is a multilingual version of the OpenAI CLIP-ViT-B32 model, which maps text and images to a common dense vector space. It includes a text embedding model that works for 50+ languages and an image encoder from CLIP. The model was trained using Multilingual Knowledge Distillation, where a multilingual DistilBERT model was trained as a student model to align the vector space of the original CLIP image encoder across many languages.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.005
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "sentence-transformers/multi-qa-mpnet-base-dot-v1",
@@ -13421,7 +14174,20 @@
           "root": "sentence-transformers/multi-qa-mpnet-base-dot-v1",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "We present a sentence transformation model that maps sentences and paragraphs to a 768-dimensional dense vector space, suitable for semantic search tasks. The model is trained on 215 million question-answer pairs from various sources, including WikiAnswers, PAQ, Stack Exchange, MS MARCO, GOOAQ, Amazon QA, Yahoo Answers, Search QA, ELI5, and Natural Questions. Our model uses a contrastive learning objective.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.005
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "sentence-transformers/paraphrase-MiniLM-L6-v2",
@@ -13430,7 +14196,20 @@
           "root": "sentence-transformers/paraphrase-MiniLM-L6-v2",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "We present a sentence similarity model based on the Sentence Transformers architecture, which maps sentences to a 384-dimensional dense vector space. The model uses a pre-trained BERT encoder and applies mean pooling on top of the contextualized word embeddings to obtain sentence embeddings. We evaluate the model on the Sentence Embeddings Benchmark.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.005
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "sesame/csm-1b",
@@ -13439,7 +14218,20 @@
           "root": "sesame/csm-1b",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "CSM (Conversational Speech Model) is a speech generation model from Sesame that generates RVQ audio codes from text and audio inputs. The model architecture employs a Llama backbone and a smaller audio decoder that produces Mimi audio codes.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "input_characters": 7
+            },
+            "tags": [
+              "tts"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "shibing624/text2vec-base-chinese",
@@ -13448,7 +14240,20 @@
           "root": "shibing624/text2vec-base-chinese",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "A sentence similarity model that can be used for various NLP tasks such as text classification, sentiment analysis, named entity recognition, question answering, and more. It utilizes the CoSENT architecture, which consists of a transformer encoder and a pooling module, to encode input texts into vectors that capture their semantic meaning. The model was trained on the nli_zh dataset and achieved high performance on various benchmark datasets.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.005
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "stabilityai/sdxl-turbo",
@@ -13457,7 +14262,20 @@
           "root": "stabilityai/sdxl-turbo",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The SDXL Turbo model, developed by Stability AI, is an optimized, fast text-to-image generative model. It is a distilled version of SDXL 1.0, leveraging Adversarial Diffusion Distillation (ADD) to generate high-quality images in less steps.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.0002
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 1024,
+            "default_height": 1024,
+            "default_iterations": 5
+          }
         },
         {
           "id": "stepfun-ai/Step-3.5-Flash",
@@ -13476,8 +14294,12 @@
               "cache_read_tokens": 0.020000000000000004
             },
             "tags": [
+              "chat",
               "prompt_cache"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13487,7 +14309,20 @@
           "root": "thenlper/gte-base",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The GTE models are trained by Alibaba DAMO Academy. They are mainly based on the BERT framework and currently offer three different sizes of models, including GTE-large, GTE-base, and GTE-small. The GTE models are trained on a large-scale corpus of relevance text pairs, covering a wide range of domains and scenarios. This enables the GTE models to be applied to various downstream tasks of text embeddings, including information retrieval, semantic textual similarity, text reranking, etc.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.005
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "thenlper/gte-large",
@@ -13496,16 +14331,20 @@
           "root": "thenlper/gte-large",
           "parent": null,
           "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Wan-AI/Wan2.6-Image-Edit",
-          "name": "Wan-AI/Wan2.6-Image-Edit",
-          "owned_by": "deepinfra",
-          "root": "Wan-AI/Wan2.6-Image-Edit",
-          "parent": null,
-          "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "The GTE models are trained by Alibaba DAMO Academy. They are mainly based on the BERT framework and currently offer three different sizes of models, including GTE-large, GTE-base, and GTE-small. The GTE models are trained on a large-scale corpus of relevance text pairs, covering a wide range of domains and scenarios. This enables the GTE models to be applied to various downstream tasks of text embeddings, including information retrieval, semantic textual similarity, text reranking, etc.",
+            "context_length": 512,
+            "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "Wan-AI/Wan2.6-T2I",
@@ -13514,16 +14353,20 @@
           "root": "Wan-AI/Wan2.6-T2I",
           "parent": null,
           "object": "model",
-          "metadata": null
-        },
-        {
-          "id": "Wan-AI/Wan2.7-Image-Edit",
-          "name": "Wan-AI/Wan2.7-Image-Edit",
-          "owned_by": "deepinfra",
-          "root": "Wan-AI/Wan2.7-Image-Edit",
-          "parent": null,
-          "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Wan2.6 text to image, Upgraded visual quality, aesthetics, and instruction-following deliver precise style control, realistic portraits, long-text understanding, and broad historical/cultural IP coverage, enabling high-quality, highly expressive visual generation.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.03
+            },
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 0,
+            "default_height": 0,
+            "default_iterations": 0
+          }
         },
         {
           "id": "XiaomiMiMo/MiMo-V2.5",
@@ -13533,7 +14376,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "MiMo-V2.5 is a native omnimodal model with strong agentic capabilities, supporting text, image, video, and audio understanding within a unified architecture. Built upon the MiMo-V2-Flash backbone and extended with dedicated vision and audio encoders, it delivers robust performance across multimodal perception, long-context reasoning, and agentic workflows. ",
+            "description": "MiMo-V2.5 is a native omnimodal model with strong agentic capabilities, supporting text, image, video, and audio understanding within a unified architecture. Built upon the MiMo-V2-Flash backbone and extended with dedicated vision and audio encoders, it delivers robust performance across multimodal perception, long-context reasoning, and agentic workflows.",
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
@@ -13542,10 +14385,15 @@
               "cache_read_tokens": 0.08000000000000002
             },
             "tags": [
+              "chat",
+              "vlm",
               "vision",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13565,9 +14413,13 @@
               "cache_read_tokens": 0.2
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13577,7 +14429,20 @@
           "root": "XiaomiMiMo/MiMo-V2.5-tts-voicedesign",
           "parent": null,
           "object": "model",
-          "metadata": null
+          "metadata": {
+            "description": "Automatically convert input text into natural and fluent speech output. You can generate natural and vivid speech content by configuring parameters such as speech style and voice. Automatically generate voices from text descriptions, without requiring presets or audio samples.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "input_characters": 0
+            },
+            "tags": [
+              "tts"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         },
         {
           "id": "zai-org/GLM-4.6",
@@ -13587,7 +14452,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "Compared with GLM-4.5, GLM-4.6 brings several key improvements:  Longer context window: The context window has been expanded from 128K to 200K tokens, enabling the model to handle more complex agentic tasks. Superior coding performance: The model achieves higher scores on code benchmarks and demonstrates better real-world performance in applications such as Claude Code、Cline、Roo Code and Kilo Code, including improvements in generating visually polished front-end pages. Advanced reasoning: GLM-4.6 shows a clear improvement in reasoning performance and supports tool use during inference, leading to stronger overall capability. More capable agents: GLM-4.6 exhibits stronger performance in tool using and search-based agents, and integrates more effectively within agent frameworks. Refined writing: Better aligns with human preferences in style and readability, and performs more naturally in role-playing scenarios.",
+            "description": "Compared with GLM-4.5, GLM-4.6 brings several key improvements: Longer context window: The context window has been expanded from 128K to 200K tokens, enabling the model to handle more complex agentic tasks. Superior coding performance: The model achieves higher scores on code benchmarks and demonstrates better real-world performance in applications such as Claude Code、Cline、Roo Code and Kilo Code, including improvements in generating visually polished front-end pages. Advanced reasoning: GLM-4.6 shows a clear improvement in reasoning performance and supports tool use during inference, leading to stronger overall capability. More capable agents: GLM-4.6 exhibits stronger performance in tool using and search-based agents, and integrates more effectively within agent frameworks. Refined writing: Better aligns with human preferences in style and readability, and performs more naturally in role-playing scenarios.",
             "context_length": 202752,
             "max_tokens": 202752,
             "pricing": {
@@ -13596,9 +14461,13 @@
               "cache_read_tokens": 0.0799999993
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13618,9 +14487,13 @@
               "cache_read_tokens": 0.08000000000000002
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13640,9 +14513,13 @@
               "cache_read_tokens": 0.0100000002
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13662,9 +14539,13 @@
               "cache_read_tokens": 0.12
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         },
         {
@@ -13684,9 +14565,13 @@
               "cache_read_tokens": 0.205000005
             },
             "tags": [
+              "chat",
               "prompt_cache",
               "reasoning"
-            ]
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
           }
         }
       ]
@@ -19865,7 +20750,7 @@
           "canonical_slug": "google/gemini-2.0-flash-001",
           "hugging_face_id": "",
           "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It...",
-          "context_length": 1048576,
+          "context_length": 1000000,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
             "input_modalities": [
@@ -19892,7 +20777,7 @@
             "input_cache_write": "0.00000008333333333333334"
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1000000,
             "max_completion_tokens": 8192,
             "is_moderated": false
           },
@@ -32856,13 +33741,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.000001",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.000000149",
+            "completion": "0.000001"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -32870,6 +33754,7 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -32883,6 +33768,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
