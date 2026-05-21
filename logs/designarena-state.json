@@ -1,5 +1,5 @@
 {
-  "timestamp": 1779390159699,
+  "timestamp": 1779399666406,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -1531,6 +1531,23 @@
         "agents": [
           "agon_webapps",
           "agon_html",
+          "agon_slides"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "image"
+      ]
+    },
+    {
+      "id": "dune_2",
+      "displayName": "Dune Pro",
+      "provider": "dune",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
           "agon_slides"
         ]
       },
@@ -8040,6 +8057,28 @@
         "audio",
         "video"
       ]
+    },
+    {
+      "id": "qwen3.7-max",
+      "displayName": "Qwen3.7 Max",
+      "provider": "alibaba",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "inputModalities": [
+        "text"
+      ]
     }
   ],
   "providers": [
@@ -9093,6 +9132,11 @@
     },
     {
       "id": "dune",
+      "displayName": "Dune",
+      "logoName": "private.png"
+    },
+    {
+      "id": "dune_2",
       "displayName": "Dune",
       "logoName": "private.png"
     },
@@ -10874,6 +10918,13 @@
       "text": {
         "input": 1.5,
         "output": 9
+      }
+    },
+    {
+      "id": "qwen3.7-max",
+      "text": {
+        "input": 2.5,
+        "output": 7.5
       }
     }
   ]
