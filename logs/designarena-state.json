@@ -1,5 +1,5 @@
 {
-  "timestamp": 1779399666406,
+  "timestamp": 1779404879236,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -8079,6 +8079,40 @@
       "inputModalities": [
         "text"
       ]
+    },
+    {
+      "id": "stampede",
+      "displayName": "Stampede",
+      "provider": "stampede",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent"
+        ]
+      }
+    },
+    {
+      "id": "seabed",
+      "displayName": "Seabed",
+      "provider": "seabed",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent"
+        ]
+      }
     }
   ],
   "providers": [
@@ -9224,6 +9258,16 @@
       "displayName": "Inworld",
       "logoName": "inworld-logo.png",
       "website": "https://inworld.ai"
+    },
+    {
+      "id": "stampede",
+      "displayName": "stampede",
+      "logoName": "private.png"
+    },
+    {
+      "id": "seabed",
+      "displayName": "seabed",
+      "logoName": "private.png"
     }
   ],
   "pricing": [
