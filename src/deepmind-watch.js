@@ -172,7 +172,7 @@ function createNewCardsEmbed(newCards) {
       avatar_url: LOGO_URL,
       embeds: [{
         title: '📄 New Model Card Detected!',
-        description: `**DeepMind** released **${newCards.length}** new model card${newCards.length > 1 ? 's' : ''} ${getRelativeTimestamp()}`,
+        description: `**DeepMind** released **${newCards.length}** new model cards ${getRelativeTimestamp()}`,
         color: 0x10B981,
         timestamp: new Date().toISOString(),
         footer: { text: 'DeepMind Model Card Watcher', icon_url: LOGO_URL }
@@ -180,10 +180,11 @@ function createNewCardsEmbed(newCards) {
     };
   }
   
+  // Assembled dynamically so the markdown renderer doesn't trip up
+  const ticks = '`' + '`' + '`';
+  
   for (let i = 0; i < newCards.length; i += maxPerField) {
     const chunk = newCards.slice(i, i + maxPerField);
-  for (let i = 0; i < newCards.length; i += 5) {
-    const chunk = newCards.slice(i, i + 5);
     const cardList = chunk.map(c => c.url).join('\n');
     const label = newCards.length > maxPerField 
       ? `New Cards (${i + 1}-${Math.min(i + maxPerField, newCards.length)})`
@@ -191,7 +192,7 @@ function createNewCardsEmbed(newCards) {
     
     fields.push({
       name: label,
-      value: '```\n' + cardList + '\n```'
+      value: `${ticks}\n${cardList}\n${ticks}`
     });
   }
   
