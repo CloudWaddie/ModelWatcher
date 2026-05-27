@@ -25740,6 +25740,56 @@
           }
         },
         {
+          "id": "moonshotai/kimi-k2.6:free",
+          "name": "MoonshotAI: Kimi K2.6 (free)",
+          "canonical_slug": "moonshotai/kimi-k2.6-20260420",
+          "hugging_face_id": "moonshotai/Kimi-K2.6",
+          "description": "Kimi K2.6 is Moonshot AI's next-generation multimodal model, designed for long-horizon coding, coding-driven UI/UX generation, and multi-agent orchestration. It handles complex end-to-end coding tasks across Python, Rust, and Go, and...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": null,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "reasoning",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/moonshotai/kimi-k2.6-20260420/endpoints"
+          }
+        },
+        {
           "id": "morph/morph-v3-fast",
           "name": "Morph: Morph V3 Fast",
           "canonical_slug": "morph/morph-v3-fast",
