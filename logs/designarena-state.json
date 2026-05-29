@@ -1,5 +1,5 @@
 {
-  "timestamp": 1780011540553,
+  "timestamp": 1780028033656,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7030,12 +7030,22 @@
       "openSource": true,
       "router": false,
       "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
         "agents": [
           "agon_webapps",
           "agon_slides",
           "fullstack",
           "mobileapps",
-          "nativeapps"
+          "nativeapps",
+          "agentic_3d"
         ]
       }
     },
@@ -7181,7 +7191,7 @@
       "displayName": "Wan 2.7",
       "provider": "alibaba",
       "active": true,
-      "openSource": true,
+      "openSource": false,
       "router": false,
       "arenas": {
         "models": [
@@ -7195,7 +7205,7 @@
       "displayName": "Wan 2.7",
       "provider": "alibaba",
       "active": true,
-      "openSource": true,
+      "openSource": false,
       "router": false,
       "arenas": {
         "models": [
@@ -7208,7 +7218,7 @@
       "displayName": "Wan 2.7",
       "provider": "alibaba",
       "active": true,
-      "openSource": true,
+      "openSource": false,
       "router": false,
       "arenas": {
         "models": [
@@ -7222,7 +7232,7 @@
       "displayName": "Wan 2.7 Pro",
       "provider": "alibaba",
       "active": true,
-      "openSource": true,
+      "openSource": false,
       "router": false,
       "arenas": {
         "models": [
@@ -7237,7 +7247,7 @@
       "displayName": "Wan 2.7 Pro",
       "provider": "alibaba",
       "active": true,
-      "openSource": true,
+      "openSource": false,
       "router": false,
       "arenas": {
         "models": [
@@ -7250,7 +7260,7 @@
       "displayName": "Wan 2.7",
       "provider": "alibaba",
       "active": true,
-      "openSource": true,
+      "openSource": false,
       "router": false,
       "arenas": {
         "models": [
@@ -7265,7 +7275,7 @@
       "displayName": "Wan 2.7",
       "provider": "alibaba",
       "active": true,
-      "openSource": true,
+      "openSource": false,
       "router": false,
       "arenas": {
         "models": [
@@ -7547,7 +7557,8 @@
           "agon_slides",
           "fullstack",
           "mobileapps",
-          "nativeapps"
+          "nativeapps",
+          "agentic_3d"
         ]
       },
       "vision": true,
@@ -7691,7 +7702,8 @@
         ],
         "agents": [
           "agon_slides",
-          "agon_webapps"
+          "agon_webapps",
+          "agentic_3d"
         ]
       },
       "vision": true,
@@ -7808,7 +7820,8 @@
         ],
         "agents": [
           "agon_slides",
-          "agon_webapps"
+          "agon_webapps",
+          "agentic_3d"
         ]
       },
       "inputModalities": [
@@ -7924,7 +7937,8 @@
           "agon_webapps",
           "agon_slides",
           "fullstack",
-          "mobileapps"
+          "mobileapps",
+          "agentic_3d"
         ]
       },
       "vision": true
@@ -8051,7 +8065,8 @@
           "ascii"
         ],
         "agents": [
-          "agon_slides"
+          "agon_slides",
+          "agentic_3d"
         ]
       },
       "inputModalities": [
@@ -10771,6 +10786,13 @@
       "id": "recraftv4_pro_vector",
       "image": {
         "perImage": 0.3
+      }
+    },
+    {
+      "id": "glm-5.1",
+      "text": {
+        "input": 1.4,
+        "output": 4.4
       }
     },
     {
