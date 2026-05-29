@@ -27834,65 +27834,6 @@
           }
         },
         {
-          "id": "openai/gpt-4o-audio-preview",
-          "name": "OpenAI: GPT-4o Audio",
-          "canonical_slug": "openai/gpt-4o-audio-preview",
-          "hugging_face_id": "",
-          "description": "The gpt-4o-audio-preview model adds support for audio inputs as prompts. This enhancement allows the model to detect nuances within audio recordings and add depth to generated user experiences. Audio outputs...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text+audio->text+audio",
-            "input_modalities": [
-              "audio",
-              "text"
-            ],
-            "output_modalities": [
-              "text",
-              "audio"
-            ],
-            "tokenizer": "GPT",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000025",
-            "completion": "0.00001",
-            "audio": "0.00004"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": 16384,
-            "is_moderated": true
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "logprobs",
-            "max_tokens",
-            "presence_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/openai/gpt-4o-audio-preview/endpoints"
-          }
-        },
-        {
           "id": "openai/gpt-4o-mini",
           "name": "OpenAI: GPT-4o-mini",
           "canonical_slug": "openai/gpt-4o-mini",
@@ -29610,7 +29551,10 @@
           "default_parameters": {
             "temperature": null,
             "top_p": null,
-            "frequency_penalty": null
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
