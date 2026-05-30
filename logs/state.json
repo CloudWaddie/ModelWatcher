@@ -24773,57 +24773,6 @@
           }
         },
         {
-          "id": "mistralai/mistral-7b-instruct-v0.1",
-          "name": "Mistral: Mistral 7B Instruct v0.1",
-          "canonical_slug": "mistralai/mistral-7b-instruct-v0.1",
-          "hugging_face_id": "mistralai/Mistral-7B-Instruct-v0.1",
-          "description": "A 7.3B parameter model that outperforms Llama 2 13B on all benchmarks, with optimizations for speed and context length.",
-          "context_length": 4096,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": "mistral"
-          },
-          "pricing": {
-            "prompt": "0.00000011",
-            "completion": "0.00000019"
-          },
-          "top_provider": {
-            "context_length": 2824,
-            "max_completion_tokens": 2824,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.3
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2023-09-30",
-          "expiration_date": "2026-05-30",
-          "links": {
-            "details": "/api/v1/models/mistralai/mistral-7b-instruct-v0.1/endpoints"
-          }
-        },
-        {
           "id": "mistralai/mistral-large",
           "name": "Mistral Large",
           "canonical_slug": "mistralai/mistral-large",
