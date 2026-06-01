@@ -1,5 +1,5 @@
 {
-  "timestamp": 1780268835568,
+  "timestamp": 1780289686456,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -8380,6 +8380,25 @@
           "ascii"
         ]
       }
+    },
+    {
+      "id": "minimax-m3",
+      "displayName": "MiniMax M3",
+      "provider": "minimax",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      }
     }
   ],
   "providers": [
@@ -11336,6 +11355,13 @@
       "text": {
         "input": 0.2,
         "output": 1.15
+      }
+    },
+    {
+      "id": "minimax-m3",
+      "text": {
+        "input": 0.3,
+        "output": 1.2
       }
     }
   ]
