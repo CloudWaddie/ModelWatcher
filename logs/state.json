@@ -16098,6 +16098,36 @@
           "type": "base"
         },
         {
+          "id": "voxtral-mini-2507",
+          "name": "voxtral-mini-2507",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": true,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": true,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": false
+          },
+          "description": "A mini audio understanding model released in July 2025",
+          "max_context_length": 32768,
+          "aliases": [
+            "voxtral-mini-latest"
+          ],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.2,
+          "type": "base"
+        },
+        {
           "id": "voxtral-mini-2602",
           "name": "voxtral-mini-2602",
           "owned_by": "mistralai",
@@ -16113,27 +16143,25 @@
             "classification": false,
             "moderation": false,
             "audio": false,
-            "audio_transcription": false,
+            "audio_transcription": true,
             "audio_transcription_realtime": false,
             "audio_speech": false
           },
           "description": "Official voxtral-mini-2602 Mistral AI model",
-          "max_context_length": 32768,
-          "aliases": [
-            "voxtral-mini-latest"
-          ],
+          "max_context_length": 16384,
+          "aliases": [],
           "deprecation": null,
           "deprecation_replacement_model": null,
-          "default_model_temperature": null,
+          "default_model_temperature": 0,
           "type": "base"
         },
         {
           "id": "voxtral-mini-latest",
-          "name": "voxtral-mini-2602",
+          "name": "voxtral-mini-2507",
           "owned_by": "mistralai",
           "object": "model",
           "capabilities": {
-            "completion_chat": false,
+            "completion_chat": true,
             "function_calling": false,
             "reasoning": false,
             "completion_fim": false,
@@ -16142,19 +16170,19 @@
             "ocr": false,
             "classification": false,
             "moderation": false,
-            "audio": false,
+            "audio": true,
             "audio_transcription": false,
             "audio_transcription_realtime": false,
             "audio_speech": false
           },
-          "description": "Official voxtral-mini-2602 Mistral AI model",
+          "description": "A mini audio understanding model released in July 2025",
           "max_context_length": 32768,
           "aliases": [
-            "voxtral-mini-2602"
+            "voxtral-mini-2507"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
-          "default_model_temperature": null,
+          "default_model_temperature": 0.2,
           "type": "base"
         },
         {
@@ -33921,13 +33949,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000063",
-            "completion": "0.00000021",
-            "input_cache_read": "0.000000021"
+            "prompt": "0.000000066",
+            "completion": "0.00000026",
+            "input_cache_read": "0.000000029"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -35282,12 +35310,12 @@
           },
           "pricing": {
             "prompt": "0.0000006",
-            "completion": "0.00000192",
+            "completion": "0.00000208",
             "input_cache_read": "0.00000012"
           },
           "top_provider": {
             "context_length": 202752,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -35409,7 +35437,7 @@
           },
           "top_provider": {
             "context_length": 202752,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
