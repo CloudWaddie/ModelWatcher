@@ -1812,35 +1812,6 @@
       "success": true,
       "models": [
         {
-          "id": "ai21-labs/ai21-jamba-1.5-large",
-          "name": "AI21 Jamba 1.5 Large",
-          "publisher": "AI21 Labs",
-          "registry": "azureml-ai21",
-          "summary": "A 398B parameters (94B active) multilingual model, offering a 256K long context window, function calling, structured output, and grounded generation.",
-          "html_url": "https://github.com/marketplace/models/azureml-ai21/AI21-Jamba-1-5-Large",
-          "rate_limit_tier": "high",
-          "supported_input_modalities": [
-            "text"
-          ],
-          "supported_output_modalities": [
-            "text"
-          ],
-          "tags": [
-            "rag",
-            "multilingual",
-            "large context"
-          ],
-          "version": "1",
-          "capabilities": [
-            "streaming",
-            "tool-calling"
-          ],
-          "limits": {
-            "max_input_tokens": 262144,
-            "max_output_tokens": 4096
-          }
-        },
-        {
           "id": "cohere/cohere-command-a",
           "name": "Cohere Command A",
           "publisher": "Cohere",
@@ -1860,61 +1831,6 @@
           ],
           "version": "3",
           "capabilities": [],
-          "limits": {
-            "max_input_tokens": 131072,
-            "max_output_tokens": 4096
-          }
-        },
-        {
-          "id": "cohere/cohere-command-r-08-2024",
-          "name": "Cohere Command R 08-2024",
-          "publisher": "Cohere",
-          "registry": "azureml-cohere",
-          "summary": "Command R is a scalable generative model targeting RAG and Tool Use to enable production-scale AI for enterprise.",
-          "html_url": "https://github.com/marketplace/models/azureml-cohere/Cohere-command-r-08-2024",
-          "rate_limit_tier": "low",
-          "supported_input_modalities": [
-            "text"
-          ],
-          "supported_output_modalities": [
-            "text"
-          ],
-          "tags": [
-            "rag",
-            "multilingual"
-          ],
-          "version": "1",
-          "capabilities": [
-            "streaming"
-          ],
-          "limits": {
-            "max_input_tokens": 131072,
-            "max_output_tokens": 4096
-          }
-        },
-        {
-          "id": "cohere/cohere-command-r-plus-08-2024",
-          "name": "Cohere Command R+ 08-2024",
-          "publisher": "Cohere",
-          "registry": "azureml-cohere",
-          "summary": "Command R+ is a state-of-the-art RAG-optimized model designed to tackle enterprise-grade workloads.",
-          "html_url": "https://github.com/marketplace/models/azureml-cohere/Cohere-command-r-plus-08-2024",
-          "rate_limit_tier": "high",
-          "supported_input_modalities": [
-            "text"
-          ],
-          "supported_output_modalities": [
-            "text"
-          ],
-          "tags": [
-            "rag",
-            "multilingual"
-          ],
-          "version": "1",
-          "capabilities": [
-            "streaming",
-            "tool-calling"
-          ],
           "limits": {
             "max_input_tokens": 131072,
             "max_output_tokens": 4096
@@ -2211,36 +2127,6 @@
           ],
           "limits": {
             "max_input_tokens": 131072,
-            "max_output_tokens": 4096
-          }
-        },
-        {
-          "id": "microsoft/mai-ds-r1",
-          "name": "MAI-DS-R1",
-          "publisher": "Microsoft",
-          "registry": "azureml",
-          "summary": "MAI-DS-R1 is a DeepSeek-R1 reasoning model that has been post-trained by the Microsoft AI team to fill in information gaps in the previous version of the model and improve its harm protections while maintaining R1 reasoning capabilities.",
-          "html_url": "https://github.com/marketplace/models/azureml/MAI-DS-R1",
-          "rate_limit_tier": "custom",
-          "supported_input_modalities": [
-            "text"
-          ],
-          "supported_output_modalities": [
-            "text"
-          ],
-          "tags": [
-            "reasoning",
-            "coding",
-            "agents"
-          ],
-          "version": "1",
-          "capabilities": [
-            "agentsV2",
-            "reasoning",
-            "streaming"
-          ],
-          "limits": {
-            "max_input_tokens": 128000,
             "max_output_tokens": 4096
           }
         },
@@ -3031,62 +2917,6 @@
           "limits": {
             "max_input_tokens": 8191,
             "max_output_tokens": null
-          }
-        },
-        {
-          "id": "xai/grok-3",
-          "name": "Grok 3",
-          "publisher": "xAI",
-          "registry": "azureml-xai",
-          "summary": "Grok 3 is xAI's debut model, pretrained by Colossus at supermassive scale to excel in specialized domains like finance, healthcare, and the law.",
-          "html_url": "https://github.com/marketplace/models/azureml-xai/grok-3",
-          "rate_limit_tier": "custom",
-          "supported_input_modalities": [
-            "text"
-          ],
-          "supported_output_modalities": [
-            "text"
-          ],
-          "tags": [
-            "understanding",
-            "instruction",
-            "summarization"
-          ],
-          "version": "1",
-          "capabilities": [
-            "agentsV2"
-          ],
-          "limits": {
-            "max_input_tokens": 131072,
-            "max_output_tokens": 4096
-          }
-        },
-        {
-          "id": "xai/grok-3-mini",
-          "name": "Grok 3 Mini",
-          "publisher": "xAI",
-          "registry": "azureml-xai",
-          "summary": "Grok 3 Mini is a lightweight model that thinks before responding. Trained on mathematic and scientific problems, it is great for logic-based tasks.",
-          "html_url": "https://github.com/marketplace/models/azureml-xai/grok-3-mini",
-          "rate_limit_tier": "custom",
-          "supported_input_modalities": [
-            "text"
-          ],
-          "supported_output_modalities": [
-            "text"
-          ],
-          "tags": [
-            "agents",
-            "reasoning",
-            "coding"
-          ],
-          "version": "1",
-          "capabilities": [
-            "agentsV2"
-          ],
-          "limits": {
-            "max_input_tokens": 131072,
-            "max_output_tokens": 4096
           }
         }
       ]
