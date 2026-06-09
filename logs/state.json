@@ -34794,53 +34794,6 @@
           }
         },
         {
-          "id": "z-ai/glm-4-32b",
-          "name": "Z.ai: GLM 4 32B ",
-          "canonical_slug": "z-ai/glm-4-32b-0414",
-          "hugging_face_id": "",
-          "description": "GLM 4 32B is a cost-effective foundation language model. It can efficiently perform complex tasks and has significantly enhanced capabilities in tool use, online search, and code-related intelligent tasks. It...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.0000001"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.75,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/z-ai/glm-4-32b-0414/endpoints"
-          }
-        },
-        {
           "id": "z-ai/glm-4.5",
           "name": "Z.ai: GLM 4.5",
           "canonical_slug": "z-ai/glm-4.5",
@@ -34940,55 +34893,6 @@
             "tool_choice",
             "tools",
             "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.75,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-12-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/z-ai/glm-4.5-air/endpoints"
-          }
-        },
-        {
-          "id": "z-ai/glm-4.5-air:free",
-          "name": "Z.ai: GLM 4.5 Air (free)",
-          "canonical_slug": "z-ai/glm-4.5-air",
-          "hugging_face_id": "zai-org/GLM-4.5-Air",
-          "description": "GLM-4.5-Air is the lightweight variant of our latest flagship model family, also purpose-built for agent-centric applications. Like GLM-4.5, it adopts the Mixture-of-Experts (MoE) architecture but with a more compact parameter...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 96000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "temperature",
-            "tool_choice",
-            "tools",
             "top_p"
           ],
           "default_parameters": {
@@ -35147,11 +35051,11 @@
           "pricing": {
             "prompt": "0.0000003",
             "completion": "0.0000009",
-            "input_cache_read": "0.00000005"
+            "input_cache_read": "0.000000055"
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": 24000,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -35371,7 +35275,7 @@
           "canonical_slug": "z-ai/glm-5-turbo-20260315",
           "hugging_face_id": "",
           "description": "GLM-5 Turbo is a new model from Z.ai designed for fast inference and strong performance in agent-driven environments such as OpenClaw scenarios. It is deeply optimized for real-world agent workflows...",
-          "context_length": 202752,
+          "context_length": 262144,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -35389,7 +35293,7 @@
             "input_cache_read": "0.00000024"
           },
           "top_provider": {
-            "context_length": 202752,
+            "context_length": 262144,
             "max_completion_tokens": 131072,
             "is_moderated": false
           },
@@ -35492,62 +35396,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/z-ai/glm-5.1-20260406/endpoints"
-          }
-        },
-        {
-          "id": "z-ai/glm-5v-turbo",
-          "name": "Z.ai: GLM 5V Turbo",
-          "canonical_slug": "z-ai/glm-5v-turbo-20260401",
-          "hugging_face_id": "",
-          "description": "GLM-5V-Turbo is Z.ai’s first native multimodal agent foundation model, built for vision-based coding and agent-driven tasks. It natively handles image, video, and text inputs, excels at long-horizon planning, complex coding,...",
-          "context_length": 202752,
-          "architecture": {
-            "modality": "text+image+video->text",
-            "input_modalities": [
-              "image",
-              "text",
-              "video"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000012",
-            "completion": "0.000004",
-            "input_cache_read": "0.00000024"
-          },
-          "top_provider": {
-            "context_length": 202752,
-            "max_completion_tokens": 131072,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 1,
-            "top_p": 0.95,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/z-ai/glm-5v-turbo-20260401/endpoints"
           }
         }
       ]
