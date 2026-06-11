@@ -19866,7 +19866,7 @@
           "canonical_slug": "deepseek/deepseek-r1-distill-llama-70b",
           "hugging_face_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
           "description": "DeepSeek R1 Distill Llama 70B is a distilled large language model based on [Llama-3.3-70B-Instruct](/meta-llama/llama-3.3-70b-instruct), using outputs from [DeepSeek R1](/deepseek/deepseek-r1). The model combines advanced distillation techniques to achieve high performance across...",
-          "context_length": 131072,
+          "context_length": 128000,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -19879,25 +19879,22 @@
             "instruct_type": "deepseek-r1"
           },
           "pricing": {
-            "prompt": "0.0000007",
+            "prompt": "0.0000008",
             "completion": "0.0000008"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 16384,
+            "context_length": 8192,
+            "max_completion_tokens": 8192,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
             "max_tokens",
-            "min_p",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
-            "response_format",
             "seed",
             "stop",
             "temperature",
@@ -19907,7 +19904,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2024-07-31",
-          "expiration_date": "2026-06-11",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/deepseek/deepseek-r1-distill-llama-70b/endpoints"
           }
@@ -25180,12 +25177,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000035",
-            "completion": "0.00000189"
+            "prompt": "0.0000004",
+            "completion": "0.0000019",
+            "input_cache_read": "0.00000009"
           },
           "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": null,
+            "context_length": 262144,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -26246,64 +26244,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/nvidia/nemotron-nano-12b-v2-vl/endpoints"
-          }
-        },
-        {
-          "id": "nvidia/nemotron-nano-9b-v2",
-          "name": "NVIDIA: Nemotron Nano 9B V2",
-          "canonical_slug": "nvidia/nemotron-nano-9b-v2",
-          "hugging_face_id": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
-          "description": "NVIDIA-Nemotron-Nano-9B-v2 is a large language model (LLM) trained from scratch by NVIDIA, and designed as a unified model for both reasoning and non-reasoning tasks. It responds to user queries and...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000004",
-            "completion": "0.00000016"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 16384,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-03-31",
-          "expiration_date": "2026-06-11",
-          "links": {
-            "details": "/api/v1/models/nvidia/nemotron-nano-9b-v2/endpoints"
           }
         },
         {
