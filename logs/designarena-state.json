@@ -1,5 +1,5 @@
 {
-  "timestamp": 1781282907370,
+  "timestamp": 1781291462671,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -5738,7 +5738,7 @@
     },
     {
       "id": "lightning_tts",
-      "displayName": "Lightning TTS",
+      "displayName": "Lightning v3.1",
       "provider": "smallestai",
       "active": false,
       "openSource": false,
@@ -6006,7 +6006,7 @@
       "id": "coconut",
       "displayName": "GLM 5.1",
       "provider": "zhipu",
-      "active": false,
+      "active": true,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -7098,6 +7098,37 @@
           "imagetoimage"
         ]
       }
+    },
+    {
+      "id": "kimi-k2.7-code",
+      "displayName": "Kimi K2.7 Code",
+      "provider": "moonshot",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "ascii",
+          "svg"
+        ],
+        "agents": [
+          "agon_slides",
+          "agon_webapps",
+          "agentic_3d",
+          "agentic_gamedev",
+          "nativeapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -10178,6 +10209,13 @@
       "text": {
         "input": 10,
         "output": 50
+      }
+    },
+    {
+      "id": "kimi-k2.7-code",
+      "text": {
+        "input": 0.95,
+        "output": 4
       }
     }
   ]
