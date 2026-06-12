@@ -11272,26 +11272,6 @@
       "success": true,
       "models": [
         {
-          "id": "accounts/factory-ai/models/shield-grounded-v1-downgrade",
-          "name": "accounts/factory-ai/models/shield-grounded-v1-downgrade",
-          "owned_by": "factory-ai",
-          "object": "model",
-          "kind": "HF_PEFT_ADDON",
-          "supports_chat": true,
-          "supports_image_input": true,
-          "supports_tools": false
-        },
-        {
-          "id": "accounts/factory-ai/models/shield-grounded-v1-risk",
-          "name": "accounts/factory-ai/models/shield-grounded-v1-risk",
-          "owned_by": "factory-ai",
-          "object": "model",
-          "kind": "HF_PEFT_ADDON",
-          "supports_chat": true,
-          "supports_image_input": true,
-          "supports_tools": false
-        },
-        {
           "id": "accounts/fireworks/models/deepseek-v4-pro",
           "name": "accounts/fireworks/models/deepseek-v4-pro",
           "owned_by": "fireworks",
@@ -12644,6 +12624,32 @@
             },
             "tags": [
               "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "jason/gemma-lend-test",
+          "name": "jason/gemma-lend-test",
+          "owned_by": "deepinfra",
+          "root": "jason/gemma-lend-test",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "",
+            "context_length": 262144,
+            "max_tokens": 262144,
+            "pricing": {
+              "input_tokens": 0.13,
+              "output_tokens": 0.38
+            },
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "reasoning"
             ],
             "default_width": null,
             "default_height": null,
@@ -29433,6 +29439,7 @@
             "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
@@ -37480,6 +37487,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -37492,6 +37500,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
