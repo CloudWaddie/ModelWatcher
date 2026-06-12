@@ -11272,6 +11272,26 @@
       "success": true,
       "models": [
         {
+          "id": "accounts/factory-ai/models/shield-grounded-v1-downgrade",
+          "name": "accounts/factory-ai/models/shield-grounded-v1-downgrade",
+          "owned_by": "factory-ai",
+          "object": "model",
+          "kind": "HF_PEFT_ADDON",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": false
+        },
+        {
+          "id": "accounts/factory-ai/models/shield-grounded-v1-risk",
+          "name": "accounts/factory-ai/models/shield-grounded-v1-risk",
+          "owned_by": "factory-ai",
+          "object": "model",
+          "kind": "HF_PEFT_ADDON",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": false
+        },
+        {
           "id": "accounts/fireworks/models/deepseek-v4-pro",
           "name": "accounts/fireworks/models/deepseek-v4-pro",
           "owned_by": "fireworks",
@@ -26660,7 +26680,7 @@
           "id": "minimax/minimax-m3",
           "name": "MiniMax: MiniMax M3",
           "canonical_slug": "minimax/minimax-m3-20260531",
-          "hugging_face_id": "",
+          "hugging_face_id": "MiniMaxAI/Minimax-M3",
           "description": "MiniMax-M3 is a multimodal foundation model from MiniMax. It supports text, image, and video inputs with text output, a 1M-token context window, and is suited for long-horizon agentic work, coding,...",
           "context_length": 1048576,
           "architecture": {
