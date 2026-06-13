@@ -7330,6 +7330,36 @@
           }
         },
         {
+          "id": "moonshotai/Kimi-K2.7-Code",
+          "name": "moonshotai/Kimi-K2.7-Code",
+          "uuid": "endpoint-b8ae5f69-a244-43dd-a6ac-957653518387",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Kimi K2.7 Code",
+          "organization": "Moonshot AI",
+          "link": "https://huggingface.co/api/models/togethercomputer/Kimi-K2.7-Code-FP4",
+          "context_length": 262144,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0.95,
+            "output": 4,
+            "base": 0,
+            "finetune": 0,
+            "cached_input": 0.19,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "nim/meta/llama-3.1-70b-instruct",
           "name": "nim/meta/llama-3.1-70b-instruct",
           "object": "model",
@@ -21677,13 +21707,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000098",
-            "completion": "0.000000196",
+            "prompt": "0.00000009",
+            "completion": "0.00000018",
             "input_cache_read": "0.00000002"
           },
           "top_provider": {
-            "context_length": 1048575,
-            "max_completion_tokens": null,
+            "context_length": 1000000,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
