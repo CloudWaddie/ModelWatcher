@@ -1,5 +1,5 @@
 {
-  "timestamp": 1781306594928,
+  "timestamp": 1781324469774,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -3440,6 +3440,28 @@
           "ascii"
         ]
       }
+    },
+    {
+      "id": "nemotron-3-ultra-550b-a55b",
+      "displayName": "Nemotron 3 Ultra",
+      "provider": "nvidia",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "inputModalities": [
+        "text"
+      ]
     },
     {
       "id": "gpt-o4-mini",
@@ -7048,7 +7070,7 @@
       "id": "claude-fable-5",
       "displayName": "Claude Fable 5",
       "provider": "anthropic",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -8209,6 +8231,11 @@
       "logoName": "private.png"
     },
     {
+      "id": "carnation",
+      "displayName": "carnation",
+      "logoName": "private.png"
+    },
+    {
       "id": "smallestai",
       "displayName": "Smallest AI",
       "logoName": "smallest.png"
@@ -9289,6 +9316,13 @@
       "text": {
         "input": 0.15,
         "output": 0.75
+      }
+    },
+    {
+      "id": "nemotron-3-ultra-550b-a55b",
+      "text": {
+        "input": 0.5,
+        "output": 2.5
       }
     },
     {
