@@ -927,76 +927,6 @@
           }
         },
         {
-          "id": "claude-opus-4-20250514",
-          "name": "claude-opus-4-20250514",
-          "type": "model",
-          "display_name": "Claude Opus 4",
-          "created_at": "2025-05-22T00:00:00Z",
-          "max_input_tokens": 200000,
-          "max_tokens": 32000,
-          "capabilities": {
-            "batch": {
-              "supported": true
-            },
-            "citations": {
-              "supported": true
-            },
-            "code_execution": {
-              "supported": false
-            },
-            "context_management": {
-              "supported": true,
-              "clear_tool_uses_20250919": {
-                "supported": true
-              },
-              "clear_thinking_20251015": {
-                "supported": true
-              },
-              "compact_20260112": {
-                "supported": false
-              }
-            },
-            "effort": {
-              "supported": false,
-              "low": {
-                "supported": false
-              },
-              "medium": {
-                "supported": false
-              },
-              "high": {
-                "supported": false
-              },
-              "xhigh": {
-                "supported": false
-              },
-              "max": {
-                "supported": false
-              }
-            },
-            "image_input": {
-              "supported": true
-            },
-            "pdf_input": {
-              "supported": true
-            },
-            "structured_outputs": {
-              "supported": false
-            },
-            "thinking": {
-              "supported": true,
-              "types": {
-                "enabled": {
-                  "supported": true
-                },
-                "adaptive": {
-                  "supported": false
-                }
-              }
-            }
-          }
-        },
-        {
           "id": "claude-opus-4-5-20251101",
           "name": "claude-opus-4-5-20251101",
           "type": "model",
@@ -1271,76 +1201,6 @@
                 },
                 "adaptive": {
                   "supported": true
-                }
-              }
-            }
-          }
-        },
-        {
-          "id": "claude-sonnet-4-20250514",
-          "name": "claude-sonnet-4-20250514",
-          "type": "model",
-          "display_name": "Claude Sonnet 4",
-          "created_at": "2025-05-22T00:00:00Z",
-          "max_input_tokens": 1000000,
-          "max_tokens": 64000,
-          "capabilities": {
-            "batch": {
-              "supported": true
-            },
-            "citations": {
-              "supported": true
-            },
-            "code_execution": {
-              "supported": false
-            },
-            "context_management": {
-              "supported": true,
-              "clear_tool_uses_20250919": {
-                "supported": true
-              },
-              "clear_thinking_20251015": {
-                "supported": true
-              },
-              "compact_20260112": {
-                "supported": false
-              }
-            },
-            "effort": {
-              "supported": false,
-              "low": {
-                "supported": false
-              },
-              "medium": {
-                "supported": false
-              },
-              "high": {
-                "supported": false
-              },
-              "xhigh": {
-                "supported": false
-              },
-              "max": {
-                "supported": false
-              }
-            },
-            "image_input": {
-              "supported": true
-            },
-            "pdf_input": {
-              "supported": true
-            },
-            "structured_outputs": {
-              "supported": false
-            },
-            "thinking": {
-              "supported": true,
-              "types": {
-                "enabled": {
-                  "supported": true
-                },
-                "adaptive": {
-                  "supported": false
                 }
               }
             }
@@ -5451,96 +5311,6 @@
           }
         },
         {
-          "id": "HiDream-ai/HiDream-I1-Dev",
-          "name": "HiDream-ai/HiDream-I1-Dev",
-          "uuid": "endpoint-933b7813-91dc-458a-b17e-9679ffe291b9",
-          "object": "model",
-          "type": "image",
-          "running": false,
-          "display_name": "HiDream-I1-Dev",
-          "organization": "HiDream-ai",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": {
-              "example_price": 0.0045,
-              "example_description": "720x1280"
-            },
-            "video": 0
-          }
-        },
-        {
-          "id": "HiDream-ai/HiDream-I1-Fast",
-          "name": "HiDream-ai/HiDream-I1-Fast",
-          "uuid": "endpoint-25122bc0-13ff-461e-be7b-c3b9587a931a",
-          "object": "model",
-          "type": "image",
-          "running": false,
-          "display_name": "HiDream-I1-Fast",
-          "organization": "HiDream-ai",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": {
-              "example_price": 0.0032,
-              "example_description": "720x1280"
-            },
-            "video": 0
-          }
-        },
-        {
-          "id": "HiDream-ai/HiDream-I1-Full",
-          "name": "HiDream-ai/HiDream-I1-Full",
-          "uuid": "endpoint-911a53ea-73ac-48f5-b877-b9b30d858e02",
-          "object": "model",
-          "type": "image",
-          "running": false,
-          "display_name": "HiDream-I1-Full",
-          "organization": "HiDream-ai",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": {
-              "example_price": 0.009,
-              "example_description": "720x1280"
-            },
-            "video": 0
-          }
-        },
-        {
           "id": "ideogram/ideogram-3.0",
           "name": "ideogram/ideogram-3.0",
           "uuid": "endpoint-3d82f587-56ba-45df-817d-854cd2117f41",
@@ -5633,36 +5403,6 @@
           }
         },
         {
-          "id": "kwaivgI/kling-1.6-pro",
-          "name": "kwaivgI/kling-1.6-pro",
-          "uuid": "endpoint-1a0a5cc1-f679-4ed7-b5c4-8a33cb13a332",
-          "object": "model",
-          "type": "video",
-          "running": false,
-          "display_name": "Kling 1.6 Pro",
-          "organization": "kwaivgI",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": {
-              "example_price": 0.323,
-              "example_description": "1080p / 5s"
-            }
-          }
-        },
-        {
           "id": "kwaivgI/kling-1.6-standard",
           "name": "kwaivgI/kling-1.6-standard",
           "uuid": "endpoint-9f6794ed-52f7-414f-8974-d3b1ffb8702f",
@@ -5689,36 +5429,6 @@
             "video": {
               "example_price": 0.185,
               "example_description": "720p / 5s"
-            }
-          }
-        },
-        {
-          "id": "kwaivgI/kling-2.0-master",
-          "name": "kwaivgI/kling-2.0-master",
-          "uuid": "endpoint-0164aebb-65e0-4fa5-98df-1d222c3d5700",
-          "object": "model",
-          "type": "video",
-          "running": false,
-          "display_name": "Kling 2.0 Master",
-          "organization": "kwaivgI",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": {
-              "example_price": 0.924,
-              "example_description": "1080p / 5s"
             }
           }
         },
@@ -5839,36 +5549,6 @@
             "image_pixel": 0,
             "transcribe": 0,
             "image": 0,
-            "video": 0
-          }
-        },
-        {
-          "id": "Lykon/DreamShaper",
-          "name": "Lykon/DreamShaper",
-          "uuid": "endpoint-b62369e8-5dcc-4b9d-9ded-060b153bc9e9",
-          "object": "model",
-          "type": "image",
-          "running": false,
-          "display_name": "Dreamshaper",
-          "organization": "Lykon",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": {
-              "example_price": 0.0006,
-              "example_description": "720x1280"
-            },
             "video": 0
           }
         },
@@ -10470,36 +10150,6 @@
             "image_pixel": 0,
             "transcribe": 0,
             "image": 0,
-            "video": 0
-          }
-        },
-        {
-          "id": "stabilityai/stable-diffusion-3-medium",
-          "name": "stabilityai/stable-diffusion-3-medium",
-          "uuid": "endpoint-24e602f1-99a7-45f0-972e-8b21e8715aeb",
-          "object": "model",
-          "type": "image",
-          "running": false,
-          "display_name": "Stable Diffusion 3",
-          "organization": "stabilityai",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": {
-              "example_price": 0.0019,
-              "example_description": "720x1280"
-            },
             "video": 0
           }
         },
@@ -24116,14 +23766,19 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "frequency_penalty",
             "include_reasoning",
             "max_tokens",
+            "presence_penalty",
             "reasoning",
+            "repetition_penalty",
             "response_format",
             "seed",
+            "stop",
             "temperature",
             "tool_choice",
             "tools",
+            "top_k",
             "top_p"
           ],
           "default_parameters": {
@@ -34436,14 +34091,21 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "frequency_penalty",
             "include_reasoning",
             "max_tokens",
+            "presence_penalty",
             "reasoning",
+            "repetition_penalty",
+            "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
-            "tools"
+            "tools",
+            "top_k",
+            "top_p"
           ],
           "default_parameters": {
             "temperature": null,
@@ -35374,7 +35036,7 @@
           "canonical_slug": "openrouter/fusion",
           "hugging_face_id": null,
           "description": "Fusion turns your prompt into a small multi-model deliberation. A panel of expert models (see below) analyzes your prompt in parallel with web search and web fetch enabled, then a...",
-          "context_length": 128000,
+          "context_length": 1000000,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
