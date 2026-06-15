@@ -1,5 +1,5 @@
 {
-  "timestamp": 1781478894691,
+  "timestamp": 1781499879485,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -2038,6 +2038,20 @@
       }
     },
     {
+      "id": "kling-o3-pro",
+      "displayName": "Kling O3 (Omni)",
+      "provider": "klingAI",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "multitovideo"
+        ]
+      }
+    },
+    {
       "id": "claude-3.7-sonnet",
       "displayName": "Claude 3.7 Sonnet",
       "provider": "anthropic",
@@ -2527,6 +2541,20 @@
         "models": [
           "videotovideo",
           "multimodaltovideo"
+        ]
+      }
+    },
+    {
+      "id": "ltx-2.3",
+      "displayName": "LTX 2.3",
+      "provider": "ltx",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo"
         ]
       }
     },
@@ -7151,6 +7179,22 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "ray-3-2",
+      "displayName": "Ray 3.2",
+      "provider": "lumalabs",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "multitovideo",
+          "videotovideo",
+          "imagetovideo"
+        ]
+      }
     }
   ],
   "providers": [
@@ -8980,6 +9024,12 @@
       }
     },
     {
+      "id": "kling-o3-pro",
+      "video": {
+        "perSecond": 0.14
+      }
+    },
+    {
       "id": "claude-3.7-sonnet",
       "text": {
         "input": 3,
@@ -9118,6 +9168,12 @@
       "id": "ltx-2-19b-video-to-video",
       "video": {
         "perMegapixel": 0.0018
+      }
+    },
+    {
+      "id": "ltx-2.3",
+      "video": {
+        "perSecond": 0.08
       }
     },
     {
@@ -10255,6 +10311,12 @@
       "text": {
         "input": 0.95,
         "output": 4
+      }
+    },
+    {
+      "id": "ray-3-2",
+      "video": {
+        "perSecond": 0.06
       }
     }
   ]
