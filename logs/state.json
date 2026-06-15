@@ -3643,6 +3643,35 @@
           }
         },
         {
+          "id": "cartesia/sonic-3.5",
+          "name": "cartesia/sonic-3.5",
+          "object": "model",
+          "type": "audio",
+          "running": false,
+          "display_name": "Cartesia Sonic 3.5",
+          "organization": "Cartesia",
+          "context_length": 448,
+          "config": {
+            "chat_template": null,
+            "stop": [
+              "<|endoftext|>"
+            ],
+            "bos_token": "<|endoftext|>",
+            "eos_token": "<|endoftext|>"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "deepcogito/cogito-v1-preview-llama-70B",
           "name": "deepcogito/cogito-v1-preview-llama-70B",
           "object": "model",
@@ -37468,6 +37497,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -37480,6 +37510,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -38259,7 +38290,7 @@
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": 81920,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -38836,7 +38867,6 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
-            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -38850,7 +38880,6 @@
             "tool_choice",
             "tools",
             "top_k",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -40551,8 +40580,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000002",
-            "completion": "0.000006",
+            "prompt": "0.00000125",
+            "completion": "0.0000025",
             "web_search": "0.005",
             "input_cache_read": "0.0000002"
           },
@@ -41355,7 +41384,6 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
-            "logprobs",
             "max_tokens",
             "presence_penalty",
             "reasoning",
@@ -41363,12 +41391,10 @@
             "response_format",
             "seed",
             "stop",
-            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
             "top_k",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
