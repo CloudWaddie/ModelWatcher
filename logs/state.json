@@ -12685,9 +12685,9 @@
             "context_length": 196608,
             "max_tokens": 196608,
             "pricing": {
-              "input_tokens": 0.4,
-              "output_tokens": 2,
-              "cache_read_tokens": 0.4
+              "input_tokens": 0.5,
+              "output_tokens": 2.25,
+              "cache_read_tokens": 0.5
             },
             "tags": [
               "chat",
@@ -21617,13 +21617,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000098",
-            "completion": "0.000000196",
+            "prompt": "0.00000009",
+            "completion": "0.00000018",
             "input_cache_read": "0.00000002"
           },
           "top_provider": {
-            "context_length": 1048575,
-            "max_completion_tokens": null,
+            "context_length": 1000000,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -40073,8 +40073,10 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "logprobs",
             "max_tokens",
+            "min_p",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
@@ -42759,14 +42761,15 @@
             "input_cache_read": "0.00000026"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "context_length": 262144,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -42792,7 +42795,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2098-12-31",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/z-ai/glm-5.2-20260616/endpoints"
           },
