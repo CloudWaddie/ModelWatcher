@@ -1,5 +1,5 @@
 {
-  "timestamp": 1781629631095,
+  "timestamp": 1781644231421,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7194,6 +7194,39 @@
       ]
     },
     {
+      "id": "silo",
+      "displayName": "GLM-5.2",
+      "provider": "zhipu",
+      "active": false,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "agon_html",
+          "agon_slides",
+          "agon_slides_html",
+          "agon_dataviz",
+          "agon_godot",
+          "agentic_gamedev",
+          "agentic_3d",
+          "fullstack",
+          "fullstack_gamedev",
+          "mobileapps",
+          "nativeapps"
+        ]
+      }
+    },
+    {
       "id": "ray-3-2",
       "displayName": "Ray 3.2",
       "provider": "lumalabs",
@@ -10324,6 +10357,13 @@
       "text": {
         "input": 0.95,
         "output": 4
+      }
+    },
+    {
+      "id": "silo",
+      "text": {
+        "input": 1.4,
+        "output": 4.4
       }
     },
     {
