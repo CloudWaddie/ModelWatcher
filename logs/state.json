@@ -9848,8 +9848,8 @@
           },
           "pricing": {
             "hourly": 0,
-            "input": 0.4,
-            "output": 1.6,
+            "input": 0.32,
+            "output": 1.28,
             "base": 0,
             "finetune": 0,
             "image_pixel": 0,
@@ -11011,6 +11011,16 @@
           "context_window": 131072,
           "public_apps": null,
           "max_completion_tokens": 40960
+        },
+        {
+          "id": "qwen/qwen3.6-27b",
+          "name": "qwen/qwen3.6-27b",
+          "owned_by": "Alibaba Cloud",
+          "object": "model",
+          "active": true,
+          "context_window": 131072,
+          "public_apps": null,
+          "max_completion_tokens": 32768
         },
         {
           "id": "whisper-large-v3",
@@ -38365,7 +38375,7 @@
           "canonical_slug": "qwen/qwen3.5-397b-a17b-20260216",
           "hugging_face_id": "Qwen/Qwen3.5-397B-A17B",
           "description": "The Qwen3.5 series 397B-A17B native vision-language model is built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. It delivers...",
-          "context_length": 262144,
+          "context_length": 256000,
           "architecture": {
             "modality": "text+image+video->text",
             "input_modalities": [
@@ -38380,12 +38390,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000039",
-            "completion": "0.00000234"
+            "prompt": "0.000000385",
+            "completion": "0.00000245"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 65536,
+            "context_length": 131072,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -42360,8 +42370,10 @@
             "logprobs",
             "max_tokens",
             "min_p",
+            "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
+            "reasoning_effort",
             "repetition_penalty",
             "response_format",
             "seed",
@@ -43468,6 +43480,17 @@
           "name": "grok-4.20-0309-non-reasoning",
           "owned_by": "xai",
           "object": "model",
+          "aliases": [
+            "grok-4.20-non-reasoning",
+            "grok-4.20-non-reasoning-latest",
+            "grok-4.20-beta-non-reasoning",
+            "grok-4.20-beta-latest-non-reasoning",
+            "grok-4.20-experimental-beta-0304-non-reasoning",
+            "grok-4.20-experimental-beta-non-reasoning-latest",
+            "grok-4.20-beta-0309-non-reasoning",
+            "grok-4.20-non-reasoning-gv2"
+          ],
+          "context_length": 1000000,
           "prompt_text_token_price": 12500,
           "cached_prompt_text_token_price": 2000,
           "prompt_image_token_price": 12500,
@@ -43482,6 +43505,24 @@
           "name": "grok-4.20-0309-reasoning",
           "owned_by": "xai",
           "object": "model",
+          "aliases": [
+            "grok-4.20-reasoning-latest",
+            "grok-4.20",
+            "grok-4.20-reasoning",
+            "grok-4.20-0309",
+            "grok-4.20-beta-0309-reasoning",
+            "grok-4.20-beta",
+            "grok-4.20-beta-0309",
+            "grok-4.20-beta-latest",
+            "grok-4.20-beta-latest-reasoning",
+            "grok-4.20-beta-reasoning",
+            "grok-4.20-experimental-beta-0304-reasoning",
+            "grok-4.20-experimental-beta-0304",
+            "grok-4.20-experimental-beta-reasoning-latest",
+            "grok-4.20-experimental-beta-latest",
+            "grok-4.20-reasoning-gv2"
+          ],
+          "context_length": 1000000,
           "prompt_text_token_price": 12500,
           "cached_prompt_text_token_price": 2000,
           "prompt_image_token_price": 12500,
@@ -43496,6 +43537,15 @@
           "name": "grok-4.20-multi-agent-0309",
           "owned_by": "xai",
           "object": "model",
+          "aliases": [
+            "grok-4.20-multi-agent",
+            "grok-4.20-multi-agent-latest",
+            "grok-4.20-multi-agent-beta-latest",
+            "grok-4.20-multi-agent-experimental-beta-0304",
+            "grok-4.20-multi-agent-experimental-beta-latest",
+            "grok-4.20-multi-agent-beta-0309"
+          ],
+          "context_length": 1000000,
           "prompt_text_token_price": 12500,
           "cached_prompt_text_token_price": 2000,
           "prompt_image_token_price": 12500,
@@ -43510,6 +43560,40 @@
           "name": "grok-4.3",
           "owned_by": "xai",
           "object": "model",
+          "aliases": [
+            "grok-4.3-latest",
+            "grok-latest",
+            "grok-3",
+            "grok-3-latest",
+            "grok-3-beta",
+            "grok-3-fast",
+            "grok-3-fast-latest",
+            "grok-3-fast-beta",
+            "grok-3-mini",
+            "grok-3-mini-latest",
+            "grok-3-mini-beta",
+            "grok-3-mini-fast",
+            "grok-3-mini-fast-latest",
+            "grok-3-mini-fast-beta",
+            "grok-3-mini-high",
+            "grok-3-mini-high-beta",
+            "grok-3-mini-fast-high",
+            "grok-3-mini-fast-high-beta",
+            "grok-4-0709",
+            "grok-4",
+            "grok-4-latest",
+            "grok-4-fast-reasoning",
+            "grok-4-fast",
+            "grok-4-fast-reasoning-latest",
+            "grok-4-fast-non-reasoning",
+            "grok-4-fast-non-reasoning-latest",
+            "grok-4-1-fast-reasoning",
+            "grok-4-1-fast",
+            "grok-4-1-fast-reasoning-latest",
+            "grok-4-1-fast-non-reasoning",
+            "grok-4-1-fast-non-reasoning-latest"
+          ],
+          "context_length": 1000000,
           "prompt_text_token_price": 12500,
           "cached_prompt_text_token_price": 2000,
           "prompt_image_token_price": 12500,
@@ -43524,6 +43608,12 @@
           "name": "grok-build-0.1",
           "owned_by": "xai",
           "object": "model",
+          "aliases": [
+            "grok-code-fast-1",
+            "grok-code-fast",
+            "grok-code-fast-1-0825"
+          ],
+          "context_length": 256000,
           "prompt_text_token_price": 10000,
           "cached_prompt_text_token_price": 2000,
           "prompt_image_token_price": 10000,
@@ -43538,6 +43628,10 @@
           "name": "grok-imagine-image",
           "owned_by": "xai",
           "object": "model",
+          "aliases": [
+            "grok-imagine-image-2026-03-02"
+          ],
+          "context_length": 8000,
           "image_price": 200000000
         },
         {
@@ -43545,19 +43639,29 @@
           "name": "grok-imagine-image-quality",
           "owned_by": "xai",
           "object": "model",
+          "aliases": [
+            "grok-imagine-image-quality-20260403",
+            "grok-imagine-image-quality-latest",
+            "grok-imagine-image-pro"
+          ],
+          "context_length": 8000,
           "image_price": 400000000
         },
         {
           "id": "grok-imagine-video",
           "name": "grok-imagine-video",
           "owned_by": "xai",
-          "object": "model"
+          "object": "model",
+          "aliases": []
         },
         {
           "id": "grok-imagine-video-1.5-preview",
           "name": "grok-imagine-video-1.5-preview",
           "owned_by": "xai",
-          "object": "model"
+          "object": "model",
+          "aliases": [
+            "grok-imagine-video-1.5-2026-05-30"
+          ]
         }
       ]
     }
