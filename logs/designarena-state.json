@@ -1,5 +1,5 @@
 {
-  "timestamp": 1781715458183,
+  "timestamp": 1781724492701,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7241,6 +7241,29 @@
           "imagetovideo"
         ]
       }
+    },
+    {
+      "id": "nex-n2-pro",
+      "displayName": "Nex N2 Pro",
+      "provider": "nex-agi",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -8529,6 +8552,12 @@
       "id": "silo",
       "displayName": "silo",
       "logoName": "private.png"
+    },
+    {
+      "id": "nex-agi",
+      "displayName": "Nex AGI",
+      "logoName": "nex-agi.svg",
+      "website": "https://nexagi.ai"
     }
   ],
   "pricing": [
