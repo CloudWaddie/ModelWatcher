@@ -17697,7 +17697,6 @@
             "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
-            "reasoning_effort",
             "repetition_penalty",
             "response_format",
             "seed",
@@ -21267,6 +21266,14 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/cohere/command-a-03-2025/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [],
+            "artificial_analysis": {
+              "intelligence_index": null,
+              "coding_index": 29.3,
+              "agentic_index": 40.9
+            }
           }
         },
         {
@@ -21415,6 +21422,66 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/cohere/command-r7b-12-2024/endpoints"
+          }
+        },
+        {
+          "id": "cohere/north-mini-code:free",
+          "name": "Cohere: North Mini Code (free)",
+          "canonical_slug": "cohere/north-mini-code-20260617",
+          "hugging_face_id": "CohereLabs/North-Mini-Code-1.0",
+          "description": "North Mini Code is Cohere's first agentic coding model and the debut of its North family. A sparse mixture-of-experts model with 30B total parameters and 3B active, it is optimized...",
+          "context_length": 256000,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Cohere",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 256000,
+            "max_completion_tokens": 64000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "seed",
+            "stop",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/cohere/north-mini-code-20260617/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -22175,6 +22242,7 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -22188,6 +22256,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -22909,7 +22978,7 @@
           },
           "top_provider": {
             "context_length": 32768,
-            "max_completion_tokens": 32768,
+            "max_completion_tokens": 8192,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -23423,7 +23492,7 @@
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 65536,
+            "max_completion_tokens": 65535,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -23682,7 +23751,6 @@
             "reasoning",
             "response_format",
             "seed",
-            "stop",
             "structured_outputs",
             "temperature",
             "top_p"
@@ -24230,7 +24298,6 @@
             "reasoning",
             "response_format",
             "seed",
-            "stop",
             "structured_outputs",
             "temperature",
             "tool_choice",
@@ -24876,7 +24943,7 @@
             "completion": "0"
           },
           "top_provider": {
-            "context_length": 262144,
+            "context_length": 131072,
             "max_completion_tokens": 32768,
             "is_moderated": false
           },
@@ -25026,8 +25093,8 @@
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 32768,
-            "is_moderated": false
+            "max_completion_tokens": 8192,
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -26237,6 +26304,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -26249,6 +26317,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -26508,6 +26577,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -26520,6 +26590,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -28816,6 +28887,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -28828,6 +28900,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -29739,7 +29812,6 @@
             "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
-            "reasoning_effort",
             "repetition_penalty",
             "response_format",
             "seed",
@@ -35693,8 +35765,8 @@
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": 8192,
-            "is_moderated": true
+            "max_completion_tokens": 32768,
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -40623,7 +40695,7 @@
           "benchmarks": {
             "design_arena": [],
             "artificial_analysis": {
-              "intelligence_index": null,
+              "intelligence_index": 31.6,
               "coding_index": 35.2,
               "agentic_index": 58.3
             }
@@ -44316,6 +44388,7 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -44329,6 +44402,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -44389,7 +44463,12 @@
                 "win_rate": 61.5,
                 "rank": 1
               }
-            ]
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 50.7,
+              "coding_index": 50.7,
+              "agentic_index": 75.9
+            }
           },
           "reasoning": {
             "mandatory": false,
