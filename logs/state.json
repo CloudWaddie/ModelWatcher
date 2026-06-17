@@ -30300,7 +30300,7 @@
           "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
           "name": "NVIDIA: Nemotron 3 Nano Omni (free)",
           "canonical_slug": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning-20260428",
-          "hugging_face_id": null,
+          "hugging_face_id": "nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
           "description": "NVIDIA Nemotron™ 3 Nano Omni is a 30B-A3B open multimodal model designed to function as a perception and context sub-agent in enterprise agent systems. It accepts text, image, video, and...",
           "context_length": 256000,
           "architecture": {
@@ -41800,125 +41800,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/x-ai/grok-build-0.1-20260520/endpoints"
-          }
-        },
-        {
-          "id": "xiaomi/mimo-v2-flash",
-          "name": "Xiaomi: MiMo-V2-Flash",
-          "canonical_slug": "xiaomi/mimo-v2-flash-20251210",
-          "hugging_face_id": "XiaomiMiMo/MiMo-V2-Flash",
-          "description": "MiMo-V2-Flash is an open-source foundation language model developed by Xiaomi. It is a Mixture-of-Experts model with 309B total parameters and 15B active parameters, adopting hybrid attention architecture. MiMo-V2-Flash supports a...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000001"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 65536,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "response_format",
-            "stop",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": 0.95,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": "2026-06-17",
-          "links": {
-            "details": "/api/v1/models/xiaomi/mimo-v2-flash-20251210/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 1194,
-                "win_rate": 49.2,
-                "rank": 45
-              },
-              {
-                "arena": "models",
-                "category": "asciiart",
-                "elo": 1058,
-                "win_rate": 33.7,
-                "rank": 42
-              },
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1205,
-                "win_rate": 49.4,
-                "rank": 49
-              },
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 1177,
-                "win_rate": 46,
-                "rank": 57
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 1198,
-                "win_rate": 48.6,
-                "rank": 53
-              },
-              {
-                "arena": "models",
-                "category": "svg",
-                "elo": 1087,
-                "win_rate": 40.5,
-                "rank": 52
-              },
-              {
-                "arena": "models",
-                "category": "uicomponent",
-                "elo": 1197,
-                "win_rate": 47.8,
-                "rank": 50
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1210,
-                "win_rate": 49.9,
-                "rank": 49
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": null,
-              "coding_index": 33.5,
-              "agentic_index": 48.8
-            }
           }
         },
         {
