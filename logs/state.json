@@ -17308,6 +17308,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/~anthropic/claude-fable-latest/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -17369,6 +17372,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/~anthropic/claude-haiku-latest/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -17428,6 +17434,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/~anthropic/claude-opus-latest/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -17491,6 +17500,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/~anthropic/claude-sonnet-latest/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -17557,6 +17569,17 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/~google/gemini-flash-latest/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -17623,6 +17646,15 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/~google/gemini-pro-latest/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -17691,6 +17723,10 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/~moonshotai/kimi-latest/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -17749,6 +17785,18 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/~openai/gpt-latest/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -17807,6 +17855,18 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/~openai/gpt-mini-latest/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -17903,6 +17963,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/aion-labs/aion-1.0/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -17946,6 +18009,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/aion-labs/aion-1.0-mini/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -17994,6 +18060,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/aion-labs/aion-2.0-20260223/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -18099,6 +18168,9 @@
               "coding_index": 10.5,
               "agentic_index": 0
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -18161,6 +18233,9 @@
               "coding_index": 23.9,
               "agentic_index": 32.9
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -18710,6 +18785,9 @@
               "coding_index": 62,
               "agentic_index": 80.6
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -18836,6 +18914,9 @@
               "coding_index": 32.6,
               "agentic_index": 40.2
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -18952,6 +19033,9 @@
               "coding_index": 34,
               "agentic_index": null
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -19078,6 +19162,9 @@
               "coding_index": 36.5,
               "agentic_index": null
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -19232,6 +19319,9 @@
               "coding_index": 47.8,
               "agentic_index": 59.6
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -19388,6 +19478,10 @@
               "coding_index": 48.1,
               "agentic_index": 67.6
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supports_max_tokens": true
           }
         },
         {
@@ -19449,6 +19543,10 @@
           "expiration_date": "2026-06-29",
           "links": {
             "details": "/api/v1/models/anthropic/claude-4.6-opus-fast-20260407/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supports_max_tokens": true
           }
         },
         {
@@ -19664,6 +19762,9 @@
               "coding_index": 52.5,
               "agentic_index": 71.3
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -19723,6 +19824,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/anthropic/claude-4.7-opus-fast-20260512/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -19924,6 +20028,9 @@
               "coding_index": 56.7,
               "agentic_index": 77.8
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -19983,6 +20090,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/anthropic/claude-4.8-opus-fast-20260528/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -20100,6 +20210,9 @@
               "coding_index": 34.1,
               "agentic_index": 43
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -20247,6 +20360,9 @@
               "coding_index": 38.6,
               "agentic_index": 51.7
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -20417,6 +20533,9 @@
               "coding_index": 50.9,
               "agentic_index": 63
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -20592,6 +20711,9 @@
               "coding_index": 27.2,
               "agentic_index": 42.6
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -20645,6 +20767,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/arcee-ai/trinity-mini-20251201/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -20745,6 +20870,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/baidu/ernie-4.5-vl-424b-a47b/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -20800,6 +20928,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/bytedance-seed/seed-1.6-20250625/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -20855,6 +20986,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/bytedance-seed/seed-1.6-flash-20250625/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -20913,6 +21047,16 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/bytedance-seed/seed-2.0-lite-20260309/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -20968,6 +21112,16 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/bytedance-seed/seed-2.0-mini-20260224/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -21325,6 +21479,9 @@
               "coding_index": 24.8,
               "agentic_index": null
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -21607,6 +21764,9 @@
               "coding_index": 29.7,
               "agentic_index": 18.9
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -21676,6 +21836,9 @@
               "coding_index": 15.9,
               "agentic_index": 3.8
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -21794,6 +21957,9 @@
               "coding_index": 24,
               "agentic_index": 20.8
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -21851,6 +22017,9 @@
               "coding_index": 11.4,
               "agentic_index": null
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -21969,6 +22138,9 @@
               "coding_index": 33.7,
               "agentic_index": 29.8
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -22096,6 +22268,10 @@
               "coding_index": 36.7,
               "agentic_index": 52.9
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false
           }
         },
         {
@@ -22213,6 +22389,9 @@
               "coding_index": 34.6,
               "agentic_index": 39.8
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -22343,6 +22522,14 @@
               "coding_index": 38.7,
               "agentic_index": 61.3
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "xhigh",
+              "high"
+            ],
+            "default_effort": "high"
           }
         },
         {
@@ -22494,6 +22681,14 @@
               "coding_index": 47.5,
               "agentic_index": 67.2
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "xhigh",
+              "high"
+            ],
+            "default_effort": "high"
           }
         },
         {
@@ -22550,6 +22745,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/essentialai/rnj-1-instruct/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -22674,6 +22872,9 @@
               "coding_index": 22.2,
               "agentic_index": 18.8
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -22827,6 +23028,9 @@
               "coding_index": 18.2,
               "agentic_index": 11.7
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -22936,6 +23140,9 @@
                 "rank": 74
               }
             ]
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -23050,6 +23257,9 @@
               "coding_index": 32,
               "agentic_index": 32.7
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -23108,6 +23318,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/google/gemini-2.5-pro-preview-06-05/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -23171,6 +23384,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/google/gemini-2.5-pro-preview-03-25/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -23323,6 +23539,16 @@
               "coding_index": 42.6,
               "agentic_index": 49.7
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -23414,6 +23640,9 @@
                 "rank": 1
               }
             ]
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -23496,6 +23725,15 @@
                 "rank": 1
               }
             ]
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "minimal"
+            ],
+            "default_effort": "minimal"
           }
         },
         {
@@ -23562,6 +23800,17 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/google/gemini-3.1-flash-lite-20260507/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "minimal"
           }
         },
         {
@@ -23693,6 +23942,17 @@
               "coding_index": 30.1,
               "agentic_index": 25.7
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "minimal"
           }
         },
         {
@@ -23915,6 +24175,15 @@
               "coding_index": 55.5,
               "agentic_index": 59.1
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -23978,6 +24247,15 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/google/gemini-3.1-pro-preview-customtools-20260219/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -24193,6 +24471,17 @@
               "coding_index": 45,
               "agentic_index": 70.3
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -24556,6 +24845,10 @@
               "coding_index": 22.4,
               "agentic_index": 32.1
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false
           }
         },
         {
@@ -24622,6 +24915,10 @@
               "coding_index": 22.4,
               "agentic_index": 32.1
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false
           }
         },
         {
@@ -24697,6 +24994,10 @@
               "coding_index": 38.7,
               "agentic_index": 40.9
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false
           }
         },
         {
@@ -24762,6 +25063,10 @@
               "coding_index": 38.7,
               "agentic_index": 40.9
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false
           }
         },
         {
@@ -25111,6 +25416,17 @@
               "coding_index": 30.6,
               "agentic_index": 39.7
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -25313,6 +25629,14 @@
               "coding_index": 33.3,
               "agentic_index": 51.5
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "xhigh",
+              "high"
+            ],
+            "default_effort": "high"
           }
         },
         {
@@ -25651,6 +25975,9 @@
               "coding_index": 1.4,
               "agentic_index": 6.5
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -26794,6 +27121,9 @@
               "coding_index": 14.5,
               "agentic_index": 29.1
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -26912,6 +27242,9 @@
               "coding_index": 29.2,
               "agentic_index": 47.5
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -27076,6 +27409,9 @@
               "coding_index": 32.8,
               "agentic_index": 47.4
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -27201,6 +27537,9 @@
               "coding_index": 37.4,
               "agentic_index": 55.6
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -27331,6 +27670,9 @@
               "coding_index": 41.9,
               "agentic_index": 61.5
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -27456,6 +27798,9 @@
               "coding_index": 43.4,
               "agentic_index": 68.6
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -28311,6 +28656,14 @@
               "coding_index": 35.4,
               "agentic_index": 53.2
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "high",
+              "none"
+            ],
+            "default_effort": "high"
           }
         },
         {
@@ -28662,6 +29015,15 @@
               "coding_index": 24.3,
               "agentic_index": 25.9
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false,
+            "supported_efforts": [
+              "high",
+              "none"
+            ],
+            "default_effort": "high"
           }
         },
         {
@@ -29163,6 +29525,9 @@
               "coding_index": 34.8,
               "agentic_index": 47.9
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -29328,6 +29693,10 @@
               "coding_index": 39.6,
               "agentic_index": 58.9
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -29545,6 +29914,10 @@
               "coding_index": 47.1,
               "agentic_index": 66
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -29669,6 +30042,10 @@
               "coding_index": 45.6,
               "agentic_index": 61.9
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true
           }
         },
         {
@@ -29817,6 +30194,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/nex-agi/nex-n2-pro/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -30044,6 +30424,9 @@
               "coding_index": 16,
               "agentic_index": 12.6
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -30100,6 +30483,9 @@
               "coding_index": 14.4,
               "agentic_index": 11.7
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -30169,6 +30555,9 @@
               "coding_index": 15.1,
               "agentic_index": 9.4
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -30236,6 +30625,9 @@
               "coding_index": 19,
               "agentic_index": 19.1
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -30294,6 +30686,9 @@
               "coding_index": 19,
               "agentic_index": 19.1
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -30358,6 +30753,11 @@
               "coding_index": 14.8,
               "agentic_index": 23.9
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supports_max_tokens": true
           }
         },
         {
@@ -30430,6 +30830,16 @@
               "coding_index": 31.2,
               "agentic_index": 40.2
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supports_max_tokens": true,
+            "supported_efforts": [
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -30493,6 +30903,16 @@
               "coding_index": 31.2,
               "agentic_index": 40.2
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supports_max_tokens": true,
+            "supported_efforts": [
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -30607,6 +31027,16 @@
               "coding_index": 37.6,
               "agentic_index": 57.1
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supports_max_tokens": true,
+            "supported_efforts": [
+              "high",
+              "medium"
+            ],
+            "default_effort": "high"
           }
         },
         {
@@ -30711,6 +31141,16 @@
               "coding_index": 37.6,
               "agentic_index": 57.1
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supports_max_tokens": true,
+            "supported_efforts": [
+              "high",
+              "medium"
+            ],
+            "default_effort": "high"
           }
         },
         {
@@ -30763,6 +31203,10 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/nvidia/nemotron-3.5-content-safety-20260604/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -30823,6 +31267,9 @@
               "coding_index": 11.7,
               "agentic_index": 7.1
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -30883,6 +31330,9 @@
               "coding_index": 8.3,
               "agentic_index": 9.4
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -32195,6 +32645,16 @@
               "coding_index": 38.9,
               "agentic_index": 45.8
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -32318,6 +32778,9 @@
               "coding_index": 38.9,
               "agentic_index": 52.7
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -32404,6 +32867,9 @@
                 "rank": 4
               }
             ]
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -32490,6 +32956,9 @@
                 "rank": 3
               }
             ]
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -32613,6 +33082,16 @@
               "coding_index": 35.3,
               "agentic_index": 45.5
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -32722,6 +33201,16 @@
               "coding_index": 22.9,
               "agentic_index": 16.8
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -32775,6 +33264,13 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-5-pro-2025-10-06/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high"
+            ],
+            "default_effort": "high"
           }
         },
         {
@@ -32905,6 +33401,17 @@
               "coding_index": 44.7,
               "agentic_index": 51.3
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "none"
           }
         },
         {
@@ -33073,6 +33580,15 @@
               "coding_index": 36.6,
               "agentic_index": 50.7
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -33130,6 +33646,16 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-5.1-codex-max-20251204/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -33252,6 +33778,15 @@
               "coding_index": 36.4,
               "agentic_index": 38.7
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -33410,6 +33945,17 @@
               "coding_index": 48.7,
               "agentic_index": 60.2
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -33561,6 +34107,16 @@
               "coding_index": 43,
               "agentic_index": 56.5
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -33614,6 +34170,15 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-5.2-pro-20251211/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -33828,6 +34393,17 @@
               "coding_index": 53.1,
               "agentic_index": 60.5
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -33986,6 +34562,18 @@
               "coding_index": 57.2,
               "agentic_index": 68
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -34048,6 +34636,18 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-5.4-image-2-20260421/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -34114,6 +34714,18 @@
               "coding_index": 51.5,
               "agentic_index": 58.9
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -34180,6 +34792,18 @@
               "coding_index": 43.9,
               "agentic_index": 47.6
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -34237,6 +34861,15 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-5.4-pro-20260305/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -34451,6 +35084,18 @@
               "coding_index": 59.1,
               "agentic_index": 74.1
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -34507,6 +35152,15 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-5.5-pro-20260423/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -34801,6 +35455,15 @@
               "coding_index": 28.6,
               "agentic_index": 37.9
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -34902,6 +35565,15 @@
               "coding_index": 28.6,
               "agentic_index": 37.9
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -34986,6 +35658,15 @@
               "coding_index": 18.5,
               "agentic_index": 27.6
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -35066,6 +35747,15 @@
               "coding_index": 18.5,
               "agentic_index": 27.6
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -35119,6 +35809,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-oss-safeguard-20b/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -35184,6 +35877,9 @@
               "coding_index": 34,
               "agentic_index": null
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -35231,6 +35927,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/o1-pro/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -35325,6 +36024,9 @@
               "coding_index": 38.4,
               "agentic_index": 36.1
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -35387,6 +36089,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/o3-deep-research-2025-06-26/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -35451,6 +36156,9 @@
               "coding_index": 17.9,
               "agentic_index": null
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -35512,6 +36220,13 @@
               "coding_index": 17.3,
               "agentic_index": 20.9
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high"
+            ],
+            "default_effort": "high"
           }
         },
         {
@@ -35565,6 +36280,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/o3-pro-2025-06-10/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -35666,6 +36384,9 @@
               "coding_index": 25.6,
               "agentic_index": 36.1
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -35728,6 +36449,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/o4-mini-deep-research-2025-06-26/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -35782,6 +36506,13 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/o4-mini-high-2025-04-16/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high"
+            ],
+            "default_effort": "high"
           }
         },
         {
@@ -36149,6 +36880,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/perceptron/perceptron-mk1-20260512/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -36245,6 +36979,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/perplexity/sonar-deep-research/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -36346,6 +37083,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/perplexity/sonar-pro-search/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -36395,6 +37135,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/perplexity/sonar-reasoning-pro/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -36446,6 +37189,10 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/poolside/laguna-m.1-20260312/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -36497,6 +37244,10 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/poolside/laguna-xs.2-20260421/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -36617,6 +37368,9 @@
               "coding_index": 19.1,
               "agentic_index": 19.8
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -36879,6 +37633,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/qwen/qwen-plus-2025-07-28/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -36933,6 +37690,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/qwen/qwen-plus-2025-07-28/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -37050,6 +37810,9 @@
               "coding_index": 13.1,
               "agentic_index": 14.4
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -37149,6 +37912,9 @@
               "coding_index": 17.4,
               "agentic_index": 18.4
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -37364,6 +38130,9 @@
               "coding_index": 23.2,
               "agentic_index": 29.7
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -37469,6 +38238,10 @@
               "coding_index": 11,
               "agentic_index": 12.1
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -37609,6 +38382,9 @@
               "coding_index": 14.6,
               "agentic_index": 17.7
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -37672,6 +38448,9 @@
               "coding_index": 13.8,
               "agentic_index": 13.5
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -37743,6 +38522,10 @@
               "coding_index": 9,
               "agentic_index": 12.6
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -38092,6 +38875,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/qwen/qwen3-coder-plus/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -38300,6 +39086,9 @@
               "coding_index": 26.4,
               "agentic_index": 43
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -38361,6 +39150,9 @@
               "coding_index": 30.5,
               "agentic_index": 50.1
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -38546,6 +39338,9 @@
               "coding_index": 19.5,
               "agentic_index": 23.6
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -38681,6 +39476,9 @@
               "coding_index": 20.9,
               "agentic_index": 27
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -38819,6 +39617,9 @@
               "coding_index": 13.1,
               "agentic_index": 14.9
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -39008,6 +39809,9 @@
               "coding_index": 9.8,
               "agentic_index": 15.6
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -39082,6 +39886,9 @@
               "coding_index": 34.7,
               "agentic_index": 53
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -39156,6 +39963,9 @@
               "coding_index": 34.9,
               "agentic_index": 54.6
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -39231,6 +40041,9 @@
               "coding_index": 30.3,
               "agentic_index": 44.1
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -39355,6 +40168,9 @@
               "coding_index": 41.3,
               "agentic_index": 55.8
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -39429,6 +40245,9 @@
               "coding_index": 25.3,
               "agentic_index": 37.4
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -39484,6 +40303,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/qwen/qwen3.5-flash-20260224/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -39599,6 +40421,9 @@
                 "rank": 40
               }
             ]
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -39651,6 +40476,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/qwen/qwen3.5-plus-20260420/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -39725,6 +40553,10 @@
               "coding_index": 36.5,
               "agentic_index": 62.9
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -39795,6 +40627,10 @@
               "coding_index": 35.2,
               "agentic_index": 58.3
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -39847,6 +40683,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/qwen/qwen3.6-flash/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -39907,6 +40746,10 @@
               "coding_index": 44.9,
               "agentic_index": 64.8
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -40031,6 +40874,9 @@
               "coding_index": 42.9,
               "agentic_index": 61.7
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -40177,6 +41023,10 @@
               "coding_index": 50.1,
               "agentic_index": 66.6
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -40239,6 +41089,10 @@
               "coding_index": 46.5,
               "agentic_index": 65.1
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -40297,6 +41151,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/rekaai/reka-edge-2603/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -40360,6 +41217,9 @@
               "coding_index": 8.9,
               "agentic_index": 0
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -40727,6 +41587,9 @@
               "coding_index": 34.6,
               "agentic_index": 48.2
             }
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -40859,6 +41722,15 @@
               "coding_index": 37.1,
               "agentic_index": 59.5
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -40905,6 +41777,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/switchpoint/router/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -40952,6 +41827,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/tencent/hunyuan-a13b-instruct/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -41018,6 +41896,16 @@
               "coding_index": 36.5,
               "agentic_index": 55.7
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "low",
+              "none"
+            ],
+            "default_effort": "high"
           }
         },
         {
@@ -41343,6 +42231,9 @@
               "coding_index": 13.3,
               "agentic_index": 34.9
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -41459,6 +42350,10 @@
               "coding_index": 42.2,
               "agentic_index": 50.9
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false
           }
         },
         {
@@ -41518,6 +42413,17 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/x-ai/grok-4.20-multi-agent-20260309/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -41737,6 +42643,17 @@
               "coding_index": 41,
               "agentic_index": 65.9
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "low"
           }
         },
         {
@@ -41800,6 +42717,9 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/x-ai/grok-build-0.1-20260520/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true
           }
         },
         {
@@ -41926,6 +42846,9 @@
               "coding_index": 42.1,
               "agentic_index": 65.5
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -42040,6 +42963,9 @@
               "coding_index": 45.5,
               "agentic_index": 67.4
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -42155,6 +43081,9 @@
               "coding_index": 26.3,
               "agentic_index": 16.2
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -42269,6 +43198,9 @@
               "coding_index": 23.8,
               "agentic_index": 21
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -42335,6 +43267,9 @@
               "coding_index": 10.9,
               "agentic_index": 10.9
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -42484,6 +43419,9 @@
               "coding_index": 30.2,
               "agentic_index": 42.9
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -42551,6 +43489,9 @@
               "coding_index": 19.7,
               "agentic_index": 17.5
             }
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -42706,6 +43647,10 @@
               "coding_index": 36.3,
               "agentic_index": 55
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -42824,6 +43769,10 @@
               "coding_index": 25.9,
               "agentic_index": 46
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -42977,6 +43926,10 @@
               "coding_index": 44.2,
               "agentic_index": 63.1
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -43104,6 +44057,10 @@
               "coding_index": 36.8,
               "agentic_index": 66.1
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -43320,6 +44277,10 @@
               "coding_index": 43.4,
               "agentic_index": 67.1
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         },
         {
@@ -43429,6 +44390,15 @@
                 "rank": 1
               }
             ]
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "xhigh",
+              "high"
+            ],
+            "default_effort": "high"
           }
         }
       ]
@@ -44547,7 +45517,7 @@
             "grok-imagine-image-pro"
           ],
           "context_length": 8000,
-          "image_price": 400000000
+          "image_price": 500000000
         },
         {
           "id": "grok-imagine-video",
