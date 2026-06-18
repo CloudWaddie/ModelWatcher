@@ -18538,6 +18538,7 @@
             "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "top_a",
             "top_k",
@@ -21186,13 +21187,16 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "repetition_penalty",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -25492,14 +25496,17 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
             "repetition_penalty",
+            "response_format",
             "seed",
             "stop",
             "temperature",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -25989,6 +25996,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -26001,6 +26009,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -26126,6 +26135,7 @@
             "repetition_penalty",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "top_k",
             "top_p"
@@ -26188,7 +26198,10 @@
             "repetition_penalty",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
+            "tool_choice",
+            "tools",
             "top_k",
             "top_p"
           ],
@@ -26254,6 +26267,7 @@
             "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "top_a",
             "top_k",
@@ -26298,6 +26312,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "repetition_penalty",
@@ -26306,6 +26321,7 @@
             "structured_outputs",
             "temperature",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -26359,7 +26375,9 @@
             "min_p",
             "presence_penalty",
             "repetition_penalty",
+            "response_format",
             "stop",
+            "structured_outputs",
             "temperature",
             "top_k",
             "top_p"
@@ -27184,6 +27202,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "repetition_penalty",
@@ -27193,6 +27212,7 @@
             "structured_outputs",
             "temperature",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -30379,9 +30399,13 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "logprobs",
             "max_tokens",
+            "response_format",
             "stop",
-            "temperature"
+            "structured_outputs",
+            "temperature",
+            "top_logprobs"
           ],
           "default_parameters": {
             "temperature": null,
@@ -37842,13 +37866,16 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "response_format",
             "seed",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -38940,6 +38967,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "repetition_penalty",
@@ -38951,6 +38979,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -39022,6 +39051,7 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "response_format",
@@ -39029,6 +39059,7 @@
             "temperature",
             "tool_choice",
             "tools",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -39289,13 +39320,16 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "response_format",
             "seed",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -39731,6 +39765,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "reasoning",
@@ -39738,10 +39773,12 @@
             "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -39873,6 +39910,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "reasoning",
@@ -39885,6 +39923,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -41423,6 +41462,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "seed",
@@ -41432,6 +41472,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -41593,6 +41634,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "max_tokens",
+            "response_format",
             "seed",
             "stop",
             "temperature",
@@ -41700,6 +41742,7 @@
             "repetition_penalty",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "top_k",
             "top_p"
@@ -42061,6 +42104,7 @@
             "include_reasoning",
             "max_tokens",
             "reasoning",
+            "response_format",
             "seed",
             "stop",
             "temperature",
@@ -42236,13 +42280,17 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "repetition_penalty",
+            "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -42344,13 +42392,17 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "repetition_penalty",
+            "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
