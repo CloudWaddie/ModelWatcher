@@ -10904,173 +10904,596 @@
       "models": [
         {
           "id": "allam-2-7b",
-          "name": "allam-2-7b",
+          "name": "ALLaM-2-7b",
           "owned_by": "SDAIA",
           "object": "model",
           "active": true,
           "context_window": 4096,
           "public_apps": null,
-          "max_completion_tokens": 4096
+          "max_completion_tokens": 4096,
+          "hugging_face_id": "ALLaM-AI/ALLaM-2.0-7B-Instruct",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 4096,
+          "max_output_length": 4096,
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ],
+          "supported_features": [
+            "json_mode",
+            "structured_outputs"
+          ]
         },
         {
           "id": "canopylabs/orpheus-arabic-saudi",
-          "name": "canopylabs/orpheus-arabic-saudi",
+          "name": "Canopy Labs Orpheus Arabic Saudi",
           "owned_by": "Canopy Labs",
           "object": "model",
           "active": true,
           "context_window": 4000,
           "public_apps": null,
-          "max_completion_tokens": 50000
+          "max_completion_tokens": 50000,
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "speech"
+          ],
+          "context_length": 4000,
+          "max_output_length": 50000,
+          "pricing": {
+            "prompt": "0.00004",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.00002"
+          }
         },
         {
           "id": "canopylabs/orpheus-v1-english",
-          "name": "canopylabs/orpheus-v1-english",
+          "name": "Canopy Labs Orpheus V1 English",
           "owned_by": "Canopy Labs",
           "object": "model",
           "active": true,
           "context_window": 4000,
           "public_apps": null,
-          "max_completion_tokens": 50000
+          "max_completion_tokens": 50000,
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "speech"
+          ],
+          "context_length": 4000,
+          "max_output_length": 50000,
+          "pricing": {
+            "prompt": "0.000022",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.000011"
+          }
         },
         {
           "id": "groq/compound",
-          "name": "groq/compound",
+          "name": "Compound",
           "owned_by": "Groq",
           "object": "model",
           "active": true,
           "context_window": 131072,
           "public_apps": null,
-          "max_completion_tokens": 8192
+          "max_completion_tokens": 8192,
+          "hugging_face_id": "groq/compound-beta",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 131072,
+          "max_output_length": 8192,
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ],
+          "supported_features": [
+            "json_mode",
+            "structured_outputs"
+          ]
         },
         {
           "id": "groq/compound-mini",
-          "name": "groq/compound-mini",
+          "name": "Compound Mini",
           "owned_by": "Groq",
           "object": "model",
           "active": true,
           "context_window": 131072,
           "public_apps": null,
-          "max_completion_tokens": 8192
+          "max_completion_tokens": 8192,
+          "hugging_face_id": "groq/compound-beta-mini",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 131072,
+          "max_output_length": 8192,
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ],
+          "supported_features": [
+            "json_mode",
+            "structured_outputs"
+          ]
         },
         {
           "id": "llama-3.1-8b-instant",
-          "name": "llama-3.1-8b-instant",
+          "name": "Llama 3.1 8B",
           "owned_by": "Meta",
           "object": "model",
           "active": true,
           "context_window": 131072,
           "public_apps": null,
-          "max_completion_tokens": 131072
+          "max_completion_tokens": 131072,
+          "hugging_face_id": "meta-llama/Llama-3.1-8B-Instruct",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 131072,
+          "max_output_length": 131072,
+          "pricing": {
+            "prompt": "0.00000005",
+            "completion": "0.00000008",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.000000025"
+          },
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ],
+          "supported_features": [
+            "tools",
+            "json_mode",
+            "structured_outputs"
+          ]
         },
         {
           "id": "llama-3.3-70b-versatile",
-          "name": "llama-3.3-70b-versatile",
+          "name": "Llama 3.3 70B",
           "owned_by": "Meta",
           "object": "model",
           "active": true,
           "context_window": 131072,
           "public_apps": null,
-          "max_completion_tokens": 32768
+          "max_completion_tokens": 32768,
+          "hugging_face_id": "meta-llama/Llama-3.3-70B-Instruct",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 131072,
+          "max_output_length": 32768,
+          "pricing": {
+            "prompt": "0.00000059",
+            "completion": "0.00000079",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.000000295"
+          },
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ],
+          "supported_features": [
+            "tools",
+            "json_mode",
+            "structured_outputs"
+          ]
         },
         {
           "id": "meta-llama/llama-4-scout-17b-16e-instruct",
-          "name": "meta-llama/llama-4-scout-17b-16e-instruct",
+          "name": "Llama 4 Scout 17B 16E",
           "owned_by": "Meta",
           "object": "model",
           "active": true,
           "context_window": 131072,
           "public_apps": null,
-          "max_completion_tokens": 8192
+          "max_completion_tokens": 8192,
+          "hugging_face_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 131072,
+          "max_output_length": 8192,
+          "pricing": {
+            "prompt": "0.00000011",
+            "completion": "0.00000034",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.000000055"
+          },
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ],
+          "supported_features": [
+            "tools",
+            "json_mode",
+            "structured_outputs"
+          ]
         },
         {
           "id": "meta-llama/llama-prompt-guard-2-22m",
-          "name": "meta-llama/llama-prompt-guard-2-22m",
+          "name": "Llama Prompt Guard 2 22M",
           "owned_by": "Meta",
           "object": "model",
           "active": true,
           "context_window": 512,
           "public_apps": null,
-          "max_completion_tokens": 512
+          "max_completion_tokens": 512,
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 512,
+          "max_output_length": 512,
+          "pricing": {
+            "prompt": "0.00000003",
+            "completion": "0.00000003",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.000000015"
+          },
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ]
         },
         {
           "id": "meta-llama/llama-prompt-guard-2-86m",
-          "name": "meta-llama/llama-prompt-guard-2-86m",
+          "name": "Prompt Guard 2 86M",
           "owned_by": "Meta",
           "object": "model",
           "active": true,
           "context_window": 512,
           "public_apps": null,
-          "max_completion_tokens": 512
+          "max_completion_tokens": 512,
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 512,
+          "max_output_length": 512,
+          "pricing": {
+            "prompt": "0.00000004",
+            "completion": "0.00000004",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.00000002"
+          },
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ],
+          "supported_features": [
+            "json_mode",
+            "structured_outputs"
+          ]
         },
         {
           "id": "openai/gpt-oss-120b",
-          "name": "openai/gpt-oss-120b",
+          "name": "GPT OSS 120B",
           "owned_by": "OpenAI",
           "object": "model",
           "active": true,
           "context_window": 131072,
           "public_apps": null,
-          "max_completion_tokens": 65536
+          "max_completion_tokens": 65536,
+          "hugging_face_id": "openai/gpt-oss-120b",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 131072,
+          "max_output_length": 65536,
+          "pricing": {
+            "prompt": "0.00000015",
+            "completion": "0.0000006",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.000000075"
+          },
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ],
+          "supported_features": [
+            "tools",
+            "json_mode",
+            "structured_outputs",
+            "reasoning"
+          ]
         },
         {
           "id": "openai/gpt-oss-20b",
-          "name": "openai/gpt-oss-20b",
+          "name": "GPT OSS 20B",
           "owned_by": "OpenAI",
           "object": "model",
           "active": true,
           "context_window": 131072,
           "public_apps": null,
-          "max_completion_tokens": 65536
+          "max_completion_tokens": 65536,
+          "hugging_face_id": "openai/gpt-oss-20b",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 131072,
+          "max_output_length": 65536,
+          "pricing": {
+            "prompt": "0.000000075",
+            "completion": "0.0000003",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.0000000375"
+          },
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ],
+          "supported_features": [
+            "tools",
+            "json_mode",
+            "structured_outputs",
+            "reasoning"
+          ]
         },
         {
           "id": "openai/gpt-oss-safeguard-20b",
-          "name": "openai/gpt-oss-safeguard-20b",
+          "name": "Safety GPT OSS 20B",
           "owned_by": "OpenAI",
           "object": "model",
           "active": true,
           "context_window": 131072,
           "public_apps": null,
-          "max_completion_tokens": 65536
+          "max_completion_tokens": 65536,
+          "hugging_face_id": "openai/gpt-oss-safeguard-20b",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 131072,
+          "max_output_length": 65536,
+          "pricing": {
+            "prompt": "0.000000075",
+            "completion": "0.0000003",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.0000000375"
+          },
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ],
+          "supported_features": [
+            "tools",
+            "json_mode",
+            "structured_outputs",
+            "reasoning"
+          ]
         },
         {
           "id": "qwen/qwen3-32b",
-          "name": "qwen/qwen3-32b",
+          "name": "Qwen3-32B",
           "owned_by": "Alibaba Cloud",
           "object": "model",
           "active": true,
           "context_window": 131072,
           "public_apps": null,
-          "max_completion_tokens": 40960
+          "max_completion_tokens": 40960,
+          "hugging_face_id": "Qwen/Qwen3-32B",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 131072,
+          "max_output_length": 40960,
+          "pricing": {
+            "prompt": "0.00000029",
+            "completion": "0.00000059",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.000000145"
+          },
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ],
+          "supported_features": [
+            "tools",
+            "json_mode",
+            "structured_outputs",
+            "reasoning"
+          ]
         },
         {
           "id": "qwen/qwen3.6-27b",
-          "name": "qwen/qwen3.6-27b",
+          "name": "Qwen/Qwen3.6-27B",
           "owned_by": "Alibaba Cloud",
           "object": "model",
           "active": true,
           "context_window": 131072,
           "public_apps": null,
-          "max_completion_tokens": 32768
+          "max_completion_tokens": 32768,
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 131072,
+          "max_output_length": 32768,
+          "pricing": {
+            "prompt": "0.0000006",
+            "completion": "0.000003",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.0000003"
+          },
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias"
+          ],
+          "supported_features": [
+            "tools",
+            "json_mode",
+            "structured_outputs",
+            "reasoning"
+          ]
         },
         {
           "id": "whisper-large-v3",
-          "name": "whisper-large-v3",
+          "name": "Whisper",
           "owned_by": "OpenAI",
           "object": "model",
           "active": true,
           "context_window": 448,
           "public_apps": null,
-          "max_completion_tokens": 448
+          "max_completion_tokens": 448,
+          "hugging_face_id": "openai/whisper-large-v3",
+          "input_modalities": [
+            "audio"
+          ],
+          "output_modalities": [
+            "transcription"
+          ],
+          "context_length": 448,
+          "max_output_length": 448
         },
         {
           "id": "whisper-large-v3-turbo",
-          "name": "whisper-large-v3-turbo",
+          "name": "Whisper Large V3 Turbo",
           "owned_by": "OpenAI",
           "object": "model",
           "active": true,
           "context_window": 448,
           "public_apps": null,
-          "max_completion_tokens": 448
+          "max_completion_tokens": 448,
+          "hugging_face_id": "openai/whisper-large-v3-turbo",
+          "input_modalities": [
+            "audio"
+          ],
+          "output_modalities": [
+            "transcription"
+          ],
+          "context_length": 448,
+          "max_output_length": 448
         }
       ]
     },
@@ -22434,6 +22857,7 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -22447,6 +22871,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -25573,6 +25998,7 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "repetition_penalty",
@@ -25584,6 +26010,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -36081,7 +36508,7 @@
           "pricing": {
             "prompt": "0.000000075",
             "completion": "0.0000003",
-            "input_cache_read": "0.000000037"
+            "input_cache_read": "0.0000000375"
           },
           "top_provider": {
             "context_length": 131072,
@@ -36090,8 +36517,11 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "max_tokens",
+            "presence_penalty",
             "reasoning",
             "response_format",
             "structured_outputs",
@@ -38994,6 +39424,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -39006,6 +39437,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -44788,12 +45220,12 @@
           },
           "pricing": {
             "prompt": "0.0000012",
-            "completion": "0.0000032",
+            "completion": "0.0000041",
             "input_cache_read": "0.0000002"
           },
           "top_provider": {
-            "context_length": 202752,
-            "max_completion_tokens": 65536,
+            "context_length": 1048576,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
