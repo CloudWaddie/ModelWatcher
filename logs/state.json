@@ -21074,6 +21074,7 @@
             "temperature",
             "tool_choice",
             "tools",
+            "top_k",
             "top_logprobs",
             "top_p"
           ],
@@ -26388,56 +26389,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/mancer/weaver/endpoints"
-          }
-        },
-        {
-          "id": "meta-llama/llama-3-70b-instruct",
-          "name": "Meta: Llama 3 70B Instruct",
-          "canonical_slug": "meta-llama/llama-3-70b-instruct",
-          "hugging_face_id": "meta-llama/Meta-Llama-3-70B-Instruct",
-          "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This 70B instruct-tuned version was optimized for high quality dialogue usecases. It has demonstrated strong...",
-          "context_length": 8192,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Llama3",
-            "instruct_type": "llama3"
-          },
-          "pricing": {
-            "prompt": "0.00000051",
-            "completion": "0.00000074"
-          },
-          "top_provider": {
-            "context_length": 8192,
-            "max_completion_tokens": 8000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logprobs",
-            "max_tokens",
-            "presence_penalty",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2023-12-31",
-          "expiration_date": "2026-06-19",
-          "links": {
-            "details": "/api/v1/models/meta-llama/llama-3-70b-instruct/endpoints"
           }
         },
         {
@@ -35860,16 +35811,17 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
-            "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
             "max_tokens",
-            "presence_penalty",
             "reasoning",
             "response_format",
+            "seed",
+            "stop",
             "structured_outputs",
+            "temperature",
             "tool_choice",
-            "tools"
+            "tools",
+            "top_p"
           ],
           "default_parameters": {
             "temperature": null,
@@ -37452,11 +37404,14 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "max_tokens",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
             "response_format",
+            "seed",
+            "stop",
             "structured_outputs",
             "temperature",
             "tool_choice",
@@ -43012,15 +42967,10 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
-            "frequency_penalty",
             "include_reasoning",
             "max_tokens",
-            "presence_penalty",
             "reasoning",
-            "repetition_penalty",
             "response_format",
-            "seed",
-            "stop",
             "temperature",
             "tool_choice",
             "tools",
@@ -43034,7 +42984,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": "2026-06-19",
+          "expiration_date": "2026-12-31",
           "links": {
             "details": "/api/v1/models/z-ai/glm-4.5/endpoints"
           },
