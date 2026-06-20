@@ -11451,85 +11451,9 @@
       ]
     },
     "Fireworks AI": {
-      "success": true,
-      "models": [
-        {
-          "id": "accounts/fireworks/models/deepseek-v4-pro",
-          "name": "accounts/fireworks/models/deepseek-v4-pro",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 1048576
-        },
-        {
-          "id": "accounts/fireworks/models/flux-1-schnell-fp8",
-          "name": "accounts/fireworks/models/flux-1-schnell-fp8",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "FLUMINA_BASE_MODEL",
-          "supports_chat": false,
-          "supports_image_input": false,
-          "supports_tools": false
-        },
-        {
-          "id": "accounts/fireworks/models/glm-5p1",
-          "name": "accounts/fireworks/models/glm-5p1",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 202752
-        },
-        {
-          "id": "accounts/fireworks/models/glm-5p2",
-          "name": "accounts/fireworks/models/glm-5p2",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 1048576
-        },
-        {
-          "id": "accounts/fireworks/models/gpt-oss-120b",
-          "name": "accounts/fireworks/models/gpt-oss-120b",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 131072
-        },
-        {
-          "id": "accounts/fireworks/models/kimi-k2p5",
-          "name": "accounts/fireworks/models/kimi-k2p5",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": true,
-          "supports_tools": true,
-          "context_length": 262144
-        },
-        {
-          "id": "accounts/fireworks/models/kimi-k2p6",
-          "name": "accounts/fireworks/models/kimi-k2p6",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": true,
-          "supports_tools": true,
-          "context_length": 262144
-        }
-      ]
+      "success": false,
+      "models": [],
+      "error": "HTTP 500: Internal Server Error"
     },
     "DeepInfra": {
       "success": true,
@@ -17824,7 +17748,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -19414,7 +19338,7 @@
           "top_provider": {
             "context_length": 200000,
             "max_completion_tokens": 32000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -19910,7 +19834,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -20190,7 +20114,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -20571,7 +20495,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 64000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -24040,8 +23964,8 @@
             "web_search": "0.014"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 32768,
+            "context_length": 65536,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -24098,8 +24022,8 @@
             "web_search": "0.014"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 32768,
+            "context_length": 65536,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25423,8 +25347,8 @@
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 32768,
-            "is_moderated": false
+            "max_completion_tokens": 8192,
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -26106,7 +26030,7 @@
           "canonical_slug": "kwaipilot/kat-coder-pro-v2-20260327",
           "hugging_face_id": "",
           "description": "KAT-Coder-Pro V2 is the latest high-performance model in KwaiKAT’s KAT-Coder series, designed for complex enterprise-grade software engineering and SaaS integration. It builds on the agentic coding strengths of earlier versions,...",
-          "context_length": 262144,
+          "context_length": 256000,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -26124,8 +26048,8 @@
             "input_cache_read": "0.00000006"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 144000,
+            "context_length": 256000,
+            "max_completion_tokens": 80000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -27920,7 +27844,7 @@
           },
           "top_provider": {
             "context_length": 524288,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 512000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -29654,8 +29578,7 @@
           },
           "pricing": {
             "prompt": "0.0000006",
-            "completion": "0.0000025",
-            "input_cache_read": "0.0000006"
+            "completion": "0.0000025"
           },
           "top_provider": {
             "context_length": 262144,
@@ -31953,8 +31876,8 @@
           },
           "top_provider": {
             "context_length": 1047576,
-            "max_completion_tokens": null,
-            "is_moderated": false
+            "max_completion_tokens": 32768,
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -32141,13 +32064,12 @@
           },
           "pricing": {
             "prompt": "0.0000025",
-            "completion": "0.00001",
-            "input_cache_read": "0.00000125"
+            "completion": "0.00001"
           },
           "top_provider": {
             "context_length": 128000,
             "max_completion_tokens": 16384,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -32249,7 +32171,7 @@
           "top_provider": {
             "context_length": 128000,
             "max_completion_tokens": 4096,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -32314,7 +32236,7 @@
           "top_provider": {
             "context_length": 128000,
             "max_completion_tokens": 16384,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -32627,7 +32549,7 @@
           "top_provider": {
             "context_length": 400000,
             "max_completion_tokens": 128000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -33041,12 +32963,12 @@
             "prompt": "0.00000025",
             "completion": "0.000002",
             "web_search": "0.01",
-            "input_cache_read": "0.00000003"
+            "input_cache_read": "0.000000025"
           },
           "top_provider": {
             "context_length": 400000,
-            "max_completion_tokens": null,
-            "is_moderated": false
+            "max_completion_tokens": 128000,
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -33479,12 +33401,12 @@
             "prompt": "0.00000125",
             "completion": "0.00001",
             "web_search": "0.01",
-            "input_cache_read": "0.000000125"
+            "input_cache_read": "0.00000013"
           },
           "top_provider": {
             "context_length": 128000,
-            "max_completion_tokens": 16384,
-            "is_moderated": true
+            "max_completion_tokens": 32000,
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -33655,7 +33577,7 @@
           "top_provider": {
             "context_length": 400000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -34012,8 +33934,8 @@
           },
           "top_provider": {
             "context_length": 128000,
-            "max_completion_tokens": 32000,
-            "is_moderated": false
+            "max_completion_tokens": 16384,
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -34032,7 +33954,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-08-10",
           "links": {
             "details": "/api/v1/models/openai/gpt-5.2-chat-20251211/endpoints"
           }
@@ -34231,7 +34153,7 @@
           "top_provider": {
             "context_length": 128000,
             "max_completion_tokens": 16384,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -34253,7 +34175,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2026-08-10",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-5.3-chat-20260303/endpoints"
           }
@@ -34773,7 +34695,7 @@
           "top_provider": {
             "context_length": 400000,
             "max_completion_tokens": 128000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -39976,12 +39898,11 @@
           },
           "pricing": {
             "prompt": "0.00000014",
-            "completion": "0.000001",
-            "input_cache_read": "0.00000005"
+            "completion": "0.000001"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 81920,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -40157,7 +40078,7 @@
           "canonical_slug": "qwen/qwen3.5-9b-20260310",
           "hugging_face_id": "Qwen/Qwen3.5-9B",
           "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
-          "context_length": 256000,
+          "context_length": 262144,
           "architecture": {
             "modality": "text+image+video->text",
             "input_modalities": [
@@ -40176,8 +40097,8 @@
             "completion": "0.00000015"
           },
           "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": 32768,
+            "context_length": 262144,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -43999,11 +43920,11 @@
           "pricing": {
             "prompt": "0.00000098",
             "completion": "0.00000308",
-            "input_cache_read": "0.000000182"
+            "input_cache_read": "0.00000049"
           },
           "top_provider": {
             "context_length": 202752,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 65535,
             "is_moderated": false
           },
           "per_request_limits": null,
