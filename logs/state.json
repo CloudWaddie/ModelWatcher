@@ -17748,7 +17748,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -18023,8 +18023,8 @@
             "input_cache_read": "0.00000033"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 65535,
+            "context_length": 262142,
+            "max_completion_tokens": 262142,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -19338,7 +19338,7 @@
           "top_provider": {
             "context_length": 200000,
             "max_completion_tokens": 32000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -19834,7 +19834,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -20114,7 +20114,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -20502,7 +20502,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 64000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -23797,7 +23797,7 @@
           "canonical_slug": "google/gemini-3-pro-image-20260528",
           "hugging_face_id": null,
           "description": "Nano Banana Pro is Google’s most advanced image-generation and editing model, built on Gemini 3 Pro. It extends the original Nano Banana with significantly improved multimodal reasoning, real-world grounding, and...",
-          "context_length": 65536,
+          "context_length": 131072,
           "architecture": {
             "modality": "text+image->text+image",
             "input_modalities": [
@@ -23822,7 +23822,7 @@
             "input_cache_write": "0.000000375"
           },
           "top_provider": {
-            "context_length": 65536,
+            "context_length": 131072,
             "max_completion_tokens": 32768,
             "is_moderated": false
           },
@@ -23971,8 +23971,8 @@
             "web_search": "0.014"
           },
           "top_provider": {
-            "context_length": 65536,
-            "max_completion_tokens": 65536,
+            "context_length": 131072,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -24029,8 +24029,8 @@
             "web_search": "0.014"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 32768,
+            "context_length": 65536,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25354,8 +25354,8 @@
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 8192,
-            "is_moderated": true
+            "max_completion_tokens": 32768,
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -26037,7 +26037,7 @@
           "canonical_slug": "kwaipilot/kat-coder-pro-v2-20260327",
           "hugging_face_id": "",
           "description": "KAT-Coder-Pro V2 is the latest high-performance model in KwaiKAT’s KAT-Coder series, designed for complex enterprise-grade software engineering and SaaS integration. It builds on the agentic coding strengths of earlier versions,...",
-          "context_length": 256000,
+          "context_length": 262144,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -26055,8 +26055,8 @@
             "input_cache_read": "0.00000006"
           },
           "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": 80000,
+            "context_length": 262144,
+            "max_completion_tokens": 144000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -27851,7 +27851,7 @@
           },
           "top_provider": {
             "context_length": 524288,
-            "max_completion_tokens": 512000,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -29585,7 +29585,8 @@
           },
           "pricing": {
             "prompt": "0.0000006",
-            "completion": "0.0000025"
+            "completion": "0.0000025",
+            "input_cache_read": "0.0000006"
           },
           "top_provider": {
             "context_length": 262144,
@@ -29834,8 +29835,8 @@
             "input_cache_read": "0.00000033"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 65535,
+            "context_length": 262142,
+            "max_completion_tokens": 262142,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -31904,8 +31905,8 @@
           },
           "top_provider": {
             "context_length": 1047576,
-            "max_completion_tokens": 32768,
-            "is_moderated": true
+            "max_completion_tokens": null,
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -32092,12 +32093,13 @@
           },
           "pricing": {
             "prompt": "0.0000025",
-            "completion": "0.00001"
+            "completion": "0.00001",
+            "input_cache_read": "0.00000125"
           },
           "top_provider": {
             "context_length": 128000,
             "max_completion_tokens": 16384,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -32199,7 +32201,7 @@
           "top_provider": {
             "context_length": 128000,
             "max_completion_tokens": 4096,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -32264,7 +32266,7 @@
           "top_provider": {
             "context_length": 128000,
             "max_completion_tokens": 16384,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -32577,7 +32579,7 @@
           "top_provider": {
             "context_length": 400000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -32991,12 +32993,12 @@
             "prompt": "0.00000025",
             "completion": "0.000002",
             "web_search": "0.01",
-            "input_cache_read": "0.000000025"
+            "input_cache_read": "0.00000003"
           },
           "top_provider": {
             "context_length": 400000,
-            "max_completion_tokens": 128000,
-            "is_moderated": true
+            "max_completion_tokens": null,
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -33429,12 +33431,12 @@
             "prompt": "0.00000125",
             "completion": "0.00001",
             "web_search": "0.01",
-            "input_cache_read": "0.00000013"
+            "input_cache_read": "0.000000125"
           },
           "top_provider": {
             "context_length": 128000,
-            "max_completion_tokens": 32000,
-            "is_moderated": false
+            "max_completion_tokens": 16384,
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -33605,7 +33607,7 @@
           "top_provider": {
             "context_length": 400000,
             "max_completion_tokens": 128000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -33962,8 +33964,8 @@
           },
           "top_provider": {
             "context_length": 128000,
-            "max_completion_tokens": 16384,
-            "is_moderated": true
+            "max_completion_tokens": 32000,
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -33982,7 +33984,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2026-08-10",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-5.2-chat-20251211/endpoints"
           }
@@ -34181,7 +34183,7 @@
           "top_provider": {
             "context_length": 128000,
             "max_completion_tokens": 16384,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -34203,7 +34205,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-08-10",
           "links": {
             "details": "/api/v1/models/openai/gpt-5.3-chat-20260303/endpoints"
           }
@@ -34723,7 +34725,7 @@
           "top_provider": {
             "context_length": 400000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -39926,11 +39928,12 @@
           },
           "pricing": {
             "prompt": "0.00000014",
-            "completion": "0.000001"
+            "completion": "0.000001",
+            "input_cache_read": "0.00000005"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": 81920,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -40106,7 +40109,7 @@
           "canonical_slug": "qwen/qwen3.5-9b-20260310",
           "hugging_face_id": "Qwen/Qwen3.5-9B",
           "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
-          "context_length": 262144,
+          "context_length": 256000,
           "architecture": {
             "modality": "text+image+video->text",
             "input_modalities": [
@@ -40125,8 +40128,8 @@
             "completion": "0.00000015"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "context_length": 256000,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -43948,11 +43951,11 @@
           "pricing": {
             "prompt": "0.00000098",
             "completion": "0.00000308",
-            "input_cache_read": "0.00000049"
+            "input_cache_read": "0.000000182"
           },
           "top_provider": {
             "context_length": 202752,
-            "max_completion_tokens": 65535,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
