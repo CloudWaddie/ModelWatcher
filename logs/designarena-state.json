@@ -1,5 +1,5 @@
 {
-  "timestamp": 1782130552145,
+  "timestamp": 1782150169762,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -5787,7 +5787,7 @@
       "displayName": "GLM 5V Turbo",
       "provider": "zhipu",
       "active": true,
-      "openSource": true,
+      "openSource": false,
       "router": false,
       "arenas": {
         "models": [
@@ -7381,6 +7381,25 @@
           "svg",
           "ascii"
         ]
+      }
+    },
+    {
+      "id": "happy-horse-1.1",
+      "displayName": "Happy Horse 1.1",
+      "provider": "alibaba",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo",
+          "multitovideo",
+          "multimodaltovideo"
+        ]
+      },
+      "display": {
+        "logoName": "alibaba.png"
       }
     }
   ],
@@ -10631,6 +10650,12 @@
       "text": {
         "input": 0.25,
         "output": 0.75
+      }
+    },
+    {
+      "id": "happy-horse-1.1",
+      "video": {
+        "perSecond": 0.18
       }
     }
   ]
