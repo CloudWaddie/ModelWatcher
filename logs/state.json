@@ -17636,7 +17636,15 @@
             "details": "/api/v1/models/~anthropic/claude-fable-latest/endpoints"
           },
           "reasoning": {
-            "mandatory": true
+            "mandatory": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -17762,7 +17770,15 @@
             "details": "/api/v1/models/~anthropic/claude-opus-latest/endpoints"
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": false,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -17828,7 +17844,14 @@
             "details": "/api/v1/models/~anthropic/claude-sonnet-latest/endpoints"
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": false,
+            "supported_efforts": [
+              "max",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -18994,7 +19017,15 @@
             }
           },
           "reasoning": {
-            "mandatory": true
+            "mandatory": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -19668,7 +19699,14 @@
           },
           "reasoning": {
             "mandatory": false,
-            "supports_max_tokens": true
+            "supports_max_tokens": true,
+            "supported_efforts": [
+              "max",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -19733,7 +19771,14 @@
           },
           "reasoning": {
             "mandatory": false,
-            "supports_max_tokens": true
+            "supports_max_tokens": true,
+            "supported_efforts": [
+              "max",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -19951,7 +19996,15 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": false,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -20013,7 +20066,15 @@
             "details": "/api/v1/models/anthropic/claude-4.7-opus-fast-20260512/endpoints"
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": false,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -20224,7 +20285,15 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": false,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -20286,7 +20355,15 @@
             "details": "/api/v1/models/anthropic/claude-4.8-opus-fast-20260528/endpoints"
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": false,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -20719,7 +20796,14 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": false,
+            "supported_efforts": [
+              "max",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -29998,8 +30082,10 @@
             "logprobs",
             "max_tokens",
             "min_p",
+            "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
+            "reasoning_effort",
             "repetition_penalty",
             "response_format",
             "seed",
@@ -30242,65 +30328,6 @@
             "temperature",
             "top_k",
             "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.7,
-            "top_p": 0.95,
-            "top_k": 40,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/nex-agi/nex-n2-pro/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
-          "id": "nex-agi/nex-n2-pro:free",
-          "name": "Nex AGI: Nex-N2-Pro (free)",
-          "canonical_slug": "nex-agi/nex-n2-pro",
-          "hugging_face_id": "nex-agi/Nex-N2-Pro",
-          "description": "Nex-N2-Pro is an agentic mixture-of-experts model from Nex AGI, with 17B active parameters out of 397B total. Built on the Qwen3.5 architecture, it accepts text and image input and produces...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Qwen3",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 256000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
             "top_p"
           ],
           "default_parameters": {
@@ -41502,7 +41529,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-06-29",
           "links": {
             "details": "/api/v1/models/stepfun/step-3.5-flash/endpoints"
           },
@@ -44167,13 +44194,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000001",
-            "completion": "0.000004",
-            "input_cache_read": "0.00000018"
+            "prompt": "0.00000098",
+            "completion": "0.00000308",
+            "input_cache_read": "0.000000182"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 32768,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -44306,6 +44333,218 @@
               "high"
             ],
             "default_effort": "high"
+          }
+        },
+        {
+          "id": "z-ai/glm-5v-turbo",
+          "name": "Z.ai: GLM 5V Turbo",
+          "canonical_slug": "z-ai/glm-5v-turbo-20260401",
+          "hugging_face_id": "",
+          "description": "GLM-5V-Turbo is Z.ai’s first native multimodal agent foundation model, built for vision-based coding and agent-driven tasks. It natively handles image, video, and text inputs, excels at long-horizon planning, complex coding,...",
+          "context_length": 202752,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "image",
+              "text",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000012",
+            "completion": "0.000004",
+            "input_cache_read": "0.00000024"
+          },
+          "top_provider": {
+            "context_length": 202752,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": "2098-12-31",
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-5v-turbo-20260401/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "agents",
+                "category": "agenticgamedev",
+                "elo": 1128,
+                "win_rate": 40.6,
+                "rank": 9
+              },
+              {
+                "arena": "agents",
+                "category": "agentichtmlslides",
+                "elo": 1134,
+                "win_rate": 41.7,
+                "rank": 8
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides",
+                "elo": 1171,
+                "win_rate": 51.6,
+                "rank": 6
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides(html)",
+                "elo": 1137,
+                "win_rate": 41.8,
+                "rank": 8
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides(python-pptx)",
+                "elo": 1183,
+                "win_rate": 53.9,
+                "rank": 6
+              },
+              {
+                "arena": "agents",
+                "category": "androidnative",
+                "elo": 1267,
+                "win_rate": 54.8,
+                "rank": 3
+              },
+              {
+                "arena": "agents",
+                "category": "fullstack",
+                "elo": 1214,
+                "win_rate": 55,
+                "rank": 12
+              },
+              {
+                "arena": "agents",
+                "category": "godotgamedev",
+                "elo": 1221,
+                "win_rate": 53.6,
+                "rank": 5
+              },
+              {
+                "arena": "agents",
+                "category": "htmlslides",
+                "elo": 1134,
+                "win_rate": 41.6,
+                "rank": 10
+              },
+              {
+                "arena": "agents",
+                "category": "mobileapps",
+                "elo": 1223,
+                "win_rate": 52.7,
+                "rank": 10
+              },
+              {
+                "arena": "agents",
+                "category": "pptxslides",
+                "elo": 1164,
+                "win_rate": 52.1,
+                "rank": 6
+              },
+              {
+                "arena": "agents",
+                "category": "python-pptxslides",
+                "elo": 1167,
+                "win_rate": 52.3,
+                "rank": 6
+              },
+              {
+                "arena": "agents",
+                "category": "webapps",
+                "elo": 1188,
+                "win_rate": 46.7,
+                "rank": 16
+              },
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1291,
+                "win_rate": 55.3,
+                "rank": 19
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1138,
+                "win_rate": 42.9,
+                "rank": 40
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1279,
+                "win_rate": 52.5,
+                "rank": 23
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1247,
+                "win_rate": 49.7,
+                "rank": 28
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1289,
+                "win_rate": 55,
+                "rank": 20
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1204,
+                "win_rate": 51.3,
+                "rank": 26
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1267,
+                "win_rate": 51.8,
+                "rank": 25
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1270,
+                "win_rate": 50.9,
+                "rank": 23
+              }
+            ]
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
           }
         }
       ]
