@@ -4261,35 +4261,6 @@
           }
         },
         {
-          "id": "essentialai/rnj-1-instruct",
-          "name": "essentialai/rnj-1-instruct",
-          "uuid": "endpoint-5e47a57e-fdc8-4dd7-802f-2dc433244027",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "EssentialAI Rnj-1 Instruct",
-          "organization": "Essential AI",
-          "link": "https://huggingface.co/api/models/togethercomputer/EssentialAI-RNJ-1-Instruct",
-          "context_length": 32768,
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": "<|begin_of_text|>",
-            "eos_token": "<|end_of_text|>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.15,
-            "output": 0.15,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "facebook/cwm",
           "name": "facebook/cwm",
           "object": "model",
@@ -23289,65 +23260,6 @@
           }
         },
         {
-          "id": "essentialai/rnj-1-instruct",
-          "name": "EssentialAI: Rnj 1 Instruct",
-          "canonical_slug": "essentialai/rnj-1-instruct",
-          "hugging_face_id": "EssentialAI/rnj-1-instruct",
-          "description": "Rnj-1 is an 8B-parameter, dense, open-weight model family developed by Essential AI and trained from scratch with a focus on programming, math, and scientific reasoning. The model demonstrates strong performance...",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.00000015"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/essentialai/rnj-1-instruct/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
           "id": "google/gemini-2.5-flash",
           "name": "Google: Gemini 2.5 Flash",
           "canonical_slug": "google/gemini-2.5-flash",
@@ -27395,7 +27307,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000065",
+            "prompt": "0.00000007",
             "completion": "0.00000014"
           },
           "top_provider": {
@@ -27407,7 +27319,6 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
-            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -27418,7 +27329,6 @@
             "structured_outputs",
             "temperature",
             "top_k",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -42177,32 +42087,26 @@
             "instruct_type": "chatml"
           },
           "pricing": {
-            "prompt": "0.00000017",
-            "completion": "0.00000043"
+            "prompt": "0.00000025",
+            "completion": "0.0000005"
           },
           "top_provider": {
             "context_length": 32768,
-            "max_completion_tokens": 32768,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
-            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
             "repetition_penalty",
-            "response_format",
             "seed",
             "stop",
-            "structured_outputs",
             "temperature",
-            "tool_choice",
-            "tools",
             "top_k",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
