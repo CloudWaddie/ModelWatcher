@@ -1,5 +1,5 @@
 {
-  "timestamp": 1782248561300,
+  "timestamp": 1782256345566,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -2573,6 +2573,30 @@
           "imagetovideo"
         ]
       }
+    },
+    {
+      "id": "agi-01-swift",
+      "displayName": "AGI-01 Swift",
+      "provider": "lucidquery",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     },
     {
       "id": "ray-flash-2",
@@ -7417,6 +7441,22 @@
           "imagetovideo"
         ]
       }
+    },
+    {
+      "id": "boogu-image",
+      "displayName": "Boogu Image",
+      "provider": "boogu",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign",
+          "imagetoimage"
+        ]
+      }
     }
   ],
   "providers": [
@@ -8721,6 +8761,17 @@
       "id": "inception",
       "displayName": "Inception",
       "logoName": "inception.png"
+    },
+    {
+      "id": "boogu",
+      "displayName": "Boogu",
+      "logoName": "boogu.png"
+    },
+    {
+      "id": "lucidquery",
+      "displayName": "LucidQuery",
+      "logoName": "lucidquery.svg",
+      "website": "https://lucidquery.com"
     }
   ],
   "pricing": [
@@ -9461,6 +9512,13 @@
       "id": "ltx-2.3",
       "video": {
         "perSecond": 0.08
+      }
+    },
+    {
+      "id": "agi-01-swift",
+      "text": {
+        "input": 2.5,
+        "output": 15
       }
     },
     {
@@ -10681,6 +10739,12 @@
       },
       "video": {
         "perSecond": 0.05
+      }
+    },
+    {
+      "id": "boogu-image",
+      "image": {
+        "perImage": 0.04
       }
     }
   ]
