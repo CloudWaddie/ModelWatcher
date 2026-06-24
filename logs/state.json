@@ -4436,18 +4436,18 @@
           }
         },
         {
-          "id": "FastVideo/LTX2-Distilled-Diffusers",
-          "name": "FastVideo/LTX2-Distilled-Diffusers",
+          "id": "FastVideo/LTX-2.3-Distilled-Diffusers",
+          "name": "FastVideo/LTX-2.3-Distilled-Diffusers",
           "owned_by": "deepinfra",
-          "root": "FastVideo/LTX2-Distilled-Diffusers",
+          "root": "FastVideo/LTX-2.3-Distilled-Diffusers",
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "LTX-2 is a DiT-based audio-video foundation model designed to generate synchronized video and audio within a single model. It brings together the core building blocks of modern video generation, with open weights and a focus on practical, local execution.",
+            "description": "A fast, step-distilled build of Lightricks' LTX-2.3 diffusion-transformer video model (distilled by FastVideo). Generates high-fidelity text-to-video and image-to-video in just a few denoising steps.",
             "context_length": null,
             "max_tokens": null,
             "pricing": {
-              "output_seconds": 0.036000000000000004
+              "output_seconds": 0.035
             },
             "tags": [
               "video-gen"
@@ -15113,7 +15113,7 @@
           },
           "top_provider": {
             "context_length": 32768,
-            "max_completion_tokens": 8192,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -15917,8 +15917,8 @@
             "web_search": "0.014"
           },
           "top_provider": {
-            "context_length": 65536,
-            "max_completion_tokens": 65536,
+            "context_length": 131072,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -21558,7 +21558,8 @@
           },
           "pricing": {
             "prompt": "0.0000006",
-            "completion": "0.0000025"
+            "completion": "0.0000025",
+            "input_cache_read": "0.0000006"
           },
           "top_provider": {
             "context_length": 262144,
@@ -31830,11 +31831,12 @@
           },
           "pricing": {
             "prompt": "0.00000014",
-            "completion": "0.000001"
+            "completion": "0.000001",
+            "input_cache_read": "0.00000005"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": 81920,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -33149,6 +33151,70 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/relace/relace-search-20251208/endpoints"
+          }
+        },
+        {
+          "id": "sakana/fugu-ultra",
+          "name": "Sakana: Fugu Ultra",
+          "canonical_slug": "sakana/fugu-ultra-20260615",
+          "hugging_face_id": null,
+          "description": "Fugu Ultra is the higher-performance model in Sakana AI's Fugu family. Rather than a single monolithic model, Fugu is a learned multi-agent orchestration system: a language model trained to route...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000005",
+            "completion": "0.00003",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000005"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 128000,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "reasoning",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "web_search_options"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/sakana/fugu-ultra-20260615/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high"
+            ],
+            "default_effort": "xhigh"
           }
         },
         {
@@ -35852,11 +35918,11 @@
           "pricing": {
             "prompt": "0.00000098",
             "completion": "0.00000308",
-            "input_cache_read": "0.00000049"
+            "input_cache_read": "0.000000182"
           },
           "top_provider": {
             "context_length": 202752,
-            "max_completion_tokens": 65535,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
