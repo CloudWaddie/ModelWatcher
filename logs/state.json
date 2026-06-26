@@ -11802,9 +11802,85 @@
       ]
     },
     "Fireworks AI": {
-      "success": false,
-      "models": [],
-      "error": "HTTP 500: Internal Server Error"
+      "success": true,
+      "models": [
+        {
+          "id": "accounts/fireworks/models/deepseek-v4-pro",
+          "name": "accounts/fireworks/models/deepseek-v4-pro",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/flux-1-schnell-fp8",
+          "name": "accounts/fireworks/models/flux-1-schnell-fp8",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "FLUMINA_BASE_MODEL",
+          "supports_chat": false,
+          "supports_image_input": false,
+          "supports_tools": false
+        },
+        {
+          "id": "accounts/fireworks/models/glm-5p1",
+          "name": "accounts/fireworks/models/glm-5p1",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 202752
+        },
+        {
+          "id": "accounts/fireworks/models/glm-5p2",
+          "name": "accounts/fireworks/models/glm-5p2",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/gpt-oss-120b",
+          "name": "accounts/fireworks/models/gpt-oss-120b",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 131072
+        },
+        {
+          "id": "accounts/fireworks/models/kimi-k2p5",
+          "name": "accounts/fireworks/models/kimi-k2p5",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 262144
+        },
+        {
+          "id": "accounts/fireworks/models/kimi-k2p6",
+          "name": "accounts/fireworks/models/kimi-k2p6",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 262144
+        }
+      ]
     },
     "DeepInfra": {
       "success": true,
