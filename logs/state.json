@@ -14240,34 +14240,6 @@
           }
         },
         {
-          "id": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "name": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "owned_by": "deepinfra",
-          "root": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "Nemotron 3 Ultra is built for, frontier reasoning, orchestration, coding agents, deep research, and complex enterprise workflows. It delivers up to 5x faster inference and up to 30% lower cost for agentic workloads while supporting up to 1M token context.",
-            "context_length": 262144,
-            "max_tokens": 262144,
-            "pricing": {
-              "input_tokens": 1,
-              "output_tokens": 5,
-              "cache_read_tokens": 0.3
-            },
-            "tags": [
-              "chat",
-              "vlm",
-              "vision",
-              "prompt_cache",
-              "reasoning"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
           "id": "openai/gpt-oss-120b",
           "name": "openai/gpt-oss-120b",
           "owned_by": "deepinfra",
@@ -44666,8 +44638,10 @@
             "logprobs",
             "max_tokens",
             "min_p",
+            "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
+            "reasoning_effort",
             "repetition_penalty",
             "response_format",
             "seed",
