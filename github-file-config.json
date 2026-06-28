@@ -1,0 +1,19 @@
+{
+  "webhook": {
+    "enabled": true,
+    "webhookEnv": "TOMBSTONE_WEBHOOK"
+  },
+  "state": {
+    "file": "./logs/github-file-state.json"
+  },
+  "file": {
+    "owner": "google",
+    "repo": "capsem",
+    "path": "tests/fixtures/protocols/google_code_assist/available_models.json",
+    "branch": "main"
+  },
+  "scan": {
+    "intervalMinutes": 60,
+    "timeout": 30000
+  }
+}
