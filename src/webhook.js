@@ -583,3 +583,169 @@ export async function processNotifications(config, results, allChanges, endpoint
     }
   }
 }
+
+/**
+ * Send a Discord webhook without model-splitting logic (for raw diffs)
+ * @param {string} webhookUrl - Discord webhook URL
+ * @param {Object} payload - Embed payload
+ * @returns {Promise<boolean>} - Success status
+ */
+export async function sendRawDiffWebhook(webhookUrl, payload) {
+  if (!webhookUrl) {
+    console.log('Discord webhook URL not configured, skipping notification');
+    return false;
+  }
+
+  try {
+    const embeds = payload.embeds || [];
+
+    // Send in chunks of MAX_EMBEDS_PER_MESSAGE
+    for (let i = 0; i < embeds.length; i += MAX_EMBEDS_PER_MESSAGE) {
+      const chunk = embeds.slice(i, i + MAX_EMBEDS_PER_MESSAGE);
+      const chunkPayload = {
+        username: payload.username,
+        avatar_url: payload.avatar_url,
+        embeds: chunk
+      };
+      await axios.post(webhookUrl, chunkPayload, {
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    return true;
+  } catch (err) {
+    const details = err.response?.data ? JSON.stringify(err.response.data) : err.message;
+    console.error('Failed to send Discord webhook:', err.response?.status, details);
+    return false;
+  }
+}
+
+/**
+ * Create a nice Discord embed for a new app version
+ * @param {Object} appInfo - App version info
+ * @returns {Object} - Discord embed payload
+ */
+export function createAppVersionEmbed(appInfo) {
+  const platformEmoji = appInfo.platform === 'android' ? '🤖' : '🍎';
+  const color = appInfo.platform === 'android' ? 0x3DDC84 : 0x5FC9F8;
+
+  const description = appInfo.description
+    ? (appInfo.description.length > 300 ? appInfo.description.substring(0, 297) + '...' : appInfo.description)
+    : 'No description available.';
+
+  const releaseNotes = appInfo.recentChanges
+    ? (appInfo.recentChanges.length > 500 ? appInfo.recentChanges.substring(0, 497) + '...' : appInfo.recentChanges)
+    : 'No release notes available.';
+
+  return {
+    username: 'App Version Watcher',
+    avatar_url: LOGO_URL,
+    embeds: [{
+      title: `${platformEmoji} ${appInfo.title} — v${appInfo.version}`,
+      url: appInfo.url,
+      description,
+      color,
+      thumbnail: {
+        url: appInfo.icon
+      },
+      fields: [
+        {
+          name: '📝 Release Notes',
+          value: releaseNotes.substring(0, 1024) || '(none)'
+        },
+        {
+          name: '🏢 Developer',
+          value: appInfo.developer || 'Unknown',
+          inline: true
+        },
+        {
+          name: '📦 App ID',
+          value: `\`${appInfo.appId}\``,
+          inline: true
+        },
+        {
+          name: '🏬 Store',
+          value: appInfo.platform === 'android' ? 'Google Play' : 'App Store',
+          inline: true
+        }
+      ],
+      timestamp: new Date().toISOString(),
+      footer: {
+        text: `App Version Watcher \u2022 ${appInfo.platform.toUpperCase()}`,
+        icon_url: LOGO_URL
+      }
+    }]
+  };
+}
+
+/**
+ * Create Discord embed(s) for a raw strings diff with red/green highlighting
+ * Uses Discord ```diff code blocks so - lines are red and + lines are green
+ * @param {string} appId - App package ID
+ * @param {string} diffText - Raw diff text
+ * @returns {Object} - Discord embed payload
+ */
+export function createStringsDiffEmbed(appId, diffText) {
+  const maxChunkLength = 900; // Leave room for ```diff\n and \n```
+
+  // Escape triple backticks to prevent breaking code blocks
+  const safeDiff = diffText.replace(/```/g, '`\u200b`\u200b`');
+  const lines = safeDiff.split('\n');
+
+  const chunks = [];
+  let currentChunk = [];
+  let currentLength = 0;
+
+  for (const line of lines) {
+    // +1 accounts for the newline character
+    if (currentLength + line.length + 1 > maxChunkLength && currentChunk.length > 0) {
+      chunks.push(currentChunk.join('\n'));
+      currentChunk = [line];
+      currentLength = line.length;
+    } else {
+      currentChunk.push(line);
+      currentLength += line.length + 1;
+    }
+  }
+
+  if (currentChunk.length > 0) {
+    chunks.push(currentChunk.join('\n'));
+  }
+
+  const totalChunks = chunks.length;
+  const embeds = [];
+
+  for (let i = 0; i < chunks.length; i++) {
+    const isFirst = i === 0;
+    const isLast = i === totalChunks - 1;
+
+    const embed = {
+      color: 0x3B82F6,
+      fields: [{
+        name: totalChunks > 1 ? `Diff (${i + 1}/${totalChunks})` : 'Diff',
+        value: '```diff\n' + chunks[i] + '\n```'
+      }],
+      timestamp: new Date().toISOString()
+    };
+
+    if (isFirst) {
+      embed.title = `\ud83d\udcf1 ${appId} — Strings Changed`;
+      embed.description = 'Android app strings diff detected';
+    }
+
+    if (isLast) {
+      embed.footer = {
+        text: 'Android Strings Watcher',
+        icon_url: LOGO_URL
+      };
+    }
+
+    embeds.push(embed);
+  }
+
+  return {
+    username: 'Android Strings Watcher',
+    avatar_url: LOGO_URL,
+    embeds
+  };
+}

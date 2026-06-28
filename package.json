@@ -12,6 +12,7 @@
     "regex": "node src/regex-watch.js",
     "designarena": "node src/designarena-watch.js",
     "github-file": "node src/github-file-watch.js",
+    "app-version": "node src/app-version-watch.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "keywords": [
@@ -23,9 +24,12 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "app-store-scraper": "^0.18.0",
     "axios": "^1.6.0",
     "camoufox-js": "^0.9.1",
+    "diff": "^7.0.0",
     "dotenv": "^16.3.1",
+    "google-play-scraper": "^10.0.0",
     "playwright": "^1.58.2"
   }
 }
