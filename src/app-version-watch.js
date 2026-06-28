@@ -149,12 +149,10 @@ async function checkAndroidApp(appId, state) {
     console.log(`[Android] New version for ${appId}: ${appDetails.version}`);
 
     let stringsResult = { changed: false };
-    if (previous) {
-      try {
-        stringsResult = await compareAndroidStrings(appId, state);
-      } catch (e) {
-        console.error(`[Android] Strings check failed for ${appId}:`, e.message);
-      }
+    try {
+      stringsResult = await compareAndroidStrings(appId, state);
+    } catch (e) {
+      console.error(`[Android] Strings check failed for ${appId}:`, e.message);
     }
 
     return {
