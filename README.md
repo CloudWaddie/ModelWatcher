@@ -1,14 +1,17 @@
 # Model Watcher
 
-Hourly scanner for OpenAI-compatible API endpoints with Discord notifications.
+Hourly scanner for OpenAI-compatible API endpoints with Discord notifications. Now featuring a powerful deep comparison engine for granular tracking of model changes.
 
 ## Features
 
-- Scans multiple OpenAI-compatible APIs hourly
-- Detects new, removed, and updated models
-- Sends Discord notifications via webhook (with group support)
-- JSON logging with full change diffs
-- API key sanitization in all logs
+- **Hourly Scanning**: Automatically polls multiple OpenAI-compatible APIs every hour.
+- **Deep Comparison Engine**: Beyond just detecting new or removed models, ModelWatcher performs a recursive deep-diff of model metadata including rankings, capabilities, and availability.
+- **Rich Discord Alerts**:
+  - **Emoji-Enhanced Capabilities**: Visual icons for model features (e.g., 📝 Text, 🖼️ Vision, 🎨 Generation, 🔍 Search).
+  - **Detailed Change Logs**: Shows exactly what changed (e.g., `rank: 12 → 10` or `capabilities: 💬 → 💬 🖼️`).
+  - **Group Support**: Route different providers to different Discord channels using webhook groups.
+- **Sanitized Logging**: All API keys are automatically redacted from logs and notifications.
+- **LM Arena Support**: Dedicated tracking for Chatbot Arena rankings and model metadata.
 
 ## Supported Endpoints
 
@@ -27,112 +30,40 @@ Hourly scanner for OpenAI-compatible API endpoints with Discord notifications.
 | OpenRouter | `OPENROUTER_API_KEY` | `https://openrouter.ai/api/v1` |
 | xAI (Grok) | `XAI_API_KEY` | `https://api.x.ai/v1` |
 
-**Note:** GitHub Models requires a PAT (Personal Access Token) with `models` scope.
+*Note: GitHub Models requires a Personal Access Token (PAT) with `models` scope.*
 
 ## Quick Start
 
-1. **Fork or clone this repo**
+1. **Fork the Repository**
+2. **Add GitHub Secrets** (Settings → Secrets and variables → Actions):
+   - `WEBHOOK`: Main Discord webhook URL.
+   - `WEBHOOK_SMALL`: Optional secondary webhook.
+   - `OPENAI_API_KEY`, `GEMINI_API_KEY`, etc.: Your respective provider keys.
+3. **Configure**: Edit `config.json` to customize endpoints and notification preferences.
+4. **Deploy**: The scanner runs automatically via GitHub Actions. You can also trigger it manually from the "Actions" tab.
 
-2. **Add secrets to GitHub** (Settings → Secrets and variables → Actions):
-   - `WEBHOOK` - Your main Discord webhook URL (for big providers)
-   - `WEBHOOK_SMALL` - Optional secondary webhook (for smaller providers)
-   - `OPENAI_API_KEY` - Your OpenAI API key
-   - Add any other API keys for providers you want to scan
+## Advanced Configuration
 
-3. **Customize config.json** - Edit endpoints to add/remove providers
+### Deep Comparison Tracking
+ModelWatcher tracks changes across the following fields:
+- **Ranking**: Overall `rank` and modality-specific rankings.
+- **Availability**: `userSelectable` status changes.
+- **Identity**: `displayName`, `publicName`, and `organization` updates.
+- **Capabilities**: Recursive diffing of input/output capabilities with emoji summaries.
 
-4. **Run manually** - Use GitHub Actions "Run workflow" button
-
-## Configuration
-
-Edit `config.json`:
-
+### Webhook Groups
+Assign endpoints to groups in `config.json`:
 ```json
 {
-  "endpoints": [
-    {
-      "name": "OpenAI",
-      "baseUrl": "https://api.openai.com/v1",
-      "apiKeyEnv": "OPENAI_API_KEY",
-      "modelsEndpoint": "/models",
-      "group": "default"
-    }
-  ],
-  "scan": {
-    "timeout": 30000,
-    "retryAttempts": 2,
-    "retryDelay": 1000
-  },
-  "logging": {
-    "outputDir": "./logs",
-    "historyDays": 30
-  },
-  "discord": {
-    "enabled": true,
-    "webhooks": {
-      "default": {
-        "webhookEnv": "WEBHOOK",
-        "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
-      },
-      "small": {
-        "webhookEnv": "WEBHOOK_SMALL",
-        "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
-      }
-    },
-    "url": "https://github.com/CloudWaddie/ModelWatcher"
-  }
-}
-```
-
-### Endpoint Groups
-
-Assign endpoints to webhook groups using the `group` field:
-
-- `default` - Uses the `default` webhook config
-- Any custom group name - Uses the matching webhook config
-
-### Notification Options
-
-`notifyOn` supports:
-- `new_model` - New models detected
-- `removed_model` - Models removed
-- `model_updated` - Model properties changed
-- `endpoint_error` - API endpoint errors
-- `summary_with_changes` - Send summary only when there are changes
-
-## Adding Custom Endpoints
-
-Add any OpenAI-compatible endpoint:
-
-```json
-{
-  "name": "My Provider",
-  "baseUrl": "https://api.myprovider.com/v1",
-  "apiKeyEnv": "MY_PROVIDER_API_KEY",
-  "modelsEndpoint": "/models",
+  "name": "OpenAI",
+  "baseUrl": "https://api.openai.com/v1",
   "group": "default"
 }
 ```
 
-## Local Development
-
-```bash
-# Install dependencies
-npm install
-
-# Run locally (requires env vars)
-WEBHOOK=https://discord.com/api/webhooks/... \
-WEBHOOK_SMALL=https://discord.com/api/webhooks/... \
-OPENAI_API_KEY=sk-... \
-npm run scan
-```
-
 ## Security
-
-- All API keys are stored as GitHub Secrets
-- API keys are redacted in all log output
-- Runs in an isolated GitHub Actions environment
+- **Redaction**: A built-in sanitizer ensures no API keys or sensitive tokens ever leak into Discord or logs.
+- **GitHub Secrets**: Environment variables are managed securely through GitHub's encrypted secret store.
 
 ## License
-
 MIT
