@@ -1,19 +1,31 @@
 # Model Watcher
 
-Hourly scanner for OpenAI-compatible API endpoints with Discord notifications. Now featuring a powerful deep comparison engine for granular tracking of model changes.
+A comprehensive monitoring suite for the AI ecosystem. ModelWatcher tracks changes across OpenAI-compatible APIs, app stores, trademark filings, and leaderboard rankings with deep-diff analysis and instant Discord notifications.
 
-## Features
+## 🚀 Key Features
 
-- **Hourly Scanning**: Automatically polls multiple OpenAI-compatible APIs every hour.
-- **Deep Comparison Engine**: Beyond just detecting new or removed models, ModelWatcher performs a recursive deep-diff of model metadata including rankings, capabilities, and availability.
-- **Rich Discord Alerts**:
-  - **Emoji-Enhanced Capabilities**: Visual icons for model features (e.g., 📝 Text, 🖼️ Vision, 🎨 Generation, 🔍 Search).
-  - **Detailed Change Logs**: Shows exactly what changed (e.g., `rank: 12 → 10` or `capabilities: 💬 → 💬 🖼️`).
-  - **Group Support**: Route different providers to different Discord channels using webhook groups.
-- **Sanitized Logging**: All API keys are automatically redacted from logs and notifications.
-- **LM Arena Support**: Dedicated tracking for Chatbot Arena rankings and model metadata.
+### 🧠 Model & API Monitoring
+- **Deep Comparison Engine**: Beyond simple detection, ModelWatcher performs recursive diffing of model metadata.
+- **Granular Field Tracking**: Monitors `rank`, `availability`, `identity`, and `modalities`.
+- **Capability Emojis**: Visual shorthand for model features:
+  - 📝 Text input | 🖼️ Image input | 📎 File input
+  - 💬 Text output | 🎨 Image generation | 🌐 Web access | 🔍 Search
 
-## Supported Endpoints
+### 📱 App Store Intelligence
+- **Platform Tracking**: Monitors iOS App Store and Google Play Store for version updates.
+- **Change Detection**: Extracts release notes, version strings, and app descriptions.
+- **Deep Analysis**: Can be configured to track internal version string changes and metadata diffs.
+
+### ⚖️ USPTO & IP Tracking
+- **Trademark Monitoring**: Scans USPTO filings for new AI-related trademarks from major labs.
+- **Status Alerts**: Notifies on status updates for existing filings.
+
+### 🏆 Leaderboard & Community Watch
+- **LM Arena (Chatbot Arena)**: Tracks ELO, rankings, and specific model metadata updates.
+- **Design Arena**: Monitoring for design-related AI benchmarks.
+- **Regex & File Watchers**: Generic watchers for tracking specific file changes or string patterns across the web.
+
+## 📊 Supported Endpoints
 
 | Provider | Env Variable | Base URL |
 |----------|--------------|----------|
@@ -25,45 +37,35 @@ Hourly scanner for OpenAI-compatible API endpoints with Discord notifications. N
 | Mistral | `MISTRAL_API_KEY` | `https://api.mistral.ai/v1` |
 | Cohere | `COHERE_API_KEY` | `https://api.cohere.ai/v1` |
 | Together AI | `TOGETHER_API_KEY` | `https://api.together.ai/v1` |
-| DeepInfra | `DEEPINFRA_API_KEY` | `https://api.deepinfra.com/v1/openai` |
-| Fireworks AI | `FIREWORKS_API_KEY` | `https://api.fireworks.ai/inference/v1` |
 | OpenRouter | `OPENROUTER_API_KEY` | `https://openrouter.ai/api/v1` |
 | xAI (Grok) | `XAI_API_KEY` | `https://api.x.ai/v1` |
 
-*Note: GitHub Models requires a Personal Access Token (PAT) with `models` scope.*
-
-## Quick Start
-
-1. **Fork the Repository**
-2. **Add GitHub Secrets** (Settings → Secrets and variables → Actions):
-   - `WEBHOOK`: Main Discord webhook URL.
-   - `WEBHOOK_SMALL`: Optional secondary webhook.
-   - `OPENAI_API_KEY`, `GEMINI_API_KEY`, etc.: Your respective provider keys.
-3. **Configure**: Edit `config.json` to customize endpoints and notification preferences.
-4. **Deploy**: The scanner runs automatically via GitHub Actions. You can also trigger it manually from the "Actions" tab.
-
-## Advanced Configuration
-
-### Deep Comparison Tracking
-ModelWatcher tracks changes across the following fields:
-- **Ranking**: Overall `rank` and modality-specific rankings.
-- **Availability**: `userSelectable` status changes.
-- **Identity**: `displayName`, `publicName`, and `organization` updates.
-- **Capabilities**: Recursive diffing of input/output capabilities with emoji summaries.
+## 🛠️ Configuration
 
 ### Webhook Groups
-Assign endpoints to groups in `config.json`:
-```json
-{
-  "name": "OpenAI",
-  "baseUrl": "https://api.openai.com/v1",
-  "group": "default"
-}
-```
+Route different alerts to specific Discord channels by grouping endpoints in `config.json`:
+- `default`: High-priority providers.
+- `small`: Community or niche providers.
+- Custom groups for App Watchers or USPTO alerts.
 
-## Security
-- **Redaction**: A built-in sanitizer ensures no API keys or sensitive tokens ever leak into Discord or logs.
-- **GitHub Secrets**: Environment variables are managed securely through GitHub's encrypted secret store.
+### Notification Triggers
+Configure `notifyOn` for granular control:
+- `new_model`, `removed_model`, `model_updated`
+- `endpoint_error`
+- `summary_with_changes`
 
-## License
+## 🏁 Quick Start
+
+1. **Fork the Repository**
+2. **Setup GitHub Secrets**:
+   - `WEBHOOK`: Your primary Discord webhook URL.
+   - `OPENAI_API_KEY`, etc.: API keys for the services you wish to track.
+3. **Customize `config.json`**: Define your endpoints, groups, and scan intervals.
+4. **Deploy**: Runs automatically every hour via GitHub Actions.
+
+## 🔒 Security
+- **Automatic Redaction**: Built-in sanitizer prevents API keys or sensitive tokens from leaking into logs or Discord embeds.
+- **Encrypted Secrets**: Leverages GitHub Actions Secrets for all sensitive credentials.
+
+## 📜 License
 MIT
