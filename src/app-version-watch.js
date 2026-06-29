@@ -37,14 +37,15 @@ function saveState(statePath, state) {
 }
 
 function getStringsPath(appId) {
-  return join(STRINGS_DIR, `${appId}.xml`);
+  return join(STRINGS_DIR, `${appId}.b64`);
 }
 
 function loadStrings(appId) {
   const path = getStringsPath(appId);
   if (existsSync(path)) {
     try {
-      return readFileSync(path, 'utf-8');
+      const b64 = readFileSync(path, 'utf-8');
+      return Buffer.from(b64, 'base64').toString('utf-8');
     } catch (e) {
       console.error(`Failed to read strings for ${appId}:`, e.message);
     }
@@ -56,7 +57,8 @@ function saveStrings(appId, content) {
   if (!existsSync(STRINGS_DIR)) {
     mkdirSync(STRINGS_DIR, { recursive: true });
   }
-  writeFileSync(getStringsPath(appId), content, 'utf-8');
+  const b64 = Buffer.from(content, 'utf-8').toString('base64');
+  writeFileSync(getStringsPath(appId), b64, 'utf-8');
 }
 
 // --- APK download & string extraction ---
