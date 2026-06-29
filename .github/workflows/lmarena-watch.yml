@@ -2,7 +2,6 @@ name: LM Arena Watcher
 
 on:
   schedule:
-    # Run every 6 hours
     - cron: '0 */6 * * *'
   workflow_dispatch:
 
@@ -36,23 +35,24 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
 
+      - name: Install Python packages
+        run: pip install -r requirements.txt
+
       - name: Cache Camoufox browser
+        id: cache-camoufox
         uses: actions/cache@v4
         with:
-          path: ~/.cache/camoufox
+          path: /home/runner/.cache/camoufox
           key: ${{ runner.os }}-camoufox-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-camoufox-
 
-      - name: Install Python dependencies
-        run: |
-          pip install -r requirements.txt
-          python -m camoufox fetch
+      - name: Fetch Camoufox browser (cache miss)
+        if: steps.cache-camoufox.outputs.cache-hit != 'true'
+        run: python -m camoufox fetch
 
       - name: List tools
         run: |
           python -c "import camoufox; print('camoufox ok')"
-          ls -la ~/.cache/camoufox || true
+          ls -la /home/runner/.cache/camoufox 2>/dev/null || echo "(no cache dir)"
 
       - name: Ensure logs folder exists
         run: mkdir -p logs
