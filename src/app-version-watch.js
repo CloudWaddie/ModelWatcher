@@ -9,6 +9,8 @@ import { sendDiscordWebhook, sendRawDiffWebhook, createAppVersionEmbed, createSt
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+const STRINGS_DIR = join(__dirname, '..', 'strings');
+
 function loadConfig() {
   const configPath = join(__dirname, '..', 'app-version-config.json');
   if (!existsSync(configPath)) {
@@ -32,6 +34,29 @@ function saveState(statePath, state) {
   const dir = dirname(statePath);
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
   writeFileSync(statePath, JSON.stringify(state, null, 2));
+}
+
+function getStringsPath(appId) {
+  return join(STRINGS_DIR, `${appId}.xml`);
+}
+
+function loadStrings(appId) {
+  const path = getStringsPath(appId);
+  if (existsSync(path)) {
+    try {
+      return readFileSync(path, 'utf-8');
+    } catch (e) {
+      console.error(`Failed to read strings for ${appId}:`, e.message);
+    }
+  }
+  return '';
+}
+
+function saveStrings(appId, content) {
+  if (!existsSync(STRINGS_DIR)) {
+    mkdirSync(STRINGS_DIR, { recursive: true });
+  }
+  writeFileSync(getStringsPath(appId), content, 'utf-8');
 }
 
 // --- APK download & string extraction ---
@@ -97,7 +122,7 @@ function cleanupApk(appId) {
   }
 }
 
-async function compareAndroidStrings(appId, state) {
+async function compareAndroidStrings(appId) {
   const apkDir = join(process.cwd(), 'apk-files');
   if (!existsSync(apkDir)) mkdirSync(apkDir, { recursive: true });
 
@@ -112,7 +137,7 @@ async function compareAndroidStrings(appId, state) {
   const stringsPath = await extractStrings(apkPath, extractDir);
 
   const newStrings = readFileSync(stringsPath, 'utf-8');
-  const oldStrings = state[`${appId}_strings`] || '';
+  const oldStrings = loadStrings(appId);
 
   cleanupApk(appId);
 
@@ -145,12 +170,18 @@ async function checkAndroidApp(appId, state) {
     throw new Error('No updated timestamp from Google Play');
   }
 
-  if (!previous || lastUpdated > previous.lastUpdated) {
-    console.log(`[Android] New version for ${appId}: ${appDetails.version}`);
+  const isFirstRun = !previous;
+  const isNewVersion = previous && lastUpdated > previous.lastUpdated;
+
+  if (isFirstRun || isNewVersion) {
+    console.log(`[Android] ${isFirstRun ? 'First run' : 'New version'} for ${appId}: ${appDetails.version}`);
 
     let stringsResult = { changed: false };
     try {
-      stringsResult = await compareAndroidStrings(appId, state);
+      stringsResult = await compareAndroidStrings(appId);
+      if (stringsResult.newStrings) {
+        saveStrings(appId, stringsResult.newStrings);
+      }
     } catch (e) {
       console.error(`[Android] Strings check failed for ${appId}:`, e.message);
     }
@@ -169,7 +200,7 @@ async function checkAndroidApp(appId, state) {
       lastUpdated,
       stringsDiff: stringsResult.diff || null,
       stringsChanged: stringsResult.changed,
-      newStrings: stringsResult.newStrings || null
+      isFirstRun
     };
   }
 
@@ -236,8 +267,6 @@ async function main() {
   const apps = config.apps || [];
   console.log(`Checking ${apps.length} app(s)`);
 
-  let hasAnyChanges = false;
-
   for (const app of apps) {
     console.log(`Checking ${app.id} (${app.platform})...`);
     try {
@@ -252,23 +281,17 @@ async function main() {
       }
 
       if (result.isNew) {
-        hasAnyChanges = true;
         state[app.id] = {
           lastUpdated: result.lastUpdated,
           version: result.version
         };
 
-        // Save strings state for Android even if no diff this run (first time)
-        if (result.platform === 'android' && result.newStrings) {
-          state[`${app.id}_strings`] = result.newStrings;
-        }
-
         // Send app version embed
         const appPayload = createAppVersionEmbed(result);
         await sendDiscordWebhook(appWebhookUrl, appPayload);
 
-        // If Android and strings changed, send diff embed to same webhook
-        if (result.platform === 'android' && result.stringsChanged) {
+        // If Android and strings changed, send diff embed
+        if (result.platform === 'android' && result.stringsChanged && !result.isFirstRun) {
           const stringsPayload = createStringsDiffEmbed(app.id, result.stringsDiff);
           await sendRawDiffWebhook(appWebhookUrl, stringsPayload);
         }

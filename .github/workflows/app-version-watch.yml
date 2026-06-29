@@ -69,25 +69,43 @@ jobs:
           git config --global user.email "modelwatcher@github.com"
 
           cp logs/app-version-state.json /tmp/app-version-state-new.json 2>/dev/null || true
+          cp -r strings /tmp/strings-new 2>/dev/null || true
 
           git fetch origin master
           git reset --hard origin/master
 
-          mkdir -p logs
+          mkdir -p logs strings
           if [ -f /tmp/app-version-state-new.json ]; then
             cp /tmp/app-version-state-new.json logs/app-version-state.json
           fi
+          if [ -d /tmp/strings-new ]; then
+            cp -r /tmp/strings-new/* strings/ 2>/dev/null || true
+          fi
 
+          STATE_CHANGED=false
           if [ -f logs/app-version-state.json ]; then
             ORIG_HASH=$(git show origin/master:logs/app-version-state.json 2>/dev/null | sha256sum | cut -d' ' -f1 || echo "empty")
             NEW_HASH=$(sha256sum logs/app-version-state.json | cut -d' ' -f1)
-            if [ "$ORIG_HASH" = "$NEW_HASH" ] && [ "$ORIG_HASH" != "empty" ]; then
-              echo "No app version changes detected - skipping commit"
-              exit 0
+            if [ "$ORIG_HASH" != "$NEW_HASH" ] || [ "$ORIG_HASH" = "empty" ]; then
+              STATE_CHANGED=true
             fi
           fi
 
-          git add -f logs/app-version-state.json || true
+          STRINGS_CHANGED=false
+          if [ -d strings ] && [ "$(ls -A strings)" ]; then
+            git add -f strings/ || true
+            if ! git diff --quiet --staged; then
+              STRINGS_CHANGED=true
+            fi
+            git reset HEAD || true
+          fi
+
+          if [ "$STATE_CHANGED" = "false" ] && [ "$STRINGS_CHANGED" = "false" ]; then
+            echo "No app version changes detected - skipping commit"
+            exit 0
+          fi
+
+          git add -f logs/app-version-state.json strings/ || true
           if ! git diff --quiet --staged; then
             git commit -m "Update app version state - $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push origin master
