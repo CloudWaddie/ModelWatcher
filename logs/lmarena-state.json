@@ -863,7 +863,8 @@
       "displayName": "mimo-v2-pro",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": false
         },
         "outputCapabilities": {
           "text": true,
@@ -3326,30 +3327,6 @@
       }
     },
     {
-      "id": "019e6833-facb-72cf-8702-4c481b7dd74e",
-      "publicName": "gemma-4-31b-it",
-      "displayName": "gemma-4-31b-it",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": false,
-            "multipleImages": true
-          },
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019cfdfe-6e21-7d6f-bea9-88db022db730",
       "publicName": "anonymous-1800",
       "displayName": "anonymous-1800",
@@ -3767,6 +3744,26 @@
       }
     },
     {
+      "id": "019e6530-f140-77b1-b6b8-5c859829d992",
+      "organization": "alibaba",
+      "provider": "alibaba",
+      "publicName": "qwen3.7-max",
+      "name": "mizar-v2-85jb",
+      "displayName": "qwen3.7-max",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
       "id": "019d22e0-956a-7921-aa6f-67c696c698cf",
       "publicName": "spark",
       "displayName": "spark",
@@ -3984,6 +3981,29 @@
       "id": "019d2ac4-713c-7ea3-baac-26b313dda937",
       "publicName": "dola-seed-2.0-pro-vision",
       "displayName": "dola-seed-2.0-pro-vision",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": true
+          }
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "019e222b-e8b3-7f0a-85db-daa010a64f3e",
+      "organization": "alibaba",
+      "provider": "alibaba",
+      "publicName": "may-alpha",
+      "name": "may-alpha-0k1k",
+      "displayName": "qwen3.7-plus-preview",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
@@ -4436,28 +4456,6 @@
       }
     },
     {
-      "id": "019dc0bb-d628-7eae-a09f-84cd023fe502",
-      "organization": "openai",
-      "provider": "openaiResponses",
-      "publicName": "gpt-5.5",
-      "name": "gpt-5.5",
-      "displayName": "gpt-5.5",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": false,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
       "id": "019d926e-7d01-7f5a-9ebd-cbaef6df34d8",
       "publicName": "botbot2",
       "displayName": "botbot2",
@@ -4503,29 +4501,6 @@
       "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991
-      }
-    },
-    {
-      "id": "019e6adc-8959-7d77-9936-05842b1c978a",
-      "organization": "mistral",
-      "provider": "mistral",
-      "publicName": "mistral-medium-3.5",
-      "name": "mistral-medium-3.5",
-      "displayName": "mistral-medium-3.5",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
       }
     },
     {
@@ -5503,29 +5478,6 @@
       }
     },
     {
-      "id": "019b5265-8405-799e-87af-199dc9f4ad4a",
-      "organization": "google",
-      "provider": "googleVertexGlobalWithThoughtSignatures",
-      "publicName": "gemini-3-flash (thinking-minimal)",
-      "name": "gemini-3-flash-thinking-minimal-fixed-20251224",
-      "displayName": "gemini-3-flash (thinking-minimal)",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019d97b9-8b6c-7beb-957b-4cf7eb645a91",
       "publicName": "hofburg_5",
       "displayName": "hofburg_5",
@@ -5660,7 +5612,8 @@
       "displayName": "nvidia-nemotron-3-ultra-550b-a55b-nvfp4",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": false
         },
         "outputCapabilities": {
           "text": true
@@ -5729,52 +5682,6 @@
       }
     },
     {
-      "id": "019dd034-4403-7578-a75c-54fb69d92ec6",
-      "organization": "openai",
-      "provider": "openaiResponses",
-      "publicName": "gpt-5.5-xhigh",
-      "name": "gpt-5.5-xhigh",
-      "displayName": "gpt-5.5-xhigh",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": false,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
-      "id": "019c6918-1d2a-7e3f-88ec-ada000b6ab16",
-      "organization": "alibaba",
-      "provider": "alibaba",
-      "publicName": "qwen3.5-397b-a17b",
-      "name": "qwen3.5-397b-a17b",
-      "displayName": "qwen3.5-397b-a17b",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019db650-909d-7dec-8711-1907d7233cd4",
       "organization": "xiaomi",
       "provider": "xiaomiV1",
@@ -5783,7 +5690,8 @@
       "displayName": "mimo-v2.5-pro",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": false
         },
         "outputCapabilities": {
           "text": true,
@@ -6284,26 +6192,6 @@
       }
     },
     {
-      "id": "019cf983-532b-73fa-a057-7658e1e1c5ee",
-      "organization": "mistral",
-      "provider": "mistral",
-      "publicName": "mistral-small-2603",
-      "name": "mistral-small-2603",
-      "displayName": "mistral-small-2603",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
       "id": "019e9956-3b90-70aa-8fb5-8ab4cd1aa2c0",
       "publicName": "mymodel-v2-6-4wld",
       "displayName": "mymodel-v2-6-4wld",
@@ -6392,6 +6280,53 @@
       "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "019b5265-8405-799e-87af-199dc9f4ad4a",
+      "organization": "google",
+      "provider": "googleVertexGlobalWithThoughtSignatures",
+      "publicName": "gemini-3-flash (thinking-minimal)",
+      "name": "gemini-3-flash-thinking-minimal-fixed-20251224",
+      "displayName": "gemini-3-flash (thinking-minimal)",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "019c6918-1d2a-7e3f-88ec-ada000b6ab16",
+      "organization": "alibaba",
+      "provider": "alibaba",
+      "publicName": "qwen3.5-397b-a17b",
+      "name": "qwen3.5-397b-a17b",
+      "displayName": "qwen3.5-397b-a17b",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
       }
     },
     {
@@ -6536,27 +6471,6 @@
       }
     },
     {
-      "id": "0199e3d1-a308-77b9-a650-41453e8ef2fb",
-      "organization": "alibaba",
-      "provider": "alibaba",
-      "publicName": "qwen3-vl-8b-thinking",
-      "name": "qwen3-vl-8b-thinking",
-      "displayName": "qwen3-vl-8b-thinking",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
       "id": "019df3e8-18e8-761a-8eeb-6c9f7f8f8114",
       "publicName": "mekai",
       "displayName": "mekai",
@@ -6591,6 +6505,27 @@
       }
     },
     {
+      "id": "0199e3d1-a308-77b9-a650-41453e8ef2fb",
+      "organization": "alibaba",
+      "provider": "alibaba",
+      "publicName": "qwen3-vl-8b-thinking",
+      "name": "qwen3-vl-8b-thinking",
+      "displayName": "qwen3-vl-8b-thinking",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
       "id": "019ed692-9f19-7799-aafb-64096f12d6fd",
       "publicName": "fusion",
       "displayName": "fusion",
@@ -6611,12 +6546,53 @@
       }
     },
     {
-      "id": "019e6530-f140-77b1-b6b8-5c859829d992",
-      "organization": "alibaba",
-      "provider": "alibaba",
-      "publicName": "qwen3.7-max",
-      "name": "mizar-v2-85jb",
-      "displayName": "qwen3.7-max",
+      "id": "019e6833-facb-72cf-8702-4c481b7dd74e",
+      "publicName": "gemma-4-31b-it",
+      "displayName": "gemma-4-31b-it",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": true
+          },
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "019e94a8-6dfc-7a23-a3ae-eead29cdb0ee",
+      "publicName": "mimo-v2.5-pro",
+      "displayName": "mimo-v2.5-pro",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": false
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "019e04c9-ed3a-711d-b9e9-dee25ad7c177",
+      "publicName": "tetra-0507-1",
+      "displayName": "tetra-0507-1",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -6631,9 +6607,12 @@
       }
     },
     {
-      "id": "019e04c9-ed3a-711d-b9e9-dee25ad7c177",
-      "publicName": "tetra-0507-1",
-      "displayName": "tetra-0507-1",
+      "id": "019cf983-532b-73fa-a057-7658e1e1c5ee",
+      "organization": "mistral",
+      "provider": "mistral",
+      "publicName": "mistral-small-2603",
+      "name": "mistral-small-2603",
+      "displayName": "mistral-small-2603",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -6733,6 +6712,29 @@
       "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "019e6adc-8959-7d77-9936-05842b1c978a",
+      "organization": "mistral",
+      "provider": "mistral",
+      "publicName": "mistral-medium-3.5",
+      "name": "mistral-medium-3.5",
+      "displayName": "mistral-medium-3.5",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
       }
     },
     {
@@ -6846,24 +6848,23 @@
       }
     },
     {
-      "id": "019e222b-e8b3-7f0a-85db-daa010a64f3e",
-      "organization": "alibaba",
-      "provider": "alibaba",
-      "publicName": "may-alpha",
-      "name": "may-alpha-0k1k",
-      "displayName": "qwen3.7-plus-preview",
+      "id": "019dc0bb-d628-7eae-a09f-84cd023fe502",
+      "organization": "openai",
+      "provider": "openaiResponses",
+      "publicName": "gpt-5.5",
+      "name": "gpt-5.5",
+      "displayName": "gpt-5.5",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
-          "image": {
-            "requiresUpload": true
-          }
+          "image": true,
+          "file": true
         },
         "outputCapabilities": {
           "text": true
         }
       },
-      "userSelectable": true,
+      "userSelectable": false,
       "rankByModality": {
         "chat": 9007199254740991
       }
@@ -6881,6 +6882,28 @@
         }
       },
       "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "019dd034-4403-7578-a75c-54fb69d92ec6",
+      "organization": "openai",
+      "provider": "openaiResponses",
+      "publicName": "gpt-5.5-xhigh",
+      "name": "gpt-5.5-xhigh",
+      "displayName": "gpt-5.5-xhigh",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": false,
       "rankByModality": {
         "chat": 9007199254740991
       }
@@ -7079,7 +7102,8 @@
       "displayName": "v0-category-router-cost-saver-taxo",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "text": true
@@ -7133,7 +7157,8 @@
       "displayName": "v0-category-router-cost-saver",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "text": true
@@ -7150,7 +7175,8 @@
       "displayName": "v0-category-router-quality",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "text": true
@@ -7222,7 +7248,8 @@
       "displayName": "v0-trained-policy-router-quality",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "text": true
@@ -7348,7 +7375,8 @@
       "displayName": "v0-trained-policy-router-cost-saver",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "text": true
@@ -7573,7 +7601,8 @@
       "displayName": "gemini-3.1-pro-preview",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "web": true
@@ -7592,7 +7621,8 @@
       "displayName": "gemini-3.1-pro-preview",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "web": true
@@ -8371,6 +8401,26 @@
       }
     },
     {
+      "id": "019e36c3-691f-7ae8-b1eb-5db5435e29fe",
+      "organization": "alibaba",
+      "provider": "alibabaToolCall",
+      "publicName": "korin",
+      "name": "korin-6hkw",
+      "displayName": "qwen3.7-max-20260517",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "webdev": 9007199254740991
+      }
+    },
+    {
       "id": "019d7b56-f238-7bf1-b228-43fa9ea330e9",
       "publicName": "sphinx",
       "displayName": "sphinx",
@@ -8665,27 +8715,6 @@
       }
     },
     {
-      "id": "019cc0bb-af26-70d6-9271-ec771d778174",
-      "organization": "openai",
-      "provider": "openaiResponses",
-      "publicName": "gpt-5.4-high",
-      "name": "gpt-5.4-high-code-arena-harness",
-      "displayName": "gpt-5.4-high",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true
-        },
-        "outputCapabilities": {
-          "web": true
-        }
-      },
-      "userSelectable": false,
-      "rankByModality": {
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019c2258-b6d1-7a61-890f-5f3f11e7c3b1",
       "publicName": "badger",
       "displayName": "badger",
@@ -8723,26 +8752,6 @@
       "id": "019c4901-a133-75a6-bf06-0e6eba27b195",
       "publicName": "chipmunk",
       "displayName": "chipmunk",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "webdev": 9007199254740991
-      }
-    },
-    {
-      "id": "019dd7a4-f384-79f0-aa10-c91147438642",
-      "organization": "alibaba",
-      "provider": "alibabaToolCall",
-      "publicName": "qwen3.6-max-preview",
-      "name": "qwen3.6-max-preview-code",
-      "displayName": "qwen3.6-max-preview",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -8834,26 +8843,6 @@
       "id": "019eaa65-3cef-7fe1-b76c-f830a0aad155",
       "publicName": "glassy_lagoon",
       "displayName": "glassy_lagoon",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "webdev": 9007199254740991
-      }
-    },
-    {
-      "id": "019bec65-0700-7279-911b-34e6aab53ad6",
-      "organization": "openai",
-      "provider": "openaiResponses",
-      "publicName": "gpt-5.2",
-      "name": "gpt-5.2-code-20260122",
-      "displayName": "gpt-5.2",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -9018,12 +9007,33 @@
       }
     },
     {
-      "id": "019aeb38-cc3b-7421-a472-0bfaaeace035",
+      "id": "019cc0bb-af26-70d6-9271-ec771d778174",
       "organization": "openai",
       "provider": "openaiResponses",
-      "publicName": "gpt-5.1-codex-max",
-      "name": "gpt-5.1-codex-max",
-      "displayName": "gpt-5.1-codex-max",
+      "publicName": "gpt-5.4-high",
+      "name": "gpt-5.4-high-code-arena-harness",
+      "displayName": "gpt-5.4-high",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
+        },
+        "outputCapabilities": {
+          "web": true
+        }
+      },
+      "userSelectable": false,
+      "rankByModality": {
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "019dd7a4-f384-79f0-aa10-c91147438642",
+      "organization": "alibaba",
+      "provider": "alibabaToolCall",
+      "publicName": "qwen3.6-max-preview",
+      "name": "qwen3.6-max-preview-code",
+      "displayName": "qwen3.6-max-preview",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -9073,9 +9083,49 @@
       }
     },
     {
+      "id": "019aeb38-cc3b-7421-a472-0bfaaeace035",
+      "organization": "openai",
+      "provider": "openaiResponses",
+      "publicName": "gpt-5.1-codex-max",
+      "name": "gpt-5.1-codex-max",
+      "displayName": "gpt-5.1-codex-max",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "webdev": 9007199254740991
+      }
+    },
+    {
       "id": "019e8938-ba2b-7343-a9f2-38f736cf86fc",
       "publicName": "nemos_reef",
       "displayName": "nemos_reef",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "019bec65-0700-7279-911b-34e6aab53ad6",
+      "organization": "openai",
+      "provider": "openaiResponses",
+      "publicName": "gpt-5.2",
+      "name": "gpt-5.2-code-20260122",
+      "displayName": "gpt-5.2",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -9137,7 +9187,8 @@
       "displayName": "gemini-3.1-pro",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "web": true
@@ -9152,26 +9203,6 @@
       "id": "019f06ba-4a61-799a-b1cc-f049e8669ea4",
       "publicName": "glassy_lagoon",
       "displayName": "glassy_lagoon",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "webdev": 9007199254740991
-      }
-    },
-    {
-      "id": "019e36c3-691f-7ae8-b1eb-5db5435e29fe",
-      "organization": "alibaba",
-      "provider": "alibabaToolCall",
-      "publicName": "korin",
-      "name": "korin-6hkw",
-      "displayName": "qwen3.7-max-20260517",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -10915,6 +10946,34 @@
       }
     },
     {
+      "id": "019aeb62-c6ea-788e-88f9-19b1b48325b5",
+      "organization": "wan",
+      "provider": "alibaba",
+      "publicName": "wan2.5-i2i-preview",
+      "name": "wan2.5-i2i-preview",
+      "displayName": "wan2.5-i2i-preview",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": true,
+            "multipleImages": true
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
       "id": "32bff2df-00e6-409b-ad3f-bfbad87cc49f",
       "publicName": "hidream-e1.1",
       "displayName": "hidream-e1.1",
@@ -11181,34 +11240,6 @@
         }
       },
       "userSelectable": true,
-      "rankByModality": {
-        "image": 9007199254740991
-      }
-    },
-    {
-      "id": "019db344-75b0-7acd-aa20-bcc095ca0ed9",
-      "organization": "openai",
-      "provider": "customOpenai",
-      "publicName": "gpt-image-2 (medium)",
-      "name": "gpt-image-2-medium",
-      "displayName": "gpt-image-2 (medium)",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": false,
-            "multipleImages": true
-          }
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": false,
       "rankByModality": {
         "image": 9007199254740991
       }
@@ -12285,12 +12316,16 @@
       }
     },
     {
-      "id": "019dd579-7ee0-7ef9-9a01-2cc76f59b2a1",
-      "publicName": "flow-state-3",
-      "displayName": "flow-state-3",
+      "id": "019f145c-fd9c-7561-b646-3804d0878c6c",
+      "publicName": "ember_drift",
+      "displayName": "ember_drift",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": true
+          }
         },
         "outputCapabilities": {
           "image": {
@@ -12306,19 +12341,12 @@
       }
     },
     {
-      "id": "019aeb62-c6ea-788e-88f9-19b1b48325b5",
-      "organization": "wan",
-      "provider": "alibaba",
-      "publicName": "wan2.5-i2i-preview",
-      "name": "wan2.5-i2i-preview",
-      "displayName": "wan2.5-i2i-preview",
+      "id": "019dd579-7ee0-7ef9-9a01-2cc76f59b2a1",
+      "publicName": "flow-state-3",
+      "displayName": "flow-state-3",
       "capabilities": {
         "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": true,
-            "multipleImages": true
-          }
+          "text": true
         },
         "outputCapabilities": {
           "image": {
@@ -12428,6 +12456,34 @@
         }
       },
       "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
+      "id": "019db344-75b0-7acd-aa20-bcc095ca0ed9",
+      "organization": "openai",
+      "provider": "customOpenai",
+      "publicName": "gpt-image-2 (medium)",
+      "name": "gpt-image-2-medium",
+      "displayName": "gpt-image-2 (medium)",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": true
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": false,
       "rankByModality": {
         "image": 9007199254740991
       }
@@ -14535,27 +14591,6 @@
       }
     },
     {
-      "id": "019bbe1a-96bb-7e35-aa57-c7b68a20d787",
-      "organization": "google",
-      "provider": "googleVertex",
-      "publicName": "veo-3.1-fast-audio-4k",
-      "name": "veo-3.1-fast-audio-4k",
-      "displayName": "veo-3.1-fast-audio-4k",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true
-        },
-        "outputCapabilities": {
-          "video": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "video": 9007199254740991
-      }
-    },
-    {
       "id": "019c05a7-15e7-7305-adc2-0d5939fd6799",
       "organization": "shengshu",
       "provider": "shengshu",
@@ -14606,49 +14641,6 @@
       "capabilities": {
         "inputCapabilities": {
           "text": true
-        },
-        "outputCapabilities": {
-          "video": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "video": 9007199254740991
-      }
-    },
-    {
-      "id": "019cb266-4908-701c-9bea-a97757b5569f",
-      "organization": "pixverse",
-      "provider": "fal",
-      "publicName": "pixverse-v5.6",
-      "name": "pixverse-v5.6-text-to-video",
-      "displayName": "pixverse-v5.6",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "video": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "video": 9007199254740991
-      }
-    },
-    {
-      "id": "019c78d9-ffe4-7a3a-913f-9570e3927788",
-      "organization": "kling",
-      "provider": "fal",
-      "publicName": "kling-o3-pro",
-      "name": "kling-o3-pro-video-to-video",
-      "displayName": "kling-o3-pro",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "video": {
-            "required": true
-          }
         },
         "outputCapabilities": {
           "video": true
@@ -14716,6 +14708,27 @@
           "image": {
             "requiresUpload": true
           }
+        },
+        "outputCapabilities": {
+          "video": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "video": 9007199254740991
+      }
+    },
+    {
+      "id": "019bbe1a-96bb-7e35-aa57-c7b68a20d787",
+      "organization": "google",
+      "provider": "googleVertex",
+      "publicName": "veo-3.1-fast-audio-4k",
+      "name": "veo-3.1-fast-audio-4k",
+      "displayName": "veo-3.1-fast-audio-4k",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "video": true
@@ -14804,56 +14817,32 @@
       }
     },
     {
-      "id": "019bbe19-2e09-772e-abaa-5fa9189935e0",
-      "organization": "google",
-      "provider": "googleVertex",
-      "publicName": "veo-3.1-audio-4k",
-      "name": "veo-3.1-audio-4k",
-      "displayName": "veo-3.1-audio-4k",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true
-        },
-        "outputCapabilities": {
-          "video": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "video": 9007199254740991
-      }
-    },
-    {
-      "id": "019e1cd6-1907-7b7c-837c-33a5a3b33b95",
-      "organization": "wan",
-      "provider": "alibaba",
-      "publicName": "wan2.7-i2v",
-      "name": "wan2.7-i2v-2026-04-25-v2",
-      "displayName": "wan2.7-i2v",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": true
-          }
-        },
-        "outputCapabilities": {
-          "video": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "video": 9007199254740991
-      }
-    },
-    {
       "id": "019c59fa-6567-7c42-97af-f51b52ce47d5",
       "organization": "kling",
       "provider": "fal",
       "publicName": "kling-v3",
       "name": "kling-v3-text-to-video",
       "displayName": "kling-v3",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "video": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "video": 9007199254740991
+      }
+    },
+    {
+      "id": "019cb266-4908-701c-9bea-a97757b5569f",
+      "organization": "pixverse",
+      "provider": "fal",
+      "publicName": "pixverse-v5.6",
+      "name": "pixverse-v5.6-text-to-video",
+      "displayName": "pixverse-v5.6",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -14903,6 +14892,73 @@
           "image": {
             "requiresUpload": true
           }
+        },
+        "outputCapabilities": {
+          "video": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "video": 9007199254740991
+      }
+    },
+    {
+      "id": "019e1cd6-1907-7b7c-837c-33a5a3b33b95",
+      "organization": "wan",
+      "provider": "alibaba",
+      "publicName": "wan2.7-i2v",
+      "name": "wan2.7-i2v-2026-04-25-v2",
+      "displayName": "wan2.7-i2v",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": true
+          }
+        },
+        "outputCapabilities": {
+          "video": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "video": 9007199254740991
+      }
+    },
+    {
+      "id": "019c78d9-ffe4-7a3a-913f-9570e3927788",
+      "organization": "kling",
+      "provider": "fal",
+      "publicName": "kling-o3-pro",
+      "name": "kling-o3-pro-video-to-video",
+      "displayName": "kling-o3-pro",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "video": {
+            "required": true
+          }
+        },
+        "outputCapabilities": {
+          "video": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "video": 9007199254740991
+      }
+    },
+    {
+      "id": "019bbe19-2e09-772e-abaa-5fa9189935e0",
+      "organization": "google",
+      "provider": "googleVertex",
+      "publicName": "veo-3.1-audio-4k",
+      "name": "veo-3.1-audio-4k",
+      "displayName": "veo-3.1-audio-4k",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "video": true
@@ -15092,5 +15148,5 @@
       }
     }
   ],
-  "lastCheck": 1782728383774
+  "lastCheck": 1782775971934
 }
