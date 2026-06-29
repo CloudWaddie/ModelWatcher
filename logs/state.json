@@ -13619,8 +13619,8 @@
             "context_length": 196608,
             "max_tokens": 196608,
             "pricing": {
-              "input_tokens": 0.45,
-              "output_tokens": 2.1
+              "input_tokens": 0.4,
+              "output_tokens": 2
             },
             "tags": [
               "chat",
@@ -14577,28 +14577,6 @@
           }
         },
         {
-          "id": "Qwen/Qwen3-Embedding-0.6B-batch",
-          "name": "Qwen/Qwen3-Embedding-0.6B-batch",
-          "owned_by": "deepinfra",
-          "root": "Qwen/Qwen3-Embedding-0.6B-batch",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks. Building upon the dense foundational models of the Qwen3 series, it provides a comprehensive range of text embeddings and reranking models in various sizes (0.6B, 4B, and 8B).",
-            "context_length": 32768,
-            "max_tokens": 32768,
-            "pricing": {
-              "input_tokens": 0.005
-            },
-            "tags": [
-              "embed"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
           "id": "Qwen/Qwen3-Embedding-4B",
           "name": "Qwen/Qwen3-Embedding-4B",
           "owned_by": "deepinfra",
@@ -14621,28 +14599,6 @@
           }
         },
         {
-          "id": "Qwen/Qwen3-Embedding-4B-batch",
-          "name": "Qwen/Qwen3-Embedding-4B-batch",
-          "owned_by": "deepinfra",
-          "root": "Qwen/Qwen3-Embedding-4B-batch",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks. Building upon the dense foundational models of the Qwen3 series, it provides a comprehensive range of text embeddings and reranking models in various sizes (0.6B, 4B, and 8B).",
-            "context_length": 32768,
-            "max_tokens": 32768,
-            "pricing": {
-              "input_tokens": 0.01
-            },
-            "tags": [
-              "embed"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
           "id": "Qwen/Qwen3-Embedding-8B",
           "name": "Qwen/Qwen3-Embedding-8B",
           "owned_by": "deepinfra",
@@ -14655,28 +14611,6 @@
             "max_tokens": 32768,
             "pricing": {
               "input_tokens": 0.01
-            },
-            "tags": [
-              "embed"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-Embedding-8B-batch",
-          "name": "Qwen/Qwen3-Embedding-8B-batch",
-          "owned_by": "deepinfra",
-          "root": "Qwen/Qwen3-Embedding-8B-batch",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks. Building upon the dense foundational models of the Qwen3 series, it provides a comprehensive range of text embeddings and reranking models in various sizes (0.6B, 4B, and 8B).",
-            "context_length": 32768,
-            "max_tokens": 32768,
-            "pricing": {
-              "input_tokens": 0.04
             },
             "tags": [
               "embed"
@@ -44492,13 +44426,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000095",
+            "prompt": "0.00000094",
             "completion": "0.000003",
             "input_cache_read": "0.00000018"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 32768,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
