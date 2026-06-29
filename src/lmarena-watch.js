@@ -1,10 +1,22 @@
 import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
-import { sendDiscordWebhook, createLMArenaEmbed } from './webhook.js';
+import { sendDiscordWebhook, createLMArenaEmbed, capabilityEmoji } from './webhook.js';
 
 const STATE_FILE = 'logs/lmarena-state.json';
 const WEBHOOK_URL = process.env.LMARENA_WEBHOOK;
+
+// Static field configuration for model diffing
+const DIFF_FIELDS = [
+  { key: 'rank', label: 'rank' },
+  { key: 'userSelectable', label: 'selectable' },
+  { key: 'displayName', label: 'name' },
+  { key: 'publicName', label: 'publicName' },
+  { key: 'organization', label: 'organization' },
+  { key: 'provider', label: 'provider' },
+  { key: 'rankByModality', label: 'rankByModality' },
+  { key: 'capabilities', label: 'capabilities' }
+];
 
 function loadState() {
   try {
@@ -39,10 +51,25 @@ function normalizeModel(m) {
   };
 }
 
+/**
+ * Deep equality check for any two values
+ * Handles arrays, objects, and primitives correctly
+ */
 function areEqual(a, b) {
   if (a === b) return true;
   if (typeof a !== typeof b) return false;
   if (Array.isArray(a) !== Array.isArray(b)) return false;
+  
+  // Fast path for arrays
+  if (Array.isArray(a)) {
+    if (a.length !== b.length) return false;
+    for (let i = 0; i < a.length; i++) {
+      if (!areEqual(a[i], b[i])) return false;
+    }
+    return true;
+  }
+  
+  // Object comparison
   if (a && b && typeof a === 'object') {
     const keysA = Object.keys(a).sort();
     const keysB = Object.keys(b).sort();
@@ -53,28 +80,78 @@ function areEqual(a, b) {
     }
     return true;
   }
+  
   return false;
 }
 
-function capabilityEmoji(cap) {
-  const parts = [];
-  if (!cap) return '';
-  const inp = cap.inputCapabilities || {};
-  const out = cap.outputCapabilities || {};
-  if (inp.text) parts.push('📝');
-  if (inp.image) parts.push('🖼️');
-  if (inp.file) parts.push('📎');
-  if (out.text) parts.push('💬');
-  if (out.web) parts.push('🌐');
-  if (out.image) parts.push('🎨');
-  if (out.search) parts.push('🔍');
-  return parts.length ? parts.join(' ') : '(none)';
+/**
+ * Get nested property path changes for deep diffs
+ * Returns array of {path, oldVal, newVal} for changed nested properties
+ */
+function getNestedChanges(oldVal, newVal, prefix = '') {
+  const changes = [];
+  if (typeof oldVal !== 'object' || typeof newVal !== 'object' || !oldVal || !newVal) {
+    return changes;
+  }
+  
+  const allKeys = new Set([...Object.keys(oldVal || {}), ...Object.keys(newVal || {})]);
+  for (const key of allKeys) {
+    const path = prefix ? `${prefix}.${key}` : key;
+    const oldNested = oldVal?.[key];
+    const newNested = newVal?.[key];
+    
+    if (!areEqual(oldNested, newNested)) {
+      if (typeof oldNested === 'object' && typeof newNested === 'object' && oldNested && newNested) {
+        changes.push(...getNestedChanges(oldNested, newNested, path));
+      } else {
+        changes.push({ path, oldVal: oldNested, newVal: newNested });
+      }
+    }
+  }
+  return changes;
 }
 
+/**
+ * Format a value for display in diffs
+ * Strings are quoted, capabilities use emojis, objects are JSONified
+ */
 function formatVal(v, key) {
-  if (key === 'capabilities') return capabilityEmoji(v);
-  if (typeof v === 'object' && v !== null) return JSON.stringify(v);
+  if (key === 'capabilities') {
+    return capabilityEmoji(v);
+  }
+  if (typeof v === 'string') {
+    return `"${v}"`;
+  }
+  if (typeof v === 'object' && v !== null) {
+    return JSON.stringify(v);
+  }
   return String(v ?? '?');
+}
+
+/**
+ * Generate a diff message for a single field change
+ * For capabilities, also show nested changes if structure changes
+ */
+function generateFieldDiff(field, oldVal, newVal) {
+  const oldEmoji = formatVal(oldVal, field.key);
+  const newEmoji = formatVal(newVal, field.key);
+  let message = `${field.label}: ${oldEmoji} → ${newEmoji}`;
+  
+  // For capabilities, if the structure changed deeply, append nested details
+  if (field.key === 'capabilities' && typeof oldVal === 'object' && typeof newVal === 'object') {
+    const nestedChanges = getNestedChanges(oldVal, newVal, 'capabilities');
+    if (nestedChanges.length > 0 && oldEmoji === newEmoji) {
+      // If emojis are the same but structure changed, add structural details
+      const details = nestedChanges.map(c => {
+        const oldStr = formatVal(c.oldVal, 'value');
+        const newStr = formatVal(c.newVal, 'value');
+        return `${c.path}: ${oldStr} → ${newStr}`;
+      }).join(' | ');
+      message += ` (${details})`;
+    }
+  }
+  
+  return message;
 }
 
 function diffModels(oldModels, newModels) {
@@ -92,20 +169,9 @@ function diffModels(oldModels, newModels) {
       const old = oldMap.get(key);
       const changes = [];
       
-      const fields = [
-        { key: 'rank', label: 'rank' },
-        { key: 'userSelectable', label: 'selectable' },
-        { key: 'displayName', label: 'name' },
-        { key: 'publicName', label: 'publicName' },
-        { key: 'organization', label: 'organization' },
-        { key: 'provider', label: 'provider' },
-        { key: 'rankByModality', label: 'rankByModality' },
-        { key: 'capabilities', label: 'capabilities' }
-      ];
-
-      for (const field of fields) {
+      for (const field of DIFF_FIELDS) {
         if (!areEqual(old[field.key], m[field.key])) {
-          changes.push(`${field.label}: ${formatVal(old[field.key], field.key)} → ${formatVal(m[field.key], field.key)}`);
+          changes.push(generateFieldDiff(field, old[field.key], m[field.key]));
         }
       }
 
