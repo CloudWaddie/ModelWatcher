@@ -65,7 +65,7 @@ App version webhooks and which apps to monitor are configured in `app-version-co
 #### USPTO Trademark Monitoring (Optional)
 | Variable | Purpose | Notes |
 |----------|---------|-------|
-| `WEBSHARE_PROXY` (or custom) | Proxy URL for USPTO scraping | Optional - used if Cloudflare blocks direct access. Format: `http://user:pass@host:port` |
+| `WEBSHARE_PROXY_URL` (or custom) | Proxy URL for USPTO scraping | Optional - used if Cloudflare blocks direct access. Format: `http://user:pass@host:port` |
 
 Trademark webhook URLs and company slugs to monitor are configured in `uspto-config.json` (not env vars).
 
@@ -127,12 +127,12 @@ Edit to customize which OpenAI-compatible endpoints to scan:
 ```json
 {
   "apps": [
-    { "id": "com.openai.chat", "platform": "android" },
+    { "id": "com.openai.chatgpt", "platform": "android" },
     { "id": "548979808", "platform": "ios" }
   ],
   "webhooks": {
     "app": {
-      "webhookEnv": "APP_WEBHOOK"
+      "webhookEnv": "APP_WATCHER_WEBHOOK"
     }
   },
   "state": {
@@ -153,7 +153,7 @@ Edit to customize which OpenAI-compatible endpoints to scan:
   },
   "proxy": {
     "enabled": false,
-    "urlEnv": "WEBSHARE_PROXY"
+    "urlEnv": "WEBSHARE_PROXY_URL"
   },
   "state": {
     "file": "logs/uspto-state.json"
