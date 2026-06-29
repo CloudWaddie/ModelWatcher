@@ -685,6 +685,239 @@ export function createAppVersionEmbed(appInfo) {
  * @param {string} diffText - Raw diff text
  * @returns {Object} - Discord embed payload
  */
+// Organization color map for LM Arena
+const ORG_COLORS = {
+  openai: 0x10a37f,
+  anthropic: 0xd97757,
+  google: 0x4285f4,
+  xai: 0x1c1c1c,
+  meta: 0x0668e1,
+  mistral: 0xff7000,
+  cohere: 0xd18ee2,
+  deepseek: 0x4d6bfa,
+  alibaba: 0xff6a00,
+  baidu: 0x2932e1,
+  microsoft: 0x00a4ef,
+  amazon: 0xff9900,
+  default: 0x6366f1,
+};
+
+function getOrgColor(org) {
+  return ORG_COLORS[(org || '').toLowerCase()] || ORG_COLORS.default;
+}
+
+function capabilityEmoji(cap) {
+  const parts = [];
+  if (!cap) return '';
+  const inp = cap.inputCapabilities || {};
+  const out = cap.outputCapabilities || {};
+  if (inp.text) parts.push('📝');
+  if (inp.image) parts.push('🖼️');
+  if (inp.file) parts.push('📎');
+  if (out.text) parts.push('💬');
+  if (out.web) parts.push('🌐');
+  if (out.image) parts.push('🎨');
+  if (out.search) parts.push('🔍');
+  return parts.join(' ');
+}
+
+function modelLine(m) {
+  const rank = m.rank ? `#${m.rank}` : 'unranked';
+  const org = m.organization || 'unknown';
+  const caps = capabilityEmoji(m.capabilities);
+  const selectable = m.userSelectable ? '✅' : '🔒';
+  return `**${m.displayName || m.publicName || m.name}** \`${rank}\` | ${org} ${caps} ${selectable}`;
+}
+
+export function createLMArenaEmbed(diff, totalModels) {
+  const embeds = [];
+
+  // Summary embed
+  const summaryEmbed = {
+    color: 0x8b5cf6,
+    title: '🏆 LM Arena Model Changes Detected',
+    description: `Total models tracked: **${totalModels}**`,
+    fields: [],
+    timestamp: new Date().toISOString(),
+    footer: {
+      text: 'LM Arena Watcher',
+      icon_url: LOGO_URL,
+    },
+  };
+
+  if (diff.added.length > 0) {
+    summaryEmbed.fields.push({
+      name: `🆕 New Models (${diff.added.length})`,
+      value: diff.added.length > 10
+        ? `${diff.added.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${diff.added.length - 10} more`
+        : diff.added.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
+      inline: true,
+    });
+  }
+
+  if (diff.removed.length > 0) {
+    summaryEmbed.fields.push({
+      name: `🗑️ Removed Models (${diff.removed.length})`,
+      value: diff.removed.length > 10
+        ? `${diff.removed.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${diff.removed.length - 10} more`
+        : diff.removed.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
+      inline: true,
+    });
+  }
+
+  if (diff.changed.length > 0) {
+    summaryEmbed.fields.push({
+      name: `🔄 Updated Models (${diff.changed.length})`,
+      value: diff.changed.length > 10
+        ? `${diff.changed.slice(0, 10).map(c => `• ${c.model.displayName || c.model.publicName}`).join('\n')}\n...and ${diff.changed.length - 10} more`
+        : diff.changed.map(c => `• ${c.model.displayName || c.model.publicName}`).join('\n'),
+      inline: true,
+    });
+  }
+
+  embeds.push(summaryEmbed);
+
+  // Detail embeds for new models (group by org, max ~5 per embed)
+  if (diff.added.length > 0) {
+    const byOrg = {};
+    for (const m of diff.added) {
+      const org = m.organization || 'Unknown';
+      if (!byOrg[org]) byOrg[org] = [];
+      byOrg[org].push(m);
+    }
+
+    for (const [org, models] of Object.entries(byOrg)) {
+      const lines = models.map(modelLine);
+      // Split into chunks if needed (field value limit ~950)
+      let chunk = [];
+      let chunkLen = 0;
+      const chunks = [];
+      for (const line of lines) {
+        if (chunkLen + line.length > 900 && chunk.length > 0) {
+          chunks.push(chunk.join('\n'));
+          chunk = [line];
+          chunkLen = line.length;
+        } else {
+          chunk.push(line);
+          chunkLen += line.length + 1;
+        }
+      }
+      if (chunk.length) chunks.push(chunk.join('\n'));
+
+      for (let i = 0; i < chunks.length; i++) {
+        embeds.push({
+          color: getOrgColor(org),
+          title: i === 0 ? `🆕 New — ${org}` : `🆕 New — ${org} (cont.)`,
+          description: chunks[i],
+          timestamp: new Date().toISOString(),
+        });
+      }
+    }
+  }
+
+  // Detail embeds for removed models
+  if (diff.removed.length > 0) {
+    const byOrg = {};
+    for (const m of diff.removed) {
+      const org = m.organization || 'Unknown';
+      if (!byOrg[org]) byOrg[org] = [];
+      byOrg[org].push(m);
+    }
+
+    for (const [org, models] of Object.entries(byOrg)) {
+      const lines = models.map(m => `**${m.displayName || m.publicName || m.name}** \`${m.rank ? '#' + m.rank : 'unranked'}\``);
+      let chunk = [];
+      let chunkLen = 0;
+      const chunks = [];
+      for (const line of lines) {
+        if (chunkLen + line.length > 900 && chunk.length > 0) {
+          chunks.push(chunk.join('\n'));
+          chunk = [line];
+          chunkLen = line.length;
+        } else {
+          chunk.push(line);
+          chunkLen += line.length + 1;
+        }
+      }
+      if (chunk.length) chunks.push(chunk.join('\n'));
+
+      for (let i = 0; i < chunks.length; i++) {
+        embeds.push({
+          color: 0xef4444,
+          title: i === 0 ? `🗑️ Removed — ${org}` : `🗑️ Removed — ${org} (cont.)`,
+          description: chunks[i],
+          timestamp: new Date().toISOString(),
+        });
+      }
+    }
+  }
+
+  // Detail embeds for updated models
+  if (diff.changed.length > 0) {
+    const byOrg = {};
+    for (const c of diff.changed) {
+      const org = c.model.organization || 'Unknown';
+      if (!byOrg[org]) byOrg[org] = [];
+      byOrg[org].push(c);
+    }
+
+    for (const [org, changes] of Object.entries(byOrg)) {
+      const lines = changes.map(c => {
+        const m = c.model;
+        const changeStr = c.changes.join(', ');
+        return `**${m.displayName || m.publicName || m.name}**\n${changeStr}`;
+      });
+      let chunk = [];
+      let chunkLen = 0;
+      const chunks = [];
+      for (const line of lines) {
+        if (chunkLen + line.length > 900 && chunk.length > 0) {
+          chunks.push(chunk.join('\n'));
+          chunk = [line];
+          chunkLen = line.length;
+        } else {
+          chunk.push(line);
+          chunkLen += line.length + 1;
+        }
+      }
+      if (chunk.length) chunks.push(chunk.join('\n'));
+
+      for (let i = 0; i < chunks.length; i++) {
+        embeds.push({
+          color: 0xf59e0b,
+          title: i === 0 ? `🔄 Updated — ${org}` : `🔄 Updated — ${org} (cont.)`,
+          description: chunks[i],
+          timestamp: new Date().toISOString(),
+        });
+      }
+    }
+  }
+
+  // Discord limit: 10 embeds per message, 6000 total chars
+  // If we exceed, truncate with a note
+  const MAX_EMBEDS = 10;
+  if (embeds.length > MAX_EMBEDS) {
+    const kept = embeds.slice(0, MAX_EMBEDS - 1);
+    kept.push({
+      color: 0x6b7280,
+      title: '⏳ More changes...',
+      description: `${embeds.length - MAX_EMBEDS + 1} additional embed(s) omitted to fit Discord limits.`,
+      timestamp: new Date().toISOString(),
+    });
+    return {
+      username: 'LM Arena Watcher',
+      avatar_url: LOGO_URL,
+      embeds: kept,
+    };
+  }
+
+  return {
+    username: 'LM Arena Watcher',
+    avatar_url: LOGO_URL,
+    embeds,
+  };
+}
+
 export function createStringsDiffEmbed(appId, diffText) {
   const MAX_FIELD_VALUE = 950; // Under Discord's 1024 field value limit, accounting for ```diff\n and \n```
   const MAX_EMBEDS_PER_MESSAGE = 5; // Limit total embeds to stay under 6000 total chars

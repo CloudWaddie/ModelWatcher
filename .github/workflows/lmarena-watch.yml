@@ -1,0 +1,98 @@
+name: LM Arena Watcher
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Cache Camoufox browser
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/camoufox
+          key: ${{ runner.os }}-camoufox-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-camoufox-
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+          python -m camoufox fetch
+
+      - name: List tools
+        run: |
+          python -c "import camoufox; print('camoufox ok')"
+          ls -la ~/.cache/camoufox || true
+
+      - name: Ensure logs folder exists
+        run: mkdir -p logs
+
+      - name: Run LM Arena watcher
+        env:
+          LMARENA_WEBHOOK: ${{ secrets.LMARENA_WEBHOOK }}
+        run: npm run lmarena
+
+      - name: Commit results to master
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config --global user.name "ModelWatcher"
+          git config --global user.email "modelwatcher@github.com"
+
+          cp logs/lmarena-state.json /tmp/lmarena-state-new.json 2>/dev/null || true
+
+          git fetch origin master
+          git reset --hard origin/master
+
+          mkdir -p logs
+          if [ -f /tmp/lmarena-state-new.json ]; then
+            cp /tmp/lmarena-state-new.json logs/lmarena-state.json
+          fi
+
+          if [ -f logs/lmarena-state.json ]; then
+            ORIG_HASH=$(git show origin/master:logs/lmarena-state.json 2>/dev/null | sha256sum | cut -d' ' -f1 || echo "empty")
+            NEW_HASH=$(sha256sum logs/lmarena-state.json | cut -d' ' -f1)
+            if [ "$ORIG_HASH" = "$NEW_HASH" ] && [ "$ORIG_HASH" != "empty" ]; then
+              echo "No LM Arena changes detected - skipping commit"
+              exit 0
+            fi
+          fi
+
+          git add -f logs/lmarena-state.json || true
+          if ! git diff --quiet --staged; then
+            git commit -m "Update LM Arena state - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push origin master
+            echo "Updated LM Arena state on master branch"
+          else
+            echo "No changes to commit"
+          fi
