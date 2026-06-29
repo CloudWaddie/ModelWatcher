@@ -824,6 +824,17 @@ export function createLMArenaEmbed(diff, totalModels) {
     });
   }
 
+  // Possible reveals (stealth removed → new model with same caps)
+  if (diff.possibleReveals && diff.possibleReveals.length > 0) {
+    summaryEmbed.fields.push({
+      name: `🔎 Possible Reveals (${diff.possibleReveals.length})`,
+      value: diff.possibleReveals.slice(0, 10).map(pr =>
+        `• \`${pr.removed.displayName || pr.removed.publicName}\` → **${pr.added.displayName || pr.added.publicName}** (${pr.match})`
+      ).join('\n'),
+      inline: true,
+    });
+  }
+
   // Group-level changes (variant counts, new groups, removed groups)
   if (groupDiff) {
     if (groupDiff.newGroups.length > 0) {
@@ -1044,10 +1055,20 @@ export function createLMArenaEmbed(diff, totalModels) {
     for (const v of groupDiff.variantChanges) {
       const oldRanks = v.oldRanks.length ? `ranks ${v.oldRanks.join(',')}` : 'no ranks';
       const newRanks = v.newRanks.length ? `ranks ${v.newRanks.join(',')}` : 'no ranks';
+      let desc = `Variants: **${v.oldCount}** → **${v.newCount}**\nRanks: ${oldRanks} → ${newRanks}${v.newProviders.length ? `\nProviders: ${v.newProviders.join(', ')}` : ''}`;
+      // Append capability matrix if available
+      if (v.capMatrix && v.capMatrix.length > 0) {
+        desc += '\n\n**Capability matrix:**';
+        for (const cap of v.capMatrix) {
+          const pct = Math.round((cap.count / cap.total) * 100);
+          const bar = '█'.repeat(Math.round(pct / 10)) + '░'.repeat(10 - Math.round(pct / 10));
+          desc += `\n${cap.emoji} ${cap.label}: \`${bar}\` ${cap.count}/${cap.total}`;
+        }
+      }
       embeds.push({
         color: 0x8b5cf6,
         title: `🔀 ${v.displayName}: ${v.oldCount} → ${v.newCount} variants`,
-        description: `Variants: **${v.oldCount}** → **${v.newCount}**\nRanks: ${oldRanks} → ${newRanks}${v.newProviders.length ? `\nProviders: ${v.newProviders.join(', ')}` : ''}`,
+        description: desc,
         timestamp: new Date().toISOString(),
       });
     }
@@ -1065,24 +1086,23 @@ export function createLMArenaEmbed(diff, totalModels) {
     }
   }
 
-  // Discord limit: 10 embeds per message, 6000 total chars
-  // If we exceed, truncate with a note
-  const MAX_EMBEDS = 10;
-  if (embeds.length > MAX_EMBEDS) {
-    const kept = embeds.slice(0, MAX_EMBEDS - 1);
-    kept.push({
-      color: 0x6b7280,
-      title: '⏳ More changes...',
-      description: `${embeds.length - MAX_EMBEDS + 1} additional embed(s) omitted to fit Discord limits.`,
-      timestamp: new Date().toISOString(),
-    });
-    return {
-      username: 'LM Arena Watcher',
-      avatar_url: LOGO_URL,
-      embeds: kept,
-    };
+  // Detail embeds for possible reveals
+  if (diff.possibleReveals && diff.possibleReveals.length > 0) {
+    for (const pr of diff.possibleReveals) {
+      const rem = pr.removed;
+      const add = pr.added;
+      const remCaps = capabilityEmoji(rem.capabilities);
+      const addCaps = capabilityEmoji(add.capabilities);
+      embeds.push({
+        color: 0xf97316,
+        title: `🔎 ${rem.displayName || rem.publicName} → ${add.displayName || add.publicName}?`,
+        description: `**Removed:** \`${rem.displayName || rem.publicName}\` (stealth, no org)\n**Added:** **${add.displayName || add.publicName}**${add.organization ? ` (${add.organization})` : ''}\n**Match:** ${pr.match}\n**Capabilities:** ${remCaps} → ${addCaps}\n*(⚠️ not confirmed — same capabilities, different identity)*`,
+        timestamp: new Date().toISOString(),
+      });
+    }
   }
 
+  // No truncation — sendDiscordWebhook batches into multiple API calls
   return {
     username: 'LM Arena Watcher',
     avatar_url: LOGO_URL,

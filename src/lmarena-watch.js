@@ -242,6 +242,101 @@ function findRevealedModels(oldModels, newModels) {
 }
 
 /**
+ * Find POSSIBLE reveal matches — a stealth model (no org) was removed,
+ * and a new model appeared with similar capabilities.
+ * Returns array of { removed, added, matchScore }.
+ */
+function findPossibleReveals(oldModels, newModels) {
+  const oldMap = new Map(oldModels.map(m => [modelKey(m), m]));
+  const removedStealth = oldModels.filter(m => !oldMap.has(modelKey(m)) && !m.organization);
+  const addedModels = newModels.filter(m => !oldMap.has(modelKey(m)));
+
+  const possible = [];
+  for (const rem of removedStealth) {
+    for (const add of addedModels) {
+      if (areEqual(rem.capabilities, add.capabilities)) {
+        possible.push({
+          removed: normalizeModel(rem),
+          added: normalizeModel(add),
+          match: 'capabilities match exactly',
+          matchScore: 'high',
+        });
+      }
+    }
+  }
+
+  return possible;
+}
+
+/**
+ * Compute variant capability matrix for a group of models.
+ * Returns an array of { path, count, total, emoji, label } for display.
+ */
+function computeVariantCapMatrix(models) {
+  const counts = {};
+  const emojiMap = {
+    'inputCapabilities.text': '📝',
+    'inputCapabilities.image': '🖼️',
+    'inputCapabilities.file': '📎',
+    'inputCapabilities.video': '🎬',
+    'inputCapabilities.audio': '🎤',
+    'outputCapabilities.text': '💬',
+    'outputCapabilities.web': '🌐',
+    'outputCapabilities.image': '🎨',
+    'outputCapabilities.video': '📹',
+    'outputCapabilities.search': '🔍',
+  };
+  const labelMap = {
+    'inputCapabilities.text': 'text input',
+    'inputCapabilities.image': 'image input',
+    'inputCapabilities.file': 'file input',
+    'inputCapabilities.video': 'video input',
+    'inputCapabilities.audio': 'audio input',
+    'outputCapabilities.text': 'text output',
+    'outputCapabilities.web': 'web output',
+    'outputCapabilities.image': 'image output',
+    'outputCapabilities.video': 'video output',
+    'outputCapabilities.search': 'search output',
+  };
+
+  // Collect all possible capability paths
+  const allPaths = new Set();
+  for (const m of models) {
+    const keys = extractBoolKeys(m.capabilities);
+    keys.forEach(k => allPaths.add(k));
+  }
+
+  // Count how many variants have each capability
+  for (const path of allPaths) {
+    let count = 0;
+    const parts = path.split('.');
+    for (const m of models) {
+      let val = m.capabilities;
+      let found = true;
+      for (const p of parts) {
+        if (val && typeof val === 'object' && p in val) {
+          val = val[p];
+        } else {
+          found = false;
+          break;
+        }
+      }
+      if (found && val === true) count++;
+    }
+    counts[path] = {
+      count,
+      total: models.length,
+      emoji: emojiMap[path] || '🔹',
+      label: labelMap[path] || path,
+    };
+  }
+
+  return Object.entries(counts)
+    .sort((a, b) => b[1].count - a[1].count)
+    .map(([, v]) => v);
+}
+
+/**
  * Deep equality check for any two values
  * Handles arrays, objects, and primitives correctly
  */
@@ -383,7 +478,20 @@ function diffModels(oldModels, newModels) {
   // Find revealed models (gained organization)
   const revealed = findRevealedModels(oldModels, newModels);
 
-  return { added, removed, changed, groupDiff, revealed };
+  // Find POSSIBLE reveals (stealth removed + new model with same caps)
+  const possibleReveals = findPossibleReveals(oldModels, newModels);
+
+  // Attach capability matrix to variant changes
+  for (const vc of groupDiff.variantChanges) {
+    const groupName = vc.displayName;
+    // Fetch all new variants for this group to compute matrix
+    const newGroup = groupByDisplayName(newModels).get(groupName);
+    if (newGroup && newGroup.length > 1) {
+      vc.capMatrix = computeVariantCapMatrix(newGroup);
+    }
+  }
+
+  return { added, removed, changed, groupDiff, revealed, possibleReveals };
 }
 
 async function main() {
