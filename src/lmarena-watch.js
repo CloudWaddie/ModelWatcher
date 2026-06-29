@@ -55,7 +55,23 @@ function areEqual(a, b) {
   return false;
 }
 
-function formatVal(v) {
+function capabilityEmoji(cap) {
+  const parts = [];
+  if (!cap) return '';
+  const inp = cap.inputCapabilities || {};
+  const out = cap.outputCapabilities || {};
+  if (inp.text) parts.push('📝');
+  if (inp.image) parts.push('🖼️');
+  if (inp.file) parts.push('📎');
+  if (out.text) parts.push('💬');
+  if (out.web) parts.push('🌐');
+  if (out.image) parts.push('🎨');
+  if (out.search) parts.push('🔍');
+  return parts.length ? parts.join(' ') : '(none)';
+}
+
+function formatVal(v, key) {
+  if (key === 'capabilities') return capabilityEmoji(v);
   if (typeof v === 'object' && v !== null) return JSON.stringify(v);
   return String(v ?? '?');
 }
@@ -88,7 +104,7 @@ function diffModels(oldModels, newModels) {
 
       for (const field of fields) {
         if (!areEqual(old[field.key], m[field.key])) {
-          changes.push(`${field.label}: ${formatVal(old[field.key])} → ${formatVal(m[field.key])}`);
+          changes.push(`${field.label}: ${formatVal(old[field.key], field.key)} → ${formatVal(m[field.key], field.key)}`);
         }
       }
 
