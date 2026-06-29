@@ -39,6 +39,27 @@ function normalizeModel(m) {
   };
 }
 
+function areEqual(a, b) {
+  if (a === b) return true;
+  if (typeof a !== typeof b) return false;
+  if (a && b && typeof a === 'object') {
+    const keysA = Object.keys(a).sort();
+    const keysB = Object.keys(b).sort();
+    if (keysA.length !== keysB.length) return false;
+    for (let i = 0; i < keysA.length; i++) {
+      if (keysA[i] !== keysB[i]) return false;
+      if (!areEqual(a[keysA[i]], b[keysB[i]])) return false;
+    }
+    return true;
+  }
+  return false;
+}
+
+function formatVal(v) {
+  if (typeof v === 'object' && v !== null) return JSON.stringify(v);
+  return String(v ?? '?');
+}
+
 function diffModels(oldModels, newModels) {
   const oldMap = new Map(oldModels.map(m => [modelKey(m), m]));
   const newMap = new Map(newModels.map(m => [modelKey(m), normalizeModel(m)]));
@@ -53,10 +74,24 @@ function diffModels(oldModels, newModels) {
     } else {
       const old = oldMap.get(key);
       const changes = [];
-      if (old.rank !== m.rank) changes.push(`rank: ${old.rank ?? '?'} → ${m.rank ?? '?'}`);
-      if (old.userSelectable !== m.userSelectable) changes.push(`selectable: ${old.userSelectable} → ${m.userSelectable}`);
-      if (old.displayName !== m.displayName) changes.push(`name: "${old.displayName}" → "${m.displayName}"`);
-      if (old.publicName !== m.publicName) changes.push(`publicName: "${old.publicName}" → "${m.publicName}"`);
+      
+      const fields = [
+        { key: 'rank', label: 'rank' },
+        { key: 'userSelectable', label: 'selectable' },
+        { key: 'displayName', label: 'name' },
+        { key: 'publicName', label: 'publicName' },
+        { key: 'organization', label: 'organization' },
+        { key: 'provider', label: 'provider' },
+        { key: 'rankByModality', label: 'rankByModality' },
+        { key: 'capabilities', label: 'capabilities' }
+      ];
+
+      for (const field of fields) {
+        if (!areEqual(old[field.key], m[field.key])) {
+          changes.push(`${field.label}: ${formatVal(old[field.key])} → ${formatVal(m[field.key])}`);
+        }
+      }
+
       if (changes.length > 0) {
         changed.push({ model: m, changes });
       }
