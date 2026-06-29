@@ -72,7 +72,6 @@ async def scrape_models():
     try:
         async with AsyncCamoufox(headless=True, main_world_eval=True) as browser:
             page = await browser.new_page(no_viewport=True)
-            await page.set_viewport_size({"width": 1280, "height": 720})
             await page.goto("https://arena.ai/", wait_until="domcontentloaded", timeout=120000)
 
             # Wait for JS hydration and any Cloudflare challenge
