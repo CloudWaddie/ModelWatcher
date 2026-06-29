@@ -771,12 +771,23 @@ export function createLMArenaEmbed(diff, totalModels) {
     },
   };
 
-  if (diff.added.length > 0) {
+  const addedStealth = diff.added.filter(m => !m.organization);
+  const addedKnown = diff.added.filter(m => m.organization);
+  if (addedStealth.length > 0) {
     summaryEmbed.fields.push({
-      name: `🆕 New Models (${diff.added.length})`,
-      value: diff.added.length > 10
-        ? `${diff.added.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${diff.added.length - 10} more`
-        : diff.added.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
+      name: `🥷 New Stealth Models (${addedStealth.length})`,
+      value: addedStealth.length > 10
+        ? `${addedStealth.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${addedStealth.length - 10} more`
+        : addedStealth.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
+      inline: true,
+    });
+  }
+  if (addedKnown.length > 0) {
+    summaryEmbed.fields.push({
+      name: `🆕 New Models (${addedKnown.length})`,
+      value: addedKnown.length > 10
+        ? `${addedKnown.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${addedKnown.length - 10} more`
+        : addedKnown.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
       inline: true,
     });
   }
@@ -855,10 +866,40 @@ export function createLMArenaEmbed(diff, totalModels) {
 
   embeds.push(summaryEmbed);
 
-  // Detail embeds for new models (group by org, max ~5 per embed)
-  if (diff.added.length > 0) {
+  // Detail embeds for new stealth models (no organization — potential future reveals)
+  if (addedStealth.length > 0) {
+    const lines = addedStealth.map(m => {
+      const caps = capabilityEmoji(m.capabilities);
+      return `**${m.displayName || m.publicName || m.name}**${caps ? ' ' + caps : ''} \`${m.rank ? '#' + m.rank : 'unranked'}\``;
+    });
+    let chunk = [];
+    let chunkLen = 0;
+    const chunks = [];
+    for (const line of lines) {
+      if (chunkLen + line.length > 900 && chunk.length > 0) {
+        chunks.push(chunk.join('\n'));
+        chunk = [line];
+        chunkLen = line.length;
+      } else {
+        chunk.push(line);
+        chunkLen += line.length + 1;
+      }
+    }
+    if (chunk.length) chunks.push(chunk.join('\n'));
+    for (let i = 0; i < chunks.length; i++) {
+      embeds.push({
+        color: 0x6b7280,
+        title: i === 0 ? `🥷 New Stealth Models` : `🥷 New Stealth Models (cont.)`,
+        description: chunks[i],
+        timestamp: new Date().toISOString(),
+      });
+    }
+  }
+
+  // Detail embeds for new known models (group by org)
+  if (addedKnown.length > 0) {
     const byOrg = {};
-    for (const m of diff.added) {
+    for (const m of addedKnown) {
       const org = m.organization || 'Unknown';
       if (!byOrg[org]) byOrg[org] = [];
       byOrg[org].push(m);
