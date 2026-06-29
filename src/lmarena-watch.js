@@ -52,6 +52,196 @@ function normalizeModel(m) {
 }
 
 /**
+ * Group models by their display name (falls back to publicName, then name).
+ * Returns a Map<displayName, models[]>.
+ */
+function groupByDisplayName(models) {
+  const groups = new Map();
+  for (const m of models) {
+    const key = m.displayName || m.publicName || m.name || 'unknown';
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(m);
+  }
+  return groups;
+}
+
+/**
+ * Compute a variant group profile for a set of models sharing the same displayName.
+ * Returns { count, capabilitiesUnion, capabilitiesIntersection, providers, ranks, orgs }
+ */
+function computeGroupProfile(models) {
+  const capsUnion = {};
+  const capsIntersection = {};
+  const providers = new Set();
+  const ranks = new Set();
+  const orgs = new Set();
+
+  for (let i = 0; i < models.length; i++) {
+    const m = models[i];
+    if (m.provider) providers.add(m.provider);
+    if (m.rank != null) ranks.add(m.rank);
+    if (m.organization) orgs.add(m.organization);
+
+    const caps = m.capabilities;
+    if (i === 0) {
+      deepMerge(capsIntersection, caps, true);
+    } else {
+      deepIntersect(capsIntersection, caps);
+    }
+    deepMerge(capsUnion, caps, false);
+  }
+
+  return {
+    count: models.length,
+    capabilitiesUnion: capsUnion,
+    capabilitiesIntersection: capsIntersection,
+    providers: [...providers],
+    ranks: [...ranks].sort((a, b) => a - b),
+    orgs: [...orgs],
+  };
+}
+
+/**
+ * Deep merge src into target (object assignment, overriding).
+ */
+function deepMerge(target, src, isFirst) {
+  if (!src || typeof src !== 'object') return;
+  for (const [k, v] of Object.entries(src)) {
+    if (v && typeof v === 'object' && !Array.isArray(v)) {
+      if (!target[k] || typeof target[k] !== 'object') target[k] = {};
+      deepMerge(target[k], v, isFirst);
+    } else {
+      target[k] = v;
+    }
+  }
+}
+
+/**
+ * Deep intersect src into target — after call, target[k] is only truthy
+ * if it was truthy in both target and src for all variants.
+ */
+function deepIntersect(target, src) {
+  if (!src || typeof src !== 'object') return;
+  for (const [k, v] of Object.entries(target)) {
+    if (v && typeof v === 'object' && !Array.isArray(v)) {
+      if (src[k] && typeof src[k] === 'object') {
+        deepIntersect(v, src[k]);
+      } else {
+        target[k] = undefined;
+      }
+    } else if (v && !src[k]) {
+      target[k] = undefined;
+    }
+  }
+}
+
+/**
+ * Diff model group profiles between old and new model sets.
+ * Returns { variantChanges, convergence, newGroups, removedGroups }
+ */
+function diffModelGroups(oldModels, newModels) {
+  const oldGroups = groupByDisplayName(oldModels);
+  const newGroups = groupByDisplayName(newModels);
+
+  const results = {
+    variantChanges: [],
+    convergence: [],
+    newGroups: [],
+    removedGroups: [],
+  };
+
+  for (const [name, newVariants] of newGroups) {
+    const oldVariants = oldGroups.get(name);
+    if (!oldVariants) {
+      results.newGroups.push({ displayName: name, profile: computeGroupProfile(newVariants) });
+      continue;
+    }
+
+    const oldProfile = computeGroupProfile(oldVariants);
+    const newProfile = computeGroupProfile(newVariants);
+
+    // Detect variant count changes
+    if (oldProfile.count !== newProfile.count) {
+      results.variantChanges.push({
+        displayName: name,
+        oldCount: oldProfile.count,
+        newCount: newProfile.count,
+        oldRanks: oldProfile.ranks,
+        newRanks: newProfile.ranks,
+        oldProviders: oldProfile.providers,
+        newProviders: newProfile.providers,
+      });
+    }
+
+    // Detect capability convergence — intersection gained new capabilities
+    const oldKeys = extractBoolKeys(oldProfile.capabilitiesIntersection);
+    const newKeys = extractBoolKeys(newProfile.capabilitiesIntersection);
+    const gained = newKeys.filter(k => !oldKeys.includes(k));
+    if (gained.length > 0) {
+      results.convergence.push({
+        displayName: name,
+        variantCount: newProfile.count,
+        allNowHave: gained,
+      });
+    }
+  }
+
+  for (const [name, oldVariants] of oldGroups) {
+    if (!newGroups.has(name)) {
+      results.removedGroups.push({ displayName: name, profile: computeGroupProfile(oldVariants) });
+    }
+  }
+
+  return results;
+}
+
+/**
+ * Extract boolean-key paths from a nested capabilities object.
+ * e.g. { inputCapabilities: { text: true, image: true } } → ['inputCapabilities.text', 'inputCapabilities.image']
+ */
+function extractBoolKeys(obj, prefix = '') {
+  const keys = [];
+  if (!obj || typeof obj !== 'object') return keys;
+  for (const [k, v] of Object.entries(obj)) {
+    const path = prefix ? `${prefix}.${k}` : k;
+    if (v && typeof v === 'object' && !Array.isArray(v)) {
+      keys.push(...extractBoolKeys(v, path));
+    } else if (v === true) {
+      keys.push(path);
+    }
+  }
+  return keys;
+}
+
+/**
+ * Find models that were "revealed" — went from having no organization to having one.
+ * Returns array of { model, oldOrg, newOrg, oldName, newName, oldProvider, newProvider }.
+ */
+function findRevealedModels(oldModels, newModels) {
+  const oldMap = new Map(oldModels.map(m => [modelKey(m), m]));
+  const revealed = [];
+
+  for (const m of newModels) {
+    const old = oldMap.get(modelKey(m));
+    if (old && !old.organization && m.organization) {
+      revealed.push({
+        model: normalizeModel(m),
+        oldOrg: old.organization,
+        newOrg: m.organization,
+        oldName: old.publicName || old.displayName || old.name,
+        newName: m.publicName || m.displayName || m.name,
+        oldProvider: old.provider,
+        newProvider: m.provider,
+        oldSelectable: old.userSelectable,
+        newSelectable: m.userSelectable,
+      });
+    }
+  }
+
+  return revealed;
+}
+
+/**
  * Deep equality check for any two values
  * Handles arrays, objects, and primitives correctly
  */
@@ -187,7 +377,13 @@ function diffModels(oldModels, newModels) {
     }
   }
 
-  return { added, removed, changed };
+  // Compute grouped model diffs for variant tracking and convergence
+  const groupDiff = diffModelGroups(oldModels, newModels);
+
+  // Find revealed models (gained organization)
+  const revealed = findRevealedModels(oldModels, newModels);
+
+  return { added, removed, changed, groupDiff, revealed };
 }
 
 async function main() {

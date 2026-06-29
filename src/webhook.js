@@ -707,6 +707,25 @@ function getOrgColor(org) {
 }
 
 /**
+ * Format a capability path like "inputCapabilities.image" into a readable label like "image input".
+ */
+function formatCapPath(path) {
+  const map = {
+    'inputCapabilities.text': 'text input',
+    'inputCapabilities.image': 'image input',
+    'inputCapabilities.file': 'file input',
+    'inputCapabilities.video': 'video input',
+    'inputCapabilities.audio': 'audio input',
+    'outputCapabilities.text': 'text output',
+    'outputCapabilities.web': 'web output',
+    'outputCapabilities.image': 'image output',
+    'outputCapabilities.video': 'video output',
+    'outputCapabilities.search': 'search output',
+  };
+  return map[path] || path.replace(/Capabilities\./g, ' ').replace(/\./g, ' ');
+}
+
+/**
  * Extract capability emojis from a capabilities object
  * Handles both flat boolean structure and nested object structure
  * @param {Object} cap - Capabilities object with inputCapabilities and outputCapabilities
@@ -737,6 +756,7 @@ function modelLine(m) {
 
 export function createLMArenaEmbed(diff, totalModels) {
   const embeds = [];
+  const { groupDiff } = diff || {};
 
   // Summary embed
   const summaryEmbed = {
@@ -779,6 +799,58 @@ export function createLMArenaEmbed(diff, totalModels) {
         : diff.changed.map(c => `• ${c.model.displayName || c.model.publicName}`).join('\n'),
       inline: true,
     });
+  }
+
+  // Revealed models (gained organization)
+  if (diff.revealed && diff.revealed.length > 0) {
+    summaryEmbed.fields.push({
+      name: `🕵️ Revealed Models (${diff.revealed.length})`,
+      value: diff.revealed.slice(0, 10).map(r => {
+        const nameChange = r.oldName !== r.newName ? ` \`${r.oldName}\`` : '';
+        return `•${nameChange} → **${r.newName}** (${r.newOrg})`;
+      }).join('\n'),
+      inline: true,
+    });
+  }
+
+  // Group-level changes (variant counts, new groups, removed groups)
+  if (groupDiff) {
+    if (groupDiff.newGroups.length > 0) {
+      summaryEmbed.fields.push({
+        name: `📦 New Model Groups (${groupDiff.newGroups.length})`,
+        value: groupDiff.newGroups.slice(0, 10).map(g =>
+          `• ${g.displayName} (${g.profile.count} variant${g.profile.count > 1 ? 's' : ''})`
+        ).join('\n'),
+        inline: true,
+      });
+    }
+    if (groupDiff.removedGroups.length > 0) {
+      summaryEmbed.fields.push({
+        name: `📭 Removed Groups (${groupDiff.removedGroups.length})`,
+        value: groupDiff.removedGroups.slice(0, 10).map(g =>
+          `• ${g.displayName} (${g.profile.count} variant${g.profile.count > 1 ? 's' : ''})`
+        ).join('\n'),
+        inline: true,
+      });
+    }
+    if (groupDiff.variantChanges.length > 0) {
+      summaryEmbed.fields.push({
+        name: `🔀 Variant Changes (${groupDiff.variantChanges.length})`,
+        value: groupDiff.variantChanges.slice(0, 10).map(v =>
+          `• ${v.displayName}: ${v.oldCount} → ${v.newCount} variants`
+        ).join('\n'),
+        inline: true,
+      });
+    }
+    if (groupDiff.convergence.length > 0) {
+      summaryEmbed.fields.push({
+        name: `🎯 Capability Convergence (${groupDiff.convergence.length})`,
+        value: groupDiff.convergence.slice(0, 10).map(c =>
+          `• ${c.displayName}: **${c.allNowHave.map(formatCapPath).join(', ')}** now across all ${c.variantCount} variants`
+        ).join('\n'),
+        inline: true,
+      });
+    }
   }
 
   embeds.push(summaryEmbed);
@@ -896,6 +968,59 @@ export function createLMArenaEmbed(diff, totalModels) {
           timestamp: new Date().toISOString(),
         });
       }
+    }
+  }
+
+  // Detail embeds for revealed models
+  if (diff.revealed && diff.revealed.length > 0) {
+    for (const r of diff.revealed) {
+      const details = [];
+      details.push(`🆔 \`${r.model.id}\``);
+      if (r.oldName !== r.newName) {
+        details.push(`📛 Codename: \`${r.oldName}\` → **${r.newName}**`);
+      }
+      details.push(`🏢 Organization: **(none)** → **${r.newOrg}**`);
+      if (r.newProvider && r.oldProvider !== r.newProvider) {
+        details.push(`⚙️ Provider: ${r.oldProvider || '(none)'} → **${r.newProvider}**`);
+      }
+      if (r.oldSelectable !== r.newSelectable) {
+        details.push(`🔓 Selectable: ${r.oldSelectable ? '✅' : '🔒'} → ${r.newSelectable ? '✅' : '🔒'}`);
+      }
+      const caps = capabilityEmoji(r.model.capabilities);
+      if (caps) details.push(`🎯 Capabilities: ${caps}`);
+
+      embeds.push({
+        color: 0xf59e0b,
+        title: `🕵️ ${r.oldName} → ${r.newName} by ${r.newOrg}`,
+        description: details.join('\n'),
+        timestamp: new Date().toISOString(),
+      });
+    }
+  }
+
+  // Detail embeds for variant count changes
+  if (groupDiff && groupDiff.variantChanges.length > 0) {
+    for (const v of groupDiff.variantChanges) {
+      const oldRanks = v.oldRanks.length ? `ranks ${v.oldRanks.join(',')}` : 'no ranks';
+      const newRanks = v.newRanks.length ? `ranks ${v.newRanks.join(',')}` : 'no ranks';
+      embeds.push({
+        color: 0x8b5cf6,
+        title: `🔀 ${v.displayName}: ${v.oldCount} → ${v.newCount} variants`,
+        description: `Variants: **${v.oldCount}** → **${v.newCount}**\nRanks: ${oldRanks} → ${newRanks}${v.newProviders.length ? `\nProviders: ${v.newProviders.join(', ')}` : ''}`,
+        timestamp: new Date().toISOString(),
+      });
+    }
+  }
+
+  // Detail embeds for capability convergence
+  if (groupDiff && groupDiff.convergence.length > 0) {
+    for (const c of groupDiff.convergence) {
+      embeds.push({
+        color: 0x10b981,
+        title: `🎯 ${c.displayName} — Converged`,
+        description: `**${c.allNowHave.map(formatCapPath).join(', ')}** is now available across all **${c.variantCount}** variants.`,
+        timestamp: new Date().toISOString(),
+      });
     }
   }
 
