@@ -706,7 +706,13 @@ function getOrgColor(org) {
   return ORG_COLORS[(org || '').toLowerCase()] || ORG_COLORS.default;
 }
 
-function capabilityEmoji(cap) {
+/**
+ * Extract capability emojis from a capabilities object
+ * Handles both flat boolean structure and nested object structure
+ * @param {Object} cap - Capabilities object with inputCapabilities and outputCapabilities
+ * @returns {string} - Space-separated emoji string
+ */
+export function capabilityEmoji(cap) {
   const parts = [];
   if (!cap) return '';
   const inp = cap.inputCapabilities || {};
