@@ -1,39 +1,6 @@
 {
   "models": [
     {
-      "id": "019b24bb-5caf-71c3-b854-37d0c7086f21",
-      "organization": "boss-bandit",
-      "provider": "boss-bandit",
-      "publicName": "Max",
-      "name": "boss-bandit",
-      "displayName": "Max",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "multipleImages": true
-          }
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true,
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          },
-          "search": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991,
-        "image": 9007199254740991,
-        "search": 9007199254740991
-      }
-    },
-    {
       "id": "019c2f86-74db-7cc3-baa5-6891bebb5999",
       "organization": "anthropic",
       "provider": "googleVertexAnthropicAdaptive",
@@ -342,7 +309,7 @@
         }
       },
       "userSelectable": true,
-      "rank": 14,
+      "rank": 1,
       "rankByModality": {
         "chat": 9007199254740991
       }
@@ -15051,6 +15018,26 @@
       "userSelectable": true,
       "rankByModality": {
         "video": 9007199254740991
+      }
+    },
+    {
+      "id": "fake-0000-0000-0000-000000000001",
+      "publicName": "gpt-7-xenon",
+      "displayName": "gpt-7-xenon",
+      "organization": "openai",
+      "userSelectable": true,
+      "rank": 999,
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "rankByModality": {
+        "chat": 999
       }
     }
   ],
