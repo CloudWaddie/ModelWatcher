@@ -686,7 +686,8 @@ export function createAppVersionEmbed(appInfo) {
  * @returns {Object} - Discord embed payload
  */
 export function createStringsDiffEmbed(appId, diffText) {
-  const maxChunkLength = 900; // Leave room for ```diff\n and \n```
+  const MAX_FIELD_VALUE = 950; // Under Discord's 1024 field value limit, accounting for ```diff\n and \n```
+  const MAX_EMBEDS_PER_MESSAGE = 5; // Limit total embeds to stay under 6000 total chars
 
   // Escape triple backticks to prevent breaking code blocks
   const safeDiff = diffText.replace(/```/g, '`\u200b`\u200b`');
@@ -698,7 +699,7 @@ export function createStringsDiffEmbed(appId, diffText) {
 
   for (const line of lines) {
     // +1 accounts for the newline character
-    if (currentLength + line.length + 1 > maxChunkLength && currentChunk.length > 0) {
+    if (currentLength + line.length + 1 > MAX_FIELD_VALUE && currentChunk.length > 0) {
       chunks.push(currentChunk.join('\n'));
       currentChunk = [line];
       currentLength = line.length;
@@ -712,18 +713,27 @@ export function createStringsDiffEmbed(appId, diffText) {
     chunks.push(currentChunk.join('\n'));
   }
 
+  // If we have too many chunks, truncate and add a note
+  const wasTruncated = chunks.length > MAX_EMBEDS_PER_MESSAGE;
+  const displayChunks = chunks.slice(0, MAX_EMBEDS_PER_MESSAGE);
   const totalChunks = chunks.length;
+
   const embeds = [];
 
-  for (let i = 0; i < chunks.length; i++) {
+  for (let i = 0; i < displayChunks.length; i++) {
     const isFirst = i === 0;
-    const isLast = i === totalChunks - 1;
+    const isLast = i === displayChunks.length - 1;
+
+    let value = '```diff\n' + displayChunks[i] + '\n```';
+    if (isLast && wasTruncated) {
+      value += `\n*(diff truncated: ${totalChunks - MAX_EMBEDS_PER_MESSAGE} more chunks)*`;
+    }
 
     const embed = {
       color: 0x3B82F6,
       fields: [{
         name: totalChunks > 1 ? `Diff (${i + 1}/${totalChunks})` : 'Diff',
-        value: '```diff\n' + chunks[i] + '\n```'
+        value
       }],
       timestamp: new Date().toISOString()
     };
