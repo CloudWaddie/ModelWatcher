@@ -1,10 +1,133 @@
 import axios from 'axios';
 
-// Use GitHub raw URL for logo
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 
 const MAX_EMBEDS_PER_MESSAGE = 10;
 const MAX_MODELS_PER_EMBED = 50;
+
+/**
+ * Deep clones an object to ensure immutability and avoid side effects.
+ * @param {Object} obj - Object to clone
+ * @returns {Object} - Cloned object
+ */
+function safeClone(obj) {
+  if (obj === null || typeof obj !== 'object') return obj;
+  return JSON.parse(JSON.stringify(obj));
+}
+
+/**
+ * Truncates a string to a safe limit for Discord fields.
+ * @param {string} str - String to truncate
+ * @param {number} limit - Character limit
+ * @returns {string} - Truncated string
+ */
+function safeTruncate(str, limit = 247) {
+  if (!str) return str;
+  return str.length > limit ? str.substring(0, limit - 3) + '...' : str;
+}
+
+/**
+ * Calculates the total character count of a single embed.
+ * Discord character count includes: title, description, footer text, author name,
+ * and all field names & values.
+ * @param {Object} embed - Discord embed
+ * @returns {number} - Total character count
+ */
+function getEmbedLength(embed) {
+  let length = 0;
+  if (embed.title) length += embed.title.length;
+  if (embed.description) length += embed.description.length;
+  if (embed.footer?.text) length += embed.footer.text.length;
+  if (embed.author?.name) length += embed.author.name.length;
+  if (embed.fields) {
+    for (const field of embed.fields) {
+      if (field.name) length += field.name.length;
+      if (field.value) length += field.value.length;
+    }
+  }
+  return length;
+}
+
+/**
+ * Splits a single large embed into multiple sequential embeds if it exceeds Discord limits.
+ * @param {Object} embed - Original Discord embed
+ * @returns {Array<Object>} - Array of safe embeds
+ */
+function splitEmbed(embed) {
+  const safeEmbed = safeClone(embed);
+  if (!safeEmbed.fields || safeEmbed.fields.length === 0) return [safeEmbed];
+
+  const result = [];
+  let currentEmbed = { ...safeEmbed, fields: [] };
+  const baseChars = (safeEmbed.title?.length || 0) + (safeEmbed.description?.length || 0) + (safeEmbed.footer?.text?.length || 0) + (safeEmbed.author?.name?.length || 0);
+  let currentChars = baseChars;
+
+  for (const field of safeEmbed.fields) {
+    const fieldName = safeTruncate(field.name, 247);
+    let fieldValue = String(field.value || '');
+    let fieldChars = fieldName.length + fieldValue.length;
+
+    if ((currentChars + fieldChars > 5500 || currentEmbed.fields.length >= 25) && currentEmbed.fields.length > 0) {
+      result.push(currentEmbed);
+      currentEmbed = { ...safeEmbed, fields: [] };
+      currentChars = baseChars;
+      fieldChars = fieldName.length + fieldValue.length;
+    }
+
+    if (currentChars + fieldChars > 5500) {
+      const avail = 5500 - currentChars - fieldName.length;
+      if (avail > 10) {
+        fieldValue = fieldValue.substring(0, avail - 3) + '...';
+      }
+      fieldChars = fieldName.length + fieldValue.length;
+    }
+
+    currentEmbed.fields.push({ name: fieldName, value: fieldValue, inline: field.inline });
+    currentChars += fieldChars;
+  }
+
+  if (currentEmbed.fields.length > 0) {
+    result.push(currentEmbed);
+  }
+
+  return result;
+}
+
+/**
+ * Chunks a list of embeds into multiple payloads to respect Discord's message limits.
+ * Each chunk must have:
+ * - At most 10 embeds.
+ * - At most 5500 total character count.
+ * @param {Array<Object>} embeds - All embeds to send
+ * @returns {Array<Array<Object>>} - Chunks of embeds
+ */
+function chunkPayload(embeds) {
+  const chunks = [];
+  let currentChunk = [];
+  let currentChunkChars = 0;
+
+  for (const embed of embeds) {
+    const embedLength = getEmbedLength(embed);
+
+    // If adding this embed would exceed limits, push the current chunk and start a new one
+    if (currentChunk.length >= MAX_EMBEDS_PER_MESSAGE || currentChunkChars + embedLength > 5500) {
+      if (currentChunk.length > 0) {
+        chunks.push(currentChunk);
+      }
+      currentChunk = [embed];
+      currentChunkChars = embedLength;
+    } else {
+      currentChunk.push(embed);
+      currentChunkChars += embedLength;
+    }
+  }
+
+  if (currentChunk.length > 0) {
+    chunks.push(currentChunk);
+  }
+
+  return chunks;
+}
 
 /**
  * Send a Discord webhook notification
@@ -19,51 +142,19 @@ export async function sendDiscordWebhook(webhookUrl, payload) {
   }
 
   try {
-    const embeds = payload.embeds || [];
-    const allEmbeds = [];
+    const rawEmbeds = payload.embeds || [];
+    const processedEmbeds = [];
 
-    // Split embeds that have too many models into multiple embeds
-    for (const embed of embeds) {
-      if (embed.fields && embed.fields.length > 0) {
-        // Count total models across all fields
-        let totalModels = 0;
-        for (const field of embed.fields) {
-          const lines = field.value.split('\n').filter(l => l.trim());
-          totalModels += lines.length;
-        }
-
-        if (totalModels > MAX_MODELS_PER_EMBED) {
-          // Split into multiple embeds
-          let currentEmbed = { ...embed, fields: [] };
-          let currentCount = 0;
-
-          for (const field of embed.fields) {
-            const fieldCount = field.value.split('\n').filter(l => l.trim()).length;
-
-            if (currentCount + fieldCount > MAX_MODELS_PER_EMBED && currentEmbed.fields.length > 0) {
-              allEmbeds.push(currentEmbed);
-              currentEmbed = { ...embed, fields: [] };
-              currentCount = 0;
-            }
-
-            currentEmbed.fields.push(field);
-            currentCount += fieldCount;
-          }
-
-          if (currentEmbed.fields.length > 0) {
-            allEmbeds.push(currentEmbed);
-          }
-        } else {
-          allEmbeds.push(embed);
-        }
-      } else {
-        allEmbeds.push(embed);
-      }
+    // Split large embeds and ensure field name limits
+    for (const embed of rawEmbeds) {
+      const splits = splitEmbed(embed);
+      processedEmbeds.push(...splits);
     }
 
-    // Send in chunks of MAX_EMBEDS_PER_MESSAGE
-    for (let i = 0; i < allEmbeds.length; i += MAX_EMBEDS_PER_MESSAGE) {
-      const chunk = allEmbeds.slice(i, i + MAX_EMBEDS_PER_MESSAGE);
+    // Chunk embeds into multiple messages
+    const embedChunks = chunkPayload(processedEmbeds);
+
+    for (const chunk of embedChunks) {
       const chunkPayload = {
         username: payload.username,
         avatar_url: payload.avatar_url,
@@ -597,11 +688,17 @@ export async function sendRawDiffWebhook(webhookUrl, payload) {
   }
 
   try {
-    const embeds = payload.embeds || [];
+    const rawEmbeds = payload.embeds || [];
+    const processedEmbeds = [];
 
-    // Send in chunks of MAX_EMBEDS_PER_MESSAGE
-    for (let i = 0; i < embeds.length; i += MAX_EMBEDS_PER_MESSAGE) {
-      const chunk = embeds.slice(i, i + MAX_EMBEDS_PER_MESSAGE);
+    for (const embed of rawEmbeds) {
+      const splits = splitEmbed(embed);
+      processedEmbeds.push(...splits);
+    }
+
+    const embedChunks = chunkPayload(processedEmbeds);
+
+    for (const chunk of embedChunks) {
       const chunkPayload = {
         username: payload.username,
         avatar_url: payload.avatar_url,
@@ -716,7 +813,7 @@ export function createAppVersionEmbed(appInfo) {
       ],
       timestamp: new Date().toISOString(),
       footer: {
-        text: `App Version Watcher \u2022 ${appInfo.platform.toUpperCase()}`,
+        text: `App Version Watcher • ${appInfo.platform.toUpperCase()}`,
         icon_url: LOGO_URL
       }
     }]
@@ -1068,7 +1165,7 @@ export function createLMArenaEmbed(diff, totalModels) {
     }
   }
 
-  // Detail embeds for revealed models
+  // Revealed models (gained organization)
   if (diff.revealed && diff.revealed.length > 0) {
     for (const r of diff.revealed) {
       const details = [];
