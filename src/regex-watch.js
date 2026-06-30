@@ -225,13 +225,13 @@ function createMatchesPayload(pageName, url, patternResults) {
       
       chunks.forEach((chunk, i) => {
         fields.push({
-          name: \`Pattern: \${patternId} (part \${i+1})\`,
+          name: \`Pattern: \${patternId.substring(0, 247)} (part \${i+1})\`,
           value: i === 0 ? \`**Count:** \${result.count}\n**Unique:** \${result.uniqueCount}\n\n\${chunk}\` : chunk
         });
       });
     } else {
       fields.push({
-        name: \`Pattern: \${patternId}\`,
+        name: \`Pattern: \${patternId.substring(0, 247)}\`,
         value: \`**Count:** \${result.count}\n**Unique:** \${result.uniqueCount}\n\n\${stringsValue}\`
       });
     }
