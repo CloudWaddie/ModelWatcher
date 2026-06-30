@@ -2,8 +2,8 @@ name: App Version Watcher
 
 on:
   schedule:
-    # Run daily at midnight UTC
-    - cron: '0 0 * * *'
+    # Run every hour
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 permissions:
