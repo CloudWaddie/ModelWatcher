@@ -7,6 +7,86 @@ const MAX_EMBEDS_PER_MESSAGE = 10;
 const MAX_MODELS_PER_EMBED = 50;
 
 /**
+ * Truncate a string safely to a specific length
+ * @param {string} str - String to truncate
+ * @param {number} maxLen - Maximum length
+ * @returns {string} - Truncated string
+ */
+export function truncate(str, maxLen) {
+  if (!str) return '';
+  if (str.length <= maxLen) return str;
+  return str.substring(0, maxLen - 3) + '...';
+}
+
+/**
+ * Hard-truncate the entire embed payload or individual fields so it doesn't exceed Discord limits.
+ * Discord limits:
+ * - Field name: 256 chars
+ * - Field value: 1024 chars
+ * - Description: 4096 chars
+ * - Title: 256 chars
+ * - Footer: 2048 chars
+ * - Total characters across all embeds in one message: 6000
+ */
+export function safeEmbed(payload) {
+  if (!payload || !payload.embeds) return payload;
+
+  let totalChars = 0;
+  const MAX_TOTAL_CHARS = 6000;
+
+  payload.embeds = payload.embeds.map(embed => {
+    // Title
+    if (embed.title) {
+      embed.title = truncate(embed.title, 256);
+      totalChars += embed.title.length;
+    }
+    // Description
+    if (embed.description) {
+      embed.description = truncate(embed.description, 4000);
+      totalChars += embed.description.length;
+    }
+    // Footer
+    if (embed.footer && embed.footer.text) {
+      embed.footer.text = truncate(embed.footer.text, 2048);
+      totalChars += embed.footer.text.length;
+    }
+    // Author
+    if (embed.author && embed.author.name) {
+      embed.author.name = truncate(embed.author.name, 256);
+      totalChars += embed.author.name.length;
+    }
+    // Fields
+    if (embed.fields) {
+      embed.fields = embed.fields.map(field => {
+        field.name = truncate(field.name, 256);
+        field.value = truncate(field.value, 1024);
+        totalChars += field.name.length + field.value.length;
+        return field;
+      });
+    }
+
+    return embed;
+  });
+
+  // If we're still over the total limit, we need to start removing or trimming description/fields
+  if (totalChars > MAX_TOTAL_CHARS) {
+    // Very basic strategy: if over 6000, truncate the first embed's description significantly
+    // or just hard truncate the whole structure stringified if we were desperate,
+    // but better to just cut fields/description.
+    for (const embed of payload.embeds) {
+      if (totalChars <= MAX_TOTAL_CHARS) break;
+      if (embed.description) {
+        const oldLen = embed.description.length;
+        embed.description = truncate(embed.description, Math.max(100, embed.description.length - (totalChars - MAX_TOTAL_CHARS)));
+        totalChars -= (oldLen - embed.description.length);
+      }
+    }
+  }
+
+  return payload;
+}
+
+/**
  * Send a Discord webhook notification
  * @param {string} webhookUrl - Discord webhook URL
  * @param {Object} payload - Embed payload
@@ -64,11 +144,11 @@ export async function sendDiscordWebhook(webhookUrl, payload) {
     // Send in chunks of MAX_EMBEDS_PER_MESSAGE
     for (let i = 0; i < allEmbeds.length; i += MAX_EMBEDS_PER_MESSAGE) {
       const chunk = allEmbeds.slice(i, i + MAX_EMBEDS_PER_MESSAGE);
-      const chunkPayload = {
+      const chunkPayload = safeEmbed({
         username: payload.username,
         avatar_url: payload.avatar_url,
         embeds: chunk
-      };
+      });
       await axios.post(webhookUrl, chunkPayload, {
         headers: { 'Content-Type': 'application/json' }
       });
@@ -284,10 +364,7 @@ export function createUpdatedModelsEmbed(endpointName, updates, commitSha = null
     }).join('\n');
     
     // Truncate if too long (Discord max field value is 1024)
-    let truncatedList = changeList;
-    if (changeList.length > 1000) {
-      truncatedList = changeList.substring(0, 997) + '...';
-    }
+    const truncatedList = truncate(changeList, 1000);
     
     const label = updates.length > maxPerField 
       ? `Updated Models (${i + 1}-${Math.min(i + maxPerField, updates.length)})`
@@ -333,7 +410,7 @@ export function createErrorEmbed(endpointName, error) {
       fields: [
         {
           name: 'Error Details',
-          value: `\`\`\`\n${error.substring(0, 500)}\n\`\`\``
+          value: `\`\`\`\n${truncate(error, 500)}\n\`\`\``
         }
       ],
       timestamp: new Date().toISOString(),
@@ -387,7 +464,7 @@ export function createSummaryEmbed(summary, results, commitSha = null) {
     ? `${baseUrl}/commit/${commitSha}`
     : `${baseUrl}/commits/master/logs/state.json`;
 
-  return {
+  return safeEmbed({
     username: 'Model Watcher',
     avatar_url: LOGO_URL,
     embeds: [{
@@ -408,7 +485,7 @@ export function createSummaryEmbed(summary, results, commitSha = null) {
         icon_url: LOGO_URL
       }
     }]
-  };
+  });
 }
 
 /**
@@ -425,7 +502,7 @@ export function createCompactSummaryEmbed(results) {
     return `${emoji} ${r.endpoint}: ${count}`;
   }).join('\n');
 
-  return {
+  return safeEmbed({
     username: 'Model Watcher',
     avatar_url: LOGO_URL,
     embeds: [{
@@ -435,7 +512,7 @@ export function createCompactSummaryEmbed(results) {
       fields: [
         {
           name: `Status (${successCount}/${results.length} online)`,
-          value: endpointStatus.substring(0, 1024)
+          value: truncate(endpointStatus, 1024)
         }
       ],
       timestamp: new Date().toISOString(),
@@ -444,7 +521,7 @@ export function createCompactSummaryEmbed(results) {
         icon_url: LOGO_URL
       }
     }]
-  };
+  });
 }
 
 /**
@@ -602,11 +679,11 @@ export async function sendRawDiffWebhook(webhookUrl, payload) {
     // Send in chunks of MAX_EMBEDS_PER_MESSAGE
     for (let i = 0; i < embeds.length; i += MAX_EMBEDS_PER_MESSAGE) {
       const chunk = embeds.slice(i, i + MAX_EMBEDS_PER_MESSAGE);
-      const chunkPayload = {
+      const chunkPayload = safeEmbed({
         username: payload.username,
         avatar_url: payload.avatar_url,
         embeds: chunk
-      };
+      });
       await axios.post(webhookUrl, chunkPayload, {
         headers: { 'Content-Type': 'application/json' }
       });
@@ -682,13 +759,13 @@ export function createAppVersionEmbed(appInfo) {
   const description = htmlToMarkdown(rawDescription);
   const releaseNotes = htmlToMarkdown(rawReleaseNotes);
 
-  return {
+  return safeEmbed({
     username: 'App Version Watcher',
     avatar_url: LOGO_URL,
     embeds: [{
       title: `${platformEmoji} ${appInfo.title} — v${appInfo.version}`,
       url: appInfo.url,
-      description: description.length > 300 ? description.substring(0, 297) + '...' : description,
+      description: truncate(description, 300),
       color,
       thumbnail: {
         url: appInfo.icon
@@ -696,16 +773,16 @@ export function createAppVersionEmbed(appInfo) {
       fields: [
         {
           name: '📝 Release Notes',
-          value: releaseNotes.substring(0, 1024) || '(none)'
+          value: truncate(releaseNotes, 1000) || '(none)'
         },
         {
           name: '🏢 Developer',
-          value: appInfo.developer || 'Unknown',
+          value: truncate(appInfo.developer || 'Unknown', 100),
           inline: true
         },
         {
           name: '📦 App ID',
-          value: `\`${appInfo.appId}\``,
+          value: `\`${truncate(appInfo.appId, 100)}\``,
           inline: true
         },
         {
@@ -720,7 +797,7 @@ export function createAppVersionEmbed(appInfo) {
         icon_url: LOGO_URL
       }
     }]
-  };
+  });
 }
 
 /**
@@ -1147,12 +1224,12 @@ export function createLMArenaEmbed(diff, totalModels) {
     }
   }
 
-  // No truncation — sendDiscordWebhook batches into multiple API calls
-  return {
+  // Hard-truncate the entire payload to 6000
+  return safeEmbed({
     username: 'LM Arena Watcher',
     avatar_url: LOGO_URL,
     embeds,
-  };
+  });
 }
 
 export function createStringsDiffEmbed(appId, diffText) {
@@ -1223,9 +1300,9 @@ export function createStringsDiffEmbed(appId, diffText) {
     embeds.push(embed);
   }
 
-  return {
+  return safeEmbed({
     username: 'Android Strings Watcher',
     avatar_url: LOGO_URL,
     embeds
-  };
+  });
 }
