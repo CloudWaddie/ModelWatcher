@@ -161,7 +161,7 @@ function buildNotification(diff, total) {
     }
   }
 
-  components.push({ type: 10, content: `Data: [AWS Bedrock Docs](https://docs.aws.amazon.com/bedrock/latest/userguide/models-endpoint-availability.html)` });
+
 
   return {
     username: 'Bedrock Watcher',
