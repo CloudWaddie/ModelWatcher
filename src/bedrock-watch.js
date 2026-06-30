@@ -5,6 +5,11 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 
+function saveState(path, state) {
+  mkdirSync(dirname(path), { recursive: true });
+  writeFileSync(path, JSON.stringify(state, null, 2));
+}
+
 async function fetchMarkdown(url, timeout) {
   const res = await fetch(url, { signal: AbortSignal.timeout(timeout) });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -24,7 +29,7 @@ function parseModels(md) {
     }
 
     const modelMatch = line.match(/^\|\s+([^|]+)\s+\|\s+([^|]+)\s+\|\s+([^|]+)\s+\|$/);
-    if (modelMatch && !line.includes('Model Name')) {
+    if (modelMatch && !line.toLowerCase().includes('model name')) {
       models.push({
         name: modelMatch[1].trim(),
         runtime: modelMatch[2].includes('✅'),
@@ -137,8 +142,15 @@ function buildNotification(diff, total) {
 
 async function main() {
   const config = JSON.parse(readFileSync(join(__dirname, '../bedrock-config.json'), 'utf8'));
-  const statePath = join(__dirname, '../logs/bedrock-state.json');
-  const prevState = existsSync(statePath) ? JSON.parse(readFileSync(statePath, 'utf8')) : { models: [] };
+  const statePath = join(__dirname, '..', config.state.file);
+  let prevState = { models: [] };
+  if (existsSync(statePath)) {
+    try {
+      prevState = JSON.parse(readFileSync(statePath, 'utf8'));
+    } catch (e) {
+      console.error('Failed to parse state file, starting fresh:', e.message);
+    }
+  }
   const webhookUrl = process.env[config.webhook.webhookEnv];
 
   console.log('Fetching model availability page...');

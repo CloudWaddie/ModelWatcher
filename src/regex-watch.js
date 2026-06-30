@@ -93,12 +93,14 @@ function saveState(statePath, state) {
   const stateToSave = {};
   for (const url in state) {
     stateToSave[url] = { patterns: {} };
-    for (const patternId in state[url].patterns) {
-      const patternResult = state[url].patterns[patternId];
-      stateToSave[url].patterns[patternId] = {
-        ...patternResult,
-        matchedStrings: Array.from(patternResult.matchedStrings || [])
-      };
+    if (state[url]?.patterns) {
+      for (const patternId in state[url].patterns) {
+        const patternResult = state[url].patterns[patternId];
+        stateToSave[url].patterns[patternId] = {
+          ...patternResult,
+          matchedStrings: Array.from(patternResult.matchedStrings || [])
+        };
+      }
     }
   }
   

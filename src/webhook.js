@@ -22,8 +22,8 @@ function safeClone(obj) {
  * @returns {string} - Truncated string
  */
 function safeTruncate(str, limit = 247) {
-  if (!str) return str;
-  return str.length > limit ? str.substring(0, limit - 3) + '...' : str;
+  const s = String(str || '');
+  return s.length > limit ? s.substring(0, limit - 3) + '...' : s;
 }
 
 /**
@@ -76,9 +76,8 @@ function splitEmbed(embed) {
 
     if (currentChars + fieldChars > 5500) {
       const avail = 5500 - currentChars - fieldName.length;
-      if (avail > 10) {
-        fieldValue = fieldValue.substring(0, avail - 3) + '...';
-      }
+      const limit = Math.max(3, avail);
+      fieldValue = fieldValue.substring(0, limit - 3) + '...';
       fieldChars = fieldName.length + fieldValue.length;
     }
 
