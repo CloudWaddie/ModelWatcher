@@ -102,73 +102,55 @@ function diffModels(oldModels, newModels) {
 
 function endpointEmoji(val) { return val ? '✅' : '❌'; }
 
-function buildNotification(diff, total) {
-  const components = [];
-  const lines = [];
-
-  lines.push('# 🏔️ AWS Bedrock — Model Changes');
-  lines.push(`Total tracked: **${total}**`);
-
-  components.push({ type: 10, content: lines.join('\n') });
-
-  if (diff.added.length > 0) {
-    components.push({ type: 14 });
-    components.push({ type: 10, content: `## 🆕 New Models (${diff.added.length})` });
-    const byProv = {};
-    for (const m of diff.added) {
-      if (!byProv[m.provider]) byProv[m.provider] = [];
-      byProv[m.provider].push(m);
-    }
-    for (const [prov, ms] of Object.entries(byProv)) {
-      const entries = ms.map(m =>
-        `${m.name} — ${endpointEmoji(m.runtime)} runtime · ${endpointEmoji(m.mantle)} mantle`
-      ).join('\n');
-      components.push({ type: 10, content: `**${prov}**\n${entries}` });
-    }
-  }
-
-  if (diff.removed.length > 0) {
-    components.push({ type: 14 });
-    components.push({ type: 10, content: `## 🗑️ Removed Models (${diff.removed.length})` });
-    const byProv = {};
-    for (const m of diff.removed) {
-      if (!byProv[m.provider]) byProv[m.provider] = [];
-      byProv[m.provider].push(m);
-    }
-    for (const [prov, ms] of Object.entries(byProv)) {
-      components.push({ type: 10, content: `**${prov}**\n${ms.map(m => m.name).join('\n')}` });
-    }
-  }
-
-  if (diff.changed.length > 0) {
-    components.push({ type: 14 });
-    components.push({ type: 10, content: `## 🔄 Endpoint Changes (${diff.changed.length})` });
-    const byProv = {};
-    for (const c of diff.changed) {
-      if (!byProv[c.model.provider]) byProv[c.model.provider] = [];
-      byProv[c.model.provider].push(c);
-    }
-    for (const [prov, cs] of Object.entries(byProv)) {
-      const entries = cs.map(c => {
-        const m = c.model;
-        const o = c.old;
-        const parts = [];
-        if (o.runtime !== m.runtime) parts.push(`runtime: ${endpointEmoji(o.runtime)} → ${endpointEmoji(m.runtime)}`);
-        if (o.mantle !== m.mantle) parts.push(`mantle: ${endpointEmoji(o.mantle)} → ${endpointEmoji(m.mantle)}`);
-        return `${m.name} — ${parts.join(', ')}`;
-      }).join('\n');
-      components.push({ type: 10, content: `**${prov}**\n${entries}` });
-    }
-  }
-
-
-
-  return {
+function buildNotifications(diff, total) {
+  const payloads = [];
+  const common = {
     username: 'Bedrock Watcher',
     avatar_url: LOGO_URL,
     flags: 32768,
-    components: [{ type: 17, components }],
   };
+
+  const header = `# 🏔️ AWS Bedrock — Model Changes\nTotal tracked: **${total}**`;
+  payloads.push({ ...common, components: [{ type: 17, components: [{ type: 10, content: header }] }] });
+
+  const DISCORD_LIMIT = 2000;
+
+  const processSection = (title, items, lineBuilder) => {
+    if (items.length === 0) return;
+    
+    payloads.push({ ...common, components: [{ type: 17, components: [{ type: 10, content: `## ${title} (${items.length})` }] }] });
+    
+    const byProv = {};
+    for (const item of items) {
+      const provider = item.provider || item.model.provider;
+      if (!byProv[provider]) byProv[provider] = [];
+      byProv[provider].push(item);
+    }
+
+    for (const [prov, ms] of Object.entries(byProv)) {
+      let currentContent = `**${prov}**\n`;
+      for (const m of ms) {
+        const line = lineBuilder(m);
+        if (currentContent.length + line.length > DISCORD_LIMIT - 50) {
+          payloads.push({ ...common, components: [{ type: 17, components: [{ type: 10, content: currentContent.trim() }] }] });
+          currentContent = `**${prov} (cont.)**\n`;
+        }
+        currentContent += line;
+      }
+      payloads.push({ ...common, components: [{ type: 17, components: [{ type: 10, content: currentContent.trim() }] }] });
+    }
+  };
+
+  processSection('🆕 New Models', diff.added, m => `${m.name} — ${endpointEmoji(m.runtime)} runtime · ${endpointEmoji(m.mantle)} mantle\n`);
+  processSection('🗑️ Removed Models', diff.removed, m => `${m.name}\n`);
+  processSection('🔄 Endpoint Changes', diff.changed, c => {
+    const parts = [];
+    if (c.old.runtime !== c.model.runtime) parts.push(`runtime: ${endpointEmoji(c.old.runtime)} → ${endpointEmoji(c.model.runtime)}`);
+    if (c.old.mantle !== c.model.mantle) parts.push(`mantle: ${endpointEmoji(c.old.mantle)} → ${endpointEmoji(c.model.mantle)}`);
+    return `${c.model.name} — ${parts.join(', ')}\n`;
+  });
+
+  return payloads;
 }
 
 async function main() {
@@ -181,38 +163,32 @@ async function main() {
   console.log('Fetching model availability page...');
   const md = await fetchMarkdown(config.scan.url, config.scan.timeout);
   const models = parseModels(md);
-  console.log(`Parsed ${models.length} models from ${new Set(models.map(m => m.provider)).size} providers`);
 
   const diff = diffModels(prevState.models, models);
   const hasChanges = diff.added.length > 0 || diff.removed.length > 0 || diff.changed.length > 0;
 
   if (!hasChanges && prevState.models.length > 0) {
-    console.log('No changes detected');
     saveState(statePath, { models, timestamp: Date.now() });
     return;
   }
 
   if (prevState.models.length === 0) {
-    console.log('First run — saving baseline');
     saveState(statePath, { models, timestamp: Date.now() });
     return;
   }
 
-  console.log(`Changes: +${diff.added.length} new, -${diff.removed.length} removed, ~${diff.changed.length} updated`);
-
   if (webhookUrl) {
-    const payload = buildNotification(diff, models.length);
-    const res = await fetch(webhookUrl + '?with_components=true', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    if (res.ok) console.log('Discord notification sent');
-    else console.error('Discord send failed:', res.status, await res.text());
+    const payloads = buildNotifications(diff, models.length);
+    for (const payload of payloads) {
+      await fetch(webhookUrl + '?with_components=true', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+    }
   }
 
   saveState(statePath, { models, timestamp: Date.now() });
-  console.log(`=== Bedrock scan complete: ${models.length} models ===`);
 }
 
 main().catch(err => {
