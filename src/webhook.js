@@ -621,6 +621,53 @@ export async function sendRawDiffWebhook(webhookUrl, payload) {
 }
 
 /**
+ * Convert simple HTML to Discord-compatible markdown
+ */
+function htmlToMarkdown(html) {
+  if (!html) return html;
+  return html
+    // Line breaks
+    .replace(/<br\s*\/?>\n?/gi, '\n')
+    .replace(/<\/p>\s*/gi, '\n\n')
+    .replace(/<p>\s*/gi, '')
+    // Lists
+    .replace(/<ul>\n?/gi, '')
+    .replace(/<\/ul>\n?/gi, '')
+    .replace(/<ol>\n?/gi, '')
+    .replace(/<\/ol>\n?/gi, '')
+    .replace(/<li>\n?/gi, '• ')
+    .replace(/<\/li>\n?/gi, '\n')
+    // Inline formatting
+    .replace(/<strong>/gi, '**')
+    .replace(/<\/strong>/gi, '**')
+    .replace(/<b>/gi, '**')
+    .replace(/<\/b>/gi, '**')
+    .replace(/<i>/gi, '*')
+    .replace(/<\/i>/gi, '*')
+    .replace(/<em>/gi, '*')
+    .replace(/<\/em>/gi, '*')
+    .replace(/<code>/gi, '`')
+    .replace(/<\/code>/gi, '`')
+    // Links
+    .replace(/<a\s+[^>]*href="([^"]*)"[^>]*>/gi, '[$1]($1)')
+    .replace(/<\/a>/gi, '')
+    // Strip remaining tags
+    .replace(/<[^>]*>/g, '')
+    // HTML entities
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    // Collapse multiple newlines to max 2
+    .replace(/\n{3,}/g, '\n\n')
+    // Trim each line
+    .split('\n').map(l => l.trim()).join('\n')
+    .trim();
+}
+
+/**
  * Create a nice Discord embed for a new app version
  * @param {Object} appInfo - App version info
  * @returns {Object} - Discord embed payload
@@ -629,13 +676,11 @@ export function createAppVersionEmbed(appInfo) {
   const platformEmoji = appInfo.platform === 'android' ? '🤖' : '🍎';
   const color = appInfo.platform === 'android' ? 0x3DDC84 : 0x5FC9F8;
 
-  const description = appInfo.description
-    ? (appInfo.description.length > 300 ? appInfo.description.substring(0, 297) + '...' : appInfo.description)
-    : 'No description available.';
+  const rawDescription = appInfo.description || 'No description available.';
+  const rawReleaseNotes = appInfo.recentChanges || 'No release notes available.';
 
-  const releaseNotes = appInfo.recentChanges
-    ? (appInfo.recentChanges.length > 500 ? appInfo.recentChanges.substring(0, 497) + '...' : appInfo.recentChanges)
-    : 'No release notes available.';
+  const description = htmlToMarkdown(rawDescription);
+  const releaseNotes = htmlToMarkdown(rawReleaseNotes);
 
   return {
     username: 'App Version Watcher',
@@ -643,7 +688,7 @@ export function createAppVersionEmbed(appInfo) {
     embeds: [{
       title: `${platformEmoji} ${appInfo.title} — v${appInfo.version}`,
       url: appInfo.url,
-      description,
+      description: description.length > 300 ? description.substring(0, 297) + '...' : description,
       color,
       thumbnail: {
         url: appInfo.icon
