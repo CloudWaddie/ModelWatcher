@@ -6096,25 +6096,6 @@
       }
     },
     {
-      "id": "019e2dc2-4991-7f7b-af53-d7743a937b14",
-      "publicName": "deepseek-v4-flash",
-      "displayName": "deepseek-v4-flash",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019e2dc2-c89a-7c0d-88e8-10f1a0baeeca",
       "publicName": "minimax-m2.7",
       "displayName": "minimax-m2.7",
@@ -6531,6 +6512,43 @@
       }
     },
     {
+      "id": "019df3e8-18e8-761a-8eeb-6c9f7f8f8114",
+      "publicName": "mekai",
+      "displayName": "mekai",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "019e2dc2-4991-7f7b-af53-d7743a937b14",
+      "publicName": "deepseek-v4-flash",
+      "displayName": "deepseek-v4-flash",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": false
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
       "id": "019f19f2-41f1-7c6d-9891-48d02fd9952c",
       "organization": "anthropic",
       "provider": "googleVertexAnthropicAdaptive",
@@ -6548,27 +6566,10 @@
           "web": true
         }
       },
-      "userSelectable": false,
+      "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991,
         "webdev": 9007199254740991
-      }
-    },
-    {
-      "id": "019df3e8-18e8-761a-8eeb-6c9f7f8f8114",
-      "publicName": "mekai",
-      "displayName": "mekai",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991
       }
     },
     {
@@ -7437,7 +7438,8 @@
       "displayName": "glm-5.2 (max)",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": false
         },
         "outputCapabilities": {
           "text": true,
@@ -9286,7 +9288,8 @@
       "displayName": "glassy_lagoon",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "web": true
@@ -15256,5 +15259,5 @@
       }
     }
   ],
-  "lastCheck": 1782854216393
+  "lastCheck": 1782859956218
 }
