@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// Use GitHub raw URL for logo
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 
 const MAX_EMBEDS_PER_MESSAGE = 10;
@@ -715,7 +716,7 @@ export function createAppVersionEmbed(appInfo) {
       ],
       timestamp: new Date().toISOString(),
       footer: {
-        text: `App Version Watcher • ${appInfo.platform.toUpperCase()}`,
+        text: `App Version Watcher \u2022 ${appInfo.platform.toUpperCase()}`,
         icon_url: LOGO_URL
       }
     }]
@@ -724,7 +725,7 @@ export function createAppVersionEmbed(appInfo) {
 
 /**
  * Create Discord embed(s) for a raw strings diff with red/green highlighting
- * Uses Discord ```diff code blocks so - lines are red and + lines are green
+ * Uses Discord \`\`\`diff code blocks so - lines are red and + lines are green
  * @param {string} appId - App package ID
  * @param {string} diffText - Raw diff text
  * @returns {Object} - Discord embed payload
@@ -791,11 +792,11 @@ export function capabilityEmoji(cap) {
 }
 
 function modelLine(m) {
-  const rank = m.rank ? `#${m.rank}` : 'unranked';
+  const rank = m.rank ? \`#\${m.rank}\` : 'unranked';
   const org = m.organization || 'unknown';
   const caps = capabilityEmoji(m.capabilities);
   const selectable = m.userSelectable ? '✅' : '🔒';
-  return `**${m.displayName || m.publicName || m.name}** \`${rank}\` | ${org} ${caps} ${selectable}`;
+  return \`**\${m.displayName || m.publicName || m.name}** \\\`\${rank}\\\` | \${org} \${caps} \${selectable}\`;
 }
 
 export function createLMArenaEmbed(diff, totalModels) {
@@ -806,7 +807,7 @@ export function createLMArenaEmbed(diff, totalModels) {
   const summaryEmbed = {
     color: 0x8b5cf6,
     title: '🏆 LM Arena Model Changes Detected',
-    description: `Total models tracked: **${totalModels}**`,
+    description: \`Total models tracked: **\${totalModels}**\`,
     fields: [],
     timestamp: new Date().toISOString(),
     footer: {
@@ -819,39 +820,39 @@ export function createLMArenaEmbed(diff, totalModels) {
   const addedKnown = diff.added.filter(m => m.organization);
   if (addedStealth.length > 0) {
     summaryEmbed.fields.push({
-      name: `🥷 New Stealth Models (${addedStealth.length})`,
+      name: \`🥷 New Stealth Models (\${addedStealth.length})\`,
       value: addedStealth.length > 10
-        ? `${addedStealth.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${addedStealth.length - 10} more`
-        : addedStealth.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
+        ? \`\${addedStealth.slice(0, 10).map(m => \`• \${m.displayName || m.publicName}\`).join('\\n')}\\n...and \${addedStealth.length - 10} more\`
+        : addedStealth.map(m => \`• \${m.displayName || m.publicName}\`).join('\\n'),
       inline: true,
     });
   }
   if (addedKnown.length > 0) {
     summaryEmbed.fields.push({
-      name: `🆕 New Models (${addedKnown.length})`,
+      name: \`🆕 New Models (\${addedKnown.length})\`,
       value: addedKnown.length > 10
-        ? `${addedKnown.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${addedKnown.length - 10} more`
-        : addedKnown.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
+        ? \`\${addedKnown.slice(0, 10).map(m => \`• \${m.displayName || m.publicName}\`).join('\\n')}\\n...and \${addedKnown.length - 10} more\`
+        : addedKnown.map(m => \`• \${m.displayName || m.publicName}\`).join('\\n'),
       inline: true,
     });
   }
 
   if (diff.removed.length > 0) {
     summaryEmbed.fields.push({
-      name: `🗑️ Removed Models (${diff.removed.length})`,
+      name: \`🗑️ Removed Models (\${diff.removed.length})\`,
       value: diff.removed.length > 10
-        ? `${diff.removed.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${diff.removed.length - 10} more`
-        : diff.removed.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
+        ? \`\${diff.removed.slice(0, 10).map(m => \`• \${m.displayName || m.publicName}\`).join('\\n')}\\n...and \${diff.removed.length - 10} more\`
+        : diff.removed.map(m => \`• \${m.displayName || m.publicName}\`).join('\\n'),
       inline: true,
     });
   }
 
   if (diff.changed.length > 0) {
     summaryEmbed.fields.push({
-      name: `🔄 Updated Models (${diff.changed.length})`,
+      name: \`🔄 Updated Models (\${diff.changed.length})\`,
       value: diff.changed.length > 10
-        ? `${diff.changed.slice(0, 10).map(c => `• ${c.model.displayName || c.model.publicName}`).join('\n')}\n...and ${diff.changed.length - 10} more`
-        : diff.changed.map(c => `• ${c.model.displayName || c.model.publicName}`).join('\n'),
+        ? \`\${diff.changed.slice(0, 10).map(c => \`• \${c.model.displayName || c.model.publicName}\`).join('\\n')}\\n...and \${diff.changed.length - 10} more\`
+        : diff.changed.map(c => \`• \${c.model.displayName || c.model.publicName}\`).join('\\n'),
       inline: true,
     });
   }
@@ -859,11 +860,11 @@ export function createLMArenaEmbed(diff, totalModels) {
   // Revealed models (gained organization)
   if (diff.revealed && diff.revealed.length > 0) {
     summaryEmbed.fields.push({
-      name: `🕵️ Revealed Models (${diff.revealed.length})`,
+      name: \`🕵️ Revealed Models (\${diff.revealed.length})\`,
       value: diff.revealed.slice(0, 10).map(r => {
-        const nameChange = r.oldName !== r.newName ? ` \`${r.oldName}\`` : '';
-        return `•${nameChange} → **${r.newName}** (${r.newOrg})`;
-      }).join('\n'),
+        const nameChange = r.oldName !== r.newName ? \` \\\`\${r.oldName}\\\`\` : '';
+        return \`•\${nameChange} → **\${r.newName}** (\${r.newOrg})\`;
+      }).join('\\n'),
       inline: true,
     });
   }
@@ -871,10 +872,10 @@ export function createLMArenaEmbed(diff, totalModels) {
   // Possible reveals (stealth removed → new model with same caps)
   if (diff.possibleReveals && diff.possibleReveals.length > 0) {
     summaryEmbed.fields.push({
-      name: `🔎 Possible Reveals (${diff.possibleReveals.length})`,
+      name: \`🔎 Possible Reveals (\${diff.possibleReveals.length})\`,
       value: diff.possibleReveals.slice(0, 10).map(pr =>
-        `• \`${pr.removed.displayName || pr.removed.publicName}\` → **${pr.added.displayName || pr.added.publicName}** (${pr.match})`
-      ).join('\n'),
+        \`• \\\`\${pr.removed.displayName || pr.removed.publicName}\\\` → **\${pr.added.displayName || pr.added.publicName}** (\${pr.match})\`
+      ).join('\\n'),
       inline: true,
     });
   }
@@ -883,37 +884,37 @@ export function createLMArenaEmbed(diff, totalModels) {
   if (groupDiff) {
     if (groupDiff.newGroups.length > 0) {
       summaryEmbed.fields.push({
-        name: `📦 New Model Groups (${groupDiff.newGroups.length})`,
+        name: \`📦 New Model Groups (\${groupDiff.newGroups.length})\`,
         value: groupDiff.newGroups.slice(0, 10).map(g =>
-          `• ${g.displayName} (${g.profile.count} variant${g.profile.count > 1 ? 's' : ''})`
-        ).join('\n'),
+          \`• \${g.displayName} (\${g.profile.count} variant\${g.profile.count > 1 ? 's' : ''})\`
+        ).join('\\n'),
         inline: true,
       });
     }
     if (groupDiff.removedGroups.length > 0) {
       summaryEmbed.fields.push({
-        name: `📭 Removed Groups (${groupDiff.removedGroups.length})`,
+        name: \`📭 Removed Groups (\${groupDiff.removedGroups.length})\`,
         value: groupDiff.removedGroups.slice(0, 10).map(g =>
-          `• ${g.displayName} (${g.profile.count} variant${g.profile.count > 1 ? 's' : ''})`
-        ).join('\n'),
+          \`• \${g.displayName} (\${g.profile.count} variant\${g.profile.count > 1 ? 's' : ''})\`
+        ).join('\\n'),
         inline: true,
       });
     }
     if (groupDiff.variantChanges.length > 0) {
       summaryEmbed.fields.push({
-        name: `🔀 Variant Changes (${groupDiff.variantChanges.length})`,
+        name: \`🔀 Variant Changes (\${groupDiff.variantChanges.length})\`,
         value: groupDiff.variantChanges.slice(0, 10).map(v =>
-          `• ${v.displayName}: ${v.oldCount} → ${v.newCount} variants`
-        ).join('\n'),
+          \`• \${v.displayName}: \${v.oldCount} → \${v.newCount} variants\`
+        ).join('\\n'),
         inline: true,
       });
     }
     if (groupDiff.convergence.length > 0) {
       summaryEmbed.fields.push({
-        name: `🎯 Capability Convergence (${groupDiff.convergence.length})`,
+        name: \`🎯 Capability Convergence (\${groupDiff.convergence.length})\`,
         value: groupDiff.convergence.slice(0, 10).map(c =>
-          `• ${c.displayName}: **${c.allNowHave.map(formatCapPath).join(', ')}** now across all ${c.variantCount} variants`
-        ).join('\n'),
+          \`• \${c.displayName}: **\${c.allNowHave.map(formatCapPath).join(', ')}** now across all \${c.variantCount} variants\`
+        ).join('\\n'),
         inline: true,
       });
     }
@@ -925,14 +926,14 @@ export function createLMArenaEmbed(diff, totalModels) {
   if (addedStealth.length > 0) {
     const lines = addedStealth.map(m => {
       const caps = capabilityEmoji(m.capabilities);
-      return `**${m.displayName || m.publicName || m.name}**${caps ? ' ' + caps : ''} \`${m.rank ? '#' + m.rank : 'unranked'}\``;
+      return \`**\${m.displayName || m.publicName || m.name}**\${caps ? ' ' + caps : ''} \\\`\${m.rank ? '#' + m.rank : 'unranked'}\\\`\`;
     });
     let chunk = [];
     let chunkLen = 0;
     const chunks = [];
     for (const line of lines) {
       if (chunkLen + line.length > 900 && chunk.length > 0) {
-        chunks.push(chunk.join('\n'));
+        chunks.push(chunk.join('\\n'));
         chunk = [line];
         chunkLen = line.length;
       } else {
@@ -940,11 +941,11 @@ export function createLMArenaEmbed(diff, totalModels) {
         chunkLen += line.length + 1;
       }
     }
-    if (chunk.length) chunks.push(chunk.join('\n'));
+    if (chunk.length) chunks.push(chunk.join('\\n'));
     for (let i = 0; i < chunks.length; i++) {
       embeds.push({
         color: 0x6b7280,
-        title: i === 0 ? `🥷 New Stealth Models` : `🥷 New Stealth Models (cont.)`,
+        title: i === 0 ? \`🥷 New Stealth Models\` : \`🥷 New Stealth Models (cont.)\`,
         description: chunks[i],
         timestamp: new Date().toISOString(),
       });
@@ -968,7 +969,7 @@ export function createLMArenaEmbed(diff, totalModels) {
       const chunks = [];
       for (const line of lines) {
         if (chunkLen + line.length > 900 && chunk.length > 0) {
-          chunks.push(chunk.join('\n'));
+          chunks.push(chunk.join('\\n'));
           chunk = [line];
           chunkLen = line.length;
         } else {
@@ -976,12 +977,12 @@ export function createLMArenaEmbed(diff, totalModels) {
           chunkLen += line.length + 1;
         }
       }
-      if (chunk.length) chunks.push(chunk.join('\n'));
+      if (chunk.length) chunks.push(chunk.join('\\n'));
 
       for (let i = 0; i < chunks.length; i++) {
         embeds.push({
           color: getOrgColor(org),
-          title: i === 0 ? `🆕 New — ${org}` : `🆕 New — ${org} (cont.)`,
+          title: i === 0 ? \`🆕 New — \${org}\` : \`🆕 New — \${org} (cont.)\`,
           description: chunks[i],
           timestamp: new Date().toISOString(),
         });
@@ -999,13 +1000,13 @@ export function createLMArenaEmbed(diff, totalModels) {
     }
 
     for (const [org, models] of Object.entries(byOrg)) {
-      const lines = models.map(m => `**${m.displayName || m.publicName || m.name}** \`${m.rank ? '#' + m.rank : 'unranked'}\``);
+      const lines = models.map(m => \`**\${m.displayName || m.publicName || m.name}** \\\`\${m.rank ? '#' + m.rank : 'unranked'}\\\`\`);
       let chunk = [];
       let chunkLen = 0;
       const chunks = [];
       for (const line of lines) {
         if (chunkLen + line.length > 900 && chunk.length > 0) {
-          chunks.push(chunk.join('\n'));
+          chunks.push(chunk.join('\\n'));
           chunk = [line];
           chunkLen = line.length;
         } else {
@@ -1013,12 +1014,12 @@ export function createLMArenaEmbed(diff, totalModels) {
           chunkLen += line.length + 1;
         }
       }
-      if (chunk.length) chunks.push(chunk.join('\n'));
+      if (chunk.length) chunks.push(chunk.join('\\n'));
 
       for (let i = 0; i < chunks.length; i++) {
         embeds.push({
           color: 0xef4444,
-          title: i === 0 ? `🗑️ Removed — ${org}` : `🗑️ Removed — ${org} (cont.)`,
+          title: i === 0 ? \`🗑️ Removed — \${org}\` : \`🗑️ Removed — \${org} (cont.)\`,
           description: chunks[i],
           timestamp: new Date().toISOString(),
         });
@@ -1039,14 +1040,14 @@ export function createLMArenaEmbed(diff, totalModels) {
       const lines = changes.map(c => {
         const m = c.model;
         const changeStr = c.changes.join(', ');
-        return `**${m.displayName || m.publicName || m.name}**\n${changeStr}`;
+        return \`**\${m.displayName || m.publicName || m.name}**\\n\${changeStr}\`;
       });
       let chunk = [];
       let chunkLen = 0;
       const chunks = [];
       for (const line of lines) {
         if (chunkLen + line.length > 900 && chunk.length > 0) {
-          chunks.push(chunk.join('\n'));
+          chunks.push(chunk.join('\\n'));
           chunk = [line];
           chunkLen = line.length;
         } else {
@@ -1054,12 +1055,12 @@ export function createLMArenaEmbed(diff, totalModels) {
           chunkLen += line.length + 1;
         }
       }
-      if (chunk.length) chunks.push(chunk.join('\n'));
+      if (chunk.length) chunks.push(chunk.join('\\n'));
 
       for (let i = 0; i < chunks.length; i++) {
         embeds.push({
           color: 0xf59e0b,
-          title: i === 0 ? `🔄 Updated — ${org}` : `🔄 Updated — ${org} (cont.)`,
+          title: i === 0 ? \`🔄 Updated — \${org}\` : \`🔄 Updated — \${org} (cont.)\`,
           description: chunks[i],
           timestamp: new Date().toISOString(),
         });
@@ -1067,28 +1068,28 @@ export function createLMArenaEmbed(diff, totalModels) {
     }
   }
 
-  // Revealed models (gained organization)
+  // Detail embeds for revealed models
   if (diff.revealed && diff.revealed.length > 0) {
     for (const r of diff.revealed) {
       const details = [];
-      details.push(`🆔 \`${r.model.id}\``);
+      details.push(\`🆔 \\\`\${r.model.id}\\\`\`);
       if (r.oldName !== r.newName) {
-        details.push(`📛 Codename: \`${r.oldName}\` → **${r.newName}**`);
+        details.push(\`📛 Codename: \\\`\${r.oldName}\\\` → **\${r.newName}**\`);
       }
-      details.push(`🏢 Organization: **(none)** → **${r.newOrg}**`);
+      details.push(\`🏢 Organization: **(none)** → **\${r.newOrg}**\`);
       if (r.newProvider && r.oldProvider !== r.newProvider) {
-        details.push(`⚙️ Provider: ${r.oldProvider || '(none)'} → **${r.newProvider}**`);
+        details.push(\`⚙️ Provider: \${r.oldProvider || '(none)'} → **\${r.newProvider}**\`);
       }
       if (r.oldSelectable !== r.newSelectable) {
-        details.push(`🔓 Selectable: ${r.oldSelectable ? '✅' : '🔒'} → ${r.newSelectable ? '✅' : '🔒'}`);
+        details.push(\`🔓 Selectable: \${r.oldSelectable ? '✅' : '🔒'} → \${r.newSelectable ? '✅' : '🔒'}\`);
       }
       const caps = capabilityEmoji(r.model.capabilities);
-      if (caps) details.push(`🎯 Capabilities: ${caps}`);
+      if (caps) details.push(\`🎯 Capabilities: \${caps}\`);
 
       embeds.push({
         color: 0xf59e0b,
-        title: `🕵️ ${r.oldName} → ${r.newName} by ${r.newOrg}`,
-        description: details.join('\n'),
+        title: \`🕵️ \${r.oldName} → \${r.newName} by \${r.newOrg}\`,
+        description: details.join('\\n'),
         timestamp: new Date().toISOString(),
       });
     }
@@ -1097,21 +1098,21 @@ export function createLMArenaEmbed(diff, totalModels) {
   // Detail embeds for variant count changes
   if (groupDiff && groupDiff.variantChanges.length > 0) {
     for (const v of groupDiff.variantChanges) {
-      const oldRanks = v.oldRanks.length ? `ranks ${v.oldRanks.join(',')}` : 'no ranks';
-      const newRanks = v.newRanks.length ? `ranks ${v.newRanks.join(',')}` : 'no ranks';
-      let desc = `Variants: **${v.oldCount}** → **${v.newCount}**\nRanks: ${oldRanks} → ${newRanks}${v.newProviders.length ? `\nProviders: ${v.newProviders.join(', ')}` : ''}`;
+      const oldRanks = v.oldRanks.length ? \`ranks \${v.oldRanks.join(',')}\` : 'no ranks';
+      const newRanks = v.newRanks.length ? \`ranks \${v.newRanks.join(',')}\` : 'no ranks';
+      let desc = \`Variants: **\${v.oldCount}** → **\${v.newCount}**\\nRanks: \${oldRanks} → \${newRanks}\${v.newProviders.length ? \`\\nProviders: \${v.newProviders.join(', ')}\` : ''}\`;
       // Append capability matrix if available
       if (v.capMatrix && v.capMatrix.length > 0) {
-        desc += '\n\n**Capability matrix:**';
+        desc += '\\n\\n**Capability matrix:**';
         for (const cap of v.capMatrix) {
           const pct = Math.round((cap.count / cap.total) * 100);
           const bar = '█'.repeat(Math.round(pct / 10)) + '░'.repeat(10 - Math.round(pct / 10));
-          desc += `\n${cap.emoji} ${cap.label}: \`${bar}\` ${cap.count}/${cap.total}`;
+          desc += \`\\n\${cap.emoji} \${cap.label}: \\\`\${bar}\\\` \${cap.count}/\${cap.total}\`;
         }
       }
       embeds.push({
         color: 0x8b5cf6,
-        title: `🔀 ${v.displayName}: ${v.oldCount} → ${v.newCount} variants`,
+        title: \`🔀 \${v.displayName}: \${v.oldCount} → \${v.newCount} variants\`,
         description: desc,
         timestamp: new Date().toISOString(),
       });
@@ -1123,8 +1124,8 @@ export function createLMArenaEmbed(diff, totalModels) {
     for (const c of groupDiff.convergence) {
       embeds.push({
         color: 0x10b981,
-        title: `🎯 ${c.displayName} — Converged`,
-        description: `**${c.allNowHave.map(formatCapPath).join(', ')}** is now available across all **${c.variantCount}** variants.`,
+        title: \`🎯 \${c.displayName} — Converged\`,
+        description: \`**\${c.allNowHave.map(formatCapPath).join(', ')}** is now available across all **\${c.variantCount}** variants.\`,
         timestamp: new Date().toISOString(),
       });
     }
@@ -1139,8 +1140,8 @@ export function createLMArenaEmbed(diff, totalModels) {
       const addCaps = capabilityEmoji(add.capabilities);
       embeds.push({
         color: 0xf97316,
-        title: `🔎 ${rem.displayName || rem.publicName} → ${add.displayName || add.publicName}?`,
-        description: `**Removed:** \`${rem.displayName || rem.publicName}\` (stealth, no org)\n**Added:** **${add.displayName || add.publicName}**${add.organization ? ` (${add.organization})` : ''}\n**Match:** ${pr.match}\n**Capabilities:** ${remCaps} → ${addCaps}\n*(⚠️ not confirmed — same capabilities, different identity)*`,
+        title: \`🔎 \${rem.displayName || rem.publicName} → \${add.displayName || add.publicName}?\`,
+        description: \`**Removed:** \\\`\${rem.displayName || rem.publicName}\\\` (stealth, no org)\\n**Added:** **\${add.displayName || add.publicName}**\${add.organization ? \` (\${add.organization})\` : ''}\\n**Match: \${pr.match}**\\n**Capabilities:** \${remCaps} → \${addCaps}\\n*(⚠️ not confirmed — same capabilities, different identity)*\`,
         timestamp: new Date().toISOString(),
       });
     }
@@ -1155,12 +1156,12 @@ export function createLMArenaEmbed(diff, totalModels) {
 }
 
 export function createStringsDiffEmbed(appId, diffText) {
-  const MAX_FIELD_VALUE = 950; // Under Discord's 1024 field value limit, accounting for ```diff\n and \n```
+  const MAX_FIELD_VALUE = 950; // Under Discord's 1024 field value limit, accounting for \`\`\`diff\\n and \\n\`\`\`
   const MAX_EMBEDS_PER_MESSAGE = 5; // Limit total embeds to stay under 6000 total chars
 
   // Escape triple backticks to prevent breaking code blocks
-  const safeDiff = diffText.replace(/```/g, '`\u200b`\u200b`');
-  const lines = safeDiff.split('\n');
+  const safeDiff = diffText.replace(/\`\`\`/g, '\`\\u200b\`\\u200b\`');
+  const lines = safeDiff.split('\\n');
 
   const chunks = [];
   let currentChunk = [];
@@ -1169,7 +1170,7 @@ export function createStringsDiffEmbed(appId, diffText) {
   for (const line of lines) {
     // +1 accounts for the newline character
     if (currentLength + line.length + 1 > MAX_FIELD_VALUE && currentChunk.length > 0) {
-      chunks.push(currentChunk.join('\n'));
+      chunks.push(currentChunk.join('\\n'));
       currentChunk = [line];
       currentLength = line.length;
     } else {
@@ -1179,7 +1180,7 @@ export function createStringsDiffEmbed(appId, diffText) {
   }
 
   if (currentChunk.length > 0) {
-    chunks.push(currentChunk.join('\n'));
+    chunks.push(currentChunk.join('\\n'));
   }
 
   // If we have too many chunks, truncate and add a note
@@ -1193,22 +1194,22 @@ export function createStringsDiffEmbed(appId, diffText) {
     const isFirst = i === 0;
     const isLast = i === displayChunks.length - 1;
 
-    let value = '```diff\n' + displayChunks[i] + '\n```';
+    let value = '\`\`\`diff\\n' + displayChunks[i] + '\\n\`\`\`';
     if (isLast && wasTruncated) {
-      value += `\n*(diff truncated: ${totalChunks - MAX_EMBEDS_PER_MESSAGE} more chunks)*`;
+      value += \`\\n*(diff truncated: \${totalChunks - MAX_EMBEDS_PER_MESSAGE} more chunks)*\`;
     }
 
     const embed = {
       color: 0x3B82F6,
       fields: [{
-        name: totalChunks > 1 ? `Diff (${i + 1}/${totalChunks})` : 'Diff',
+        name: totalChunks > 1 ? \`Diff (\${i + 1}/\${totalChunks})\` : 'Diff',
         value
       }],
       timestamp: new Date().toISOString()
     };
 
     if (isFirst) {
-      embed.title = `\ud83d\udcf1 ${appId} — Strings Changed`;
+      embed.title = \`\\ud83d\\udcf1 \${appId} — Strings Changed\`;
       embed.description = 'Android app strings diff detected';
     }
 
