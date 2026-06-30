@@ -130,11 +130,70 @@ export function chunkPayload(payload) {
 }
 
 /**
+ * Returns the total character count of a payload's embeds.
+ */
+function getPayloadCharCount(payload) {
+  if (!payload || !payload.embeds) return 0;
+  return payload.embeds.reduce((total, embed) => {
+    let count = (embed.title?.length || 0) + 
+                (embed.description?.length || 0) + 
+                (embed.footer?.text?.length || 0) + 
+                (embed.author?.name?.length || 0);
+    if (embed.fields) {
+      count += embed.fields.reduce((fTotal, f) => fTotal + (f.name?.length || 0) + (f.value?.length || 0), 0);
+    }
+    return total + count;
+  }, 0);
+}
+
+/**
  * Hard-truncate for legacy support, but now uses chunkPayload logic under the hood for send.
  */
 export function safeEmbed(payload) {
-  const chunks = chunkPayload(payload);
-  return chunks[0] || payload;
+  if (!payload) return payload;
+
+  // Deep clone to prevent side-effects
+  let clonedPayload;
+  try {
+    clonedPayload = JSON.parse(JSON.stringify(payload));
+  } catch (e) {
+    return payload; // Fallback to original if cloning fails
+  }
+
+  const chunks = chunkPayload(clonedPayload);
+  let firstChunk = chunks[0] || clonedPayload;
+
+  let totalChars = getPayloadCharCount(firstChunk);
+
+  // If still over the total limit, truncate descriptions first
+  if (totalChars > MAX_TOTAL_CHARS) {
+    for (const embed of firstChunk.embeds) {
+      if (totalChars <= MAX_TOTAL_CHARS) break;
+      if (embed.description) {
+        const oldLen = embed.description.length;
+        embed.description = truncate(embed.description, Math.max(100, embed.description.length - (totalChars - MAX_TOTAL_CHARS)));
+        totalChars -= (oldLen - embed.description.length);
+      }
+    }
+  }
+
+  // Robust fallback: truncate field values as a secondary measure
+  if (totalChars > MAX_TOTAL_CHARS && firstChunk.embeds) {
+    for (const embed of firstChunk.embeds) {
+      if (totalChars <= MAX_TOTAL_CHARS) break;
+      if (embed.fields) {
+        for (const field of embed.fields) {
+          if (totalChars <= MAX_TOTAL_CHARS) break;
+          const oldLen = field.value.length;
+          // Aggressively truncate fields to fit
+          field.value = truncate(field.value, Math.max(50, field.value.length - (totalChars - MAX_TOTAL_CHARS)));
+          totalChars -= (oldLen - field.value.length);
+        }
+      }
+    }
+  }
+
+  return firstChunk;
 }
 
 export async function sendDiscordWebhook(webhookUrl, payload) {
