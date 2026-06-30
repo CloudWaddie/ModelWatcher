@@ -15783,9 +15783,9 @@
             "context_length": 1048576,
             "max_tokens": 1048576,
             "pricing": {
-              "input_tokens": 0.95,
+              "input_tokens": 0.9299999999999999,
               "output_tokens": 2.9999999999999996,
-              "cache_read_tokens": 0.179999996
+              "cache_read_tokens": 0.18000000269999997
             },
             "tags": [
               "chat",
@@ -27483,58 +27483,6 @@
           }
         },
         {
-          "id": "microsoft/phi-4-mini-instruct",
-          "name": "Microsoft: Phi 4 Mini Instruct",
-          "canonical_slug": "microsoft/phi-4-mini-instruct",
-          "hugging_face_id": "microsoft/Phi-4-mini-instruct",
-          "description": "Phi-4-mini-instruct is a lightweight open model built upon synthetic data and filtered publicly available websites - with a focus on high-quality, reasoning dense data. The model belongs to the Phi-4...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000008",
-            "completion": "0.00000035",
-            "input_cache_read": "0.00000008"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": 128000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logprobs",
-            "max_tokens",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/microsoft/phi-4-mini-instruct/endpoints"
-          }
-        },
-        {
           "id": "microsoft/wizardlm-2-8x22b",
           "name": "WizardLM-2 8x22B",
           "canonical_slug": "microsoft/wizardlm-2-8x22b",
@@ -38464,13 +38412,12 @@
             "instruct_type": "qwen3"
           },
           "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.0000001",
-            "input_cache_read": "0.0000001"
+            "prompt": "0.0000001495",
+            "completion": "0.000001495"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "context_length": 131072,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -44619,13 +44566,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000094",
+            "prompt": "0.00000093",
             "completion": "0.000003",
             "input_cache_read": "0.00000018"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
