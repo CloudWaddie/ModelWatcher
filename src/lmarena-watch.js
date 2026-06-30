@@ -174,15 +174,18 @@ function diffModelGroups(oldModels, newModels) {
     }
 
     // Detect capability convergence — intersection gained new capabilities
-    const oldKeys = extractBoolKeys(oldProfile.capabilitiesIntersection);
-    const newKeys = extractBoolKeys(newProfile.capabilitiesIntersection);
-    const gained = newKeys.filter(k => !oldKeys.includes(k));
-    if (gained.length > 0) {
-      results.convergence.push({
-        displayName: name,
-        variantCount: newProfile.count,
-        allNowHave: gained,
-      });
+    // Only meaningful for 2+ variants (single variant is just an update)
+    if (newProfile.count >= 2) {
+      const oldKeys = extractBoolKeys(oldProfile.capabilitiesIntersection);
+      const newKeys = extractBoolKeys(newProfile.capabilitiesIntersection);
+      const gained = newKeys.filter(k => !oldKeys.includes(k));
+      if (gained.length > 0) {
+        results.convergence.push({
+          displayName: name,
+          variantCount: newProfile.count,
+          allNowHave: gained,
+        });
+      }
     }
   }
 
