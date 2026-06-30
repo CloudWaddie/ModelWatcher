@@ -21,19 +21,22 @@ function parseModels(md) {
   const lines = md.split('\n');
   let currentProvider = '';
 
-  for (const line of lines) {
+  for (const rawLine of lines) {
+    const line = rawLine.trimEnd();
     const providerMatch = line.match(/^##\s+(.+)$/);
     if (providerMatch) {
       currentProvider = providerMatch[1].trim();
       continue;
     }
 
-    const modelMatch = line.match(/^\|\s+([^|]+)\s+\|\s+([^|]+)\s+\|\s+([^|]+)\s+\|$/);
-    if (modelMatch && !line.toLowerCase().includes('model name')) {
+    const modelMatch = line.match(/^\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|$/);
+    if (modelMatch && currentProvider && !line.toLowerCase().includes('model name') && !line.includes('---')) {
+      const nameRaw = modelMatch[1].trim().replace(/\[([^\]]+)\]\([^)]*\)/g, '$1');
+      const isYes = (cell) => cell.includes('✅') || cell.includes('icon-yes');
       models.push({
-        name: modelMatch[1].trim(),
-        runtime: modelMatch[2].includes('✅'),
-        mantle: modelMatch[3].includes('✅'),
+        name: nameRaw,
+        runtime: isYes(modelMatch[2]),
+        mantle: isYes(modelMatch[3]),
         provider: currentProvider
       });
     }
