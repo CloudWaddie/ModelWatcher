@@ -106,11 +106,8 @@ function buildNotification(diff, total) {
   const components = [];
   const lines = [];
 
-  lines.push('# 🏔️ AWS Bedrock — Model Availability Changes');
-  lines.push(`Total models tracked: **${total}**`);
-  if (diff.added.length) lines.push(`🆕 **+${diff.added.length}** new`);
-  if (diff.removed.length) lines.push(`🗑️ **-${diff.removed.length}** removed`);
-  if (diff.changed.length) lines.push(`🔄 **${diff.changed.length}** endpoint updates`);
+  lines.push('# 🏔️ AWS Bedrock — Model Changes');
+  lines.push(`Total tracked: **${total}**`);
 
   components.push({ type: 10, content: lines.join('\n') });
 
@@ -124,7 +121,7 @@ function buildNotification(diff, total) {
     }
     for (const [prov, ms] of Object.entries(byProv)) {
       const entries = ms.map(m =>
-        `${m.name} — runtime: ${endpointEmoji(m.runtime)} mantle: ${endpointEmoji(m.mantle)}`
+        `${m.name} — ${endpointEmoji(m.runtime)} runtime · ${endpointEmoji(m.mantle)} mantle`
       ).join('\n');
       components.push({ type: 10, content: `**${prov}**\n${entries}` });
     }
@@ -164,8 +161,7 @@ function buildNotification(diff, total) {
     }
   }
 
-  components.push({ type: 14 });
-  components.push({ type: 10, content: `🔄 runtime · 🔮 mantle\nData: [AWS Bedrock Docs](https://docs.aws.amazon.com/bedrock/latest/userguide/models-endpoint-availability.html)` });
+  components.push({ type: 10, content: `Data: [AWS Bedrock Docs](https://docs.aws.amazon.com/bedrock/latest/userguide/models-endpoint-availability.html)` });
 
   return {
     username: 'Bedrock Watcher',
