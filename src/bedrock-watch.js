@@ -104,12 +104,14 @@ function endpointEmoji(val) { return val ? '✅' : '❌'; }
 
 function buildNotification(diff, total) {
   const components = [];
-  const lines = [];
+  const headerLines = [];
 
-  lines.push('# 🏔️ AWS Bedrock — Model Changes');
-  lines.push(`Total tracked: **${total}**`);
+  headerLines.push('# 🏔️ AWS Bedrock — Model Changes');
+  headerLines.push(`Total tracked: **${total}**`);
 
-  components.push({ type: 10, content: lines.join('\n') });
+  components.push({ type: 10, content: headerLines.join('\n') });
+
+  const DISCORD_COMPONENT_LIMIT = 2000;
 
   if (diff.added.length > 0) {
     components.push({ type: 14 });
@@ -120,10 +122,16 @@ function buildNotification(diff, total) {
       byProv[m.provider].push(m);
     }
     for (const [prov, ms] of Object.entries(byProv)) {
-      const entries = ms.map(m =>
-        `${m.name} — ${endpointEmoji(m.runtime)} runtime · ${endpointEmoji(m.mantle)} mantle`
-      ).join('\n');
-      components.push({ type: 10, content: `**${prov}**\n${entries}` });
+      let currentContent = `**${prov}**\n`;
+      for (const m of ms) {
+        const line = `${m.name} — ${endpointEmoji(m.runtime)} runtime · ${endpointEmoji(m.mantle)} mantle\n`;
+        if (currentContent.length + line.length > DISCORD_COMPONENT_LIMIT - 100) {
+          components.push({ type: 10, content: currentContent.trim() });
+          currentContent = `**${prov} (cont.)**\n`;
+        }
+        currentContent += line;
+      }
+      components.push({ type: 10, content: currentContent.trim() });
     }
   }
 
@@ -136,7 +144,16 @@ function buildNotification(diff, total) {
       byProv[m.provider].push(m);
     }
     for (const [prov, ms] of Object.entries(byProv)) {
-      components.push({ type: 10, content: `**${prov}**\n${ms.map(m => m.name).join('\n')}` });
+      let currentContent = `**${prov}**\n`;
+      for (const m of ms) {
+        const line = `${m.name}\n`;
+        if (currentContent.length + line.length > DISCORD_COMPONENT_LIMIT - 100) {
+          components.push({ type: 10, content: currentContent.trim() });
+          currentContent = `**${prov} (cont.)**\n`;
+        }
+        currentContent += line;
+      }
+      components.push({ type: 10, content: currentContent.trim() });
     }
   }
 
@@ -149,19 +166,23 @@ function buildNotification(diff, total) {
       byProv[c.model.provider].push(c);
     }
     for (const [prov, cs] of Object.entries(byProv)) {
-      const entries = cs.map(c => {
+      let currentContent = `**${prov}**\n`;
+      for (const c of cs) {
         const m = c.model;
         const o = c.old;
         const parts = [];
         if (o.runtime !== m.runtime) parts.push(`runtime: ${endpointEmoji(o.runtime)} → ${endpointEmoji(m.runtime)}`);
         if (o.mantle !== m.mantle) parts.push(`mantle: ${endpointEmoji(o.mantle)} → ${endpointEmoji(m.mantle)}`);
-        return `${m.name} — ${parts.join(', ')}`;
-      }).join('\n');
-      components.push({ type: 10, content: `**${prov}**\n${entries}` });
+        const line = `${m.name} — ${parts.join(', ')}\n`;
+        if (currentContent.length + line.length > DISCORD_COMPONENT_LIMIT - 100) {
+          components.push({ type: 10, content: currentContent.trim() });
+          currentContent = `**${prov} (cont.)**\n`;
+        }
+        currentContent += line;
+      }
+      components.push({ type: 10, content: currentContent.trim() });
     }
   }
-
-
 
   return {
     username: 'Bedrock Watcher',
