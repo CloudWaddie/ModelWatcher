@@ -1,0 +1,61 @@
+name: Archive Old Logs
+
+on:
+  schedule:
+    # Runs every Sunday at midnight UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create Archive
+        run: |
+          # Identify log files older than 7 days
+          # We look for scan-*.json files but exclude *-state.json and state.json
+          LOG_FILES=$(find logs -name "scan-*.json" -type f -mtime +7)
+          
+          if [ -z "$LOG_FILES" ]; then
+            echo "No logs older than 7 days found."
+            echo "archive_created=false" >> $GITHUB_ENV
+            exit 0
+          fi
+          
+          TIMESTAMP=$(date +'%Y-%m-%d')
+          ARCHIVE_NAME="logs-archive-$TIMESTAMP.tar.gz"
+          
+          echo "Archiving files: $LOG_FILES"
+          tar -czf "$ARCHIVE_NAME" $LOG_FILES
+          
+          echo "ARCHIVE_NAME=$ARCHIVE_NAME" >> $GITHUB_ENV
+          echo "archive_created=true" >> $GITHUB_ENV
+
+      - name: Commit and Cleanup
+        if: env.archive_created == 'true'
+        run: |
+          git config --global user.name "ModelWatcher"
+          git config --global user.email "modelwatcher@github.com"
+          
+          # Move archive to a dedicated archives folder if desired, or keep in root
+          mkdir -p archives
+          mv "${{ env.ARCHIVE_NAME }}" archives/
+          
+          # Delete the original log files that were archived
+          find logs -name "scan-*.json" -type f -mtime +7 -delete
+          
+          # Commit the new archive and the deletions
+          git add archives/"${{ env.ARCHIVE_NAME }}"
+          git add logs/
+          
+          git commit -m "Archive logs older than 7 days - ${{ env.ARCHIVE_NAME }}"
+          git push origin master
