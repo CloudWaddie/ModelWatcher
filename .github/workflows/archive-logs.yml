@@ -1,14 +1,11 @@
 name: Archive Old Logs
-
 on:
   schedule:
     # Runs every Sunday at midnight UTC
     - cron: '0 0 * * 0'
   workflow_dispatch:
-
 permissions:
   contents: write
-
 jobs:
   archive:
     runs-on: ubuntu-latest
@@ -19,43 +16,48 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Create Archive
+      - name: Create Archive and Cleanup
         run: |
-          # Identify log files older than 7 days
-          # We look for scan-*.json files but exclude *-state.json and state.json
-          LOG_FILES=$(find logs -name "scan-*.json" -type f -mtime +7)
+          # Create a temporary file to list files to archive
+          FILE_LIST=$(mktemp)
           
-          if [ -z "$LOG_FILES" ]; then
+          # Identify log files older than 7 days
+          find logs -name "scan-*.json" -type f -mtime +7 > "$FILE_LIST"
+          
+          if [ ! -s "$FILE_LIST" ]; then
             echo "No logs older than 7 days found."
-            echo "archive_created=false" >> $GITHUB_ENV
             exit 0
           fi
           
           TIMESTAMP=$(date +'%Y-%m-%d')
           ARCHIVE_NAME="logs-archive-$TIMESTAMP.tar.gz"
           
-          echo "Archiving files: $LOG_FILES"
-          tar -czf "$ARCHIVE_NAME" $LOG_FILES
+          # Create archives directory
+          mkdir -p archives
           
+          echo "Archiving files listed in $FILE_LIST"
+          tar -czf "archives/$ARCHIVE_NAME" -T "$FILE_LIST"
+          
+          # Safely delete only the exact files that were archived
+          while IFS= read -r file; do
+            rm -f "$file"
+          done < "$FILE_LIST"
+          
+          # Clean up temporary list file
+          rm "$FILE_LIST"
+          
+          # Pass the archive name to the next steps via GITHUB_ENV if needed,
+          # or simply handle git operations in this same step.
           echo "ARCHIVE_NAME=$ARCHIVE_NAME" >> $GITHUB_ENV
           echo "archive_created=true" >> $GITHUB_ENV
-
-      - name: Commit and Cleanup
+      - name: Commit and Push
         if: env.archive_created == 'true'
         run: |
-          git config --global user.name "ModelWatcher"
-          git config --global user.email "modelwatcher@github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          # Move archive to a dedicated archives folder if desired, or keep in root
-          mkdir -p archives
-          mv "${{ env.ARCHIVE_NAME }}" archives/
-          
-          # Delete the original log files that were archived
-          find logs -name "scan-*.json" -type f -mtime +7 -delete
-          
-          # Commit the new archive and the deletions
           git add archives/"${{ env.ARCHIVE_NAME }}"
           git add logs/
           
           git commit -m "Archive logs older than 7 days - ${{ env.ARCHIVE_NAME }}"
-          git push origin master
+          git push origin HEAD:${{ github.ref_name }}
