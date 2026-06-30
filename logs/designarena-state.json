@@ -1,5 +1,5 @@
 {
-  "timestamp": 1782842582077,
+  "timestamp": 1782853178228,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -1670,6 +1670,22 @@
       ]
     },
     {
+      "id": "gemini-3.1-flash-lite-image",
+      "displayName": "Gemini 3.1 Flash Lite Image (Nano Banana Lite)",
+      "provider": "google",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign",
+          "imagetoimage"
+        ]
+      }
+    },
+    {
       "id": "gemini-3-pro-image-preview",
       "displayName": "Gemini 3 Pro Image Preview",
       "provider": "google",
@@ -1799,6 +1815,23 @@
           "video",
           "imagetovideo",
           "multitovideo"
+        ]
+      }
+    },
+    {
+      "id": "gemini-omni-flash",
+      "displayName": "Gemini Omni Flash",
+      "provider": "google",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo",
+          "multitovideo",
+          "videotovideo",
+          "multimodaltovideo"
         ]
       }
     },
@@ -7479,6 +7512,52 @@
           "tts"
         ]
       }
+    },
+    {
+      "id": "longcat-2.0",
+      "displayName": "LongCat 2.0",
+      "provider": "meituan",
+      "active": false,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "inputModalities": [
+        "text"
+      ]
+    },
+    {
+      "id": "claude-sonnet-5",
+      "displayName": "Claude Sonnet 5",
+      "provider": "anthropic",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -8820,6 +8899,12 @@
       "displayName": "Rumik AI",
       "logoName": "rumik-logo.png",
       "website": "https://rumik.ai"
+    },
+    {
+      "id": "meituan",
+      "displayName": "Meituan",
+      "logoName": "meituan.png",
+      "website": "https://www.longcatai.org"
     }
   ],
   "pricing": [
@@ -9291,6 +9376,12 @@
       }
     },
     {
+      "id": "gemini-3.1-flash-lite-image",
+      "image": {
+        "perImage": 0.034
+      }
+    },
+    {
       "id": "gemini-3-pro-image-preview",
       "image": {
         "perImage": 0.134
@@ -9332,6 +9423,12 @@
       "id": "veo-3.1",
       "video": {
         "perSecond": 0.4
+      }
+    },
+    {
+      "id": "gemini-omni-flash",
+      "video": {
+        "perSecond": 0.1
       }
     },
     {
@@ -10793,6 +10890,27 @@
       "id": "boogu-image",
       "image": {
         "perImage": 0.04
+      }
+    },
+    {
+      "id": "silk-mulberry-1.5",
+      "text": {
+        "input": 15,
+        "output": 0
+      }
+    },
+    {
+      "id": "longcat-2.0",
+      "text": {
+        "input": 0.75,
+        "output": 2.95
+      }
+    },
+    {
+      "id": "claude-sonnet-5",
+      "text": {
+        "input": 2,
+        "output": 10
       }
     }
   ]
