@@ -1345,6 +1345,76 @@
               }
             }
           }
+        },
+        {
+          "id": "claude-sonnet-5",
+          "name": "claude-sonnet-5",
+          "type": "model",
+          "display_name": "Claude Sonnet 5",
+          "created_at": "2026-06-29T00:00:00Z",
+          "max_input_tokens": 1000000,
+          "max_tokens": 128000,
+          "capabilities": {
+            "batch": {
+              "supported": true
+            },
+            "citations": {
+              "supported": true
+            },
+            "code_execution": {
+              "supported": true
+            },
+            "context_management": {
+              "supported": true,
+              "clear_tool_uses_20250919": {
+                "supported": true
+              },
+              "clear_thinking_20251015": {
+                "supported": true
+              },
+              "compact_20260112": {
+                "supported": true
+              }
+            },
+            "effort": {
+              "supported": true,
+              "low": {
+                "supported": true
+              },
+              "medium": {
+                "supported": true
+              },
+              "high": {
+                "supported": true
+              },
+              "xhigh": {
+                "supported": true
+              },
+              "max": {
+                "supported": true
+              }
+            },
+            "image_input": {
+              "supported": true
+            },
+            "pdf_input": {
+              "supported": true
+            },
+            "structured_outputs": {
+              "supported": true
+            },
+            "thinking": {
+              "supported": true,
+              "types": {
+                "enabled": {
+                  "supported": false
+                },
+                "adaptive": {
+                  "supported": true
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -18007,12 +18077,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000003",
-            "completion": "0.000015",
+            "prompt": "0.000002",
+            "completion": "0.00001",
             "web_search": "0.01",
-            "input_cache_read": "0.0000003",
-            "input_cache_write": "0.00000375",
-            "input_cache_write_1h": "0.000006"
+            "input_cache_read": "0.0000002",
+            "input_cache_write": "0.0000025",
+            "input_cache_write_1h": "0.000004"
           },
           "top_provider": {
             "context_length": 1000000,
@@ -18028,11 +18098,8 @@
             "response_format",
             "stop",
             "structured_outputs",
-            "temperature",
             "tool_choice",
             "tools",
-            "top_k",
-            "top_p",
             "verbosity"
           ],
           "default_parameters": {
@@ -18053,6 +18120,7 @@
             "mandatory": false,
             "supported_efforts": [
               "max",
+              "xhigh",
               "high",
               "medium",
               "low"
@@ -20967,6 +21035,78 @@
           }
         },
         {
+          "id": "anthropic/claude-sonnet-5",
+          "name": "Anthropic: Claude Sonnet 5",
+          "canonical_slug": "anthropic/claude-sonnet-5-20260630",
+          "hugging_face_id": null,
+          "description": "Sonnet 5 is Anthropic's most capable Sonnet-class model, with frontier performance across coding, agents, and professional work. It supports adaptive thinking with selectable reasoning effort levels (low, medium, high, max,...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Claude",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.00001",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000002",
+            "input_cache_write": "0.0000025",
+            "input_cache_write_1h": "0.000004"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-sonnet-5-20260630/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
           "id": "arcee-ai/coder-large",
           "name": "Arcee AI: Coder Large",
           "canonical_slug": "arcee-ai/coder-large",
@@ -22862,13 +23002,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.00000018",
+            "prompt": "0.000000098",
+            "completion": "0.000000196",
             "input_cache_read": "0.00000002"
           },
           "top_provider": {
-            "context_length": 1000000,
-            "max_completion_tokens": 65536,
+            "context_length": 1048575,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -24297,6 +24437,63 @@
               "high",
               "medium",
               "low",
+              "minimal"
+            ],
+            "default_effort": "minimal"
+          }
+        },
+        {
+          "id": "google/gemini-3.1-flash-lite-image",
+          "name": "Google: Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
+          "canonical_slug": "google/gemini-3.1-flash-lite-image-20260630",
+          "hugging_face_id": null,
+          "description": "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image) is Google's fastest, most cost-efficient Gemini image model, built for high-velocity developer pipelines and rapid-fire visual exploration. It delivers text-to-image generation...",
+          "context_length": 65536,
+          "architecture": {
+            "modality": "text+image->text+image",
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "image",
+              "text"
+            ],
+            "tokenizer": "Gemini",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000025",
+            "completion": "0.0000015",
+            "web_search": "0.014"
+          },
+          "top_provider": {
+            "context_length": 65536,
+            "max_completion_tokens": 66000,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "seed",
+            "temperature",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": "2025-01-01",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-3.1-flash-lite-image-20260630/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
               "minimal"
             ],
             "default_effort": "minimal"
