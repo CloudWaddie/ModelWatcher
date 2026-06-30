@@ -1,0 +1,13 @@
+{
+  "webhook": {
+    "enabled": true,
+    "webhookEnv": "TOMBSTONE_WEBHOOK"
+  },
+  "state": {
+    "file": "./logs/bedrock-state.json"
+  },
+  "scan": {
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-endpoint-availability.md",
+    "timeout": 30000
+  }
+}
