@@ -158,7 +158,24 @@ async function compareAndroidStrings(appId) {
     return { changed: false, newStrings };
   }
 
-  return { changed: true, diff, newStrings };
+  // Filter out Firebase Crashlytics mapping_file_id changes
+  const diffLines = diff.split('\n');
+  const meaningfulChanges = diffLines.filter(line =>
+    (line.startsWith('+') && !line.startsWith('+++')) ||
+    (line.startsWith('-') && !line.startsWith('---'))
+  ).filter(line => !line.includes('com.google.firebase.crashlytics.mapping_file_id'));
+
+  if (meaningfulChanges.length === 0) {
+    console.log(`[${appId}] Only Firebase Crashlytics mapping_file_id changed — suppressing webhook`);
+    return { changed: false, newStrings };
+  }
+
+  // Filter firebase lines from diff for the notification, keep surrounding context clean
+  const filteredDiff = diffLines.filter(line =>
+    !line.includes('com.google.firebase.crashlytics.mapping_file_id')
+  ).join('\n');
+
+  return { changed: true, diff: filteredDiff, newStrings };
 }
 
 // --- App version checking ---
