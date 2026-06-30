@@ -895,7 +895,7 @@ function modelLine(m) {
   return `**${m.displayName || m.publicName || m.name}** \`${rank}\` | ${org} ${caps} ${selectable}`;
 }
 
-export function createLMArenaEmbed(diff, totalModels) {
+export function createLMArenaEmbed(diff, totalModels, allModels = []) {
   const embeds = [];
   const { groupDiff } = diff || {};
 
@@ -1053,9 +1053,12 @@ export function createLMArenaEmbed(diff, totalModels) {
   // Revealed models (gained organization) — combined into one embed
   if (diff.revealed && diff.revealed.length > 0) {
     const lines = diff.revealed.map(r => {
-      const nameChange = r.oldName !== r.newName ? `\`${r.oldName}\` → ` : '';
+      const codename = r.oldName || r.oldDisplayName;
+      const revealedAs = r.newDisplayName || r.newName;
+      const nameChanged = codename && codename !== revealedAs;
+      const prefix = nameChanged ? `\`${codename}\` → ` : '';
       const caps = capabilityEmoji(r.model.capabilities);
-      return `${nameChange}**${r.newName}** (${r.newOrg})${caps ? ' ' + caps : ''}`;
+      return `${prefix}**${revealedAs}** (${r.newOrg})${caps ? ' ' + caps : ''}`;
     });
     let chunk = [];
     let chunkLen = 0;
@@ -1132,7 +1135,109 @@ export function createLMArenaEmbed(diff, totalModels) {
     });
   }
 
-  // No truncation — sendDiscordWebhook batches into multiple API calls
+  // Rank leaderboard embeds per modality
+  if (diff.rankChanges && Object.keys(diff.rankChanges).length > 0) {
+    const oldModelMap = new Map();
+    if (allModels.length > 0) {
+      for (const m of allModels) {
+        oldModelMap.set(m.id || m.publicName || m.name, m);
+      }
+    }
+
+    const modalityLabels = { overall: 'Overall', chat: 'Chat', webdev: 'WebDev', image: 'Image', search: 'Search', video: 'Video' };
+
+    for (const [modality, changes] of Object.entries(diff.rankChanges)) {
+      const hasNewModel = changes.some(c => c.isNew);
+      const changedKeys = new Set(changes.map(c => c.model.id || c.model.publicName || c.model.name));
+
+      // Build full ranked list for this modality, deduplicating by displayName (variants)
+      const byName = new Map();
+      for (const m of allModels) {
+        let rank;
+        if (modality === 'overall') {
+          rank = m.rank;
+        } else {
+          rank = m.rankByModality?.[modality];
+        }
+        if (rank != null && rank < Number.MAX_SAFE_INTEGER) {
+          const name = m.displayName || m.publicName || m.name;
+          const key = m.id || m.publicName || m.name;
+          const change = changes.find(c => (c.model.id || c.model.publicName || c.model.name) === key);
+          const existing = byName.get(name);
+          if (!existing || rank < existing.rank) {
+            byName.set(name, {
+              rank,
+              name,
+              org: m.organization || 'unknown',
+              isNew: change?.isNew || existing?.isNew || false,
+              oldRank: change?.oldRank ?? existing?.oldRank ?? null,
+              changed: changedKeys.has(key) || (existing?.changed || false),
+              variants: (existing?.variants || 0) + 1,
+            });
+          } else {
+            existing.variants = (existing.variants || 1) + 1;
+            if (change) {
+              existing.isNew = existing.isNew || change.isNew;
+              existing.changed = true;
+              if (change.oldRank != null && (existing.oldRank == null || change.oldRank < existing.oldRank)) {
+                existing.oldRank = change.oldRank;
+              }
+            }
+          }
+        }
+      }
+      const ranked = [...byName.values()];
+      ranked.sort((a, b) => a.rank - b.rank);
+
+      // Determine display range
+      let startIdx = 0;
+      let endIdx = ranked.length;
+      if (hasNewModel) {
+        const newEntry = ranked.find(r => r.isNew);
+        const newIdx = newEntry ? ranked.indexOf(newEntry) : 0;
+        startIdx = Math.max(0, newIdx - 7);
+        endIdx = Math.min(ranked.length, startIdx + 15);
+      } else {
+        const affectedIdxs = ranked.map((r, i) => r.changed ? i : -1).filter(i => i >= 0);
+        if (affectedIdxs.length > 0) {
+          startIdx = Math.max(0, Math.min(...affectedIdxs) - 2);
+          endIdx = Math.min(ranked.length, Math.max(...affectedIdxs) + 3);
+        }
+      }
+
+      const slice = ranked.slice(startIdx, endIdx);
+      const lines = slice.map((r, i) => {
+        const pos = startIdx + i + 1;
+        let icon;
+        if (r.isNew) {
+          icon = '✨';
+        } else if (!r.changed) {
+          icon = '—';
+        } else if (r.oldRank != null && r.rank < r.oldRank) {
+          icon = '🔺';
+        } else {
+          icon = '🔻';
+        }
+        const oldPos = r.changed && !r.isNew && r.oldRank != null;
+        const was = oldPos ? ` → was #${r.oldRank}` : '';
+        const variantSuffix = r.variants > 1 ? ` (${r.variants} variants)` : '';
+        return `${icon} ${pos}. **${r.name}** (${r.org})${variantSuffix}${was}`;
+      });
+
+      if (startIdx > 0) lines.unshift('…');
+      if (endIdx < ranked.length) lines.push('…');
+
+      const label = modalityLabels[modality] || modality;
+      embeds.push({
+        color: 0x6366f1,
+        title: `🏆 ${label} Leaderboard`,
+        description: lines.join('\n').substring(0, 4000),
+        footer: { text: 'Auto generated from ranking data in JSON. This will not match arena.ai\'s visible leaderboard page.' },
+        timestamp: new Date().toISOString(),
+      });
+    }
+  }
+
   return {
     username: 'LM Arena Watcher',
     avatar_url: LOGO_URL,

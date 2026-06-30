@@ -6,15 +6,13 @@ import { sendDiscordWebhook, createLMArenaEmbed, capabilityEmoji } from './webho
 const STATE_FILE = 'logs/lmarena-state.json';
 const WEBHOOK_URL = process.env.LMARENA_WEBHOOK;
 
-// Static field configuration for model diffing
+// Static field configuration for model diffing (rank fields handled separately as leaderboard)
 const DIFF_FIELDS = [
-  { key: 'rank', label: 'rank' },
   { key: 'userSelectable', label: 'selectable' },
   { key: 'displayName', label: 'name' },
   { key: 'publicName', label: 'publicName' },
   { key: 'organization', label: 'organization' },
   { key: 'provider', label: 'provider' },
-  { key: 'rankByModality', label: 'rankByModality' },
   { key: 'capabilities', label: 'capabilities' }
 ];
 
@@ -233,6 +231,8 @@ function findRevealedModels(oldModels, newModels) {
         newOrg: m.organization,
         oldName: old.publicName || old.displayName || old.name,
         newName: m.publicName || m.displayName || m.name,
+        oldDisplayName: old.displayName || old.publicName || old.name,
+        newDisplayName: m.displayName || m.publicName || m.name,
         oldProvider: old.provider,
         newProvider: m.provider,
         oldSelectable: old.userSelectable,
@@ -427,9 +427,10 @@ function generateFieldDiff(field, oldVal, newVal) {
   
   // For capabilities, if the structure changed deeply, append nested details
   if (field.key === 'capabilities' && typeof oldVal === 'object' && typeof newVal === 'object') {
-    const nestedChanges = getNestedChanges(oldVal, newVal, 'capabilities');
+    const nestedChanges = getNestedChanges(oldVal, newVal, 'capabilities')
+      .filter(c => !(c.oldVal == null && c.newVal === false));
+    if (nestedChanges.length === 0 && oldEmoji === newEmoji) return null;
     if (nestedChanges.length > 0 && oldEmoji === newEmoji) {
-      // If emojis are the same but structure changed, add structural details
       const details = nestedChanges.map(c => {
         const oldStr = formatVal(c.oldVal, 'value');
         const newStr = formatVal(c.newVal, 'value');
@@ -438,7 +439,7 @@ function generateFieldDiff(field, oldVal, newVal) {
       message += ` (${details})`;
     }
   }
-  
+
   return message;
 }
 
@@ -459,7 +460,8 @@ function diffModels(oldModels, newModels) {
       
       for (const field of DIFF_FIELDS) {
         if (!areEqual(old[field.key], m[field.key])) {
-          changes.push(generateFieldDiff(field, old[field.key], m[field.key]));
+          const diff = generateFieldDiff(field, old[field.key], m[field.key]);
+          if (diff) changes.push(diff);
         }
       }
 
@@ -494,7 +496,37 @@ function diffModels(oldModels, newModels) {
     }
   }
 
-  return { added, removed, changed, groupDiff, revealed, possibleReveals };
+  const revealedKeys = new Set(revealed.map(r => modelKey(r.model)));
+  const filteredChanged = changed.filter(c => !revealedKeys.has(modelKey(c.model)));
+
+  // Collect rank changes per modality for leaderboard embeds
+  const rankChanges = {};
+  const addedKeys = new Set(added.map(m => modelKey(m)));
+  for (const [key, m] of newMap) {
+    const old = oldMap.get(key);
+    const isNew = addedKeys.has(key);
+    // Overall rank
+    const oldRank = old ? old.rank : null;
+    const newRank = m.rank;
+    const MAX = Number.MAX_SAFE_INTEGER;
+    if (oldRank !== newRank && newRank != null && newRank < MAX) {
+      if (!rankChanges.overall) rankChanges.overall = [];
+      rankChanges.overall.push({ model: m, oldRank: oldRank < MAX ? oldRank : null, newRank, isNew });
+    }
+    // Per-modality ranks
+    const oldRbm = old ? (old.rankByModality || {}) : {};
+    const newRbm = m.rankByModality || {};
+    for (const mod of new Set([...Object.keys(oldRbm), ...Object.keys(newRbm)])) {
+      const oldModRank = oldRbm[mod];
+      const newModRank = newRbm[mod];
+      if (oldModRank !== newModRank && newModRank != null && newModRank < MAX) {
+        if (!rankChanges[mod]) rankChanges[mod] = [];
+        rankChanges[mod].push({ model: m, oldRank: (oldModRank != null && oldModRank < MAX) ? oldModRank : null, newRank: newModRank, isNew });
+      }
+    }
+  }
+
+  return { added, removed, changed: filteredChanged, groupDiff, revealed, possibleReveals, rankChanges };
 }
 
 async function main() {
@@ -535,7 +567,8 @@ async function main() {
   const state = loadState();
   const diff = diffModels(state.models, models);
 
-  const hasChanges = diff.added.length > 0 || diff.removed.length > 0 || diff.changed.length > 0;
+  const hasRankChanges = Object.keys(diff.rankChanges).length > 0;
+  const hasChanges = diff.added.length > 0 || diff.removed.length > 0 || diff.changed.length > 0 || hasRankChanges;
 
   if (!hasChanges && state.models.length > 0) {
     console.log('No model changes detected');
@@ -553,7 +586,7 @@ async function main() {
 
   // Send Discord notification
   if (WEBHOOK_URL && hasChanges) {
-    const payload = createLMArenaEmbed(diff, models.length);
+    const payload = createLMArenaEmbed(diff, models.length, models);
     await sendDiscordWebhook(WEBHOOK_URL, payload);
     console.log('Discord notification sent');
   }
