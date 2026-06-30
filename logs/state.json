@@ -1786,27 +1786,6 @@
           "display_name": "Nano Banana Pro"
         },
         {
-          "id": "models/veo-2.0-generate-001",
-          "name": "models/veo-2.0-generate-001",
-          "owned_by": "google",
-          "object": "model",
-          "display_name": "Veo 2"
-        },
-        {
-          "id": "models/veo-3.0-fast-generate-001",
-          "name": "models/veo-3.0-fast-generate-001",
-          "owned_by": "google",
-          "object": "model",
-          "display_name": "Veo 3 fast"
-        },
-        {
-          "id": "models/veo-3.0-generate-001",
-          "name": "models/veo-3.0-generate-001",
-          "owned_by": "google",
-          "object": "model",
-          "display_name": "Veo 3"
-        },
-        {
           "id": "models/veo-3.1-fast-generate-preview",
           "name": "models/veo-3.1-fast-generate-preview",
           "owned_by": "google",
@@ -4519,6 +4498,36 @@
             "image": {
               "example_price": 0.04657,
               "example_description": "0.04657 for 512x512. For every input image used, it's an additional $0.00028. When using grounded search, $0.014 will be added on top."
+            },
+            "video": 0
+          }
+        },
+        {
+          "id": "google/flash-image-3.1-lite",
+          "name": "google/flash-image-3.1-lite",
+          "uuid": "endpoint-acb856f2-4ab1-440e-ba58-2bd6cea1b536",
+          "object": "model",
+          "type": "image",
+          "running": false,
+          "display_name": "Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)",
+          "organization": "Google",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": {
+              "example_price": 0.069,
+              "example_description": "price per image"
             },
             "video": 0
           }
