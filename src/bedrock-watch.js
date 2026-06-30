@@ -1,19 +1,9 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
-import { dirname, join } from 'path';
+import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
-
-function loadConfig() {
-  return JSON.parse(readFileSync(join(__dirname, '..', 'bedrock-config.json'), 'utf-8'));
-}
-
-function loadOrInit(path) {
-  if (!existsSync(path)) return { models: [], timestamp: 0 };
-  try { return JSON.parse(readFileSync(path, 'utf-8')); }
-  catch { return { models: [], timestamp: 0 }; }
-}
 
 function saveState(path, state) {
   mkdirSync(dirname(path), { recursive: true });
@@ -29,70 +19,50 @@ async function fetchMarkdown(url, timeout) {
 function parseModels(md) {
   const models = [];
   const lines = md.split('\n');
-  let currentProvider = null;
-  let inTable = false;
-  let headerSeen = false;
+  let currentProvider = '';
 
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
-
-    const headerMatch = line.match(/^## (.+)/);
-    if (headerMatch) {
-      currentProvider = headerMatch[1].trim();
-      inTable = false;
-      headerSeen = false;
+  for (const line of lines) {
+    const providerMatch = line.match(/^##\s+(.+)$/);
+    if (providerMatch) {
+      currentProvider = providerMatch[1].trim();
       continue;
     }
 
-    if (!currentProvider) continue;
-
-    if (line.startsWith('|') && line.endsWith('|')) {
-      if (!inTable) {
-        inTable = true;
-        headerSeen = false;
-        continue;
-      }
-      if (!headerSeen) {
-        headerSeen = true;
-        continue;
-      }
-      const cells = line.split('|').map(c => c.trim()).filter(Boolean);
-      if (cells.length < 3) continue;
-      const name = cells[0].replace(/^\[(.+?)\].*$/, '$1').replace(/^\*\*(.+?)\*\*$/, '$1').trim();
-      if (!name || name === 'Model name') continue;
-      const runtime = cells[1].includes('icon-yes.png');
-      const mantle = cells[2].includes('icon-yes.png');
-      models.push({ provider: currentProvider, name, runtime, mantle });
-    } else {
-      inTable = false;
-      headerSeen = false;
+    const modelMatch = line.match(/^\|\s+([^|]+)\s+\|\s+([^|]+)\s+\|\s+([^|]+)\s+\|$/);
+    if (modelMatch && !line.toLowerCase().includes('model name')) {
+      models.push({
+        name: modelMatch[1].trim(),
+        runtime: modelMatch[2].includes('✅'),
+        mantle: modelMatch[3].includes('✅'),
+        provider: currentProvider
+      });
     }
   }
   return models;
 }
 
-function computeModelKey(m) {
-  return `${m.provider}::${m.name}`;
-}
-
 function diffModels(oldModels, newModels) {
-  const oldMap = new Map(oldModels.map(m => [computeModelKey(m), m]));
   const added = [];
   const removed = [];
   const changed = [];
 
-  for (const m of newModels) {
-    const key = computeModelKey(m);
-    const old = oldMap.get(key);
-    if (!old) {
+  const key = m => `${m.provider}::${m.name}`;
+  const oldMap = new Map(oldModels.map(m => [key(m), m]));
+  const newMap = new Map(newModels.map(m => [key(m), m]));
+
+  for (const [k, m] of newMap) {
+    if (!oldMap.has(k)) {
       added.push(m);
-    } else if (old.runtime !== m.runtime || old.mantle !== m.mantle) {
-      changed.push({ model: m, old });
+    } else {
+      const o = oldMap.get(k);
+      if (o.runtime !== m.runtime || o.mantle !== m.mantle) {
+        changed.push({ model: m, old: o });
+      }
     }
   }
 
-  for (const m of oldModels) {
-    if (!newModels.some(n => computeModelKey(n) === computeModelKey(m))) {
+  for (const [k, m] of oldMap) {
+    if (!newMap.has(k)) {
       removed.push(m);
     }
   }
@@ -162,7 +132,6 @@ function buildNotification(diff, total) {
   }
 
 
-
   return {
     username: 'Bedrock Watcher',
     avatar_url: LOGO_URL,
@@ -172,10 +141,16 @@ function buildNotification(diff, total) {
 }
 
 async function main() {
-  console.log('=== Bedrock Model Availability Watcher ===');
-  const config = loadConfig();
+  const config = JSON.parse(readFileSync(join(__dirname, '../bedrock-config.json'), 'utf8'));
   const statePath = join(__dirname, '..', config.state.file);
-  const prevState = loadOrInit(statePath);
+  let prevState = { models: [] };
+  if (existsSync(statePath)) {
+    try {
+      prevState = JSON.parse(readFileSync(statePath, 'utf8'));
+    } catch (e) {
+      console.error('Failed to parse state file, starting fresh:', e.message);
+    }
+  }
   const webhookUrl = process.env[config.webhook.webhookEnv];
 
   console.log('Fetching model availability page...');
@@ -216,6 +191,6 @@ async function main() {
 }
 
 main().catch(err => {
-  console.error('Fatal error:', err);
+  console.error(err);
   process.exit(1);
 });

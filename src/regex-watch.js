@@ -1,13 +1,12 @@
-import { Camoufox } from 'camoufox-js';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
-import { dirname, join } from 'path';
+import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { Camoufox } from 'camoufox-js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
-
-const MAX_RESPONSE_SIZE = 10 * 1024 * 1024; // 10MB
+const MAX_RESPONSE_SIZE = 5 * 1024 * 1024;
 const DEFAULT_TIMEOUT = 60000;
 const DEFAULT_DELAY = 2500;
 const REGEX_TIMEOUT = 10000;
@@ -28,7 +27,7 @@ function isValidUrl(url) {
   try {
     const parsed = new URL(url);
     return parsed.protocol === 'http:' || parsed.protocol === 'https:';
-  } catch {
+  } catch (e) {
     return false;
   }
 }
@@ -76,7 +75,7 @@ function loadState(statePath) {
       }
       return data;
     } catch (e) {
-      console.error('Failed to parse state file, starting fresh:', e.message);
+      console.error('Error loading state:', e.message);
     }
   }
   return {};
@@ -94,17 +93,17 @@ function saveState(statePath, state) {
   const stateToSave = {};
   for (const url in state) {
     stateToSave[url] = { patterns: {} };
-    if (state[url] && state[url].patterns) {
+    if (state[url]?.patterns) {
       for (const patternId in state[url].patterns) {
-        const patternData = state[url].patterns[patternId];
+        const patternResult = state[url].patterns[patternId];
         stateToSave[url].patterns[patternId] = {
-          count: patternData.count,
-          matchedStrings: Array.from(patternData.matchedStrings || []),
-          timestamp: patternData.timestamp
+          ...patternResult,
+          matchedStrings: Array.from(patternResult.matchedStrings || [])
         };
       }
     }
   }
+  
   writeFileSync(statePath, JSON.stringify(stateToSave, null, 2));
 }
 
