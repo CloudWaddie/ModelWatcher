@@ -899,124 +899,16 @@ export function createLMArenaEmbed(diff, totalModels) {
   const embeds = [];
   const { groupDiff } = diff || {};
 
-  // Summary embed
-  const summaryEmbed = {
-    color: 0x8b5cf6,
-    title: '🏆 LM Arena Model Changes Detected',
-    description: `Total models tracked: **${totalModels}**`,
-    fields: [],
-    timestamp: new Date().toISOString(),
-    footer: {
-      text: 'LM Arena Watcher',
-      icon_url: LOGO_URL,
-    },
-  };
-
-  const addedStealth = diff.added.filter(m => !m.organization);
-  const addedKnown = diff.added.filter(m => m.organization);
-  if (addedStealth.length > 0) {
-    summaryEmbed.fields.push({
-      name: `🥷 New Stealth Models (${addedStealth.length})`,
-      value: addedStealth.length > 10
-        ? `${addedStealth.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${addedStealth.length - 10} more`
-        : addedStealth.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
-      inline: true,
-    });
-  }
-  if (addedKnown.length > 0) {
-    summaryEmbed.fields.push({
-      name: `🆕 New Models (${addedKnown.length})`,
-      value: addedKnown.length > 10
-        ? `${addedKnown.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${addedKnown.length - 10} more`
-        : addedKnown.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
-      inline: true,
-    });
-  }
-
-  if (diff.removed.length > 0) {
-    summaryEmbed.fields.push({
-      name: `🗑️ Removed Models (${diff.removed.length})`,
-      value: diff.removed.length > 10
-        ? `${diff.removed.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${diff.removed.length - 10} more`
-        : diff.removed.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
-      inline: true,
-    });
-  }
-
-  if (diff.changed.length > 0) {
-    summaryEmbed.fields.push({
-      name: `🔄 Updated Models (${diff.changed.length})`,
-      value: diff.changed.length > 10
-        ? `${diff.changed.slice(0, 10).map(c => `• ${c.model.displayName || c.model.publicName}`).join('\n')}\n...and ${diff.changed.length - 10} more`
-        : diff.changed.map(c => `• ${c.model.displayName || c.model.publicName}`).join('\n'),
-      inline: true,
-    });
-  }
-
-  // Revealed models (gained organization)
-  if (diff.revealed && diff.revealed.length > 0) {
-    summaryEmbed.fields.push({
-      name: `🕵️ Revealed Models (${diff.revealed.length})`,
-      value: diff.revealed.slice(0, 10).map(r => {
-        const nameChange = r.oldName !== r.newName ? ` \`${r.oldName}\`` : '';
-        return `•${nameChange} → **${r.newName}** (${r.newOrg})`;
-      }).join('\n'),
-      inline: true,
-    });
-  }
-
-  // Possible reveals (stealth removed → new model with same caps)
-  if (diff.possibleReveals && diff.possibleReveals.length > 0) {
-    summaryEmbed.fields.push({
-      name: `🔎 Possible Reveals (${diff.possibleReveals.length})`,
-      value: diff.possibleReveals.slice(0, 10).map(pr =>
-        `• \`${pr.removed.displayName || pr.removed.publicName}\` → **${pr.added.displayName || pr.added.publicName}** (${pr.match})`
-      ).join('\n'),
-      inline: true,
-    });
-  }
-
-  // Group-level changes (variant counts, new groups, removed groups)
+  // Collect display names that are variant changes so we can exclude them from new model embeds
+  const variantChangeNames = new Set();
   if (groupDiff) {
-    if (groupDiff.newGroups.length > 0) {
-      summaryEmbed.fields.push({
-        name: `📦 New Model Groups (${groupDiff.newGroups.length})`,
-        value: groupDiff.newGroups.slice(0, 10).map(g =>
-          `• ${g.displayName} (${g.profile.count} variant${g.profile.count > 1 ? 's' : ''})`
-        ).join('\n'),
-        inline: true,
-      });
-    }
-    if (groupDiff.removedGroups.length > 0) {
-      summaryEmbed.fields.push({
-        name: `📭 Removed Groups (${groupDiff.removedGroups.length})`,
-        value: groupDiff.removedGroups.slice(0, 10).map(g =>
-          `• ${g.displayName} (${g.profile.count} variant${g.profile.count > 1 ? 's' : ''})`
-        ).join('\n'),
-        inline: true,
-      });
-    }
-    if (groupDiff.variantChanges.length > 0) {
-      summaryEmbed.fields.push({
-        name: `🔀 Variant Changes (${groupDiff.variantChanges.length})`,
-        value: groupDiff.variantChanges.slice(0, 10).map(v =>
-          `• ${v.displayName}: ${v.oldCount} → ${v.newCount} variants`
-        ).join('\n'),
-        inline: true,
-      });
-    }
-    if (groupDiff.convergence.length > 0) {
-      summaryEmbed.fields.push({
-        name: `🎯 Capability Convergence (${groupDiff.convergence.length})`,
-        value: groupDiff.convergence.slice(0, 10).map(c =>
-          `• ${c.displayName}: **${c.allNowHave.map(formatCapPath).join(', ')}** now across all ${c.variantCount} variants`
-        ).join('\n'),
-        inline: true,
-      });
+    for (const v of groupDiff.variantChanges) {
+      variantChangeNames.add(v.displayName);
     }
   }
 
-  embeds.push(summaryEmbed);
+  const addedStealth = diff.added.filter(m => !m.organization && !variantChangeNames.has(m.displayName || m.publicName));
+  const addedKnown = diff.added.filter(m => m.organization && !variantChangeNames.has(m.displayName || m.publicName));
 
   // Detail embeds for new stealth models (no organization — potential future reveals)
   if (addedStealth.length > 0) {
@@ -1194,22 +1086,20 @@ export function createLMArenaEmbed(diff, totalModels) {
   // Detail embeds for variant count changes
   if (groupDiff && groupDiff.variantChanges.length > 0) {
     for (const v of groupDiff.variantChanges) {
-      const oldRanks = v.oldRanks.length ? `ranks ${v.oldRanks.join(',')}` : 'no ranks';
-      const newRanks = v.newRanks.length ? `ranks ${v.newRanks.join(',')}` : 'no ranks';
-      let desc = `Variants: **${v.oldCount}** → **${v.newCount}**\nRanks: ${oldRanks} → ${newRanks}${v.newProviders.length ? `\nProviders: ${v.newProviders.join(', ')}` : ''}`;
-      // Append capability matrix if available
+      const isStealth = diff.added.some(m => (m.displayName || m.publicName) === v.displayName && !m.organization);
+      const label = isStealth ? 'New stealth variant' : 'New variant';
+      let desc = '';
       if (v.capMatrix && v.capMatrix.length > 0) {
-        desc += '\n\n**Capability matrix:**';
         for (const cap of v.capMatrix) {
           const pct = Math.round((cap.count / cap.total) * 100);
           const bar = '█'.repeat(Math.round(pct / 10)) + '░'.repeat(10 - Math.round(pct / 10));
-          desc += `\n${cap.emoji} ${cap.label}: \`${bar}\` ${cap.count}/${cap.total}`;
+          desc += `${cap.emoji} ${cap.label}: \`${bar}\` ${cap.count}/${cap.total}\n`;
         }
       }
       embeds.push({
-        color: 0x8b5cf6,
-        title: `🔀 ${v.displayName}: ${v.oldCount} → ${v.newCount} variants`,
-        description: desc,
+        color: isStealth ? 0x6b7280 : 0x8b5cf6,
+        title: `🔀 ${label}: ${v.displayName}: ${v.oldCount} → ${v.newCount}`,
+        description: desc || null,
         timestamp: new Date().toISOString(),
       });
     }
