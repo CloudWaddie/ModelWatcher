@@ -1,9 +1,95 @@
 import axios from 'axios';
 
+// Use GitHub raw URL for logo
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 
 const MAX_EMBEDS_PER_MESSAGE = 10;
-const MAX_MODELS_PER_EMBED = 50;
+const MAX_TOTAL_EMBEDS = 10; // Combined safety limit for any single payload
+const MAX_DESC_LENGTH = 4096;
+const MAX_FIELD_VALUE = 1024;
+const MAX_TITLE_LENGTH = 256;
+
+/**
+ * Robustly clone and chunk an embed payload to ensure it never exceeds Discord's limits.
+ * Handles splitting large descriptions, long field values, and too many embeds.
+ * This acts as a protective middleware for sendDiscordWebhook.
+ */
+function hardenPayload(payload) {
+  if (!payload || !payload.embeds || payload.embeds.length === 0) return payload;
+
+  const hardenedEmbeds = [];
+
+  for (const embed of payload.embeds) {
+    let currentEmbed = { ...embed };
+    
+    // 1. Handle Description Splitting
+    if (currentEmbed.description && currentEmbed.description.length > MAX_DESC_LENGTH) {
+      const desc = currentEmbed.description;
+      currentEmbed.description = desc.substring(0, MAX_DESC_LENGTH);
+      hardenedEmbeds.push(currentEmbed);
+      
+      // Overflow descriptions become new embeds (simplified title)
+      for (let i = MAX_DESC_LENGTH; i < desc.length; i += MAX_DESC_LENGTH) {
+        hardenedEmbeds.push({
+          color: currentEmbed.color,
+          description: desc.substring(i, i + MAX_DESC_LENGTH),
+          timestamp: currentEmbed.timestamp
+        });
+      }
+      currentEmbed = null; // Original processed
+    }
+
+    if (!currentEmbed) continue;
+
+    // 2. Handle Field Splitting
+    if (currentEmbed.fields && currentEmbed.fields.length > 0) {
+      const originalFields = [...currentEmbed.fields];
+      currentEmbed.fields = [];
+      
+      for (const field of originalFields) {
+        if (field.value.length > MAX_FIELD_VALUE) {
+          // If a single field is too long, we must split it. 
+          // If it's a code block, try to preserve formatting.
+          const isCodeBlock = field.value.startsWith('```') && field.value.endsWith('```');
+          const content = isCodeBlock ? field.value.slice(3, -3) : field.value;
+          const prefix = isCodeBlock ? '```\n' : '';
+          const suffix = isCodeBlock ? '\n```' : '';
+          const chunkLimit = MAX_FIELD_VALUE - prefix.length - suffix.length - 20;
+
+          for (let i = 0; i < content.length; i += chunkLimit) {
+            const chunk = content.substring(i, i + chunkLimit);
+            const label = i === 0 ? field.name : `${field.name} (cont.)`;
+            
+            if (currentEmbed.fields.length >= 25) {
+              hardenedEmbeds.push(currentEmbed);
+              currentEmbed = { ...embed, fields: [], description: undefined }; // Carry over style, drop description
+            }
+            currentEmbed.fields.push({
+              name: label.substring(0, MAX_TITLE_LENGTH),
+              value: prefix + chunk + suffix,
+              inline: field.inline
+            });
+          }
+        } else {
+          if (currentEmbed.fields.length >= 25) {
+            hardenedEmbeds.push(currentEmbed);
+            currentEmbed = { ...embed, fields: [], description: undefined };
+          }
+          currentEmbed.fields.push(field);
+        }
+      }
+    }
+    
+    if (currentEmbed) {
+      hardenedEmbeds.push(currentEmbed);
+    }
+  }
+
+  return {
+    ...payload,
+    embeds: hardenedEmbeds.slice(0, MAX_TOTAL_EMBEDS) // Final safety cap
+  };
+}
 
 /**
  * Send a Discord webhook notification
@@ -18,54 +104,16 @@ export async function sendDiscordWebhook(webhookUrl, payload) {
   }
 
   try {
-    const embeds = payload.embeds || [];
-    const allEmbeds = [];
+    // Apply hardening logic to handle large payloads automatically
+    const safePayload = hardenPayload(payload);
+    const allEmbeds = safePayload.embeds || [];
 
-    // Split embeds that have too many models into multiple embeds
-    for (const embed of embeds) {
-      if (embed.fields && embed.fields.length > 0) {
-        // Count total models across all fields
-        let totalModels = 0;
-        for (const field of embed.fields) {
-          const lines = field.value.split('\n').filter(l => l.trim());
-          totalModels += lines.length;
-        }
-
-        if (totalModels > MAX_MODELS_PER_EMBED) {
-          // Split into multiple embeds
-          let currentEmbed = { ...embed, fields: [] };
-          let currentCount = 0;
-
-          for (const field of embed.fields) {
-            const fieldCount = field.value.split('\n').filter(l => l.trim()).length;
-
-            if (currentCount + fieldCount > MAX_MODELS_PER_EMBED && currentEmbed.fields.length > 0) {
-              allEmbeds.push(currentEmbed);
-              currentEmbed = { ...embed, fields: [] };
-              currentCount = 0;
-            }
-
-            currentEmbed.fields.push(field);
-            currentCount += fieldCount;
-          }
-
-          if (currentEmbed.fields.length > 0) {
-            allEmbeds.push(currentEmbed);
-          }
-        } else {
-          allEmbeds.push(embed);
-        }
-      } else {
-        allEmbeds.push(embed);
-      }
-    }
-
-    // Send in chunks of MAX_EMBEDS_PER_MESSAGE
+    // Send in chunks of MAX_EMBEDS_PER_MESSAGE (Discord limit)
     for (let i = 0; i < allEmbeds.length; i += MAX_EMBEDS_PER_MESSAGE) {
       const chunk = allEmbeds.slice(i, i + MAX_EMBEDS_PER_MESSAGE);
       const chunkPayload = {
-        username: payload.username,
-        avatar_url: payload.avatar_url,
+        username: safePayload.username,
+        avatar_url: safePayload.avatar_url,
         embeds: chunk
       };
       await axios.post(webhookUrl, chunkPayload, {
@@ -101,7 +149,7 @@ export function createNewModelsEmbed(endpointName, models) {
   const maxTotal = 20;
   const fields = [];
   
-  // If too many models, just show count
+  // If too many models, just show count to avoid overwhelming
   if (models.length > maxTotal) {
     return {
       username: 'Model Watcher',
@@ -282,19 +330,13 @@ export function createUpdatedModelsEmbed(endpointName, updates, commitSha = null
       return `**${u.model.id}**\n\`\`\`\n${changeLines}\n\`\`\``;
     }).join('\n');
     
-    // Truncate if too long (Discord max field value is 1024)
-    let truncatedList = changeList;
-    if (changeList.length > 1000) {
-      truncatedList = changeList.substring(0, 997) + '...';
-    }
-    
     const label = updates.length > maxPerField 
       ? `Updated Models (${i + 1}-${Math.min(i + maxPerField, updates.length)})`
       : 'Updated Models';
     
     fields.push({
       name: label,
-      value: truncatedList
+      value: changeList // sendDiscordWebhook will handle any length overflow
     });
   }
 
@@ -332,7 +374,7 @@ export function createErrorEmbed(endpointName, error) {
       fields: [
         {
           name: 'Error Details',
-          value: `\`\`\`\n${error.substring(0, 500)}\n\`\`\``
+          value: `\`\`\`\n${error}\n\`\`\``
         }
       ],
       timestamp: new Date().toISOString(),
@@ -434,7 +476,7 @@ export function createCompactSummaryEmbed(results) {
       fields: [
         {
           name: `Status (${successCount}/${results.length} online)`,
-          value: endpointStatus.substring(0, 1024)
+          value: endpointStatus
         }
       ],
       timestamp: new Date().toISOString(),
@@ -478,7 +520,6 @@ export async function processNotifications(config, results, allChanges, endpoint
     const group = endpointGroups[endpointName] || 'default';
     if (!groupChanges[group]) {
       groupChanges[group] = {};
-      groupResults[group] = [];
     }
     groupChanges[group][endpointName] = changes;
   }
@@ -585,38 +626,13 @@ export async function processNotifications(config, results, allChanges, endpoint
 
 /**
  * Send a Discord webhook without model-splitting logic (for raw diffs)
+ * Handled now by sendDiscordWebhook's hardening logic.
  * @param {string} webhookUrl - Discord webhook URL
  * @param {Object} payload - Embed payload
  * @returns {Promise<boolean>} - Success status
  */
 export async function sendRawDiffWebhook(webhookUrl, payload) {
-  if (!webhookUrl) {
-    console.log('Discord webhook URL not configured, skipping notification');
-    return false;
-  }
-
-  try {
-    const embeds = payload.embeds || [];
-
-    // Send in chunks of MAX_EMBEDS_PER_MESSAGE
-    for (let i = 0; i < embeds.length; i += MAX_EMBEDS_PER_MESSAGE) {
-      const chunk = embeds.slice(i, i + MAX_EMBEDS_PER_MESSAGE);
-      const chunkPayload = {
-        username: payload.username,
-        avatar_url: payload.avatar_url,
-        embeds: chunk
-      };
-      await axios.post(webhookUrl, chunkPayload, {
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-
-    return true;
-  } catch (err) {
-    const details = err.response?.data ? JSON.stringify(err.response.data) : err.message;
-    console.error('Failed to send Discord webhook:', err.response?.status, details);
-    return false;
-  }
+  return sendDiscordWebhook(webhookUrl, payload);
 }
 
 /**
@@ -643,7 +659,7 @@ function htmlToMarkdown(html) {
     .replace(/<\/b>/gi, '**')
     .replace(/<i>/gi, '*')
     .replace(/<\/i>/gi, '*')
-    .replace(/<em>/gi, '*')
+    .replace(/em>/gi, '*')
     .replace(/<\/em>/gi, '*')
     .replace(/<code>/gi, '`')
     .replace(/<\/code>/gi, '`')
@@ -687,7 +703,7 @@ export function createAppVersionEmbed(appInfo) {
     embeds: [{
       title: `${platformEmoji} ${appInfo.title} — v${appInfo.version}`,
       url: appInfo.url,
-      description: description.length > 300 ? description.substring(0, 297) + '...' : description,
+      description: description,
       color,
       thumbnail: {
         url: appInfo.icon
@@ -695,7 +711,7 @@ export function createAppVersionEmbed(appInfo) {
       fields: [
         {
           name: '📝 Release Notes',
-          value: releaseNotes.substring(0, 1024) || '(none)'
+          value: releaseNotes || '(none)'
         },
         {
           name: '🏢 Developer',
@@ -724,7 +740,7 @@ export function createAppVersionEmbed(appInfo) {
 
 /**
  * Create Discord embed(s) for a raw strings diff with red/green highlighting
- * Uses Discord ```diff code blocks so - lines are red and + lines are green
+ * Uses Discord \`\`\`diff code blocks so - lines are red and + lines are green
  * @param {string} appId - App package ID
  * @param {string} diffText - Raw diff text
  * @returns {Object} - Discord embed payload
@@ -791,11 +807,11 @@ export function capabilityEmoji(cap) {
 }
 
 function modelLine(m) {
-  const rank = m.rank ? `#${m.rank}` : 'unranked';
+  const rank = m.rank ? `#\${m.rank}` : 'unranked';
   const org = m.organization || 'unknown';
   const caps = capabilityEmoji(m.capabilities);
   const selectable = m.userSelectable ? '✅' : '🔒';
-  return `**${m.displayName || m.publicName || m.name}** \`${rank}\` | ${org} ${caps} ${selectable}`;
+  return \`**\${m.displayName || m.publicName || m.name}** \\\`\${rank}\\\` | \${org} \${caps} \${selectable}\`;
 }
 
 export function createLMArenaEmbed(diff, totalModels) {
@@ -806,7 +822,7 @@ export function createLMArenaEmbed(diff, totalModels) {
   const summaryEmbed = {
     color: 0x8b5cf6,
     title: '🏆 LM Arena Model Changes Detected',
-    description: `Total models tracked: **${totalModels}**`,
+    description: \`Total models tracked: **\${totalModels}**\`,
     fields: [],
     timestamp: new Date().toISOString(),
     footer: {
@@ -819,39 +835,31 @@ export function createLMArenaEmbed(diff, totalModels) {
   const addedKnown = diff.added.filter(m => m.organization);
   if (addedStealth.length > 0) {
     summaryEmbed.fields.push({
-      name: `🥷 New Stealth Models (${addedStealth.length})`,
-      value: addedStealth.length > 10
-        ? `${addedStealth.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${addedStealth.length - 10} more`
-        : addedStealth.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
+      name: \`🥷 New Stealth Models (\${addedStealth.length})\`,
+      value: addedStealth.map(m => \`• \${m.displayName || m.publicName}\`).join('\\n'),
       inline: true,
     });
   }
   if (addedKnown.length > 0) {
     summaryEmbed.fields.push({
-      name: `🆕 New Models (${addedKnown.length})`,
-      value: addedKnown.length > 10
-        ? `${addedKnown.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${addedKnown.length - 10} more`
-        : addedKnown.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
+      name: \`🆕 New Models (\${addedKnown.length})\`,
+      value: addedKnown.map(m => \`• \${m.displayName || m.publicName}\`).join('\\n'),
       inline: true,
     });
   }
 
   if (diff.removed.length > 0) {
     summaryEmbed.fields.push({
-      name: `🗑️ Removed Models (${diff.removed.length})`,
-      value: diff.removed.length > 10
-        ? `${diff.removed.slice(0, 10).map(m => `• ${m.displayName || m.publicName}`).join('\n')}\n...and ${diff.removed.length - 10} more`
-        : diff.removed.map(m => `• ${m.displayName || m.publicName}`).join('\n'),
+      name: \`🗑️ Removed Models (\${diff.removed.length})\`,
+      value: diff.removed.map(m => \`• \${m.displayName || m.publicName}\`).join('\\n'),
       inline: true,
     });
   }
 
   if (diff.changed.length > 0) {
     summaryEmbed.fields.push({
-      name: `🔄 Updated Models (${diff.changed.length})`,
-      value: diff.changed.length > 10
-        ? `${diff.changed.slice(0, 10).map(c => `• ${c.model.displayName || c.model.publicName}`).join('\n')}\n...and ${diff.changed.length - 10} more`
-        : diff.changed.map(c => `• ${c.model.displayName || c.model.publicName}`).join('\n'),
+      name: \`🔄 Updated Models (\${diff.changed.length})\`,
+      value: diff.changed.map(c => \`• \${c.model.displayName || c.model.publicName}\`).join('\\n'),
       inline: true,
     });
   }
@@ -859,11 +867,11 @@ export function createLMArenaEmbed(diff, totalModels) {
   // Revealed models (gained organization)
   if (diff.revealed && diff.revealed.length > 0) {
     summaryEmbed.fields.push({
-      name: `🕵️ Revealed Models (${diff.revealed.length})`,
-      value: diff.revealed.slice(0, 10).map(r => {
-        const nameChange = r.oldName !== r.newName ? ` \`${r.oldName}\`` : '';
-        return `•${nameChange} → **${r.newName}** (${r.newOrg})`;
-      }).join('\n'),
+      name: \`🕵️ Revealed Models (\${diff.revealed.length})\`,
+      value: diff.revealed.map(r => {
+        const nameChange = r.oldName !== r.newName ? \` \\\`\${r.oldName}\\\`\` : '';
+        return \`•\${nameChange} → **\${r.newName}** (\${r.newOrg})\`;
+      }).join('\\n'),
       inline: true,
     });
   }
@@ -871,10 +879,10 @@ export function createLMArenaEmbed(diff, totalModels) {
   // Possible reveals (stealth removed → new model with same caps)
   if (diff.possibleReveals && diff.possibleReveals.length > 0) {
     summaryEmbed.fields.push({
-      name: `🔎 Possible Reveals (${diff.possibleReveals.length})`,
-      value: diff.possibleReveals.slice(0, 10).map(pr =>
-        `• \`${pr.removed.displayName || pr.removed.publicName}\` → **${pr.added.displayName || pr.added.publicName}** (${pr.match})`
-      ).join('\n'),
+      name: \`🔎 Possible Reveals (\${diff.possibleReveals.length})\`,
+      value: diff.possibleReveals.map(pr =>
+        \`• \\\`\${pr.removed.displayName || pr.removed.publicName}\\\` → **\${pr.added.displayName || pr.added.publicName}** (\${pr.match})\`
+      ).join('\\n'),
       inline: true,
     });
   }
@@ -883,37 +891,37 @@ export function createLMArenaEmbed(diff, totalModels) {
   if (groupDiff) {
     if (groupDiff.newGroups.length > 0) {
       summaryEmbed.fields.push({
-        name: `📦 New Model Groups (${groupDiff.newGroups.length})`,
-        value: groupDiff.newGroups.slice(0, 10).map(g =>
-          `• ${g.displayName} (${g.profile.count} variant${g.profile.count > 1 ? 's' : ''})`
-        ).join('\n'),
+        name: \`📦 New Model Groups (\${groupDiff.newGroups.length})\`,
+        value: groupDiff.newGroups.map(g =>
+          \`• \${g.displayName} (\${g.profile.count} variant\${g.profile.count > 1 ? 's' : ''})\`
+        ).join('\\n'),
         inline: true,
       });
     }
     if (groupDiff.removedGroups.length > 0) {
       summaryEmbed.fields.push({
-        name: `📭 Removed Groups (${groupDiff.removedGroups.length})`,
-        value: groupDiff.removedGroups.slice(0, 10).map(g =>
-          `• ${g.displayName} (${g.profile.count} variant${g.profile.count > 1 ? 's' : ''})`
-        ).join('\n'),
+        name: \`📭 Removed Groups (\${groupDiff.removedGroups.length})\`,
+        value: groupDiff.removedGroups.map(g =>
+          \`• \${g.displayName} (\${g.profile.count} variant\${g.profile.count > 1 ? 's' : ''})\`
+        ).join('\\n'),
         inline: true,
       });
     }
     if (groupDiff.variantChanges.length > 0) {
       summaryEmbed.fields.push({
-        name: `🔀 Variant Changes (${groupDiff.variantChanges.length})`,
-        value: groupDiff.variantChanges.slice(0, 10).map(v =>
-          `• ${v.displayName}: ${v.oldCount} → ${v.newCount} variants`
-        ).join('\n'),
+        name: \`🔀 Variant Changes (\${groupDiff.variantChanges.length})\`,
+        value: groupDiff.variantChanges.map(v =>
+          \`• \${v.displayName}: \${v.oldCount} → \${v.newCount} variants\`
+        ).join('\\n'),
         inline: true,
       });
     }
     if (groupDiff.convergence.length > 0) {
       summaryEmbed.fields.push({
-        name: `🎯 Capability Convergence (${groupDiff.convergence.length})`,
-        value: groupDiff.convergence.slice(0, 10).map(c =>
-          `• ${c.displayName}: **${c.allNowHave.map(formatCapPath).join(', ')}** now across all ${c.variantCount} variants`
-        ).join('\n'),
+        name: \`🎯 Capability Convergence (\${groupDiff.convergence.length})\`,
+        value: groupDiff.convergence.map(c =>
+          \`• \${c.displayName}: **\${c.allNowHave.map(formatCapPath).join(', ')}** now across all \${c.variantCount} variants\`
+        ).join('\\n'),
         inline: true,
       });
     }
@@ -921,34 +929,17 @@ export function createLMArenaEmbed(diff, totalModels) {
 
   embeds.push(summaryEmbed);
 
-  // Detail embeds for new stealth models (no organization — potential future reveals)
+  // Detail embeds for new stealth models
   if (addedStealth.length > 0) {
-    const lines = addedStealth.map(m => {
-      const caps = capabilityEmoji(m.capabilities);
-      return `**${m.displayName || m.publicName || m.name}**${caps ? ' ' + caps : ''} \`${m.rank ? '#' + m.rank : 'unranked'}\``;
+    embeds.push({
+      color: 0x6b7280,
+      title: \`🥷 New Stealth Models\`,
+      description: addedStealth.map(m => {
+        const caps = capabilityEmoji(m.capabilities);
+        return \`**\${m.displayName || m.publicName || m.name}**\${caps ? ' ' + caps : ''} \\\`\${m.rank ? '#' + m.rank : 'unranked'}\\\`\`;
+      }).join('\\n'),
+      timestamp: new Date().toISOString(),
     });
-    let chunk = [];
-    let chunkLen = 0;
-    const chunks = [];
-    for (const line of lines) {
-      if (chunkLen + line.length > 900 && chunk.length > 0) {
-        chunks.push(chunk.join('\n'));
-        chunk = [line];
-        chunkLen = line.length;
-      } else {
-        chunk.push(line);
-        chunkLen += line.length + 1;
-      }
-    }
-    if (chunk.length) chunks.push(chunk.join('\n'));
-    for (let i = 0; i < chunks.length; i++) {
-      embeds.push({
-        color: 0x6b7280,
-        title: i === 0 ? `🥷 New Stealth Models` : `🥷 New Stealth Models (cont.)`,
-        description: chunks[i],
-        timestamp: new Date().toISOString(),
-      });
-    }
   }
 
   // Detail embeds for new known models (group by org)
@@ -961,31 +952,12 @@ export function createLMArenaEmbed(diff, totalModels) {
     }
 
     for (const [org, models] of Object.entries(byOrg)) {
-      const lines = models.map(modelLine);
-      // Split into chunks if needed (field value limit ~950)
-      let chunk = [];
-      let chunkLen = 0;
-      const chunks = [];
-      for (const line of lines) {
-        if (chunkLen + line.length > 900 && chunk.length > 0) {
-          chunks.push(chunk.join('\n'));
-          chunk = [line];
-          chunkLen = line.length;
-        } else {
-          chunk.push(line);
-          chunkLen += line.length + 1;
-        }
-      }
-      if (chunk.length) chunks.push(chunk.join('\n'));
-
-      for (let i = 0; i < chunks.length; i++) {
-        embeds.push({
-          color: getOrgColor(org),
-          title: i === 0 ? `🆕 New — ${org}` : `🆕 New — ${org} (cont.)`,
-          description: chunks[i],
-          timestamp: new Date().toISOString(),
-        });
-      }
+      embeds.push({
+        color: getOrgColor(org),
+        title: \`🆕 New — \${org}\`,
+        description: models.map(modelLine).join('\\n'),
+        timestamp: new Date().toISOString(),
+      });
     }
   }
 
@@ -999,30 +971,12 @@ export function createLMArenaEmbed(diff, totalModels) {
     }
 
     for (const [org, models] of Object.entries(byOrg)) {
-      const lines = models.map(m => `**${m.displayName || m.publicName || m.name}** \`${m.rank ? '#' + m.rank : 'unranked'}\``);
-      let chunk = [];
-      let chunkLen = 0;
-      const chunks = [];
-      for (const line of lines) {
-        if (chunkLen + line.length > 900 && chunk.length > 0) {
-          chunks.push(chunk.join('\n'));
-          chunk = [line];
-          chunkLen = line.length;
-        } else {
-          chunk.push(line);
-          chunkLen += line.length + 1;
-        }
-      }
-      if (chunk.length) chunks.push(chunk.join('\n'));
-
-      for (let i = 0; i < chunks.length; i++) {
-        embeds.push({
-          color: 0xef4444,
-          title: i === 0 ? `🗑️ Removed — ${org}` : `🗑️ Removed — ${org} (cont.)`,
-          description: chunks[i],
-          timestamp: new Date().toISOString(),
-        });
-      }
+      embeds.push({
+        color: 0xef4444,
+        title: \`🗑️ Removed — \${org}\`,
+        description: models.map(m => \`**\${m.displayName || m.publicName || m.name}** \\\`\${m.rank ? '#' + m.rank : 'unranked'}\\\`\`).join('\\n'),
+        timestamp: new Date().toISOString(),
+      });
     }
   }
 
@@ -1036,59 +990,41 @@ export function createLMArenaEmbed(diff, totalModels) {
     }
 
     for (const [org, changes] of Object.entries(byOrg)) {
-      const lines = changes.map(c => {
-        const m = c.model;
-        const changeStr = c.changes.join(', ');
-        return `**${m.displayName || m.publicName || m.name}**\n${changeStr}`;
+      embeds.push({
+        color: 0xf59e0b,
+        title: \`🔄 Updated — \${org}\`,
+        description: changes.map(c => {
+          const m = c.model;
+          const changeStr = c.changes.join(', ');
+          return \`**\${m.displayName || m.publicName || m.name}**\\n\${changeStr}\`;
+        }).join('\\n'),
+        timestamp: new Date().toISOString(),
       });
-      let chunk = [];
-      let chunkLen = 0;
-      const chunks = [];
-      for (const line of lines) {
-        if (chunkLen + line.length > 900 && chunk.length > 0) {
-          chunks.push(chunk.join('\n'));
-          chunk = [line];
-          chunkLen = line.length;
-        } else {
-          chunk.push(line);
-          chunkLen += line.length + 1;
-        }
-      }
-      if (chunk.length) chunks.push(chunk.join('\n'));
-
-      for (let i = 0; i < chunks.length; i++) {
-        embeds.push({
-          color: 0xf59e0b,
-          title: i === 0 ? `🔄 Updated — ${org}` : `🔄 Updated — ${org} (cont.)`,
-          description: chunks[i],
-          timestamp: new Date().toISOString(),
-        });
-      }
     }
   }
 
-  // Revealed models (gained organization)
+  // Detail embeds for revealed models
   if (diff.revealed && diff.revealed.length > 0) {
     for (const r of diff.revealed) {
       const details = [];
-      details.push(`🆔 \`${r.model.id}\``);
+      details.push(\`🆔 \\\`\${r.model.id}\\\`\`);
       if (r.oldName !== r.newName) {
-        details.push(`📛 Codename: \`${r.oldName}\` → **${r.newName}**`);
+        details.push(\`📛 Codename: \\\`\${r.oldName}\\\` → **\${r.newName}**\`);
       }
-      details.push(`🏢 Organization: **(none)** → **${r.newOrg}**`);
+      details.push(\`🏢 Organization: **(none)** → **\${r.newOrg}**\`);
       if (r.newProvider && r.oldProvider !== r.newProvider) {
-        details.push(`⚙️ Provider: ${r.oldProvider || '(none)'} → **${r.newProvider}**`);
+        details.push(\`⚙️ Provider: \${r.oldProvider || '(none)'} → **\${r.newProvider}**\`);
       }
       if (r.oldSelectable !== r.newSelectable) {
-        details.push(`🔓 Selectable: ${r.oldSelectable ? '✅' : '🔒'} → ${r.newSelectable ? '✅' : '🔒'}`);
+        details.push(\`🔓 Selectable: \${r.oldSelectable ? '✅' : '🔒'} → \${r.newSelectable ? '✅' : '🔒'}\`);
       }
       const caps = capabilityEmoji(r.model.capabilities);
-      if (caps) details.push(`🎯 Capabilities: ${caps}`);
+      if (caps) details.push(\`🎯 Capabilities: \${caps}\`);
 
       embeds.push({
         color: 0xf59e0b,
-        title: `🕵️ ${r.oldName} → ${r.newName} by ${r.newOrg}`,
-        description: details.join('\n'),
+        title: \`🕵️ \${r.oldName} → \${r.newName} by \${r.newOrg}\`,
+        description: details.join('\\n'),
         timestamp: new Date().toISOString(),
       });
     }
@@ -1097,21 +1033,21 @@ export function createLMArenaEmbed(diff, totalModels) {
   // Detail embeds for variant count changes
   if (groupDiff && groupDiff.variantChanges.length > 0) {
     for (const v of groupDiff.variantChanges) {
-      const oldRanks = v.oldRanks.length ? `ranks ${v.oldRanks.join(',')}` : 'no ranks';
-      const newRanks = v.newRanks.length ? `ranks ${v.newRanks.join(',')}` : 'no ranks';
-      let desc = `Variants: **${v.oldCount}** → **${v.newCount}**\nRanks: ${oldRanks} → ${newRanks}${v.newProviders.length ? `\nProviders: ${v.newProviders.join(', ')}` : ''}`;
+      const oldRanks = v.oldRanks.length ? \`ranks \${v.oldRanks.join(',')}\` : 'no ranks';
+      const newRanks = v.newRanks.length ? \`ranks \${v.newRanks.join(',')}\` : 'no ranks';
+      let desc = \`Variants: **\${v.oldCount}** → **\${v.newCount}**\\nRanks: \${oldRanks} → \${newRanks}\${v.newProviders.length ? \`\\nProviders: \${v.newProviders.join(', ')}\` : ''}\`;
       // Append capability matrix if available
       if (v.capMatrix && v.capMatrix.length > 0) {
-        desc += '\n\n**Capability matrix:**';
+        desc += '\\n\\n**Capability matrix:**';
         for (const cap of v.capMatrix) {
           const pct = Math.round((cap.count / cap.total) * 100);
           const bar = '█'.repeat(Math.round(pct / 10)) + '░'.repeat(10 - Math.round(pct / 10));
-          desc += `\n${cap.emoji} ${cap.label}: \`${bar}\` ${cap.count}/${cap.total}`;
+          desc += \`\\n\${cap.emoji} \${cap.label}: \\\`\${bar}\\\` \${cap.count}/\${cap.total}\`;
         }
       }
       embeds.push({
         color: 0x8b5cf6,
-        title: `🔀 ${v.displayName}: ${v.oldCount} → ${v.newCount} variants`,
+        title: \`🔀 \${v.displayName}: \${v.oldCount} → \${v.newCount} variants\`,
         description: desc,
         timestamp: new Date().toISOString(),
       });
@@ -1123,8 +1059,8 @@ export function createLMArenaEmbed(diff, totalModels) {
     for (const c of groupDiff.convergence) {
       embeds.push({
         color: 0x10b981,
-        title: `🎯 ${c.displayName} — Converged`,
-        description: `**${c.allNowHave.map(formatCapPath).join(', ')}** is now available across all **${c.variantCount}** variants.`,
+        title: \`🎯 \${c.displayName} — Converged\`,
+        description: \`**\${c.allNowHave.map(formatCapPath).join(', ')}** is now available across all \${c.variantCount} variants.\`,
         timestamp: new Date().toISOString(),
       });
     }
@@ -1139,14 +1075,13 @@ export function createLMArenaEmbed(diff, totalModels) {
       const addCaps = capabilityEmoji(add.capabilities);
       embeds.push({
         color: 0xf97316,
-        title: `🔎 ${rem.displayName || rem.publicName} → ${add.displayName || add.publicName}?`,
-        description: `**Removed:** \`${rem.displayName || rem.publicName}\` (stealth, no org)\n**Added:** **${add.displayName || add.publicName}**${add.organization ? ` (${add.organization})` : ''}\n**Match:** ${pr.match}\n**Capabilities:** ${remCaps} → ${addCaps}\n*(⚠️ not confirmed — same capabilities, different identity)*`,
+        title: \`🔎 \${rem.displayName || rem.publicName} → \${add.displayName || add.publicName}?\`,
+        description: \`**Removed:** \\\`\${rem.displayName || rem.publicName}\\\` (stealth, no org)\\n**Added:** **\${add.displayName || add.publicName}**\${add.organization ? \` (\${add.organization})\` : ''}\\n**Match: \${pr.match}**\\n**Capabilities:** \${remCaps} → \${addCaps}\\n*(⚠️ not confirmed — same capabilities, different identity)*\`,
         timestamp: new Date().toISOString(),
       });
     }
   }
 
-  // No truncation — sendDiscordWebhook batches into multiple API calls
   return {
     username: 'LM Arena Watcher',
     avatar_url: LOGO_URL,
@@ -1155,76 +1090,22 @@ export function createLMArenaEmbed(diff, totalModels) {
 }
 
 export function createStringsDiffEmbed(appId, diffText) {
-  const MAX_FIELD_VALUE = 950; // Under Discord's 1024 field value limit, accounting for ```diff\n and \n```
-  const MAX_EMBEDS_PER_MESSAGE = 5; // Limit total embeds to stay under 6000 total chars
-
-  // Escape triple backticks to prevent breaking code blocks
-  const safeDiff = diffText.replace(/```/g, '`\u200b`\u200b`');
-  const lines = safeDiff.split('\n');
-
-  const chunks = [];
-  let currentChunk = [];
-  let currentLength = 0;
-
-  for (const line of lines) {
-    // +1 accounts for the newline character
-    if (currentLength + line.length + 1 > MAX_FIELD_VALUE && currentChunk.length > 0) {
-      chunks.push(currentChunk.join('\n'));
-      currentChunk = [line];
-      currentLength = line.length;
-    } else {
-      currentChunk.push(line);
-      currentLength += line.length + 1;
-    }
-  }
-
-  if (currentChunk.length > 0) {
-    chunks.push(currentChunk.join('\n'));
-  }
-
-  // If we have too many chunks, truncate and add a note
-  const wasTruncated = chunks.length > MAX_EMBEDS_PER_MESSAGE;
-  const displayChunks = chunks.slice(0, MAX_EMBEDS_PER_MESSAGE);
-  const totalChunks = chunks.length;
-
-  const embeds = [];
-
-  for (let i = 0; i < displayChunks.length; i++) {
-    const isFirst = i === 0;
-    const isLast = i === displayChunks.length - 1;
-
-    let value = '```diff\n' + displayChunks[i] + '\n```';
-    if (isLast && wasTruncated) {
-      value += `\n*(diff truncated: ${totalChunks - MAX_EMBEDS_PER_MESSAGE} more chunks)*`;
-    }
-
-    const embed = {
-      color: 0x3B82F6,
-      fields: [{
-        name: totalChunks > 1 ? `Diff (${i + 1}/${totalChunks})` : 'Diff',
-        value
-      }],
-      timestamp: new Date().toISOString()
-    };
-
-    if (isFirst) {
-      embed.title = `\ud83d\udcf1 ${appId} — Strings Changed`;
-      embed.description = 'Android app strings diff detected';
-    }
-
-    if (isLast) {
-      embed.footer = {
-        text: 'Android Strings Watcher',
-        icon_url: LOGO_URL
-      };
-    }
-
-    embeds.push(embed);
-  }
-
   return {
     username: 'Android Strings Watcher',
     avatar_url: LOGO_URL,
-    embeds
+    embeds: [{
+      title: \`\ud83d\udcf1 \${appId} — Strings Changed\`,
+      description: 'Android app strings diff detected',
+      color: 0x3B82F6,
+      fields: [{
+        name: 'Diff',
+        value: '```diff\\n' + diffText + '\\n```'
+      }],
+      timestamp: new Date().toISOString(),
+      footer: {
+        text: 'Android Strings Watcher',
+        icon_url: LOGO_URL
+      }
+    }]
   };
 }
