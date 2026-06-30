@@ -978,40 +978,34 @@ export function createLMArenaEmbed(diff, totalModels) {
     }
   }
 
-  // Detail embeds for removed models
+  // Detail embed for removed models (all orgs combined)
   if (diff.removed.length > 0) {
-    const byOrg = {};
-    for (const m of diff.removed) {
-      const org = m.organization || 'Unknown';
-      if (!byOrg[org]) byOrg[org] = [];
-      byOrg[org].push(m);
+    const lines = diff.removed.map(m => {
+      const org = m.organization || 'unknown';
+      return `**${m.displayName || m.publicName || m.name}** | ${org} \`${m.rank ? '#' + m.rank : 'unranked'}\``;
+    });
+    let chunk = [];
+    let chunkLen = 0;
+    const chunks = [];
+    for (const line of lines) {
+      if (chunkLen + line.length > 900 && chunk.length > 0) {
+        chunks.push(chunk.join('\n'));
+        chunk = [line];
+        chunkLen = line.length;
+      } else {
+        chunk.push(line);
+        chunkLen += line.length + 1;
+      }
     }
+    if (chunk.length) chunks.push(chunk.join('\n'));
 
-    for (const [org, models] of Object.entries(byOrg)) {
-      const lines = models.map(m => `**${m.displayName || m.publicName || m.name}** \`${m.rank ? '#' + m.rank : 'unranked'}\``);
-      let chunk = [];
-      let chunkLen = 0;
-      const chunks = [];
-      for (const line of lines) {
-        if (chunkLen + line.length > 900 && chunk.length > 0) {
-          chunks.push(chunk.join('\n'));
-          chunk = [line];
-          chunkLen = line.length;
-        } else {
-          chunk.push(line);
-          chunkLen += line.length + 1;
-        }
-      }
-      if (chunk.length) chunks.push(chunk.join('\n'));
-
-      for (let i = 0; i < chunks.length; i++) {
-        embeds.push({
-          color: 0xef4444,
-          title: i === 0 ? `🗑️ Removed — ${org}` : `🗑️ Removed — ${org} (cont.)`,
-          description: chunks[i],
-          timestamp: new Date().toISOString(),
-        });
-      }
+    for (let i = 0; i < chunks.length; i++) {
+      embeds.push({
+        color: 0xef4444,
+        title: i === 0 ? `🗑️ Removed Models` : `🗑️ Removed Models (cont.)`,
+        description: chunks[i],
+        timestamp: new Date().toISOString(),
+      });
     }
   }
 
@@ -1056,28 +1050,33 @@ export function createLMArenaEmbed(diff, totalModels) {
     }
   }
 
-  // Revealed models (gained organization)
+  // Revealed models (gained organization) — combined into one embed
   if (diff.revealed && diff.revealed.length > 0) {
-    for (const r of diff.revealed) {
-      const details = [];
-      details.push(`🆔 \`${r.model.id}\``);
-      if (r.oldName !== r.newName) {
-        details.push(`📛 Codename: \`${r.oldName}\` → **${r.newName}**`);
-      }
-      details.push(`🏢 Organization: **(none)** → **${r.newOrg}**`);
-      if (r.newProvider && r.oldProvider !== r.newProvider) {
-        details.push(`⚙️ Provider: ${r.oldProvider || '(none)'} → **${r.newProvider}**`);
-      }
-      if (r.oldSelectable !== r.newSelectable) {
-        details.push(`🔓 Selectable: ${r.oldSelectable ? '✅' : '🔒'} → ${r.newSelectable ? '✅' : '🔒'}`);
-      }
+    const lines = diff.revealed.map(r => {
+      const nameChange = r.oldName !== r.newName ? `\`${r.oldName}\` → ` : '';
       const caps = capabilityEmoji(r.model.capabilities);
-      if (caps) details.push(`🎯 Capabilities: ${caps}`);
+      return `${nameChange}**${r.newName}** (${r.newOrg})${caps ? ' ' + caps : ''}`;
+    });
+    let chunk = [];
+    let chunkLen = 0;
+    const chunks = [];
+    for (const line of lines) {
+      if (chunkLen + line.length > 900 && chunk.length > 0) {
+        chunks.push(chunk.join('\n'));
+        chunk = [line];
+        chunkLen = line.length;
+      } else {
+        chunk.push(line);
+        chunkLen += line.length + 1;
+      }
+    }
+    if (chunk.length) chunks.push(chunk.join('\n'));
 
+    for (let i = 0; i < chunks.length; i++) {
       embeds.push({
         color: 0xf59e0b,
-        title: `🕵️ ${r.oldName} → ${r.newName} by ${r.newOrg}`,
-        description: details.join('\n'),
+        title: i === 0 ? `🕵️ Revealed Models` : `🕵️ Revealed Models (cont.)`,
+        description: chunks[i],
         timestamp: new Date().toISOString(),
       });
     }
@@ -1105,32 +1104,32 @@ export function createLMArenaEmbed(diff, totalModels) {
     }
   }
 
-  // Detail embeds for capability convergence
+  // Capability convergence — combined into one embed
   if (groupDiff && groupDiff.convergence.length > 0) {
-    for (const c of groupDiff.convergence) {
-      embeds.push({
-        color: 0x10b981,
-        title: `🎯 ${c.displayName} — Converged`,
-        description: `**${c.allNowHave.map(formatCapPath).join(', ')}** is now available across all **${c.variantCount}** variants.`,
-        timestamp: new Date().toISOString(),
-      });
-    }
+    const lines = groupDiff.convergence.map(c =>
+      `**${c.displayName}**: ${c.allNowHave.map(formatCapPath).join(', ')} across all ${c.variantCount} variants`
+    );
+    embeds.push({
+      color: 0x10b981,
+      title: `🎯 Capability Convergence`,
+      description: lines.join('\n').substring(0, 4000),
+      timestamp: new Date().toISOString(),
+    });
   }
 
-  // Detail embeds for possible reveals
+  // Possible reveals — combined into one embed
   if (diff.possibleReveals && diff.possibleReveals.length > 0) {
-    for (const pr of diff.possibleReveals) {
+    const lines = diff.possibleReveals.map(pr => {
       const rem = pr.removed;
       const add = pr.added;
-      const remCaps = capabilityEmoji(rem.capabilities);
-      const addCaps = capabilityEmoji(add.capabilities);
-      embeds.push({
-        color: 0xf97316,
-        title: `🔎 ${rem.displayName || rem.publicName} → ${add.displayName || add.publicName}?`,
-        description: `**Removed:** \`${rem.displayName || rem.publicName}\` (stealth, no org)\n**Added:** **${add.displayName || add.publicName}**${add.organization ? ` (${add.organization})` : ''}\n**Match:** ${pr.match}\n**Capabilities:** ${remCaps} → ${addCaps}\n*(⚠️ not confirmed — same capabilities, different identity)*`,
-        timestamp: new Date().toISOString(),
-      });
-    }
+      return `\`${rem.displayName || rem.publicName}\` → **${add.displayName || add.publicName}**${add.organization ? ` (${add.organization})` : ''} — ${pr.match}`;
+    });
+    embeds.push({
+      color: 0xf97316,
+      title: `🔎 Possible Reveals`,
+      description: lines.join('\n').substring(0, 4000) + '\n*(⚠️ not confirmed — same capabilities, different identity)*',
+      timestamp: new Date().toISOString(),
+    });
   }
 
   // No truncation — sendDiscordWebhook batches into multiple API calls
