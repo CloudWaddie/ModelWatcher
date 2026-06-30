@@ -373,9 +373,10 @@ async function sendDiscordWebhook(webhookUrl, payload) {
   }
 
   const { default: axios } = await import('axios');
+  const { safeEmbed } = await import('./webhook.js');
   
   try {
-    await axios.post(webhookUrl, payload, {
+    await axios.post(webhookUrl, safeEmbed(payload), {
       headers: { 'Content-Type': 'application/json' }
     });
     return true;
@@ -417,9 +418,14 @@ function createMatchesEmbed(pageName, url, patternResults) {
     } else {
       stringsValue = '(no matches)';
     }
+
+    // Discord field value limit is 1024. Truncate to 1000 for safety.
+    if (stringsValue.length > 1000) {
+        stringsValue = stringsValue.substring(0, 997) + '...';
+    }
     
     fields.push({
-      name: `Pattern: ${patternId}`,
+      name: `Pattern: ${patternId.substring(0, 250)}`,
       value: `**Count:** ${count}\n**Unique:** ${result.uniqueCount}\n\n${stringsValue}`
     });
   }
