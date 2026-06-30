@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// Use GitHub raw URL for logo
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 
 const MAX_EMBEDS_PER_MESSAGE = 10;
@@ -716,7 +715,7 @@ export function createAppVersionEmbed(appInfo) {
       ],
       timestamp: new Date().toISOString(),
       footer: {
-        text: `App Version Watcher \u2022 ${appInfo.platform.toUpperCase()}`,
+        text: `App Version Watcher • ${appInfo.platform.toUpperCase()}`,
         icon_url: LOGO_URL
       }
     }]
@@ -1068,7 +1067,7 @@ export function createLMArenaEmbed(diff, totalModels) {
     }
   }
 
-  // Detail embeds for revealed models
+  // Revealed models (gained organization)
   if (diff.revealed && diff.revealed.length > 0) {
     for (const r of diff.revealed) {
       const details = [];
