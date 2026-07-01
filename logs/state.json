@@ -12747,9 +12747,9 @@
             "context_length": 1048576,
             "max_tokens": 1048576,
             "pricing": {
-              "input_tokens": 0.1,
-              "output_tokens": 0.2,
-              "cache_read_tokens": 0.020000000000000004
+              "input_tokens": 0.09,
+              "output_tokens": 0.18,
+              "cache_read_tokens": 0.018
             },
             "tags": [
               "chat",
@@ -17877,30 +17877,16 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00001",
-            "completion": "0.00005",
-            "web_search": "0.01",
-            "input_cache_read": "0.000001",
-            "input_cache_write": "0.0000125"
+            "prompt": "-1",
+            "completion": "-1"
           },
           "top_provider": {
-            "context_length": 1000000,
-            "max_completion_tokens": 128000,
-            "is_moderated": true
+            "context_length": null,
+            "max_completion_tokens": null,
+            "is_moderated": false
           },
           "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_completion_tokens",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "stop",
-            "structured_outputs",
-            "tool_choice",
-            "tools",
-            "verbosity"
-          ],
+          "supported_parameters": [],
           "default_parameters": {
             "temperature": null,
             "top_p": null,
@@ -17916,15 +17902,7 @@
             "details": "/api/v1/models/~anthropic/claude-fable-latest/endpoints"
           },
           "reasoning": {
-            "mandatory": true,
-            "supported_efforts": [
-              "max",
-              "xhigh",
-              "high",
-              "medium",
-              "low"
-            ],
-            "default_effort": "medium"
+            "mandatory": true
           }
         },
         {
@@ -19159,163 +19137,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/anthropic/claude-3-haiku/endpoints"
-          }
-        },
-        {
-          "id": "anthropic/claude-fable-5",
-          "name": "Anthropic: Claude Fable 5",
-          "canonical_slug": "anthropic/claude-5-fable-20260609",
-          "hugging_face_id": null,
-          "description": "Claude Fable 5 is a Mythos-class model from Anthropic, built for autonomous knowledge work and coding. It supports text, image, and file inputs with text output, with reasoning support and...",
-          "context_length": 1000000,
-          "architecture": {
-            "modality": "text+image+file->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "file"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Claude",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00001",
-            "completion": "0.00005",
-            "web_search": "0.01",
-            "input_cache_read": "0.000001",
-            "input_cache_write": "0.0000125"
-          },
-          "top_provider": {
-            "context_length": 1000000,
-            "max_completion_tokens": 128000,
-            "is_moderated": true
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_completion_tokens",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "stop",
-            "structured_outputs",
-            "tool_choice",
-            "tools",
-            "verbosity"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/anthropic/claude-5-fable-20260609/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "agents",
-                "category": "agentichtmlslides",
-                "elo": 1254,
-                "win_rate": 59.4,
-                "rank": 1
-              },
-              {
-                "arena": "agents",
-                "category": "agenticslides(html)",
-                "elo": 1252,
-                "win_rate": 59.5,
-                "rank": 1
-              },
-              {
-                "arena": "agents",
-                "category": "htmlslides",
-                "elo": 1259,
-                "win_rate": 60.6,
-                "rank": 1
-              },
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 1368,
-                "win_rate": 67.2,
-                "rank": 2
-              },
-              {
-                "arena": "models",
-                "category": "asciiart",
-                "elo": 1370,
-                "win_rate": 70.1,
-                "rank": 1
-              },
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1349,
-                "win_rate": 63.3,
-                "rank": 2
-              },
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 1381,
-                "win_rate": 70.2,
-                "rank": 1
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 1379,
-                "win_rate": 65.1,
-                "rank": 1
-              },
-              {
-                "arena": "models",
-                "category": "svg",
-                "elo": 1371,
-                "win_rate": 71.8,
-                "rank": 1
-              },
-              {
-                "arena": "models",
-                "category": "uicomponent",
-                "elo": 1416,
-                "win_rate": 71.3,
-                "rank": 1
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1341,
-                "win_rate": 62.5,
-                "rank": 2
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": 59.9,
-              "coding_index": 76.5,
-              "agentic_index": 52.8
-            }
-          },
-          "reasoning": {
-            "mandatory": true,
-            "supported_efforts": [
-              "max",
-              "xhigh",
-              "high",
-              "medium",
-              "low"
-            ],
-            "default_effort": "medium"
           }
         },
         {
@@ -23017,13 +22838,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000098",
-            "completion": "0.000000196",
-            "input_cache_read": "0.00000002"
+            "prompt": "0.00000009",
+            "completion": "0.00000018",
+            "input_cache_read": "0.000000018"
           },
           "top_provider": {
-            "context_length": 1048575,
-            "max_completion_tokens": null,
+            "context_length": 1048576,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
