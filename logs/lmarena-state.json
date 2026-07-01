@@ -3787,6 +3787,30 @@
       }
     },
     {
+      "id": "019f1e36-c859-7969-a594-ec6a4f7b3867",
+      "organization": "anthropic",
+      "provider": "googleVertexAnthropicAdaptive",
+      "publicName": "claude-fable-5",
+      "name": "claude-fable-5-v2",
+      "displayName": "claude-fable-5",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": false,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
       "id": "019d22e0-956a-7921-aa6f-67c696c698cf",
       "publicName": "spark",
       "displayName": "spark",
@@ -9650,35 +9674,6 @@
       }
     },
     {
-      "id": "019cc5af-99e4-77d0-9331-5a49748100a1",
-      "organization": "google",
-      "provider": "google-genai",
-      "publicName": "gemini-3.1-flash-image-preview (nano-banana-2) [web-search]",
-      "name": "gemini-3.1-flash-image-preview (nano-banana-2)",
-      "displayName": "gemini-3.1-flash-image-preview (nano-banana-2) [web-search]",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": false,
-            "multipleImages": true
-          }
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": false,
-      "rank": 3,
-      "rankByModality": {
-        "image": 3
-      }
-    },
-    {
       "id": "019be243-f89b-76a4-943d-553f46f62993",
       "organization": "openai",
       "provider": "customOpenai",
@@ -9705,35 +9700,6 @@
       "rank": 7,
       "rankByModality": {
         "image": 7
-      }
-    },
-    {
-      "id": "019abc10-e78d-7932-b725-7f1563ed8a12",
-      "organization": "google",
-      "provider": "google-genai",
-      "publicName": "gemini-3-pro-image-preview-2k (nano-banana-pro)",
-      "name": "gemini-3-pro-image-preview-2k",
-      "displayName": "gemini-3-pro-image-preview-2k (nano-banana-pro)",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": false,
-            "multipleImages": true
-          }
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": false,
-      "rank": 8,
-      "rankByModality": {
-        "image": 8
       }
     },
     {
@@ -9973,31 +9939,6 @@
       "rank": 30,
       "rankByModality": {
         "image": 30
-      }
-    },
-    {
-      "id": "019ae6da-6788-761a-8253-e0bb2bf2e3a9",
-      "organization": "google",
-      "provider": "googleVertex",
-      "publicName": "imagen-4.0-generate-001",
-      "name": "imagen-4.0-generate-001",
-      "displayName": "imagen-4.0-generate-001",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rank": 31,
-      "rankByModality": {
-        "image": 31
       }
     },
     {
@@ -10384,31 +10325,6 @@
       "rank": 50,
       "rankByModality": {
         "image": 50
-      }
-    },
-    {
-      "id": "51ad1d79-61e2-414c-99e3-faeb64bb6b1b",
-      "organization": "google",
-      "provider": "googleVertex",
-      "publicName": "imagen-3.0-generate-002",
-      "name": "imagen-3.0-generate-002",
-      "displayName": "imagen-3.0-generate-002",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rank": 51,
-      "rankByModality": {
-        "image": 51
       }
     },
     {
@@ -11944,15 +11860,19 @@
       }
     },
     {
-      "id": "019ae6da-6438-7077-9d2d-b311a35645f8",
+      "id": "019f1f85-dd80-7060-a1a8-2e0e85a60386",
       "organization": "google",
-      "provider": "googleVertex",
-      "publicName": "imagen-4.0-ultra-generate-001",
-      "name": "imagen-4.0-ultra-generate-001",
-      "displayName": "imagen-4.0-ultra-generate-001",
+      "provider": "google-genai",
+      "publicName": "gemini-3-pro-image-2k (nano-banana-pro)",
+      "name": "gemini-3-pro-image-2k",
+      "displayName": "gemini-3-pro-image-2k (nano-banana-pro)",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": true
+          }
         },
         "outputCapabilities": {
           "image": {
@@ -11962,7 +11882,7 @@
           }
         }
       },
-      "userSelectable": true,
+      "userSelectable": false,
       "rankByModality": {
         "image": 9007199254740991
       }
@@ -11991,6 +11911,34 @@
         }
       },
       "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
+      "id": "019f1f86-ea47-711c-87ac-e01232af7ee7",
+      "organization": "google",
+      "provider": "google-genai",
+      "publicName": "gemini-3.1-flash-image (nano-banana-2) [web-search]",
+      "name": "gemini-3.1-flash-image (nano-banana-2)",
+      "displayName": "gemini-3.1-flash-image (nano-banana-2) [web-search]",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": true
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": false,
       "rankByModality": {
         "image": 9007199254740991
       }
@@ -12866,30 +12814,6 @@
             "requiresUpload": true,
             "multipleImages": true
           }
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "image": 9007199254740991
-      }
-    },
-    {
-      "id": "f44fd4f8-af30-480f-8ce2-80b2bdfea55e",
-      "organization": "google",
-      "provider": "googleVertex",
-      "publicName": "imagen-4.0-fast-generate-001",
-      "name": "imagen-4.0-fast-generate-001",
-      "displayName": "imagen-4.0-fast-generate-001",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
         },
         "outputCapabilities": {
           "image": {
@@ -15394,5 +15318,5 @@
       }
     }
   ],
-  "lastCheck": 1782936262692
+  "lastCheck": 1782943533721
 }
