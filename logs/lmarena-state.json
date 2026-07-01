@@ -6499,30 +6499,6 @@
       }
     },
     {
-      "id": "019eadb6-e7f6-7d53-aea9-255e7d781b65",
-      "organization": "anthropic",
-      "provider": "googleVertexAnthropicAdaptive",
-      "publicName": "claude-fable-5",
-      "name": "claude-fable-5",
-      "displayName": "claude-fable-5",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": false,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019de9ad-7752-7bbb-a5d3-dd64400fb106",
       "publicName": "may26-chatbot1",
       "displayName": "may26-chatbot1",
@@ -11136,6 +11112,31 @@
       }
     },
     {
+      "id": "019f1ea7-c386-7d77-b533-9a62a80c8e54",
+      "publicName": "carillon",
+      "displayName": "carillon",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": true,
+            "multipleImages": false
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
       "id": "32bff2df-00e6-409b-ad3f-bfbad87cc49f",
       "publicName": "hidream-e1.1",
       "displayName": "hidream-e1.1",
@@ -12994,11 +12995,11 @@
       }
     },
     {
-      "id": "019eb202-ca57-7771-8776-8f92fc5fed7a",
+      "id": "019f1e98-ccba-72c4-8841-c1cf48dc78f4",
       "organization": "anthropic",
       "provider": "anthropicSearch",
       "publicName": "claude-fable-5-search",
-      "name": "claude-fable-5-search",
+      "name": "claude-fable-5-search-v2",
       "displayName": "claude-fable-5-search",
       "capabilities": {
         "inputCapabilities": {
@@ -15357,5 +15358,5 @@
       }
     }
   ],
-  "lastCheck": 1782919295564
+  "lastCheck": 1782927041955
 }
