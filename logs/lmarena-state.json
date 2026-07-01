@@ -909,8 +909,7 @@
       "capabilities": {
         "inputCapabilities": {
           "text": true,
-          "image": true,
-          "file": true
+          "image": true
         },
         "outputCapabilities": {
           "text": true,
@@ -1415,7 +1414,8 @@
       "displayName": "minimax-m2.7",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": false
         },
         "outputCapabilities": {
           "text": true,
@@ -6552,7 +6552,8 @@
       "displayName": "deepseek-v4-pro-thinking",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": false
         },
         "outputCapabilities": {
           "text": true,
@@ -7157,6 +7158,23 @@
       }
     },
     {
+      "id": "019f1b5f-d486-7ff8-a76e-1372e143276a",
+      "publicName": "ray",
+      "displayName": "ray",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
       "id": "019ed7f0-9b11-7c1c-b41e-e898e7492072",
       "publicName": "emerald_lagoon",
       "displayName": "emerald_lagoon",
@@ -7354,7 +7372,8 @@
       "displayName": "deepseek-v4-flash-thinking",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": false
         },
         "outputCapabilities": {
           "text": true,
@@ -9376,10 +9395,46 @@
       }
     },
     {
+      "id": "019f1c07-e4c3-7c5e-ac45-5e7a4c1fd5f2",
+      "publicName": "qwen3.7-plus",
+      "displayName": "qwen3.7-plus",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
+        },
+        "outputCapabilities": {
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "webdev": 9007199254740991
+      }
+    },
+    {
       "id": "019efac9-375a-7a26-a92b-c139232b5479",
       "organization": "tencent",
       "publicName": "hunyuan-hy3-preview",
       "displayName": "hunyuan-hy3-preview",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": false
+        },
+        "outputCapabilities": {
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "019f1c0a-c560-7a17-9acd-7d8d8c489dda",
+      "publicName": "qwen3.7-max",
+      "displayName": "qwen3.7-max",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
@@ -15259,5 +15314,5 @@
       }
     }
   ],
-  "lastCheck": 1782864862409
+  "lastCheck": 1782882500531
 }
