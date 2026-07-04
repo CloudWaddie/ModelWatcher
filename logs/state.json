@@ -13725,6 +13725,34 @@
           }
         },
         {
+          "id": "MiniMaxAI/MiniMax-M3",
+          "name": "MiniMaxAI/MiniMax-M3",
+          "owned_by": "deepinfra",
+          "root": "MiniMaxAI/MiniMax-M3",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "MiniMax-M3 is a native multimodal model with 1M context. It has ~428B parameters and ~23B activated parameters.",
+            "context_length": 524288,
+            "max_tokens": 524288,
+            "pricing": {
+              "input_tokens": 0.3,
+              "output_tokens": 1.2,
+              "cache_read_tokens": 0.06
+            },
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "mistralai/Mistral-Nemo-Instruct-2407",
           "name": "mistralai/Mistral-Nemo-Instruct-2407",
           "owned_by": "deepinfra",
@@ -31380,12 +31408,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000085",
-            "completion": "0.0000004"
+            "prompt": "0.00000008",
+            "completion": "0.00000045"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 16384,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
