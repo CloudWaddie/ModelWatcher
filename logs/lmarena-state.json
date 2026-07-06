@@ -3811,6 +3811,29 @@
       }
     },
     {
+      "id": "019f30a4-044d-7a14-9d3b-2e7299159e36",
+      "organization": "mistral",
+      "provider": "mistralReasoning",
+      "publicName": "mistral-medium-3.5",
+      "name": "mistral-medium-3.5-v2",
+      "displayName": "mistral-medium-3.5",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
       "id": "019cdd8d-8142-7ad6-9a92-1119d449319e",
       "publicName": "pisces-0309b",
       "displayName": "pisces-0309b",
@@ -3979,6 +4002,27 @@
       "capabilities": {
         "inputCapabilities": {
           "text": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "0199e3d1-a713-7de2-a5dd-a1583cad9532",
+      "organization": "alibaba",
+      "provider": "alibaba",
+      "publicName": "qwen3-vl-8b-instruct",
+      "name": "qwen3-vl-8b-instruct",
+      "displayName": "qwen3-vl-8b-instruct",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "text": true
@@ -4205,6 +4249,28 @@
         "inputCapabilities": {
           "text": true,
           "image": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "019dac54-e8a4-7c54-904a-ff0ecd82af42",
+      "organization": "moonshot",
+      "provider": "moonshot",
+      "publicName": "kimi-k2.6",
+      "name": "kimi-k2.6-20260420",
+      "displayName": "kimi-k2.6",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
         },
         "outputCapabilities": {
           "text": true
@@ -5584,29 +5650,6 @@
       }
     },
     {
-      "id": "019f30a4-044d-7a14-9d3b-2e7299159e36",
-      "organization": "mistral",
-      "provider": "mistralReasoning",
-      "publicName": "mistral-medium-3.5",
-      "name": "mistral-medium-3.5-v2",
-      "displayName": "mistral-medium-3.5",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019d2cd3-2641-7628-94bd-67ecb0a7134e",
       "organization": "google",
       "provider": "googleWithThoughtSignatures",
@@ -5650,55 +5693,12 @@
       }
     },
     {
-      "id": "0199e3d1-a713-7de2-a5dd-a1583cad9532",
-      "organization": "alibaba",
-      "provider": "alibaba",
-      "publicName": "qwen3-vl-8b-instruct",
-      "name": "qwen3-vl-8b-instruct",
-      "displayName": "qwen3-vl-8b-instruct",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
       "id": "019e8afb-f7ca-7df1-9fd3-5b147c216c40",
       "publicName": "delphi",
       "displayName": "delphi",
       "capabilities": {
         "inputCapabilities": {
           "text": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
-      "id": "019dac54-e8a4-7c54-904a-ff0ecd82af42",
-      "organization": "moonshot",
-      "provider": "moonshot",
-      "publicName": "kimi-k2.6",
-      "name": "kimi-k2.6-20260420",
-      "displayName": "kimi-k2.6",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
         },
         "outputCapabilities": {
           "text": true
@@ -5857,50 +5857,6 @@
       }
     },
     {
-      "id": "019f1e36-c859-7969-a594-ec6a4f7b3867",
-      "organization": "anthropic",
-      "provider": "googleVertexAnthropicAdaptive",
-      "publicName": "claude-fable-5",
-      "name": "claude-fable-5-v2",
-      "displayName": "claude-fable-5",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": false,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
-      }
-    },
-    {
-      "id": "019e6530-f140-77b1-b6b8-5c859829d992",
-      "organization": "alibaba",
-      "provider": "alibaba",
-      "publicName": "qwen3.7-max",
-      "name": "mizar-v2-85jb",
-      "displayName": "qwen3.7-max",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
       "id": "019de0aa-4638-7512-98c6-d4541702b37c",
       "organization": "xai",
       "provider": "xaiApi",
@@ -6054,6 +6010,26 @@
       }
     },
     {
+      "id": "019e6530-f140-77b1-b6b8-5c859829d992",
+      "organization": "alibaba",
+      "provider": "alibaba",
+      "publicName": "qwen3.7-max",
+      "name": "mizar-v2-85jb",
+      "displayName": "qwen3.7-max",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
       "id": "019e2dc1-5604-79a3-92e3-cd8578960cd9",
       "publicName": "kimi-k2.6",
       "displayName": "kimi-k2.6",
@@ -6087,6 +6063,30 @@
         }
       },
       "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "019f1e36-c859-7969-a594-ec6a4f7b3867",
+      "organization": "anthropic",
+      "provider": "googleVertexAnthropicAdaptive",
+      "publicName": "claude-fable-5",
+      "name": "claude-fable-5-v2",
+      "displayName": "claude-fable-5",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": false,
       "rankByModality": {
         "chat": 9007199254740991,
         "webdev": 9007199254740991
@@ -15396,5 +15396,5 @@
       }
     }
   ],
-  "lastCheck": 1783290785060
+  "lastCheck": 1783296825673
 }
