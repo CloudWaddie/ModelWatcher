@@ -30181,7 +30181,8 @@
           },
           "pricing": {
             "prompt": "0.000000375",
-            "completion": "0.000002025"
+            "completion": "0.000002025",
+            "input_cache_read": "0.000000203"
           },
           "top_provider": {
             "context_length": 256000,
@@ -40621,7 +40622,8 @@
           },
           "pricing": {
             "prompt": "0.000000385",
-            "completion": "0.00000245"
+            "completion": "0.00000245",
+            "input_cache_read": "0.000000111"
           },
           "top_provider": {
             "context_length": 131072,
@@ -42450,6 +42452,78 @@
           }
         },
         {
+          "id": "tencent/hy3",
+          "name": "Tencent: Hy3",
+          "canonical_slug": "tencent/hy3-20260706",
+          "hugging_face_id": "tencent/Hy3",
+          "description": "Hy3 is a 295B-parameter Mixture-of-Experts model from Tencent (21B active, 192 experts with top-8 routing) built for reasoning, agentic workflows, and real-world production use. It supports a configurable reasoning effort:...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000014",
+            "completion": "0.00000058",
+            "input_cache_read": "0.000000035"
+          },
+          "top_provider": {
+            "context_length": 202752,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.9,
+            "top_p": 1,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/tencent/hy3-20260706/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false,
+            "supported_efforts": [
+              "high",
+              "low",
+              "none"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
           "id": "tencent/hy3-preview",
           "name": "Tencent: Hy3 preview",
           "canonical_slug": "tencent/hy3-preview-20260421",
@@ -42509,6 +42583,75 @@
           "reasoning": {
             "mandatory": false,
             "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "low",
+              "none"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
+          "id": "tencent/hy3:free",
+          "name": "Tencent: Hy3 (free)",
+          "canonical_slug": "tencent/hy3-20260706",
+          "hugging_face_id": "tencent/Hy3",
+          "description": "Hy3 is a 295B-parameter Mixture-of-Experts model from Tencent (21B active, 192 experts with top-8 routing) built for reasoning, agentic workflows, and real-world production use. It supports a configurable reasoning effort:...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 262144,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.9,
+            "top_p": 1,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": "2026-07-21",
+          "links": {
+            "details": "/api/v1/models/tencent/hy3-20260706/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false,
             "supported_efforts": [
               "high",
               "low",
@@ -43417,6 +43560,14 @@
           "links": {
             "details": "/api/v1/models/x-ai/grok-build-0.1-20260520/endpoints"
           },
+          "benchmarks": {
+            "design_arena": [],
+            "artificial_analysis": {
+              "intelligence_index": 39.8,
+              "coding_index": 51.5,
+              "agentic_index": 28
+            }
+          },
           "reasoning": {
             "mandatory": true
           }
@@ -43444,7 +43595,8 @@
           },
           "pricing": {
             "prompt": "0.000000105",
-            "completion": "0.00000028"
+            "completion": "0.00000028",
+            "input_cache_read": "0.000000028"
           },
           "top_provider": {
             "context_length": 32000,
