@@ -18697,6 +18697,106 @@
           }
         },
         {
+          "id": "aion-labs/aion-3.0",
+          "name": "AionLabs: Aion-3.0",
+          "canonical_slug": "aion-labs/aion-3.0-20260707",
+          "hugging_face_id": null,
+          "description": "Aion-3.0 is a multi-model roleplaying and storytelling system from AionLabs, built on the GLM family of models. It uses a collaborative generation process in which multiple specialized models each contribute...",
+          "context_length": 131072,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000003",
+            "completion": "0.000006",
+            "input_cache_read": "0.00000075"
+          },
+          "top_provider": {
+            "context_length": 131072,
+            "max_completion_tokens": 32768,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/aion-labs/aion-3.0-20260707/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true
+          }
+        },
+        {
+          "id": "aion-labs/aion-3.0-mini",
+          "name": "AionLabs: Aion-3.0-Mini",
+          "canonical_slug": "aion-labs/aion-3.0-mini-20260707",
+          "hugging_face_id": null,
+          "description": "Aion-3.0 Mini is a multi-model roleplaying and storytelling system from AionLabs, built on the DeepSeek family of models. It uses a collaborative generation process in which multiple specialized models each...",
+          "context_length": 131072,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000007",
+            "completion": "0.0000014",
+            "input_cache_read": "0.00000018"
+          },
+          "top_provider": {
+            "context_length": 131072,
+            "max_completion_tokens": 32768,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/aion-labs/aion-3.0-mini-20260707/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true
+          }
+        },
+        {
           "id": "aion-labs/aion-rp-llama-3.1-8b",
           "name": "AionLabs: Aion-RP 1.0 (8B)",
           "canonical_slug": "aion-labs/aion-rp-llama-3.1-8b",
@@ -42733,7 +42833,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-07-21",
           "links": {
             "details": "/api/v1/models/tencent/hy3-20260706/endpoints"
           },
@@ -42811,7 +42911,7 @@
           "canonical_slug": "thedrummer/rocinante-12b",
           "hugging_face_id": "TheDrummer/Rocinante-12B-v1.1",
           "description": "Rocinante 12B is designed for engaging storytelling and rich prose. Early testers have reported: - Expanded vocabulary with unique and expressive word choices - Enhanced creativity for vivid narratives -...",
-          "context_length": 32768,
+          "context_length": 65536,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -42828,22 +42928,26 @@
             "completion": "0.0000005"
           },
           "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": null,
+            "context_length": 65536,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
             "repetition_penalty",
+            "response_format",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
