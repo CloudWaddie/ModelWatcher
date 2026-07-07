@@ -943,29 +943,6 @@
       }
     },
     {
-      "id": "019d049f-233c-7694-989e-9545f9748354",
-      "organization": "xiaomi",
-      "provider": "xiaomiV1",
-      "publicName": "mimo-v2-pro",
-      "name": "mimo-v2-pro",
-      "displayName": "mimo-v2-pro",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": false,
-      "rank": 51,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 34
-      }
-    },
-    {
       "id": "96ae95fd-b70d-49c3-91cc-b58c7da1090b",
       "organization": "anthropic",
       "provider": "googleVertexAnthropic",
@@ -4049,6 +4026,27 @@
       }
     },
     {
+      "id": "0199e3d1-a713-7de2-a5dd-a1583cad9532",
+      "organization": "alibaba",
+      "provider": "alibaba",
+      "publicName": "qwen3-vl-8b-instruct",
+      "name": "qwen3-vl-8b-instruct",
+      "displayName": "qwen3-vl-8b-instruct",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
       "id": "d8444b25-e302-4d3b-8561-7ded087ee03c",
       "publicName": "monterey",
       "displayName": "monterey",
@@ -4856,6 +4854,28 @@
           "image": {
             "requiresUpload": true
           }
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "019dac54-e8a4-7c54-904a-ff0ecd82af42",
+      "organization": "moonshot",
+      "provider": "moonshot",
+      "publicName": "kimi-k2.6",
+      "name": "kimi-k2.6-20260420",
+      "displayName": "kimi-k2.6",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
         },
         "outputCapabilities": {
           "text": true
@@ -5835,27 +5855,6 @@
       }
     },
     {
-      "id": "0199e3d1-a713-7de2-a5dd-a1583cad9532",
-      "organization": "alibaba",
-      "provider": "alibaba",
-      "publicName": "qwen3-vl-8b-instruct",
-      "name": "qwen3-vl-8b-instruct",
-      "displayName": "qwen3-vl-8b-instruct",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
       "id": "019de0aa-4638-7512-98c6-d4541702b37c",
       "organization": "xai",
       "provider": "xaiApi",
@@ -6300,28 +6299,6 @@
         }
       },
       "userSelectable": false,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
-      "id": "019dac54-e8a4-7c54-904a-ff0ecd82af42",
-      "organization": "moonshot",
-      "provider": "moonshot",
-      "publicName": "kimi-k2.6",
-      "name": "kimi-k2.6-20260420",
-      "displayName": "kimi-k2.6",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991
       }
@@ -11743,6 +11720,30 @@
       }
     },
     {
+      "id": "a9a26426-5377-4efa-bef9-de71e29ad943",
+      "organization": "tencent",
+      "provider": "fal",
+      "publicName": "hunyuan-image-2.1",
+      "name": "hunyuan-image-2.1",
+      "displayName": "hunyuan-image-2.1",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
       "id": "019e3195-7a3b-762f-a45a-81dc37214b86",
       "publicName": "ellsworth",
       "displayName": "ellsworth",
@@ -12332,30 +12333,6 @@
             "requiresUpload": true,
             "multipleImages": false
           }
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "image": 9007199254740991
-      }
-    },
-    {
-      "id": "a9a26426-5377-4efa-bef9-de71e29ad943",
-      "organization": "tencent",
-      "provider": "fal",
-      "publicName": "hunyuan-image-2.1",
-      "name": "hunyuan-image-2.1",
-      "displayName": "hunyuan-image-2.1",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
         },
         "outputCapabilities": {
           "image": {
@@ -15499,5 +15476,5 @@
       }
     }
   ],
-  "lastCheck": 1783396759409
+  "lastCheck": 1783410640494
 }
