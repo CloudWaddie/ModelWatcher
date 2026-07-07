@@ -11787,6 +11787,33 @@
       "success": true,
       "models": [
         {
+          "id": "anthropic/claude-fable-5",
+          "name": "anthropic/claude-fable-5",
+          "owned_by": "deepinfra",
+          "root": "anthropic/claude-fable-5",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Claude Fable 5 is Anthropic's next generation of intelligence for the hardest knowledge work and coding problems. It works independently for longer than any prior generally available Claude model: run it in an agent harness and it can work for days at a time, planning across stages, delegating to sub-agents, and checking its own work.",
+            "context_length": 1000000,
+            "max_tokens": 1000000,
+            "pricing": {
+              "input_tokens": 10,
+              "output_tokens": 50
+            },
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "reasoning_effort",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "anthropic/claude-haiku-4-5",
           "name": "anthropic/claude-haiku-4-5",
           "owned_by": "deepinfra",
@@ -11881,6 +11908,33 @@
             "pricing": {
               "input_tokens": 2.9999999999999996,
               "output_tokens": 15
+            },
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "reasoning_effort",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "anthropic/claude-sonnet-5",
+          "name": "anthropic/claude-sonnet-5",
+          "owned_by": "deepinfra",
+          "root": "anthropic/claude-sonnet-5",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Claude Sonnet 5 is Anthropic's most capable Sonnet model yet, built for coding, agents, and professional work at scale. It brings near-Opus intelligence to the model teams run at scale every day, with the same balance of capability, cost, and speed teams already rely on Sonnet for.",
+            "context_length": 1000000,
+            "max_tokens": 1000000,
+            "pricing": {
+              "input_tokens": 2,
+              "output_tokens": 10
             },
             "tags": [
               "chat",
@@ -14936,8 +14990,8 @@
           "object": "model",
           "metadata": {
             "description": "Qwen3.5-122B-A10B is a large Mixture-of-Experts model from Alibaba's Qwen3.5 series with 122B total parameters and 10B activated per token. It features a 262K token context window (extensible to 1M with YaRN), thinking/reasoning mode, tool calling, and support for 201 languages. Excels at complex reasoning, coding, multimodal understanding, and agentic tasks with the efficiency of sparse activation.",
-            "context_length": 16384,
-            "max_tokens": 16384,
+            "context_length": 262144,
+            "max_tokens": 262144,
             "pricing": {
               "input_tokens": 0.29,
               "output_tokens": 2.4
@@ -42733,7 +42787,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2026-07-21",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/tencent/hy3-20260706/endpoints"
           },
