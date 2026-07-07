@@ -18641,98 +18641,6 @@
           }
         },
         {
-          "id": "aion-labs/aion-1.0",
-          "name": "AionLabs: Aion-1.0",
-          "canonical_slug": "aion-labs/aion-1.0",
-          "hugging_face_id": "",
-          "description": "Aion-1.0 is a multi-model system designed for high performance across various tasks, including reasoning and coding. It is built on DeepSeek-R1, augmented with additional models and techniques such as Tree...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000004",
-            "completion": "0.000008"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 32768,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "temperature",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/aion-labs/aion-1.0/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
-          "id": "aion-labs/aion-1.0-mini",
-          "name": "AionLabs: Aion-1.0-Mini",
-          "canonical_slug": "aion-labs/aion-1.0-mini",
-          "hugging_face_id": "FuseAI/FuseO1-DeepSeekR1-QwQ-SkyT1-32B-Preview",
-          "description": "Aion-1.0-Mini 32B parameter model is a distilled version of the DeepSeek-R1 model, designed for strong performance in reasoning domains such as mathematics, coding, and logic. It is a modified variant...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000007",
-            "completion": "0.0000014"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 32768,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "temperature",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/aion-labs/aion-1.0-mini/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
           "id": "aion-labs/aion-2.0",
           "name": "AionLabs: Aion-2.0",
           "canonical_slug": "aion-labs/aion-2.0-20260223",
@@ -18765,7 +18673,10 @@
             "include_reasoning",
             "max_tokens",
             "reasoning",
+            "response_format",
             "temperature",
+            "tool_choice",
+            "tools",
             "top_p"
           ],
           "default_parameters": {
@@ -45308,13 +45219,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000009",
-            "completion": "0.00000286",
-            "input_cache_read": "0.00000017"
+            "prompt": "0.00000093",
+            "completion": "0.000003",
+            "input_cache_read": "0.00000018"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 1048576,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
