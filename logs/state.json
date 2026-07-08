@@ -18659,7 +18659,7 @@
           "canonical_slug": "~x-ai/grok-latest",
           "hugging_face_id": null,
           "description": "This model always redirects to the latest Grok model from xAI.",
-          "context_length": 1000000,
+          "context_length": 500000,
           "architecture": {
             "modality": "text+image+file->text",
             "input_modalities": [
@@ -18674,13 +18674,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000125",
-            "completion": "0.0000025",
+            "prompt": "0.000002",
+            "completion": "0.000006",
             "web_search": "0.005",
-            "input_cache_read": "0.0000002"
+            "input_cache_read": "0.0000005"
           },
           "top_provider": {
-            "context_length": 1000000,
+            "context_length": 500000,
             "max_completion_tokens": null,
             "is_moderated": false
           },
@@ -18717,15 +18717,14 @@
             "details": "/api/v1/models/~x-ai/grok-latest/endpoints"
           },
           "reasoning": {
-            "mandatory": false,
+            "mandatory": true,
             "default_enabled": true,
             "supported_efforts": [
               "high",
               "medium",
-              "low",
-              "none"
+              "low"
             ],
-            "default_effort": "low"
+            "default_effort": "high"
           }
         },
         {
@@ -30393,7 +30392,10 @@
           "default_parameters": {
             "temperature": null,
             "top_p": null,
-            "frequency_penalty": null
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
@@ -30418,7 +30420,8 @@
             }
           },
           "reasoning": {
-            "mandatory": true
+            "mandatory": true,
+            "default_enabled": true
           }
         },
         {
@@ -43836,6 +43839,80 @@
           }
         },
         {
+          "id": "x-ai/grok-4.5",
+          "name": "xAI: Grok 4.5",
+          "canonical_slug": "x-ai/grok-4.5-20260708",
+          "hugging_face_id": null,
+          "description": "Grok 4.5 is SpaceXAI's smartest model with frontier performance on coding, knowledge work, and STEM.",
+          "context_length": 500000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Grok",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.000006",
+            "web_search": "0.005",
+            "input_cache_read": "0.0000005"
+          },
+          "top_provider": {
+            "context_length": 500000,
+            "max_completion_tokens": null,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-4.5-20260708/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
           "id": "x-ai/grok-build-0.1",
           "name": "xAI: Grok Build 0.1",
           "canonical_slug": "x-ai/grok-build-0.1-20260520",
@@ -45478,9 +45555,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000056",
-            "completion": "0.00000176",
-            "input_cache_read": "0.000000104"
+            "prompt": "0.00000042",
+            "completion": "0.00000132",
+            "input_cache_read": "0.000000078"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -46883,6 +46960,25 @@
           "prompt_text_token_price_long_context": 25000,
           "cached_prompt_text_token_price_long_context": 4000,
           "completion_text_token_price_long_context": 50000,
+          "long_context_threshold": 200000
+        },
+        {
+          "id": "grok-4.5",
+          "name": "grok-4.5",
+          "owned_by": "xai",
+          "object": "model",
+          "aliases": [
+            "grok-4.5-latest",
+            "grok-build-latest"
+          ],
+          "context_length": 500000,
+          "prompt_text_token_price": 20000,
+          "cached_prompt_text_token_price": 5000,
+          "prompt_image_token_price": 20000,
+          "completion_text_token_price": 60000,
+          "prompt_text_token_price_long_context": 40000,
+          "cached_prompt_text_token_price_long_context": 10000,
+          "completion_text_token_price_long_context": 120000,
           "long_context_threshold": 200000
         },
         {
