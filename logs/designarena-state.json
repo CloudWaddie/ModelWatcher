@@ -1,5 +1,5 @@
 {
-  "timestamp": 1783524367550,
+  "timestamp": 1783532624205,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7593,6 +7593,34 @@
           "tts"
         ]
       }
+    },
+    {
+      "id": "seedream-5.0-pro",
+      "displayName": "Seedream 5.0 Pro",
+      "provider": "bytedance",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "logo",
+          "image",
+          "graphicdesign"
+        ]
+      }
+    },
+    {
+      "id": "seedream-5.0-pro-edit",
+      "displayName": "Seedream 5.0 Pro Edit",
+      "provider": "bytedance",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "imagetoimage"
+        ]
+      }
     }
   ],
   "providers": [
@@ -11187,6 +11215,18 @@
       "text": {
         "input": 2,
         "output": 10
+      }
+    },
+    {
+      "id": "seedream-5.0-pro",
+      "image": {
+        "perImage": 0.0675
+      }
+    },
+    {
+      "id": "seedream-5.0-pro-edit",
+      "image": {
+        "perImage": 0.0675
       }
     }
   ]
