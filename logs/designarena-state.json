@@ -1,5 +1,5 @@
 {
-  "timestamp": 1783532624205,
+  "timestamp": 1783539750873,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7621,6 +7621,25 @@
           "imagetoimage"
         ]
       }
+    },
+    {
+      "id": "yoda",
+      "displayName": "Grok 4.5",
+      "provider": "xai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "svg",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "ascii"
+        ]
+      }
     }
   ],
   "providers": [
@@ -9009,11 +9028,6 @@
       "displayName": "Hithink",
       "logoName": "hithink-logo.png",
       "website": "https://hithink.sg"
-    },
-    {
-      "id": "yoda",
-      "displayName": "yoda",
-      "logoName": "private.png"
     }
   ],
   "pricing": [
@@ -11227,6 +11241,14 @@
       "id": "seedream-5.0-pro-edit",
       "image": {
         "perImage": 0.0675
+      }
+    },
+    {
+      "id": "yoda",
+      "text": {
+        "input": 2,
+        "output": 6,
+        "cachedInput": 0.5
       }
     }
   ]
