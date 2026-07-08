@@ -3750,6 +3750,7 @@
     },
     {
       "id": "019f2bc1-7e7a-74f3-8957-813525c23f08",
+      "organization": "xai",
       "publicName": "grok-4.3",
       "displayName": "grok-4.3",
       "capabilities": {
@@ -3898,6 +3899,7 @@
     },
     {
       "id": "019f2bc1-d532-7a4b-ba54-a79dc0f2d327",
+      "organization": "xai",
       "publicName": "grok-4.3-high",
       "displayName": "grok-4.3-high",
       "capabilities": {
@@ -3935,6 +3937,28 @@
       "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "019f42aa-9c3b-76d1-8bdf-2e883b1ca227",
+      "organization": "xai",
+      "publicName": "grok-4.3",
+      "displayName": "grok-4.3",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
       }
     },
     {
@@ -6926,6 +6950,7 @@
     },
     {
       "id": "019e95a6-4bb9-7eed-917d-5e1a551e9140",
+      "organization": "xai",
       "publicName": "grok-4.3-high",
       "displayName": "grok-4.3-high",
       "capabilities": {
@@ -10588,11 +10613,11 @@
       }
     },
     {
-      "id": "019e89db-e695-750f-8549-548f2e6db97d",
+      "id": "019f4270-9eea-79c3-b18f-71303ee41ff8",
       "organization": "nvidia",
-      "provider": "fal",
+      "provider": "nvidiaNvcf",
       "publicName": "cosmos3-super-agentic",
-      "name": "cosmos3-super-agentic",
+      "name": "cosmos3-super-agentic-nvcf",
       "displayName": "cosmos3-super-agentic",
       "capabilities": {
         "inputCapabilities": {
@@ -10613,11 +10638,11 @@
       }
     },
     {
-      "id": "019e89db-8452-74e2-8ef0-76f5157b5ce5",
+      "id": "019f4270-5d10-723c-8a7e-dfd5dd2214e5",
       "organization": "nvidia",
-      "provider": "fal",
+      "provider": "nvidiaNvcf",
       "publicName": "cosmos3-super",
-      "name": "cosmos3-super",
+      "name": "cosmos3-super-nvcf",
       "displayName": "cosmos3-super",
       "capabilities": {
         "inputCapabilities": {
@@ -11374,6 +11399,31 @@
       }
     },
     {
+      "id": "019f427a-a5a2-7004-8677-9dd2143e4e6a",
+      "publicName": "zen-bear-v5",
+      "displayName": "zen-bear-v5",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": false
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
       "id": "019f268f-0ba8-7c7f-8861-1f9579a14f9d",
       "publicName": "carillon",
       "displayName": "carillon",
@@ -11401,6 +11451,34 @@
       "publicName": "instant-ramen",
       "name": "instant-ramen-a85d",
       "displayName": "gemini-3.1-flash-lite-image (nano-banana-2-lite)",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": true
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
+      "id": "019f42b5-8c52-7793-9be8-de35eecf7ea9",
+      "organization": "bytedance",
+      "provider": "byteplus",
+      "publicName": "seedream-5.0-pro",
+      "name": "seedream-5.0-pro",
+      "displayName": "seedream-5.0-pro",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
@@ -15640,5 +15718,5 @@
       }
     }
   ],
-  "lastCheck": 1783525924499
+  "lastCheck": 1783532700684
 }
