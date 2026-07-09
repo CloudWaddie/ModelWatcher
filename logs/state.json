@@ -18544,7 +18544,8 @@
             "prompt": "0.000005",
             "completion": "0.00003",
             "web_search": "0.01",
-            "input_cache_read": "0.0000005"
+            "input_cache_read": "0.0000005",
+            "input_cache_write": "0.00000625"
           },
           "top_provider": {
             "context_length": 1050000,
@@ -18553,21 +18554,16 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
-            "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
-            "logprobs",
+            "max_completion_tokens",
             "max_tokens",
-            "presence_penalty",
             "reasoning",
             "reasoning_effort",
             "response_format",
             "seed",
-            "stop",
             "structured_outputs",
             "tool_choice",
-            "tools",
-            "top_logprobs"
+            "tools"
           ],
           "default_parameters": {
             "temperature": null,
@@ -30717,8 +30713,8 @@
           },
           "pricing": {
             "prompt": "0.00000072",
-            "completion": "0.0000035",
-            "input_cache_read": "0.00000015"
+            "completion": "0.00000349",
+            "input_cache_read": "0.000000159"
           },
           "top_provider": {
             "context_length": 262144,
@@ -36057,7 +36053,8 @@
             "prompt": "0.000001",
             "completion": "0.000006",
             "web_search": "0.01",
-            "input_cache_read": "0.0000001"
+            "input_cache_read": "0.0000001",
+            "input_cache_write": "0.00000125"
           },
           "top_provider": {
             "context_length": 1050000,
@@ -36066,21 +36063,16 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
-            "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
-            "logprobs",
+            "max_completion_tokens",
             "max_tokens",
-            "presence_penalty",
             "reasoning",
             "reasoning_effort",
             "response_format",
             "seed",
-            "stop",
             "structured_outputs",
             "tool_choice",
-            "tools",
-            "top_logprobs"
+            "tools"
           ],
           "default_parameters": {
             "temperature": null,
@@ -36095,6 +36087,79 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-5.6-luna-20260709/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-5.6-luna-pro",
+          "name": "OpenAI: GPT-5.6 Luna Pro",
+          "canonical_slug": "openai/gpt-5.6-luna-pro-20260709",
+          "hugging_face_id": null,
+          "description": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000001",
+            "completion": "0.000006",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000001",
+            "input_cache_write": "0.00000125"
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2026-02-16",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.6-luna-pro-20260709/endpoints"
           },
           "reasoning": {
             "mandatory": false,
@@ -36134,7 +36199,8 @@
             "prompt": "0.000005",
             "completion": "0.00003",
             "web_search": "0.01",
-            "input_cache_read": "0.0000005"
+            "input_cache_read": "0.0000005",
+            "input_cache_write": "0.00000625"
           },
           "top_provider": {
             "context_length": 1050000,
@@ -36143,21 +36209,16 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
-            "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
-            "logprobs",
+            "max_completion_tokens",
             "max_tokens",
-            "presence_penalty",
             "reasoning",
             "reasoning_effort",
             "response_format",
             "seed",
-            "stop",
             "structured_outputs",
             "tool_choice",
-            "tools",
-            "top_logprobs"
+            "tools"
           ],
           "default_parameters": {
             "temperature": null,
@@ -36172,6 +36233,79 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-5.6-sol-20260709/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-5.6-sol-pro",
+          "name": "OpenAI: GPT-5.6 Sol Pro",
+          "canonical_slug": "openai/gpt-5.6-sol-pro-20260709",
+          "hugging_face_id": null,
+          "description": "GPT-5.6 Sol Pro is the same underlying model as [GPT-5.6 Sol](https://openrouter.ai/openai/gpt-5.6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000005",
+            "completion": "0.00003",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000005",
+            "input_cache_write": "0.00000625"
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2026-02-16",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.6-sol-pro-20260709/endpoints"
           },
           "reasoning": {
             "mandatory": false,
@@ -36211,30 +36345,26 @@
             "prompt": "0.0000025",
             "completion": "0.000015",
             "web_search": "0.01",
-            "input_cache_read": "0.00000025"
+            "input_cache_read": "0.00000025",
+            "input_cache_write": "0.000003125"
           },
           "top_provider": {
             "context_length": 1050000,
             "max_completion_tokens": 128000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
-            "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
-            "logprobs",
+            "max_completion_tokens",
             "max_tokens",
-            "presence_penalty",
             "reasoning",
             "reasoning_effort",
             "response_format",
             "seed",
-            "stop",
             "structured_outputs",
             "tool_choice",
-            "tools",
-            "top_logprobs"
+            "tools"
           ],
           "default_parameters": {
             "temperature": null,
@@ -36249,6 +36379,79 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-5.6-terra-20260709/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-5.6-terra-pro",
+          "name": "OpenAI: GPT-5.6 Terra Pro",
+          "canonical_slug": "openai/gpt-5.6-terra-pro-20260709",
+          "hugging_face_id": null,
+          "description": "GPT-5.6 Terra Pro is the same underlying model as [GPT-5.6 Terra](https://openrouter.ai/openai/gpt-5.6-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000025",
+            "completion": "0.000015",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000025",
+            "input_cache_write": "0.000003125"
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2026-02-16",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.6-terra-pro-20260709/endpoints"
           },
           "reasoning": {
             "mandatory": false,
@@ -45588,13 +45791,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000546",
-            "completion": "0.000001716",
-            "input_cache_read": "0.0000001014"
+            "prompt": "0.00000054",
+            "completion": "0.00000176",
+            "input_cache_read": "0.0000001"
           },
           "top_provider": {
-            "context_length": 1024000,
-            "max_completion_tokens": 128000,
+            "context_length": 101376,
+            "max_completion_tokens": 101376,
             "is_moderated": false
           },
           "per_request_limits": null,
