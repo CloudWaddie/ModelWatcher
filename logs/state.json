@@ -5746,36 +5746,6 @@
           }
         },
         {
-          "id": "LiquidAI/LFM2-24B-A2B",
-          "name": "LiquidAI/LFM2-24B-A2B",
-          "uuid": "endpoint-0bfd17c9-bc9f-4496-8f55-ac2e07a2864c",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "LFM2-24B-A2B",
-          "organization": "Togethercomputer",
-          "context_length": 32768,
-          "config": {
-            "chat_template": null,
-            "stop": [
-              "<|im_end|>"
-            ],
-            "bos_token": "<|startoftext|>",
-            "eos_token": "<|im_end|>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.030000000000000002,
-            "output": 0.12000000000000001,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "LiquidAI/LFM2.5-8B-A1B",
           "name": "LiquidAI/LFM2.5-8B-A1B",
           "uuid": "endpoint-d3cf7423-c5a2-4811-bcdc-85c6cacd9a0f",
@@ -26909,62 +26879,6 @@
           }
         },
         {
-          "id": "liquid/lfm-2-24b-a2b",
-          "name": "LiquidAI: LFM2-24B-A2B",
-          "canonical_slug": "liquid/lfm-2-24b-a2b-20260224",
-          "hugging_face_id": "LiquidAI/LFM2-24B-A2B",
-          "description": "LFM2-24B-A2B is the largest model in the LFM2 family of hybrid architectures designed for efficient on-device deployment. Built as a 24B parameter Mixture-of-Experts model with only 2B active parameters per...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000003",
-            "completion": "0.00000012"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.1,
-            "top_p": null,
-            "top_k": 50,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": 1.05
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/liquid/lfm-2-24b-a2b-20260224/endpoints"
-          }
-        },
-        {
           "id": "liquid/lfm-2.5-1.2b-instruct:free",
           "name": "LiquidAI: LFM2.5-1.2B-Instruct (free)",
           "canonical_slug": "liquid/lfm-2.5-1.2b-instruct-20260120",
@@ -45589,13 +45503,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000084",
-            "completion": "0.00000264",
-            "input_cache_read": "0.000000156"
+            "prompt": "0.0000009",
+            "completion": "0.00000308",
+            "input_cache_read": "0.00000018"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": 1048576,
             "is_moderated": false
           },
           "per_request_limits": null,
