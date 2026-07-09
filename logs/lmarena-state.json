@@ -5091,6 +5091,28 @@
       }
     },
     {
+      "id": "019dac54-e8a4-7c54-904a-ff0ecd82af42",
+      "organization": "moonshot",
+      "provider": "moonshot",
+      "publicName": "kimi-k2.6",
+      "name": "kimi-k2.6-20260420",
+      "displayName": "kimi-k2.6",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
       "id": "019eae29-05cf-7df1-9aef-f9c0c4953a0b",
       "publicName": "uros",
       "displayName": "uros",
@@ -6539,28 +6561,6 @@
       "capabilities": {
         "inputCapabilities": {
           "text": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
-      "id": "019dac54-e8a4-7c54-904a-ff0ecd82af42",
-      "organization": "moonshot",
-      "provider": "moonshot",
-      "publicName": "kimi-k2.6",
-      "name": "kimi-k2.6-20260420",
-      "displayName": "kimi-k2.6",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
         },
         "outputCapabilities": {
           "text": true
@@ -9061,6 +9061,26 @@
       }
     },
     {
+      "id": "019ce35b-20d0-7ff9-b788-19c010555fc5",
+      "organization": "xai",
+      "provider": "xaiApi",
+      "publicName": "grok-4.20-beta-0309-reasoning",
+      "name": "grok-4.20-beta-0309-reasoning-code",
+      "displayName": "grok-4.20-beta-0309-reasoning",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "webdev": 9007199254740991
+      }
+    },
+    {
       "id": "019d6e0b-72a1-7fed-9395-17622781e7e2",
       "publicName": "zorik",
       "displayName": "zorik",
@@ -9472,26 +9492,6 @@
       "id": "019eb870-94d9-7644-9d7a-88a0422f6134",
       "publicName": "emerald_lagoon",
       "displayName": "emerald_lagoon",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "webdev": 9007199254740991
-      }
-    },
-    {
-      "id": "019ce35b-20d0-7ff9-b788-19c010555fc5",
-      "organization": "xai",
-      "provider": "xaiApi",
-      "publicName": "grok-4.20-beta-0309-reasoning",
-      "name": "grok-4.20-beta-0309-reasoning-code",
-      "displayName": "grok-4.20-beta-0309-reasoning",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -12062,6 +12062,34 @@
       }
     },
     {
+      "id": "995cf221-af30-466d-a809-8e0985f83649",
+      "organization": "alibaba",
+      "provider": "alibaba",
+      "publicName": "qwen-image-edit",
+      "name": "qwen-image-edit",
+      "displayName": "qwen-image-edit",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": true,
+            "multipleImages": false
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
       "id": "019eb3b1-8c5b-7c70-bb55-9be50664d887",
       "publicName": "spectral_ink",
       "displayName": "spectral_ink",
@@ -12749,34 +12777,6 @@
       "capabilities": {
         "inputCapabilities": {
           "text": true
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "image": 9007199254740991
-      }
-    },
-    {
-      "id": "995cf221-af30-466d-a809-8e0985f83649",
-      "organization": "alibaba",
-      "provider": "alibaba",
-      "publicName": "qwen-image-edit",
-      "name": "qwen-image-edit",
-      "displayName": "qwen-image-edit",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": true,
-            "multipleImages": false
-          }
         },
         "outputCapabilities": {
           "image": {
@@ -15204,6 +15204,26 @@
       }
     },
     {
+      "id": "019cb266-4908-701c-9bea-a97757b5569f",
+      "organization": "pixverse",
+      "provider": "fal",
+      "publicName": "pixverse-v5.6",
+      "name": "pixverse-v5.6-text-to-video",
+      "displayName": "pixverse-v5.6",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "video": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "video": 9007199254740991
+      }
+    },
+    {
       "id": "019c78da-3629-73c6-8e04-0aba8eae64c8",
       "organization": "runway",
       "provider": "replicate",
@@ -15390,26 +15410,6 @@
           "video": {
             "required": true
           }
-        },
-        "outputCapabilities": {
-          "video": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "video": 9007199254740991
-      }
-    },
-    {
-      "id": "019cb266-4908-701c-9bea-a97757b5569f",
-      "organization": "pixverse",
-      "provider": "fal",
-      "publicName": "pixverse-v5.6",
-      "name": "pixverse-v5.6-text-to-video",
-      "displayName": "pixverse-v5.6",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
         },
         "outputCapabilities": {
           "video": true
@@ -15807,5 +15807,5 @@
       }
     }
   ],
-  "lastCheck": 1783585996447
+  "lastCheck": 1783599116210
 }
