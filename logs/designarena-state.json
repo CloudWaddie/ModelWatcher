@@ -1,5 +1,5 @@
 {
-  "timestamp": 1783610598387,
+  "timestamp": 1783620118492,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7582,6 +7582,34 @@
       ]
     },
     {
+      "id": "carillon",
+      "displayName": "Reve 2.1",
+      "provider": "reve",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "imagetoimage"
+        ]
+      }
+    },
+    {
+      "id": "carillon_2",
+      "displayName": "Reve 2.1",
+      "provider": "reve",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign"
+        ]
+      }
+    },
+    {
       "id": "hithink-speech-2-6",
       "displayName": "Speech 2.6",
       "provider": "hithink",
@@ -7653,6 +7681,102 @@
           "imagetoimage"
         ]
       }
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "displayName": "GPT-5.6 Sol",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_slides",
+          "agon_webapps",
+          "agentic_3d",
+          "agentic_gamedev",
+          "nativeapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "file"
+      ]
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "displayName": "GPT-5.6 Terra",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_slides",
+          "agon_webapps",
+          "agentic_3d",
+          "agentic_gamedev",
+          "nativeapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "file"
+      ]
+    },
+    {
+      "id": "gpt-5.6-luna",
+      "displayName": "GPT-5.6 Luna",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_slides",
+          "agon_webapps",
+          "agentic_3d",
+          "agentic_gamedev",
+          "nativeapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "file"
+      ]
     }
   ],
   "providers": [
@@ -11155,7 +11279,13 @@
     {
       "id": "babylon",
       "image": {
-        "perImage": 0.2
+        "perImage": 0.024
+      }
+    },
+    {
+      "id": "babylon_2",
+      "image": {
+        "perImage": 0.04
       }
     },
     {
@@ -11255,6 +11385,18 @@
       }
     },
     {
+      "id": "carillon",
+      "image": {
+        "perImage": 0.04
+      }
+    },
+    {
+      "id": "carillon_2",
+      "image": {
+        "perImage": 0.024
+      }
+    },
+    {
       "id": "seedream-5.0-pro",
       "image": {
         "perImage": 0.0675
@@ -11272,6 +11414,27 @@
         "input": 2,
         "output": 6,
         "cachedInput": 0.5
+      }
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "text": {
+        "input": 5,
+        "output": 30
+      }
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "text": {
+        "input": 2.5,
+        "output": 15
+      }
+    },
+    {
+      "id": "gpt-5.6-luna",
+      "text": {
+        "input": 1,
+        "output": 6
       }
     }
   ]
