@@ -1,5 +1,5 @@
 {
-  "timestamp": 1783702887889,
+  "timestamp": 1783712458175,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -2400,7 +2400,7 @@
       "id": "mimo-v2-flash",
       "displayName": "MiMo-V2-Flash",
       "provider": "xiaomi",
-      "active": true,
+      "active": false,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -7128,8 +7128,7 @@
       "vision": true,
       "inputModalities": [
         "text",
-        "image",
-        "video"
+        "image"
       ]
     },
     {
@@ -7514,7 +7513,8 @@
           "gamedev",
           "uicomponent",
           "svg",
-          "ascii"
+          "ascii",
+          "website"
         ],
         "agents": [
           "agon_webapps",
@@ -7754,6 +7754,20 @@
       "inputModalities": [
         "text"
       ]
+    },
+    {
+      "id": "lucy-2.5",
+      "displayName": "Lucy 2.5",
+      "provider": "decart",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "videotovideo",
+          "multimodaltovideo"
+        ]
+      }
     }
   ],
   "providers": [
@@ -11416,6 +11430,12 @@
       "text": {
         "input": 0.14,
         "output": 0.58
+      }
+    },
+    {
+      "id": "lucy-2.5",
+      "video": {
+        "perSecond": 0.04
       }
     }
   ]
