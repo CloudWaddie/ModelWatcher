@@ -6360,39 +6360,6 @@
           }
         },
         {
-          "id": "meta-llama/Meta-Llama-3-8B-Instruct-Lite",
-          "name": "meta-llama/Meta-Llama-3-8B-Instruct-Lite",
-          "uuid": "endpoint-23097993-11d0-4cd5-bfbc-d0613125f431",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Meta Llama 3 8B Instruct Lite",
-          "organization": "Meta",
-          "link": "https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct",
-          "license": "Llama-3 (Other)",
-          "context_length": 8192,
-          "config": {
-            "chat_template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{% if add_generation_prompt %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}{% endif %}",
-            "stop": [
-              "<|eot_id|>"
-            ],
-            "bos_token": "<|begin_of_text|>",
-            "eos_token": "<|end_of_text|>",
-            "max_output_length": 8192
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.13999999999999999,
-            "output": 0.13999999999999999,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "meta-llama/Meta-Llama-3.1-70B",
           "name": "meta-llama/Meta-Llama-3.1-70B",
           "object": "model",
@@ -9186,38 +9153,6 @@
             "hourly": 0,
             "input": 0,
             "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
-          "id": "Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
-          "name": "Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
-          "uuid": "endpoint-a05fbf91-b71a-4814-b4fa-2b7a11290db8",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Qwen3 235B A22B Instruct 2507 FP8 Throughput",
-          "organization": "Qwen",
-          "link": "https://huggingface.co/api/models/Qwen/Qwen3-235B-A22B-Instruct-2507-FP8",
-          "license": "apache-2.0",
-          "context_length": 262144,
-          "config": {
-            "chat_template": null,
-            "stop": [
-              "<|im_end|>"
-            ],
-            "bos_token": "<|endoftext|>",
-            "eos_token": "<|im_end|>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.2,
-            "output": 0.6,
             "base": 0,
             "finetune": 0,
             "image_pixel": 0,
@@ -15454,32 +15389,6 @@
               "vlm",
               "vision",
               "prompt_cache"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
-          "id": "tencent/Hy3",
-          "name": "tencent/Hy3",
-          "owned_by": "deepinfra",
-          "root": "tencent/Hy3",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "Hy3 is a 295B-parameter Mixture-of-Experts (MoE) model with 21B active parameters and 3.8B MTP layer parameters, developed by the Tencent Hy Team. Following the Hy3 Preview launch in late April, we gathered feedback from 50+ products and scaled up post-training with higher quality data. Today, we introduce Hy3, which outperforms similar-size models and rivals flagship open-source models with 2-5x parameters. It also shows significant gains in utility across various products and productivity tasks.",
-            "context_length": 262144,
-            "max_tokens": 262144,
-            "pricing": {
-              "input_tokens": 0.14,
-              "output_tokens": 0.58,
-              "cache_read_tokens": 0.035
-            },
-            "tags": [
-              "chat",
-              "prompt_cache",
-              "reasoning"
             ],
             "default_width": null,
             "default_height": null,
@@ -22025,7 +21934,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2024-04-30",
-          "expiration_date": null,
+          "expiration_date": "2026-07-19",
           "links": {
             "details": "/api/v1/models/venice/uncensored/endpoints"
           }
@@ -23276,9 +23185,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000084",
-            "completion": "0.000000168",
-            "input_cache_read": "0.0000000168"
+            "prompt": "0.000000077",
+            "completion": "0.000000154",
+            "input_cache_read": "0.0000000154"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26862,56 +26771,6 @@
           }
         },
         {
-          "id": "meta-llama/llama-3-8b-instruct",
-          "name": "Meta: Llama 3 8B Instruct",
-          "canonical_slug": "meta-llama/llama-3-8b-instruct",
-          "hugging_face_id": "meta-llama/Meta-Llama-3-8B-Instruct",
-          "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This 8B instruct-tuned version was optimized for high quality dialogue usecases. It has demonstrated strong...",
-          "context_length": 8192,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Llama3",
-            "instruct_type": "llama3"
-          },
-          "pricing": {
-            "prompt": "0.00000014",
-            "completion": "0.00000014"
-          },
-          "top_provider": {
-            "context_length": 8192,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/meta-llama/llama-3-8b-instruct/endpoints"
-          }
-        },
-        {
           "id": "meta-llama/llama-3.1-70b-instruct",
           "name": "Meta: Llama 3.1 70B Instruct",
           "canonical_slug": "meta-llama/llama-3.1-70b-instruct",
@@ -27221,7 +27080,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null,
+          "expiration_date": "2026-07-19",
           "links": {
             "details": "/api/v1/models/meta-llama/llama-3.2-3b-instruct/endpoints"
           }
@@ -27331,7 +27190,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null,
+          "expiration_date": "2026-07-19",
           "links": {
             "details": "/api/v1/models/meta-llama/llama-3.3-70b-instruct/endpoints"
           },
@@ -31126,7 +30985,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null,
+          "expiration_date": "2026-07-19",
           "links": {
             "details": "/api/v1/models/nousresearch/hermes-3-llama-3.1-405b/endpoints"
           }
@@ -40051,7 +39910,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null,
+          "expiration_date": "2026-07-19",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-coder-480b-a35b-07-25/endpoints"
           },
@@ -40370,7 +40229,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2025-09-30",
-          "expiration_date": null,
+          "expiration_date": "2026-07-19",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-next-80b-a3b-instruct-2509/endpoints"
           }
@@ -45738,13 +45597,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000042",
-            "completion": "0.00000132",
-            "input_cache_read": "0.000000078"
+            "prompt": "0.000000406",
+            "completion": "0.000001276",
+            "input_cache_read": "0.0000000754"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "context_length": 1024000,
+            "max_completion_tokens": 128000,
             "is_moderated": false
           },
           "per_request_limits": null,
