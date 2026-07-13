@@ -12858,28 +12858,6 @@
           }
         },
         {
-          "id": "FastVideo/LTX-2.3-Distilled-Diffusers",
-          "name": "FastVideo/LTX-2.3-Distilled-Diffusers",
-          "owned_by": "deepinfra",
-          "root": "FastVideo/LTX-2.3-Distilled-Diffusers",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "A fast, step-distilled build of Lightricks' LTX-2.3 diffusion-transformer video model (distilled by FastVideo). Generates high-fidelity text-to-video and image-to-video in just a few denoising steps.",
-            "context_length": null,
-            "max_tokens": null,
-            "pricing": {
-              "output_seconds": 0.035
-            },
-            "tags": [
-              "video-gen"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
           "id": "google/embeddinggemma-300m",
           "name": "google/embeddinggemma-300m",
           "owned_by": "deepinfra",
@@ -20021,7 +19999,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -20185,7 +20163,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -33727,12 +33705,12 @@
             "prompt": "0.00000005",
             "completion": "0.0000004",
             "web_search": "0.01",
-            "input_cache_read": "0.00000001"
+            "input_cache_read": "0.000000005"
           },
           "top_provider": {
             "context_length": 400000,
-            "max_completion_tokens": null,
-            "is_moderated": false
+            "max_completion_tokens": 128000,
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -33903,12 +33881,12 @@
             "prompt": "0.00000125",
             "completion": "0.00001",
             "web_search": "0.01",
-            "input_cache_read": "0.00000013"
+            "input_cache_read": "0.000000125"
           },
           "top_provider": {
             "context_length": 400000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
