@@ -4186,30 +4186,6 @@
       }
     },
     {
-      "id": "019f1e36-c859-7969-a594-ec6a4f7b3867",
-      "organization": "anthropic",
-      "provider": "googleVertexAnthropicAdaptive",
-      "publicName": "claude-fable-5",
-      "name": "claude-fable-5-v2",
-      "displayName": "claude-fable-5",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": false,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019cbb43-193c-770a-8e59-155f72b84e44",
       "publicName": "mammoth-newt-0226",
       "displayName": "mammoth-newt-0226",
@@ -4311,30 +4287,6 @@
       "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991
-      }
-    },
-    {
-      "id": "019ef23a-bf03-7f87-9b9e-2d5d8a974a2f",
-      "organization": "google",
-      "provider": "googleVertexGlobal",
-      "publicName": "gemini-3.5-flash",
-      "name": "gemini-3.5-flash",
-      "displayName": "gemini-3.5-flash",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
       }
     },
     {
@@ -5972,6 +5924,30 @@
       }
     },
     {
+      "id": "019f1e36-c859-7969-a594-ec6a4f7b3867",
+      "organization": "anthropic",
+      "provider": "googleVertexAnthropicAdaptive",
+      "publicName": "claude-fable-5",
+      "name": "claude-fable-5-v2",
+      "displayName": "claude-fable-5",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": false,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
       "id": "019f3d8c-862f-7e2a-a947-7e49d12c3826",
       "publicName": "thymelaeaceae-alpha",
       "displayName": "thymelaeaceae-alpha",
@@ -6101,6 +6077,30 @@
       "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "019ef23a-bf03-7f87-9b9e-2d5d8a974a2f",
+      "organization": "google",
+      "provider": "googleVertexGlobal",
+      "publicName": "gemini-3.5-flash",
+      "name": "gemini-3.5-flash",
+      "displayName": "gemini-3.5-flash",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
       }
     },
     {
@@ -9062,27 +9062,6 @@
       }
     },
     {
-      "id": "019e86fe-5125-74f6-a61d-e17146e786df",
-      "organization": "alibaba",
-      "provider": "alibabaToolCall",
-      "publicName": "qwen3.7-plus",
-      "name": "qwen3.7-plus-code",
-      "displayName": "qwen3.7-plus",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true
-        },
-        "outputCapabilities": {
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019d561b-9c05-7a00-a729-e606dac1c4df",
       "publicName": "vulcan",
       "displayName": "vulcan",
@@ -9530,6 +9509,27 @@
       "id": "019f3d65-9035-7ea9-a9f5-a6c857055647",
       "publicName": "espresso",
       "displayName": "espresso",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
+        },
+        "outputCapabilities": {
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "019e86fe-5125-74f6-a61d-e17146e786df",
+      "organization": "alibaba",
+      "provider": "alibabaToolCall",
+      "publicName": "qwen3.7-plus",
+      "name": "qwen3.7-plus-code",
+      "displayName": "qwen3.7-plus",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
@@ -14373,26 +14373,6 @@
       }
     },
     {
-      "id": "019f4e39-a888-7430-a6e7-ca2c33ec78f1",
-      "organization": "xai",
-      "provider": "xaiResponsesSearch",
-      "publicName": "grok-4.5-search",
-      "name": "grok-4.5-search",
-      "displayName": "grok-4.5-search",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "search": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "search": 9007199254740991
-      }
-    },
-    {
       "id": "019f4805-8efe-7437-bd2e-b78d3c9c28c4",
       "organization": "openai",
       "provider": "openaiResponses",
@@ -14408,6 +14388,26 @@
         }
       },
       "userSelectable": false,
+      "rankByModality": {
+        "search": 9007199254740991
+      }
+    },
+    {
+      "id": "019f4e39-a888-7430-a6e7-ca2c33ec78f1",
+      "organization": "xai",
+      "provider": "xaiResponsesSearch",
+      "publicName": "grok-4.5-search",
+      "name": "grok-4.5-search",
+      "displayName": "grok-4.5-search",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "search": true
+        }
+      },
+      "userSelectable": true,
       "rankByModality": {
         "search": 9007199254740991
       }
@@ -16287,5 +16287,5 @@
       }
     }
   ],
-  "lastCheck": 1783963911158
+  "lastCheck": 1783971457140
 }
