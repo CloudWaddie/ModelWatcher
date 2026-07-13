@@ -17964,7 +17964,7 @@
           "top_provider": {
             "context_length": 200000,
             "max_completion_tokens": 64000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -19495,7 +19495,7 @@
           "top_provider": {
             "context_length": 200000,
             "max_completion_tokens": 64000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -26690,119 +26690,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/kwaipilot/kat-coder-pro-v2-20260327/endpoints"
-          }
-        },
-        {
-          "id": "liquid/lfm-2.5-1.2b-instruct:free",
-          "name": "LiquidAI: LFM2.5-1.2B-Instruct (free)",
-          "canonical_slug": "liquid/lfm-2.5-1.2b-instruct-20260120",
-          "hugging_face_id": "LiquidAI/LFM2.5-1.2B-Instruct",
-          "description": "LFM2.5-1.2B-Instruct is a compact, high-performance instruction-tuned model built for fast on-device AI. It delivers strong chat quality in a 1.2B parameter footprint, with efficient edge inference and broad runtime support.",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/liquid/lfm-2.5-1.2b-instruct-20260120/endpoints"
-          }
-        },
-        {
-          "id": "liquid/lfm-2.5-1.2b-thinking:free",
-          "name": "LiquidAI: LFM2.5-1.2B-Thinking (free)",
-          "canonical_slug": "liquid/lfm-2.5-1.2b-thinking-20260120",
-          "hugging_face_id": "LiquidAI/LFM2.5-1.2B-Thinking",
-          "description": "LFM2.5-1.2B-Thinking is a lightweight reasoning-focused model optimized for agentic tasks, data extraction, and RAG—while still running comfortably on edge devices. It supports long context (up to 32K tokens) and is...",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/liquid/lfm-2.5-1.2b-thinking-20260120/endpoints"
-          },
-          "reasoning": {
-            "mandatory": true
           }
         },
         {
