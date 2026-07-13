@@ -4949,6 +4949,39 @@
           }
         },
         {
+          "id": "google/gemma-4-12B-it",
+          "name": "google/gemma-4-12B-it",
+          "uuid": "model-93aed4bc-2d1c-4bb5-b4dc-c5ef78097d17",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Gemma 4 12B It",
+          "organization": "Google",
+          "link": "https://huggingface.co/google/gemma-4-12B-it",
+          "license": "apache-2.0",
+          "context_length": 262144,
+          "config": {
+            "chat_template": null,
+            "stop": [
+              "<eos>"
+            ],
+            "bos_token": "<bos>",
+            "eos_token": "<eos>"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "cached_input": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "google/gemma-4-26B-A4B-it",
           "name": "google/gemma-4-26B-A4B-it",
           "object": "model",
@@ -12606,9 +12639,9 @@
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
-              "input_tokens": 0.14,
-              "output_tokens": 1,
-              "cache_read_tokens": 0.05000000040000001
+              "input_tokens": 0.1,
+              "output_tokens": 0.7499999999999999,
+              "cache_read_tokens": 0.05
             },
             "tags": [
               "chat",
@@ -30481,9 +30514,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000072",
-            "completion": "0.0000035",
-            "input_cache_read": "0.00000015"
+            "prompt": "0.000000719",
+            "completion": "0.00000349",
+            "input_cache_read": "0.000000149"
           },
           "top_provider": {
             "context_length": 262144,
@@ -45689,13 +45722,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000042",
-            "completion": "0.00000132",
-            "input_cache_read": "0.000000078"
+            "prompt": "0.00000085",
+            "completion": "0.0000025",
+            "input_cache_read": "0.0000001"
           },
           "top_provider": {
-            "context_length": 1024000,
-            "max_completion_tokens": 128000,
+            "context_length": 1048576,
+            "max_completion_tokens": 1048576,
             "is_moderated": false
           },
           "per_request_limits": null,
