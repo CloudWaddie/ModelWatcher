@@ -25992,23 +25992,19 @@
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 8192,
-            "is_moderated": true
+            "max_completion_tokens": 32768,
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "include_reasoning",
             "max_tokens",
-            "min_p",
             "reasoning",
             "response_format",
             "seed",
-            "stop",
             "temperature",
             "tool_choice",
             "tools",
-            "top_a",
-            "top_k",
             "top_p"
           ],
           "default_parameters": {
@@ -36603,12 +36599,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000036",
-            "completion": "0.00000018"
+            "prompt": "0.00000003",
+            "completion": "0.00000015"
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -36633,121 +36629,6 @@
             "top_a",
             "top_k",
             "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/openai/gpt-oss-120b/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 974,
-                "win_rate": 29.4,
-                "rank": 93
-              },
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1005,
-                "win_rate": 33.4,
-                "rank": 99
-              },
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 1040,
-                "win_rate": 45.1,
-                "rank": 89
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 1054,
-                "win_rate": 40.6,
-                "rank": 89
-              },
-              {
-                "arena": "models",
-                "category": "uicomponent",
-                "elo": 973,
-                "win_rate": 35.5,
-                "rank": 93
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1003,
-                "win_rate": 32.5,
-                "rank": 103
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": 23.8,
-              "coding_index": 30.4,
-              "agentic_index": 13.2
-            }
-          },
-          "reasoning": {
-            "mandatory": true,
-            "supported_efforts": [
-              "high",
-              "medium",
-              "low"
-            ],
-            "default_effort": "medium"
-          }
-        },
-        {
-          "id": "openai/gpt-oss-120b:free",
-          "name": "OpenAI: gpt-oss-120b (free)",
-          "canonical_slug": "openai/gpt-oss-120b",
-          "hugging_face_id": "openai/gpt-oss-120b",
-          "description": "gpt-oss-120b is an open-weight, 117B-parameter Mixture-of-Experts (MoE) language model from OpenAI designed for high-reasoning, agentic, and general-purpose production use cases. It activates 5.1B parameters per forward pass and is optimized...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "GPT",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 131072,
-            "is_moderated": true
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "min_p",
-            "reasoning",
-            "reasoning_effort",
-            "seed",
-            "stop",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_a",
-            "top_k",
             "top_p"
           ],
           "default_parameters": {
@@ -36949,7 +36830,6 @@
             "include_reasoning",
             "logprobs",
             "max_tokens",
-            "min_p",
             "presence_penalty",
             "reasoning",
             "reasoning_effort",
@@ -36961,7 +36841,6 @@
             "temperature",
             "tool_choice",
             "tools",
-            "top_a",
             "top_k",
             "top_logprobs",
             "top_p"
@@ -37900,7 +37779,6 @@
             "include_reasoning",
             "logprobs",
             "max_tokens",
-            "min_p",
             "presence_penalty",
             "reasoning",
             "reasoning_effort",
@@ -37912,7 +37790,6 @@
             "temperature",
             "tool_choice",
             "tools",
-            "top_a",
             "top_k",
             "top_logprobs",
             "top_p"
