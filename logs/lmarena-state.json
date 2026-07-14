@@ -3935,6 +3935,23 @@
       }
     },
     {
+      "id": "019f6194-d096-7164-bfbe-714bc56bc95c",
+      "publicName": "miles",
+      "displayName": "miles",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
       "id": "019d22e0-5ffe-776a-811c-f44d1c20918c",
       "publicName": "hearth",
       "displayName": "hearth",
@@ -12044,6 +12061,56 @@
       }
     },
     {
+      "id": "019f61a4-f425-7ce9-b9c5-5da65857a910",
+      "publicName": "zen-bear-v7",
+      "displayName": "zen-bear-v7",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": false
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
+      "id": "019f61a6-92a0-738e-ab7a-f2f071c1a3f9",
+      "publicName": "zen-bear-v8",
+      "displayName": "zen-bear-v8",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": true,
+            "multipleImages": false
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
       "id": "019ed208-69ca-7f3f-85ee-182d5f0ea08b",
       "organization": "luma-ai",
       "provider": "lumaImagePublic",
@@ -12597,62 +12664,12 @@
       }
     },
     {
-      "id": "019f5c26-db08-75d5-a198-3503a62e7ed2",
-      "publicName": "zen-bear-v8",
-      "displayName": "zen-bear-v8",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": true,
-            "multipleImages": false
-          }
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "image": 9007199254740991
-      }
-    },
-    {
       "id": "019ea47c-9ebe-70dc-80f8-266ed934ab7b",
       "publicName": "altair",
       "displayName": "altair",
       "capabilities": {
         "inputCapabilities": {
           "text": true
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "image": 9007199254740991
-      }
-    },
-    {
-      "id": "019f5c21-1408-76f6-aeb7-dacf20e1a44f",
-      "publicName": "zen-bear-v7",
-      "displayName": "zen-bear-v7",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": false,
-            "multipleImages": false
-          }
         },
         "outputCapabilities": {
           "image": {
@@ -16305,5 +16322,5 @@
       }
     }
   ],
-  "lastCheck": 1784046232771
+  "lastCheck": 1784050955530
 }
