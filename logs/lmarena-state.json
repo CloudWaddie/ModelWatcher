@@ -6080,30 +6080,6 @@
       }
     },
     {
-      "id": "019ef23a-bf03-7f87-9b9e-2d5d8a974a2f",
-      "organization": "google",
-      "provider": "googleVertexGlobal",
-      "publicName": "gemini-3.5-flash",
-      "name": "gemini-3.5-flash",
-      "displayName": "gemini-3.5-flash",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019dd1e6-05cc-70f3-9900-b604b1edfa46",
       "publicName": "april26-chatbot3",
       "displayName": "april26-chatbot3",
@@ -6622,12 +6598,12 @@
       }
     },
     {
-      "id": "019e6f94-9377-7adb-828a-702fef8ab254",
-      "organization": "anthropic",
-      "provider": "googleVertexAnthropicAdaptive",
-      "publicName": "claude-opus-4-8-thinking",
-      "name": "claude-opus-4-8-thinking",
-      "displayName": "claude-opus-4-8-thinking",
+      "id": "019ef23a-bf03-7f87-9b9e-2d5d8a974a2f",
+      "organization": "google",
+      "provider": "googleVertexGlobal",
+      "publicName": "gemini-3.5-flash",
+      "name": "gemini-3.5-flash",
+      "displayName": "gemini-3.5-flash",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
@@ -6639,7 +6615,7 @@
           "web": true
         }
       },
-      "userSelectable": false,
+      "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991,
         "webdev": 9007199254740991
@@ -6665,6 +6641,30 @@
       "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "019e6f94-9377-7adb-828a-702fef8ab254",
+      "organization": "anthropic",
+      "provider": "googleVertexAnthropicAdaptive",
+      "publicName": "claude-opus-4-8-thinking",
+      "name": "claude-opus-4-8-thinking",
+      "displayName": "claude-opus-4-8-thinking",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": false,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
       }
     },
     {
@@ -12854,34 +12854,6 @@
       }
     },
     {
-      "id": "019e4271-4717-7dd9-a0e2-90783fbabd25",
-      "organization": "xai",
-      "provider": "xaiImage",
-      "publicName": "blue-crab",
-      "name": "blue-crab-u2fh",
-      "displayName": "grok-imagine-image-quality (20260519)",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": true,
-            "multipleImages": false
-          }
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "image": 9007199254740991
-      }
-    },
-    {
       "id": "019e527e-7f6a-793f-a88a-54e5f0c39292",
       "publicName": "kelly",
       "displayName": "kelly",
@@ -16287,5 +16259,5 @@
       }
     }
   ],
-  "lastCheck": 1783985424610
+  "lastCheck": 1783990735428
 }
