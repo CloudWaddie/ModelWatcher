@@ -26779,6 +26779,57 @@
           }
         },
         {
+          "id": "kwaipilot/kat-coder-air-v2.5",
+          "name": "Kwaipilot: KAT-Coder-Air V2.5",
+          "canonical_slug": "kwaipilot/kat-coder-air-v2.5-20260710",
+          "hugging_face_id": null,
+          "description": "",
+          "context_length": 256000,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000015",
+            "completion": "0.0000006",
+            "input_cache_read": "0.00000003"
+          },
+          "top_provider": {
+            "context_length": 256000,
+            "max_completion_tokens": 80000,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/kwaipilot/kat-coder-air-v2.5-20260710/endpoints"
+          }
+        },
+        {
           "id": "kwaipilot/kat-coder-pro-v2",
           "name": "Kwaipilot: KAT-Coder-Pro V2",
           "canonical_slug": "kwaipilot/kat-coder-pro-v2-20260327",
@@ -26847,6 +26898,57 @@
               "coding_index": 59.5,
               "agentic_index": 15.5
             }
+          }
+        },
+        {
+          "id": "kwaipilot/kat-coder-pro-v2.5",
+          "name": "Kwaipilot: KAT-Coder-Pro V2.5",
+          "canonical_slug": "kwaipilot/kat-coder-pro-v2.5-20260710",
+          "hugging_face_id": null,
+          "description": "",
+          "context_length": 256000,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000074",
+            "completion": "0.00000296",
+            "input_cache_read": "0.00000015"
+          },
+          "top_provider": {
+            "context_length": 256000,
+            "max_completion_tokens": 80000,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/kwaipilot/kat-coder-pro-v2.5-20260710/endpoints"
           }
         },
         {
@@ -46051,13 +46153,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000093",
-            "completion": "0.000003",
-            "input_cache_read": "0.00000018"
+            "prompt": "0.0000009296",
+            "completion": "0.0000029216",
+            "input_cache_read": "0.00000017264"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 32768,
+            "context_length": 1024000,
+            "max_completion_tokens": 128000,
             "is_moderated": false
           },
           "per_request_limits": null,
