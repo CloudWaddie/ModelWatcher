@@ -8229,6 +8229,38 @@
           }
         },
         {
+          "id": "Prism-ML/Ternary-Bonsai-27B",
+          "name": "Prism-ML/Ternary-Bonsai-27B",
+          "uuid": "endpoint-6c5092a2-b920-4be3-9e45-1c5cb7eee78f",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Ternary Bonsai 27B",
+          "organization": "Prism ML",
+          "link": "https://huggingface.co/api/models/prism-ml/Ternary-Bonsai-27B-AWQ-4bit",
+          "license": "apache-2.0",
+          "context_length": 262144,
+          "config": {
+            "chat_template": null,
+            "stop": [
+              "<|im_end|>"
+            ],
+            "bos_token": null,
+            "eos_token": "<|im_end|>"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "Qwen/Qwen-Image",
           "name": "Qwen/Qwen-Image",
           "uuid": "endpoint-d4d29f48-ce86-4533-863a-23e9245f6570",
@@ -13232,6 +13264,30 @@
               "chat",
               "vlm",
               "vision",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "google/gemma-4-E4B-it",
+          "name": "google/gemma-4-E4B-it",
+          "owned_by": "deepinfra",
+          "root": "google/gemma-4-E4B-it",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "",
+            "context_length": 131072,
+            "max_tokens": 131072,
+            "pricing": {
+              "input_tokens": 0.02,
+              "output_tokens": 0.1
+            },
+            "tags": [
+              "chat",
               "reasoning"
             ],
             "default_width": null,
@@ -25958,12 +26014,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000006",
-            "completion": "0.00000035"
+            "prompt": "0.00000012",
+            "completion": "0.00000035",
+            "input_cache_read": "0.00000009"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 8192,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25984,7 +26041,6 @@
             "temperature",
             "tool_choice",
             "tools",
-            "top_a",
             "top_k",
             "top_logprobs",
             "top_p"
