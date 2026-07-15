@@ -1,5 +1,5 @@
 {
-  "timestamp": 1784143215657,
+  "timestamp": 1784149561369,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7740,7 +7740,7 @@
     },
     {
       "id": "hy3",
-      "displayName": "Hy3",
+      "displayName": "Hy3 Low",
       "provider": "tencent",
       "active": true,
       "openSource": true,
@@ -7794,6 +7794,26 @@
           "agon_webapps"
         ]
       }
+    },
+    {
+      "id": "hy3-high",
+      "displayName": "Hy3",
+      "provider": "tencent",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent"
+        ]
+      },
+      "inputModalities": [
+        "text"
+      ]
     }
   ],
   "providers": [
@@ -8092,7 +8112,7 @@
     {
       "id": "decart",
       "displayName": "Decart",
-      "logoName": "decart_logo.jpg",
+      "logoName": "decart_logo.png",
       "website": "https://decart.ai/"
     },
     {
@@ -11477,6 +11497,13 @@
       "id": "lucy-2.5",
       "video": {
         "perSecond": 0.04
+      }
+    },
+    {
+      "id": "hy3-high",
+      "text": {
+        "input": 0.14,
+        "output": 0.58
       }
     }
   ]
