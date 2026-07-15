@@ -17724,6 +17724,35 @@
           "type": "base"
         },
         {
+          "id": "voxtral-mini-tts-mellon-greek-2606-solutions",
+          "name": "voxtral-mini-tts-mellon-greek-2606-solutions",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": true,
+            "unified_resources": false
+          },
+          "description": "TTS v1 final checkpoint",
+          "max_context_length": 4096,
+          "aliases": [],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.3,
+          "type": "base"
+        },
+        {
           "id": "voxtral-small-2507",
           "name": "voxtral-small-2507",
           "owned_by": "mistralai",
@@ -21466,54 +21495,6 @@
               "low"
             ],
             "default_effort": "medium"
-          }
-        },
-        {
-          "id": "arcee-ai/coder-large",
-          "name": "Arcee AI: Coder Large",
-          "canonical_slug": "arcee-ai/coder-large",
-          "hugging_face_id": "",
-          "description": "Coder‑Large is a 32 B‑parameter offspring of Qwen 2.5‑Instruct that has been further trained on permissively‑licensed GitHub, CodeSearchNet and synthetic bug‑fix corpora. It supports a 32k context window, enabling multi‑file...",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000005",
-            "completion": "0.0000008"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/arcee-ai/coder-large/endpoints"
           }
         },
         {
@@ -28687,6 +28668,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "max_tokens",
+            "prediction",
             "presence_penalty",
             "response_format",
             "seed",
@@ -33045,6 +33027,7 @@
             "logprobs",
             "max_completion_tokens",
             "max_tokens",
+            "prediction",
             "presence_penalty",
             "response_format",
             "seed",
@@ -33147,6 +33130,7 @@
             "logprobs",
             "max_completion_tokens",
             "max_tokens",
+            "prediction",
             "presence_penalty",
             "response_format",
             "seed",
@@ -33212,6 +33196,7 @@
             "logprobs",
             "max_completion_tokens",
             "max_tokens",
+            "prediction",
             "presence_penalty",
             "response_format",
             "seed",
@@ -33268,6 +33253,7 @@
             "logit_bias",
             "logprobs",
             "max_tokens",
+            "prediction",
             "presence_penalty",
             "response_format",
             "seed",
@@ -33325,6 +33311,7 @@
             "logprobs",
             "max_completion_tokens",
             "max_tokens",
+            "prediction",
             "presence_penalty",
             "response_format",
             "seed",
@@ -33389,6 +33376,7 @@
             "logit_bias",
             "logprobs",
             "max_tokens",
+            "prediction",
             "presence_penalty",
             "response_format",
             "seed",
@@ -37944,6 +37932,7 @@
             "max_completion_tokens",
             "max_tokens",
             "min_p",
+            "prediction",
             "presence_penalty",
             "reasoning",
             "reasoning_effort",
@@ -46214,9 +46203,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000008694",
-            "completion": "0.0000027324",
-            "input_cache_read": "0.00000016146"
+            "prompt": "0.0000008638",
+            "completion": "0.0000027148",
+            "input_cache_read": "0.00000016042"
           },
           "top_provider": {
             "context_length": 1048576,
