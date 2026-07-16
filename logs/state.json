@@ -46413,9 +46413,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000009058",
-            "completion": "0.0000028468",
-            "input_cache_read": "0.00000016822"
+            "prompt": "0.000000903",
+            "completion": "0.000002838",
+            "input_cache_read": "0.0000001677"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -46802,34 +46802,6 @@
       "success": true,
       "models": [
         {
-          "id": "Eleven English v1",
-          "name": "Eleven English v1",
-          "model_id": "eleven_monolingual_v1",
-          "can_be_finetuned": false,
-          "can_do_text_to_speech": true,
-          "can_do_voice_conversion": false,
-          "can_use_style": false,
-          "can_use_speaker_boost": false,
-          "serves_pro_voices": false,
-          "token_cost_factor": 1,
-          "description": "Our first ever text to speech model. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).",
-          "requires_alpha_access": false,
-          "max_characters_request_free_user": 10000,
-          "max_characters_request_subscribed_user": 10000,
-          "maximum_text_length_per_request": 10000,
-          "languages": [
-            {
-              "language_id": "en",
-              "name": "English"
-            }
-          ],
-          "model_rates": {
-            "character_cost_multiplier": 1,
-            "cost_discount_multiplier": 1
-          },
-          "concurrency_group": "standard"
-        },
-        {
           "id": "Eleven English v2",
           "name": "Eleven English v2",
           "model_id": "eleven_english_sts_v2",
@@ -47036,66 +47008,6 @@
             "cost_discount_multiplier": 1
           },
           "concurrency_group": "turbo"
-        },
-        {
-          "id": "Eleven Multilingual v1",
-          "name": "Eleven Multilingual v1",
-          "model_id": "eleven_multilingual_v1",
-          "can_be_finetuned": false,
-          "can_do_text_to_speech": true,
-          "can_do_voice_conversion": false,
-          "can_use_style": false,
-          "can_use_speaker_boost": false,
-          "serves_pro_voices": false,
-          "token_cost_factor": 1,
-          "description": "Our first Multilingual model, capability of generating speech in 10 languages. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).",
-          "requires_alpha_access": false,
-          "max_characters_request_free_user": 10000,
-          "max_characters_request_subscribed_user": 10000,
-          "maximum_text_length_per_request": 10000,
-          "languages": [
-            {
-              "language_id": "en",
-              "name": "English"
-            },
-            {
-              "language_id": "de",
-              "name": "German"
-            },
-            {
-              "language_id": "pl",
-              "name": "Polish"
-            },
-            {
-              "language_id": "es",
-              "name": "Spanish"
-            },
-            {
-              "language_id": "it",
-              "name": "Italian"
-            },
-            {
-              "language_id": "fr",
-              "name": "French"
-            },
-            {
-              "language_id": "pt",
-              "name": "Portuguese"
-            },
-            {
-              "language_id": "hi",
-              "name": "Hindi"
-            },
-            {
-              "language_id": "ar",
-              "name": "Arabic"
-            }
-          ],
-          "model_rates": {
-            "character_cost_multiplier": 1,
-            "cost_discount_multiplier": 1
-          },
-          "concurrency_group": "standard"
         },
         {
           "id": "Eleven Multilingual v2",
