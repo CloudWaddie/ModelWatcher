@@ -1,5 +1,5 @@
 {
-  "timestamp": 1784225427596,
+  "timestamp": 1784232320282,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7636,6 +7636,36 @@
       ]
     },
     {
+      "id": "evergreen",
+      "displayName": "Muse Spark 1.1",
+      "provider": "meta",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg"
+        ],
+        "agents": [
+          "agon_godot",
+          "agentic_gamedev",
+          "agon_slides",
+          "agon_slides_html"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video"
+      ]
+    },
+    {
       "id": "imagineart-2.0-edit",
       "displayName": "ImagineArt 2.0 Edit",
       "provider": "imagineart",
@@ -7820,6 +7850,28 @@
       },
       "inputModalities": [
         "text"
+      ]
+    },
+    {
+      "id": "kimi-k3",
+      "displayName": "Kimi K3",
+      "provider": "moonshot",
+      "active": false,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
       ]
     }
   ],
@@ -11473,6 +11525,13 @@
       }
     },
     {
+      "id": "evergreen",
+      "text": {
+        "input": 1.25,
+        "output": 4.25
+      }
+    },
+    {
       "id": "gpt-5.6-sol",
       "text": {
         "input": 5,
@@ -11511,6 +11570,13 @@
       "text": {
         "input": 0.14,
         "output": 0.58
+      }
+    },
+    {
+      "id": "kimi-k3",
+      "text": {
+        "input": 3,
+        "output": 15
       }
     }
   ]
