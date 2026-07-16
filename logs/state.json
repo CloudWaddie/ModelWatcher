@@ -17509,68 +17509,6 @@
           "type": "base"
         },
         {
-          "id": "voxtral-mini-asr-streaming-mellon-greek-2606-solutions",
-          "name": "voxtral-mini-asr-streaming-mellon-greek-2606-solutions",
-          "owned_by": "mistralai",
-          "object": "model",
-          "capabilities": {
-            "completion_chat": false,
-            "function_calling": false,
-            "reasoning": false,
-            "completion_fim": false,
-            "fine_tuning": false,
-            "vision": false,
-            "ocr": false,
-            "classification": false,
-            "moderation": false,
-            "audio": false,
-            "audio_transcription": false,
-            "audio_transcription_realtime": false,
-            "audio_speech": false,
-            "unified_resources": false
-          },
-          "description": "Official voxtral-mini-asr-streaming-mellon-greek-2606-solutions Mistral AI model",
-          "max_context_length": 32768,
-          "aliases": [
-            "voxtral-mini-asr-streaming-mellon-greek-solutions-2606"
-          ],
-          "deprecation": null,
-          "deprecation_replacement_model": null,
-          "default_model_temperature": null,
-          "type": "base"
-        },
-        {
-          "id": "voxtral-mini-asr-streaming-mellon-greek-solutions-2606",
-          "name": "voxtral-mini-asr-streaming-mellon-greek-2606-solutions",
-          "owned_by": "mistralai",
-          "object": "model",
-          "capabilities": {
-            "completion_chat": false,
-            "function_calling": false,
-            "reasoning": false,
-            "completion_fim": false,
-            "fine_tuning": false,
-            "vision": false,
-            "ocr": false,
-            "classification": false,
-            "moderation": false,
-            "audio": false,
-            "audio_transcription": false,
-            "audio_transcription_realtime": false,
-            "audio_speech": false,
-            "unified_resources": false
-          },
-          "description": "Official voxtral-mini-asr-streaming-mellon-greek-2606-solutions Mistral AI model",
-          "max_context_length": 32768,
-          "aliases": [
-            "voxtral-mini-asr-streaming-mellon-greek-2606-solutions"
-          ],
-          "deprecation": null,
-          "deprecation_replacement_model": null,
-          "default_model_temperature": null,
-          "type": "base"
-        },
-        {
           "id": "voxtral-mini-latest",
           "name": "voxtral-mini-2602",
           "owned_by": "mistralai",
@@ -17663,6 +17601,35 @@
           "deprecation": null,
           "deprecation_replacement_model": null,
           "default_model_temperature": 0,
+          "type": "base"
+        },
+        {
+          "id": "voxtral-mini-realtime-mellon-greek-2606-solutions",
+          "name": "voxtral-mini-realtime-mellon-greek-2606-solutions",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": false,
+            "unified_resources": false
+          },
+          "description": "Official voxtral-mini-realtime-mellon-greek-2606-solutions Mistral AI model",
+          "max_context_length": 32768,
+          "aliases": [],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": null,
           "type": "base"
         },
         {
@@ -30811,9 +30778,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000719",
-            "completion": "0.00000349",
-            "input_cache_read": "0.000000149"
+            "prompt": "0.00000075",
+            "completion": "0.0000035",
+            "input_cache_read": "0.00000016"
           },
           "top_provider": {
             "context_length": 262144,
@@ -45631,7 +45598,7 @@
           "canonical_slug": "z-ai/glm-4.7-flash-20260119",
           "hugging_face_id": "zai-org/GLM-4.7-Flash",
           "description": "As a 30B-class SOTA model, GLM-4.7-Flash offers a new option that balances performance and efficiency. It is further optimized for agentic coding use cases, strengthening coding capabilities, long-horizon task planning,...",
-          "context_length": 202752,
+          "context_length": 200000,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -45644,13 +45611,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000006",
-            "completion": "0.0000004",
-            "input_cache_read": "0.00000001"
+            "prompt": "0.0000000605",
+            "completion": "0.0000004"
           },
           "top_provider": {
-            "context_length": 202752,
-            "max_completion_tokens": 16384,
+            "context_length": 131072,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -46268,9 +46234,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000009464",
-            "completion": "0.0000029744",
-            "input_cache_read": "0.00000017576"
+            "prompt": "0.0000009366",
+            "completion": "0.0000029436",
+            "input_cache_read": "0.00000017394"
           },
           "top_provider": {
             "context_length": 1048576,
