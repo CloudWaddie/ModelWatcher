@@ -12660,32 +12660,6 @@
           }
         },
         {
-          "id": "deepreinforce-ai/Ornith-1.0-35B",
-          "name": "deepreinforce-ai/Ornith-1.0-35B",
-          "owned_by": "deepinfra",
-          "root": "deepreinforce-ai/Ornith-1.0-35B",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "Ornith-1.0-35B is DeepReinforce's open (MIT-licensed) agentic-coding model: an RL post-train of Qwen3.5-35B-A3B, a 35B-total / ~3B-active Mixture-of-Experts with hybrid Gated-DeltaNet attention. It targets state-of-the-art open-model coding-agent performance (SWE-bench Verified 75.6, Terminal-Bench 2.1 64.2) with a 262K-token context, thinking/reasoning mode, tool calling, and image + video understanding.",
-            "context_length": 262144,
-            "max_tokens": 262144,
-            "pricing": {
-              "input_tokens": 0.1,
-              "output_tokens": 0.7499999999999999,
-              "cache_read_tokens": 0.05
-            },
-            "tags": [
-              "chat",
-              "prompt_cache",
-              "reasoning"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
           "id": "deepseek-ai/DeepSeek-R1-0528",
           "name": "deepseek-ai/DeepSeek-R1-0528",
           "owned_by": "deepinfra",
@@ -30548,13 +30522,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000066",
-            "completion": "0.00000341",
-            "input_cache_read": "0.000000144"
+            "prompt": "0.00000095",
+            "completion": "0.000004",
+            "input_cache_read": "0.00000016"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -46211,9 +46185,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000009548",
-            "completion": "0.0000030008",
-            "input_cache_read": "0.00000017732"
+            "prompt": "0.0000009688",
+            "completion": "0.0000030448",
+            "input_cache_read": "0.00000017992"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -47531,188 +47505,9 @@
       ]
     },
     "xAI (Grok)": {
-      "success": true,
-      "models": [
-        {
-          "id": "grok-4.20-0309-non-reasoning",
-          "name": "grok-4.20-0309-non-reasoning",
-          "owned_by": "xai",
-          "object": "model",
-          "aliases": [
-            "grok-4.20-non-reasoning",
-            "grok-4.20-non-reasoning-latest",
-            "grok-4.20-beta-non-reasoning",
-            "grok-4.20-beta-latest-non-reasoning",
-            "grok-4.20-experimental-beta-0304-non-reasoning",
-            "grok-4.20-experimental-beta-non-reasoning-latest",
-            "grok-4.20-beta-0309-non-reasoning",
-            "grok-4.20-non-reasoning-gv2"
-          ],
-          "context_length": 1000000,
-          "prompt_text_token_price": 12500,
-          "cached_prompt_text_token_price": 2000,
-          "prompt_image_token_price": 12500,
-          "completion_text_token_price": 25000,
-          "prompt_text_token_price_long_context": 25000,
-          "cached_prompt_text_token_price_long_context": 4000,
-          "completion_text_token_price_long_context": 50000,
-          "long_context_threshold": 200000
-        },
-        {
-          "id": "grok-4.20-0309-reasoning",
-          "name": "grok-4.20-0309-reasoning",
-          "owned_by": "xai",
-          "object": "model",
-          "aliases": [
-            "grok-4.20-reasoning-latest",
-            "grok-4.20",
-            "grok-4.20-reasoning",
-            "grok-4.20-0309",
-            "grok-4.20-beta-0309-reasoning",
-            "grok-4.20-beta",
-            "grok-4.20-beta-0309",
-            "grok-4.20-beta-latest",
-            "grok-4.20-beta-latest-reasoning",
-            "grok-4.20-beta-reasoning",
-            "grok-4.20-experimental-beta-0304-reasoning",
-            "grok-4.20-experimental-beta-0304",
-            "grok-4.20-experimental-beta-reasoning-latest",
-            "grok-4.20-experimental-beta-latest",
-            "grok-4.20-reasoning-gv2"
-          ],
-          "context_length": 1000000,
-          "prompt_text_token_price": 12500,
-          "cached_prompt_text_token_price": 2000,
-          "prompt_image_token_price": 12500,
-          "completion_text_token_price": 25000,
-          "prompt_text_token_price_long_context": 25000,
-          "cached_prompt_text_token_price_long_context": 4000,
-          "completion_text_token_price_long_context": 50000,
-          "long_context_threshold": 200000
-        },
-        {
-          "id": "grok-4.20-multi-agent-0309",
-          "name": "grok-4.20-multi-agent-0309",
-          "owned_by": "xai",
-          "object": "model",
-          "aliases": [
-            "grok-4.20-multi-agent",
-            "grok-4.20-multi-agent-latest",
-            "grok-4.20-multi-agent-beta-latest",
-            "grok-4.20-multi-agent-experimental-beta-0304",
-            "grok-4.20-multi-agent-experimental-beta-latest",
-            "grok-4.20-multi-agent-beta-0309"
-          ],
-          "context_length": 1000000,
-          "prompt_text_token_price": 12500,
-          "cached_prompt_text_token_price": 2000,
-          "prompt_image_token_price": 12500,
-          "completion_text_token_price": 25000,
-          "prompt_text_token_price_long_context": 25000,
-          "cached_prompt_text_token_price_long_context": 4000,
-          "completion_text_token_price_long_context": 50000,
-          "long_context_threshold": 200000
-        },
-        {
-          "id": "grok-4.3",
-          "name": "grok-4.3",
-          "owned_by": "xai",
-          "object": "model",
-          "aliases": [
-            "grok-4.3-latest",
-            "grok-latest"
-          ],
-          "context_length": 1000000,
-          "prompt_text_token_price": 12500,
-          "cached_prompt_text_token_price": 2000,
-          "prompt_image_token_price": 12500,
-          "completion_text_token_price": 25000,
-          "prompt_text_token_price_long_context": 25000,
-          "cached_prompt_text_token_price_long_context": 4000,
-          "completion_text_token_price_long_context": 50000,
-          "long_context_threshold": 200000
-        },
-        {
-          "id": "grok-4.5",
-          "name": "grok-4.5",
-          "owned_by": "xai",
-          "object": "model",
-          "aliases": [
-            "grok-4.5-latest",
-            "grok-build-latest"
-          ],
-          "context_length": 500000,
-          "prompt_text_token_price": 20000,
-          "cached_prompt_text_token_price": 5000,
-          "prompt_image_token_price": 20000,
-          "completion_text_token_price": 60000,
-          "prompt_text_token_price_long_context": 40000,
-          "cached_prompt_text_token_price_long_context": 10000,
-          "completion_text_token_price_long_context": 120000,
-          "long_context_threshold": 200000
-        },
-        {
-          "id": "grok-build-0.1",
-          "name": "grok-build-0.1",
-          "owned_by": "xai",
-          "object": "model",
-          "aliases": [
-            "grok-code-fast-1",
-            "grok-code-fast",
-            "grok-code-fast-1-0825"
-          ],
-          "context_length": 256000,
-          "prompt_text_token_price": 10000,
-          "cached_prompt_text_token_price": 2000,
-          "prompt_image_token_price": 10000,
-          "completion_text_token_price": 20000,
-          "prompt_text_token_price_long_context": 20000,
-          "cached_prompt_text_token_price_long_context": 4000,
-          "completion_text_token_price_long_context": 40000,
-          "long_context_threshold": 200000
-        },
-        {
-          "id": "grok-imagine-image",
-          "name": "grok-imagine-image",
-          "owned_by": "xai",
-          "object": "model",
-          "aliases": [
-            "grok-imagine-image-2026-03-02"
-          ],
-          "context_length": 8000,
-          "image_price": 200000000
-        },
-        {
-          "id": "grok-imagine-image-quality",
-          "name": "grok-imagine-image-quality",
-          "owned_by": "xai",
-          "object": "model",
-          "aliases": [
-            "grok-imagine-image-quality-20260403",
-            "grok-imagine-image-quality-latest",
-            "grok-imagine-image-pro"
-          ],
-          "context_length": 8000,
-          "image_price": 500000000
-        },
-        {
-          "id": "grok-imagine-video",
-          "name": "grok-imagine-video",
-          "owned_by": "xai",
-          "object": "model",
-          "aliases": []
-        },
-        {
-          "id": "grok-imagine-video-1.5",
-          "name": "grok-imagine-video-1.5",
-          "owned_by": "xai",
-          "object": "model",
-          "aliases": [
-            "grok-imagine-video-1.5-preview",
-            "grok-imagine-video-1.5-2026-05-30"
-          ]
-        }
-      ]
+      "success": false,
+      "models": [],
+      "error": "HTTP 503: Service Unavailable"
     }
   }
 }
