@@ -11415,44 +11415,6 @@
           ]
         },
         {
-          "id": "meta-llama/llama-4-scout-17b-16e-instruct",
-          "name": "Llama 4 Scout 17B 16E",
-          "owned_by": "Meta",
-          "object": "model",
-          "active": true,
-          "context_window": 131072,
-          "public_apps": null,
-          "max_completion_tokens": 8192,
-          "hugging_face_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "context_length": 131072,
-          "max_output_length": 8192,
-          "pricing": {
-            "prompt": "0.00000011",
-            "completion": "0.00000034",
-            "image": "0",
-            "request": "0",
-            "input_cache_read": "0.000000055"
-          },
-          "supported_sampling_parameters": [
-            "temperature",
-            "top_p",
-            "stop",
-            "seed",
-            "max_tokens"
-          ],
-          "supported_features": [
-            "tools",
-            "json_mode"
-          ]
-        },
-        {
           "id": "meta-llama/llama-prompt-guard-2-22m",
           "name": "Llama Prompt Guard 2 22M",
           "owned_by": "Meta",
@@ -11633,44 +11595,6 @@
             "tools",
             "json_mode",
             "structured_outputs",
-            "reasoning"
-          ]
-        },
-        {
-          "id": "qwen/qwen3-32b",
-          "name": "Qwen3-32B",
-          "owned_by": "Alibaba Cloud",
-          "object": "model",
-          "active": true,
-          "context_window": 131072,
-          "public_apps": null,
-          "max_completion_tokens": 40960,
-          "hugging_face_id": "Qwen/Qwen3-32B",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "context_length": 131072,
-          "max_output_length": 40960,
-          "pricing": {
-            "prompt": "0.00000029",
-            "completion": "0.00000059",
-            "image": "0",
-            "request": "0",
-            "input_cache_read": "0.000000145"
-          },
-          "supported_sampling_parameters": [
-            "temperature",
-            "top_p",
-            "stop",
-            "seed",
-            "max_tokens"
-          ],
-          "supported_features": [
-            "tools",
-            "json_mode",
             "reasoning"
           ]
         },
@@ -30918,9 +30842,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000075",
-            "completion": "0.0000035",
-            "input_cache_read": "0.00000016"
+            "prompt": "0.000001",
+            "completion": "0.0000044",
+            "input_cache_read": "0.0000002"
           },
           "top_provider": {
             "context_length": 262144,
@@ -43985,6 +43909,82 @@
           }
         },
         {
+          "id": "thinkingmachines/inkling",
+          "name": "Thinking Machines: Inkling",
+          "canonical_slug": "thinkingmachines/inkling-20260715",
+          "hugging_face_id": "thinkingmachines/Inkling",
+          "description": "Inkling is an open-weight multimodal mixture-of-experts model from Thinking Machines Lab, with 41B active parameters out of 975B total. It is designed for general-purpose reasoning, coding, agentic and tool-use systems,...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+audio->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "audio"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000001",
+            "completion": "0.00000405",
+            "input_cache_read": "0.00000017"
+          },
+          "top_provider": {
+            "context_length": 524288,
+            "max_completion_tokens": null,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "repetition_penalty",
+            "stop",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/thinkingmachines/inkling-20260715/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "high",
+              "medium",
+              "low",
+              "minimal",
+              "none"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
           "id": "undi95/remm-slerp-l2-13b",
           "name": "ReMM SLERP 13B",
           "canonical_slug": "undi95/remm-slerp-l2-13b",
@@ -46475,9 +46475,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000009142",
-            "completion": "0.0000028732",
-            "input_cache_read": "0.00000016978"
+            "prompt": "0.0000009086",
+            "completion": "0.0000028556",
+            "input_cache_read": "0.00000016874"
           },
           "top_provider": {
             "context_length": 1048576,
