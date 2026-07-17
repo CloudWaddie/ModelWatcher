@@ -23432,7 +23432,7 @@
           "pricing": {
             "prompt": "0.000000098",
             "completion": "0.000000196",
-            "input_cache_read": "0.0000000196"
+            "input_cache_read": "0.00000002"
           },
           "top_provider": {
             "context_length": 1048575,
@@ -26044,13 +26044,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000022",
-            "completion": "0.00000055",
-            "input_cache_read": "0.00000012"
+            "prompt": "0.00000012",
+            "completion": "0.00000037"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -26071,7 +26070,6 @@
             "temperature",
             "tool_choice",
             "tools",
-            "top_a",
             "top_k",
             "top_logprobs",
             "top_p"
@@ -27223,6 +27221,57 @@
               "coding_index": 5.4,
               "agentic_index": 0.5
             }
+          }
+        },
+        {
+          "id": "meta-llama/llama-3.2-11b-vision-instruct",
+          "name": "Meta: Llama 3.2 11B Vision Instruct",
+          "canonical_slug": "meta-llama/llama-3.2-11b-vision-instruct",
+          "hugging_face_id": "meta-llama/Llama-3.2-11B-Vision-Instruct",
+          "description": "Llama 3.2 11B Vision is a multimodal model with 11 billion parameters, designed to handle tasks combining visual and textual data. It excels in tasks such as image captioning and...",
+          "context_length": 131072,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Llama3",
+            "instruct_type": "llama3"
+          },
+          "pricing": {
+            "prompt": "0.000000345",
+            "completion": "0.000000345"
+          },
+          "top_provider": {
+            "context_length": 131072,
+            "max_completion_tokens": 16384,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "logit_bias",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "temperature",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": "2023-12-31",
+          "expiration_date": "2026-07-17",
+          "links": {
+            "details": "/api/v1/models/meta-llama/llama-3.2-11b-vision-instruct/endpoints"
           }
         },
         {
@@ -29776,8 +29825,8 @@
             "instruct_type": "mistral"
           },
           "pricing": {
-            "prompt": "0.000000019",
-            "completion": "0.00000003"
+            "prompt": "0.00000002",
+            "completion": "0.00000004"
           },
           "top_provider": {
             "context_length": 131072,
@@ -31096,7 +31145,7 @@
           "name": "MoonshotAI: Kimi K3",
           "canonical_slug": "moonshotai/kimi-k3-20260715",
           "hugging_face_id": null,
-          "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at...",
+          "description": "Kimi K3 is an ultra-large-scale, open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at navigating...",
           "context_length": 1048576,
           "architecture": {
             "modality": "text+image->text",
@@ -31690,6 +31739,70 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/nousresearch/hermes-4-70b/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
+          }
+        },
+        {
+          "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+          "name": "NVIDIA: Llama 3.3 Nemotron Super 49B V1.5",
+          "canonical_slug": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+          "hugging_face_id": "nvidia/Llama-3_3-Nemotron-Super-49B-v1_5",
+          "description": "Llama-3.3-Nemotron-Super-49B-v1.5 is a 49B-parameter, English-centric reasoning/chat model derived from Meta’s Llama-3.3-70B-Instruct with a 128K context. It’s post-trained for agentic workflows (RAG, tool calling) via SFT across math, code, science, and...",
+          "context_length": 131072,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Llama3",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000004",
+            "completion": "0.0000004"
+          },
+          "top_provider": {
+            "context_length": 131072,
+            "max_completion_tokens": 16384,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.6,
+            "top_p": 0.95,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2024-03-31",
+          "expiration_date": "2026-07-17",
+          "links": {
+            "details": "/api/v1/models/nvidia/llama-3.3-nemotron-super-49b-v1.5/endpoints"
           },
           "reasoning": {
             "mandatory": false
@@ -38143,79 +38256,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openrouter/auto/endpoints"
-          }
-        },
-        {
-          "id": "openrouter/auto-beta",
-          "name": "Auto Router (Beta)",
-          "canonical_slug": "openrouter/auto-beta",
-          "hugging_face_id": null,
-          "description": "Auto Router (Beta) is a task-aware router from OpenRouter. It classifies each request, then routes it to one of the most popular models for that task based on community spend,...",
-          "context_length": 2000000,
-          "architecture": {
-            "modality": "text+image+file+audio+video->text+image",
-            "input_modalities": [
-              "text",
-              "image",
-              "audio",
-              "file",
-              "video"
-            ],
-            "output_modalities": [
-              "text",
-              "image"
-            ],
-            "tokenizer": "Router",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "-1",
-            "completion": "-1"
-          },
-          "top_provider": {
-            "context_length": null,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logit_bias",
-            "logprobs",
-            "max_tokens",
-            "min_p",
-            "prediction",
-            "presence_penalty",
-            "reasoning",
-            "reasoning_effort",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_a",
-            "top_k",
-            "top_logprobs",
-            "top_p",
-            "web_search_options"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/openrouter/auto-beta/endpoints"
           }
         },
         {
@@ -46476,9 +46516,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000009226",
-            "completion": "0.0000028996",
-            "input_cache_read": "0.00000017134"
+            "prompt": "0.0000009324",
+            "completion": "0.0000029304",
+            "input_cache_read": "0.00000017316"
           },
           "top_provider": {
             "context_length": 1048576,
