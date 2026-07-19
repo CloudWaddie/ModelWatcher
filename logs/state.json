@@ -18391,11 +18391,14 @@
             "details": "/api/v1/models/~moonshotai/kimi-latest/endpoints"
           },
           "reasoning": {
-            "mandatory": true,
+            "mandatory": false,
             "default_enabled": true,
             "supported_efforts": [
-              "max"
-            ]
+              "max",
+              "high",
+              "low"
+            ],
+            "default_effort": "max"
           }
         },
         {
@@ -30972,11 +30975,14 @@
             }
           },
           "reasoning": {
-            "mandatory": true,
+            "mandatory": false,
             "default_enabled": true,
             "supported_efforts": [
-              "max"
-            ]
+              "max",
+              "high",
+              "low"
+            ],
+            "default_effort": "max"
           }
         },
         {
@@ -46212,9 +46218,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000002408",
-            "completion": "0.0000007568",
-            "input_cache_read": "0.00000004472"
+            "prompt": "0.0000002366",
+            "completion": "0.0000007436",
+            "input_cache_read": "0.00000004394"
           },
           "top_provider": {
             "context_length": 1048576,
