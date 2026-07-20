@@ -21496,13 +21496,23 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
+            "logprobs",
             "max_tokens",
+            "presence_penalty",
             "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -46239,9 +46249,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000112",
-            "completion": "0.00000352",
-            "input_cache_read": "0.000000208"
+            "prompt": "0.0000009744",
+            "completion": "0.0000030624",
+            "input_cache_read": "0.00000018096"
           },
           "top_provider": {
             "context_length": 1048576,
