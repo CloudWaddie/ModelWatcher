@@ -1,5 +1,5 @@
 {
-  "timestamp": 1784592086619,
+  "timestamp": 1784607494014,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7989,6 +7989,26 @@
           "uicomponent"
         ]
       }
+    },
+    {
+      "id": "hy3-direct",
+      "displayName": "Hy3",
+      "provider": "tencent",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent"
+        ]
+      },
+      "inputModalities": [
+        "text"
+      ]
     }
   ],
   "providers": [
@@ -11774,6 +11794,13 @@
       "text": {
         "input": 1,
         "output": 4
+      }
+    },
+    {
+      "id": "hy3-direct",
+      "text": {
+        "input": 0.14,
+        "output": 0.55
       }
     }
   ]
