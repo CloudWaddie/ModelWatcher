@@ -24517,8 +24517,8 @@
             "web_search": "0.014"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 32768,
+            "context_length": 65536,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -28967,10 +28967,8 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
-            "logprobs",
             "max_tokens",
             "presence_penalty",
-            "repetition_penalty",
             "response_format",
             "seed",
             "stop",
@@ -28978,7 +28976,6 @@
             "temperature",
             "tool_choice",
             "tools",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -29062,10 +29059,8 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
-            "logprobs",
             "max_tokens",
             "presence_penalty",
-            "repetition_penalty",
             "response_format",
             "seed",
             "stop",
@@ -29073,7 +29068,6 @@
             "temperature",
             "tool_choice",
             "tools",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -38828,6 +38822,118 @@
           }
         },
         {
+          "id": "poolside/laguna-s-2.1",
+          "name": "Poolside: Laguna S 2.1",
+          "canonical_slug": "poolside/laguna-s-2.1-20260720",
+          "hugging_face_id": "poolside/Laguna-S-2.1",
+          "description": "Laguna S 2.1 is the latest coding agent model from [Poolside](<https://poolside.ai/>). Laguna S 2.1 is a 118B total parameter model with 8B active parameters, scoring 70.2% on Terminal-Bench 2.1 and...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.0000002",
+            "input_cache_read": "0.00000001"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "stop",
+            "temperature",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": 0.7,
+            "top_p": 0.9,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/poolside/laguna-s-2.1-20260720/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
+          }
+        },
+        {
+          "id": "poolside/laguna-s-2.1:free",
+          "name": "Poolside: Laguna S 2.1 (free)",
+          "canonical_slug": "poolside/laguna-s-2.1-20260720",
+          "hugging_face_id": "poolside/Laguna-S-2.1",
+          "description": "Laguna S 2.1 is the latest coding agent model from [Poolside](<https://poolside.ai/>). Laguna S 2.1 is a 118B total parameter model with 8B active parameters, scoring 70.2% on Terminal-Bench 2.1 and...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 32768,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "temperature",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": 0.7,
+            "top_p": 0.9,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/poolside/laguna-s-2.1-20260720/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
+          }
+        },
+        {
           "id": "poolside/laguna-xs-2.1",
           "name": "Poolside: Laguna XS 2.1",
           "canonical_slug": "poolside/laguna-xs-2.1-20260625",
@@ -46321,9 +46427,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000805",
-            "completion": "0.00000253",
-            "input_cache_read": "0.0000001495"
+            "prompt": "0.0000007966",
+            "completion": "0.0000025036",
+            "input_cache_read": "0.00000014794"
           },
           "top_provider": {
             "context_length": 1048576,
