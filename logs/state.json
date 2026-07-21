@@ -1683,11 +1683,25 @@
           "display_name": "Gemini 3.5 Flash"
         },
         {
+          "id": "models/gemini-3.5-flash-lite",
+          "name": "models/gemini-3.5-flash-lite",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.5 Flash Lite"
+        },
+        {
           "id": "models/gemini-3.5-live-translate-preview",
           "name": "models/gemini-3.5-live-translate-preview",
           "owned_by": "google",
           "object": "model",
           "display_name": "Gemini 3.5 Live Translate Preview"
+        },
+        {
+          "id": "models/gemini-3.6-flash",
+          "name": "models/gemini-3.6-flash",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.6 Flash"
         },
         {
           "id": "models/gemini-embedding-001",
@@ -11606,7 +11620,7 @@
           "active": true,
           "context_window": 131072,
           "public_apps": null,
-          "max_completion_tokens": 32768,
+          "max_completion_tokens": 16384,
           "hugging_face_id": "Qwen/Qwen3.6-27B",
           "input_modalities": [
             "text",
@@ -11616,7 +11630,7 @@
             "text"
           ],
           "context_length": 131072,
-          "max_output_length": 32768,
+          "max_output_length": 16384,
           "pricing": {
             "prompt": "0.0000006",
             "completion": "0.000003",
@@ -46152,9 +46166,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000008358",
-            "completion": "0.0000026268",
-            "input_cache_read": "0.00000015522"
+            "prompt": "0.0000008148",
+            "completion": "0.0000025608",
+            "input_cache_read": "0.00000015132"
           },
           "top_provider": {
             "context_length": 1048576,
