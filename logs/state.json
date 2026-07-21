@@ -18147,12 +18147,12 @@
           },
           "pricing": {
             "prompt": "0.0000015",
-            "completion": "0.000009",
+            "completion": "0.0000075",
             "image": "0.0000015",
-            "audio": "0.000003",
-            "input_audio_cache": "0.0000003",
+            "audio": "0.0000015",
+            "input_audio_cache": "0.00000015",
             "web_search": "0.014",
-            "internal_reasoning": "0.000009",
+            "internal_reasoning": "0.0000075",
             "input_cache_read": "0.00000015",
             "input_cache_write": "0.00000008333333333333334"
           },
@@ -18169,7 +18169,6 @@
             "reasoning_effort",
             "response_format",
             "seed",
-            "stop",
             "structured_outputs",
             "temperature",
             "tool_choice",
@@ -18185,7 +18184,7 @@
             "repetition_penalty": null
           },
           "supported_voices": null,
-          "knowledge_cutoff": "2025-01-01",
+          "knowledge_cutoff": null,
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/~google/gemini-flash-latest/endpoints"
@@ -25412,6 +25411,162 @@
               "coding_index": 70.1,
               "agentic_index": 37.4
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "google/gemini-3.5-flash-lite",
+          "name": "Google: Gemini 3.5 Flash-Lite",
+          "canonical_slug": "google/gemini-3.5-flash-lite-20260721",
+          "hugging_face_id": null,
+          "description": "Gemini 3.5 Flash-Lite is a high-efficiency model from Google with upgraded agentic capabilities. It is suited for subagents that execute focused tasks within complex, multi-agent workflows.",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+file+audio+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video",
+              "file",
+              "audio"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Gemini",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000003",
+            "completion": "0.0000025",
+            "image": "0.0000003",
+            "audio": "0.0000003",
+            "input_audio_cache": "0.00000003",
+            "web_search": "0.014",
+            "internal_reasoning": "0.0000025",
+            "input_cache_read": "0.00000003",
+            "input_cache_write": "0.00000008333333333333334"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 65536,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-3.5-flash-lite-20260721/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "minimal"
+          }
+        },
+        {
+          "id": "google/gemini-3.6-flash",
+          "name": "Google: Gemini 3.6 Flash",
+          "canonical_slug": "google/gemini-3.6-flash-20260721",
+          "hugging_face_id": null,
+          "description": "Gemini 3.6 Flash is a high-efficiency model from Google for coding, agentic workflows, and web and app development. It is designed to produce polished outputs with fewer unnecessary edits and...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+file+audio+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video",
+              "file",
+              "audio"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Gemini",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000015",
+            "completion": "0.0000075",
+            "image": "0.0000015",
+            "audio": "0.0000015",
+            "input_audio_cache": "0.00000015",
+            "web_search": "0.014",
+            "internal_reasoning": "0.0000075",
+            "input_cache_read": "0.00000015",
+            "input_cache_write": "0.00000008333333333333334"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 65536,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-3.6-flash-20260721/endpoints"
           },
           "reasoning": {
             "mandatory": true,
@@ -46166,9 +46321,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000008148",
-            "completion": "0.0000025608",
-            "input_cache_read": "0.00000015132"
+            "prompt": "0.000000805",
+            "completion": "0.00000253",
+            "input_cache_read": "0.0000001495"
           },
           "top_provider": {
             "context_length": 1048576,
