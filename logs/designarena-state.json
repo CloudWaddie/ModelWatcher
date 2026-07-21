@@ -1,5 +1,5 @@
 {
-  "timestamp": 1784585102644,
+  "timestamp": 1784592086619,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7905,6 +7905,90 @@
           "imagetoimage"
         ]
       }
+    },
+    {
+      "id": "kalpa-beta-v0.3",
+      "displayName": "Kalpa Beta v0.3",
+      "provider": "kalpa",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "qwen3.8-max-preview",
+      "displayName": "Qwen3.8 Max Preview",
+      "provider": "alibaba",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "dataviz",
+          "3d",
+          "uicomponent"
+        ]
+      },
+      "inputModalities": [
+        "text"
+      ]
+    },
+    {
+      "id": "deca-2.5-ultra",
+      "displayName": "Deca 2.5 Ultra",
+      "provider": "genlabs",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent"
+        ]
+      }
+    },
+    {
+      "id": "deca-2.5-pro",
+      "displayName": "Deca 2.5 Pro",
+      "provider": "genlabs",
+      "active": false,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent"
+        ]
+      }
+    },
+    {
+      "id": "deca-2.5-mini",
+      "displayName": "Deca 2.5 Mini",
+      "provider": "genlabs",
+      "active": false,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent"
+        ]
+      }
     }
   ],
   "providers": [
@@ -9335,6 +9419,18 @@
       "displayName": "NewPort AI",
       "logoName": "newport.png",
       "website": "https://www.mikejunjun.cn"
+    },
+    {
+      "id": "kalpa",
+      "displayName": "Kalpa Labs",
+      "logoName": "kalpa.png",
+      "website": "https://kalpalabs.ai"
+    },
+    {
+      "id": "genlabs",
+      "displayName": "GenLabs",
+      "logoName": "genlabs.png",
+      "website": "https://genlabs.dev"
     }
   ],
   "pricing": [
@@ -9927,6 +10023,13 @@
       }
     },
     {
+      "id": "hume_octave",
+      "text": {
+        "input": 150,
+        "output": 0
+      }
+    },
+    {
       "id": "ideogram-v3",
       "image": {
         "perImage": 0.06
@@ -10337,6 +10440,13 @@
       }
     },
     {
+      "id": "murf_gen2",
+      "text": {
+        "input": 30,
+        "output": 0
+      }
+    },
+    {
       "id": "kandinsky-5.0",
       "video": {
         "perSecond": 0.04
@@ -10668,6 +10778,13 @@
       }
     },
     {
+      "id": "resemble",
+      "text": {
+        "input": 40,
+        "output": 0
+      }
+    },
+    {
       "id": "reve-create-v1.5",
       "image": {
         "perImage": 0.2
@@ -10994,6 +11111,20 @@
       "text": {
         "input": 1.2,
         "output": 4
+      }
+    },
+    {
+      "id": "lightning_tts",
+      "text": {
+        "input": 14.5,
+        "output": 0
+      }
+    },
+    {
+      "id": "lightning_v3.1_pro",
+      "text": {
+        "input": 19.5,
+        "output": 0
       }
     },
     {
@@ -11385,6 +11516,13 @@
       }
     },
     {
+      "id": "cartesia-sonic-3-5",
+      "text": {
+        "input": 50,
+        "output": 0
+      }
+    },
+    {
       "id": "mantis",
       "image": {
         "perImage": 0.06
@@ -11615,6 +11753,27 @@
       "text": {
         "input": 3,
         "output": 15
+      }
+    },
+    {
+      "id": "deca-2.5-ultra",
+      "text": {
+        "input": 4,
+        "output": 16
+      }
+    },
+    {
+      "id": "deca-2.5-pro",
+      "text": {
+        "input": 2,
+        "output": 8
+      }
+    },
+    {
+      "id": "deca-2.5-mini",
+      "text": {
+        "input": 1,
+        "output": 4
       }
     }
   ]
