@@ -14575,6 +14575,50 @@
           }
         },
         {
+          "id": "Qwen/Qwen3-ASR-0.6B",
+          "name": "Qwen/Qwen3-ASR-0.6B",
+          "owned_by": "deepinfra",
+          "root": "Qwen/Qwen3-ASR-0.6B",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Qwen3-ASR-0.6B is the compact model of the Qwen3-ASR family: multilingual language identification and speech recognition across 30 languages and 22 Chinese dialects, built on Qwen3-Omni. It targets an accuracy-efficiency trade-off with very high throughput, unified streaming/offline inference, and segment- and word-level timestamps.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "input_seconds": 0.0000033300000000000003
+            },
+            "tags": [
+              "stt"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "Qwen/Qwen3-ASR-1.7B",
+          "name": "Qwen/Qwen3-ASR-1.7B",
+          "owned_by": "deepinfra",
+          "root": "Qwen/Qwen3-ASR-1.7B",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Qwen3-ASR-1.7B is the flagship model of the Qwen3-ASR family: multilingual language identification and speech recognition across 30 languages and 22 Chinese dialects, built on Qwen3-Omni. It reaches state-of-the-art accuracy among open-source ASR models (competitive with strong commercial APIs), with unified streaming/offline inference and segment- and word-level timestamps.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "input_seconds": 0.0000075
+            },
+            "tags": [
+              "stt"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo",
           "name": "Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo",
           "owned_by": "deepinfra",
@@ -26127,11 +26171,12 @@
           },
           "pricing": {
             "prompt": "0.00000012",
-            "completion": "0.00000037"
+            "completion": "0.00000035",
+            "input_cache_read": "0.00000009"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 16384,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -45491,7 +45536,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": "2026-12-31",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/z-ai/glm-4.5v/endpoints"
           },
@@ -46517,9 +46562,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000798",
-            "completion": "0.000002508",
-            "input_cache_read": "0.0000001482"
+            "prompt": "0.000000791",
+            "completion": "0.000002486",
+            "input_cache_read": "0.0000001469"
           },
           "top_provider": {
             "context_length": 1048576,
