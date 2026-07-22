@@ -33192,6 +33192,107 @@
           }
         },
         {
+          "id": "openai/gpt-4.1-mini:batch",
+          "name": "OpenAI: GPT-4.1 Mini (batch)",
+          "canonical_slug": "openai/gpt-4.1-mini-2025-04-14",
+          "hugging_face_id": "",
+          "description": "GPT-4.1 Mini is a mid-sized model delivering performance competitive with GPT-4o at substantially lower latency and cost. It retains a 1 million token context window and scores 45.1% on hard...",
+          "context_length": 1047576,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "image",
+              "text",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000002",
+            "completion": "0.0000008",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000005"
+          },
+          "top_provider": {
+            "context_length": 1047576,
+            "max_completion_tokens": 32768,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "max_tokens",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": "2024-06-30",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4.1-mini-2025-04-14/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 895,
+                "win_rate": 30.5,
+                "rank": 103
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1027,
+                "win_rate": 47.5,
+                "rank": 98
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1069,
+                "win_rate": 49.2,
+                "rank": 88
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1129,
+                "win_rate": 58.5,
+                "rank": 77
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1003,
+                "win_rate": 45.4,
+                "rank": 93
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1025,
+                "win_rate": 47.8,
+                "rank": 101
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 14.8,
+              "coding_index": 20.2,
+              "agentic_index": 1.7
+            }
+          }
+        },
+        {
           "id": "openai/gpt-4.1-nano",
           "name": "OpenAI: GPT-4.1 Nano",
           "canonical_slug": "openai/gpt-4.1-nano-2025-04-14",
@@ -33291,6 +33392,203 @@
               "coding_index": 11.1,
               "agentic_index": 1.2
             }
+          }
+        },
+        {
+          "id": "openai/gpt-4.1-nano:batch",
+          "name": "OpenAI: GPT-4.1 Nano (batch)",
+          "canonical_slug": "openai/gpt-4.1-nano-2025-04-14",
+          "hugging_face_id": "",
+          "description": "For tasks that demand low latency, GPT‑4.1 nano is the fastest and cheapest model in the GPT-4.1 series. It delivers exceptional performance at a small size with its 1 million...",
+          "context_length": 1047576,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "image",
+              "text",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000005",
+            "completion": "0.0000002",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000000125"
+          },
+          "top_provider": {
+            "context_length": 1047576,
+            "max_completion_tokens": 32768,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "max_tokens",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": "2024-06-30",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4.1-nano-2025-04-14/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 984,
+                "win_rate": 46,
+                "rank": 96
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 996,
+                "win_rate": 47.3,
+                "rank": 102
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 927,
+                "win_rate": 41.1,
+                "rank": 106
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1029,
+                "win_rate": 49.6,
+                "rank": 96
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 958,
+                "win_rate": 43.9,
+                "rank": 98
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1000,
+                "win_rate": 48.1,
+                "rank": 105
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 9.6,
+              "coding_index": 11.1,
+              "agentic_index": 1.2
+            }
+          }
+        },
+        {
+          "id": "openai/gpt-4.1:batch",
+          "name": "OpenAI: GPT-4.1 (batch)",
+          "canonical_slug": "openai/gpt-4.1-2025-04-14",
+          "hugging_face_id": "",
+          "description": "GPT-4.1 is a flagship large language model optimized for advanced instruction following, real-world software engineering, and long-context reasoning. It supports a 1 million token context window and outperforms GPT-4o and...",
+          "context_length": 1047576,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "image",
+              "text",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000001",
+            "completion": "0.000004",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000025"
+          },
+          "top_provider": {
+            "context_length": 1047576,
+            "max_completion_tokens": 32768,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "max_tokens",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": "2024-06-30",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4.1-2025-04-14/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 909,
+                "win_rate": 30.9,
+                "rank": 102
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1059,
+                "win_rate": 50.9,
+                "rank": 92
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1139,
+                "win_rate": 59.5,
+                "rank": 73
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1138,
+                "win_rate": 59.1,
+                "rank": 71
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1042,
+                "win_rate": 49.7,
+                "rank": 87
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1066,
+                "win_rate": 52.3,
+                "rank": 93
+              }
+            ]
           }
         },
         {
@@ -33744,6 +34042,72 @@
           }
         },
         {
+          "id": "openai/gpt-4o-mini:batch",
+          "name": "OpenAI: GPT-4o-mini (batch)",
+          "canonical_slug": "openai/gpt-4o-mini",
+          "hugging_face_id": null,
+          "description": "GPT-4o mini is OpenAI's newest model after [GPT-4 Omni](/models/openai/gpt-4o), supporting both text and image inputs with text outputs. As their most advanced small model, it is many multiples more affordable...",
+          "context_length": 128000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000075",
+            "completion": "0.0000003",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000000375"
+          },
+          "top_provider": {
+            "context_length": 128000,
+            "max_completion_tokens": 16384,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "logit_bias",
+            "logprobs",
+            "max_tokens",
+            "prediction",
+            "presence_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p",
+            "web_search_options"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": "2023-10-31",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4o-mini/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [],
+            "artificial_analysis": {
+              "intelligence_index": null,
+              "coding_index": 11.4,
+              "agentic_index": 1
+            }
+          }
+        },
+        {
           "id": "openai/gpt-4o-search-preview",
           "name": "OpenAI: GPT-4o Search Preview",
           "canonical_slug": "openai/gpt-4o-search-preview-2025-03-11",
@@ -33784,6 +34148,110 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-4o-search-preview-2025-03-11/endpoints"
+          }
+        },
+        {
+          "id": "openai/gpt-4o:batch",
+          "name": "OpenAI: GPT-4o (batch)",
+          "canonical_slug": "openai/gpt-4o",
+          "hugging_face_id": null,
+          "description": "GPT-4o (\"o\" for \"omni\") is OpenAI's latest AI model, supporting both text and image inputs with text outputs. It maintains the intelligence level of [GPT-4 Turbo](/models/openai/gpt-4-turbo) while being twice as...",
+          "context_length": 128000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000125",
+            "completion": "0.000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000625"
+          },
+          "top_provider": {
+            "context_length": 128000,
+            "max_completion_tokens": 16384,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "logit_bias",
+            "logprobs",
+            "max_tokens",
+            "prediction",
+            "presence_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p",
+            "web_search_options"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": "2023-10-31",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4o/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 927,
+                "win_rate": 39.2,
+                "rank": 99
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 894,
+                "win_rate": 34.8,
+                "rank": 110
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 892,
+                "win_rate": 36,
+                "rank": 108
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 965,
+                "win_rate": 42.3,
+                "rank": 103
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 927,
+                "win_rate": 38.1,
+                "rank": 102
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 858,
+                "win_rate": 31.5,
+                "rank": 116
+              }
+            ]
           }
         },
         {
@@ -34355,6 +34823,139 @@
           }
         },
         {
+          "id": "openai/gpt-5-mini:batch",
+          "name": "OpenAI: GPT-5 Mini (batch)",
+          "canonical_slug": "openai/gpt-5-mini-2025-08-07",
+          "hugging_face_id": "",
+          "description": "GPT-5 Mini is a compact version of GPT-5, designed to handle lighter-weight reasoning tasks. It provides the same instruction-following and safety-tuning benefits as GPT-5, but with reduced latency and cost....",
+          "context_length": 400000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000125",
+            "completion": "0.000001",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000000125"
+          },
+          "top_provider": {
+            "context_length": 400000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2024-05-31",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5-mini-2025-08-07/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1097,
+                "win_rate": 37,
+                "rank": 81
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1163,
+                "win_rate": 44.5,
+                "rank": 39
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1147,
+                "win_rate": 43.4,
+                "rank": 72
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1163,
+                "win_rate": 43.5,
+                "rank": 65
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1187,
+                "win_rate": 46.4,
+                "rank": 58
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1138,
+                "win_rate": 45.9,
+                "rank": 46
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1146,
+                "win_rate": 42,
+                "rank": 63
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1152,
+                "win_rate": 44.3,
+                "rank": 71
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 25.3,
+              "coding_index": 15.6,
+              "agentic_index": 19.4
+            }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
           "id": "openai/gpt-5-nano",
           "name": "OpenAI: GPT-5 Nano",
           "canonical_slug": "openai/gpt-5-nano-2025-08-07",
@@ -34389,6 +34990,120 @@
           "supported_parameters": [
             "include_reasoning",
             "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2024-05-31",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5-nano-2025-08-07/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1023,
+                "win_rate": 36.1,
+                "rank": 94
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1118,
+                "win_rate": 48.1,
+                "rank": 80
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1095,
+                "win_rate": 46.7,
+                "rank": 83
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1104,
+                "win_rate": 46.6,
+                "rank": 81
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1108,
+                "win_rate": 52,
+                "rank": 76
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1128,
+                "win_rate": 48.9,
+                "rank": 81
+              }
+            ]
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-5-nano:batch",
+          "name": "OpenAI: GPT-5 Nano (batch)",
+          "canonical_slug": "openai/gpt-5-nano-2025-08-07",
+          "hugging_face_id": "",
+          "description": "GPT-5-Nano is the smallest and fastest variant in the GPT-5 system, optimized for developer tools, rapid interactions, and ultra-low latency environments. While limited in reasoning depth compared to its larger...",
+          "context_length": 400000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000025",
+            "completion": "0.0000002",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000000025"
+          },
+          "top_provider": {
+            "context_length": 400000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
             "max_tokens",
             "reasoning",
             "reasoning_effort",
@@ -34528,6 +35243,139 @@
               "high"
             ],
             "default_effort": "high"
+          }
+        },
+        {
+          "id": "openai/gpt-5:batch",
+          "name": "OpenAI: GPT-5 (batch)",
+          "canonical_slug": "openai/gpt-5-2025-08-07",
+          "hugging_face_id": "",
+          "description": "GPT-5 is OpenAI’s most advanced model, offering major improvements in reasoning, code quality, and user experience. It is optimized for complex tasks that require step-by-step reasoning, instruction following, and accuracy...",
+          "context_length": 400000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000625",
+            "completion": "0.000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000000625"
+          },
+          "top_provider": {
+            "context_length": 400000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2024-09-30",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5-2025-08-07/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1115,
+                "win_rate": 41.4,
+                "rank": 78
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1182,
+                "win_rate": 49,
+                "rank": 32
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1202,
+                "win_rate": 54.7,
+                "rank": 50
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1273,
+                "win_rate": 63.3,
+                "rank": 21
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1245,
+                "win_rate": 59.5,
+                "rank": 35
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1236,
+                "win_rate": 64.1,
+                "rank": 15
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1223,
+                "win_rate": 58.3,
+                "rank": 39
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1211,
+                "win_rate": 53.7,
+                "rank": 49
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 34.7,
+              "coding_index": 37.8,
+              "agentic_index": 25.7
+            }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -35048,6 +35896,154 @@
           }
         },
         {
+          "id": "openai/gpt-5.1:batch",
+          "name": "OpenAI: GPT-5.1 (batch)",
+          "canonical_slug": "openai/gpt-5.1-20251113",
+          "hugging_face_id": "",
+          "description": "GPT-5.1 is the latest frontier-grade model in the GPT-5 series, offering stronger general-purpose reasoning, improved instruction adherence, and a more natural conversational style compared to GPT-5. It uses adaptive reasoning...",
+          "context_length": 400000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "image",
+              "text",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000625",
+            "completion": "0.000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000000625"
+          },
+          "top_provider": {
+            "context_length": 400000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.1-20251113/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "agents",
+                "category": "mobileapps",
+                "elo": 1123,
+                "win_rate": 43.5,
+                "rank": 31
+              },
+              {
+                "arena": "agents",
+                "category": "webapps",
+                "elo": 1075,
+                "win_rate": 43.3,
+                "rank": 32
+              },
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1121,
+                "win_rate": 43.9,
+                "rank": 77
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1160,
+                "win_rate": 48.6,
+                "rank": 40
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1204,
+                "win_rate": 53.1,
+                "rank": 48
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1239,
+                "win_rate": 58,
+                "rank": 34
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1237,
+                "win_rate": 55.9,
+                "rank": 36
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1197,
+                "win_rate": 57.4,
+                "rank": 30
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1208,
+                "win_rate": 53,
+                "rank": 44
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1214,
+                "win_rate": 54.1,
+                "rank": 48
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 36.9,
+              "coding_index": 49.4,
+              "agentic_index": 21
+            }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "none"
+          }
+        },
+        {
           "id": "openai/gpt-5.2",
           "name": "OpenAI: GPT-5.2",
           "canonical_slug": "openai/gpt-5.2-20251211",
@@ -35428,6 +36424,233 @@
               "xhigh",
               "high",
               "medium"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-5.2-pro:batch",
+          "name": "OpenAI: GPT-5.2 Pro (batch)",
+          "canonical_slug": "openai/gpt-5.2-pro-20251211",
+          "hugging_face_id": "",
+          "description": "GPT-5.2 Pro is OpenAI’s most advanced model, offering major improvements in agentic coding and long context performance over GPT-5 Pro. It is optimized for complex tasks that require step-by-step reasoning,...",
+          "context_length": 400000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "image",
+              "text",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000105",
+            "completion": "0.000084",
+            "web_search": "0.01"
+          },
+          "top_provider": {
+            "context_length": 400000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "frequency_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.2-pro-20251211/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-5.2:batch",
+          "name": "OpenAI: GPT-5.2 (batch)",
+          "canonical_slug": "openai/gpt-5.2-20251211",
+          "hugging_face_id": "",
+          "description": "GPT-5.2 is the latest frontier-grade model in the GPT-5 series, offering stronger agentic and long context perfomance compared to GPT-5.1. It uses adaptive reasoning to allocate computation dynamically, responding quickly...",
+          "context_length": 400000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000875",
+            "completion": "0.000007",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000000875"
+          },
+          "top_provider": {
+            "context_length": 400000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.2-20251211/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1222,
+                "win_rate": 54.5,
+                "rank": 41
+              },
+              {
+                "arena": "agents",
+                "category": "androidnative",
+                "elo": 1051,
+                "win_rate": 49.2,
+                "rank": 27
+              },
+              {
+                "arena": "agents",
+                "category": "fullstack",
+                "elo": 1101,
+                "win_rate": 44,
+                "rank": 25
+              },
+              {
+                "arena": "agents",
+                "category": "godotgamedev",
+                "elo": 1142,
+                "win_rate": 48.1,
+                "rank": 19
+              },
+              {
+                "arena": "agents",
+                "category": "mobileapps",
+                "elo": 1167,
+                "win_rate": 47,
+                "rank": 24
+              },
+              {
+                "arena": "agents",
+                "category": "webapps",
+                "elo": 1142,
+                "win_rate": 45.4,
+                "rank": 25
+              },
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1138,
+                "win_rate": 41.6,
+                "rank": 69
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1203,
+                "win_rate": 49.6,
+                "rank": 49
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1237,
+                "win_rate": 56.1,
+                "rank": 36
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1253,
+                "win_rate": 56,
+                "rank": 33
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1229,
+                "win_rate": 51.3,
+                "rank": 38
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1194,
+                "win_rate": 50.7,
+                "rank": 24
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1186,
+                "win_rate": 53.7,
+                "rank": 34
+              }
+            ]
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -35988,6 +37211,84 @@
           }
         },
         {
+          "id": "openai/gpt-5.4-mini:batch",
+          "name": "OpenAI: GPT-5.4 Mini (batch)",
+          "canonical_slug": "openai/gpt-5.4-mini-20260317",
+          "hugging_face_id": "",
+          "description": "GPT-5.4 mini brings the core capabilities of GPT-5.4 to a faster, more efficient model optimized for high-throughput workloads. It supports text and image inputs with strong performance across reasoning, coding,...",
+          "context_length": 400000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000375",
+            "completion": "0.00000225",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000000375"
+          },
+          "top_provider": {
+            "context_length": 400000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2025-08-31",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.4-mini-20260317/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [],
+            "artificial_analysis": {
+              "intelligence_index": 40,
+              "coding_index": 56.1,
+              "agentic_index": 30.2
+            }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
           "id": "openai/gpt-5.4-nano",
           "name": "OpenAI: GPT-5.4 Nano",
           "canonical_slug": "openai/gpt-5.4-nano-20260317",
@@ -36022,6 +37323,84 @@
           "supported_parameters": [
             "include_reasoning",
             "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2025-08-31",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.4-nano-20260317/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [],
+            "artificial_analysis": {
+              "intelligence_index": 38.2,
+              "coding_index": 56.1,
+              "agentic_index": 27.5
+            }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-5.4-nano:batch",
+          "name": "OpenAI: GPT-5.4 Nano (batch)",
+          "canonical_slug": "openai/gpt-5.4-nano-20260317",
+          "hugging_face_id": "",
+          "description": "GPT-5.4 nano is the most lightweight and cost-efficient variant of the GPT-5.4 family, optimized for speed-critical and high-volume tasks. It supports text and image inputs and is designed for low-latency...",
+          "context_length": 400000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.000000625",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000001"
+          },
+          "top_provider": {
+            "context_length": 400000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
             "max_tokens",
             "reasoning",
             "reasoning_effort",
@@ -36136,6 +37515,257 @@
               "xhigh",
               "high",
               "medium"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-5.4-pro:batch",
+          "name": "OpenAI: GPT-5.4 Pro (batch)",
+          "canonical_slug": "openai/gpt-5.4-pro-20260305",
+          "hugging_face_id": "",
+          "description": "GPT-5.4 Pro is OpenAI's most advanced model, building on GPT-5.4's unified architecture with enhanced reasoning capabilities for complex, high-stakes tasks. It features a 1M+ token context window (922K input, 128K...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000015",
+            "completion": "0.00009",
+            "web_search": "0.01",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.00003",
+                "completion": "0.000135"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.4-pro-20260305/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-5.4:batch",
+          "name": "OpenAI: GPT-5.4 (batch)",
+          "canonical_slug": "openai/gpt-5.4-20260305",
+          "hugging_face_id": "",
+          "description": "GPT-5.4 is OpenAI’s latest frontier model, unifying the Codex and GPT lines into a single system. It features a 1M+ token context window (922K input, 128K output) with support for...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000125",
+            "completion": "0.0000075",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000125",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.0000025",
+                "completion": "0.00001125",
+                "input_cache_read": "0.00000025"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.4-20260305/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1160,
+                "win_rate": 42.3,
+                "rank": 59
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1241,
+                "win_rate": 55.5,
+                "rank": 11
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1245,
+                "win_rate": 52.6,
+                "rank": 33
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1267,
+                "win_rate": 56.3,
+                "rank": 24
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1298,
+                "win_rate": 57.8,
+                "rank": 17
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1242,
+                "win_rate": 57.8,
+                "rank": 13
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1280,
+                "win_rate": 57.5,
+                "rank": 20
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1247,
+                "win_rate": 52.6,
+                "rank": 33
+              },
+              {
+                "arena": "agents",
+                "category": "androidnative",
+                "elo": 1019,
+                "win_rate": 47.4,
+                "rank": 30
+              },
+              {
+                "arena": "agents",
+                "category": "fullstack",
+                "elo": 1076,
+                "win_rate": 40.8,
+                "rank": 28
+              },
+              {
+                "arena": "agents",
+                "category": "godotgamedev",
+                "elo": 1135,
+                "win_rate": 46.9,
+                "rank": 22
+              },
+              {
+                "arena": "agents",
+                "category": "mobileapps",
+                "elo": 1147,
+                "win_rate": 44.1,
+                "rank": 26
+              },
+              {
+                "arena": "agents",
+                "category": "webapps",
+                "elo": 1122,
+                "win_rate": 41.3,
+                "rank": 28
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 51.4,
+              "coding_index": 71.1,
+              "agentic_index": 41.1
+            }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -36444,6 +38074,313 @@
               "xhigh",
               "high",
               "medium"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-5.5-pro:batch",
+          "name": "OpenAI: GPT-5.5 Pro (batch)",
+          "canonical_slug": "openai/gpt-5.5-pro-20260423",
+          "hugging_face_id": "",
+          "description": "GPT-5.5 Pro is OpenAI’s high-capability model optimized for deep reasoning and accuracy on complex, high-stakes workloads. It features a 1M+ token context window (922K input, 128K output) with support for...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000015",
+            "completion": "0.00009",
+            "web_search": "0.01",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.00003",
+                "completion": "0.000135"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2025-12-01",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.5-pro-20260423/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-5.5:batch",
+          "name": "OpenAI: GPT-5.5 (batch)",
+          "canonical_slug": "openai/gpt-5.5-20260423",
+          "hugging_face_id": "",
+          "description": "GPT-5.5 is OpenAI’s frontier model designed for complex professional workloads, building on GPT-5.4 with stronger reasoning, higher reliability, and improved token efficiency on hard tasks. It features a 1M+ token...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000025",
+            "completion": "0.000015",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000025",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.000005",
+                "completion": "0.0000225",
+                "input_cache_read": "0.0000005"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2025-12-01",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-5.5-20260423/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "agents",
+                "category": "agenticgamedev",
+                "elo": 1191,
+                "win_rate": 52,
+                "rank": 10
+              },
+              {
+                "arena": "agents",
+                "category": "agentichtmlslides",
+                "elo": 1084,
+                "win_rate": 34.2,
+                "rank": 9
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides",
+                "elo": 1150,
+                "win_rate": 43.5,
+                "rank": 7
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides(html)",
+                "elo": 1077,
+                "win_rate": 33.2,
+                "rank": 9
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides(python-pptx)",
+                "elo": 1155,
+                "win_rate": 45.2,
+                "rank": 7
+              },
+              {
+                "arena": "agents",
+                "category": "androidnative",
+                "elo": 1240,
+                "win_rate": 54.3,
+                "rank": 9
+              },
+              {
+                "arena": "agents",
+                "category": "fullstack",
+                "elo": 1142,
+                "win_rate": 43.4,
+                "rank": 19
+              },
+              {
+                "arena": "agents",
+                "category": "godotgamedev",
+                "elo": 1190,
+                "win_rate": 46.2,
+                "rank": 12
+              },
+              {
+                "arena": "agents",
+                "category": "htmlslides",
+                "elo": 1084,
+                "win_rate": 34,
+                "rank": 17
+              },
+              {
+                "arena": "agents",
+                "category": "mobileapps",
+                "elo": 1218,
+                "win_rate": 50.7,
+                "rank": 12
+              },
+              {
+                "arena": "agents",
+                "category": "pptxslides",
+                "elo": 1157,
+                "win_rate": 45.3,
+                "rank": 7
+              },
+              {
+                "arena": "agents",
+                "category": "python-pptxslides",
+                "elo": 1152,
+                "win_rate": 43.3,
+                "rank": 14
+              },
+              {
+                "arena": "agents",
+                "category": "webapps",
+                "elo": 1172,
+                "win_rate": 43.5,
+                "rank": 22
+              },
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1250,
+                "win_rate": 52.6,
+                "rank": 32
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1288,
+                "win_rate": 60.6,
+                "rank": 7
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1284,
+                "win_rate": 56.3,
+                "rank": 20
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1291,
+                "win_rate": 57.7,
+                "rank": 14
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1343,
+                "win_rate": 62.2,
+                "rank": 4
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1273,
+                "win_rate": 59.5,
+                "rank": 5
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1293,
+                "win_rate": 56.7,
+                "rank": 17
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1280,
+                "win_rate": 55.8,
+                "rank": 21
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 54.8,
+              "coding_index": 74.9,
+              "agentic_index": 44.9
+            }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -39600,12 +41537,12 @@
             "instruct_type": "qwen3"
           },
           "pricing": {
-            "prompt": "0.00000012",
-            "completion": "0.00000024"
+            "prompt": "0.0000002275",
+            "completion": "0.00000091"
           },
           "top_provider": {
-            "context_length": 40960,
-            "max_completion_tokens": 16384,
+            "context_length": 131072,
+            "max_completion_tokens": 8192,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -45536,7 +47473,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": null,
+          "expiration_date": "2026-12-31",
           "links": {
             "details": "/api/v1/models/z-ai/glm-4.5v/endpoints"
           },
@@ -46562,9 +48499,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000791",
-            "completion": "0.000002486",
-            "input_cache_read": "0.0000001469"
+            "prompt": "0.0000007826",
+            "completion": "0.0000024596",
+            "input_cache_read": "0.00000014534"
           },
           "top_provider": {
             "context_length": 1048576,
