@@ -15465,6 +15465,34 @@
           }
         },
         {
+          "id": "thinkingmachines/Inkling",
+          "name": "thinkingmachines/Inkling",
+          "owned_by": "deepinfra",
+          "root": "thinkingmachines/Inkling",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Inkling is a general-purpose multimodal model that accepts text, image and audio inputs and generates text outputs.",
+            "context_length": 131072,
+            "max_tokens": 131072,
+            "pricing": {
+              "input_tokens": 1,
+              "output_tokens": 4.05,
+              "cache_read_tokens": 0.17
+            },
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "Wan-AI/Wan2.2-T2V-A14B",
           "name": "Wan-AI/Wan2.2-T2V-A14B",
           "owned_by": "deepinfra",
@@ -25432,10 +25460,10 @@
         },
         {
           "id": "google/gemini-3.5-flash-lite",
-          "name": "Google: Gemini 3.5 Flash-Lite",
+          "name": "Google: Gemini 3.5 Flash Lite",
           "canonical_slug": "google/gemini-3.5-flash-lite-20260721",
           "hugging_face_id": null,
-          "description": "Gemini 3.5 Flash-Lite is a high-efficiency model from Google with upgraded agentic capabilities. It is suited for subagents that execute focused tasks within complex, multi-agent workflows.",
+          "description": "Gemini 3.5 Flash Lite is a high-efficiency model from Google with upgraded agentic capabilities. It is suited for subagents that execute focused tasks within complex, multi-agent workflows.",
           "context_length": 1048576,
           "architecture": {
             "modality": "text+image+file+audio+video->text",
@@ -46489,9 +46517,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000008246",
-            "completion": "0.0000025916",
-            "input_cache_read": "0.00000015314"
+            "prompt": "0.0000008148",
+            "completion": "0.0000025608",
+            "input_cache_read": "0.00000015132"
           },
           "top_provider": {
             "context_length": 1048576,
