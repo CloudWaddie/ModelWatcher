@@ -19547,6 +19547,212 @@
           }
         },
         {
+          "id": "anthropic/claude-fable-5:batch",
+          "name": "Anthropic: Claude Fable 5 (batch)",
+          "canonical_slug": "anthropic/claude-5-fable-20260609",
+          "hugging_face_id": null,
+          "description": "Claude Fable 5 is a Mythos-class model from Anthropic, built for autonomous knowledge work and coding. It supports text, image, and file inputs with text output, with reasoning support and...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Claude",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000005",
+            "completion": "0.000025",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000005",
+            "input_cache_write": "0.00000625"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-5-fable-20260609/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "agents",
+                "category": "agenticgamedev",
+                "elo": 1308,
+                "win_rate": 65,
+                "rank": 1
+              },
+              {
+                "arena": "agents",
+                "category": "agentichtmlslides",
+                "elo": 1254,
+                "win_rate": 59.4,
+                "rank": 1
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides(html)",
+                "elo": 1252,
+                "win_rate": 59.5,
+                "rank": 1
+              },
+              {
+                "arena": "agents",
+                "category": "androidnative",
+                "elo": 1323,
+                "win_rate": 65.7,
+                "rank": 2
+              },
+              {
+                "arena": "agents",
+                "category": "fullstack",
+                "elo": 1316,
+                "win_rate": 64.5,
+                "rank": 2
+              },
+              {
+                "arena": "agents",
+                "category": "godotgamedev",
+                "elo": 1305,
+                "win_rate": 62.5,
+                "rank": 1
+              },
+              {
+                "arena": "agents",
+                "category": "htmlslides",
+                "elo": 1259,
+                "win_rate": 58.7,
+                "rank": 1
+              },
+              {
+                "arena": "agents",
+                "category": "mobileapps",
+                "elo": 1266,
+                "win_rate": 57.3,
+                "rank": 4
+              },
+              {
+                "arena": "agents",
+                "category": "python-pptxslides",
+                "elo": 1306,
+                "win_rate": 63.2,
+                "rank": 2
+              },
+              {
+                "arena": "agents",
+                "category": "webapps",
+                "elo": 1317,
+                "win_rate": 60.3,
+                "rank": 1
+              },
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1363,
+                "win_rate": 66.5,
+                "rank": 3
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1373,
+                "win_rate": 70.3,
+                "rank": 1
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1340,
+                "win_rate": 62.6,
+                "rank": 2
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1353,
+                "win_rate": 65.7,
+                "rank": 3
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1396,
+                "win_rate": 66.7,
+                "rank": 1
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1351,
+                "win_rate": 69.5,
+                "rank": 1
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1370,
+                "win_rate": 64.4,
+                "rank": 2
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1330,
+                "win_rate": 61.6,
+                "rank": 3
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 59.9,
+              "coding_index": 76.5,
+              "agentic_index": 52.8
+            }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
           "id": "anthropic/claude-haiku-4.5",
           "name": "Anthropic: Claude Haiku 4.5",
           "canonical_slug": "anthropic/claude-4.5-haiku-20251001",
@@ -19919,6 +20125,129 @@
           }
         },
         {
+          "id": "anthropic/claude-opus-4.1:batch",
+          "name": "Anthropic: Claude Opus 4.1 (batch)",
+          "canonical_slug": "anthropic/claude-4.1-opus-20250805",
+          "hugging_face_id": "",
+          "description": "Claude Opus 4.1 is an updated version of Anthropic’s flagship model, offering improved performance in coding, reasoning, and agentic tasks. It achieves 74.5% on SWE-bench Verified and shows notable gains...",
+          "context_length": 200000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "image",
+              "text",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Claude",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000075",
+            "completion": "0.0000375",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000075",
+            "input_cache_write": "0.000009375",
+            "input_cache_write_1h": "0.000015"
+          },
+          "top_provider": {
+            "context_length": 200000,
+            "max_completion_tokens": 32000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2025-01-31",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4.1-opus-20250805/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1210,
+                "win_rate": 51.6,
+                "rank": 42
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1207,
+                "win_rate": 51.4,
+                "rank": 20
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1204,
+                "win_rate": 55.8,
+                "rank": 46
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1201,
+                "win_rate": 56.4,
+                "rank": 47
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1230,
+                "win_rate": 58.5,
+                "rank": 39
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1199,
+                "win_rate": 60.8,
+                "rank": 27
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1204,
+                "win_rate": 58,
+                "rank": 47
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1204,
+                "win_rate": 55.3,
+                "rank": 53
+              }
+            ]
+          },
+          "reasoning": {
+            "mandatory": false
+          }
+        },
+        {
           "id": "anthropic/claude-opus-4.5",
           "name": "Anthropic: Claude Opus 4.5",
           "canonical_slug": "anthropic/claude-4.5-opus-20251124",
@@ -19964,6 +20293,158 @@
             "tool_choice",
             "tools",
             "top_k",
+            "verbosity"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4.5-opus-20251124/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1273,
+                "win_rate": 58.6,
+                "rank": 24
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1231,
+                "win_rate": 54.7,
+                "rank": 12
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1275,
+                "win_rate": 59.6,
+                "rank": 22
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1277,
+                "win_rate": 58.6,
+                "rank": 19
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1288,
+                "win_rate": 59.4,
+                "rank": 20
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1227,
+                "win_rate": 58.7,
+                "rank": 16
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1279,
+                "win_rate": 58.4,
+                "rank": 21
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1274,
+                "win_rate": 59.7,
+                "rank": 25
+              },
+              {
+                "arena": "agents",
+                "category": "androidnative",
+                "elo": 1168,
+                "win_rate": 65.5,
+                "rank": 18
+              },
+              {
+                "arena": "agents",
+                "category": "fullstack",
+                "elo": 1215,
+                "win_rate": 59.9,
+                "rank": 14
+              },
+              {
+                "arena": "agents",
+                "category": "mobileapps",
+                "elo": 1254,
+                "win_rate": 60,
+                "rank": 6
+              },
+              {
+                "arena": "agents",
+                "category": "webapps",
+                "elo": 1216,
+                "win_rate": 55.2,
+                "rank": 17
+              }
+            ]
+          },
+          "reasoning": {
+            "mandatory": false
+          }
+        },
+        {
+          "id": "anthropic/claude-opus-4.5:batch",
+          "name": "Anthropic: Claude Opus 4.5 (batch)",
+          "canonical_slug": "anthropic/claude-4.5-opus-20251124",
+          "hugging_face_id": "",
+          "description": "Claude Opus 4.5 is Anthropic’s frontier reasoning model optimized for complex software engineering, agentic workflows, and long-horizon computer use. It offers strong multimodal capabilities, competitive performance across real-world coding and...",
+          "context_length": 200000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Claude",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000025",
+            "completion": "0.0000125",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000025",
+            "input_cache_write": "0.000003125",
+            "input_cache_write_1h": "0.000005"
+          },
+          "top_provider": {
+            "context_length": 200000,
+            "max_completion_tokens": 64000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
             "verbosity"
           ],
           "default_parameters": {
@@ -20119,6 +20600,168 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_p",
+            "verbosity"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4.6-opus-20260205/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "agents",
+                "category": "androidnative",
+                "elo": 1194,
+                "win_rate": 68.8,
+                "rank": 15
+              },
+              {
+                "arena": "agents",
+                "category": "fullstack",
+                "elo": 1279,
+                "win_rate": 68.6,
+                "rank": 7
+              },
+              {
+                "arena": "agents",
+                "category": "mobileapps",
+                "elo": 1280,
+                "win_rate": 63.6,
+                "rank": 2
+              },
+              {
+                "arena": "agents",
+                "category": "webapps",
+                "elo": 1262,
+                "win_rate": 61.3,
+                "rank": 10
+              },
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1335,
+                "win_rate": 63.9,
+                "rank": 6
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1297,
+                "win_rate": 62.5,
+                "rank": 6
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1327,
+                "win_rate": 63.2,
+                "rank": 4
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1320,
+                "win_rate": 62.2,
+                "rank": 6
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1337,
+                "win_rate": 63,
+                "rank": 5
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1275,
+                "win_rate": 62,
+                "rank": 4
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1334,
+                "win_rate": 63.3,
+                "rank": 4
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1322,
+                "win_rate": 62.7,
+                "rank": 5
+              }
+            ]
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supports_max_tokens": true,
+            "supported_efforts": [
+              "max",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "anthropic/claude-opus-4.6:batch",
+          "name": "Anthropic: Claude Opus 4.6 (batch)",
+          "canonical_slug": "anthropic/claude-4.6-opus-20260205",
+          "hugging_face_id": "",
+          "description": "Opus 4.6 is Anthropic’s strongest model for coding and long-running professional tasks. It is built for agents that operate across entire workflows rather than single prompts, making it especially effective...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Claude",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000025",
+            "completion": "0.0000125",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000025",
+            "input_cache_write": "0.000003125",
+            "input_cache_write_1h": "0.000005"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
             "top_p",
             "verbosity"
           ],
@@ -20531,6 +21174,227 @@
           }
         },
         {
+          "id": "anthropic/claude-opus-4.7:batch",
+          "name": "Anthropic: Claude Opus 4.7 (batch)",
+          "canonical_slug": "anthropic/claude-4.7-opus-20260416",
+          "hugging_face_id": null,
+          "description": "Opus 4.7 is the next generation of Anthropic's Opus family, built for long-running, asynchronous agents. Building on the coding and agentic strengths of Opus 4.6, it delivers stronger performance on...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Claude",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000025",
+            "completion": "0.0000125",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000025",
+            "input_cache_write": "0.000003125",
+            "input_cache_write_1h": "0.000005"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4.7-opus-20260416/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "agents",
+                "category": "agenticgamedev",
+                "elo": 1260,
+                "win_rate": 61.5,
+                "rank": 3
+              },
+              {
+                "arena": "agents",
+                "category": "agentichtmlslides",
+                "elo": 1243,
+                "win_rate": 58,
+                "rank": 3
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides",
+                "elo": 1334,
+                "win_rate": 64.7,
+                "rank": 1
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides(html)",
+                "elo": 1242,
+                "win_rate": 57.8,
+                "rank": 3
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides(python-pptx)",
+                "elo": 1331,
+                "win_rate": 65.2,
+                "rank": 1
+              },
+              {
+                "arena": "agents",
+                "category": "androidnative",
+                "elo": 1265,
+                "win_rate": 56,
+                "rank": 6
+              },
+              {
+                "arena": "agents",
+                "category": "fullstack",
+                "elo": 1503,
+                "win_rate": 80.1,
+                "rank": 1
+              },
+              {
+                "arena": "agents",
+                "category": "godotgamedev",
+                "elo": 1270,
+                "win_rate": 60.9,
+                "rank": 3
+              },
+              {
+                "arena": "agents",
+                "category": "htmlslides",
+                "elo": 1240,
+                "win_rate": 57.5,
+                "rank": 3
+              },
+              {
+                "arena": "agents",
+                "category": "pptxslides",
+                "elo": 1333,
+                "win_rate": 64.9,
+                "rank": 1
+              },
+              {
+                "arena": "agents",
+                "category": "python-pptxslides",
+                "elo": 1336,
+                "win_rate": 63.1,
+                "rank": 1
+              },
+              {
+                "arena": "agents",
+                "category": "webapps",
+                "elo": 1311,
+                "win_rate": 61.9,
+                "rank": 3
+              },
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1304,
+                "win_rate": 58.6,
+                "rank": 16
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1326,
+                "win_rate": 66.7,
+                "rank": 2
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1321,
+                "win_rate": 60.3,
+                "rank": 6
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1312,
+                "win_rate": 60.7,
+                "rank": 8
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1336,
+                "win_rate": 61.2,
+                "rank": 6
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1272,
+                "win_rate": 61.2,
+                "rank": 6
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1343,
+                "win_rate": 62.7,
+                "rank": 3
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1321,
+                "win_rate": 60,
+                "rank": 6
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 53.5,
+              "coding_index": 73.6,
+              "agentic_index": 44.4
+            }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
           "id": "anthropic/claude-opus-4.8",
           "name": "Anthropic: Claude Opus 4.8",
           "canonical_slug": "anthropic/claude-4.8-opus-20260528",
@@ -20819,6 +21683,234 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/anthropic/claude-4.8-opus-fast-20260528/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "anthropic/claude-opus-4.8:batch",
+          "name": "Anthropic: Claude Opus 4.8 (batch)",
+          "canonical_slug": "anthropic/claude-4.8-opus-20260528",
+          "hugging_face_id": null,
+          "description": "Claude Opus 4.8 is Anthropic's most capable generally available model in the Opus family. It supports text, image, and file inputs with text output, with reasoning support and a 1M-token...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Claude",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000025",
+            "completion": "0.0000125",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000025",
+            "input_cache_write": "0.000003125",
+            "input_cache_write_1h": "0.000005"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-4.8-opus-20260528/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "agents",
+                "category": "agenticgamedev",
+                "elo": 1263,
+                "win_rate": 61,
+                "rank": 2
+              },
+              {
+                "arena": "agents",
+                "category": "agentichtmlslides",
+                "elo": 1227,
+                "win_rate": 55.6,
+                "rank": 4
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides",
+                "elo": 1294,
+                "win_rate": 64.8,
+                "rank": 2
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides(html)",
+                "elo": 1230,
+                "win_rate": 56,
+                "rank": 4
+              },
+              {
+                "arena": "agents",
+                "category": "agenticslides(python-pptx)",
+                "elo": 1310,
+                "win_rate": 68.9,
+                "rank": 2
+              },
+              {
+                "arena": "agents",
+                "category": "androidnative",
+                "elo": 1338,
+                "win_rate": 67.4,
+                "rank": 1
+              },
+              {
+                "arena": "agents",
+                "category": "fullstack",
+                "elo": 1308,
+                "win_rate": 63.1,
+                "rank": 3
+              },
+              {
+                "arena": "agents",
+                "category": "godotgamedev",
+                "elo": 1237,
+                "win_rate": 52.5,
+                "rank": 6
+              },
+              {
+                "arena": "agents",
+                "category": "htmlslides",
+                "elo": 1235,
+                "win_rate": 57,
+                "rank": 4
+              },
+              {
+                "arena": "agents",
+                "category": "mobileapps",
+                "elo": 1281,
+                "win_rate": 58.7,
+                "rank": 1
+              },
+              {
+                "arena": "agents",
+                "category": "pptxslides",
+                "elo": 1306,
+                "win_rate": 67.9,
+                "rank": 2
+              },
+              {
+                "arena": "agents",
+                "category": "python-pptxslides",
+                "elo": 1298,
+                "win_rate": 65.9,
+                "rank": 3
+              },
+              {
+                "arena": "agents",
+                "category": "webapps",
+                "elo": 1281,
+                "win_rate": 53.6,
+                "rank": 5
+              },
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1272,
+                "win_rate": 55.5,
+                "rank": 26
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1304,
+                "win_rate": 62.5,
+                "rank": 5
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1270,
+                "win_rate": 54.3,
+                "rank": 25
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1269,
+                "win_rate": 54.8,
+                "rank": 22
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1302,
+                "win_rate": 55.1,
+                "rank": 16
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1225,
+                "win_rate": 53.6,
+                "rank": 18
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1278,
+                "win_rate": 54.3,
+                "rank": 23
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1268,
+                "win_rate": 54.3,
+                "rank": 27
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 55.7,
+              "coding_index": 74.3,
+              "agentic_index": 47.2
+            }
           },
           "reasoning": {
             "mandatory": false,
@@ -32819,6 +33911,67 @@
           }
         },
         {
+          "id": "openai/gpt-3.5-turbo:batch",
+          "name": "OpenAI: GPT-3.5 Turbo (batch)",
+          "canonical_slug": "openai/gpt-3.5-turbo",
+          "hugging_face_id": null,
+          "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nTraining data up to Sep 2021.",
+          "context_length": 16385,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000025",
+            "completion": "0.00000075",
+            "web_search": "0.01"
+          },
+          "top_provider": {
+            "context_length": 16385,
+            "max_completion_tokens": 4096,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "logit_bias",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": "2021-09-30",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-3.5-turbo/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [],
+            "artificial_analysis": {
+              "intelligence_index": null,
+              "coding_index": 10.7,
+              "agentic_index": null
+            }
+          }
+        },
+        {
           "id": "openai/gpt-4",
           "name": "OpenAI: GPT-4",
           "canonical_slug": "openai/gpt-4",
@@ -32990,6 +34143,68 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-4-turbo-preview/endpoints"
+          }
+        },
+        {
+          "id": "openai/gpt-4-turbo:batch",
+          "name": "OpenAI: GPT-4 Turbo (batch)",
+          "canonical_slug": "openai/gpt-4-turbo",
+          "hugging_face_id": null,
+          "description": "The latest GPT-4 Turbo model with vision capabilities. Vision requests can now use JSON mode and function calling.\n\nTraining data: up to December 2023.",
+          "context_length": 128000,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000005",
+            "completion": "0.000015",
+            "web_search": "0.01"
+          },
+          "top_provider": {
+            "context_length": 128000,
+            "max_completion_tokens": 4096,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "logit_bias",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": "2023-12-31",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-4-turbo/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [],
+            "artificial_analysis": {
+              "intelligence_index": null,
+              "coding_index": 21.5,
+              "agentic_index": null
+            }
           }
         },
         {
@@ -48499,9 +49714,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000007826",
-            "completion": "0.0000024596",
-            "input_cache_read": "0.00000014534"
+            "prompt": "0.000000777",
+            "completion": "0.000002442",
+            "input_cache_read": "0.0000001443"
           },
           "top_provider": {
             "context_length": 1048576,
