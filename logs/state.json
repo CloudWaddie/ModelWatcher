@@ -1237,6 +1237,76 @@
           }
         },
         {
+          "id": "claude-opus-5",
+          "name": "claude-opus-5",
+          "type": "model",
+          "display_name": "Claude Opus 5",
+          "created_at": "2026-07-24T00:00:00Z",
+          "max_input_tokens": 1000000,
+          "max_tokens": 128000,
+          "capabilities": {
+            "batch": {
+              "supported": true
+            },
+            "citations": {
+              "supported": true
+            },
+            "code_execution": {
+              "supported": true
+            },
+            "context_management": {
+              "supported": true,
+              "clear_tool_uses_20250919": {
+                "supported": true
+              },
+              "clear_thinking_20251015": {
+                "supported": true
+              },
+              "compact_20260112": {
+                "supported": true
+              }
+            },
+            "effort": {
+              "supported": true,
+              "low": {
+                "supported": true
+              },
+              "medium": {
+                "supported": true
+              },
+              "high": {
+                "supported": true
+              },
+              "xhigh": {
+                "supported": true
+              },
+              "max": {
+                "supported": true
+              }
+            },
+            "image_input": {
+              "supported": true
+            },
+            "pdf_input": {
+              "supported": true
+            },
+            "structured_outputs": {
+              "supported": true
+            },
+            "thinking": {
+              "supported": true,
+              "types": {
+                "enabled": {
+                  "supported": false
+                },
+                "adaptive": {
+                  "supported": true
+                }
+              }
+            }
+          }
+        },
+        {
           "id": "claude-sonnet-4-5-20250929",
           "name": "claude-sonnet-4-5-20250929",
           "type": "model",
@@ -15485,8 +15555,8 @@
           "object": "model",
           "metadata": {
             "description": "Inkling is a general-purpose multimodal model that accepts text, image and audio inputs and generates text outputs.",
-            "context_length": 131072,
-            "max_tokens": 131072,
+            "context_length": 524288,
+            "max_tokens": 524288,
             "pricing": {
               "input_tokens": 1,
               "output_tokens": 4.05,
@@ -17610,6 +17680,35 @@
           "type": "base"
         },
         {
+          "id": "voxtral-mini-realtime-charente-2606-solutions",
+          "name": "voxtral-mini-realtime-charente-2606-solutions",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": true,
+            "audio_speech": false,
+            "unified_resources": true
+          },
+          "description": "Official voxtral-mini-realtime-charente-2606-solutions Mistral AI model",
+          "max_context_length": 32768,
+          "aliases": [],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.7,
+          "type": "base"
+        },
+        {
           "id": "voxtral-mini-realtime-latest",
           "name": "voxtral-mini-transcribe-realtime-2602",
           "owned_by": "mistralai",
@@ -18076,7 +18175,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -18183,7 +18282,7 @@
           },
           "reasoning": {
             "mandatory": false,
-            "default_enabled": false,
+            "default_enabled": true,
             "supported_efforts": [
               "max",
               "xhigh",
@@ -20837,6 +20936,152 @@
           }
         },
         {
+          "id": "anthropic/claude-opus-5",
+          "name": "Claude Opus 5",
+          "canonical_slug": "anthropic/claude-opus-5-20260723",
+          "hugging_face_id": null,
+          "description": "Claude Opus 5 is Anthropic’s flagship model for demanding reasoning, coding, and long-horizon agentic work. It is particularly strong at end-to-end software tasks, code review and bug finding, visual analysis...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Claude",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000005",
+            "completion": "0.000025",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000005",
+            "input_cache_write": "0.00000625",
+            "input_cache_write_1h": "0.00001"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-opus-5-20260723/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
+          "id": "anthropic/claude-opus-5-fast",
+          "name": "Claude Opus 5 (Fast)",
+          "canonical_slug": "anthropic/claude-opus-5-fast-20260723",
+          "hugging_face_id": null,
+          "description": "Fast-mode variant of [Opus 5](/anthropic/claude-opus-5) - identical capabilities with higher output speed at 2x pricing relative to regular Opus 5.\n\nLearn more in Anthropic's docs: https://platform.claude.com/docs/en/build-with-claude/fast-mode",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Claude",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00001",
+            "completion": "0.00005",
+            "web_search": "0.01",
+            "input_cache_read": "0.000001",
+            "input_cache_write": "0.0000125",
+            "input_cache_write_1h": "0.00002"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-opus-5-fast-20260723/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
           "id": "anthropic/claude-sonnet-4",
           "name": "Anthropic: Claude Sonnet 4",
           "canonical_slug": "anthropic/claude-4-sonnet-20250522",
@@ -21488,7 +21733,7 @@
           },
           "reasoning": {
             "mandatory": false,
-            "default_enabled": false,
+            "default_enabled": true,
             "supported_efforts": [
               "max",
               "xhigh",
@@ -26900,7 +27145,14 @@
             "top_logprobs",
             "top_p"
           ],
-          "default_parameters": {},
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
           "supported_voices": null,
           "knowledge_cutoff": null,
           "expiration_date": null,
@@ -26909,7 +27161,7 @@
           },
           "reasoning": {
             "mandatory": false,
-            "default_enabled": false
+            "default_enabled": true
           }
         },
         {
@@ -31102,8 +31354,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000071",
-            "completion": "0.00000349",
+            "prompt": "0.00000082",
+            "completion": "0.00000375",
             "input_cache_read": "0.00000015"
           },
           "top_provider": {
@@ -41018,8 +41270,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.0000012"
+            "prompt": "0.0000001",
+            "completion": "0.0000011",
+            "input_cache_read": "0.00000007"
           },
           "top_provider": {
             "context_length": 262144,
@@ -46645,9 +46898,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000805",
-            "completion": "0.00000253",
-            "input_cache_read": "0.0000001495"
+            "prompt": "0.0000007896",
+            "completion": "0.0000024816",
+            "input_cache_read": "0.00000014664"
           },
           "top_provider": {
             "context_length": 1048576,
