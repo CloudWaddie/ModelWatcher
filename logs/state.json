@@ -18007,7 +18007,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -41328,6 +41328,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "logprobs",
             "max_tokens",
             "presence_penalty",
@@ -46895,9 +46896,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000007616",
-            "completion": "0.0000023936",
-            "input_cache_read": "0.00000014144"
+            "prompt": "0.0000007028",
+            "completion": "0.0000022088",
+            "input_cache_read": "0.00000013052"
           },
           "top_provider": {
             "context_length": 1048576,
