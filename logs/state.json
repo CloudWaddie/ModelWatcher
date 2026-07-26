@@ -17669,14 +17669,14 @@
             "audio_transcription": false,
             "audio_transcription_realtime": true,
             "audio_speech": false,
-            "unified_resources": true
+            "unified_resources": false
           },
           "description": "Official voxtral-mini-realtime-charente-2606-solutions Mistral AI model",
           "max_context_length": 32768,
           "aliases": [],
           "deprecation": null,
           "deprecation_replacement_model": null,
-          "default_model_temperature": 0.7,
+          "default_model_temperature": 0,
           "type": "base"
         },
         {
@@ -27259,90 +27259,6 @@
           }
         },
         {
-          "id": "inflection/inflection-3-pi",
-          "name": "Inflection: Inflection 3 Pi",
-          "canonical_slug": "inflection/inflection-3-pi",
-          "hugging_face_id": null,
-          "description": "Inflection 3 Pi powers Inflection's [Pi](https://pi.ai) chatbot, including backstory, emotional intelligence, productivity, and safety. It has access to recent news, and excels in scenarios like customer support and roleplay. Pi...",
-          "context_length": 8000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000025",
-            "completion": "0.00001"
-          },
-          "top_provider": {
-            "context_length": 8000,
-            "max_completion_tokens": 1024,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "stop",
-            "temperature",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-10-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/inflection/inflection-3-pi/endpoints"
-          }
-        },
-        {
-          "id": "inflection/inflection-3-productivity",
-          "name": "Inflection: Inflection 3 Productivity",
-          "canonical_slug": "inflection/inflection-3-productivity",
-          "hugging_face_id": null,
-          "description": "Inflection 3 Productivity is optimized for following instructions. It is better for tasks requiring JSON output or precise adherence to provided guidelines. It has access to recent news. For emotional...",
-          "context_length": 8000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000025",
-            "completion": "0.00001"
-          },
-          "top_provider": {
-            "context_length": 8000,
-            "max_completion_tokens": 1024,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "stop",
-            "temperature",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-10-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/inflection/inflection-3-productivity/endpoints"
-          }
-        },
-        {
           "id": "kwaipilot/kat-coder-air-v2.5",
           "name": "Kwaipilot: KAT-Coder-Air V2.5",
           "canonical_slug": "kwaipilot/kat-coder-air-v2.5-20260710",
@@ -31378,7 +31294,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000075",
+            "prompt": "0.00000073",
             "completion": "0.0000035",
             "input_cache_read": "0.00000015"
           },
