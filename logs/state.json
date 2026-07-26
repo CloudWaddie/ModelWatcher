@@ -17669,14 +17669,14 @@
             "audio_transcription": false,
             "audio_transcription_realtime": true,
             "audio_speech": false,
-            "unified_resources": false
+            "unified_resources": true
           },
           "description": "Official voxtral-mini-realtime-charente-2606-solutions Mistral AI model",
           "max_context_length": 32768,
           "aliases": [],
           "deprecation": null,
           "deprecation_replacement_model": null,
-          "default_model_temperature": 0,
+          "default_model_temperature": 0.7,
           "type": "base"
         },
         {
@@ -31371,7 +31371,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000078",
+            "prompt": "0.00000075",
             "completion": "0.0000035",
             "input_cache_read": "0.00000015"
           },
@@ -40331,12 +40331,12 @@
             "instruct_type": "qwen3"
           },
           "pricing": {
-            "prompt": "0.00000013",
-            "completion": "0.00000052"
+            "prompt": "0.00000012",
+            "completion": "0.0000005"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 8192,
+            "context_length": 40960,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -46924,9 +46924,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000007196",
-            "completion": "0.0000022616",
-            "input_cache_read": "0.00000013364"
+            "prompt": "0.0000007112",
+            "completion": "0.0000022352",
+            "input_cache_read": "0.00000013208"
           },
           "top_provider": {
             "context_length": 1048576,
