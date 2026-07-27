@@ -23655,7 +23655,6 @@
             "temperature",
             "tool_choice",
             "tools",
-            "top_a",
             "top_k",
             "top_logprobs",
             "top_p"
@@ -24849,7 +24848,7 @@
           "canonical_slug": "google/gemini-3.1-flash-image-preview-20260226",
           "hugging_face_id": "",
           "description": "Gemini 3.1 Flash Image Preview, a.k.a. \"Nano Banana 2,\" is Google’s latest state of the art image generation and editing model, delivering Pro-level visual quality at Flash speed. It combines...",
-          "context_length": 131072,
+          "context_length": 65536,
           "architecture": {
             "modality": "text+image->text+image",
             "input_modalities": [
@@ -26319,13 +26318,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000012",
-            "completion": "0.00000035",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.00000007",
+            "completion": "0.00000034"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -32483,13 +32481,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006",
-            "completion": "0.0000036",
-            "input_cache_read": "0.0000002"
+            "prompt": "0.0000005",
+            "completion": "0.0000022",
+            "input_cache_read": "0.0000001"
           },
           "top_provider": {
-            "context_length": 512288,
-            "max_completion_tokens": null,
+            "context_length": 262144,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -33993,49 +33991,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/openai/gpt-4o-mini-2024-07-18/endpoints"
-          }
-        },
-        {
-          "id": "openai/gpt-4o-mini-search-preview",
-          "name": "OpenAI: GPT-4o-mini Search Preview",
-          "canonical_slug": "openai/gpt-4o-mini-search-preview-2025-03-11",
-          "hugging_face_id": "",
-          "description": "GPT-4o mini Search Preview is a specialized model for web search in Chat Completions. It is trained to understand and execute web search queries.",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "GPT",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.0000006",
-            "web_search": "0.0275"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": 16384,
-            "is_moderated": true
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "response_format",
-            "structured_outputs",
-            "web_search_options"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2023-10-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/openai/gpt-4o-mini-search-preview-2025-03-11/endpoints"
           }
         },
         {
@@ -46863,9 +46818,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006692",
-            "completion": "0.0000021032",
-            "input_cache_read": "0.00000012428"
+            "prompt": "0.0000008218",
+            "completion": "0.0000025828",
+            "input_cache_read": "0.00000015262"
           },
           "top_provider": {
             "context_length": 1048576,
