@@ -7367,6 +7367,37 @@
           }
         },
         {
+          "id": "moonshotai/Kimi-K3",
+          "name": "moonshotai/Kimi-K3",
+          "uuid": "endpoint-kk-moonshotai-kimi-k3",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Kimi K3",
+          "organization": "Moonshot AI",
+          "link": "https://huggingface.co/moonshotai",
+          "license": "other",
+          "context_length": 1000000,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 3,
+            "output": 15,
+            "base": 0,
+            "finetune": 0,
+            "cached_input": 0.3,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "nim/meta/llama-3.1-70b-instruct",
           "name": "nim/meta/llama-3.1-70b-instruct",
           "object": "model",
@@ -34935,17 +34966,16 @@
             "prompt": "0.00000125",
             "completion": "0.00001",
             "web_search": "0.01",
-            "input_cache_read": "0.000000125"
+            "input_cache_read": "0.00000013"
           },
           "top_provider": {
             "context_length": 128000,
-            "max_completion_tokens": 16384,
-            "is_moderated": true
+            "max_completion_tokens": 32000,
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "max_completion_tokens",
-            "max_tokens",
             "response_format",
             "seed",
             "structured_outputs",
@@ -36701,18 +36731,18 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000001",
-            "completion": "0.000006",
-            "web_search": "0.01",
-            "input_cache_read": "0.0000001",
-            "input_cache_write": "0.00000125",
+            "prompt": "0.0000005",
+            "completion": "0.000003",
+            "web_search": "0.005",
+            "input_cache_read": "0.00000005",
+            "input_cache_write": "0.000000625",
             "overrides": [
               {
                 "min_prompt_tokens": 272000,
-                "prompt": "0.000002",
-                "completion": "0.000009",
-                "input_cache_read": "0.0000002",
-                "input_cache_write": "0.0000025"
+                "prompt": "0.000001",
+                "completion": "0.0000045",
+                "input_cache_read": "0.0000001",
+                "input_cache_write": "0.00000125"
               }
             ]
           },
@@ -36791,18 +36821,18 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000001",
-            "completion": "0.000006",
-            "web_search": "0.01",
-            "input_cache_read": "0.0000001",
-            "input_cache_write": "0.00000125",
+            "prompt": "0.0000005",
+            "completion": "0.000003",
+            "web_search": "0.005",
+            "input_cache_read": "0.00000005",
+            "input_cache_write": "0.000000625",
             "overrides": [
               {
                 "min_prompt_tokens": 272000,
-                "prompt": "0.000002",
-                "completion": "0.000009",
-                "input_cache_read": "0.0000002",
-                "input_cache_write": "0.0000025"
+                "prompt": "0.000001",
+                "completion": "0.0000045",
+                "input_cache_read": "0.0000001",
+                "input_cache_write": "0.00000125"
               }
             ]
           },
@@ -37045,18 +37075,18 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000025",
-            "completion": "0.000015",
-            "web_search": "0.01",
-            "input_cache_read": "0.00000025",
-            "input_cache_write": "0.000003125",
+            "prompt": "0.00000125",
+            "completion": "0.0000075",
+            "web_search": "0.005",
+            "input_cache_read": "0.000000125",
+            "input_cache_write": "0.0000015625",
             "overrides": [
               {
                 "min_prompt_tokens": 272000,
-                "prompt": "0.000005",
-                "completion": "0.0000225",
-                "input_cache_read": "0.0000005",
-                "input_cache_write": "0.00000625"
+                "prompt": "0.0000025",
+                "completion": "0.00001125",
+                "input_cache_read": "0.00000025",
+                "input_cache_write": "0.000003125"
               }
             ]
           },
@@ -37135,18 +37165,18 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000025",
-            "completion": "0.000015",
-            "web_search": "0.01",
-            "input_cache_read": "0.00000025",
-            "input_cache_write": "0.000003125",
+            "prompt": "0.00000125",
+            "completion": "0.0000075",
+            "web_search": "0.005",
+            "input_cache_read": "0.000000125",
+            "input_cache_write": "0.0000015625",
             "overrides": [
               {
                 "min_prompt_tokens": 272000,
-                "prompt": "0.000005",
-                "completion": "0.0000225",
-                "input_cache_read": "0.0000005",
-                "input_cache_write": "0.00000625"
+                "prompt": "0.0000025",
+                "completion": "0.00001125",
+                "input_cache_read": "0.00000025",
+                "input_cache_write": "0.000003125"
               }
             ]
           },
@@ -46800,9 +46830,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000777",
-            "completion": "0.000002442",
-            "input_cache_read": "0.0000001443"
+            "prompt": "0.0000007686",
+            "completion": "0.0000024156",
+            "input_cache_read": "0.00000014274"
           },
           "top_provider": {
             "context_length": 1048576,
