@@ -544,6 +544,12 @@
           "object": "model"
         },
         {
+          "id": "gpt-live-transcribe",
+          "name": "gpt-live-transcribe",
+          "owned_by": "system",
+          "object": "model"
+        },
+        {
           "id": "gpt-realtime",
           "name": "gpt-realtime",
           "owned_by": "system",
@@ -606,6 +612,12 @@
         {
           "id": "gpt-realtime-whisper",
           "name": "gpt-realtime-whisper",
+          "owned_by": "system",
+          "object": "model"
+        },
+        {
+          "id": "gpt-transcribe",
+          "name": "gpt-transcribe",
           "owned_by": "system",
           "object": "model"
         },
@@ -32172,6 +32184,180 @@
           }
         },
         {
+          "id": "minimax/minimax-m3:batch",
+          "name": "MiniMax: MiniMax M3 (batch)",
+          "canonical_slug": "minimax/minimax-m3-20260531",
+          "hugging_face_id": "MiniMaxAI/Minimax-M3",
+          "description": "MiniMax-M3 is a multimodal foundation model from MiniMax. It supports text, image, and video inputs with text output, a 1M-token context window, and is suited for long-horizon agentic work, coding,...",
+          "context_length": 524288,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000015",
+            "completion": "0.0000006",
+            "input_cache_read": "0.00000003"
+          },
+          "top_provider": {
+            "context_length": 524288,
+            "max_completion_tokens": null,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/minimax/minimax-m3-20260531/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "agents",
+                "category": "agenticgamedev",
+                "elo": 1201,
+                "win_rate": 52.9,
+                "rank": 8
+              },
+              {
+                "arena": "agents",
+                "category": "androidnative",
+                "elo": 1123,
+                "win_rate": 35.8,
+                "rank": 20
+              },
+              {
+                "arena": "agents",
+                "category": "fullstack",
+                "elo": 1250,
+                "win_rate": 53,
+                "rank": 8
+              },
+              {
+                "arena": "agents",
+                "category": "htmlslides",
+                "elo": 1199,
+                "win_rate": 50.2,
+                "rank": 12
+              },
+              {
+                "arena": "agents",
+                "category": "mobileapps",
+                "elo": 1257,
+                "win_rate": 57.5,
+                "rank": 5
+              },
+              {
+                "arena": "agents",
+                "category": "webapps",
+                "elo": 1246,
+                "win_rate": 51.6,
+                "rank": 14
+              },
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1279,
+                "win_rate": 54.5,
+                "rank": 24
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1194,
+                "win_rate": 47.3,
+                "rank": 22
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1285,
+                "win_rate": 54.5,
+                "rank": 21
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1265,
+                "win_rate": 53.5,
+                "rank": 25
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1274,
+                "win_rate": 50.5,
+                "rank": 26
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1223,
+                "win_rate": 50.3,
+                "rank": 20
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1281,
+                "win_rate": 53.6,
+                "rank": 22
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1286,
+                "win_rate": 54.7,
+                "rank": 20
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 44.4,
+              "coding_index": 58.6,
+              "agentic_index": 35.4
+            }
+          },
+          "reasoning": {
+            "mandatory": false
+          }
+        },
+        {
           "id": "mistralai/codestral-2508",
           "name": "Mistral: Codestral 2508",
           "canonical_slug": "mistralai/codestral-2508",
@@ -33467,6 +33653,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -33479,6 +33666,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
