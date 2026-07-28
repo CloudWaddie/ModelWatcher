@@ -13299,6 +13299,32 @@
           }
         },
         {
+          "id": "google/gemma-4-31B-it-Ultra",
+          "name": "google/gemma-4-31B-it-Ultra",
+          "owned_by": "deepinfra",
+          "root": "google/gemma-4-31B-it-Ultra",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Ultra speed version of gemma-4-31B-it",
+            "context_length": 131072,
+            "max_tokens": 131072,
+            "pricing": {
+              "input_tokens": 0.27,
+              "output_tokens": 0.76
+            },
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "google/gemma-4-E4B-it",
           "name": "google/gemma-4-E4B-it",
           "owned_by": "deepinfra",
@@ -14281,6 +14307,31 @@
             "pricing": {
               "input_tokens": 0.15,
               "output_tokens": 0.6
+            },
+            "tags": [
+              "chat",
+              "reasoning_effort",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "openai/gpt-oss-120b-Ultra",
+          "name": "openai/gpt-oss-120b-Ultra",
+          "owned_by": "deepinfra",
+          "root": "openai/gpt-oss-120b-Ultra",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Ultra fast version of gpt-oss-120b",
+            "context_length": 131072,
+            "max_tokens": 131072,
+            "pricing": {
+              "input_tokens": 0.2,
+              "output_tokens": 0.95
             },
             "tags": [
               "chat",
@@ -18491,7 +18542,6 @@
             "reasoning_effort",
             "repetition_penalty",
             "response_format",
-            "seed",
             "stop",
             "structured_outputs",
             "temperature",
@@ -26354,12 +26404,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007",
-            "completion": "0.00000034"
+            "prompt": "0.00000014",
+            "completion": "0.00000042",
+            "input_cache_read": "0.00000005"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 16384,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -31562,7 +31613,6 @@
             "reasoning_effort",
             "repetition_penalty",
             "response_format",
-            "seed",
             "stop",
             "structured_outputs",
             "temperature",
@@ -46852,9 +46902,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000007196",
-            "completion": "0.0000022616",
-            "input_cache_read": "0.00000013364"
+            "prompt": "0.0000007686",
+            "completion": "0.0000024156",
+            "input_cache_read": "0.00000014274"
           },
           "top_provider": {
             "context_length": 1048576,
