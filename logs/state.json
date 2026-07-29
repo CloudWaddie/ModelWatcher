@@ -18186,6 +18186,10 @@
           "id": "~anthropic/claude-fable-latest",
           "name": "Anthropic: Claude Fable Latest",
           "canonical_slug": "~anthropic/claude-fable-latest",
+          "alias_target": {
+            "name": "Anthropic: Claude Fable 5",
+            "slug": "anthropic/claude-fable-5"
+          },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the Claude Fable family.",
           "context_length": 1000000,
@@ -18259,6 +18263,10 @@
           "id": "~anthropic/claude-haiku-latest",
           "name": "Anthropic Claude Haiku Latest",
           "canonical_slug": "~anthropic/claude-haiku-latest",
+          "alias_target": {
+            "name": "Anthropic: Claude Haiku 4.5",
+            "slug": "anthropic/claude-haiku-4.5"
+          },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the Anthropic Claude Haiku family.",
           "context_length": 200000,
@@ -18325,6 +18333,10 @@
           "id": "~anthropic/claude-opus-latest",
           "name": "Anthropic: Claude Opus Latest",
           "canonical_slug": "~anthropic/claude-opus-latest",
+          "alias_target": {
+            "name": "Claude Opus 5",
+            "slug": "anthropic/claude-opus-5"
+          },
           "hugging_face_id": "",
           "description": "This model always redirects to the latest model in the Claude Opus family.",
           "context_length": 1000000,
@@ -18400,6 +18412,10 @@
           "id": "~anthropic/claude-sonnet-latest",
           "name": "Anthropic Claude Sonnet Latest",
           "canonical_slug": "~anthropic/claude-sonnet-latest",
+          "alias_target": {
+            "name": "Anthropic: Claude Sonnet 5",
+            "slug": "anthropic/claude-sonnet-5"
+          },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the Anthropic Claude Sonnet family.",
           "context_length": 1000000,
@@ -18474,6 +18490,10 @@
           "id": "~google/gemini-flash-latest",
           "name": "Google Gemini Flash Latest",
           "canonical_slug": "~google/gemini-flash-latest",
+          "alias_target": {
+            "name": "Google: Gemini 3.6 Flash",
+            "slug": "google/gemini-3.6-flash"
+          },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the Google Gemini Flash family.",
           "context_length": 1048576,
@@ -18553,6 +18573,10 @@
           "id": "~google/gemini-pro-latest",
           "name": "Google Gemini Pro Latest",
           "canonical_slug": "~google/gemini-pro-latest",
+          "alias_target": {
+            "name": "Google: Gemini 3.1 Pro Preview",
+            "slug": "google/gemini-3.1-pro-preview"
+          },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the Google Gemini Pro family.",
           "context_length": 1048576,
@@ -18640,6 +18664,10 @@
           "id": "~moonshotai/kimi-latest",
           "name": "MoonshotAI Kimi Latest",
           "canonical_slug": "~moonshotai/kimi-latest",
+          "alias_target": {
+            "name": "MoonshotAI: Kimi K3",
+            "slug": "moonshotai/kimi-k3"
+          },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the MoonshotAI Kimi family.",
           "context_length": 1048576,
@@ -18717,6 +18745,10 @@
           "id": "~openai/gpt-latest",
           "name": "OpenAI GPT Latest",
           "canonical_slug": "~openai/gpt-latest",
+          "alias_target": {
+            "name": "OpenAI: GPT-5.6 Sol",
+            "slug": "openai/gpt-5.6-sol"
+          },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the OpenAI GPT family.",
           "context_length": 1050000,
@@ -18799,6 +18831,10 @@
           "id": "~openai/gpt-mini-latest",
           "name": "OpenAI GPT Mini Latest",
           "canonical_slug": "~openai/gpt-mini-latest",
+          "alias_target": {
+            "name": "OpenAI: GPT-5.4 Mini",
+            "slug": "openai/gpt-5.4-mini"
+          },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the OpenAI GPT Mini family.",
           "context_length": 400000,
@@ -18870,6 +18906,10 @@
           "id": "~x-ai/grok-latest",
           "name": "xAI: Grok Latest",
           "canonical_slug": "~x-ai/grok-latest",
+          "alias_target": {
+            "name": "xAI: Grok 4.5",
+            "slug": "x-ai/grok-4.5"
+          },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest Grok model from xAI.",
           "context_length": 500000,
@@ -22520,14 +22560,7 @@
             "tools",
             "verbosity"
           ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
+          "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": null,
           "expiration_date": null,
@@ -32805,10 +32838,8 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
-            "logprobs",
             "max_tokens",
             "presence_penalty",
-            "repetition_penalty",
             "response_format",
             "seed",
             "stop",
@@ -32816,7 +32847,6 @@
             "temperature",
             "tool_choice",
             "tools",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -44560,7 +44590,6 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
-            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -44569,12 +44598,10 @@
             "response_format",
             "seed",
             "stop",
-            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
             "top_k",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -44665,7 +44692,6 @@
             "logit_bias",
             "logprobs",
             "max_tokens",
-            "min_p",
             "presence_penalty",
             "repetition_penalty",
             "response_format",
@@ -45776,12 +45802,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.0000006"
+            "prompt": "0.00000013",
+            "completion": "0.00000052"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 16384,
+            "context_length": 131072,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -51267,9 +51293,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006986",
-            "completion": "0.0000021956",
-            "input_cache_read": "0.00000012974"
+            "prompt": "0.000000693",
+            "completion": "0.000002178",
+            "input_cache_read": "0.0000001287"
           },
           "top_provider": {
             "context_length": 1048576,
