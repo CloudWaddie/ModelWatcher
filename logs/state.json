@@ -11722,6 +11722,17 @@
       "success": true,
       "models": [
         {
+          "id": "accounts/fireworks/models/deepseek-v4-flash",
+          "name": "accounts/fireworks/models/deepseek-v4-flash",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
           "id": "accounts/fireworks/models/deepseek-v4-pro",
           "name": "accounts/fireworks/models/deepseek-v4-pro",
           "owned_by": "fireworks",
@@ -11766,6 +11777,28 @@
           "context_length": 131072
         },
         {
+          "id": "accounts/fireworks/models/gpt-oss-20b",
+          "name": "accounts/fireworks/models/gpt-oss-20b",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": false,
+          "context_length": 131072
+        },
+        {
+          "id": "accounts/fireworks/models/inkling",
+          "name": "accounts/fireworks/models/inkling",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
           "id": "accounts/fireworks/models/kimi-k2p6",
           "name": "accounts/fireworks/models/kimi-k2p6",
           "owned_by": "fireworks",
@@ -11775,6 +11808,148 @@
           "supports_image_input": true,
           "supports_tools": true,
           "context_length": 262144
+        },
+        {
+          "id": "accounts/fireworks/models/kimi-k2p7-code",
+          "name": "accounts/fireworks/models/kimi-k2p7-code",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 262144
+        },
+        {
+          "id": "accounts/fireworks/models/kimi-k3",
+          "name": "accounts/fireworks/models/kimi-k3",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/minimax-m2p7",
+          "name": "accounts/fireworks/models/minimax-m2p7",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 196608
+        },
+        {
+          "id": "accounts/fireworks/models/minimax-m3",
+          "name": "accounts/fireworks/models/minimax-m3",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 512000
+        },
+        {
+          "id": "accounts/fireworks/models/nemotron-3-ultra-nvfp4",
+          "name": "accounts/fireworks/models/nemotron-3-ultra-nvfp4",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 262144
+        },
+        {
+          "id": "accounts/fireworks/models/qwen3-embedding-8b",
+          "name": "accounts/fireworks/models/qwen3-embedding-8b",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "EMBEDDING_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": false,
+          "context_length": 40960
+        },
+        {
+          "id": "accounts/fireworks/models/qwen3-reranker-8b",
+          "name": "accounts/fireworks/models/qwen3-reranker-8b",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "EMBEDDING_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": false,
+          "context_length": 40960
+        },
+        {
+          "id": "accounts/fireworks/models/qwen3p7-plus",
+          "name": "accounts/fireworks/models/qwen3p7-plus",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "CUSTOM_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true
+        },
+        {
+          "id": "accounts/fireworks/routers/glm-5p1-fast",
+          "name": "accounts/fireworks/routers/glm-5p1-fast",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 202752
+        },
+        {
+          "id": "accounts/fireworks/routers/glm-5p2-fast",
+          "name": "accounts/fireworks/routers/glm-5p2-fast",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/routers/kimi-k2p6-turbo",
+          "name": "accounts/fireworks/routers/kimi-k2p6-turbo",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 262144
+        },
+        {
+          "id": "accounts/fireworks/routers/kimi-k2p7-code-fast",
+          "name": "accounts/fireworks/routers/kimi-k2p7-code-fast",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 262144
+        },
+        {
+          "id": "accounts/fireworks/routers/kimi-k3-fast",
+          "name": "accounts/fireworks/routers/kimi-k3-fast",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
         }
       ]
     },
@@ -29195,12 +29370,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.0000006"
+            "prompt": "0.00000007",
+            "completion": "0.00000034"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -29343,9 +29518,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.00000034",
-            "input_cache_read": "0.0000001"
+            "prompt": "0.00000014",
+            "completion": "0.0000004"
           },
           "top_provider": {
             "context_length": 262144,
@@ -51084,9 +51258,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000007616",
-            "completion": "0.0000023936",
-            "input_cache_read": "0.00000014144"
+            "prompt": "0.0000007574",
+            "completion": "0.0000023804",
+            "input_cache_read": "0.00000014066"
           },
           "top_provider": {
             "context_length": 1048576,
