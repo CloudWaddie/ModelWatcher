@@ -1,5 +1,5 @@
 {
-  "timestamp": 1785429593848,
+  "timestamp": 1785435643099,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7862,6 +7862,30 @@
       }
     },
     {
+      "id": "inkling",
+      "displayName": "Inkling",
+      "provider": "thinkingmachines",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "uicomponent",
+          "dataviz",
+          "svg"
+        ],
+        "agents": [
+          "agon_webapps"
+        ]
+      },
+      "inputModalities": [
+        "text"
+      ]
+    },
+    {
       "id": "kimi-k3",
       "displayName": "Kimi K3",
       "provider": "moonshot",
@@ -11993,6 +12017,13 @@
       "id": "lucy-2.5",
       "video": {
         "perSecond": 0.04
+      }
+    },
+    {
+      "id": "inkling",
+      "text": {
+        "input": 1,
+        "output": 4.05
       }
     },
     {
