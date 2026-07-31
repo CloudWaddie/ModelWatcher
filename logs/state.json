@@ -9517,6 +9517,35 @@
           }
         },
         {
+          "id": "thinkingmachines/Inkling-Small",
+          "name": "thinkingmachines/Inkling-Small",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Inkling Small",
+          "organization": "Thinking Machines",
+          "link": "https://huggingface.co/api/models/thinkingmachines/Inkling-Small",
+          "context_length": 524288,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0.5,
+            "output": 1.2,
+            "base": 0,
+            "finetune": 0,
+            "cached_input": 0.1,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "togethercomputer/EssentialAI-RNJ-1-Instruct",
           "name": "togethercomputer/EssentialAI-RNJ-1-Instruct",
           "object": "model",
@@ -43149,12 +43178,12 @@
             "instruct_type": "qwen3"
           },
           "pricing": {
-            "prompt": "0.0000003",
-            "completion": "0.000003"
+            "prompt": "0.00000023",
+            "completion": "0.0000023"
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": 32768,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -49982,9 +50011,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000966",
-            "completion": "0.000003036",
-            "input_cache_read": "0.0000001794"
+            "prompt": "0.00000119",
+            "completion": "0.00000374",
+            "input_cache_read": "0.000000221"
           },
           "top_provider": {
             "context_length": 1024000,
