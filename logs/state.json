@@ -11940,6 +11940,32 @@
           }
         },
         {
+          "id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+          "name": "deepseek-ai/DeepSeek-V4-Flash-0731",
+          "owned_by": "deepinfra",
+          "root": "deepseek-ai/DeepSeek-V4-Flash-0731",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "DeepSeek-V4-Flash-0731 is the official release of DeepSeek-V4-Flash, superseding the preview version, with substantially enhanced agentic capabilities. DeepSeek-V4-Flash-0731 outperforms DeepSeek-V4-Pro (Preview) on benchmarks listed below despite its far smaller activated parameter count, and is broadly competitive with the strongest proprietary models available.",
+            "context_length": 1048576,
+            "max_tokens": 1048576,
+            "pricing": {
+              "input_tokens": 0.09,
+              "output_tokens": 0.18,
+              "cache_read_tokens": 0.018
+            },
+            "tags": [
+              "chat",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "deepseek-ai/DeepSeek-V4-Pro",
           "name": "deepseek-ai/DeepSeek-V4-Pro",
           "owned_by": "deepinfra",
@@ -18752,136 +18778,6 @@
           }
         },
         {
-          "id": "anthropic/claude-haiku-4.5:batch",
-          "name": "Anthropic: Claude Haiku 4.5 (batch)",
-          "canonical_slug": "anthropic/claude-4.5-haiku-20251001",
-          "hugging_face_id": "",
-          "description": "Claude Haiku 4.5 is Anthropic’s fastest and most efficient model, delivering near-frontier intelligence at a fraction of the cost and latency of larger Claude models. Matching Claude Sonnet 4’s performance...",
-          "context_length": 200000,
-          "architecture": {
-            "modality": "text+image+file->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "file"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Claude",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000005",
-            "completion": "0.0000025",
-            "web_search": "0.01",
-            "input_cache_read": "0.00000005",
-            "input_cache_write": "0.000000625",
-            "input_cache_write_1h": "0.000001"
-          },
-          "top_provider": {
-            "context_length": 200000,
-            "max_completion_tokens": 64000,
-            "is_moderated": true
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/anthropic/claude-4.5-haiku-20251001/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 1129,
-                "win_rate": 41.1,
-                "rank": 74
-              },
-              {
-                "arena": "models",
-                "category": "asciiart",
-                "elo": 1178,
-                "win_rate": 49.3,
-                "rank": 37
-              },
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1145,
-                "win_rate": 44.9,
-                "rank": 73
-              },
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 1153,
-                "win_rate": 45.6,
-                "rank": 69
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 1153,
-                "win_rate": 44.6,
-                "rank": 66
-              },
-              {
-                "arena": "models",
-                "category": "svg",
-                "elo": 1071,
-                "win_rate": 39.1,
-                "rank": 61
-              },
-              {
-                "arena": "models",
-                "category": "uicomponent",
-                "elo": 1136,
-                "win_rate": 42.7,
-                "rank": 68
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1146,
-                "win_rate": 45.1,
-                "rank": 75
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": 29.6,
-              "coding_index": 43.9,
-              "agentic_index": 16.4
-            }
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
           "id": "anthropic/claude-opus-4",
           "name": "Anthropic: Claude Opus 4",
           "canonical_slug": "anthropic/claude-4-opus-20250522",
@@ -22910,16 +22806,22 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "logprobs",
             "max_tokens",
+            "min_p",
             "presence_penalty",
             "reasoning",
             "reasoning_effort",
+            "repetition_penalty",
             "response_format",
+            "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
+            "top_k",
             "top_logprobs",
             "top_p"
           ],
