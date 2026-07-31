@@ -12395,6 +12395,66 @@
           }
         },
         {
+          "id": "google/nano-banana-2",
+          "name": "google/nano-banana-2",
+          "owned_by": "deepinfra",
+          "root": "google/nano-banana-2",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Nano Banana 2 makes high quality image generation and editing mainstream. The model also introduces Grounding with Google Image Search to enable long-tail entity recognition and enhance visual understanding.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {},
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "google/nano-banana-2-lite",
+          "name": "google/nano-banana-2-lite",
+          "owned_by": "deepinfra",
+          "root": "google/nano-banana-2-lite",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Nano Banana 2 Lite enables high speed image generation a reality, while keeping the high quality editing of Nano Banana.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {},
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "google/nano-banana-pro",
+          "name": "google/nano-banana-pro",
+          "owned_by": "deepinfra",
+          "root": "google/nano-banana-pro",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Nano Banana Pro is designed to tackle the most challenging image generation by incorporating state-of-the-art reasoning capabilities. It is the best model for complex and multi-turn image generation and editing.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {},
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "google/veo-3.1",
           "name": "google/veo-3.1",
           "owned_by": "deepinfra",
@@ -24494,6 +24554,69 @@
             "supported_efforts": [
               "xhigh",
               "high"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
+          "id": "deepseek/deepseek-v4-flash-0731",
+          "name": "DeepSeek: DeepSeek V4 Flash 0731",
+          "canonical_slug": "deepseek/deepseek-v4-flash-20260731",
+          "hugging_face_id": null,
+          "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows.",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "DeepSeek",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000014",
+            "completion": "0.00000028",
+            "input_cache_read": "0.0000000028"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 384000,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "stop",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": [],
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-v4-flash-20260731/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "high",
+              "low"
             ],
             "default_effort": "high"
           }
@@ -42293,14 +42416,7 @@
             "tool_choice",
             "tools"
           ],
-          "default_parameters": {
-            "temperature": 0.7,
-            "top_p": 0.9,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
+          "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": null,
           "expiration_date": null,
@@ -42348,14 +42464,7 @@
             "tool_choice",
             "tools"
           ],
-          "default_parameters": {
-            "temperature": 0.7,
-            "top_p": 0.9,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
+          "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": null,
           "expiration_date": null,
@@ -46028,7 +46137,7 @@
           },
           "top_provider": {
             "context_length": 1000000,
-            "max_completion_tokens": 65536,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -46226,7 +46335,7 @@
           },
           "top_provider": {
             "context_length": 1000000,
-            "max_completion_tokens": 65536,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
