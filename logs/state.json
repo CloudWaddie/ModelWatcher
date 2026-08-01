@@ -10668,6 +10668,17 @@
           "context_length": 1048576
         },
         {
+          "id": "accounts/fireworks/models/deepseek-v4-flash-0731",
+          "name": "accounts/fireworks/models/deepseek-v4-flash-0731",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
           "id": "accounts/fireworks/models/deepseek-v4-pro",
           "name": "accounts/fireworks/models/deepseek-v4-pro",
           "owned_by": "fireworks",
@@ -42161,6 +42172,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -42171,6 +42183,7 @@
             "structured_outputs",
             "temperature",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
