@@ -1,5 +1,5 @@
 {
-  "timestamp": 1785777148295,
+  "timestamp": 1785786420071,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7124,7 +7124,13 @@
           "mobileapps",
           "nativeapps"
         ]
-      }
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video"
+      ]
     },
     {
       "id": "qwen3.7-plus",
@@ -7643,7 +7649,17 @@
           "ascii"
         ],
         "agents": [
-          "agon_godot"
+          "agon_webapps",
+          "agon_slides",
+          "agon_slides_html",
+          "agon_dataviz",
+          "agon_godot",
+          "agentic_gamedev",
+          "agentic_3d",
+          "fullstack",
+          "fullstack_gamedev",
+          "mobileapps",
+          "nativeapps"
         ]
       },
       "vision": true,
@@ -8241,6 +8257,23 @@
           "image",
           "logo",
           "graphicdesign"
+        ]
+      }
+    },
+    {
+      "id": "minimax-h3",
+      "displayName": "MiniMax H3",
+      "provider": "minimax",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo",
+          "multitovideo",
+          "videotovideo",
+          "multimodaltovideo"
         ]
       }
     }
@@ -12182,6 +12215,12 @@
       "id": "magnolia",
       "image": {
         "perImage": 0.015
+      }
+    },
+    {
+      "id": "minimax-h3",
+      "video": {
+        "perSecond": 0.13
       }
     }
   ]
