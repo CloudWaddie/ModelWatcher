@@ -14381,6 +14381,32 @@
           }
         },
         {
+          "id": "Qwen/Qwen3.8-Max",
+          "name": "Qwen/Qwen3.8-Max",
+          "owned_by": "deepinfra",
+          "root": "Qwen/Qwen3.8-Max",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Qwen's latest 2.4-trillion-parameter MoE flagship model delivering a comprehensive leap in coding and professional work.",
+            "context_length": 256000,
+            "max_tokens": 256000,
+            "pricing": {
+              "input_tokens": 1.6500000000000001,
+              "output_tokens": 4.9510000000000005,
+              "cache_read_tokens": 0.20599999200000002
+            },
+            "tags": [
+              "chat",
+              "prompt_cache",
+              "reasoning_effort"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "ResembleAI/chatterbox-multilingual",
           "name": "ResembleAI/chatterbox-multilingual",
           "owned_by": "deepinfra",
@@ -40443,8 +40469,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000004",
-            "completion": "0.0000032"
+            "prompt": "0.00000026",
+            "completion": "0.00000208"
           },
           "top_provider": {
             "context_length": 262144,
@@ -41932,6 +41958,77 @@
           "reasoning": {
             "mandatory": false,
             "default_enabled": true
+          }
+        },
+        {
+          "id": "qwen/qwen3.8-max",
+          "name": "Qwen: Qwen3.8 Max",
+          "canonical_slug": "qwen/qwen3.8-max-20260803",
+          "hugging_face_id": null,
+          "description": "Qwen3.8 Max is the flagship model in Alibaba's Qwen3.8 series, the general-availability successor to the Qwen3.8 Max Preview. It is a multimodal reasoning model intended for complex reasoning, visual understanding,...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.000006",
+            "input_cache_read": "0.00000025",
+            "input_cache_write": "0.0000025"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.8-max-20260803/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "xhigh"
           }
         },
         {
@@ -45731,9 +45828,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000007014",
-            "completion": "0.0000022044",
-            "input_cache_read": "0.00000013026"
+            "prompt": "0.0000006146",
+            "completion": "0.0000019316",
+            "input_cache_read": "0.00000011414"
           },
           "top_provider": {
             "context_length": 1048576,
