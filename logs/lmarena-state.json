@@ -11097,8 +11097,11 @@
     },
     {
       "id": "019fc361-b52b-7cb8-b2e5-c4339840ab39",
+      "organization": "alibaba",
+      "provider": "alibabaToolCall",
       "publicName": "thunbergia-alpha",
-      "displayName": "thunbergia-alpha",
+      "name": "thunbergia-alpha-jz4q",
+      "displayName": "qwen3.8-max",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
@@ -11110,7 +11113,7 @@
           "web": true
         }
       },
-      "userSelectable": true,
+      "userSelectable": false,
       "rankByModality": {
         "webdev": 9007199254740991
       }
@@ -12021,35 +12024,6 @@
       }
     },
     {
-      "id": "019be243-f89b-76a4-943d-553f46f62993",
-      "organization": "openai",
-      "provider": "customOpenai",
-      "publicName": "gpt-image-1.5-high-fidelity",
-      "name": "gpt-image-1.5-high-fidelity",
-      "displayName": "gpt-image-1.5-high-fidelity",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": false,
-            "multipleImages": true
-          }
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": false,
-      "rank": 9,
-      "rankByModality": {
-        "image": 9
-      }
-    },
-    {
       "id": "019f42b5-8c52-7793-9be8-de35eecf7ea9",
       "organization": "bytedance",
       "provider": "byteplus",
@@ -12073,6 +12047,35 @@
         }
       },
       "userSelectable": true,
+      "rank": 7,
+      "rankByModality": {
+        "image": 7
+      }
+    },
+    {
+      "id": "019be243-f89b-76a4-943d-553f46f62993",
+      "organization": "openai",
+      "provider": "customOpenai",
+      "publicName": "gpt-image-1.5-high-fidelity",
+      "name": "gpt-image-1.5-high-fidelity",
+      "displayName": "gpt-image-1.5-high-fidelity",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": true
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": false,
       "rank": 11,
       "rankByModality": {
         "image": 11
@@ -12098,9 +12101,9 @@
         }
       },
       "userSelectable": false,
-      "rank": 13,
+      "rank": 14,
       "rankByModality": {
-        "image": 13
+        "image": 14
       }
     },
     {
@@ -12127,9 +12130,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 17,
+      "rank": 18,
       "rankByModality": {
-        "image": 17
+        "image": 18
       }
     },
     {
@@ -12149,9 +12152,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 19,
+      "rank": 20,
       "rankByModality": {
-        "image": 19
+        "image": 20
       }
     },
     {
@@ -12178,38 +12181,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 23,
+      "rank": 24,
       "rankByModality": {
-        "image": 23
-      }
-    },
-    {
-      "id": "019b478d-74ae-7d19-9a8f-6cfde89ab4ca",
-      "organization": "bfl",
-      "provider": "bfl",
-      "publicName": "flux-2-dev",
-      "name": "flux-2-dev-20251222",
-      "displayName": "flux-2-dev",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": false,
-            "multipleImages": true
-          }
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rank": 28,
-      "rankByModality": {
-        "image": 28
+        "image": 24
       }
     },
     {
@@ -12239,6 +12213,35 @@
       "rank": 29,
       "rankByModality": {
         "image": 29
+      }
+    },
+    {
+      "id": "019b478d-74ae-7d19-9a8f-6cfde89ab4ca",
+      "organization": "bfl",
+      "provider": "bfl",
+      "publicName": "flux-2-dev",
+      "name": "flux-2-dev-20251222",
+      "displayName": "flux-2-dev",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": true
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rank": 30,
+      "rankByModality": {
+        "image": 30
       }
     },
     {
@@ -12287,9 +12290,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 33,
+      "rank": 34,
       "rankByModality": {
-        "image": 33
+        "image": 34
       }
     },
     {
@@ -12312,9 +12315,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 35,
+      "rank": 36,
       "rankByModality": {
-        "image": 35
+        "image": 36
       }
     },
     {
@@ -12337,9 +12340,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 36,
+      "rank": 37,
       "rankByModality": {
-        "image": 36
+        "image": 37
       }
     },
     {
@@ -12362,9 +12365,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 37,
+      "rank": 38,
       "rankByModality": {
-        "image": 37
+        "image": 38
       }
     },
     {
@@ -12435,9 +12438,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 40,
+      "rank": 41,
       "rankByModality": {
-        "image": 40
+        "image": 41
       }
     },
     {
@@ -12454,31 +12457,6 @@
             "requiresUpload": false,
             "multipleImages": true
           }
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rank": 40,
-      "rankByModality": {
-        "image": 40
-      }
-    },
-    {
-      "id": "019f049d-7de4-7fae-8237-1c2103b9e730",
-      "organization": "krea",
-      "provider": "fal",
-      "publicName": "krea-2-turbo",
-      "name": "krea-2-turbo",
-      "displayName": "krea-2-turbo",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
         },
         "outputCapabilities": {
           "image": {
@@ -12514,25 +12492,21 @@
         }
       },
       "userSelectable": true,
-      "rank": 43,
+      "rank": 42,
       "rankByModality": {
-        "image": 43
+        "image": 42
       }
     },
     {
-      "id": "019db3f0-b024-7478-bd4d-55ea1ec1d421",
-      "organization": "wan",
-      "provider": "alibaba",
-      "publicName": "wan2.7-image-pro",
-      "name": "wan2.7-image-pro-0421",
-      "displayName": "wan2.7-image-pro",
+      "id": "019f049d-7de4-7fae-8237-1c2103b9e730",
+      "organization": "krea",
+      "provider": "fal",
+      "publicName": "krea-2-turbo",
+      "name": "krea-2-turbo",
+      "displayName": "krea-2-turbo",
       "capabilities": {
         "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": false,
-            "multipleImages": true
-          }
+          "text": true
         },
         "outputCapabilities": {
           "image": {
@@ -12543,9 +12517,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 45,
+      "rank": 44,
       "rankByModality": {
-        "image": 45
+        "image": 44
       }
     },
     {
@@ -12574,12 +12548,12 @@
       }
     },
     {
-      "id": "019db3ef-f2e3-7508-b3bc-c2ba377804ea",
+      "id": "019db3f0-b024-7478-bd4d-55ea1ec1d421",
       "organization": "wan",
       "provider": "alibaba",
-      "publicName": "wan2.7-image",
-      "name": "wan2.7-image-0421",
-      "displayName": "wan2.7-image",
+      "publicName": "wan2.7-image-pro",
+      "name": "wan2.7-image-pro-0421",
+      "displayName": "wan2.7-image-pro",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
@@ -12603,6 +12577,35 @@
       }
     },
     {
+      "id": "019db3ef-f2e3-7508-b3bc-c2ba377804ea",
+      "organization": "wan",
+      "provider": "alibaba",
+      "publicName": "wan2.7-image",
+      "name": "wan2.7-image-0421",
+      "displayName": "wan2.7-image",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": true
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rank": 48,
+      "rankByModality": {
+        "image": 48
+      }
+    },
+    {
       "id": "d8771262-8248-4372-90d5-eb41910db034",
       "organization": "bytedance",
       "provider": "fal",
@@ -12622,9 +12625,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 49,
+      "rank": 50,
       "rankByModality": {
-        "image": 49
+        "image": 50
       }
     },
     {
@@ -12644,9 +12647,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 50,
+      "rank": 51,
       "rankByModality": {
-        "image": 50
+        "image": 51
       }
     },
     {
@@ -12669,9 +12672,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 51,
+      "rank": 52,
       "rankByModality": {
-        "image": 51
+        "image": 52
       }
     },
     {
@@ -12698,34 +12701,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 54,
+      "rank": 55,
       "rankByModality": {
-        "image": 54
-      }
-    },
-    {
-      "id": "019f91aa-b945-7411-a0cf-359f9f9f2360",
-      "organization": "nvidia",
-      "provider": "nvidiaNvcf",
-      "publicName": "cosmos3-super",
-      "name": "cosmos3-super-nvcf-v2",
-      "displayName": "cosmos3-super",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rank": 56,
-      "rankByModality": {
-        "image": 56
+        "image": 55
       }
     },
     {
@@ -12754,6 +12732,31 @@
       }
     },
     {
+      "id": "019f91aa-b945-7411-a0cf-359f9f9f2360",
+      "organization": "nvidia",
+      "provider": "nvidiaNvcf",
+      "publicName": "cosmos3-super",
+      "name": "cosmos3-super-nvcf-v2",
+      "displayName": "cosmos3-super",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rank": 58,
+      "rankByModality": {
+        "image": 58
+      }
+    },
+    {
       "id": "73378be5-cdba-49e7-b3d0-027949871aa6",
       "organization": "Ideogram",
       "provider": "fal",
@@ -12773,9 +12776,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 59,
+      "rank": 60,
       "rankByModality": {
-        "image": 59
+        "image": 60
       }
     },
     {
@@ -12798,9 +12801,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 60,
+      "rank": 61,
       "rankByModality": {
-        "image": 60
+        "image": 61
       }
     },
     {
@@ -12823,9 +12826,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 64,
+      "rank": 65,
       "rankByModality": {
-        "image": 64
+        "image": 65
       }
     },
     {
@@ -12848,9 +12851,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 66,
+      "rank": 67,
       "rankByModality": {
-        "image": 66
+        "image": 67
       }
     },
     {
@@ -12877,9 +12880,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 72,
+      "rank": 73,
       "rankByModality": {
-        "image": 72
+        "image": 73
       }
     },
     {
@@ -14532,8 +14535,11 @@
     },
     {
       "id": "019faa36-5563-74a3-938c-1105c79bdd92",
+      "organization": "alibaba",
+      "provider": "qwenImage",
       "publicName": "zen-bear-v14r",
-      "displayName": "zen-bear-v14r",
+      "name": "zen-bear-v14r-z42u",
+      "displayName": "qwen-image-3.0-pro",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -18755,5 +18761,5 @@
       }
     }
   ],
-  "lastCheck": 1785853785609
+  "lastCheck": 1785860929324
 }
