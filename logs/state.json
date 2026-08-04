@@ -16459,7 +16459,7 @@
           "max_context_length": 16384,
           "aliases": [
             "mistral-ocr-latest",
-            "mistral-ocr-4-0"
+            "mistral-ocr-4-1"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
@@ -16468,6 +16468,35 @@
         },
         {
           "id": "mistral-ocr-4-0",
+          "name": "mistral-ocr-4-0",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": true,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": true,
+            "ocr": true,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": false,
+            "unified_resources": false
+          },
+          "description": "Official mistral-ocr-4-0 Mistral AI model",
+          "max_context_length": 16384,
+          "aliases": [],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0,
+          "type": "base"
+        },
+        {
+          "id": "mistral-ocr-4-1",
           "name": "mistral-ocr-latest",
           "owned_by": "mistralai",
           "object": "model",
@@ -16522,8 +16551,8 @@
           "description": "Official mistral-ocr-latest Mistral AI model",
           "max_context_length": 16384,
           "aliases": [
-            "mistral-ocr-4-0",
-            "mistral-ocr-4"
+            "mistral-ocr-4",
+            "mistral-ocr-4-1"
           ],
           "deprecation": null,
           "deprecation_replacement_model": null,
@@ -38595,13 +38624,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000008",
-            "completion": "0.000001",
-            "input_cache_read": "0.0000004"
+            "prompt": "0.00000025",
+            "completion": "0.00000075"
           },
           "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": 128000,
+            "context_length": 32000,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
