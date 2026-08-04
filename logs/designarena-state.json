@@ -1,5 +1,5 @@
 {
-  "timestamp": 1785872642511,
+  "timestamp": 1785878245245,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -6569,7 +6569,7 @@
       "id": "deepseek-v4-flash",
       "displayName": "DeepSeek-V4-Flash",
       "provider": "deepseek",
-      "active": true,
+      "active": false,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -8014,7 +8014,7 @@
       "displayName": "Qwen3.8 Max Preview",
       "provider": "alibaba",
       "active": true,
-      "openSource": false,
+      "openSource": true,
       "router": false,
       "arenas": {
         "models": [
@@ -8313,6 +8313,42 @@
           "multitovideo",
           "videotovideo",
           "multimodaltovideo"
+        ]
+      }
+    },
+    {
+      "id": "deepseek-v4-flash-0731",
+      "displayName": "DeepSeek-V4-Flash-0731",
+      "provider": "deepseek",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "inputModalities": [
+        "text"
+      ]
+    },
+    {
+      "id": "flux-3-video",
+      "displayName": "FLUX 3 Video",
+      "provider": "black_forest_labs",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo"
         ]
       }
     }
@@ -12260,6 +12296,19 @@
       "id": "minimax-h3",
       "video": {
         "perSecond": 0.13
+      }
+    },
+    {
+      "id": "deepseek-v4-flash-0731",
+      "text": {
+        "input": 0.09,
+        "output": 0.18
+      }
+    },
+    {
+      "id": "flux-3-video",
+      "video": {
+        "perSecond": 0.29
       }
     }
   ]
