@@ -12721,6 +12721,32 @@
           }
         },
         {
+          "id": "inclusionAI/Ling-3.0-flash",
+          "name": "inclusionAI/Ling-3.0-flash",
+          "owned_by": "deepinfra",
+          "root": "inclusionAI/Ling-3.0-flash",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "The model prioritizes token efficiency and agentic inference at production scale, stretching what developers can achieve within limited token, latency, and serving-cost budgets.",
+            "context_length": 131072,
+            "max_tokens": 131072,
+            "pricing": {
+              "input_tokens": 0.075,
+              "output_tokens": 0.21999999999999997,
+              "cache_read_tokens": 0.015
+            },
+            "tags": [
+              "chat",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "intfloat/e5-base-v2",
           "name": "intfloat/e5-base-v2",
           "owned_by": "deepinfra",
@@ -28202,7 +28228,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015",
+            "prompt": "0.00000022",
             "completion": "0.0000009",
             "input_cache_read": "0.00000005"
           },
@@ -30676,7 +30702,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000073",
+            "prompt": "0.0000007",
             "completion": "0.0000035",
             "input_cache_read": "0.00000015"
           },
@@ -43579,7 +43605,7 @@
           "canonical_slug": "upstage/solar-pro-3",
           "hugging_face_id": "",
           "description": "Solar Pro 3 is Upstage's powerful Mixture-of-Experts (MoE) language model. With 102B total parameters and 12B active parameters per forward pass, it delivers exceptional performance while maintaining computational efficiency. Optimized...",
-          "context_length": 128000,
+          "context_length": 131072,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -43597,20 +43623,23 @@
             "input_cache_read": "0.000000015"
           },
           "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": null,
+            "context_length": 131072,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "frequency_penalty",
             "include_reasoning",
             "max_tokens",
+            "presence_penalty",
             "reasoning",
             "response_format",
             "structured_outputs",
             "temperature",
             "tool_choice",
-            "tools"
+            "tools",
+            "top_p"
           ],
           "default_parameters": {
             "temperature": null,
