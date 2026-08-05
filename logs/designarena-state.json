@@ -1,5 +1,5 @@
 {
-  "timestamp": 1785898615113,
+  "timestamp": 1785909130046,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -852,7 +852,7 @@
       "id": "seedance-1.0-lite-ref",
       "displayName": "Seedance 1.0 Lite",
       "provider": "bytedance",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1373,7 +1373,7 @@
       "id": "gemini-3-flash-preview",
       "displayName": "Gemini 3 Flash Preview",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1565,7 +1565,7 @@
       "id": "imagen-4.0-generate-001",
       "displayName": "Imagen 4 Generate 001",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1580,7 +1580,7 @@
       "id": "imagen-4.0-ultra-generate-001",
       "displayName": "Imagen 4 Ultra Generate 001",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1595,7 +1595,7 @@
       "id": "imagen-4.0-fast-generate-001",
       "displayName": "Imagen 4 Fast Generate 001",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1629,7 +1629,7 @@
       "id": "gemini-2.5-flash-image",
       "displayName": "Gemini 2.5 Flash Image (Nano Banana)",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1648,7 +1648,7 @@
       "id": "gemini-3.1-flash-image-preview",
       "displayName": "Gemini 3.1 Flash Image Gen (Nano Banana 2)",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1667,7 +1667,7 @@
       "id": "gemini-3.1-flash-image-gen-2k",
       "displayName": "Gemini 3.1 Flash Image Gen 2K (Nano Banana 2)",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1702,7 +1702,7 @@
       "id": "gemini-3-pro-image-preview",
       "displayName": "Gemini 3 Pro Image Preview",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1719,7 +1719,7 @@
       "id": "gemini-3-pro-image-gen-2k",
       "displayName": "Gemini 3 Pro Image Gen 2K (Nano Banana Pro)",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1768,7 +1768,7 @@
       "id": "google_gemini_tts",
       "displayName": "Google Gemini 2.5 Flash TTS",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1781,7 +1781,7 @@
       "id": "google_gemini_2_5_pro_tts",
       "displayName": "Google Gemini 2.5 Pro TTS",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1794,7 +1794,7 @@
       "id": "google_gemini_live",
       "displayName": "Google Gemini Live",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -1922,7 +1922,7 @@
       "id": "gemini-3-pro-image-preview-2k",
       "displayName": "Gemini 3 Pro Image Preview 2K",
       "provider": "google",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -3303,7 +3303,7 @@
       "id": "kimi-k2-0905-preview",
       "displayName": "Kimi K2 0905 Preview",
       "provider": "moonshot",
-      "active": true,
+      "active": false,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -3348,7 +3348,7 @@
       "id": "kimi-k2.5",
       "displayName": "Kimi K2.5 (Thinking)",
       "provider": "moonshot",
-      "active": true,
+      "active": false,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -4230,7 +4230,7 @@
       "id": "openai_gpt_realtime_mini",
       "displayName": "OpenAI GPT Realtime",
       "provider": "openai",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -7866,7 +7866,7 @@
       "id": "snowflake",
       "displayName": "Perceptis",
       "provider": "perceptis",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -8168,16 +8168,17 @@
     },
     {
       "id": "qwen-image-3",
-      "displayName": "Qwen Image 3",
+      "displayName": "Qwen Image 3 Pro",
       "provider": "alibaba",
-      "active": false,
+      "active": true,
       "openSource": false,
       "router": false,
       "arenas": {
         "models": [
           "image",
           "logo",
-          "graphicdesign"
+          "graphicdesign",
+          "imagetoimage"
         ]
       }
     },
@@ -12262,6 +12263,12 @@
       "text": {
         "input": 1.5,
         "output": 7.5
+      }
+    },
+    {
+      "id": "qwen-image-3",
+      "image": {
+        "perImage": 0.075
       }
     },
     {
