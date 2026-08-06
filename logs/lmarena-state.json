@@ -8474,12 +8474,12 @@
     },
     {
       "id": "019fb6ba-031f-7e6b-ac0b-33dc6569bbc4",
-      "organization": "google",
-      "publicName": "gemini-3.5-flash",
-      "displayName": "gemini-3.5-flash",
+      "publicName": "gemini-3.5-pro",
+      "displayName": "gemini-3.5-pro",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "text": true,
@@ -14643,6 +14643,31 @@
       }
     },
     {
+      "id": "019fd4cb-9c14-7ee1-9a27-893c26096638",
+      "publicName": "mustard",
+      "displayName": "mustard",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": true,
+            "multipleImages": false
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
       "id": "019f38c2-002d-7f0f-a391-db6df024b734",
       "publicName": "zen-bear-v3",
       "displayName": "zen-bear-v3",
@@ -18930,5 +18955,5 @@
       }
     }
   ],
-  "lastCheck": 1785977637784
+  "lastCheck": 1785989907782
 }
