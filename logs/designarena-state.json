@@ -1,5 +1,5 @@
 {
-  "timestamp": 1786074784315,
+  "timestamp": 1786081465517,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -7713,6 +7713,40 @@
       ]
     },
     {
+      "id": "muse-spark-1.2",
+      "displayName": "Muse Spark 1.2",
+      "provider": "meta",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg"
+        ],
+        "agents": [
+          "agon_webapps",
+          "fullstack",
+          "nativeapps",
+          "agentic_gamedev",
+          "agon_godot",
+          "agon_dataviz",
+          "agon_slides",
+          "agon_slides_html"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video"
+      ]
+    },
+    {
       "id": "imagineart-2.0-edit",
       "displayName": "ImagineArt 2.0 Edit",
       "provider": "imagineart",
@@ -12158,6 +12192,13 @@
     },
     {
       "id": "evergreen",
+      "text": {
+        "input": 1.25,
+        "output": 4.25
+      }
+    },
+    {
+      "id": "muse-spark-1.2",
       "text": {
         "input": 1.25,
         "output": 4.25
