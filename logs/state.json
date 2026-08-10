@@ -5060,7 +5060,7 @@
           "type": "chat",
           "running": false,
           "display_name": "Meta Llama 3.3 70B Instruct",
-          "organization": "meta-llama",
+          "organization": "Meta",
           "link": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
           "license": "llama3.3",
           "context_length": 131072,
@@ -5497,7 +5497,7 @@
           "type": "chat",
           "running": false,
           "display_name": "Muse Glimmer 30B",
-          "organization": "Meta Models",
+          "organization": "Meta",
           "link": "https://huggingface.co/api/models/togethercomputer/onyx_final_hf-fp8-mlp",
           "context_length": 131072,
           "config": {
@@ -30868,6 +30868,77 @@
           }
         },
         {
+          "id": "meta/muse-glimmer-30b",
+          "name": "Meta: Muse Glimmer 30B",
+          "canonical_slug": "meta/muse-glimmer-30b-20260810",
+          "hugging_face_id": "meta-models/Muse-Glimmer-30B",
+          "description": "Muse Glimmer 30B is a dense, open-weight multimodal model from Meta Superintelligence Labs, distilled from Muse Spark and optimized for autonomous agents on consumer hardware. It is suited for long-horizon...",
+          "context_length": 131072,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000035",
+            "completion": "0.0000015",
+            "input_cache_read": "0.00000004"
+          },
+          "top_provider": {
+            "context_length": 131072,
+            "max_completion_tokens": null,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "repetition_penalty",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 64
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta/muse-glimmer-30b-20260810/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
           "id": "meta/muse-spark-1.1",
           "name": "Meta: Muse Spark 1.1",
           "canonical_slug": "meta/muse-spark-1.1-20260709",
@@ -53311,9 +53382,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000005166",
-            "completion": "0.0000016236",
-            "input_cache_read": "0.00000009594"
+            "prompt": "0.0000005026",
+            "completion": "0.0000015796",
+            "input_cache_read": "0.00000009334"
           },
           "top_provider": {
             "context_length": 1048576,
