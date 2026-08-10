@@ -2590,6 +2590,36 @@
           }
         },
         {
+          "id": "ByteDance/Seedance-2.5",
+          "name": "ByteDance/Seedance-2.5",
+          "uuid": "endpoint-d0ba33d4-1c4e-43db-9f3f-c8a4c2885dad",
+          "object": "model",
+          "type": "video",
+          "running": false,
+          "display_name": "ByteDance Seedance 2.5",
+          "organization": "ByteDance",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": {
+              "example_price": 0.115,
+              "example_description": "480P: $0.115/sec & 720P: from $0.249/sec"
+            }
+          }
+        },
+        {
           "id": "ByteDance/Seedream-5.0-lite",
           "name": "ByteDance/Seedream-5.0-lite",
           "uuid": "endpoint-90244fc5-096f-4bca-b5f2-79664175e2c4",
@@ -46639,11 +46669,11 @@
           },
           "pricing": {
             "prompt": "0.00000007",
-            "completion": "0.00000027"
+            "completion": "0.00000028"
           },
           "top_provider": {
-            "context_length": 160000,
-            "max_completion_tokens": 32768,
+            "context_length": 262144,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -53249,9 +53279,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000005446",
-            "completion": "0.0000017116",
-            "input_cache_read": "0.00000010114"
+            "prompt": "0.0000005306",
+            "completion": "0.0000016676",
+            "input_cache_read": "0.00000009854"
           },
           "top_provider": {
             "context_length": 1048576,
