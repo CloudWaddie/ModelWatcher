@@ -29832,7 +29832,7 @@
           "id": "inclusionai/ling-3.0-tiny:free",
           "name": "inclusionAI: Ling 3.0 Tiny (free)",
           "canonical_slug": "inclusionai/ling-3.0-tiny-20260806",
-          "hugging_face_id": null,
+          "hugging_face_id": "inclusionAI/Ling-3.0-tiny",
           "description": "Ling 3.0 Tiny is a mixture-of-experts model from InclusionAI, with 1.3B active parameters out of 7.9B total. It is designed for responsive agents, instruction following, and multi-turn conversations, with switchable...",
           "context_length": 262144,
           "architecture": {
@@ -29873,7 +29873,11 @@
             "top_logprobs",
             "top_p"
           ],
-          "default_parameters": {},
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 20
+          },
           "supported_voices": null,
           "knowledge_cutoff": null,
           "expiration_date": null,
