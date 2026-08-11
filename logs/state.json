@@ -17762,10 +17762,11 @@
           "description": "This model always redirects to the latest model in the MoonshotAI Kimi family.",
           "context_length": 1048576,
           "architecture": {
-            "modality": "text+image->text",
+            "modality": "text+image+video->text",
             "input_modalities": [
               "text",
-              "image"
+              "image",
+              "video"
             ],
             "output_modalities": [
               "text"
@@ -25118,9 +25119,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006512",
-            "completion": "0.0000013024",
-            "input_cache_read": "0.000000054945"
+            "prompt": "0.00000063168",
+            "completion": "0.00000126336",
+            "input_cache_read": "0.000000053298"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -34780,10 +34781,11 @@
           "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at...",
           "context_length": 1048576,
           "architecture": {
-            "modality": "text+image->text",
+            "modality": "text+image+video->text",
             "input_modalities": [
               "text",
-              "image"
+              "image",
+              "video"
             ],
             "output_modalities": [
               "text"
