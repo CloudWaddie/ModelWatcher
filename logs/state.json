@@ -13038,6 +13038,34 @@
           }
         },
         {
+          "id": "meta-models/Muse-Glimmer-30B",
+          "name": "meta-models/Muse-Glimmer-30B",
+          "owned_by": "deepinfra",
+          "root": "meta-models/Muse-Glimmer-30B",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Muse Glimmer is a 30B multimodal agentic model distilled from Muse Spark — reasoning, tool use, and failure recovery in a single model that runs locally on consumer hardware.",
+            "context_length": 131072,
+            "max_tokens": 131072,
+            "pricing": {
+              "input_tokens": 0.3,
+              "output_tokens": 1.2,
+              "cache_read_tokens": 0.039999999
+            },
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "microsoft/phi-4",
           "name": "microsoft/phi-4",
           "owned_by": "deepinfra",
@@ -15654,7 +15682,7 @@
             "audio_speech": false,
             "unified_resources": false
           },
-          "description": "Official glm-5-2 Mistral AI model",
+          "description": "Official Z.ai GLM 5.2 model",
           "max_context_length": 1048576,
           "aliases": [
             "zai-glm-5-2"
@@ -17174,7 +17202,7 @@
             "audio_speech": false,
             "unified_resources": false
           },
-          "description": "Official glm-5-2 Mistral AI model",
+          "description": "Official Z.ai GLM 5.2 model",
           "max_context_length": 1048576,
           "aliases": [
             "glm-5-2"
@@ -36334,6 +36362,63 @@
           "reasoning": {
             "mandatory": false,
             "default_enabled": true
+          }
+        },
+        {
+          "id": "nvidia/nemotron-3.5-lightning",
+          "name": "NVIDIA: Nemotron 3.5 Lightning",
+          "canonical_slug": "nvidia/nemotron-3.5-lightning-20260807",
+          "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+          "description": "NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total. It is suited for high-throughput agentic workloads and specialized tasks that...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.00000025",
+            "input_cache_read": "0.00000005"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 262144,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/nemotron-3.5-lightning-20260807/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
