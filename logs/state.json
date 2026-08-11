@@ -10920,6 +10920,17 @@
           "context_length": 262144
         },
         {
+          "id": "accounts/fireworks/models/nemotron-lightning-3p5-30b-a3b",
+          "name": "accounts/fireworks/models/nemotron-lightning-3p5-30b-a3b",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": false,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 262144
+        },
+        {
           "id": "accounts/fireworks/models/qwen3-embedding-8b",
           "name": "accounts/fireworks/models/qwen3-embedding-8b",
           "owned_by": "fireworks",
@@ -13589,6 +13600,29 @@
           }
         },
         {
+          "id": "nvidia/NVIDIA-Nemotron-3.5-Lightning",
+          "name": "nvidia/NVIDIA-Nemotron-3.5-Lightning",
+          "owned_by": "deepinfra",
+          "root": "nvidia/NVIDIA-Nemotron-3.5-Lightning",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "NVIDIA Nemotron 3.5 Lightning is NVIDIA's fastest open model for always-on agents and high-volume specialized tasks. It delivers a substantial leap in agentic capability over its predecessor Nemotron 3 Nano, with up to 4x higher throughput on a 1M-token context.",
+            "context_length": 28672,
+            "max_tokens": 28672,
+            "pricing": {
+              "input_tokens": 0.05,
+              "output_tokens": 0.2
+            },
+            "tags": [
+              "chat"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "openai/gpt-oss-120b",
           "name": "openai/gpt-oss-120b",
           "owned_by": "deepinfra",
@@ -15605,9 +15639,9 @@
           "owned_by": "mistralai",
           "object": "model",
           "capabilities": {
-            "completion_chat": false,
+            "completion_chat": true,
             "function_calling": false,
-            "reasoning": false,
+            "reasoning": true,
             "completion_fim": false,
             "fine_tuning": false,
             "vision": false,
@@ -15621,7 +15655,7 @@
             "unified_resources": false
           },
           "description": "Official glm-5-2 Mistral AI model",
-          "max_context_length": 32768,
+          "max_context_length": 1048576,
           "aliases": [
             "zai-glm-5-2"
           ],
@@ -17125,9 +17159,9 @@
           "owned_by": "mistralai",
           "object": "model",
           "capabilities": {
-            "completion_chat": false,
+            "completion_chat": true,
             "function_calling": false,
-            "reasoning": false,
+            "reasoning": true,
             "completion_fim": false,
             "fine_tuning": false,
             "vision": false,
@@ -17141,7 +17175,7 @@
             "unified_resources": false
           },
           "description": "Official glm-5-2 Mistral AI model",
-          "max_context_length": 32768,
+          "max_context_length": 1048576,
           "aliases": [
             "glm-5-2"
           ],
@@ -17587,13 +17621,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000079996",
-            "completion": "0.000000252",
-            "input_cache_read": "0.0000000252"
+            "prompt": "0.0000000798",
+            "completion": "0.0000001596",
+            "input_cache_read": "0.00000001596"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": null,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -34250,9 +34284,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000095",
-            "completion": "0.000004",
-            "input_cache_read": "0.00000016"
+            "prompt": "0.0000005795",
+            "completion": "0.00000244",
+            "input_cache_read": "0.0000000976"
           },
           "top_provider": {
             "context_length": 262144,
@@ -36300,6 +36334,55 @@
           "reasoning": {
             "mandatory": false,
             "default_enabled": true
+          }
+        },
+        {
+          "id": "nvidia/nemotron-3.5-lightning:free",
+          "name": "NVIDIA: Nemotron 3.5 Lightning (free)",
+          "canonical_slug": "nvidia/nemotron-3.5-lightning-20260807",
+          "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+          "description": "NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total. It is suited for high-throughput agentic workloads and specialized tasks that...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 65536,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "seed",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/nemotron-3.5-lightning-20260807/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -52595,12 +52678,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000055",
-            "completion": "0.0000022",
-            "input_cache_read": "0.00000011"
+            "prompt": "0.0000005",
+            "completion": "0.000002",
+            "input_cache_read": "0.0000001"
           },
           "top_provider": {
-            "context_length": 204800,
+            "context_length": 202752,
             "max_completion_tokens": 131072,
             "is_moderated": false
           },
@@ -53371,9 +53454,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000014",
-            "completion": "0.0000044",
-            "input_cache_read": "0.00000026"
+            "prompt": "0.000000952",
+            "completion": "0.000002992",
+            "input_cache_read": "0.0000001768"
           },
           "top_provider": {
             "context_length": 202752,
