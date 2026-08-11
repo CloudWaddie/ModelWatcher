@@ -17649,13 +17649,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000798",
-            "completion": "0.0000001596",
-            "input_cache_read": "0.00000001596"
+            "prompt": "0.000000072",
+            "completion": "0.000000144",
+            "input_cache_read": "0.0000000144"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "context_length": 262144,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -23499,6 +23499,74 @@
           },
           "reasoning": {
             "mandatory": false
+          }
+        },
+        {
+          "id": "bytedance-seed/seed-2.0-code",
+          "name": "ByteDance Seed: Seed-2.0-Code",
+          "canonical_slug": "bytedance-seed/seed-2.0-code-20260730",
+          "hugging_face_id": null,
+          "description": "Seed 2.0 Code is a model from ByteDance Seed optimized for agentic coding. It is suited for frontend development, multilingual programming tasks, and coding-agent workflows in tools such as Claude...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000005",
+            "completion": "0.000003",
+            "overrides": [
+              {
+                "min_prompt_tokens": 128000,
+                "prompt": "0.000001",
+                "completion": "0.000006"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/bytedance-seed/seed-2.0-code-20260730/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
           }
         },
         {
@@ -36383,21 +36451,22 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.00000025",
-            "input_cache_read": "0.00000005"
+            "prompt": "0",
+            "completion": "0"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "context_length": 28672,
+            "max_completion_tokens": 24576,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "logprobs",
             "max_tokens",
+            "min_p",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
