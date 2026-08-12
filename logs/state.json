@@ -18145,8 +18145,8 @@
           "name": "xAI: Grok Latest",
           "canonical_slug": "~x-ai/grok-latest",
           "alias_target": {
-            "name": "SpaceXAI: Grok 4.5",
-            "slug": "x-ai/grok-4.5"
+            "name": "SpaceXAI: Grok 4.6",
+            "slug": "x-ai/grok-4.6"
           },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest Grok model from xAI.",
@@ -18168,13 +18168,13 @@
             "prompt": "0.000002",
             "completion": "0.000006",
             "web_search": "0.005",
-            "input_cache_read": "0.0000003",
+            "input_cache_read": "0.0000005",
             "overrides": [
               {
                 "min_prompt_tokens": 200000,
                 "prompt": "0.000004",
                 "completion": "0.000012",
-                "input_cache_read": "0.0000006"
+                "input_cache_read": "0.000001"
               }
             ]
           },
@@ -18202,14 +18202,7 @@
             "top_logprobs",
             "top_p"
           ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
+          "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": null,
           "expiration_date": null,
@@ -18220,6 +18213,7 @@
             "mandatory": true,
             "default_enabled": true,
             "supported_efforts": [
+              "xhigh",
               "high",
               "medium",
               "low"
@@ -23524,6 +23518,59 @@
           }
         },
         {
+          "id": "bytedance-seed/seed-2-1-turbo",
+          "name": "ByteDance Seed: Seed 2.1 Turbo",
+          "canonical_slug": "bytedance-seed/seed-2-1-turbo-20260810",
+          "hugging_face_id": null,
+          "description": "Seed 2.1 Turbo is a multimodal model from ByteDance Seed for coding and long-horizon agent workflows. It is suited for end-to-end software delivery, multi-step task execution, and understanding visual and...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000005",
+            "completion": "0.0000025"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 262144,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/bytedance-seed/seed-2-1-turbo-20260810/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
+          }
+        },
+        {
           "id": "bytedance-seed/seed-2.0-code",
           "name": "ByteDance Seed: Seed-2.0-Code",
           "canonical_slug": "bytedance-seed/seed-2.0-code-20260730",
@@ -25369,11 +25416,7 @@
           ],
           "default_parameters": {
             "temperature": 1,
-            "top_p": 1,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
+            "top_p": 1
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
@@ -25472,6 +25515,71 @@
             "supported_efforts": [
               "xhigh",
               "high"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
+          "id": "deepseek/deepseek-v4-pro-0813",
+          "name": "DeepSeek: DeepSeek V4 Pro 0813",
+          "canonical_slug": "deepseek/deepseek-v4-pro-20260813",
+          "hugging_face_id": "",
+          "description": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek. This is the GA release of DeepSeek V4 Pro.",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "DeepSeek",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000435",
+            "completion": "0.00000087",
+            "input_cache_read": "0.000000003625"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 384000,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "stop",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 1
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-v4-pro-20260813/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "max",
+              "high",
+              "low"
             ],
             "default_effort": "high"
           }
@@ -34703,8 +34811,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000007",
-            "completion": "0.0000035",
+            "prompt": "0.00000067",
+            "completion": "0.0000034",
             "input_cache_read": "0.00000015"
           },
           "top_provider": {
@@ -49788,6 +49896,71 @@
           }
         },
         {
+          "id": "qwen/qwen3.8-2.4t-a95b",
+          "name": "Qwen: Qwen3.8 2.4T A95B",
+          "canonical_slug": "qwen/qwen3.8-2.4t-a95b-20260812",
+          "hugging_face_id": "Qwen/Qwen3.8-2.4T-A95B",
+          "description": "Qwen3.8 2.4T A95B is an open-weight sparse mixture-of-experts model from Qwen and the open-weight variant of [Qwen3.8 Max](/qwen/qwen3.8-max), with 95 billion active parameters out of 2.4 trillion total. It is...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.000006",
+            "input_cache_read": "0.0000002"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 52429,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 20
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.8-2.4t-a95b-20260812/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "xhigh"
+          }
+        },
+        {
           "id": "qwen/qwen3.8-max",
           "name": "Qwen: Qwen3.8 Max",
           "canonical_slug": "qwen/qwen3.8-max-20260803",
@@ -52096,7 +52269,7 @@
           "name": "SpaceXAI: Grok 4.5",
           "canonical_slug": "x-ai/grok-4.5-20260708",
           "hugging_face_id": null,
-          "description": "Grok 4.5 is SpaceXAI's smartest model with frontier performance on coding, knowledge work, and STEM.",
+          "description": "Grok 4.5 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM.",
           "context_length": 500000,
           "architecture": {
             "modality": "text+image+file->text",
@@ -52149,14 +52322,7 @@
             "top_logprobs",
             "top_p"
           ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
+          "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": null,
           "expiration_date": null,
@@ -52288,6 +52454,83 @@
             "mandatory": true,
             "default_enabled": true,
             "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
+          "id": "x-ai/grok-4.6",
+          "name": "SpaceXAI: Grok 4.6",
+          "canonical_slug": "x-ai/grok-4.6-20260810",
+          "hugging_face_id": null,
+          "description": "Grok 4.6 is SpaceXAI's smartest model with frontier performance on coding, knowledge work, and STEM.",
+          "context_length": 500000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Grok",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.000006",
+            "web_search": "0.005",
+            "input_cache_read": "0.0000005",
+            "overrides": [
+              {
+                "min_prompt_tokens": 200000,
+                "prompt": "0.000004",
+                "completion": "0.000012",
+                "input_cache_read": "0.000001"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 500000,
+            "max_completion_tokens": null,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/x-ai/grok-4.6-20260810/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "xhigh",
               "high",
               "medium",
               "low"
