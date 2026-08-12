@@ -10974,6 +10974,17 @@
           "supports_tools": true
         },
         {
+          "id": "accounts/fireworks/models/qwen3p8-max",
+          "name": "accounts/fireworks/models/qwen3p8-max",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": false,
+          "context_length": 262144
+        },
+        {
           "id": "accounts/fireworks/routers/glm-5p2-fast",
           "name": "accounts/fireworks/routers/glm-5p2-fast",
           "owned_by": "fireworks",
@@ -53937,9 +53948,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000005",
-            "completion": "0.00000315",
-            "input_cache_read": "0.0000001"
+            "prompt": "0.00000049",
+            "completion": "0.00000154",
+            "input_cache_read": "0.000000091"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -55493,6 +55504,22 @@
           "completion_text_token_price": 60000,
           "prompt_text_token_price_long_context": 40000,
           "cached_prompt_text_token_price_long_context": 6000,
+          "completion_text_token_price_long_context": 120000,
+          "long_context_threshold": 200000
+        },
+        {
+          "id": "grok-4.6",
+          "name": "grok-4.6",
+          "owned_by": "xai",
+          "object": "model",
+          "aliases": [],
+          "context_length": 500000,
+          "prompt_text_token_price": 20000,
+          "cached_prompt_text_token_price": 5000,
+          "prompt_image_token_price": 20000,
+          "completion_text_token_price": 60000,
+          "prompt_text_token_price_long_context": 40000,
+          "cached_prompt_text_token_price_long_context": 10000,
           "completion_text_token_price_long_context": 120000,
           "long_context_threshold": 200000
         },
