@@ -18868,7 +18868,7 @@
           "canonical_slug": "anthracite-org/magnum-v4-72b",
           "hugging_face_id": "anthracite-org/magnum-v4-72b",
           "description": "This is a series of models designed to replicate the prose quality of the Claude 3 models, specifically Sonnet(https://openrouter.ai/anthropic/claude-3.5-sonnet) and Opus(https://openrouter.ai/anthropic/claude-3-opus).\n\nThe model is fine-tuned on top of [Qwen2.5 72B](https://openrouter.ai/qwen/qwen-2.5-72b-instruct).",
-          "context_length": 16384,
+          "context_length": 32768,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -18885,8 +18885,8 @@
             "completion": "0.000005"
           },
           "top_provider": {
-            "context_length": 16384,
-            "max_completion_tokens": 2048,
+            "context_length": 32768,
+            "max_completion_tokens": 4096,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -30302,75 +30302,6 @@
               "intelligence_index": 37.8,
               "coding_index": 50.6,
               "agentic_index": 29.3
-            }
-          },
-          "reasoning": {
-            "mandatory": false,
-            "default_enabled": true
-          }
-        },
-        {
-          "id": "inclusionai/ling-3.0-tiny:free",
-          "name": "inclusionAI: Ling 3.0 Tiny (free)",
-          "canonical_slug": "inclusionai/ling-3.0-tiny-20260806",
-          "hugging_face_id": "inclusionAI/Ling-3.0-tiny",
-          "description": "Ling 3.0 Tiny is a mixture-of-experts model from InclusionAI, with 1.3B active parameters out of 7.9B total. It is designed for responsive agents, instruction following, and multi-turn conversations, with switchable...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 32768,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 1,
-            "top_p": 0.95,
-            "top_k": 20
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": "2026-08-13",
-          "links": {
-            "details": "/api/v1/models/inclusionai/ling-3.0-tiny-20260806/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": 24.5,
-              "coding_index": 26.5,
-              "agentic_index": 16
             }
           },
           "reasoning": {
