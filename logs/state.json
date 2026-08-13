@@ -10841,6 +10841,17 @@
           "context_length": 1048576
         },
         {
+          "id": "accounts/fireworks/models/deepseek-v4-pro-0813",
+          "name": "accounts/fireworks/models/deepseek-v4-pro-0813",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
           "id": "accounts/fireworks/models/glm-5p2",
           "name": "accounts/fireworks/models/glm-5p2",
           "owned_by": "fireworks",
@@ -12234,58 +12245,6 @@
             },
             "tags": [
               "embed"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
-          "id": "google/gemini-1.5-flash",
-          "name": "google/gemini-1.5-flash",
-          "owned_by": "deepinfra",
-          "root": "google/gemini-1.5-flash",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "Gemini 1.5 Flash is Google's foundation model that performs well at a variety of multimodal tasks such as visual understanding, classification, summarization, and creating content from image, audio and video. It's adept at processing visual and text inputs such as photographs, documents, infographics, and screenshots. Gemini 1.5 Flash is designed for high-volume, high-frequency tasks where cost and latency matter.",
-            "context_length": 1000000,
-            "max_tokens": 1000000,
-            "pricing": {
-              "input_tokens": 0.075,
-              "output_tokens": 0.3
-            },
-            "tags": [
-              "chat",
-              "vlm",
-              "vision",
-              "reasoning_effort"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
-          "id": "google/gemini-1.5-flash-8b",
-          "name": "google/gemini-1.5-flash-8b",
-          "owned_by": "deepinfra",
-          "root": "google/gemini-1.5-flash-8b",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "",
-            "context_length": 1000000,
-            "max_tokens": 1000000,
-            "pricing": {
-              "input_tokens": 0.0375,
-              "output_tokens": 0.15
-            },
-            "tags": [
-              "chat",
-              "vlm",
-              "vision",
-              "reasoning_effort"
             ],
             "default_width": null,
             "default_height": null,
@@ -24613,7 +24572,7 @@
           "canonical_slug": "deepseek/deepseek-r1",
           "hugging_face_id": "deepseek-ai/DeepSeek-R1",
           "description": "DeepSeek R1 is here: Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens. It's 671B parameters in size, with 37B active in an inference pass....",
-          "context_length": 163840,
+          "context_length": 64000,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -24638,7 +24597,6 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
-            "max_completion_tokens",
             "max_tokens",
             "presence_penalty",
             "reasoning",
@@ -34653,9 +34611,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000646",
-            "completion": "0.00000272",
-            "input_cache_read": "0.0000001088"
+            "prompt": "0.0000005795",
+            "completion": "0.00000244",
+            "input_cache_read": "0.0000000976"
           },
           "top_provider": {
             "context_length": 262144,
