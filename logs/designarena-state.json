@@ -1,5 +1,5 @@
 {
-  "timestamp": 1786648134192,
+  "timestamp": 1786654209165,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -8444,6 +8444,43 @@
       }
     },
     {
+      "id": "grogu",
+      "displayName": "Grok 4.6",
+      "provider": "xai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "svg",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "agon_slides",
+          "agon_slides_html",
+          "agon_dataviz",
+          "agon_godot",
+          "agentic_gamedev",
+          "agentic_3d",
+          "fullstack",
+          "fullstack_gamedev",
+          "mobileapps",
+          "nativeapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
       "id": "solar-pro4",
       "displayName": "Solar Pro 4",
       "provider": "upstage",
@@ -8462,6 +8499,104 @@
       "inputModalities": [
         "text"
       ]
+    },
+    {
+      "id": "gemini-3.7-flash",
+      "displayName": "Gemini 3.7 Flash",
+      "provider": "google",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "uicomponent",
+          "gamedev",
+          "dataviz",
+          "3d"
+        ],
+        "agents": [
+          "agon_webapps",
+          "agon_slides",
+          "agon_slides_html",
+          "agon_dataviz",
+          "agon_godot",
+          "agentic_gamedev",
+          "agentic_3d",
+          "fullstack",
+          "fullstack_gamedev",
+          "mobileapps",
+          "nativeapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "file"
+      ]
+    },
+    {
+      "id": "grok-imagine-image-2",
+      "displayName": "Grok Imagine Image 2",
+      "provider": "xai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign",
+          "imagetoimage"
+        ]
+      }
+    },
+    {
+      "id": "ltx-2.5-fast",
+      "displayName": "LTX 2.5 Fast",
+      "provider": "ltx",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo"
+        ]
+      }
+    },
+    {
+      "id": "ltx-2.5-pro",
+      "displayName": "LTX 2.5 Pro",
+      "provider": "ltx",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo"
+        ]
+      }
+    },
+    {
+      "id": "seedance-2.5",
+      "displayName": "Seedance 2.5",
+      "provider": "bytedance",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo",
+          "multitovideo",
+          "multimodaltovideo"
+        ]
+      }
     }
   ],
   "providers": [
@@ -12454,10 +12589,50 @@
       }
     },
     {
+      "id": "grogu",
+      "text": {
+        "input": 2,
+        "output": 6,
+        "cachedInput": 0.5
+      }
+    },
+    {
       "id": "solar-pro4",
       "text": {
         "input": 0.3,
         "output": 1.2
+      }
+    },
+    {
+      "id": "gemini-3.7-flash",
+      "text": {
+        "input": 0.75,
+        "output": 3.75,
+        "cachedInput": 0.075
+      }
+    },
+    {
+      "id": "grok-imagine-image-2",
+      "image": {
+        "perImage": 0.06
+      }
+    },
+    {
+      "id": "ltx-2.5-fast",
+      "video": {
+        "perSecond": 0.13
+      }
+    },
+    {
+      "id": "ltx-2.5-pro",
+      "video": {
+        "perSecond": 0.17
+      }
+    },
+    {
+      "id": "seedance-2.5",
+      "video": {
+        "perSecond": 0.473
       }
     }
   ]
