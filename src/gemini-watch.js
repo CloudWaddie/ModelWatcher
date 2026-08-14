@@ -32,6 +32,15 @@ export async function patchMessage(webhookUrl, messageId, payload) {
   return res.ok;
 }
 
+/** Delete a previously posted webhook message (no-changes runs leave nothing behind). */
+export async function deleteMessage(webhookUrl, messageId) {
+  const res = await fetch(`${webhookUrl}/messages/${messageId}?with_components=true`, {
+    method: 'DELETE',
+  });
+  if (!res.ok) console.error('Discord DELETE failed:', res.status, await res.text());
+  return res.ok;
+}
+
 export function buildProgressPayload(p) {
   const pct = p.chunksTotal > 0
     ? (p.chunksExtracted / p.chunksTotal) * 100
@@ -177,6 +186,7 @@ async function main() {
 
   if (!prev.mappings || Object.keys(prev.mappings).length === 0) {
     console.log('First run — saving baseline, no notification');
+    if (messageId && webhookUrl) await deleteMessage(webhookUrl, messageId);
     saveState(statePath, {
       mappings: Object.fromEntries(mappings),
       types: Object.fromEntries(mappingTypes),
@@ -190,8 +200,13 @@ async function main() {
     [...mappingTypes.keys()].some(id => prev.types?.[id] && prev.types[id] !== mappingTypes.get(id));
 
   if (messageId && webhookUrl) {
-    // Turn the progress message into the final report (no extra message spam).
-    await patchMessage(webhookUrl, messageId, buildReport(prev, mappings, mappingTypes));
+    if (hasChanges) {
+      // Turn the progress message into the final report (no extra message spam).
+      await patchMessage(webhookUrl, messageId, buildReport(prev, mappings, mappingTypes));
+    } else {
+      // Nothing changed — clean up the progress message instead of leaving an empty report.
+      await deleteMessage(webhookUrl, messageId);
+    }
   } else if (hasChanges && webhookUrl) {
     const res = await fetch(`${webhookUrl}?with_components=true`, {
       method: 'POST',
