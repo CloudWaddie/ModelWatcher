@@ -4107,6 +4107,26 @@
       }
     },
     {
+      "id": "019fde64-4042-75ce-955d-90f16327afe2",
+      "organization": "nvidia",
+      "provider": "nvidiaLongPoll",
+      "publicName": "august26-chatbot1",
+      "name": "august26-chatbot1-fmme",
+      "displayName": "nvidia-nemotron-3.5-lightning-30b-a3b-nvfp4",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
       "id": "0304b4de-e544-48d4-8490-ad9123bc26e3",
       "publicName": "monster",
       "displayName": "monster",
@@ -4141,6 +4161,25 @@
       "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "01a00197-e3fe-7965-9978-b4e35974daf4",
+      "publicName": "deepseek-v4-flash-internal-test-v2",
+      "displayName": "deepseek-v4-flash-internal-test-v2",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
       }
     },
     {
@@ -6652,26 +6691,6 @@
         "inputCapabilities": {
           "text": true,
           "image": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
-      "id": "019fde64-4042-75ce-955d-90f16327afe2",
-      "organization": "nvidia",
-      "provider": "nvidiaLongPoll",
-      "publicName": "august26-chatbot1",
-      "name": "august26-chatbot1-fmme",
-      "displayName": "nvidia-nemotron-3.5-lightning-30b-a3b-nvfp4",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
         },
         "outputCapabilities": {
           "text": true
@@ -9227,7 +9246,7 @@
       "provider": "siliconFlow",
       "publicName": "glm-5.3",
       "name": "glm-5.3",
-      "displayName": "glm-5.2 (max)",
+      "displayName": "glm-5.3 (max)",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
@@ -19881,5 +19900,5 @@
       }
     }
   ],
-  "lastCheck": 1786732014841
+  "lastCheck": 1786735877657
 }
