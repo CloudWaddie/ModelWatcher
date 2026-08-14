@@ -4183,6 +4183,26 @@
       }
     },
     {
+      "id": "01a001fe-1f00-7067-ad86-6dfb85fc52a6",
+      "publicName": "dahlia-vlm-4",
+      "displayName": "dahlia-vlm-4",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": true
+          }
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
       "id": "d8444b25-e302-4d3b-8561-7ded087ee03c",
       "publicName": "monterey",
       "displayName": "monterey",
@@ -14625,6 +14645,31 @@
       }
     },
     {
+      "id": "01a0022c-e5a8-7caf-a1c7-1fa103b63823",
+      "publicName": "silver_halide",
+      "displayName": "silver_halide",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": true
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
       "id": "019d4002-95d4-7b0e-accb-0d0d2f263cc5",
       "publicName": "soft-shell",
       "displayName": "soft-shell",
@@ -19899,5 +19944,5 @@
       }
     }
   ],
-  "lastCheck": 1786739799898
+  "lastCheck": 1786743004462
 }
