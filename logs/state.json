@@ -1806,6 +1806,13 @@
           "display_name": "Gemini 3.7 Flash"
         },
         {
+          "id": "models/gemini-3.7-flash-video-understanding-eap",
+          "name": "models/gemini-3.7-flash-video-understanding-eap",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "[Confidential] Gemini 3.7 Flash Video Understanding EAP"
+        },
+        {
           "id": "models/gemini-embedding-001",
           "name": "models/gemini-embedding-001",
           "owned_by": "google",
@@ -12524,6 +12531,33 @@
             "pricing": {
               "input_tokens": 1.4999999999999998,
               "output_tokens": 9
+            },
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "reasoning_effort",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "google/gemini-3.7-flash",
+          "name": "google/gemini-3.7-flash",
+          "owned_by": "deepinfra",
+          "root": "google/gemini-3.7-flash",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Gemini 3.7 Flash delivers near-Pro intelligence at Flash-tier cost and speed; exceeding Pro’s performance for most agentic tasks.",
+            "context_length": 1000000,
+            "max_tokens": 1000000,
+            "pricing": {
+              "input_tokens": 0.7499999999999999,
+              "output_tokens": 3.75
             },
             "tags": [
               "chat",
@@ -31312,11 +31346,11 @@
           },
           "pricing": {
             "prompt": "0.0000002",
-            "completion": "0.0000008"
+            "completion": "0.000000696"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 16384,
+            "context_length": 128000,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -50262,7 +50296,7 @@
           "canonical_slug": "qwen/qwen3.8-2.4t-a95b-20260812",
           "hugging_face_id": "Qwen/Qwen3.8-2.4T-A95B",
           "description": "Qwen3.8 2.4T A95B is an open-weight sparse mixture-of-experts model from Qwen and the open-weight variant of [Qwen3.8 Max](/qwen/qwen3.8-max), with 95 billion active parameters out of 2.4 trillion total. It is...",
-          "context_length": 1010000,
+          "context_length": 1048576,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -54698,13 +54732,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000063",
-            "completion": "0.00000198",
-            "input_cache_read": "0.0000000945"
+            "prompt": "0.00000119",
+            "completion": "0.00000374",
+            "input_cache_read": "0.000000221"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": null,
+            "context_length": 1048576,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
