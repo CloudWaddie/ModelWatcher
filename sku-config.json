@@ -1,0 +1,16 @@
+{
+  "webhook": {
+    "enabled": true,
+    "webhookEnv": "TOMBSTONE_WEBHOOK"
+  },
+  "state": {
+    "file": "./logs/sku-state.json"
+  },
+  "scan": {
+    "filters": ["gemini", "generate"],
+    "currency": "USD",
+    "pageSize": 100,
+    "maxPages": 30,
+    "timeout": 30000
+  }
+}

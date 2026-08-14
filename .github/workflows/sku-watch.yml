@@ -1,0 +1,73 @@
+name: Tombstone Beta - Google Cloud SKU Models
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Ensure logs folder exists
+        run: mkdir -p logs
+
+      - name: Run SKU scan
+        env:
+          TOMBSTONE_WEBHOOK: ${{ secrets.TOMBSTONE_WEBHOOK }}
+        run: npm run sku
+
+      - name: Commit results to master
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config --global user.name "ModelWatcher"
+          git config --global user.email "modelwatcher@github.com"
+
+          cp logs/sku-state.json /tmp/sku-state-new.json 2>/dev/null || true
+
+          git fetch origin master
+          git reset --hard origin/master
+
+          mkdir -p logs
+          if [ -f /tmp/sku-state-new.json ]; then
+            cp /tmp/sku-state-new.json logs/sku-state.json
+          fi
+
+          if [ -f logs/sku-state.json ]; then
+            ORIG_HASH=$(git show origin/master:logs/sku-state.json 2>/dev/null | sha256sum | cut -d' ' -f1 || echo "empty")
+            NEW_HASH=$(sha256sum logs/sku-state.json | cut -d' ' -f1)
+            if [ "$ORIG_HASH" = "$NEW_HASH" ] && [ "$ORIG_HASH" != "empty" ]; then
+              echo "No model changes detected - skipping commit"
+              exit 0
+            fi
+          fi
+
+          git add -f logs/sku-state.json || true
+          if ! git diff --quiet --staged; then
+            git commit -m "Update SKU state - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push origin master
+            echo "Updated SKU state on master branch"
+          else
+            echo "No changes to commit"
+          fi
