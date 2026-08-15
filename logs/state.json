@@ -10946,17 +10946,6 @@
       "success": true,
       "models": [
         {
-          "id": "accounts/fireworks/models/deepseek-v4-flash",
-          "name": "accounts/fireworks/models/deepseek-v4-flash",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 1048576
-        },
-        {
           "id": "accounts/fireworks/models/deepseek-v4-flash-0731",
           "name": "accounts/fireworks/models/deepseek-v4-flash-0731",
           "owned_by": "fireworks",
@@ -25202,7 +25191,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null,
+          "expiration_date": "2026-08-17",
           "links": {
             "details": "/api/v1/models/deepseek/deepseek-v3.1-terminus/endpoints"
           },
@@ -25538,9 +25527,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008246",
-            "completion": "0.00000016492",
-            "input_cache_read": "0.000000016492"
+            "prompt": "0.00000008106",
+            "completion": "0.00000016212",
+            "input_cache_read": "0.000000016212"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -50555,6 +50544,76 @@
           }
         },
         {
+          "id": "qwen/qwen3.8-27b",
+          "name": "Qwen: Qwen3.8 27B",
+          "canonical_slug": "qwen/qwen3.8-27b-20260814",
+          "hugging_face_id": "Qwen/Qwen3.8-27B",
+          "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000045",
+            "completion": "0.0000032"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 20
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.8-27b-20260814/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "xhigh",
+              "medium",
+              "low"
+            ],
+            "default_effort": "xhigh"
+          }
+        },
+        {
           "id": "qwen/qwen3.8-max",
           "name": "Qwen: Qwen3.8 Max",
           "canonical_slug": "qwen/qwen3.8-max-20260803",
@@ -54923,13 +54982,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000119",
-            "completion": "0.00000374",
-            "input_cache_read": "0.000000221"
+            "prompt": "0.00000049",
+            "completion": "0.00000154",
+            "input_cache_read": "0.000000091"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
