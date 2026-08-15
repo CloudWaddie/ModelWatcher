@@ -11148,7 +11148,7 @@
           "owned_by": "fireworks",
           "object": "model",
           "kind": "HF_BASE_MODEL",
-          "supports_chat": false,
+          "supports_chat": true,
           "supports_image_input": false,
           "supports_tools": true,
           "context_length": 262144
@@ -18060,13 +18060,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000784",
-            "completion": "0.0000001568",
-            "input_cache_read": "0.00000001568"
+            "prompt": "0.00000007826",
+            "completion": "0.00000015652",
+            "input_cache_read": "0.000000015652"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "context_length": 1024000,
+            "max_completion_tokens": 384000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25527,9 +25527,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007686",
-            "completion": "0.00000015372",
-            "input_cache_read": "0.000000015372"
+            "prompt": "0.00000007546",
+            "completion": "0.00000015092",
+            "input_cache_read": "0.000000015092"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25988,6 +25988,57 @@
               "low"
             ],
             "default_effort": "high"
+          }
+        },
+        {
+          "id": "dots-studio/dots-3-note-preview:free",
+          "name": "Dots Studio: Dots3-Note Preview (free)",
+          "canonical_slug": "dots-studio/dots-3-note-preview-20260813",
+          "hugging_face_id": null,
+          "description": "Dots3-Note Preview is an open-weight mixture-of-experts model from Dots Studio, with 16B active parameters out of 280B total. It is the lightest model in the Dots 3 family and is...",
+          "context_length": 512000,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 512000,
+            "max_completion_tokens": 512000,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/dots-studio/dots-3-note-preview-20260813/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
