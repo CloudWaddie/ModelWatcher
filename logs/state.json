@@ -3552,6 +3552,36 @@
           }
         },
         {
+          "id": "deepseek-ai/DeepSeek-V4-Pro-0813",
+          "name": "deepseek-ai/DeepSeek-V4-Pro-0813",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "",
+          "organization": "DeepSeek",
+          "context_length": 1048576,
+          "config": {
+            "chat_template": null,
+            "stop": [
+              "<｜end▁of▁sentence｜>"
+            ],
+            "bos_token": "<｜begin▁of▁sentence｜>",
+            "eos_token": "<｜end▁of▁sentence｜>"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 1.32,
+            "output": 3.96,
+            "base": 0,
+            "finetune": 0,
+            "cached_input": 0.12999999999999998,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "facebook/cwm",
           "name": "facebook/cwm",
           "object": "model",
@@ -37821,7 +37851,7 @@
           "top_provider": {
             "context_length": 8191,
             "max_completion_tokens": 4096,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
