@@ -45,6 +45,7 @@ jobs:
           git config --global user.email "modelwatcher@github.com"
 
           cp logs/gemini-state.json /tmp/gemini-state-new.json 2>/dev/null || true
+          cp logs/aistudio-state.json /tmp/aistudio-state-new.json 2>/dev/null || true
 
           git fetch origin master
           git reset --hard origin/master
@@ -53,17 +54,27 @@ jobs:
           if [ -f /tmp/gemini-state-new.json ]; then
             cp /tmp/gemini-state-new.json logs/gemini-state.json
           fi
-
-          if [ -f logs/gemini-state.json ]; then
-            ORIG_HASH=$(git show origin/master:logs/gemini-state.json 2>/dev/null | sha256sum | cut -d' ' -f1 || echo "empty")
-            NEW_HASH=$(sha256sum logs/gemini-state.json | cut -d' ' -f1)
-            if [ "$ORIG_HASH" = "$NEW_HASH" ] && [ "$ORIG_HASH" != "empty" ]; then
-              echo "No mapping changes detected - skipping commit"
-              exit 0
-            fi
+          if [ -f /tmp/aistudio-state-new.json ]; then
+            cp /tmp/aistudio-state-new.json logs/aistudio-state.json
           fi
 
-          git add -f logs/gemini-state.json || true
+          CHANGED=""
+          for F in logs/gemini-state.json logs/aistudio-state.json; do
+            if [ -f "$F" ]; then
+              ORIG_HASH=$(git show origin/master:$F 2>/dev/null | sha256sum | cut -d' ' -f1 || echo "empty")
+              NEW_HASH=$(sha256sum "$F" | cut -d' ' -f1)
+              if [ "$ORIG_HASH" = "empty" ] || [ "$ORIG_HASH" != "$NEW_HASH" ]; then
+                CHANGED="yes"
+              fi
+            fi
+          done
+
+          if [ -z "$CHANGED" ]; then
+            echo "No mapping changes detected - skipping commit"
+            exit 0
+          fi
+
+          git add -f logs/gemini-state.json logs/aistudio-state.json || true
           if ! git diff --quiet --staged; then
             git commit -m "Update Gemini RPC state - $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push origin master
