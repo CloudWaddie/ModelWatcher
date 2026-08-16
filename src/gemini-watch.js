@@ -7,6 +7,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 const BAR_WIDTH = 20;
 
+// Discord display components cap total text at 4000 chars per message.
+const TEXT_CHAR_LIMIT = 3800;
+const MAX_SEGMENTS_PER_CONTAINER = 5;
+
 function saveState(path, state) {
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, JSON.stringify(state, null, 2));
@@ -64,6 +68,57 @@ export function buildProgressPayload(p, target = 'gemini.google.com') {
   };
 }
 
+/** Split a formatted entry list into chunks that each fit the text limit. */
+function chunkEntries(entries, limit) {
+  const chunks = [];
+  let cur = [];
+  let len = 0;
+  for (const e of entries) {
+    const l = e.length + 1;
+    if (cur.length && len + l > limit) {
+      chunks.push(cur);
+      cur = [];
+      len = 0;
+    }
+    cur.push(e);
+    len += l;
+  }
+  if (cur.length) chunks.push(cur);
+  return chunks;
+}
+
+/** Greedily pack text segments into messages that respect per-message limits. */
+function packMessages(segments, limit) {
+  const messages = [];
+  let cur = [];
+  let total = 0;
+  for (const seg of segments) {
+    if (cur.length >= MAX_SEGMENTS_PER_CONTAINER || (cur.length && total + seg.length > limit)) {
+      messages.push(cur);
+      cur = [];
+      total = 0;
+    }
+    cur.push(seg);
+    total += seg.length;
+  }
+  if (cur.length) messages.push(cur);
+  return messages;
+}
+
+function payloadForSegments(segments, part, total) {
+  const comps = segments.map((s, i) => ({ type: 10, content: s }));
+  if (total > 1) comps[comps.length - 1].content += `\n*— part ${part}/${total} —*`;
+  return {
+    username: 'Gemini RPC Watcher',
+    avatar_url: LOGO_URL,
+    flags: 32768,
+    components: [{
+      type: 17,
+      components: comps.flatMap((c, i) => (i ? [{ type: 14 }, c] : [c])),
+    }],
+  };
+}
+
 /** Service name = path prefix before the first dot (e.g. BardFrontendService). */
 function serviceOf(path) {
   const dot = path.indexOf('.');
@@ -76,16 +131,15 @@ function formatEntry(rpcid, path, type) {
 }
 
 /**
- * Build the final diff report as a components-v2 payload.
+ * Build the diff report as an array of components-v2 payloads (one per Discord
+ * message, chunked under the 4000-char display-component text limit).
  * new = rpcid absent from previous state; removed = gone from current;
  * changed = same rpcid, different path (or different call type).
  * With `firstRun: true`, the report renders as a full baseline where every
  * current mapping appears under 🟢 New (i.e. the diff as if all were created).
  */
-export function buildReport(prev, curr, types, options = {}) {
+export function buildReportMessages(prev, curr, types, options = {}) {
   const { firstRun = false } = options;
-  const components = [];
-  const lines = [];
   const newIds = [], removedIds = [], changedIds = [];
 
   for (const [id, path] of curr) {
@@ -104,10 +158,10 @@ export function buildReport(prev, curr, types, options = {}) {
     ...(firstRun ? ['First run — full mapping dump'] : []),
     `Scanned **${curr.size}** RPCs total`,
   ].join('\n');
-  components.push({ type: 10, content: header + '\n' + summary });
-  components.push({ type: 14 });
+  const segments = [`${header}\n${summary}`];
 
   const grouped = { new: newIds, removed: removedIds, changed: changedIds };
+  const label = { new: '🟢 New', removed: '🔴 Removed', changed: '🟡 Changed' };
   for (const [kind, ids] of Object.entries(grouped)) {
     if (ids.length === 0) continue;
     const byService = {};
@@ -117,24 +171,36 @@ export function buildReport(prev, curr, types, options = {}) {
       if (!byService[svc]) byService[svc] = [];
       byService[svc].push(formatEntry(id, path, types.get(id)));
     }
-    const label = { new: '🟢 New', removed: '🔴 Removed', changed: '🟡 Changed' }[kind];
-    const blocks = Object.entries(byService)
-      .map(([svc, entries]) => `**${svc}**\n${entries.join('\n')}`)
-      .join('\n\n');
-    components.push({ type: 10, content: `### ${label} (${ids.length})\n${blocks}` });
-    components.push({ type: 14 });
+    segments.push(`### ${label[kind]} (${ids.length})`);
+    for (const [svc, entries] of Object.entries(byService)) {
+      for (const chunk of chunkEntries(entries, TEXT_CHAR_LIMIT)) {
+        segments.push(`**${svc}**\n${chunk.join('\n')}`);
+      }
+    }
   }
 
   if (newIds.length + removedIds.length + changedIds.length === 0) {
-    components.push({ type: 10, content: 'No changes detected — all RPC mappings identical to previous scan.' });
+    segments.push('No changes detected — all RPC mappings identical to previous scan.');
   }
 
-  return {
-    username: 'Gemini RPC Watcher',
-    avatar_url: LOGO_URL,
-    flags: 32768,
-    components: [{ type: 17, components }],
-  };
+  const packed = packMessages(segments, TEXT_CHAR_LIMIT);
+  return packed.map((m, i) => payloadForSegments(m, i + 1, packed.length));
+}
+
+/** First report message only; kept for callers that expect a single payload. */
+export function buildReport(prev, curr, types, options = {}) {
+  return buildReportMessages(prev, curr, types, options)[0];
+}
+
+async function postPayload(webhookUrl, payload, label) {
+  const res = await fetch(`${webhookUrl}?with_components=true`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (res.ok) console.log(`[${label}] Discord notification sent`);
+  else console.error(`[${label}] Discord send failed:`, res.status, await res.text());
+  return res.ok;
 }
 
 async function runScan(scan, webhookUrl, webhookEnabled) {
@@ -192,18 +258,17 @@ async function runScan(scan, webhookUrl, webhookEnabled) {
     // No baseline yet — post the full mapping set as a report where every
     // entry is 🟢 New (the diff as if all were created), then save state.
     console.log(`[${scan.name}] First run — posting full mapping baseline`);
-    const report = buildReport(prev, mappings, mappingTypes, { firstRun: true });
+    const reports = buildReportMessages(prev, mappings, mappingTypes, { firstRun: true });
     if (messageId && webhookUrl && webhookEnabled) {
-      // Turn the progress message into the baseline report (no extra spam).
-      await patchMessage(webhookUrl, messageId, report);
+      // Turn the progress message into the baseline report header (no extra spam).
+      await patchMessage(webhookUrl, messageId, reports[0]);
+      for (const part of reports.slice(1)) {
+        await postPayload(webhookUrl, part, scan.name);
+      }
     } else if (webhookUrl && webhookEnabled) {
-      const res = await fetch(`${webhookUrl}?with_components=true`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(report),
-      });
-      if (res.ok) console.log(`[${scan.name}] Discord notification sent`);
-      else console.error(`[${scan.name}] Discord send failed:`, res.status, await res.text());
+      for (const part of reports) {
+        await postPayload(webhookUrl, part, scan.name);
+      }
     } else {
       console.log(`[${scan.name}] First run — no webhook configured, baseline saved silently`);
     }
@@ -222,20 +287,20 @@ async function runScan(scan, webhookUrl, webhookEnabled) {
 
   if (messageId && webhookUrl && webhookEnabled) {
     if (hasChanges) {
-      // Turn the progress message into the final report (no extra message spam).
-      await patchMessage(webhookUrl, messageId, buildReport(prev, mappings, mappingTypes));
+      const reports = buildReportMessages(prev, mappings, mappingTypes);
+      // Turn the progress message into the report header (no extra message spam).
+      await patchMessage(webhookUrl, messageId, reports[0]);
+      for (const part of reports.slice(1)) {
+        await postPayload(webhookUrl, part, scan.name);
+      }
     } else {
       // Nothing changed — clean up the progress message instead of leaving an empty report.
       await deleteMessage(webhookUrl, messageId);
     }
   } else if (hasChanges && webhookUrl && webhookEnabled) {
-    const res = await fetch(`${webhookUrl}?with_components=true`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(buildReport(prev, mappings, mappingTypes)),
-    });
-    if (res.ok) console.log(`[${scan.name}] Discord notification sent`);
-    else console.error(`[${scan.name}] Discord send failed:`, res.status, await res.text());
+    for (const part of buildReportMessages(prev, mappings, mappingTypes)) {
+      await postPayload(webhookUrl, part, scan.name);
+    }
   } else {
     console.log(`[${scan.name}] ${hasChanges ? 'Changes detected, but no webhook configured.' : 'No changes detected.'}`);
   }
