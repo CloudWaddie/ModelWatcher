@@ -25967,9 +25967,39 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000435",
-            "completion": "0.00000087",
-            "input_cache_read": "0.000000003625"
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022",
+            "overrides": [
+              {
+                "utc_start": 1000,
+                "utc_end": 100,
+                "prompt": "0.00000066",
+                "completion": "0.00000198",
+                "input_cache_read": "0.000000022"
+              },
+              {
+                "utc_start": 100,
+                "utc_end": 400,
+                "prompt": "0.00000132",
+                "completion": "0.00000396",
+                "input_cache_read": "0.000000044"
+              },
+              {
+                "utc_start": 400,
+                "utc_end": 600,
+                "prompt": "0.00000066",
+                "completion": "0.00000198",
+                "input_cache_read": "0.000000022"
+              },
+              {
+                "utc_start": 600,
+                "utc_end": 1000,
+                "prompt": "0.00000132",
+                "completion": "0.00000396",
+                "input_cache_read": "0.000000044"
+              }
+            ]
           },
           "top_provider": {
             "context_length": 1048576,
@@ -47137,12 +47167,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000025",
-            "completion": "0.00000075"
+            "prompt": "0.0000008",
+            "completion": "0.000001",
+            "input_cache_read": "0.0000004"
           },
           "top_provider": {
-            "context_length": 32000,
-            "max_completion_tokens": null,
+            "context_length": 128000,
+            "max_completion_tokens": 128000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -49871,7 +49902,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015",
+            "prompt": "0.00000014",
             "completion": "0.000001",
             "input_cache_read": "0.00000005"
           },
