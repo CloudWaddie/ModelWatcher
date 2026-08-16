@@ -41,7 +41,7 @@ export async function deleteMessage(webhookUrl, messageId) {
   return res.ok;
 }
 
-export function buildProgressPayload(p) {
+export function buildProgressPayload(p, target = 'gemini.google.com') {
   const pct = p.chunksTotal > 0
     ? (p.chunksExtracted / p.chunksTotal) * 100
     : (p.modulesCompleted / p.modulesTotal) * 100;
@@ -58,7 +58,7 @@ export function buildProgressPayload(p) {
       components: [
         { type: 10, content: `# 🔍 Gemini RPC scan — ${phase}\n${bar}\n\`${done}/${total}\` · **${p.mappingsFound}** RPCs found` },
         { type: 14 },
-        { type: 10, content: `Target: \`gemini.google.com\`` },
+        { type: 10, content: `Target: \`${target}\`` },
       ],
     }],
   };
@@ -79,8 +79,11 @@ function formatEntry(rpcid, path, type) {
  * Build the final diff report as a components-v2 payload.
  * new = rpcid absent from previous state; removed = gone from current;
  * changed = same rpcid, different path (or different call type).
+ * With `firstRun: true`, the report renders as a full baseline where every
+ * current mapping appears under 🟢 New (i.e. the diff as if all were created).
  */
-export function buildReport(prev, curr, types) {
+export function buildReport(prev, curr, types, options = {}) {
+  const { firstRun = false } = options;
   const components = [];
   const lines = [];
   const newIds = [], removedIds = [], changedIds = [];
@@ -93,9 +96,12 @@ export function buildReport(prev, curr, types) {
     if (!curr.has(id)) removedIds.push(id);
   }
 
-  const header = `# 🔭 Gemini RPC Mappings`;
+  const header = firstRun
+    ? `# 🌱 Gemini RPC Mappings — initial baseline`
+    : `# 🔭 Gemini RPC Mappings`;
   const summary = [
     `**${newIds.length} new** · **${removedIds.length} removed** · **${changedIds.length} changed**`,
+    ...(firstRun ? ['First run — full mapping dump'] : []),
     `Scanned **${curr.size}** RPCs total`,
   ].join('\n');
   components.push({ type: 10, content: header + '\n' + summary });
@@ -131,25 +137,23 @@ export function buildReport(prev, curr, types) {
   };
 }
 
-async function main() {
-  const config = JSON.parse(readFileSync(join(__dirname, '../gemini-config.json'), 'utf8'));
-  const statePath = join(__dirname, '..', config.state.file);
+async function runScan(scan, webhookUrl, webhookEnabled) {
+  const statePath = join(__dirname, '..', scan.stateFile);
   let prev = { mappings: {}, types: {}, timestamp: 0 };
   if (existsSync(statePath)) {
     try {
       prev = JSON.parse(readFileSync(statePath, 'utf8'));
     } catch (e) {
-      console.error('Failed to parse state file, starting fresh:', e.message);
+      console.error(`[${scan.name}] Failed to parse state file, starting fresh:`, e.message);
     }
   }
-  const webhookUrl = process.env[config.webhook.webhookEnv];
-  const targetUrl = config.scan.targetUrl;
+  const firstRun = !prev.mappings || Object.keys(prev.mappings).length === 0;
 
   let messageId = null;
   let lastPatch = 0;
 
   const onProgress = async (p) => {
-    if (!webhookUrl || config.webhook.enabled === false) return;
+    if (!webhookUrl || !webhookEnabled) return;
     const now = Date.now();
     // Throttle: Discord webhooks allow ~30 requests/min; 5s spacing is safe.
     if (now - lastPatch < 5000) return;
@@ -158,40 +162,57 @@ async function main() {
       const res = await fetch(`${webhookUrl}?wait=true&with_components=true`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(buildProgressPayload(p)),
+        body: JSON.stringify(buildProgressPayload(p, scan.targetUrl)),
       });
       if (res.ok) {
         const msg = await res.json();
         messageId = msg.id;
-        console.log(`Discord progress message posted (id ${messageId})`);
+        console.log(`[${scan.name}] Discord progress message posted (id ${messageId})`);
       } else {
-        console.error('Discord POST failed:', res.status, await res.text());
+        console.error(`[${scan.name}] Discord POST failed:`, res.status, await res.text());
       }
     } else {
-      await patchMessage(webhookUrl, messageId, buildProgressPayload(p));
+      await patchMessage(webhookUrl, messageId, buildProgressPayload(p, scan.targetUrl));
     }
   };
 
-  console.log(`Scanning RPC mappings of ${targetUrl}...`);
-  const { mappings, mappingTypes, stats } = await scrapeRpcMappings(targetUrl, onProgress);
+  console.log(`[${scan.name}] Scanning RPC mappings of ${scan.targetUrl}...`);
+  const { mappings, mappingTypes, stats } = await scrapeRpcMappings(scan.targetUrl, onProgress);
 
   // Final 100% progress patch
-  if (messageId && webhookUrl) {
+  if (messageId && webhookUrl && webhookEnabled) {
     await patchMessage(webhookUrl, messageId, buildProgressPayload({
       modulesCompleted: 1, modulesTotal: 1, chunksExtracted: 1, chunksTotal: 1, mappingsFound: mappings.size,
-    }));
+    }, scan.targetUrl));
   }
 
-  console.log(`Scanned ${mappings.size} RPCs, ${mappingTypes.size} with known call types (${stats.elapsedMs}ms)`);
+  console.log(`[${scan.name}] Scanned ${mappings.size} RPCs, ${mappingTypes.size} with known call types (${stats.elapsedMs}ms)`);
 
-  if (!prev.mappings || Object.keys(prev.mappings).length === 0) {
-    console.log('First run — saving baseline, no notification');
-    if (messageId && webhookUrl) await deleteMessage(webhookUrl, messageId);
+  if (firstRun) {
+    // No baseline yet — post the full mapping set as a report where every
+    // entry is 🟢 New (the diff as if all were created), then save state.
+    console.log(`[${scan.name}] First run — posting full mapping baseline`);
+    const report = buildReport(prev, mappings, mappingTypes, { firstRun: true });
+    if (messageId && webhookUrl && webhookEnabled) {
+      // Turn the progress message into the baseline report (no extra spam).
+      await patchMessage(webhookUrl, messageId, report);
+    } else if (webhookUrl && webhookEnabled) {
+      const res = await fetch(`${webhookUrl}?with_components=true`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(report),
+      });
+      if (res.ok) console.log(`[${scan.name}] Discord notification sent`);
+      else console.error(`[${scan.name}] Discord send failed:`, res.status, await res.text());
+    } else {
+      console.log(`[${scan.name}] First run — no webhook configured, baseline saved silently`);
+    }
     saveState(statePath, {
       mappings: Object.fromEntries(mappings),
       types: Object.fromEntries(mappingTypes),
       timestamp: Date.now(),
     });
+    console.log(`[${scan.name}] === First-run baseline saved: ${mappings.size} RPCs ===`);
     return;
   }
 
@@ -199,7 +220,7 @@ async function main() {
     Object.keys(prev.mappings).some(id => !mappings.has(id)) ||
     [...mappingTypes.keys()].some(id => prev.types?.[id] && prev.types[id] !== mappingTypes.get(id));
 
-  if (messageId && webhookUrl) {
+  if (messageId && webhookUrl && webhookEnabled) {
     if (hasChanges) {
       // Turn the progress message into the final report (no extra message spam).
       await patchMessage(webhookUrl, messageId, buildReport(prev, mappings, mappingTypes));
@@ -207,16 +228,16 @@ async function main() {
       // Nothing changed — clean up the progress message instead of leaving an empty report.
       await deleteMessage(webhookUrl, messageId);
     }
-  } else if (hasChanges && webhookUrl) {
+  } else if (hasChanges && webhookUrl && webhookEnabled) {
     const res = await fetch(`${webhookUrl}?with_components=true`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(buildReport(prev, mappings, mappingTypes)),
     });
-    if (res.ok) console.log('Discord notification sent');
-    else console.error('Discord send failed:', res.status, await res.text());
+    if (res.ok) console.log(`[${scan.name}] Discord notification sent`);
+    else console.error(`[${scan.name}] Discord send failed:`, res.status, await res.text());
   } else {
-    console.log(hasChanges ? 'Changes detected, but no webhook configured.' : 'No changes detected.');
+    console.log(`[${scan.name}] ${hasChanges ? 'Changes detected, but no webhook configured.' : 'No changes detected.'}`);
   }
 
   saveState(statePath, {
@@ -224,7 +245,26 @@ async function main() {
     types: Object.fromEntries(mappingTypes),
     timestamp: Date.now(),
   });
-  console.log(`=== Gemini scan complete: ${mappings.size} RPCs ===`);
+  console.log(`[${scan.name}] === Scan complete: ${mappings.size} RPCs ===`);
+}
+
+async function main() {
+  const config = JSON.parse(readFileSync(join(__dirname, '../gemini-config.json'), 'utf8'));
+  const webhookUrl = process.env[config.webhook.webhookEnv];
+  const webhookEnabled = config.webhook.enabled !== false;
+
+  // New shape: scans[] with per-target state file. Falls back to the legacy
+  // single scan.targetUrl + state.file shape if scans is absent.
+  const scans = config.scans?.length
+    ? config.scans
+    : [{ name: 'gemini', targetUrl: config.scan?.targetUrl, stateFile: config.state?.file }];
+
+  if (!scans.length) throw new Error('No scans configured in gemini-config.json');
+
+  for (const scan of scans) {
+    if (!scan.targetUrl || !scan.stateFile) throw new Error(`Scan "${scan.name}" is missing targetUrl or stateFile`);
+    await runScan(scan, webhookUrl, webhookEnabled);
+  }
 }
 
 const isCli = process.argv[1] && /gemini-watch\.js$/.test(process.argv[1]);

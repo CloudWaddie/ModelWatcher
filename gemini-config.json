@@ -3,10 +3,16 @@
     "enabled": true,
     "webhookEnv": "TOMBSTONE_WEBHOOK"
   },
-  "state": {
-    "file": "./logs/gemini-state.json"
-  },
-  "scan": {
-    "targetUrl": "https://gemini.google.com/app"
-  }
+  "scans": [
+    {
+      "name": "gemini",
+      "targetUrl": "https://gemini.google.com/app",
+      "stateFile": "./logs/gemini-state.json"
+    },
+    {
+      "name": "aistudio",
+      "targetUrl": "https://aistudio.google.com/app",
+      "stateFile": "./logs/aistudio-state.json"
+    }
+  ]
 }
