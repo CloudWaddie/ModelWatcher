@@ -11869,6 +11869,29 @@
           }
         },
         {
+          "id": "Bria/Bria-3.2-testing-only",
+          "name": "Bria/Bria-3.2-testing-only",
+          "owned_by": "deepinfra",
+          "root": "Bria/Bria-3.2-testing-only",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Bria 3.2 is the next-generation commercial-ready text-to-image model. With just 4 billion parameters, it provides exceptional aesthetics and text rendering, evaluated to be on par to leading open-source models, and outperforming other licensed models.",
+            "context_length": null,
+            "max_tokens": null,
+            "pricing": {
+              "per_image_unit": 0.04
+            },
+            "discount": 0.25,
+            "tags": [
+              "image-gen"
+            ],
+            "default_width": 0,
+            "default_height": 0,
+            "default_iterations": 0
+          }
+        },
+        {
           "id": "Bria/Bria-3.2-vector",
           "name": "Bria/Bria-3.2-vector",
           "owned_by": "deepinfra",
@@ -18070,7 +18093,7 @@
           },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family.",
-          "context_length": 1048576,
+          "context_length": 1310720,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -25680,7 +25703,7 @@
           "canonical_slug": "deepseek/deepseek-v4-flash-20260731",
           "hugging_face_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
           "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows....",
-          "context_length": 1048576,
+          "context_length": 1310720,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -25815,9 +25838,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000066",
-            "completion": "0.00000198",
-            "input_cache_read": "0.000000022",
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000044",
             "overrides": [
               {
                 "utc_start": 1000,
@@ -25997,9 +26020,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000066",
-            "completion": "0.00000198",
-            "input_cache_read": "0.000000022",
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000044",
             "overrides": [
               {
                 "utc_start": 1000,
@@ -49895,12 +49918,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000289",
-            "completion": "0.0000024"
+            "prompt": "0.0000003",
+            "completion": "0.000002",
+            "input_cache_read": "0.00000003"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 131072,
+            "context_length": 262144,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
