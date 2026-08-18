@@ -1,5 +1,5 @@
 {
-  "timestamp": 1787085005376,
+  "timestamp": 1787088557634,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -8603,6 +8603,25 @@
           "multimodaltovideo"
         ]
       }
+    },
+    {
+      "id": "cortado",
+      "displayName": "GLM-5.3",
+      "provider": "zhipu",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      }
     }
   ],
   "providers": [
@@ -12649,6 +12668,14 @@
       "id": "seedance-2.5",
       "video": {
         "perSecond": 0.473
+      }
+    },
+    {
+      "id": "cortado",
+      "text": {
+        "input": 1.4,
+        "output": 4.4,
+        "cachedInput": 0.26
       }
     }
   ]
