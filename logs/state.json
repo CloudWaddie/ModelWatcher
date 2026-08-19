@@ -18598,51 +18598,6 @@
           }
         },
         {
-          "id": "ai21/jamba-large-1.7",
-          "name": "AI21: Jamba Large 1.7",
-          "canonical_slug": "ai21/jamba-large-1.7",
-          "hugging_face_id": "ai21labs/AI21-Jamba-Large-1.7",
-          "description": "Jamba Large 1.7 is the latest model in the Jamba open family, offering improvements in grounding, instruction-following, and overall efficiency. Built on a hybrid SSM-Transformer architecture with a 256K context...",
-          "context_length": 256000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000002",
-            "completion": "0.000008"
-          },
-          "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": 4096,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "response_format",
-            "stop",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/ai21/jamba-large-1.7/endpoints"
-          }
-        },
-        {
           "id": "aion-labs/aion-2.0",
           "name": "AionLabs: Aion-2.0",
           "canonical_slug": "aion-labs/aion-2.0-20260223",
@@ -31141,70 +31096,6 @@
           }
         },
         {
-          "id": "liquid/lfm-2.5-2.6b:free",
-          "name": "LiquidAI: LFM2.5-2.6B (free)",
-          "canonical_slug": "liquid/lfm-2.5-2.6b-20260811",
-          "hugging_face_id": "LiquidAI/LFM2.5-2.6B",
-          "description": "LFM2.5-2.6B is a compact reasoning model from Liquid AI. It is suited for agent workflows, data extraction, RAG, and long-context processing. Liquid advises against using it for agentic coding or...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": 8192,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logprobs",
-            "max_completion_tokens",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.1,
-            "top_k": 50,
-            "repetition_penalty": 1.1
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/liquid/lfm-2.5-2.6b-20260811/endpoints"
-          },
-          "reasoning": {
-            "mandatory": true
-          }
-        },
-        {
           "id": "mancer/weaver",
           "name": "Mancer: Weaver (alpha)",
           "canonical_slug": "mancer/weaver",
@@ -35216,9 +35107,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000646",
-            "completion": "0.00000272",
-            "input_cache_read": "0.0000001088"
+            "prompt": "0.0000005605",
+            "completion": "0.00000236",
+            "input_cache_read": "0.0000000944"
           },
           "top_provider": {
             "context_length": 262144,
@@ -46117,7 +46008,6 @@
             "frequency_penalty",
             "include_reasoning",
             "logprobs",
-            "max_completion_tokens",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -56840,6 +56730,326 @@
             "cost_discount_multiplier": 1
           },
           "concurrency_group": "standard"
+        },
+        {
+          "id": "Eleven v3 Conversational",
+          "name": "Eleven v3 Conversational",
+          "model_id": "eleven_v3_conversational",
+          "can_be_finetuned": false,
+          "can_do_text_to_speech": true,
+          "can_do_voice_conversion": false,
+          "can_use_style": false,
+          "can_use_speaker_boost": true,
+          "serves_pro_voices": false,
+          "token_cost_factor": 1,
+          "description": "The most expressive model, optimized for natural dialogue in conversational agents. Supports 70+ languages. Requires more prompt engineering than our previous models.",
+          "requires_alpha_access": false,
+          "max_characters_request_free_user": 5000,
+          "max_characters_request_subscribed_user": 5000,
+          "maximum_text_length_per_request": 5000,
+          "languages": [
+            {
+              "language_id": "af",
+              "name": "Afrikaans"
+            },
+            {
+              "language_id": "ar",
+              "name": "Arabic"
+            },
+            {
+              "language_id": "hy",
+              "name": "Armenian"
+            },
+            {
+              "language_id": "as",
+              "name": "Assamese"
+            },
+            {
+              "language_id": "az",
+              "name": "Azerbaijani"
+            },
+            {
+              "language_id": "be",
+              "name": "Belarusian"
+            },
+            {
+              "language_id": "bn",
+              "name": "Bengali"
+            },
+            {
+              "language_id": "bs",
+              "name": "Bosnian"
+            },
+            {
+              "language_id": "bg",
+              "name": "Bulgarian"
+            },
+            {
+              "language_id": "ca",
+              "name": "Catalan"
+            },
+            {
+              "language_id": "ceb",
+              "name": "Cebuano"
+            },
+            {
+              "language_id": "ny",
+              "name": "Chichewa"
+            },
+            {
+              "language_id": "hr",
+              "name": "Croatian"
+            },
+            {
+              "language_id": "cs",
+              "name": "Czech"
+            },
+            {
+              "language_id": "da",
+              "name": "Danish"
+            },
+            {
+              "language_id": "nl",
+              "name": "Dutch"
+            },
+            {
+              "language_id": "en",
+              "name": "English"
+            },
+            {
+              "language_id": "et",
+              "name": "Estonian"
+            },
+            {
+              "language_id": "fil",
+              "name": "Filipino"
+            },
+            {
+              "language_id": "fi",
+              "name": "Finnish"
+            },
+            {
+              "language_id": "fr",
+              "name": "French"
+            },
+            {
+              "language_id": "gl",
+              "name": "Galician"
+            },
+            {
+              "language_id": "ka",
+              "name": "Georgian"
+            },
+            {
+              "language_id": "de",
+              "name": "German"
+            },
+            {
+              "language_id": "el",
+              "name": "Greek"
+            },
+            {
+              "language_id": "gu",
+              "name": "Gujarati"
+            },
+            {
+              "language_id": "ha",
+              "name": "Hausa"
+            },
+            {
+              "language_id": "he",
+              "name": "Hebrew"
+            },
+            {
+              "language_id": "hi",
+              "name": "Hindi"
+            },
+            {
+              "language_id": "hu",
+              "name": "Hungarian"
+            },
+            {
+              "language_id": "is",
+              "name": "Icelandic"
+            },
+            {
+              "language_id": "id",
+              "name": "Indonesian"
+            },
+            {
+              "language_id": "ga",
+              "name": "Irish"
+            },
+            {
+              "language_id": "it",
+              "name": "Italian"
+            },
+            {
+              "language_id": "ja",
+              "name": "Japanese"
+            },
+            {
+              "language_id": "jv",
+              "name": "Javanese"
+            },
+            {
+              "language_id": "kn",
+              "name": "Kannada"
+            },
+            {
+              "language_id": "kk",
+              "name": "Kazakh"
+            },
+            {
+              "language_id": "ky",
+              "name": "Kirghiz"
+            },
+            {
+              "language_id": "ko",
+              "name": "Korean"
+            },
+            {
+              "language_id": "lv",
+              "name": "Latvian"
+            },
+            {
+              "language_id": "ln",
+              "name": "Lingala"
+            },
+            {
+              "language_id": "lt",
+              "name": "Lithuanian"
+            },
+            {
+              "language_id": "lb",
+              "name": "Luxembourgish"
+            },
+            {
+              "language_id": "mk",
+              "name": "Macedonian"
+            },
+            {
+              "language_id": "ms",
+              "name": "Malay"
+            },
+            {
+              "language_id": "ml",
+              "name": "Malayalam"
+            },
+            {
+              "language_id": "zh",
+              "name": "Mandarin Chinese"
+            },
+            {
+              "language_id": "mr",
+              "name": "Marathi"
+            },
+            {
+              "language_id": "ne",
+              "name": "Nepali"
+            },
+            {
+              "language_id": "no",
+              "name": "Norwegian"
+            },
+            {
+              "language_id": "ps",
+              "name": "Pashto"
+            },
+            {
+              "language_id": "fa",
+              "name": "Persian"
+            },
+            {
+              "language_id": "pl",
+              "name": "Polish"
+            },
+            {
+              "language_id": "pt",
+              "name": "Portuguese"
+            },
+            {
+              "language_id": "pa",
+              "name": "Punjabi"
+            },
+            {
+              "language_id": "ro",
+              "name": "Romanian"
+            },
+            {
+              "language_id": "ru",
+              "name": "Russian"
+            },
+            {
+              "language_id": "sr",
+              "name": "Serbian"
+            },
+            {
+              "language_id": "sd",
+              "name": "Sindhi"
+            },
+            {
+              "language_id": "sk",
+              "name": "Slovak"
+            },
+            {
+              "language_id": "sl",
+              "name": "Slovenian"
+            },
+            {
+              "language_id": "so",
+              "name": "Somali"
+            },
+            {
+              "language_id": "es",
+              "name": "Spanish"
+            },
+            {
+              "language_id": "sw",
+              "name": "Swahili"
+            },
+            {
+              "language_id": "sv",
+              "name": "Swedish"
+            },
+            {
+              "language_id": "ta",
+              "name": "Tamil"
+            },
+            {
+              "language_id": "te",
+              "name": "Telugu"
+            },
+            {
+              "language_id": "th",
+              "name": "Thai"
+            },
+            {
+              "language_id": "tr",
+              "name": "Turkish"
+            },
+            {
+              "language_id": "uk",
+              "name": "Ukrainian"
+            },
+            {
+              "language_id": "ur",
+              "name": "Urdu"
+            },
+            {
+              "language_id": "vi",
+              "name": "Vietnamese"
+            },
+            {
+              "language_id": "cy",
+              "name": "Welsh"
+            }
+          ],
+          "model_rates": {
+            "character_cost_multiplier": 1,
+            "cost_discount_multiplier": 1
+          },
+          "concurrency_group": "standard_eleven_v3"
         }
       ]
     },
