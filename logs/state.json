@@ -17992,13 +17992,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007",
+            "prompt": "0.000000065",
             "completion": "0.00000014",
             "input_cache_read": "0.000000014"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 1048576,
+            "context_length": 262144,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25806,9 +25806,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000001056",
-            "completion": "0.000003168",
-            "input_cache_read": "0.0000000352"
+            "prompt": "0.000001188",
+            "completion": "0.000003564",
+            "input_cache_read": "0.0000000396"
           },
           "top_provider": {
             "context_length": 1048575,
@@ -33535,55 +33535,6 @@
               "coding_index": 4.8,
               "agentic_index": 1.6
             }
-          }
-        },
-        {
-          "id": "mistralai/ministral-8b",
-          "name": "Mistral: Ministral 8B",
-          "canonical_slug": "mistralai/ministral-8b",
-          "hugging_face_id": null,
-          "description": "Ministral 8B is an 8B parameter model featuring a unique interleaved sliding-window attention pattern for faster, memory-efficient inference. Designed for edge use cases, it supports up to 128k context length...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000011",
-            "completion": "0.00000011"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "presence_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.3
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-09-30",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/mistralai/ministral-8b/endpoints"
           }
         },
         {
@@ -49695,13 +49646,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000003",
-            "completion": "0.000002",
-            "input_cache_read": "0.00000003"
+            "prompt": "0.0000006",
+            "completion": "0.0000036",
+            "input_cache_read": "0.00000012"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 65536,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
