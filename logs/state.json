@@ -25393,9 +25393,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000742",
-            "completion": "0.0000001484",
-            "input_cache_read": "0.00000001484"
+            "prompt": "0.0000000826",
+            "completion": "0.0000001652",
+            "input_cache_read": "0.00000001652"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25806,43 +25806,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000066",
-            "completion": "0.00000198",
-            "input_cache_read": "0.000000022",
-            "overrides": [
-              {
-                "utc_start": 1000,
-                "utc_end": 100,
-                "prompt": "0.00000066",
-                "completion": "0.00000198",
-                "input_cache_read": "0.000000022"
-              },
-              {
-                "utc_start": 100,
-                "utc_end": 400,
-                "prompt": "0.00000132",
-                "completion": "0.00000396",
-                "input_cache_read": "0.000000044"
-              },
-              {
-                "utc_start": 400,
-                "utc_end": 600,
-                "prompt": "0.00000066",
-                "completion": "0.00000198",
-                "input_cache_read": "0.000000022"
-              },
-              {
-                "utc_start": 600,
-                "utc_end": 1000,
-                "prompt": "0.00000132",
-                "completion": "0.00000396",
-                "input_cache_read": "0.000000044"
-              }
-            ]
+            "prompt": "0.000001056",
+            "completion": "0.000003168",
+            "input_cache_read": "0.0000000352"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 384000,
+            "context_length": 1048575,
+            "max_completion_tokens": null,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -30093,13 +30063,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
+            "prompt": "0.00000009",
             "completion": "0.00000034",
-            "input_cache_read": "0.0000001"
+            "input_cache_read": "0.00000005"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262144,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -33568,6 +33538,55 @@
           }
         },
         {
+          "id": "mistralai/ministral-8b",
+          "name": "Mistral: Ministral 8B",
+          "canonical_slug": "mistralai/ministral-8b",
+          "hugging_face_id": null,
+          "description": "Ministral 8B is an 8B parameter model featuring a unique interleaved sliding-window attention pattern for faster, memory-efficient inference. Designed for edge use cases, it supports up to 128k context length...",
+          "context_length": 128000,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Mistral",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000011",
+            "completion": "0.00000011"
+          },
+          "top_provider": {
+            "context_length": 128000,
+            "max_completion_tokens": null,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "max_tokens",
+            "presence_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.3
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": "2024-09-30",
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/ministral-8b/endpoints"
+          }
+        },
+        {
           "id": "mistralai/ministral-8b-2512",
           "name": "Mistral: Ministral 3 8B 2512",
           "canonical_slug": "mistralai/ministral-8b-2512",
@@ -35117,9 +35136,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000005415",
-            "completion": "0.00000228",
-            "input_cache_read": "0.0000000912"
+            "prompt": "0.00000095",
+            "completion": "0.000004",
+            "input_cache_read": "0.00000016"
           },
           "top_provider": {
             "context_length": 262144,
@@ -50605,6 +50624,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "logprobs",
             "max_tokens",
             "presence_penalty",
