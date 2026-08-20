@@ -25393,9 +25393,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000088606",
-            "completion": "0.000000177212",
-            "input_cache_read": "0.0000000177212"
+            "prompt": "0.0000000868",
+            "completion": "0.0000001736",
+            "input_cache_read": "0.00000001736"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -35087,9 +35087,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000095",
-            "completion": "0.000004",
-            "input_cache_read": "0.00000016"
+            "prompt": "0.0000009405",
+            "completion": "0.00000396",
+            "input_cache_read": "0.0000001584"
           },
           "top_provider": {
             "context_length": 262144,
@@ -37166,7 +37166,7 @@
           "canonical_slug": "nvidia/nemotron-3.5-lightning-20260807",
           "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
           "description": "NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total. It is suited for high-throughput agentic workloads and specialized tasks that...",
-          "context_length": 1000000,
+          "context_length": 262144,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -51505,6 +51505,92 @@
           },
           "reasoning": {
             "mandatory": false
+          }
+        },
+        {
+          "id": "tencent/hy-mt2-1.8b",
+          "name": "Tencent: Hy-MT2-1.8B",
+          "canonical_slug": "tencent/hy-mt2-1.8b-20260521",
+          "hugging_face_id": "tencent/Hy-MT2-1.8B",
+          "description": "Hy-MT2-1.8B is a compact 1.8B-parameter translation model from Tencent. It supports 33 language pairs and five Chinese dialect and minority-language pairs, with workflows for structured, delimiter-based, contextual, glossary-based, and style-guided...",
+          "context_length": 8192,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000044",
+            "completion": "0.000000177"
+          },
+          "top_provider": {
+            "context_length": 8192,
+            "max_completion_tokens": 4096,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "max_completion_tokens",
+            "max_tokens",
+            "stop",
+            "temperature"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/tencent/hy-mt2-1.8b-20260521/endpoints"
+          }
+        },
+        {
+          "id": "tencent/hy-mt2-30b-a3b",
+          "name": "Tencent: Hy-MT2-30B-A3B",
+          "canonical_slug": "tencent/hy-mt2-30b-a3b-20260521",
+          "hugging_face_id": "tencent/Hy-MT2-30B-A3B",
+          "description": "Hy-MT2-30B-A3B is Tencent's flagship translation model in the Hy-MT2 family. It supports 33 language pairs and five Chinese dialect and minority-language pairs, with workflows for structured, delimiter-based, contextual, glossary-based, and...",
+          "context_length": 8192,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000074",
+            "completion": "0.000000295"
+          },
+          "top_provider": {
+            "context_length": 8192,
+            "max_completion_tokens": 4096,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "max_completion_tokens",
+            "max_tokens",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/tencent/hy-mt2-30b-a3b-20260521/endpoints"
           }
         },
         {
