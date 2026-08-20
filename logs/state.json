@@ -17791,7 +17791,7 @@
           "top_provider": {
             "context_length": 200000,
             "max_completion_tokens": 64000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -18411,7 +18411,7 @@
           "top_provider": {
             "context_length": 400000,
             "max_completion_tokens": 128000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -25023,11 +25023,12 @@
           },
           "pricing": {
             "prompt": "0.00000027",
-            "completion": "0.000001"
+            "completion": "0.000001",
+            "input_cache_read": "0.000000135"
           },
           "top_provider": {
-            "context_length": 163840,
-            "max_completion_tokens": 163840,
+            "context_length": 131072,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25393,9 +25394,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000084",
-            "completion": "0.000000168",
-            "input_cache_read": "0.0000000168"
+            "prompt": "0.0000000812",
+            "completion": "0.0000001624",
+            "input_cache_read": "0.00000001624"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -30000,22 +30001,14 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
-            "frequency_penalty",
             "include_reasoning",
-            "logprobs",
             "max_tokens",
-            "presence_penalty",
             "reasoning",
-            "repetition_penalty",
             "response_format",
             "seed",
-            "stop",
-            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
-            "top_k",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
