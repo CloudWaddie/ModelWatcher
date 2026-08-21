@@ -18288,18 +18288,18 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000025",
-            "completion": "0.000015",
+            "prompt": "0.000002",
+            "completion": "0.00001",
             "web_search": "0.01",
-            "input_cache_read": "0.00000025",
-            "input_cache_write": "0.000003125",
+            "input_cache_read": "0.0000002",
+            "input_cache_write": "0.0000025",
             "overrides": [
               {
                 "min_prompt_tokens": 272000,
-                "prompt": "0.000005",
-                "completion": "0.0000225",
-                "input_cache_read": "0.0000005",
-                "input_cache_write": "0.00000625"
+                "prompt": "0.000004",
+                "completion": "0.000015",
+                "input_cache_read": "0.0000004",
+                "input_cache_write": "0.000005"
               }
             ]
           },
@@ -24392,65 +24392,6 @@
           }
         },
         {
-          "id": "deepcogito/cogito-v2.1-671b",
-          "name": "Deep Cogito: Cogito v2.1 671B",
-          "canonical_slug": "deepcogito/cogito-v2.1-671b-20251118",
-          "hugging_face_id": "",
-          "description": "Cogito v2.1 671B MoE represents one of the strongest open models globally, matching performance of frontier closed and open models. This model is trained using self play with reinforcement learning...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000125",
-            "completion": "0.00000125"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "response_format",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/deepcogito/cogito-v2.1-671b-20251118/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
           "id": "deepseek/deepseek-chat",
           "name": "DeepSeek: DeepSeek V3",
           "canonical_slug": "deepseek/deepseek-chat-v3",
@@ -25365,9 +25306,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008106",
-            "completion": "0.00000016212",
-            "input_cache_read": "0.000000016212"
+            "prompt": "0.00000007966",
+            "completion": "0.00000015932",
+            "input_cache_read": "0.000000015932"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -32283,6 +32224,73 @@
           }
         },
         {
+          "id": "meta/muse-spark-1.2-contributor",
+          "name": "Meta: Muse Spark 1.2 Contributor",
+          "canonical_slug": "meta/muse-spark-1.2-contributor-20260805",
+          "hugging_face_id": null,
+          "description": "Muse Spark 1.2 contributor tier is a reasoning model from Meta designed for developers who want to start building at an even lower cost. It’s meaningfully cheaper than Muse Spark...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+file+audio+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video",
+              "file",
+              "audio"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.0000002",
+            "web_search": "0.0025",
+            "input_cache_read": "0.000000002"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": null,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "repetition_penalty",
+            "response_format",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta/muse-spark-1.2-contributor-20260805/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
           "id": "microsoft/phi-4",
           "name": "Microsoft: Phi 4",
           "canonical_slug": "microsoft/phi-4",
@@ -34630,7 +34638,7 @@
           "canonical_slug": "mistralai/mistral-small-3.2-24b-instruct-2506",
           "hugging_face_id": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
           "description": "Mistral-Small-3.2-24B-Instruct-2506 is an updated 24B parameter model from Mistral optimized for instruction following, repetition reduction, and improved function calling. Compared to the 3.1 release, version 3.2 significantly improves accuracy on...",
-          "context_length": 256000,
+          "context_length": 131072,
           "architecture": {
             "modality": "text+image->text",
             "input_modalities": [
@@ -34644,11 +34652,11 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009375",
-            "completion": "0.00000025"
+            "prompt": "0.000000075",
+            "completion": "0.0000002"
           },
           "top_provider": {
-            "context_length": 256000,
+            "context_length": 128000,
             "max_completion_tokens": 16384,
             "is_moderated": false
           },
@@ -43617,18 +43625,18 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000025",
-            "completion": "0.000015",
+            "prompt": "0.000002",
+            "completion": "0.00001",
             "web_search": "0.01",
-            "input_cache_read": "0.00000025",
-            "input_cache_write": "0.000003125",
+            "input_cache_read": "0.0000002",
+            "input_cache_write": "0.0000025",
             "overrides": [
               {
                 "min_prompt_tokens": 272000,
-                "prompt": "0.000005",
-                "completion": "0.0000225",
-                "input_cache_read": "0.0000005",
-                "input_cache_write": "0.00000625"
+                "prompt": "0.000004",
+                "completion": "0.000015",
+                "input_cache_read": "0.0000004",
+                "input_cache_write": "0.000005"
               }
             ]
           },
@@ -43707,18 +43715,18 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000025",
-            "completion": "0.000015",
+            "prompt": "0.000002",
+            "completion": "0.00001",
             "web_search": "0.01",
-            "input_cache_read": "0.00000025",
-            "input_cache_write": "0.000003125",
+            "input_cache_read": "0.0000002",
+            "input_cache_write": "0.0000025",
             "overrides": [
               {
                 "min_prompt_tokens": 272000,
-                "prompt": "0.000005",
-                "completion": "0.0000225",
-                "input_cache_read": "0.0000005",
-                "input_cache_write": "0.00000625"
+                "prompt": "0.000004",
+                "completion": "0.000015",
+                "input_cache_read": "0.0000004",
+                "input_cache_write": "0.000005"
               }
             ]
           },
@@ -43789,16 +43797,18 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000125",
-            "completion": "0.0000075",
+            "prompt": "0.000001",
+            "completion": "0.000005",
             "web_search": "0.01",
-            "input_cache_read": "0.000000125",
+            "input_cache_read": "0.0000001",
+            "input_cache_write": "0.00000125",
             "overrides": [
               {
                 "min_prompt_tokens": 272000,
-                "prompt": "0.0000025",
-                "completion": "0.00001125",
-                "input_cache_read": "0.00000025"
+                "prompt": "0.000002",
+                "completion": "0.0000075",
+                "input_cache_read": "0.0000002",
+                "input_cache_write": "0.0000025"
               }
             ]
           },
@@ -43868,16 +43878,18 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000125",
-            "completion": "0.0000075",
+            "prompt": "0.000001",
+            "completion": "0.000005",
             "web_search": "0.01",
-            "input_cache_read": "0.000000125",
+            "input_cache_read": "0.0000001",
+            "input_cache_write": "0.00000125",
             "overrides": [
               {
                 "min_prompt_tokens": 272000,
-                "prompt": "0.0000025",
-                "completion": "0.00001125",
-                "input_cache_read": "0.00000025"
+                "prompt": "0.000002",
+                "completion": "0.0000075",
+                "input_cache_read": "0.0000002",
+                "input_cache_write": "0.0000025"
               }
             ]
           },
