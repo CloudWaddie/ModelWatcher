@@ -17963,13 +17963,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000065",
-            "completion": "0.00000018",
-            "input_cache_read": "0.00000002"
+            "prompt": "0.0000000639",
+            "completion": "0.0000001278",
+            "input_cache_read": "0.00000001278"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 1048576,
+            "context_length": 262144,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25306,9 +25306,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000005866",
-            "completion": "0.00000011732",
-            "input_cache_read": "0.000000011732"
+            "prompt": "0.00000005726",
+            "completion": "0.00000011452",
+            "input_cache_read": "0.000000011452"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -51728,6 +51728,50 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/tencent/hy-mt2-30b-a3b-20260521/endpoints"
+          }
+        },
+        {
+          "id": "tencent/hy-mt2-7b",
+          "name": "Tencent: Hy-MT2-7B",
+          "canonical_slug": "tencent/hy-mt2-7b-20260521",
+          "hugging_face_id": "tencent/Hy-MT2-7B",
+          "description": "Hy-MT2-7B is a 7B-parameter translation model from Tencent. It supports 33 language pairs and five Chinese dialect and minority-language pairs, with workflows for structured, delimiter-based, contextual, glossary-based, and style-guided translation.",
+          "context_length": 8192,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000074",
+            "completion": "0.000000295"
+          },
+          "top_provider": {
+            "context_length": 8192,
+            "max_completion_tokens": 4096,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "max_completion_tokens",
+            "max_tokens",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/tencent/hy-mt2-7b-20260521/endpoints"
           }
         },
         {
