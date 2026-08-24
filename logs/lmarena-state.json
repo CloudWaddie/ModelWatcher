@@ -10009,6 +10009,23 @@
       }
     },
     {
+      "id": "01a03141-8ebd-777c-90d5-e07461434d57",
+      "publicName": "magnus",
+      "displayName": "magnus",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
       "id": "019b5265-8405-799e-87af-199dc9f4ad4a",
       "organization": "google",
       "provider": "googleVertexGlobalWithThoughtSignatures",
@@ -17649,6 +17666,56 @@
       }
     },
     {
+      "id": "01a03125-7eb3-7289-8791-b5046097a337",
+      "publicName": "eren-v2",
+      "displayName": "eren-v2",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": true,
+            "multipleImages": false
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
+      "id": "01a03125-9ed2-7ef9-9e62-6ab0b0d71ba7",
+      "publicName": "eren-v1-multi",
+      "displayName": "eren-v1-multi",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": true,
+            "multipleImages": true
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
       "id": "0199ef2a-583f-7088-b704-b75fd169401d",
       "organization": "google",
       "provider": "google-genai",
@@ -20430,5 +20497,5 @@
       }
     }
   ],
-  "lastCheck": 1787528971973
+  "lastCheck": 1787535808875
 }
