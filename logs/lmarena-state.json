@@ -9849,6 +9849,26 @@
       }
     },
     {
+      "id": "01a034ef-5841-7951-b745-ab34e5177493",
+      "organization": "google",
+      "publicName": "gemini-3.7-flash",
+      "displayName": "gemini-3.7-flash",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
       "id": "019fd401-ecc8-71b8-92dd-9d3de2b71974",
       "organization": "meta",
       "provider": "metaModelApi",
@@ -12957,6 +12977,24 @@
         }
       },
       "userSelectable": false,
+      "rankByModality": {
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "01a03533-9cea-729b-818b-0585d4e16692",
+      "publicName": "kimi-k3",
+      "displayName": "kimi-k3",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": false
+        },
+        "outputCapabilities": {
+          "web": true
+        }
+      },
+      "userSelectable": true,
       "rankByModality": {
         "webdev": 9007199254740991
       }
@@ -17577,6 +17615,31 @@
       }
     },
     {
+      "id": "01a03537-4cb0-7842-9e06-b5af8474bf60",
+      "publicName": "lina-f-alpha",
+      "displayName": "lina-f-alpha",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": true
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
       "id": "019cc6e2-6e4a-76c1-bf57-76b12d98dbf3",
       "organization": "xai",
       "provider": "xaiImage",
@@ -20516,5 +20579,5 @@
       }
     }
   ],
-  "lastCheck": 1787594391763
+  "lastCheck": 1787600073115
 }
