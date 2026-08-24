@@ -9043,29 +9043,6 @@
       }
     },
     {
-      "id": "019fb6ba-031f-7e6b-ac0b-33dc6569bbc4",
-      "organization": "google",
-      "provider": "googleWithThoughtSignatures",
-      "publicName": "gemini-3.5-pro",
-      "name": "andwise-evfd",
-      "displayName": "gemini-3.7-flash-high",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019faec4-558c-793a-b7b1-ea94c392877e",
       "organization": "alibaba",
       "provider": "alibaba",
@@ -9856,6 +9833,30 @@
       "capabilities": {
         "inputCapabilities": {
           "text": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "01a03590-2058-7d1a-bae4-94295d7ad0ef",
+      "organization": "google",
+      "provider": "googleVertexGlobalWithThoughtSignatures",
+      "publicName": "gemini-3.7-flash",
+      "name": "gemini-3.7-flash",
+      "displayName": "gemini-3.7-flash",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
         },
         "outputCapabilities": {
           "text": true,
@@ -20579,5 +20580,5 @@
       }
     }
   ],
-  "lastCheck": 1787603833615
+  "lastCheck": 1787607326320
 }
