@@ -8677,28 +8677,6 @@
       }
     },
     {
-      "id": "019fbfb4-fd7b-76f8-81d5-63f3a4dc5525",
-      "organization": "openai",
-      "provider": "openaiResponses",
-      "publicName": "gpt-5.6-sol-max",
-      "name": "gpt-5.6-sol-max",
-      "displayName": "gpt-5.6-sol-max",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": false,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
       "id": "019f9593-b5a9-7575-aff0-5971ff479f88",
       "organization": "anthropic",
       "provider": "googleVertexAnthropicAdaptive",
@@ -8720,6 +8698,52 @@
       "rankByModality": {
         "chat": 9007199254740991,
         "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "019ff69c-dae8-708a-ae20-1ce80775d94d",
+      "organization": "xai",
+      "provider": "xaiPrivateResponses",
+      "publicName": "grok-4.6",
+      "name": "grok-4.6-high-public",
+      "displayName": "grok-4.6-high",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "019fbfb4-fd7b-76f8-81d5-63f3a4dc5525",
+      "organization": "openai",
+      "provider": "openaiResponses",
+      "publicName": "gpt-5.6-sol-max",
+      "name": "gpt-5.6-sol-max",
+      "displayName": "gpt-5.6-sol-max",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": false,
+      "rankByModality": {
+        "chat": 9007199254740991
       }
     },
     {
@@ -8786,30 +8810,6 @@
         }
       },
       "userSelectable": false,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
-      }
-    },
-    {
-      "id": "019ff69c-dae8-708a-ae20-1ce80775d94d",
-      "organization": "xai",
-      "provider": "xaiPrivateResponses",
-      "publicName": "grok-4.6",
-      "name": "grok-4.6-high-public",
-      "displayName": "grok-4.6-high",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991,
         "webdev": 9007199254740991
@@ -12680,15 +12680,15 @@
       }
     },
     {
-      "id": "019e6534-c9b7-7531-91f7-8d6ab180e67d",
-      "organization": "alibaba",
-      "provider": "alibabaToolCall",
-      "publicName": "qwen3.7-max",
-      "name": "mizar-v2-jxxi",
-      "displayName": "qwen3.7-max",
+      "id": "019f94ca-f684-7009-bb6b-78b1544f22c4",
+      "publicName": "tillandsia-alpha",
+      "displayName": "tillandsia-alpha",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": {
+            "requiresUpload": true
+          }
         },
         "outputCapabilities": {
           "web": true
@@ -12700,15 +12700,15 @@
       }
     },
     {
-      "id": "019f94ca-f684-7009-bb6b-78b1544f22c4",
-      "publicName": "tillandsia-alpha",
-      "displayName": "tillandsia-alpha",
+      "id": "019e6534-c9b7-7531-91f7-8d6ab180e67d",
+      "organization": "alibaba",
+      "provider": "alibabaToolCall",
+      "publicName": "qwen3.7-max",
+      "name": "mizar-v2-jxxi",
+      "displayName": "qwen3.7-max",
       "capabilities": {
         "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": true
-          }
+          "text": true
         },
         "outputCapabilities": {
           "web": true
@@ -20515,5 +20515,5 @@
       }
     }
   ],
-  "lastCheck": 1787568130658
+  "lastCheck": 1787571294919
 }
