@@ -392,6 +392,7 @@
     },
     {
       "id": "019f8b06-4fa3-7bbe-9292-691f9feadc3c",
+      "organization": "google",
       "publicName": "gemini-3.6-flash",
       "displayName": "gemini-3.6-flash",
       "capabilities": {
@@ -8725,28 +8726,6 @@
       }
     },
     {
-      "id": "019fbfb4-fd7b-76f8-81d5-63f3a4dc5525",
-      "organization": "openai",
-      "provider": "openaiResponses",
-      "publicName": "gpt-5.6-sol-max",
-      "name": "gpt-5.6-sol-max",
-      "displayName": "gpt-5.6-sol-max",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true,
-          "file": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": false,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
       "id": "19ad5f04-38c6-48ae-b826-f7d5bbfd79f7",
       "organization": "openai",
       "provider": "openai",
@@ -9674,6 +9653,28 @@
       "publicName": "gpt-5.6-sol-low",
       "name": "gpt-5.6-sol-low",
       "displayName": "gpt-5.6-sol-low",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true,
+          "file": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": false,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "019fbfb4-fd7b-76f8-81d5-63f3a4dc5525",
+      "organization": "openai",
+      "provider": "openaiResponses",
+      "publicName": "gpt-5.6-sol-max",
+      "name": "gpt-5.6-sol-max",
+      "displayName": "gpt-5.6-sol-max",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
@@ -12816,27 +12817,6 @@
       }
     },
     {
-      "id": "019f4d64-388f-700b-b8c2-4d8d14c44973",
-      "organization": "openai",
-      "provider": "openaiResponses",
-      "publicName": "gpt-5.6-sol-medium",
-      "name": "gpt-5.6-sol-medium-code-codex-harness",
-      "displayName": "gpt-5.6-sol-medium",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": true
-        },
-        "outputCapabilities": {
-          "web": true
-        }
-      },
-      "userSelectable": false,
-      "rankByModality": {
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019faa02-bc24-70f4-afbe-6ae1e20d685a",
       "organization": "alibaba",
       "provider": "alibabaToolCall",
@@ -12956,6 +12936,27 @@
         }
       },
       "userSelectable": true,
+      "rankByModality": {
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "019f4d64-388f-700b-b8c2-4d8d14c44973",
+      "organization": "openai",
+      "provider": "openaiResponses",
+      "publicName": "gpt-5.6-sol-medium",
+      "name": "gpt-5.6-sol-medium-code-codex-harness",
+      "displayName": "gpt-5.6-sol-medium",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
+        },
+        "outputCapabilities": {
+          "web": true
+        }
+      },
+      "userSelectable": false,
       "rankByModality": {
         "webdev": 9007199254740991
       }
@@ -20515,5 +20516,5 @@
       }
     }
   ],
-  "lastCheck": 1787587532390
+  "lastCheck": 1787594391763
 }
