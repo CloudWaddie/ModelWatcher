@@ -25320,9 +25320,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000574",
-            "completion": "0.0000001148",
-            "input_cache_read": "0.00000001148"
+            "prompt": "0.000000056",
+            "completion": "0.000000112",
+            "input_cache_read": "0.0000000112"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25454,9 +25454,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000014",
-            "completion": "0.00000028",
-            "input_cache_read": "0.000000028"
+            "prompt": "0.0000000658",
+            "completion": "0.0000001316",
+            "input_cache_read": "0.00000001316"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25640,9 +25640,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000526176",
-            "completion": "0.000001052352",
-            "input_cache_read": "0.000000043848"
+            "prompt": "0.000000522174",
+            "completion": "0.000001044348",
+            "input_cache_read": "0.0000000435145"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -36420,67 +36420,6 @@
           }
         },
         {
-          "id": "nvidia/nemotron-3-nano-30b-a3b:free",
-          "name": "NVIDIA: Nemotron 3 Nano 30B A3B (free)",
-          "canonical_slug": "nvidia/nemotron-3-nano-30b-a3b",
-          "hugging_face_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
-          "description": "NVIDIA Nemotron 3 Nano 30B A3B is a small language MoE model with highest compute efficiency and accuracy for developers to build specialized agentic AI systems. The model is fully...",
-          "context_length": 256000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "seed",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": "2026-08-24",
-          "links": {
-            "details": "/api/v1/models/nvidia/nemotron-3-nano-30b-a3b/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": 14.5,
-              "coding_index": 14.4,
-              "agentic_index": 2
-            }
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
           "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
           "name": "NVIDIA: Nemotron 3 Nano Omni (free)",
           "canonical_slug": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning-20260428",
@@ -37289,116 +37228,6 @@
               "coding_index": 26.8,
               "agentic_index": 13.8
             }
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
-          "id": "nvidia/nemotron-nano-12b-v2-vl:free",
-          "name": "NVIDIA: Nemotron Nano 12B 2 VL (free)",
-          "canonical_slug": "nvidia/nemotron-nano-12b-v2-vl",
-          "hugging_face_id": "nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL-BF16",
-          "description": "NVIDIA Nemotron Nano 2 VL is a 12-billion-parameter open multimodal reasoning model designed for video understanding and document intelligence. It introduces a hybrid Transformer-Mamba architecture, combining transformer-level accuracy with Mamba’s...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text+image+video->text",
-            "input_modalities": [
-              "image",
-              "text",
-              "video"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": 128000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "seed",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": "2026-08-24",
-          "links": {
-            "details": "/api/v1/models/nvidia/nemotron-nano-12b-v2-vl/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
-          "id": "nvidia/nemotron-nano-9b-v2:free",
-          "name": "NVIDIA: Nemotron Nano 9B V2 (free)",
-          "canonical_slug": "nvidia/nemotron-nano-9b-v2",
-          "hugging_face_id": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
-          "description": "NVIDIA-Nemotron-Nano-9B-v2 is a large language model (LLM) trained from scratch by NVIDIA, and designed as a unified model for both reasoning and non-reasoning tasks. It responds to user queries and...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": null,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "seed",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-03-31",
-          "expiration_date": "2026-08-24",
-          "links": {
-            "details": "/api/v1/models/nvidia/nemotron-nano-9b-v2/endpoints"
           },
           "reasoning": {
             "mandatory": false
@@ -47193,7 +47022,7 @@
           "canonical_slug": "qwen/qwen3-235b-a22b-thinking-2507",
           "hugging_face_id": "Qwen/Qwen3-235B-A22B-Thinking-2507",
           "description": "Qwen3-235B-A22B-Thinking-2507 is a high-performance, open-weight Mixture-of-Experts (MoE) language model optimized for complex reasoning tasks. It activates 22B of its 235B parameters per forward pass and natively supports up to 262,144...",
-          "context_length": 262144,
+          "context_length": 131072,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -47218,10 +47047,8 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
             "logprobs",
             "max_tokens",
-            "min_p",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
