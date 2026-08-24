@@ -17827,12 +17827,12 @@
       }
     },
     {
-      "id": "019c6f55-308b-71ac-95af-f023a48253cf",
-      "organization": "anthropic",
-      "provider": "anthropicSearch",
-      "publicName": "claude-opus-4-6-search",
-      "name": "claude-opus-4-6-search",
-      "displayName": "claude-opus-4-6-search",
+      "id": "019f4805-8efe-7437-bd2e-b78d3c9c28c4",
+      "organization": "openai",
+      "provider": "openaiResponses",
+      "publicName": "gpt-5.6-sol-search-xhigh",
+      "name": "gpt-5.6-sol-search-xhigh",
+      "displayName": "gpt-5.6-sol-search-xhigh",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -17848,12 +17848,12 @@
       }
     },
     {
-      "id": "019dc0ba-5395-7db4-9731-472e97acf221",
-      "organization": "openai",
-      "provider": "openaiResponses",
-      "publicName": "gpt-5.5-search",
-      "name": "gpt-5.5-search",
-      "displayName": "gpt-5.5-search",
+      "id": "019c6f55-308b-71ac-95af-f023a48253cf",
+      "organization": "anthropic",
+      "provider": "anthropicSearch",
+      "publicName": "claude-opus-4-6-search",
+      "name": "claude-opus-4-6-search",
+      "displayName": "claude-opus-4-6-search",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -17869,12 +17869,12 @@
       }
     },
     {
-      "id": "019f1e98-ccba-72c4-8841-c1cf48dc78f4",
-      "organization": "anthropic",
-      "provider": "anthropicSearch",
-      "publicName": "claude-fable-5-search",
-      "name": "claude-fable-5-search-v2",
-      "displayName": "claude-fable-5-search",
+      "id": "019dc0ba-5395-7db4-9731-472e97acf221",
+      "organization": "openai",
+      "provider": "openaiResponses",
+      "publicName": "gpt-5.5-search",
+      "name": "gpt-5.5-search",
+      "displayName": "gpt-5.5-search",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -17911,6 +17911,27 @@
       }
     },
     {
+      "id": "019f1e98-ccba-72c4-8841-c1cf48dc78f4",
+      "organization": "anthropic",
+      "provider": "anthropicSearch",
+      "publicName": "claude-fable-5-search",
+      "name": "claude-fable-5-search-v2",
+      "displayName": "claude-fable-5-search",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "search": true
+        }
+      },
+      "userSelectable": false,
+      "rank": 5,
+      "rankByModality": {
+        "search": 5
+      }
+    },
+    {
       "id": "019c6f55-70d6-7a9c-b89b-9a0db36a3582",
       "organization": "anthropic",
       "provider": "anthropicSearch",
@@ -17926,9 +17947,30 @@
         }
       },
       "userSelectable": true,
-      "rank": 6,
+      "rank": 7,
       "rankByModality": {
-        "search": 6
+        "search": 7
+      }
+    },
+    {
+      "id": "019f4e39-a888-7430-a6e7-ca2c33ec78f1",
+      "organization": "xai",
+      "provider": "xaiResponsesSearch",
+      "publicName": "grok-4.5-search",
+      "name": "grok-4.5-search",
+      "displayName": "grok-4.5-search",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "search": true
+        }
+      },
+      "userSelectable": true,
+      "rank": 8,
+      "rankByModality": {
+        "search": 8
       }
     },
     {
@@ -17947,9 +17989,9 @@
         }
       },
       "userSelectable": false,
-      "rank": 7,
+      "rank": 9,
       "rankByModality": {
-        "search": 7
+        "search": 9
       }
     },
     {
@@ -17968,30 +18010,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 9,
+      "rank": 11,
       "rankByModality": {
-        "search": 9
-      }
-    },
-    {
-      "id": "019ceb00-eef3-7df6-a025-00c9805ebd65",
-      "organization": "xai",
-      "provider": "xaiMultiAgentGrounding",
-      "publicName": "grok-4.20-multi-agent-beta-0309",
-      "name": "grok-4.20-multi-agent-beta-0309-search",
-      "displayName": "grok-4.20-multi-agent-beta-0309",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "search": true
-        }
-      },
-      "userSelectable": true,
-      "rank": 10,
-      "rankByModality": {
-        "search": 10
+        "search": 11
       }
     },
     {
@@ -18010,9 +18031,30 @@
         }
       },
       "userSelectable": false,
-      "rank": 11,
+      "rank": 12,
       "rankByModality": {
-        "search": 11
+        "search": 12
+      }
+    },
+    {
+      "id": "019ceb00-eef3-7df6-a025-00c9805ebd65",
+      "organization": "xai",
+      "provider": "xaiMultiAgentGrounding",
+      "publicName": "grok-4.20-multi-agent-beta-0309",
+      "name": "grok-4.20-multi-agent-beta-0309-search",
+      "displayName": "grok-4.20-multi-agent-beta-0309",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "search": true
+        }
+      },
+      "userSelectable": true,
+      "rank": 13,
+      "rankByModality": {
+        "search": 13
       }
     },
     {
@@ -18031,9 +18073,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 12,
+      "rank": 14,
       "rankByModality": {
-        "search": 12
+        "search": 14
       }
     },
     {
@@ -18052,9 +18094,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 13,
+      "rank": 15,
       "rankByModality": {
-        "search": 13
+        "search": 15
       }
     },
     {
@@ -18073,9 +18115,9 @@
         }
       },
       "userSelectable": false,
-      "rank": 14,
+      "rank": 16,
       "rankByModality": {
-        "search": 14
+        "search": 16
       }
     },
     {
@@ -18094,9 +18136,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 16,
+      "rank": 17,
       "rankByModality": {
-        "search": 16
+        "search": 17
       }
     },
     {
@@ -18115,9 +18157,9 @@
         }
       },
       "userSelectable": false,
-      "rank": 17,
+      "rank": 19,
       "rankByModality": {
-        "search": 17
+        "search": 19
       }
     },
     {
@@ -18136,9 +18178,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 18,
+      "rank": 20,
       "rankByModality": {
-        "search": 18
+        "search": 20
       }
     },
     {
@@ -18157,9 +18199,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 19,
+      "rank": 21,
       "rankByModality": {
-        "search": 19
+        "search": 21
       }
     },
     {
@@ -18178,9 +18220,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 22,
+      "rank": 24,
       "rankByModality": {
-        "search": 22
+        "search": 24
       }
     },
     {
@@ -18199,9 +18241,9 @@
         }
       },
       "userSelectable": false,
-      "rank": 23,
+      "rank": 25,
       "rankByModality": {
-        "search": 23
+        "search": 25
       }
     },
     {
@@ -18220,9 +18262,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 24,
+      "rank": 26,
       "rankByModality": {
-        "search": 24
+        "search": 26
       }
     },
     {
@@ -18241,9 +18283,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 25,
+      "rank": 27,
       "rankByModality": {
-        "search": 25
+        "search": 27
       }
     },
     {
@@ -18262,9 +18304,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 26,
+      "rank": 28,
       "rankByModality": {
-        "search": 26
+        "search": 28
       }
     },
     {
@@ -18283,9 +18325,9 @@
         }
       },
       "userSelectable": false,
-      "rank": 27,
+      "rank": 29,
       "rankByModality": {
-        "search": 27
+        "search": 29
       }
     },
     {
@@ -18304,9 +18346,9 @@
         }
       },
       "userSelectable": true,
-      "rank": 28,
+      "rank": 30,
       "rankByModality": {
-        "search": 28
+        "search": 30
       }
     },
     {
@@ -18325,9 +18367,9 @@
         }
       },
       "userSelectable": false,
-      "rank": 30,
+      "rank": 32,
       "rankByModality": {
-        "search": 30
+        "search": 32
       }
     },
     {
@@ -18587,46 +18629,6 @@
         }
       },
       "userSelectable": true,
-      "rankByModality": {
-        "search": 9007199254740991
-      }
-    },
-    {
-      "id": "019f4e39-a888-7430-a6e7-ca2c33ec78f1",
-      "organization": "xai",
-      "provider": "xaiResponsesSearch",
-      "publicName": "grok-4.5-search",
-      "name": "grok-4.5-search",
-      "displayName": "grok-4.5-search",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "search": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "search": 9007199254740991
-      }
-    },
-    {
-      "id": "019f4805-8efe-7437-bd2e-b78d3c9c28c4",
-      "organization": "openai",
-      "provider": "openaiResponses",
-      "publicName": "gpt-5.6-sol-search-xhigh",
-      "name": "gpt-5.6-sol-search-xhigh",
-      "displayName": "gpt-5.6-sol-search-xhigh",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "search": true
-        }
-      },
-      "userSelectable": false,
       "rankByModality": {
         "search": 9007199254740991
       }
@@ -20580,5 +20582,5 @@
       }
     }
   ],
-  "lastCheck": 1787607326320
+  "lastCheck": 1787610763766
 }
