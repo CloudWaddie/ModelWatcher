@@ -2368,37 +2368,6 @@
           }
         },
         {
-          "id": "black-forest-labs/FLUX.1-schnell",
-          "name": "black-forest-labs/FLUX.1-schnell",
-          "uuid": "endpoint-e4638297-e0d0-4be4-85d4-62449ad55023",
-          "object": "model",
-          "type": "image",
-          "running": false,
-          "display_name": "FLUX.1 Schnell",
-          "organization": "Black Forest Labs",
-          "link": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": {
-              "price_per_megapixel": 0.0027,
-              "min_steps": 4
-            },
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "black-forest-labs/FLUX.1.1-pro",
           "name": "black-forest-labs/FLUX.1.1-pro",
           "uuid": "endpoint-071376f6-db8a-44cf-9706-7ba0c9c14833",
@@ -32719,9 +32688,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000024",
-            "completion": "0.00000096",
-            "input_cache_read": "0.000000048"
+            "prompt": "0.0000003",
+            "completion": "0.0000012",
+            "input_cache_read": "0.00000006"
           },
           "top_provider": {
             "context_length": 196608,
@@ -33296,6 +33265,69 @@
                 "rank": 92
               }
             ]
+          }
+        },
+        {
+          "id": "mistralai/devstral-2512",
+          "name": "Mistral: Devstral 2 2512",
+          "canonical_slug": "mistralai/devstral-2512",
+          "hugging_face_id": "mistralai/Devstral-2-123B-Instruct-2512",
+          "description": "Devstral 2 is a state-of-the-art open-source model by Mistral AI specializing in agentic coding. It is a 123B-parameter dense transformer model supporting a 256K context window. Devstral 2 supports exploring...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+file->text",
+            "input_modalities": [
+              "text",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Mistral",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000044",
+            "completion": "0.0000022",
+            "input_cache_read": "0.000000044"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": null,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "max_tokens",
+            "presence_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.3,
+            "top_p": null,
+            "frequency_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/devstral-2512/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [],
+            "artificial_analysis": {
+              "intelligence_index": 19.2,
+              "coding_index": 31.3,
+              "agentic_index": 10.6
+            }
           }
         },
         {
