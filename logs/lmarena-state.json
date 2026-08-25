@@ -16548,8 +16548,11 @@
     },
     {
       "id": "019fac44-b246-722d-ad6c-50863aff71fb",
+      "organization": "xai",
+      "provider": "xaiImage",
       "publicName": "porcelain",
-      "displayName": "porcelain",
+      "name": "porcelain-k9cy",
+      "displayName": "grok-imagine-image-2.0 (low)",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -16562,7 +16565,7 @@
           }
         }
       },
-      "userSelectable": true,
+      "userSelectable": false,
       "rankByModality": {
         "image": 9007199254740991
       }
@@ -16788,8 +16791,11 @@
     },
     {
       "id": "019fbf7c-0161-7e2c-ba1d-fa7b8eaae594",
+      "organization": "xai",
+      "provider": "xaiImage",
       "publicName": "horseshoe",
-      "displayName": "horseshoe",
+      "name": "horseshoe-zflu",
+      "displayName": "grok-imagine-image-2.0 (low)",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
@@ -16806,7 +16812,7 @@
           }
         }
       },
-      "userSelectable": true,
+      "userSelectable": false,
       "rankByModality": {
         "image": 9007199254740991
       }
@@ -19880,6 +19886,27 @@
       }
     },
     {
+      "id": "01a03abf-bdd8-7294-8576-359bba51ac4e",
+      "organization": "google",
+      "publicName": "gemini-omni-flash",
+      "displayName": "gemini-omni-flash",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "video": {
+            "required": true
+          }
+        },
+        "outputCapabilities": {
+          "video": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "video": 9007199254740991
+      }
+    },
+    {
       "id": "019fb424-59cb-7d5c-bfb4-2ec04fd7bf9e",
       "organization": "minimax",
       "provider": "minimaxV2",
@@ -20627,5 +20654,5 @@
       }
     }
   ],
-  "lastCheck": 1787690127871
+  "lastCheck": 1787693645932
 }
