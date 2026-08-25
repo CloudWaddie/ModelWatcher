@@ -5315,38 +5315,6 @@
           }
         },
         {
-          "id": "meta-llama/Llama-Guard-4-12B",
-          "name": "meta-llama/Llama-Guard-4-12B",
-          "uuid": "endpoint-2095a2fc-bb95-48df-b94f-f95ccb22fa93",
-          "object": "model",
-          "type": "moderation",
-          "running": false,
-          "display_name": "Llama Guard 4 12B",
-          "organization": "Meta",
-          "link": "https://huggingface.co/meta-llama/Llama-Guard-4-12B",
-          "license": "other llama4",
-          "context_length": 1048576,
-          "config": {
-            "chat_template": "{%- if messages | length % 2 == 0 -%}\n    {%- set role = 'Agent' -%}\n{%- else -%}\n    {%- set role = 'User' -%}\n{%- endif -%}\n\n{%- if categories is not defined -%}\n    {%- set ns = namespace(contains_image=false) -%}\n\n    {%- for message in messages -%}\n        {%- for content in message['content'] | selectattr('type', 'equalto', 'image') -%}\n            {%- set ns.contains_image = true -%}\n        {%- endfor -%}\n    {%- endfor -%}\n\n    {%- if ns.contains_image -%}\n        {%- set categories = {\n            \"S1\": \"Violent Crimes.\",\n            \"S2\": \"Non-Violent Crimes.\",\n            \"S3\": \"Sex Crimes.\",\n            \"S4\": \"Child Exploitation.\",\n            \"S5\": \"Defamation.\",\n            \"S6\": \"Specialized Advice.\",\n            \"S7\": \"Privacy.\",\n            \"S8\": \"Intellectual Property.\",\n            \"S9\": \"Indiscriminate Weapons.\",\n            \"S10\": \"Hate.\",\n            \"S11\": \"Self-Harm.\",\n            \"S12\": \"Sexual Content.\",\n            \"S13\": \"Elections.\",\n        } -%}\n    {%- else -%}\n        {%- set categories = {\n            \"S1\": \"Violent Crimes.\",\n            \"S2\": \"Non-Violent Crimes.\",\n            \"S3\": \"Sex Crimes.\",\n            \"S4\": \"Child Exploitation.\",\n            \"S5\": \"Defamation.\",\n            \"S6\": \"Specialized Advice.\",\n            \"S7\": \"Privacy.\",\n            \"S8\": \"Intellectual Property.\",\n            \"S9\": \"Indiscriminate Weapons.\",\n            \"S10\": \"Hate.\",\n            \"S11\": \"Self-Harm.\",\n            \"S12\": \"Sexual Content.\",\n            \"S13\": \"Elections.\",\n            \"S14\": \"Code Interpreter Abuse.\",\n        } -%}\n    {%- endif -%}\n{%- endif -%}\n\n{{ \"<|begin_of_text|><|header_start|>user<|header_end|>\\n\" }}\n{{ \"Task: Check if there is unsafe content in '\" + role + \"' messages in conversations according to our safety policy with the below categories.\\n\" }}\n{{ \"<BEGIN UNSAFE CONTENT CATEGORIES>\\n\" }}\n\n{%- for key in categories -%}\n    {%- if key not in excluded_category_keys -%}\n        {{ key + \": \" + categories[key] + \"\\n\" }}\n    {%- endif -%}\n{%- endfor -%}\n\n{{ \"<END UNSAFE CONTENT CATEGORIES>\\n\" }}\n{{ \"<BEGIN CONVERSATION>\\n\" }}\n\n{%- for message in messages -%}\n    {%- if (message['role'] == 'user') != (loop.index0 % 2 == 0) -%}\n        {{ raise_exception('Conversation roles must alternate user/assistant/user/assistant/...') }}\n    {%- endif -%}\n\n    {%- set content = message['content'] -%}\n\n    {%- if message['role'] == 'user' -%}\n        {%- set role = 'User' -%}\n    {%- elif message['role'] == 'assistant' -%}\n        {%- set role = 'Agent' -%}\n    {%- endif -%}\n\n    {#— #1 Accumulate all images for this message —#}\n    {%- set ns = namespace(img_tokens='') -%}\n    {%- for img in message.content | selectattr('type', 'equalto', 'image') -%}\n        {%- set ns.img_tokens = ns.img_tokens + '<|image|>' -%}\n    {%- endfor -%}\n\n    {#— #2 Then emit all text —#}\n    {%- for txt in message.content | selectattr('type','equalto','text') -%}\n        {{ role + ': ' }}{{ ns.img_tokens }}{{ txt.text | trim }}\\n\\n\n\n        {#— clear the buffer so only first text prints images —#}\n        {%- if loop.first -%}\n            {%- set ns.img_tokens = '' -%}\n        {%- endif -%}\n    {%- endfor -%}\n{%- endfor -%}\n\n{{ \"<END CONVERSATION>\\n\" }}\n{{ \"Provide your safety assessment for ONLY THE LAST \" + role + \" message in the above conversation:\" }}\n{{ \" - First line must read 'safe' or 'unsafe'.\" }}\n{{ \" - If unsafe, a second line must include a comma-separated list of violated categories. <|eot|><|header_start|>assistant<|header_end|>\" }}",
-            "stop": [
-              "<|eot|>"
-            ],
-            "bos_token": "<|begin_of_text|>",
-            "eos_token": "<|eot|>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.2,
-            "output": 0.2,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "meta-llama/Meta-Llama-3-70B-Instruct-Turbo",
           "name": "meta-llama/Meta-Llama-3-70B-Instruct-Turbo",
           "uuid": "endpoint-4626a9aa-4d0a-4226-b0e5-9e6874f1a256",
@@ -54545,7 +54513,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": null,
+          "expiration_date": "2026-12-31",
           "links": {
             "details": "/api/v1/models/z-ai/glm-4.5v/endpoints"
           },
