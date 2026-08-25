@@ -6812,6 +6812,26 @@
       }
     },
     {
+      "id": "01a03b40-93e9-7a96-affd-41c990639957",
+      "organization": "google",
+      "publicName": "gemini-3.7-flash",
+      "displayName": "gemini-3.7-flash",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
       "id": "019cd9e3-c3ff-7225-92f2-c392259b1fbe",
       "organization": "nvidia",
       "provider": "nvidiaLongPoll",
@@ -9924,26 +9944,6 @@
       "userSelectable": false,
       "rankByModality": {
         "chat": 9007199254740991
-      }
-    },
-    {
-      "id": "01a034ef-5841-7951-b745-ab34e5177493",
-      "organization": "google",
-      "publicName": "gemini-3.7-flash",
-      "displayName": "gemini-3.7-flash",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
       }
     },
     {
@@ -15777,6 +15777,31 @@
       }
     },
     {
+      "id": "01a03b42-97d7-7832-960a-0b3ffbdd58e9",
+      "publicName": "eren-v2-multi",
+      "displayName": "eren-v2-multi",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": true,
+            "multipleImages": true
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "image": 9007199254740991
+      }
+    },
+    {
       "id": "019fde11-e7c8-7394-ac43-8fd3b37ba81c",
       "organization": "microsoft-ai",
       "provider": "microsoftFalcon",
@@ -20675,5 +20700,5 @@
       }
     }
   ],
-  "lastCheck": 1787700589843
+  "lastCheck": 1787702050147
 }
