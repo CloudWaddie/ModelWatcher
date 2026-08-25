@@ -1,5 +1,5 @@
 {
-  "timestamp": 1787686542997,
+  "timestamp": 1787690096625,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -866,7 +866,7 @@
       "id": "seedance-1.5-pro",
       "displayName": "Seedance 1.5 Pro",
       "provider": "bytedance",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -8659,6 +8659,19 @@
           "audiorealism"
         ]
       }
+    },
+    {
+      "id": "wan-v3.0-t2v",
+      "displayName": "Wan 3.0",
+      "provider": "alibaba",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video"
+        ]
+      }
     }
   ],
   "providers": [
@@ -10212,6 +10225,11 @@
     {
       "id": "apricot",
       "displayName": "apricot",
+      "logoName": "private.png"
+    },
+    {
+      "id": "notebook",
+      "displayName": "notebook",
       "logoName": "private.png"
     }
   ],
@@ -12737,6 +12755,12 @@
       "text": {
         "input": 100,
         "output": 0
+      }
+    },
+    {
+      "id": "wan-v3.0-t2v",
+      "video": {
+        "perSecond": 0.2
       }
     }
   ]
