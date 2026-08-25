@@ -6438,23 +6438,6 @@
       }
     },
     {
-      "id": "019f1f40-8ff2-787e-af74-cf80b7fff9f2",
-      "publicName": "july26-chatbot1",
-      "displayName": "july26-chatbot1",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "text": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991
-      }
-    },
-    {
       "id": "019f4d63-1e9e-7e79-9fa6-66dd8ecb1107",
       "organization": "openai",
       "provider": "openaiResponses",
@@ -6791,6 +6774,24 @@
       "rankByModality": {
         "chat": 9007199254740991,
         "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "019f1f40-8ff2-787e-af74-cf80b7fff9f2",
+      "publicName": "july26-chatbot1",
+      "displayName": "july26-chatbot1",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": false
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
       }
     },
     {
@@ -13409,6 +13410,35 @@
       "rank": 31,
       "rankByModality": {
         "image": 31
+      }
+    },
+    {
+      "id": "01a03a6f-d59f-76fa-bb26-764cd8ffd83b",
+      "organization": "bfl",
+      "provider": "bfl",
+      "publicName": "flux-2-dev",
+      "name": "flux-2-dev-global",
+      "displayName": "flux-2-dev",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": {
+            "requiresUpload": false,
+            "multipleImages": true
+          }
+        },
+        "outputCapabilities": {
+          "image": {
+            "aspectRatios": [
+              "1:1"
+            ]
+          }
+        }
+      },
+      "userSelectable": true,
+      "rank": 32,
+      "rankByModality": {
+        "image": 32
       }
     },
     {
@@ -20597,5 +20627,5 @@
       }
     }
   ],
-  "lastCheck": 1787686594108
+  "lastCheck": 1787690127871
 }
