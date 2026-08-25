@@ -3967,38 +3967,6 @@
           }
         },
         {
-          "id": "google/gemma-3n-E4B-it",
-          "name": "google/gemma-3n-E4B-it",
-          "uuid": "endpoint-290b90f1-cdb9-46c1-a919-9a73822375c3",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Gemma 3N E4B Instruct",
-          "organization": "Google",
-          "link": "https://huggingface.co/google/gemma-3n-E4B-it",
-          "license": "gemma",
-          "context_length": 32768,
-          "config": {
-            "chat_template": null,
-            "stop": [
-              "<eos>"
-            ],
-            "bos_token": "<bos>",
-            "eos_token": "<eos>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.060000000000000005,
-            "output": 0.12000000000000001,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "google/gemma-4-12B-it",
           "name": "google/gemma-4-12B-it",
           "uuid": "model-93aed4bc-2d1c-4bb5-b4dc-c5ef78097d17",
@@ -15429,7 +15397,7 @@
               "output_tokens": 2.9999999999999996,
               "cache_read_tokens": 0.2
             },
-            "discount": null,
+            "discount": 0.61,
             "tags": [
               "chat",
               "prompt_cache",
@@ -17901,7 +17869,7 @@
           },
           "pricing": {
             "prompt": "0.000000035",
-            "completion": "0.0000001",
+            "completion": "0.00000016",
             "input_cache_read": "0.000000008"
           },
           "top_provider": {
@@ -18143,13 +18111,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000026",
-            "completion": "0.000013",
-            "input_cache_read": "0.00000029"
+            "prompt": "0.00000255",
+            "completion": "0.00001275",
+            "input_cache_read": "0.00000025599999"
           },
           "top_provider": {
-            "context_length": 974842,
-            "max_completion_tokens": 877357,
+            "context_length": 1048576,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25287,9 +25255,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000798",
-            "completion": "0.0000001596",
-            "input_cache_read": "0.00000001596"
+            "prompt": "0.000000077",
+            "completion": "0.000000154",
+            "input_cache_read": "0.0000000154"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -29918,64 +29886,6 @@
           }
         },
         {
-          "id": "google/gemma-3n-e4b-it",
-          "name": "Google: Gemma 3n 4B",
-          "canonical_slug": "google/gemma-3n-e4b-it",
-          "hugging_face_id": "google/gemma-3n-E4B-it",
-          "description": "Gemma 3n E4B-it is optimized for efficient execution on mobile and low-resource devices, such as phones, laptops, and tablets. It supports multimodal inputs—including text, visual data, and audio—enabling diverse tasks...",
-          "context_length": 32768,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000006",
-            "completion": "0.00000012"
-          },
-          "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": 29491,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/google/gemma-3n-e4b-it/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": null,
-              "coding_index": 3.2,
-              "agentic_index": null
-            }
-          }
-        },
-        {
           "id": "google/gemma-4-26b-a4b-it",
           "name": "Google: Gemma 4 26B A4B ",
           "canonical_slug": "google/gemma-4-26b-a4b-it-20260403",
@@ -31609,7 +31519,7 @@
           "canonical_slug": "meta-llama/llama-guard-4-12b",
           "hugging_face_id": "meta-llama/Llama-Guard-4-12B",
           "description": "Llama Guard 4 is a Llama 4 Scout-derived multimodal pretrained model, fine-tuned for content safety classification. Similar to previous versions, it can be used to classify content in both LLM...",
-          "context_length": 1048576,
+          "context_length": 163840,
           "architecture": {
             "modality": "text+image->text",
             "input_modalities": [
