@@ -25470,9 +25470,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000004",
-            "completion": "0.00000008",
-            "input_cache_read": "0.000000008"
+            "prompt": "0.00000006",
+            "completion": "0.00000012",
+            "input_cache_read": "0.000000012"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25593,9 +25593,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000044",
-            "completion": "0.00000132",
-            "input_cache_read": "0.000000014",
+            "prompt": "0.00000022",
+            "completion": "0.00000066",
+            "input_cache_read": "0.000000007",
             "overrides": [
               {
                 "utc_days": [
@@ -25737,9 +25737,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000790308",
-            "completion": "0.000001580616",
-            "input_cache_read": "0.000000065859"
+            "prompt": "0.00000087",
+            "completion": "0.00000174",
+            "input_cache_read": "0.0000000725"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -51787,7 +51787,23 @@
           "pricing": {
             "prompt": "0.000000132",
             "completion": "0.000000528",
-            "input_cache_read": "0.000000033"
+            "input_cache_read": "0.000000033",
+            "overrides": [
+              {
+                "utc_start": 0,
+                "utc_end": 1600,
+                "prompt": "0.000000132",
+                "completion": "0.000000528",
+                "input_cache_read": "0.000000033"
+              },
+              {
+                "utc_start": 1600,
+                "utc_end": 0,
+                "prompt": "0.0000000825",
+                "completion": "0.00000033",
+                "input_cache_read": "0.000000020625"
+              }
+            ]
           },
           "top_provider": {
             "context_length": 262144,
