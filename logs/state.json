@@ -10675,6 +10675,44 @@
           ]
         },
         {
+          "id": "qwen/qwen3.8-27b",
+          "name": "Qwen/Qwen3.8-27B",
+          "owned_by": "Alibaba Cloud",
+          "object": "model",
+          "active": true,
+          "context_window": 131042,
+          "public_apps": null,
+          "max_completion_tokens": 16384,
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "context_length": 131042,
+          "max_output_length": 16384,
+          "pricing": {
+            "prompt": "0.0000008",
+            "completion": "0.000004",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.0000004"
+          },
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "stop",
+            "seed",
+            "max_tokens"
+          ],
+          "supported_features": [
+            "tools",
+            "json_mode",
+            "reasoning"
+          ]
+        },
+        {
           "id": "whisper-large-v3",
           "name": "Whisper",
           "owned_by": "OpenAI",
@@ -25593,9 +25631,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000022",
-            "completion": "0.00000066",
-            "input_cache_read": "0.000000007",
+            "prompt": "0.00000044",
+            "completion": "0.00000132",
+            "input_cache_read": "0.000000014",
             "overrides": [
               {
                 "utc_days": [
