@@ -6691,8 +6691,11 @@
     },
     {
       "id": "01a03a3b-64e3-790c-bdba-bd0e1c04b0f5",
+      "organization": "zai",
+      "provider": "siliconFlow",
       "publicName": "anonymous-0825",
-      "displayName": "anonymous-0825",
+      "name": "glm-5.3-flash",
+      "displayName": "glm-5.3-flash",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
@@ -6703,7 +6706,7 @@
           "web": true
         }
       },
-      "userSelectable": true,
+      "userSelectable": false,
       "rankByModality": {
         "chat": 9007199254740991,
         "webdev": 9007199254740991
@@ -11562,23 +11565,6 @@
       }
     },
     {
-      "id": "01a0398c-20e6-76fe-93e5-2b13a24d5e5e",
-      "publicName": "farris",
-      "displayName": "farris",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "webdev": 9007199254740991
-      }
-    },
-    {
       "id": "019f6273-3f5d-710e-a7ea-fae0e03ddfe3",
       "publicName": "qwen3.7-plus",
       "displayName": "qwen3.7-plus",
@@ -12329,6 +12315,26 @@
         }
       },
       "userSelectable": true,
+      "rankByModality": {
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "01a0398c-20e6-76fe-93e5-2b13a24d5e5e",
+      "organization": "alibaba",
+      "provider": "alibabaToolCall",
+      "publicName": "farris",
+      "name": "farris-ees5",
+      "displayName": "qwen3.8-flash-next",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true
+        },
+        "outputCapabilities": {
+          "web": true
+        }
+      },
+      "userSelectable": false,
       "rankByModality": {
         "webdev": 9007199254740991
       }
@@ -15825,7 +15831,7 @@
       "provider": "microsoftFalcon",
       "publicName": "lo-bah-png",
       "name": "lo-bah-png-uq1z",
-      "displayName": "mai-image-2.6-preview",
+      "displayName": "mai-image-2.6-preview (t2i)",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -15872,30 +15878,6 @@
       "id": "019f6814-0f42-7cc9-a0f1-b567b7af087d",
       "publicName": "mei-mei-lljk",
       "displayName": "mei-mei-lljk",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "image": 9007199254740991
-      }
-    },
-    {
-      "id": "019e530d-2a50-75e3-95d1-a5ef41d4c24c",
-      "organization": "microsoft-ai",
-      "provider": "maiImage",
-      "publicName": "baryonyx",
-      "name": "baryonyx-xyv3",
-      "displayName": "mai-image-2.5 (text-to-image)",
       "capabilities": {
         "inputCapabilities": {
           "text": true
@@ -17526,8 +17508,11 @@
     },
     {
       "id": "019fe38b-8059-77d4-929d-10f9d6663ead",
+      "organization": "microsoft-ai",
+      "provider": "microsoftFalcon",
       "publicName": "luffa-v8",
-      "displayName": "luffa-v8",
+      "name": "luffa-v8-0p8z",
+      "displayName": "mai-image-2.6-preview (image-edit)",
       "capabilities": {
         "inputCapabilities": {
           "text": true,
@@ -17611,34 +17596,6 @@
           "image": {
             "requiresUpload": true,
             "multipleImages": true
-          }
-        },
-        "outputCapabilities": {
-          "image": {
-            "aspectRatios": [
-              "1:1"
-            ]
-          }
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "image": 9007199254740991
-      }
-    },
-    {
-      "id": "019e80aa-37bf-7e89-8a28-41e4ab72ed9f",
-      "organization": "microsoft-ai",
-      "provider": "maiImage",
-      "publicName": "kakarot-v2",
-      "name": "kakarot-v2-kecj",
-      "displayName": "mai-image-2.5 (image-edit)",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": {
-            "requiresUpload": true,
-            "multipleImages": false
           }
         },
         "outputCapabilities": {
@@ -20739,5 +20696,5 @@
       }
     }
   ],
-  "lastCheck": 1787754009670
+  "lastCheck": 1787760128627
 }
