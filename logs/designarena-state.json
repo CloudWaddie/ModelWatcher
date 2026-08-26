@@ -1,5 +1,5 @@
 {
-  "timestamp": 1787755774287,
+  "timestamp": 1787761326566,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -8661,6 +8661,31 @@
       }
     },
     {
+      "id": "notebook",
+      "displayName": "GLM-5.3-Flash",
+      "provider": "zhipu",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video"
+      ]
+    },
+    {
       "id": "wan-v3.0-t2v",
       "displayName": "Wan 3.0",
       "provider": "alibaba",
@@ -12760,6 +12785,14 @@
       "text": {
         "input": 100,
         "output": 0
+      }
+    },
+    {
+      "id": "notebook",
+      "text": {
+        "input": 0.15,
+        "output": 0.5,
+        "cachedInput": 0.03
       }
     },
     {
