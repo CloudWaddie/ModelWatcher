@@ -12755,6 +12755,87 @@
           }
         },
         {
+          "id": "ibm-granite/granite-4.2-30b",
+          "name": "ibm-granite/granite-4.2-30b",
+          "owned_by": "deepinfra",
+          "root": "ibm-granite/granite-4.2-30b",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Granite-4.2-30B is the flagship reasoning model in the Granite 4.2 family. It delivers the strongest performance across reasoning-intensive tasks by leveraging built-in <think>...</think> chain-of-thought. It supports flexible thinking modes — full thinking (default), non-thinking, and low-effort — allowing users to balance depth vs. latency on a per-query basis.",
+            "context_length": 131072,
+            "max_tokens": 131072,
+            "pricing": {
+              "input_tokens": 0.16,
+              "output_tokens": 0.6499999999999999,
+              "cache_read_tokens": 0.04
+            },
+            "discount": null,
+            "tags": [
+              "chat",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "ibm-granite/granite-4.2-3b",
+          "name": "ibm-granite/granite-4.2-3b",
+          "owned_by": "deepinfra",
+          "root": "ibm-granite/granite-4.2-3b",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Granite-4.2-3B is the compact reasoning model in the Granite 4.2 family. Despite its small parameter count, it delivers strong performance on reasoning-intensive tasks by leveraging built-in <think>...</think> chain-of-thought. It supports flexible thinking modes — full thinking (default), non-thinking, and low-effort — allowing users to balance depth vs. latency on a per-query basis.",
+            "context_length": 131072,
+            "max_tokens": 131072,
+            "pricing": {
+              "input_tokens": 0.030000000000000002,
+              "output_tokens": 0.12000000000000001,
+              "cache_read_tokens": 0.007500000000000001
+            },
+            "discount": null,
+            "tags": [
+              "chat",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "ibm-granite/granite-4.2-8b",
+          "name": "ibm-granite/granite-4.2-8b",
+          "owned_by": "deepinfra",
+          "root": "ibm-granite/granite-4.2-8b",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Granite-4.2-8B is the mid-size reasoning model in the Granite 4.2 family. It delivers strong performance on reasoning-intensive tasks by leveraging built-in <think>...</think> chain-of-thought. It supports flexible thinking modes — full thinking (default), non-thinking, and low-effort — allowing users to balance depth vs. latency on a per-query basis.",
+            "context_length": 131072,
+            "max_tokens": 131072,
+            "pricing": {
+              "input_tokens": 0.060000000000000005,
+              "output_tokens": 0.25,
+              "cache_read_tokens": 0.015000000000000001
+            },
+            "discount": null,
+            "tags": [
+              "chat",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "inclusionAI/Ling-3.0-flash",
           "name": "inclusionAI/Ling-3.0-flash",
           "owned_by": "deepinfra",
@@ -17868,13 +17949,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000004",
-            "completion": "0.00000008",
-            "input_cache_read": "0.000000008"
+            "prompt": "0.000000035",
+            "completion": "0.0000001",
+            "input_cache_read": "0.000000007"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25512,9 +25593,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000022",
-            "completion": "0.00000066",
-            "input_cache_read": "0.000000007",
+            "prompt": "0.00000044",
+            "completion": "0.00000132",
+            "input_cache_read": "0.000000014",
             "overrides": [
               {
                 "utc_days": [
