@@ -25932,9 +25932,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000132",
-            "completion": "0.00000396",
-            "input_cache_read": "0.000000044"
+            "prompt": "0.000001122",
+            "completion": "0.000003366",
+            "input_cache_read": "0.0000000374"
           },
           "top_provider": {
             "context_length": 1048575,
@@ -49749,13 +49749,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006",
-            "completion": "0.0000036",
-            "input_cache_read": "0.00000012"
+            "prompt": "0.00000032",
+            "completion": "0.0000032"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 235929,
+            "max_completion_tokens": 81920,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -51375,69 +51374,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/sao10k/l3.3-euryale-70b-v2.3/endpoints"
-          }
-        },
-        {
-          "id": "stealth/ox-alpha",
-          "name": "Ox Alpha",
-          "canonical_slug": "stealth/ox-alpha",
-          "hugging_face_id": null,
-          "description": "Ox Alpha is a reasoning model designed for coding, sustained agentic work, and production workloads. It is suited for long-horizon software engineering, complex reasoning, and workflows that combine text with...",
-          "context_length": 1048576,
-          "architecture": {
-            "modality": "text+image+video->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "video"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 131072,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "reasoning_effort",
-            "response_format",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 1,
-            "top_p": 0.95
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": "2026-08-26",
-          "links": {
-            "details": "/api/v1/models/stealth/ox-alpha/endpoints"
-          },
-          "reasoning": {
-            "mandatory": true,
-            "default_enabled": true,
-            "supported_efforts": [
-              "max",
-              "high",
-              "low"
-            ],
-            "default_effort": "max"
           }
         },
         {
@@ -56222,6 +56158,70 @@
               "coding_index": 74.8,
               "agentic_index": 59.1
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "high",
+              "low"
+            ],
+            "default_effort": "max"
+          }
+        },
+        {
+          "id": "z-ai/glm-5.3-flash",
+          "name": "Z.ai: GLM 5.3 Flash",
+          "canonical_slug": "z-ai/glm-5.3-flash-20260826",
+          "hugging_face_id": null,
+          "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000075",
+            "completion": "0.00000025",
+            "input_cache_read": "0.000000015"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": "2098-12-31",
+          "links": {
+            "details": "/api/v1/models/z-ai/glm-5.3-flash-20260826/endpoints"
           },
           "reasoning": {
             "mandatory": true,
