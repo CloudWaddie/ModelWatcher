@@ -1792,6 +1792,20 @@
           "display_name": "Gemini 3.5 Live Translate Preview"
         },
         {
+          "id": "models/gemini-3.5-transcribe",
+          "name": "models/gemini-3.5-transcribe",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.5 Transcribe"
+        },
+        {
+          "id": "models/gemini-3.5-transcribe-live",
+          "name": "models/gemini-3.5-transcribe-live",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.5 Transcribe Live"
+        },
+        {
           "id": "models/gemini-3.6-flash",
           "name": "models/gemini-3.6-flash",
           "owned_by": "google",
@@ -15734,6 +15748,33 @@
             "default_height": null,
             "default_iterations": null
           }
+        },
+        {
+          "id": "zai-org/GLM-5.3-Flash",
+          "name": "zai-org/GLM-5.3-Flash",
+          "owned_by": "deepinfra",
+          "root": "zai-org/GLM-5.3-Flash",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while reducing compute overhead.",
+            "context_length": 1048576,
+            "max_tokens": 1048576,
+            "pricing": {
+              "input_tokens": 0.15,
+              "output_tokens": 0.5,
+              "cache_read_tokens": 0.03
+            },
+            "discount": null,
+            "tags": [
+              "chat",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
         }
       ]
     },
@@ -25932,9 +25973,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000132",
-            "completion": "0.00000396",
-            "input_cache_read": "0.000000044"
+            "prompt": "0.000001122",
+            "completion": "0.000003366",
+            "input_cache_read": "0.0000000374"
           },
           "top_provider": {
             "context_length": 1048575,
@@ -35362,9 +35403,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006",
-            "completion": "0.000003",
-            "input_cache_read": "0.0000001"
+            "prompt": "0.00000045",
+            "completion": "0.00000225",
+            "input_cache_read": "0.00000007"
           },
           "top_provider": {
             "context_length": 262144,
@@ -35403,7 +35444,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2026-08-31",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/moonshotai/kimi-k2.5-0127/endpoints"
           },
@@ -56174,7 +56215,7 @@
           "id": "z-ai/glm-5.3-flash",
           "name": "Z.ai: GLM 5.3 Flash",
           "canonical_slug": "z-ai/glm-5.3-flash-20260826",
-          "hugging_face_id": null,
+          "hugging_face_id": "zai-org/GLM-5.3-Flash",
           "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while...",
           "context_length": 1048576,
           "architecture": {
@@ -56202,11 +56243,16 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "frequency_penalty",
             "include_reasoning",
             "max_tokens",
+            "presence_penalty",
             "reasoning",
             "reasoning_effort",
+            "repetition_penalty",
             "response_format",
+            "seed",
+            "stop",
             "temperature",
             "tool_choice",
             "tools",
