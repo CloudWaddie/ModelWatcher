@@ -1855,6 +1855,13 @@
           "display_name": "Gemini Flash-Lite Latest"
         },
         {
+          "id": "models/gemini-omni-1.1-flash",
+          "name": "models/gemini-omni-1.1-flash",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini Omni 1.1 Flash"
+        },
+        {
           "id": "models/gemini-omni-flash-preview",
           "name": "models/gemini-omni-flash-preview",
           "owned_by": "google",
@@ -7142,34 +7149,6 @@
           }
         },
         {
-          "id": "pearl-ai/gemma-4-31b-it",
-          "name": "pearl-ai/gemma-4-31b-it",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Pearl-ai Gemma-4-31B-it-pearl",
-          "organization": "pearl.ai",
-          "link": "https://huggingface.co/pearl-ai/Gemma-4-31B-it-pearl",
-          "context_length": 262144,
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.27999999999999997,
-            "output": 0.86,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "pixverse/pixverse-v5",
           "name": "pixverse/pixverse-v5",
           "uuid": "endpoint-1588b5bc-5923-4672-be92-3199a579a18f",
@@ -10838,6 +10817,17 @@
           "kind": "HF_BASE_MODEL",
           "supports_chat": true,
           "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/glm-5p3-flash",
+          "name": "accounts/fireworks/models/glm-5p3-flash",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
           "supports_tools": true,
           "context_length": 1048576
         },
@@ -25437,9 +25427,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007798",
-            "completion": "0.00000015596",
-            "input_cache_read": "0.000000015596"
+            "prompt": "0.00000007336",
+            "completion": "0.00000014672",
+            "input_cache_read": "0.000000014672"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25571,9 +25561,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000006",
-            "completion": "0.00000012",
-            "input_cache_read": "0.000000012"
+            "prompt": "0.00000005",
+            "completion": "0.0000001",
+            "input_cache_read": "0.00000001"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -30867,6 +30857,63 @@
           }
         },
         {
+          "id": "inclusionai/ling-3.0-flash-fin:free",
+          "name": "Ling 3.0 Flash Fin (free)",
+          "canonical_slug": "inclusionai/ling-3.0-flash-fin-20260827",
+          "hugging_face_id": null,
+          "description": "Ling 3.0 Flash Fin is a finance-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for real-world investment...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 32768,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "seed",
+            "stop",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/inclusionai/ling-3.0-flash-fin-20260827/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
+          }
+        },
+        {
           "id": "kwaipilot/kat-coder-air-v2.5",
           "name": "Kwaipilot: KAT-Coder-Air V2.5",
           "canonical_slug": "kwaipilot/kat-coder-air-v2.5-20260710",
@@ -31000,7 +31047,7 @@
           "canonical_slug": "kwaipilot/kat-coder-pro-v2.5-20260710",
           "hugging_face_id": null,
           "description": "KAT-Coder-Pro V2.5 is a flagship-level Agentic Coding model that can directly hand over an entire issue or an entire business workflow to it, allowing it to autonomously locate and make...",
-          "context_length": 256000,
+          "context_length": 262144,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -31024,15 +31071,21 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "frequency_penalty",
+            "logit_bias",
             "logprobs",
             "max_tokens",
+            "min_p",
             "presence_penalty",
+            "repetition_penalty",
             "response_format",
+            "seed",
             "stop",
             "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
+            "top_k",
             "top_logprobs",
             "top_p"
           ],
@@ -34011,55 +34064,6 @@
           }
         },
         {
-          "id": "mistralai/ministral-8b",
-          "name": "Mistral: Ministral 8B",
-          "canonical_slug": "mistralai/ministral-8b",
-          "hugging_face_id": null,
-          "description": "Ministral 8B is an 8B parameter model featuring a unique interleaved sliding-window attention pattern for faster, memory-efficient inference. Designed for edge use cases, it supports up to 128k context length...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000011",
-            "completion": "0.00000011"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": 102400,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "presence_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.3
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-09-30",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/mistralai/ministral-8b/endpoints"
-          }
-        },
-        {
           "id": "mistralai/ministral-8b-2512",
           "name": "Mistral: Ministral 3 8B 2512",
           "canonical_slug": "mistralai/ministral-8b-2512",
@@ -36009,194 +36013,6 @@
           }
         },
         {
-          "id": "moonshotai/kimi-k2.7-code:batch",
-          "name": "MoonshotAI: Kimi K2.7 Code (batch)",
-          "canonical_slug": "moonshotai/kimi-k2.7-code-20260612",
-          "hugging_face_id": "moonshotai/Kimi-K2.7-Code",
-          "description": "MoonshotAI: Kimi K2.7 Code is a coding-focused model in Moonshot AI's Kimi K2 family, built to complete end-to-end programming tasks reliably over long contexts. It uses a native multimodal mixture-of-experts...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000095",
-            "completion": "0.000004",
-            "input_cache_read": "0.00000019"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 235929,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "response_format",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/moonshotai/kimi-k2.7-code-20260612/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "agents",
-                "category": "agenticgamedev",
-                "elo": 1134,
-                "win_rate": 43.4,
-                "rank": 21
-              },
-              {
-                "arena": "agents",
-                "category": "androidnative",
-                "elo": 1157,
-                "win_rate": 46.1,
-                "rank": 25
-              },
-              {
-                "arena": "agents",
-                "category": "fullstack",
-                "elo": 1198,
-                "win_rate": 52.4,
-                "rank": 20
-              },
-              {
-                "arena": "agents",
-                "category": "godotgamedev",
-                "elo": 1183,
-                "win_rate": 49.3,
-                "rank": 12
-              },
-              {
-                "arena": "agents",
-                "category": "htmlslides",
-                "elo": 1216,
-                "win_rate": 53.9,
-                "rank": 7
-              },
-              {
-                "arena": "agents",
-                "category": "mobileapps",
-                "elo": 1199,
-                "win_rate": 49.3,
-                "rank": 23
-              },
-              {
-                "arena": "agents",
-                "category": "python-pptxslides",
-                "elo": 1168,
-                "win_rate": 44.4,
-                "rank": 17
-              },
-              {
-                "arena": "agents",
-                "category": "webapps",
-                "elo": 1205,
-                "win_rate": 47.6,
-                "rank": 22
-              },
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 1286,
-                "win_rate": 52.2,
-                "rank": 23
-              },
-              {
-                "arena": "models",
-                "category": "asciiart",
-                "elo": 1240,
-                "win_rate": 52.3,
-                "rank": 16
-              },
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1282,
-                "win_rate": 52.1,
-                "rank": 25
-              },
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 1243,
-                "win_rate": 50.1,
-                "rank": 34
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 1252,
-                "win_rate": 49.6,
-                "rank": 32
-              },
-              {
-                "arena": "models",
-                "category": "svg",
-                "elo": 1218,
-                "win_rate": 48.2,
-                "rank": 26
-              },
-              {
-                "arena": "models",
-                "category": "uicomponent",
-                "elo": 1292,
-                "win_rate": 53.3,
-                "rank": 21
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1290,
-                "win_rate": 53.5,
-                "rank": 19
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": 43,
-              "coding_index": 60.8,
-              "agentic_index": 30.3
-            }
-          },
-          "reasoning": {
-            "mandatory": true,
-            "default_enabled": true
-          }
-        },
-        {
           "id": "moonshotai/kimi-k3",
           "name": "MoonshotAI: Kimi K3",
           "canonical_slug": "moonshotai/kimi-k3-20260715",
@@ -37179,7 +36995,7 @@
           "canonical_slug": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
           "hugging_face_id": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
           "description": "NVIDIA Nemotron 3 Ultra is an open frontier-reasoning and orchestration model from NVIDIA, with 55B active parameters out of 550B total (MoE). Built on a hybrid Transformer-Mamba mixture-of-experts architecture, it...",
-          "context_length": 512288,
+          "context_length": 262144,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -37192,13 +37008,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006",
-            "completion": "0.0000036",
-            "input_cache_read": "0.0000002"
+            "prompt": "0.0000005",
+            "completion": "0.0000022",
+            "input_cache_read": "0.0000001"
           },
           "top_provider": {
-            "context_length": 512288,
-            "max_completion_tokens": 461059,
+            "context_length": 262144,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -46024,7 +45840,7 @@
           "name": "Auto Router",
           "canonical_slug": "openrouter/auto",
           "hugging_face_id": null,
-          "description": "Your prompt will be processed by a meta-model and routed to one of dozens of models (see below), optimizing for the best possible output. To see which model was used,...",
+          "description": "The Auto Router automatically selects the best model for your prompt, powered by the wisdom of the market. It routes you based on what the OpenRouter community collectively spends on...",
           "context_length": 2000000,
           "architecture": {
             "modality": "text+image+file+audio+video->text+image",
@@ -46077,14 +45893,7 @@
             "top_p",
             "web_search_options"
           ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
+          "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": null,
           "expiration_date": null,
@@ -51915,9 +51724,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -52161,58 +51970,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/thedrummer/cydonia-24b-v4.1/endpoints"
-          }
-        },
-        {
-          "id": "thedrummer/rocinante-12b",
-          "name": "TheDrummer: Rocinante 12B",
-          "canonical_slug": "thedrummer/rocinante-12b",
-          "hugging_face_id": "TheDrummer/Rocinante-12B-v1.1",
-          "description": "Rocinante 12B is designed for engaging storytelling and rich prose. Early testers have reported: - Expanded vocabulary with unique and expressive word choices - Enhanced creativity for vivid narratives -...",
-          "context_length": 65536,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Qwen",
-            "instruct_type": "chatml"
-          },
-          "pricing": {
-            "prompt": "0.00000025",
-            "completion": "0.0000005"
-          },
-          "top_provider": {
-            "context_length": 65536,
-            "max_completion_tokens": 58982,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "logprobs",
-            "max_tokens",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-04-30",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/thedrummer/rocinante-12b/endpoints"
           }
         },
         {
