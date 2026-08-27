@@ -7860,6 +7860,29 @@
       }
     },
     {
+      "id": "01a03fe7-b31e-7d79-a6ee-8b82f683d02e",
+      "organization": "upstage",
+      "provider": "openrouter",
+      "publicName": "solar-pro4",
+      "name": "solar-pro4-openrouter",
+      "displayName": "solar-pro4",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": false
+        },
+        "outputCapabilities": {
+          "text": true,
+          "web": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991,
+        "webdev": 9007199254740991
+      }
+    },
+    {
       "id": "019e6833-facb-72cf-8702-4c481b7dd74e",
       "publicName": "gemma-4-31b-it",
       "displayName": "gemma-4-31b-it",
@@ -7910,6 +7933,24 @@
       "capabilities": {
         "inputCapabilities": {
           "text": true
+        },
+        "outputCapabilities": {
+          "text": true
+        }
+      },
+      "userSelectable": true,
+      "rankByModality": {
+        "chat": 9007199254740991
+      }
+    },
+    {
+      "id": "01a04003-3abc-7afb-af20-1666202e75b4",
+      "publicName": "cjliuliuliu",
+      "displayName": "cjliuliuliu",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "text": true
@@ -8865,26 +8906,6 @@
       "userSelectable": true,
       "rankByModality": {
         "chat": 9007199254740991
-      }
-    },
-    {
-      "id": "019fd787-0b16-7d0d-b878-47ec0fb8aee9",
-      "publicName": "solar-pro4",
-      "displayName": "solar-pro4",
-      "capabilities": {
-        "inputCapabilities": {
-          "text": true,
-          "image": false
-        },
-        "outputCapabilities": {
-          "text": true,
-          "web": true
-        }
-      },
-      "userSelectable": true,
-      "rankByModality": {
-        "chat": 9007199254740991,
-        "webdev": 9007199254740991
       }
     },
     {
@@ -12379,13 +12400,32 @@
       "displayName": "qwen3.8-flash-next",
       "capabilities": {
         "inputCapabilities": {
-          "text": true
+          "text": true,
+          "image": true
         },
         "outputCapabilities": {
           "web": true
         }
       },
       "userSelectable": false,
+      "rankByModality": {
+        "webdev": 9007199254740991
+      }
+    },
+    {
+      "id": "01a03ff9-f627-73ca-8c35-be917dab6749",
+      "publicName": "affogato",
+      "displayName": "affogato",
+      "capabilities": {
+        "inputCapabilities": {
+          "text": true,
+          "image": true
+        },
+        "outputCapabilities": {
+          "web": true
+        }
+      },
+      "userSelectable": true,
       "rankByModality": {
         "webdev": 9007199254740991
       }
@@ -20765,5 +20805,5 @@
       }
     }
   ],
-  "lastCheck": 1787776895428
+  "lastCheck": 1787791003068
 }
