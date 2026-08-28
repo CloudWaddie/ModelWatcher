@@ -1,5 +1,5 @@
 {
-  "timestamp": 1787859832954,
+  "timestamp": 1787890085923,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -8775,7 +8775,7 @@
     },
     {
       "id": "gemini-omni-flash-1.1",
-      "displayName": "Gemini Omni Flash 1.1",
+      "displayName": "Gemini Omni 1.1 Flash",
       "provider": "google",
       "active": true,
       "openSource": false,
@@ -8789,6 +8789,24 @@
           "multimodaltovideo"
         ]
       }
+    },
+    {
+      "id": "deca-2.6-ultra",
+      "displayName": "Deca 2.6 Ultra",
+      "provider": "genlabs",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent"
+        ]
+      },
+      "vision": false
     }
   ],
   "providers": [
@@ -12921,6 +12939,14 @@
       "id": "gemini-omni-flash-1.1",
       "video": {
         "perSecond": 0.1
+      }
+    },
+    {
+      "id": "deca-2.6-ultra",
+      "text": {
+        "input": 3.2,
+        "output": 16,
+        "cachedInput": 0.8
       }
     }
   ]
