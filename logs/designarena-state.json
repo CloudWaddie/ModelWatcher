@@ -1,5 +1,5 @@
 {
-  "timestamp": 1787937303691,
+  "timestamp": 1787967447225,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -1286,7 +1286,7 @@
       "id": "playyy",
       "displayName": "Playyy",
       "provider": "playyy",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -2717,7 +2717,7 @@
     },
     {
       "id": "manus",
-      "displayName": "Manus",
+      "displayName": "Manus 1.6",
       "provider": "manus",
       "active": true,
       "openSource": false,
@@ -8722,7 +8722,8 @@
       "router": false,
       "arenas": {
         "models": [
-          "video"
+          "video",
+          "imagetovideo"
         ]
       }
     },
@@ -8807,6 +8808,43 @@
         ]
       },
       "vision": false
+    },
+    {
+      "id": "glm-5.3",
+      "displayName": "GLM-5.3",
+      "provider": "zhipu",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_webapps",
+          "agon_html",
+          "agon_slides",
+          "agon_slides_html",
+          "agon_dataviz",
+          "agon_godot",
+          "agentic_gamedev",
+          "agentic_3d",
+          "fullstack",
+          "fullstack_gamedev",
+          "mobileapps",
+          "nativeapps"
+        ]
+      }
+    },
+    {
+      "id": "manus-1.6-max",
+      "displayName": "Manus 1.6 Max",
+      "provider": "manus",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "slides"
+        ]
+      }
     }
   ],
   "providers": [
@@ -12947,6 +12985,14 @@
         "input": 3.2,
         "output": 16,
         "cachedInput": 0.8
+      }
+    },
+    {
+      "id": "glm-5.3",
+      "text": {
+        "input": 1.4,
+        "output": 4.4,
+        "cachedInput": 0.26
       }
     }
   ]
