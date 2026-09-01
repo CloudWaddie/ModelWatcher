@@ -1,5 +1,5 @@
 {
-  "timestamp": 1788284706518,
+  "timestamp": 1788295982053,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -8845,6 +8845,43 @@
           "slides"
         ]
       }
+    },
+    {
+      "id": "claude-fable-5-1",
+      "displayName": "Claude Fable 5.1",
+      "provider": "anthropic",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "agon_slides",
+          "agon_slides_html",
+          "agon_dataviz",
+          "agon_godot",
+          "agentic_gamedev",
+          "agentic_3d",
+          "fullstack",
+          "fullstack_gamedev",
+          "mobileapps",
+          "nativeapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -13013,6 +13050,13 @@
         "input": 1.4,
         "output": 4.4,
         "cachedInput": 0.26
+      }
+    },
+    {
+      "id": "claude-fable-5-1",
+      "text": {
+        "input": 10,
+        "output": 50
       }
     }
   ]
