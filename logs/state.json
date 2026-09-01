@@ -17700,8 +17700,8 @@
           "name": "Anthropic: Claude Fable Latest",
           "canonical_slug": "~anthropic/claude-fable-latest",
           "alias_target": {
-            "name": "Anthropic: Claude Fable 5",
-            "slug": "anthropic/claude-fable-5"
+            "name": "Anthropic: Claude Fable 5.1",
+            "slug": "anthropic/claude-fable-5.1"
           },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the Claude Fable family.",
@@ -17723,14 +17723,14 @@
             "prompt": "0.00001",
             "completion": "0.00005",
             "web_search": "0.01",
-            "input_cache_read": "0.000001",
+            "input_cache_read": "0.00000025",
             "input_cache_write": "0.0000125",
             "input_cache_write_1h": "0.00002"
           },
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -17742,18 +17742,10 @@
             "response_format",
             "stop",
             "structured_outputs",
-            "tool_choice",
             "tools",
             "verbosity"
           ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
+          "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": null,
           "expiration_date": null,
@@ -19642,7 +19634,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -25154,9 +25146,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007322",
-            "completion": "0.00000014644",
-            "input_cache_read": "0.000000014644"
+            "prompt": "0.00000007168",
+            "completion": "0.00000014336",
+            "input_cache_read": "0.000000014336"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25691,13 +25683,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000016",
-            "completion": "0.0000032",
-            "input_cache_read": "0.000000135"
+            "prompt": "0.00000102747",
+            "completion": "0.00000205494",
+            "input_cache_read": "0.0000000856225"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 393216,
+            "context_length": 1024000,
+            "max_completion_tokens": 384000,
             "is_moderated": false
           },
           "per_request_limits": null,
