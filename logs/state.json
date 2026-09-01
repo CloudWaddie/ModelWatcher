@@ -11261,8 +11261,8 @@
             "context_length": 1000000,
             "max_tokens": 1000000,
             "pricing": {
-              "input_tokens": 2,
-              "output_tokens": 10
+              "input_tokens": 2.9999999999999996,
+              "output_tokens": 15
             },
             "discount": null,
             "tags": [
@@ -30595,12 +30595,12 @@
             "instruct_type": "alpaca"
           },
           "pricing": {
-            "prompt": "0.00000035",
-            "completion": "0.0000006"
+            "prompt": "0.00000006",
+            "completion": "0.00000006"
           },
           "top_provider": {
-            "context_length": 8192,
-            "max_completion_tokens": 7372,
+            "context_length": 4096,
+            "max_completion_tokens": 3686,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -36805,7 +36805,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2026-09-04",
+          "expiration_date": "2026-09-08",
           "links": {
             "details": "/api/v1/models/nex-agi/nex-n2-mini/endpoints"
           },
@@ -36866,7 +36866,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2026-09-04",
+          "expiration_date": "2026-09-08",
           "links": {
             "details": "/api/v1/models/nex-agi/nex-n2-pro/endpoints"
           },
@@ -47501,12 +47501,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.00000055"
+            "prompt": "0.0000000875",
+            "completion": "0.00000035",
+            "input_cache_read": "0.0000000175"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 16384,
+            "max_completion_tokens": 235929,
             "is_moderated": false
           },
           "per_request_limits": null,
