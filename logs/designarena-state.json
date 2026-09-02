@@ -1,5 +1,5 @@
 {
-  "timestamp": 1788321476776,
+  "timestamp": 1788338569024,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -8999,6 +8999,38 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "grok-imagine-image-2-auto",
+      "displayName": "Grok Imagine Image 2 Auto",
+      "provider": "xai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign",
+          "imagetoimage"
+        ]
+      }
+    },
+    {
+      "id": "grok-imagine-image-2-medium",
+      "displayName": "Grok Imagine Image 2 Medium",
+      "provider": "xai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign",
+          "imagetoimage"
+        ]
+      }
     }
   ],
   "providers": [
@@ -13236,6 +13268,18 @@
       "text": {
         "input": 10,
         "output": 50
+      }
+    },
+    {
+      "id": "grok-imagine-image-2-auto",
+      "image": {
+        "perImage": 0.04
+      }
+    },
+    {
+      "id": "grok-imagine-image-2-medium",
+      "image": {
+        "perImage": 0.06
       }
     }
   ]
