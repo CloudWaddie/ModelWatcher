@@ -1,5 +1,5 @@
 {
-  "timestamp": 1788304314525,
+  "timestamp": 1788321476776,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -2019,7 +2019,7 @@
     },
     {
       "id": "hume_octave",
-      "displayName": "Hume Octave",
+      "displayName": "Hume Octave 2",
       "provider": "hume",
       "active": true,
       "openSource": false,
@@ -4245,7 +4245,7 @@
       "id": "openai_gpt_realtime_2",
       "displayName": "OpenAI GPT Realtime 2",
       "provider": "openai",
-      "active": false,
+      "active": true,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -8664,12 +8664,12 @@
       "id": "elevenlabs_eleven_v3_conversational",
       "displayName": "Eleven v3 Conversational",
       "provider": "elevenlabs",
-      "active": false,
+      "active": true,
       "openSource": false,
       "router": false,
       "arenas": {
         "models": [
-          "audiorealism"
+          "tts"
         ]
       }
     },
@@ -8843,6 +8843,123 @@
       "arenas": {
         "models": [
           "slides"
+        ]
+      }
+    },
+    {
+      "id": "openai_gpt_realtime_2_1",
+      "displayName": "OpenAI GPT Realtime 2.1",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "cartesia-sonic-3-6",
+      "displayName": "Cartesia Sonic 3.6",
+      "provider": "cartesia",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "minimax_speech_28_hd",
+      "displayName": "MiniMax Speech 2.8 HD",
+      "provider": "minimax",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "murf_falcon_2",
+      "displayName": "Murf Falcon 2",
+      "provider": "murf",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "fish-audio-s2.1-pro",
+      "displayName": "Fish Audio S2.1 Pro",
+      "provider": "fish-audio",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "mai-voice-2-flash",
+      "displayName": "MAI-Voice-2-Flash",
+      "provider": "microsoft",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "qwen-audio-3.0-tts-flash",
+      "displayName": "Qwen-Audio-3.0 TTS Flash",
+      "provider": "alibaba",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "deepgram_flux_tts",
+      "displayName": "Deepgram Flux TTS",
+      "provider": "deepgram",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "inworld_tts_2",
+      "displayName": "Inworld Realtime TTS-2",
+      "provider": "inworld",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
         ]
       }
     },
@@ -10472,6 +10589,12 @@
       "id": "cove",
       "displayName": "cove",
       "logoName": "private.png"
+    },
+    {
+      "id": "fish-audio",
+      "displayName": "Fish Audio",
+      "logoName": "fish-audio.png",
+      "website": "https://fish.audio"
     }
   ],
   "pricing": [
@@ -13050,6 +13173,62 @@
         "input": 1.4,
         "output": 4.4,
         "cachedInput": 0.26
+      }
+    },
+    {
+      "id": "cartesia-sonic-3-6",
+      "text": {
+        "input": 50,
+        "output": 0
+      }
+    },
+    {
+      "id": "minimax_speech_28_hd",
+      "text": {
+        "input": 100,
+        "output": 0
+      }
+    },
+    {
+      "id": "murf_falcon_2",
+      "text": {
+        "input": 10,
+        "output": 0
+      }
+    },
+    {
+      "id": "fish-audio-s2.1-pro",
+      "text": {
+        "input": 15,
+        "output": 0
+      }
+    },
+    {
+      "id": "mai-voice-2-flash",
+      "text": {
+        "input": 15,
+        "output": 0
+      }
+    },
+    {
+      "id": "qwen-audio-3.0-tts-flash",
+      "text": {
+        "input": 15,
+        "output": 0
+      }
+    },
+    {
+      "id": "deepgram_flux_tts",
+      "text": {
+        "input": 30,
+        "output": 0
+      }
+    },
+    {
+      "id": "inworld_tts_2",
+      "text": {
+        "input": 21,
+        "output": 0
       }
     },
     {
