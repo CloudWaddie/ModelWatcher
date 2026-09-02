@@ -1,5 +1,5 @@
 {
-  "timestamp": 1788355736894,
+  "timestamp": 1788371286134,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9031,6 +9031,44 @@
           "imagetoimage"
         ]
       }
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "displayName": "Gemini 3.8 Flash",
+      "provider": "google",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "uicomponent",
+          "gamedev",
+          "dataviz",
+          "3d"
+        ],
+        "agents": [
+          "agon_webapps",
+          "agon_slides",
+          "agon_slides_html",
+          "agon_dataviz",
+          "agon_godot",
+          "agentic_gamedev",
+          "agentic_3d",
+          "fullstack",
+          "fullstack_gamedev",
+          "mobileapps",
+          "nativeapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "file"
+      ]
     }
   ],
   "providers": [
@@ -11937,6 +11975,12 @@
       }
     },
     {
+      "id": "tangerine",
+      "video": {
+        "perSecond": 0.02
+      }
+    },
+    {
       "id": "pear",
       "image": {
         "perImage": 0.01
@@ -13280,6 +13324,14 @@
       "id": "grok-imagine-image-2-medium",
       "image": {
         "perImage": 0.06
+      }
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "text": {
+        "input": 0.75,
+        "output": 3.75,
+        "cachedInput": 0.075
       }
     }
   ]
