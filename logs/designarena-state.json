@@ -1,5 +1,5 @@
 {
-  "timestamp": 1788382325796,
+  "timestamp": 1788390716304,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -8118,7 +8118,7 @@
       "id": "deca-2.5-ultra-2",
       "displayName": "Deca 2.5 Ultra",
       "provider": "genlabs",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -8154,7 +8154,7 @@
       "id": "deca-2.5-mini",
       "displayName": "Deca 2.5 Mini",
       "provider": "genlabs",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -9068,6 +9068,44 @@
         "video",
         "audio",
         "file"
+      ]
+    },
+    {
+      "id": "muse-spark-1.3",
+      "displayName": "Muse Spark 1.3",
+      "provider": "meta",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg"
+        ],
+        "agents": [
+          "agon_webapps",
+          "agon_html",
+          "fullstack",
+          "fullstack_gamedev",
+          "nativeapps",
+          "mobileapps",
+          "agentic_gamedev",
+          "agon_godot",
+          "agentic_3d",
+          "agon_dataviz",
+          "agon_slides",
+          "agon_slides_html"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video"
       ]
     }
   ],
@@ -13337,6 +13375,13 @@
         "input": 0.75,
         "output": 3.75,
         "cachedInput": 0.075
+      }
+    },
+    {
+      "id": "muse-spark-1.3",
+      "text": {
+        "input": 1.25,
+        "output": 4.25
       }
     }
   ]
