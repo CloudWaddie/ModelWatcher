@@ -1925,6 +1925,13 @@
           "display_name": "Gemini Flash Latest"
         },
         {
+          "id": "models/gemini-flash-latest-high-res-exp",
+          "name": "models/gemini-flash-latest-high-res-exp",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini Flash Latest"
+        },
+        {
           "id": "models/gemini-flash-lite-latest",
           "name": "models/gemini-flash-lite-latest",
           "owned_by": "google",
@@ -18064,8 +18071,8 @@
           "name": "Google Gemini Flash Latest",
           "canonical_slug": "~google/gemini-flash-latest",
           "alias_target": {
-            "name": "Google: Gemini 3.7 Flash",
-            "slug": "google/gemini-3.7-flash"
+            "name": "Google: Gemini 3.8 Flash",
+            "slug": "google/gemini-3.8-flash"
           },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the Google Gemini Flash family.",
@@ -25328,9 +25335,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008554",
-            "completion": "0.00000017108",
-            "input_cache_read": "0.000000017108"
+            "prompt": "0.000000084",
+            "completion": "0.000000168",
+            "input_cache_read": "0.0000000168"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25865,9 +25872,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000001035996",
-            "completion": "0.000002071992",
-            "input_cache_read": "0.000000086333"
+            "prompt": "0.000001030776",
+            "completion": "0.000002061552",
+            "input_cache_read": "0.000000085898"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -29827,15 +29834,15 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001875",
-            "completion": "0.0000009375",
-            "image": "0.0000001875",
-            "audio": "0.0000001875",
-            "input_audio_cache": "0.00000001875",
+            "prompt": "0.000000375",
+            "completion": "0.000001875",
+            "image": "0.000000375",
+            "audio": "0.000000375",
+            "input_audio_cache": "0.0000000375",
             "web_search": "0.014",
-            "internal_reasoning": "0.0000009375",
-            "input_cache_read": "0.00000001875",
-            "input_cache_write": "0.0000000208333333333333"
+            "internal_reasoning": "0.000001875",
+            "input_cache_read": "0.0000000375",
+            "input_cache_write": "0.0000000416666666666667"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -29947,6 +29954,146 @@
               "coding_index": 76.1,
               "agentic_index": 45.1
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "google/gemini-3.8-flash",
+          "name": "Google: Gemini 3.8 Flash",
+          "canonical_slug": "google/gemini-3.8-flash-20260902",
+          "hugging_face_id": null,
+          "description": "Gemini 3.8 Flash is Google's most intelligent Flash model with significant gains from 3.7 Flash across software engineering, agentic tasks, and multi-step reasoning.",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+file+audio+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video",
+              "file",
+              "audio"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Gemini",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000075",
+            "completion": "0.00000375",
+            "image": "0.00000075",
+            "audio": "0.00000075",
+            "input_audio_cache": "0.000000075",
+            "web_search": "0.014",
+            "internal_reasoning": "0.00000375",
+            "input_cache_read": "0.000000075",
+            "input_cache_write": "0.0000000416666666666667"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 65536,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-3.8-flash-20260902/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "google/gemini-3.8-flash:batch",
+          "name": "Google: Gemini 3.8 Flash (batch)",
+          "canonical_slug": "google/gemini-3.8-flash-20260902",
+          "hugging_face_id": null,
+          "description": "Gemini 3.8 Flash is Google's most intelligent Flash model with significant gains from 3.7 Flash across software engineering, agentic tasks, and multi-step reasoning.",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+file+audio+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video",
+              "file",
+              "audio"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Gemini",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000375",
+            "completion": "0.000001875",
+            "image": "0.000000375",
+            "audio": "0.000000375",
+            "input_audio_cache": "0.0000000375",
+            "web_search": "0.014",
+            "internal_reasoning": "0.000001875",
+            "input_cache_read": "0.0000000375",
+            "input_cache_write": "0.0000000416666666666667"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 65536,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-3.8-flash-20260902/endpoints"
           },
           "reasoning": {
             "mandatory": true,
@@ -52331,9 +52478,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
