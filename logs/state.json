@@ -15428,7 +15428,7 @@
               "output_tokens": 1.15,
               "cache_read_tokens": 0.04000000000000001
             },
-            "discount": null,
+            "discount": 0.2,
             "tags": [
               "chat",
               "vlm",
@@ -18539,6 +18539,84 @@
               "low"
             ],
             "default_effort": "high"
+          }
+        },
+        {
+          "id": "~z-ai/glm-flash-latest",
+          "name": "Z.ai: GLM Flash Latest",
+          "canonical_slug": "~z-ai/glm-flash-latest",
+          "alias_target": {
+            "name": "Z.ai: GLM 5.3 Flash",
+            "slug": "z-ai/glm-5.3-flash"
+          },
+          "hugging_face_id": null,
+          "description": "This model always redirects to the latest model in the GLM Flash family.",
+          "context_length": 1310720,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Router",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000075",
+            "completion": "0.00000025",
+            "input_cache_read": "0.000000015"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "logprobs",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": "2098-12-31",
+          "links": {
+            "details": "/api/v1/models/~z-ai/glm-flash-latest/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "high",
+              "low"
+            ],
+            "default_effort": "max"
           }
         },
         {
@@ -54977,7 +55055,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": null,
+          "expiration_date": "2026-12-31",
           "links": {
             "details": "/api/v1/models/z-ai/glm-4.5v/endpoints"
           },
