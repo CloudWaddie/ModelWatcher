@@ -12372,6 +12372,35 @@
           }
         },
         {
+          "id": "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
+          "name": "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
+          "owned_by": "deepinfra",
+          "root": "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "",
+            "context_length": 131072,
+            "max_tokens": 131072,
+            "pricing": {
+              "input_tokens": 0.43999999999999995,
+              "output_tokens": 1.32,
+              "cache_read_tokens": 0.1400000008
+            },
+            "discount": 0.51,
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "deepseek-ai/DeepSeek-V4-Pro",
           "name": "deepseek-ai/DeepSeek-V4-Pro",
           "owned_by": "deepinfra",
@@ -18656,9 +18685,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000001092",
-            "completion": "0.000003432",
-            "input_cache_read": "0.0000001794"
+            "prompt": "0.000001106",
+            "completion": "0.000003476",
+            "input_cache_read": "0.0000001817"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25876,6 +25905,7 @@
             "logit_bias",
             "logprobs",
             "max_tokens",
+            "min_p",
             "presence_penalty",
             "reasoning",
             "reasoning_effort",
@@ -47718,12 +47748,12 @@
             "instruct_type": "qwen3"
           },
           "pricing": {
-            "prompt": "0.0000002275",
-            "completion": "0.00000091"
+            "prompt": "0.00000012",
+            "completion": "0.00000024"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 8192,
+            "context_length": 40960,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
