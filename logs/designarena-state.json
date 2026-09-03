@@ -1,5 +1,5 @@
 {
-  "timestamp": 1788390716304,
+  "timestamp": 1788407842616,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9107,6 +9107,20 @@
         "image",
         "video"
       ]
+    },
+    {
+      "id": "minimax-h3-max-turbo",
+      "displayName": "MiniMax H3 Max Turbo",
+      "provider": "fal",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo"
+        ]
+      }
     }
   ],
   "providers": [
@@ -13382,6 +13396,12 @@
       "text": {
         "input": 1.25,
         "output": 4.25
+      }
+    },
+    {
+      "id": "minimax-h3-max-turbo",
+      "video": {
+        "perSecond": 0.01
       }
     }
   ]
