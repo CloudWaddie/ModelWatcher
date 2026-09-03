@@ -16659,70 +16659,6 @@
           "type": "base"
         },
         {
-          "id": "mistral-large-2512",
-          "name": "mistral-large-2512",
-          "owned_by": "mistralai",
-          "object": "model",
-          "capabilities": {
-            "completion_chat": true,
-            "function_calling": true,
-            "reasoning": false,
-            "completion_fim": false,
-            "fine_tuning": true,
-            "vision": true,
-            "ocr": false,
-            "classification": false,
-            "moderation": false,
-            "audio": false,
-            "audio_transcription": false,
-            "audio_transcription_realtime": false,
-            "audio_speech": false,
-            "unified_resources": false
-          },
-          "description": "Official mistral-large-2512 Mistral AI model",
-          "max_context_length": 262144,
-          "aliases": [
-            "mistral-large-latest"
-          ],
-          "deprecation": null,
-          "deprecation_replacement_model": null,
-          "default_model_temperature": 0.3,
-          "billing_model_name": "mistral-large-2512",
-          "type": "base"
-        },
-        {
-          "id": "mistral-large-latest",
-          "name": "mistral-large-2512",
-          "owned_by": "mistralai",
-          "object": "model",
-          "capabilities": {
-            "completion_chat": true,
-            "function_calling": true,
-            "reasoning": false,
-            "completion_fim": false,
-            "fine_tuning": true,
-            "vision": true,
-            "ocr": false,
-            "classification": false,
-            "moderation": false,
-            "audio": false,
-            "audio_transcription": false,
-            "audio_transcription_realtime": false,
-            "audio_speech": false,
-            "unified_resources": false
-          },
-          "description": "Official mistral-large-2512 Mistral AI model",
-          "max_context_length": 262144,
-          "aliases": [
-            "mistral-large-2512"
-          ],
-          "deprecation": null,
-          "deprecation_replacement_model": null,
-          "default_model_temperature": 0.3,
-          "billing_model_name": "mistral-large-2512",
-          "type": "base"
-        },
-        {
           "id": "mistral-medium",
           "name": "mistral-medium-latest",
           "owned_by": "mistralai",
@@ -18343,9 +18279,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000255",
-            "completion": "0.00001275",
-            "input_cache_read": "0.00000025599999"
+            "prompt": "0.0000025",
+            "completion": "0.000014",
+            "input_cache_read": "0.00000029"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18666,13 +18602,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000075",
-            "completion": "0.00000025",
-            "input_cache_read": "0.000000015"
+            "prompt": "0.00000007125",
+            "completion": "0.0000002375",
+            "input_cache_read": "0.00000001425"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -18742,9 +18678,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000001134",
-            "completion": "0.000003564",
-            "input_cache_read": "0.0000001863"
+            "prompt": "0.000001148",
+            "completion": "0.000003608",
+            "input_cache_read": "0.0000001886"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -24750,13 +24686,13 @@
             "instruct_type": "deepseek-v3.1"
           },
           "pricing": {
-            "prompt": "0.00000025",
-            "completion": "0.00000095",
-            "input_cache_read": "0.00000013"
+            "prompt": "0.00000055",
+            "completion": "0.00000165",
+            "input_cache_read": "0.00000055"
           },
           "top_provider": {
-            "context_length": 163840,
-            "max_completion_tokens": 32768,
+            "context_length": 161000,
+            "max_completion_tokens": 144900,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25477,9 +25413,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000084",
-            "completion": "0.000000168",
-            "input_cache_read": "0.0000000168"
+            "prompt": "0.00000007938",
+            "completion": "0.00000015876",
+            "input_cache_read": "0.000000015876"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26015,9 +25951,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000001035996",
-            "completion": "0.000002071992",
-            "input_cache_read": "0.000000086333"
+            "prompt": "0.000001030776",
+            "completion": "0.000002061552",
+            "input_cache_read": "0.000000085898"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -51539,10 +51475,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000425",
-            "completion": "0.00000255",
-            "input_cache_read": "0.000000085",
-            "input_cache_write": "0.00000053125"
+            "prompt": "0.00000042",
+            "completion": "0.000003",
+            "input_cache_read": "0.000000085"
           },
           "top_provider": {
             "context_length": 1000000,
