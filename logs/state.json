@@ -2002,6 +2002,13 @@
           "display_name": "Lyria 3 Pro Preview"
         },
         {
+          "id": "models/lyria-3.5",
+          "name": "models/lyria-3.5",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Lyria 3.5"
+        },
+        {
           "id": "models/lyria-realtime-exp",
           "name": "models/lyria-realtime-exp",
           "owned_by": "google",
@@ -11553,9 +11560,32 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "BGE-M3 is a multilingual text embedding model developed by BAAI, distinguished by its Multi-Linguality (supporting 100+ languages), Multi-Functionality (unified dense, multi-vector, and sparse retrieval), and Multi-Granularity (handling inputs from short queries to 8192-token documents). It achieves state-of-the-art retrieval performance across diverse benchmarks while maintaining a single model for multiple retrieval modes.",
+            "description": "BGE-M3 is a multilingual text embedding model developed by BAAI, distinguished by its Multi-Linguality (supporting 100+ languages), Multi-Functionality (unified dense, multi-vector, and sparse retrieval), and Multi-Granularity (handling inputs from short queries to long documents). It achieves state-of-the-art retrieval performance across diverse benchmarks while maintaining a single model for multiple retrieval modes. Inputs to this endpoint are truncated to 512 tokens.",
             "context_length": 512,
             "max_tokens": 512,
+            "pricing": {
+              "input_tokens": 0.01
+            },
+            "discount": null,
+            "tags": [
+              "embed"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "BAAI/bge-m3-multi-8k",
+          "name": "BAAI/bge-m3-multi-8k",
+          "owned_by": "deepinfra",
+          "root": "BAAI/bge-m3-multi-8k",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "BGE-M3 is a multilingual text embedding model developed by BAAI, distinguished by its Multi-Linguality (supporting 100+ languages), Multi-Functionality (unified dense, multi-vector, and sparse retrieval), and Multi-Granularity (handling inputs from short queries to long documents). It achieves state-of-the-art retrieval performance across diverse benchmarks while maintaining a single model for multiple retrieval modes. This endpoint serves the model's full 8192-token context.",
+            "context_length": 8192,
+            "max_tokens": 8192,
             "pricing": {
               "input_tokens": 0.01
             },
@@ -12379,7 +12409,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "",
+            "description": "DeepSeek-V4-Flash-Vision-Exp is DeepSeek's experimental multimodal model in the V4-Flash family, adding visual understanding to the V4-Flash architecture. It serves a 1M-token (1,048,576) context window and supports image input with visual grounding, tool calling, structured/JSON output, and configurable reasoning effort (low/high/max, or disabled).",
             "context_length": 1048576,
             "max_tokens": 1048576,
             "pricing": {
@@ -13125,6 +13155,33 @@
             "description": "The model prioritizes token efficiency and agentic inference at production scale, stretching what developers can achieve within limited token, latency, and serving-cost budgets.",
             "context_length": 131072,
             "max_tokens": 131072,
+            "pricing": {
+              "input_tokens": 0.060000000000000005,
+              "output_tokens": 0.18,
+              "cache_read_tokens": 0.012000000000000002
+            },
+            "discount": null,
+            "tags": [
+              "chat",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "inclusionAI/Ling-3.0-flash-Fin",
+          "name": "inclusionAI/Ling-3.0-flash-Fin",
+          "owned_by": "deepinfra",
+          "root": "inclusionAI/Ling-3.0-flash-Fin",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Ling-3.0-flash-Fin is the first finance-enhanced model in the Ant Ling family. Developed by Ant Group with leading financial institutions and domain experts, it extends Ling-3.0-flash through continued training on high-quality financial data.",
+            "context_length": 262144,
+            "max_tokens": 262144,
             "pricing": {
               "input_tokens": 0.060000000000000005,
               "output_tokens": 0.18,
@@ -18685,9 +18742,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000112",
-            "completion": "0.00000352",
-            "input_cache_read": "0.000000184"
+            "prompt": "0.000001134",
+            "completion": "0.000003564",
+            "input_cache_read": "0.0000001863"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25420,9 +25477,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000088606",
-            "completion": "0.000000177212",
-            "input_cache_read": "0.0000000177212"
+            "prompt": "0.000000084",
+            "completion": "0.000000168",
+            "input_cache_read": "0.0000000168"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25958,9 +26015,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000104226",
-            "completion": "0.00000208452",
-            "input_cache_read": "0.000000086855"
+            "prompt": "0.000001035996",
+            "completion": "0.000002071992",
+            "input_cache_read": "0.000000086333"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26115,9 +26172,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000011154",
-            "completion": "0.0000033462",
-            "input_cache_read": "0.00000003718"
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -31443,6 +31500,66 @@
               "coding_index": 50.6,
               "agentic_index": 29.3
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
+          }
+        },
+        {
+          "id": "inclusionai/ling-3.0-flash-fin",
+          "name": "Ling 3.0 Flash Fin",
+          "canonical_slug": "inclusionai/ling-3.0-flash-fin-20260827",
+          "hugging_face_id": null,
+          "description": "Ling 3.0 Flash Fin is a finance-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for real-world investment...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000006",
+            "completion": "0.00000018",
+            "input_cache_read": "0.000000012"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/inclusionai/ling-3.0-flash-fin-20260827/endpoints"
           },
           "reasoning": {
             "mandatory": false,
@@ -52595,9 +52712,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
