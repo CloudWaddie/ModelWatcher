@@ -557,6 +557,13 @@
           "shutdown_date": null
         },
         {
+          "id": "gpt-6-astra",
+          "name": "gpt-6-astra",
+          "owned_by": "system",
+          "object": "model",
+          "shutdown_date": null
+        },
+        {
           "id": "gpt-audio",
           "name": "gpt-audio",
           "owned_by": "system",
@@ -25350,9 +25357,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008806",
-            "completion": "0.00000017612",
-            "input_cache_read": "0.000000017612"
+            "prompt": "0.0000000875",
+            "completion": "0.000000175",
+            "input_cache_read": "0.0000000175"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25888,9 +25895,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000001001892",
-            "completion": "0.000002003784",
-            "input_cache_read": "0.000000083491"
+            "prompt": "0.0000009918",
+            "completion": "0.0000019836",
+            "input_cache_read": "0.00000008265"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -31271,7 +31278,7 @@
         },
         {
           "id": "inclusionai/ling-3.0-flash",
-          "name": "Ling-3.0-flash",
+          "name": "inclusionAI: Ling 3.0 Flash",
           "canonical_slug": "inclusionai/ling-3.0-flash-20260723",
           "hugging_face_id": "inclusionAI/Ling-3.0-flash",
           "description": "*Ling-3.0-flash* is a *124B-parameter Mixture-of-Experts (MoE) model*, with approximately *5.1B parameters activated per token*. The model is designed with *token efficiency and production-scale agentic inference* as key priorities, enabling developers...",
@@ -31340,7 +31347,7 @@
         },
         {
           "id": "inclusionai/ling-3.0-flash-fin",
-          "name": "Ling 3.0 Flash Fin",
+          "name": "inclusionAI: Ling 3.0 Flash Fin",
           "canonical_slug": "inclusionai/ling-3.0-flash-fin-20260827",
           "hugging_face_id": null,
           "description": "Ling 3.0 Flash Fin is a finance-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for real-world investment...",
@@ -31400,7 +31407,7 @@
         },
         {
           "id": "inclusionai/ling-3.0-flash-fin:free",
-          "name": "Ling 3.0 Flash Fin (free)",
+          "name": "inclusionAI: Ling 3.0 Flash Fin (free)",
           "canonical_slug": "inclusionai/ling-3.0-flash-fin-20260827",
           "hugging_face_id": null,
           "description": "Ling 3.0 Flash Fin is a finance-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for real-world investment...",
@@ -31449,6 +31456,63 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/inclusionai/ling-3.0-flash-fin-20260827/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
+          }
+        },
+        {
+          "id": "inclusionai/ling-3.0-flash-sante:free",
+          "name": "inclusionAI: Ling 3.0 Flash Sante (free)",
+          "canonical_slug": "inclusionai/ling-3.0-flash-sante-20260904",
+          "hugging_face_id": null,
+          "description": "Ling 3.0 Flash Sante is a health and medicine-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 32768,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "seed",
+            "stop",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/inclusionai/ling-3.0-flash-sante-20260904/endpoints"
           },
           "reasoning": {
             "mandatory": false,
@@ -32949,6 +33013,7 @@
           "reasoning": {
             "mandatory": true,
             "supported_efforts": [
+              "max",
               "xhigh",
               "high",
               "medium",
@@ -33016,6 +33081,7 @@
           "reasoning": {
             "mandatory": true,
             "supported_efforts": [
+              "max",
               "xhigh",
               "high",
               "medium",
