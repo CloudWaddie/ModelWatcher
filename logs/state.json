@@ -25895,9 +25895,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000009918",
-            "completion": "0.0000019836",
-            "input_cache_read": "0.00000008265"
+            "prompt": "0.000000971442",
+            "completion": "0.000001942884",
+            "input_cache_read": "0.0000000809535"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -45179,6 +45179,300 @@
           }
         },
         {
+          "id": "openai/gpt-6-astra",
+          "name": "OpenAI: GPT-6 Astra",
+          "canonical_slug": "openai/gpt-6-astra-20260903",
+          "hugging_face_id": null,
+          "description": "GPT-6 Astra is OpenAI's flagship model for demanding end-to-end work. It is suited for advanced analysis, software engineering, deep research, scientific work, and document creation, with particular strengths in long-horizon...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00001",
+            "completion": "0.00005",
+            "web_search": "0.01",
+            "input_cache_read": "0.000001",
+            "input_cache_write": "0.0000125",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.00002",
+                "completion": "0.000075",
+                "input_cache_read": "0.000002",
+                "input_cache_write": "0.000025"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-6-astra-20260903/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-6-astra-pro",
+          "name": "OpenAI: GPT-6 Astra Pro",
+          "canonical_slug": "openai/gpt-6-astra-pro-20260903",
+          "hugging_face_id": null,
+          "description": "GPT-6 Astra Pro is the same underlying model as [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00001",
+            "completion": "0.00005",
+            "web_search": "0.01",
+            "input_cache_read": "0.000001",
+            "input_cache_write": "0.0000125",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.00002",
+                "completion": "0.000075",
+                "input_cache_read": "0.000002",
+                "input_cache_write": "0.000025"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-6-astra-pro-20260903/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-6-astra-pro:batch",
+          "name": "OpenAI: GPT-6 Astra Pro (batch)",
+          "canonical_slug": "openai/gpt-6-astra-pro-20260903",
+          "hugging_face_id": null,
+          "description": "GPT-6 Astra Pro is the same underlying model as [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000005",
+            "completion": "0.000025",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000005",
+            "input_cache_write": "0.00000625",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.00001",
+                "completion": "0.0000375",
+                "input_cache_read": "0.000001",
+                "input_cache_write": "0.0000125"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-6-astra-pro-20260903/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-6-astra:batch",
+          "name": "OpenAI: GPT-6 Astra (batch)",
+          "canonical_slug": "openai/gpt-6-astra-20260903",
+          "hugging_face_id": null,
+          "description": "GPT-6 Astra is OpenAI's flagship model for demanding end-to-end work. It is suited for advanced analysis, software engineering, deep research, scientific work, and document creation, with particular strengths in long-horizon...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000005",
+            "completion": "0.000025",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000005",
+            "input_cache_write": "0.00000625",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.00001",
+                "completion": "0.0000375",
+                "input_cache_read": "0.000001",
+                "input_cache_write": "0.0000125"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-6-astra-20260903/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
           "id": "openai/gpt-audio",
           "name": "OpenAI: GPT Audio",
           "canonical_slug": "openai/gpt-audio",
@@ -58959,7 +59253,7 @@
           "aliases": [
             "grok-imagine-image-2026-03-02"
           ],
-          "context_length": 8000,
+          "context_length": 16000,
           "image_price": 200000000
         },
         {
@@ -58968,7 +59262,7 @@
           "owned_by": "xai",
           "object": "model",
           "aliases": [],
-          "context_length": 8000,
+          "context_length": 64000,
           "image_price": 600000000,
           "pricing": [
             {
@@ -59003,7 +59297,7 @@
             "grok-imagine-image-quality-latest",
             "grok-imagine-image-pro"
           ],
-          "context_length": 8000,
+          "context_length": 16000,
           "image_price": 500000000
         },
         {
