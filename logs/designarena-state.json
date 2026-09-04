@@ -1,5 +1,5 @@
 {
-  "timestamp": 1788554226708,
+  "timestamp": 1788562548348,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -8554,22 +8554,6 @@
       ]
     },
     {
-      "id": "grok-imagine-image-2",
-      "displayName": "Grok Imagine Image 2",
-      "provider": "xai",
-      "active": true,
-      "openSource": false,
-      "router": false,
-      "arenas": {
-        "models": [
-          "image",
-          "logo",
-          "graphicdesign",
-          "imagetoimage"
-        ]
-      }
-    },
-    {
       "id": "ltx-2.5-fast",
       "displayName": "LTX 2.5 Fast",
       "provider": "ltx",
@@ -9106,6 +9090,30 @@
         "text",
         "image",
         "video"
+      ]
+    },
+    {
+      "id": "gpt-6-astra",
+      "displayName": "GPT-6 Astra",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
       ]
     }
   ],
@@ -13195,12 +13203,6 @@
       }
     },
     {
-      "id": "grok-imagine-image-2",
-      "image": {
-        "perImage": 0.06
-      }
-    },
-    {
       "id": "ltx-2.5-fast",
       "video": {
         "perSecond": 0.13
@@ -13382,6 +13384,15 @@
       "text": {
         "input": 1.25,
         "output": 4.25
+      }
+    },
+    {
+      "id": "gpt-6-astra",
+      "text": {
+        "input": 10,
+        "output": 50,
+        "cachedInput": 1,
+        "cacheWrite": 12.5
       }
     }
   ]
