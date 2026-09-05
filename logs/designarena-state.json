@@ -1,5 +1,5 @@
 {
-  "timestamp": 1788562548348,
+  "timestamp": 1788569293327,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9096,7 +9096,7 @@
       "id": "gpt-6-astra",
       "displayName": "GPT-6 Astra",
       "provider": "openai",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -9115,6 +9115,38 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "mai-image-2.6",
+      "displayName": "MAI-Image-2.6",
+      "provider": "microsoft",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign",
+          "imagetoimage"
+        ]
+      }
+    },
+    {
+      "id": "mai-image-2.6-flash",
+      "displayName": "MAI-Image-2.6 Flash",
+      "provider": "microsoft",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign",
+          "imagetoimage"
+        ]
+      }
     }
   ],
   "providers": [
@@ -13393,6 +13425,18 @@
         "output": 50,
         "cachedInput": 1,
         "cacheWrite": 12.5
+      }
+    },
+    {
+      "id": "mai-image-2.6",
+      "image": {
+        "perImage": 0.039
+      }
+    },
+    {
+      "id": "mai-image-2.6-flash",
+      "image": {
+        "perImage": 0.019
       }
     }
   ]
