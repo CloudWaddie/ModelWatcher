@@ -1,5 +1,5 @@
 {
-  "timestamp": 1788729248237,
+  "timestamp": 1788738030029,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -4673,7 +4673,7 @@
       "id": "gen4_aleph",
       "displayName": "Gen-4 Aleph",
       "provider": "runwayml",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -9024,10 +9024,48 @@
       ]
     },
     {
+      "id": "muse-spark-1.3",
+      "displayName": "Muse Spark 1.3 (xhigh)",
+      "provider": "meta",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg"
+        ],
+        "agents": [
+          "agon_webapps",
+          "agon_html",
+          "fullstack",
+          "fullstack_gamedev",
+          "nativeapps",
+          "mobileapps",
+          "agentic_gamedev",
+          "agon_godot",
+          "agentic_3d",
+          "agon_dataviz",
+          "agon_slides",
+          "agon_slides_html"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video"
+      ]
+    },
+    {
       "id": "gpt-6-astra",
       "displayName": "GPT-6 Astra (xhigh)",
       "provider": "openai",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -9076,6 +9114,20 @@
           "logo",
           "graphicdesign",
           "imagetoimage"
+        ]
+      }
+    },
+    {
+      "id": "aleph2",
+      "displayName": "Aleph 2.0",
+      "provider": "runwayml",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "videotovideo",
+          "multimodaltovideo"
         ]
       }
     }
@@ -10772,7 +10824,7 @@
     {
       "id": "wan-vace",
       "video": {
-        "perSecond": 0.05
+        "perSecond": 0.1
       }
     },
     {
@@ -11392,7 +11444,7 @@
     {
       "id": "krea-wan-14b",
       "video": {
-        "perSecond": 0.05
+        "perSecond": 0.025
       }
     },
     {
@@ -12418,7 +12470,7 @@
     {
       "id": "wan-v2.7-v2v",
       "video": {
-        "perSecond": 0.1
+        "perSecond": 0.15
       }
     },
     {
@@ -13336,6 +13388,13 @@
       }
     },
     {
+      "id": "muse-spark-1.3",
+      "text": {
+        "input": 1.25,
+        "output": 4.25
+      }
+    },
+    {
       "id": "gpt-6-astra",
       "text": {
         "input": 10,
@@ -13354,6 +13413,12 @@
       "id": "mai-image-2.6-flash",
       "image": {
         "perImage": 0.019
+      }
+    },
+    {
+      "id": "aleph2",
+      "video": {
+        "perSecond": 0.28
       }
     }
   ]
