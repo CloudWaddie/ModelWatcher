@@ -104,11 +104,11 @@ Edit to customize which OpenAI-compatible endpoints to scan:
     "webhooks": {
       "default": {
         "webhookEnv": "WEBHOOK",
-        "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
+        "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error"]
       },
       "small": {
         "webhookEnv": "WEBHOOK_SMALL",
-        "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
+        "notifyOn": ["new_model", "removed_model", "model_updated", "endpoint_error"]
       }
     },
     "url": "https://github.com/CloudWaddie/ModelWatcher"
@@ -175,7 +175,8 @@ Configure what events send alerts via `notifyOn`:
 - `removed_model`: Models discontinued
 - `model_updated`: Model properties changed (rank, capabilities, etc.)
 - `endpoint_error`: API unreachable
-- `summary_with_changes`: Summary only when changes detected
+
+`summary_with_changes` is deprecated and ignored if present in existing configs.
 
 ## 🏁 Quick Start
 

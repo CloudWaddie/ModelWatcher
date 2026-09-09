@@ -83,10 +83,19 @@
         "notifyOn": {
           "type": "array",
           "items": {
-            "type": "string",
-            "enum": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": ["new_model", "removed_model", "model_updated", "endpoint_error"]
+              },
+              {
+                "const": "summary_with_changes",
+                "deprecated": true,
+                "description": "Deprecated: ignored if present for backward compatibility."
+              }
+            ]
           },
-          "default": ["new_model", "removed_model", "model_updated", "endpoint_error", "summary_with_changes"]
+          "default": ["new_model", "removed_model", "model_updated", "endpoint_error"]
         }
       }
     }

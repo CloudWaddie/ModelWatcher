@@ -600,26 +600,6 @@ export async function processNotifications(config, results, allChanges, endpoint
       continue;
     }
 
-    let totalAdded = 0;
-    let totalRemoved = 0;
-    let totalUpdated = 0;
-    
-    for (const changes of Object.values(groupChangesList)) {
-      if (changes.summary) {
-        totalAdded += changes.summary.addedCount;
-        totalRemoved += changes.summary.removedCount;
-        totalUpdated += changes.summary.updatedCount;
-      }
-    }
-
-    const hasChanges = totalAdded > 0 || totalRemoved > 0 || totalUpdated > 0;
-
-    const summary = {
-      addedCount: totalAdded,
-      removedCount: totalRemoved,
-      updatedCount: totalUpdated
-    };
-
     // Helper to add URL to embed
     const withUrl = (payload) => {
       if (embedUrl && payload.embeds?.[0]) {
@@ -627,11 +607,6 @@ export async function processNotifications(config, results, allChanges, endpoint
       }
       return payload;
     };
-
-    // Send summary only if there are changes
-    if (hasChanges && notifyOn.includes('summary_with_changes')) {
-      await sendDiscordWebhook(webhookUrl, withUrl(createSummaryEmbed(summary, groupResultsList, commitSha)));
-    }
 
     // Send endpoint errors (skip if API key not configured)
     if (notifyOn.includes('endpoint_error')) {
