@@ -641,6 +641,34 @@
           "shutdown_date": null
         },
         {
+          "id": "gpt-image-2.5-flare",
+          "name": "gpt-image-2.5-flare",
+          "owned_by": "system",
+          "object": "model",
+          "shutdown_date": null
+        },
+        {
+          "id": "gpt-image-2.5-flare-2026-09-08",
+          "name": "gpt-image-2.5-flare-2026-09-08",
+          "owned_by": "system",
+          "object": "model",
+          "shutdown_date": null
+        },
+        {
+          "id": "gpt-image-2.5-sunburst",
+          "name": "gpt-image-2.5-sunburst",
+          "owned_by": "system",
+          "object": "model",
+          "shutdown_date": null
+        },
+        {
+          "id": "gpt-image-2.5-sunburst-2026-09-08",
+          "name": "gpt-image-2.5-sunburst-2026-09-08",
+          "owned_by": "system",
+          "object": "model",
+          "shutdown_date": null
+        },
+        {
           "id": "gpt-live-transcribe",
           "name": "gpt-live-transcribe",
           "owned_by": "system",
@@ -18417,7 +18445,7 @@
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25011,9 +25039,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008554",
-            "completion": "0.00000017108",
-            "input_cache_read": "0.000000017108"
+            "prompt": "0.00000007",
+            "completion": "0.00000014",
+            "input_cache_read": "0.000000014"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -35022,7 +35050,7 @@
               "text"
             ],
             "tokenizer": "Mistral",
-            "instruct_type": "mistral"
+            "instruct_type": null
           },
           "pricing": {
             "prompt": "0.000000019",
@@ -36822,9 +36850,10 @@
           "description": "Nex-N2.5 is an agentic model built to turn goals into working, verified outcomes. Its core strength is agentic coding within a visual feedback loop: it can explore codebases, implement multi-file...",
           "context_length": 262144,
           "architecture": {
-            "modality": "text->text",
+            "modality": "text+image->text",
             "input_modalities": [
-              "text"
+              "text",
+              "image"
             ],
             "output_modalities": [
               "text"
@@ -37091,57 +37120,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/nousresearch/hermes-4-405b/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
-          "id": "nousresearch/hermes-4-70b",
-          "name": "Nous: Hermes 4 70B",
-          "canonical_slug": "nousresearch/hermes-4-70b",
-          "hugging_face_id": "NousResearch/Hermes-4-70B",
-          "description": "Hermes 4 70B is a hybrid reasoning model from Nous Research, built on Meta-Llama-3.1-70B. It introduces the same hybrid mode as the larger 405B release, allowing the model to either...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Llama3",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000013",
-            "completion": "0.0000004"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 117964,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "response_format",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-08-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/nousresearch/hermes-4-70b/endpoints"
           },
           "reasoning": {
             "mandatory": false
@@ -52352,9 +52330,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -56480,13 +56458,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000966",
-            "completion": "0.000003036",
-            "input_cache_read": "0.0000001932"
+            "prompt": "0.00000028",
+            "completion": "0.00000088",
+            "input_cache_read": "0.000000052"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "context_length": 1024000,
+            "max_completion_tokens": 128000,
             "is_moderated": false
           },
           "per_request_limits": null,
