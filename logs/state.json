@@ -204,7 +204,7 @@
           "name": "gpt-4o-mini-transcribe",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-02-26"
         },
         {
           "id": "gpt-4o-mini-transcribe-2025-03-20",
@@ -260,14 +260,14 @@
           "name": "gpt-4o-transcribe",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-02-26"
         },
         {
           "id": "gpt-4o-transcribe-diarize",
           "name": "gpt-4o-transcribe-diarize",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-02-26"
         },
         {
           "id": "gpt-5",
@@ -669,6 +669,13 @@
           "shutdown_date": null
         },
         {
+          "id": "gpt-live-1",
+          "name": "gpt-live-1",
+          "owned_by": "system",
+          "object": "model",
+          "shutdown_date": null
+        },
+        {
           "id": "gpt-live-transcribe",
           "name": "gpt-live-transcribe",
           "owned_by": "system",
@@ -904,7 +911,7 @@
           "name": "whisper-1",
           "owned_by": "openai-internal",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-02-26"
         }
       ]
     },
@@ -10894,6 +10901,17 @@
           "supports_chat": true,
           "supports_image_input": false,
           "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/deepseek-v4p1-flash",
+          "name": "accounts/fireworks/models/deepseek-v4p1-flash",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": false,
           "context_length": 1048576
         },
         {
@@ -25068,9 +25086,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008708",
-            "completion": "0.00000017416",
-            "input_cache_read": "0.000000017416"
+            "prompt": "0.00000008554",
+            "completion": "0.00000017108",
+            "input_cache_read": "0.000000017108"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -33634,13 +33652,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000003",
-            "completion": "0.0000012",
-            "input_cache_read": "0.00000003"
+            "prompt": "0.00000027",
+            "completion": "0.00000108",
+            "input_cache_read": "0.000000027"
           },
           "top_provider": {
-            "context_length": 204800,
-            "max_completion_tokens": 131072,
+            "context_length": 200000,
+            "max_completion_tokens": 128000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -51052,12 +51070,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000005",
-            "completion": "0.0000007"
+            "prompt": "0.0000001",
+            "completion": "0.0000009",
+            "input_cache_read": "0.00000005"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 32768,
+            "max_completion_tokens": 235929,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -53844,7 +53863,6 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
-            "logprobs",
             "max_tokens",
             "presence_penalty",
             "reasoning",
@@ -53853,7 +53871,6 @@
             "stop",
             "temperature",
             "tools",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
