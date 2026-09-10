@@ -1,5 +1,5 @@
 {
-  "timestamp": 1789049514781,
+  "timestamp": 1789064064199,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9175,6 +9175,30 @@
       "inputModalities": [
         "text"
       ]
+    },
+    {
+      "id": "deepseek-v4-1-flash",
+      "displayName": "DeepSeek-V4.1-Flash",
+      "provider": "deepseek",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "ascii",
+          "svg"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -13491,6 +13515,14 @@
       "text": {
         "input": 1.25,
         "output": 4.25
+      }
+    },
+    {
+      "id": "deepseek-v4-1-flash",
+      "text": {
+        "input": 0.3,
+        "output": 1.2,
+        "cachedInput": 0.006
       }
     }
   ]
