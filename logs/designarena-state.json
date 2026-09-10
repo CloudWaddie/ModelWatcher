@@ -1,5 +1,5 @@
 {
-  "timestamp": 1789064064199,
+  "timestamp": 1789075817891,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9199,6 +9199,19 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "flux-3-video-edit",
+      "displayName": "FLUX 3 Video Edit",
+      "provider": "black_forest_labs",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "videotovideo"
+        ]
+      }
     }
   ],
   "providers": [
@@ -13523,6 +13536,12 @@
         "input": 0.3,
         "output": 1.2,
         "cachedInput": 0.006
+      }
+    },
+    {
+      "id": "flux-3-video-edit",
+      "video": {
+        "perSecond": 0.03
       }
     }
   ]
