@@ -18544,13 +18544,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000010075",
-            "completion": "0.00000341",
-            "input_cache_read": "0.0000002015"
+            "prompt": "0.0000007",
+            "completion": "0.0000022",
+            "input_cache_read": "0.00000013"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 235929,
+            "context_length": 1024000,
+            "max_completion_tokens": 128000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25068,9 +25068,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000088606",
-            "completion": "0.000000177212",
-            "input_cache_read": "0.0000000177212"
+            "prompt": "0.00000008708",
+            "completion": "0.00000017416",
+            "input_cache_read": "0.000000017416"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25609,9 +25609,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000095526",
-            "completion": "0.00000191052",
-            "input_cache_read": "0.000000079605"
+            "prompt": "0.00000087",
+            "completion": "0.00000174",
+            "input_cache_read": "0.0000000725"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25766,13 +25766,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000010494",
-            "completion": "0.0000031482",
-            "input_cache_read": "0.00000003498"
+            "prompt": "0.00000057948",
+            "completion": "0.00000173844",
+            "input_cache_read": "0.000000018438"
           },
           "top_provider": {
-            "context_length": 1024000,
-            "max_completion_tokens": 384000,
+            "context_length": 1048576,
+            "max_completion_tokens": 393216,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25909,7 +25909,7 @@
           "name": "DeepSeek: DeepSeek V4.1 Flash",
           "canonical_slug": "deepseek/deepseek-v4.1-flash-20260910",
           "hugging_face_id": "deepseek-ai/DeepSeek-V4.1-Flash",
-          "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the cost-efficient tier of the V4.1 family. DeepSeek reports that it exceeds V4 Pro on performance, speed, and task...",
+          "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on...",
           "context_length": 1048576,
           "architecture": {
             "modality": "text+image->text",
@@ -30372,12 +30372,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007",
-            "completion": "0.00000034"
+            "prompt": "0.000000042",
+            "completion": "0.00000022"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 16384,
+            "context_length": 131072,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -31436,6 +31436,65 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/inclusionai/ling-3.0-flash-sante-20260904/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
+          }
+        },
+        {
+          "id": "inclusionai/ling-3.0-flash-vl:free",
+          "name": "inclusionAI: Ling 3.0 Flash VL (free)",
+          "canonical_slug": "inclusionai/ling-3.0-flash-vl-20260910",
+          "hugging_face_id": "inclusionAI/Ling-3.0-flash-VL",
+          "description": "Ling 3.0 Flash VL builds on Ling 3.0 Flash (124B total / 5.5B active MoE from InclusionAI), further strengthening its language capabilities while adding native visual perception and advanced visual...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 32768,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "seed",
+            "stop",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/inclusionai/ling-3.0-flash-vl-20260910/endpoints"
           },
           "reasoning": {
             "mandatory": false,
@@ -39868,7 +39927,7 @@
           "top_provider": {
             "context_length": 128000,
             "max_completion_tokens": 4096,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -50993,13 +51052,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.0000009",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.00000005",
+            "completion": "0.0000007"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 235929,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -53022,9 +53080,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -56514,7 +56572,7 @@
           "canonical_slug": "z-ai/glm-4.7-flash-20260119",
           "hugging_face_id": "zai-org/GLM-4.7-Flash",
           "description": "As a 30B-class SOTA model, GLM-4.7-Flash offers a new option that balances performance and efficiency. It is further optimized for agentic coding use cases, strengthening coding capabilities, long-horizon task planning,...",
-          "context_length": 202752,
+          "context_length": 200000,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -56658,10 +56716,8 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
             "logprobs",
             "max_tokens",
-            "min_p",
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
@@ -57150,13 +57206,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000966",
-            "completion": "0.000003036",
-            "input_cache_read": "0.0000001932"
+            "prompt": "0.00000028",
+            "completion": "0.00000088",
+            "input_cache_read": "0.000000052"
           },
           "top_provider": {
-            "context_length": 1000000,
-            "max_completion_tokens": 131072,
+            "context_length": 1024000,
+            "max_completion_tokens": 128000,
             "is_moderated": false
           },
           "per_request_limits": null,
