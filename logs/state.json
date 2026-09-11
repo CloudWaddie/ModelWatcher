@@ -15690,11 +15690,11 @@
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
-              "input_tokens": 0.4,
-              "output_tokens": 2,
-              "cache_read_tokens": 0.08000000000000002
+              "input_tokens": 0.14,
+              "output_tokens": 0.28,
+              "cache_read_tokens": 0.0028000000000000004
             },
-            "discount": null,
+            "discount": 0.05,
             "tags": [
               "chat",
               "vlm",
@@ -17920,7 +17920,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000005",
+            "prompt": "0.00000004",
             "completion": "0.00000016",
             "input_cache_read": "0.000000013"
           },
@@ -18163,9 +18163,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000024",
-            "completion": "0.000012",
-            "input_cache_read": "0.00000024"
+            "prompt": "0.00000234",
+            "completion": "0.0000117",
+            "input_cache_read": "0.000000261"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18562,13 +18562,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000007",
-            "completion": "0.0000022",
-            "input_cache_read": "0.00000013"
+            "prompt": "0.0000009",
+            "completion": "0.000003069",
+            "input_cache_read": "0.00000018"
           },
           "top_provider": {
-            "context_length": 1024000,
-            "max_completion_tokens": 128000,
+            "context_length": 1048576,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -30411,7 +30411,7 @@
           "canonical_slug": "google/gemma-4-26b-a4b-it-20260403",
           "hugging_face_id": "google/gemma-4-26B-A4B-it",
           "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference — delivering near-31B quality at...",
-          "context_length": 262144,
+          "context_length": 1000000,
           "architecture": {
             "modality": "text+image+video->text",
             "input_modalities": [
@@ -37200,9 +37200,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000026",
-            "completion": "0.000013",
-            "input_cache_read": "0.00000029"
+            "prompt": "0.00000234",
+            "completion": "0.0000117",
+            "input_cache_read": "0.000000261"
           },
           "top_provider": {
             "context_length": 1048576,
