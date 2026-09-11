@@ -3573,37 +3573,6 @@
           }
         },
         {
-          "id": "deepseek-ai/DeepSeek-V4-Pro",
-          "name": "deepseek-ai/DeepSeek-V4-Pro",
-          "uuid": "endpoint-94151073-7212-43f8-9357-42a6043e1eef",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Deepseek V4 Pro",
-          "organization": "Deepseek",
-          "context_length": 512000,
-          "config": {
-            "chat_template": null,
-            "stop": [
-              "<｜end▁of▁sentence｜>"
-            ],
-            "bos_token": "<｜begin▁of▁sentence｜>",
-            "eos_token": "<｜end▁of▁sentence｜>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 1.74,
-            "output": 3.48,
-            "base": 0,
-            "finetune": 0,
-            "cached_input": 0.2,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "deepseek-ai/DeepSeek-V4-Pro-0813",
           "name": "deepseek-ai/DeepSeek-V4-Pro-0813",
           "object": "model",
@@ -5523,6 +5492,36 @@
             "transcribe": 0,
             "image": 0,
             "video": 0
+          }
+        },
+        {
+          "id": "minimax/h3",
+          "name": "minimax/h3",
+          "uuid": "endpoint-c1f311c6-4308-4a5c-b047-a1f782fc9c06",
+          "object": "model",
+          "type": "video",
+          "running": false,
+          "display_name": "MiniMax H3",
+          "organization": "MiniMaxAI",
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": {
+              "example_price": 0.1391,
+              "example_description": "$0.1391 per second of generated output video at 2k"
+            }
           }
         },
         {
@@ -18163,9 +18162,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000234",
-            "completion": "0.0000117",
-            "input_cache_read": "0.000000261"
+            "prompt": "0.0000017955",
+            "completion": "0.000009006",
+            "input_cache_read": "0.0000002052"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25363,9 +25362,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008568",
-            "completion": "0.00000017136",
-            "input_cache_read": "0.000000017136"
+            "prompt": "0.00000008484",
+            "completion": "0.00000016968",
+            "input_cache_read": "0.000000016968"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25904,9 +25903,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000947778",
-            "completion": "0.000001895556",
-            "input_cache_read": "0.0000000789815"
+            "prompt": "0.000000859908",
+            "completion": "0.000001719816",
+            "input_cache_read": "0.000000071659"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -36482,7 +36481,7 @@
           "canonical_slug": "mistralai/mistral-small-3.2-24b-instruct-2506",
           "hugging_face_id": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
           "description": "Mistral-Small-3.2-24B-Instruct-2506 is an updated 24B parameter model from Mistral optimized for instruction following, repetition reduction, and improved function calling. Compared to the 3.1 release, version 3.2 significantly improves accuracy on...",
-          "context_length": 131072,
+          "context_length": 256000,
           "architecture": {
             "modality": "text+image->text",
             "input_modalities": [
@@ -37533,9 +37532,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000234",
-            "completion": "0.0000117",
-            "input_cache_read": "0.000000261"
+            "prompt": "0.0000017955",
+            "completion": "0.000009006",
+            "input_cache_read": "0.0000002052"
           },
           "top_provider": {
             "context_length": 1048576,
