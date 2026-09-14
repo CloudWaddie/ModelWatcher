@@ -1,5 +1,5 @@
 {
-  "timestamp": 1789404844980,
+  "timestamp": 1789419029489,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -270,7 +270,7 @@
       "id": "wan-vace",
       "displayName": "Wan Vace",
       "provider": "alibaba",
-      "active": true,
+      "active": false,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -5723,7 +5723,7 @@
       "id": "wan-v2.6-ref",
       "displayName": "Wan v2.6",
       "provider": "alibaba",
-      "active": true,
+      "active": false,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -6027,7 +6027,7 @@
       "id": "wan-v2.7-t2v",
       "displayName": "Wan 2.7",
       "provider": "alibaba",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -6041,7 +6041,7 @@
       "id": "wan-v2.7-v2v",
       "displayName": "Wan 2.7",
       "provider": "alibaba",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -6054,7 +6054,7 @@
       "id": "wan-v2.7-ref",
       "displayName": "Wan 2.7",
       "provider": "alibaba",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -6111,7 +6111,7 @@
       "id": "wan-v2.7-edit",
       "displayName": "Wan 2.7",
       "provider": "alibaba",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -9007,6 +9007,19 @@
       ]
     },
     {
+      "id": "caffeine",
+      "displayName": "p-video-edit",
+      "provider": "pruna",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "videotovideo"
+        ]
+      }
+    },
+    {
       "id": "muse-spark-1.3",
       "displayName": "Muse Spark 1.3 (xhigh)",
       "provider": "meta",
@@ -9111,6 +9124,19 @@
         "models": [
           "videotovideo",
           "multimodaltovideo"
+        ]
+      }
+    },
+    {
+      "id": "decaf",
+      "displayName": "p-video-edit (draft)",
+      "provider": "pruna",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "videotovideo"
         ]
       }
     },
@@ -13549,6 +13575,12 @@
       }
     },
     {
+      "id": "caffeine",
+      "video": {
+        "perSecond": 0.045
+      }
+    },
+    {
       "id": "muse-spark-1.3",
       "text": {
         "input": 1.25,
@@ -13580,6 +13612,12 @@
       "id": "aleph2",
       "video": {
         "perSecond": 0.28
+      }
+    },
+    {
+      "id": "decaf",
+      "video": {
+        "perSecond": 0.025
       }
     },
     {
