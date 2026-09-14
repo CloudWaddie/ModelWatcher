@@ -16011,7 +16011,7 @@
               "output_tokens": 4,
               "cache_read_tokens": 0.12
             },
-            "discount": null,
+            "discount": 0.25,
             "tags": [
               "chat",
               "prompt_cache",
@@ -18101,12 +18101,28 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000057948",
-            "completion": "0.00000173844",
-            "input_cache_read": "0.000000018438"
+            "prompt": "0.0000005808",
+            "completion": "0.0000017424",
+            "input_cache_read": "0.00000005808",
+            "overrides": [
+              {
+                "utc_start": 0,
+                "utc_end": 1400,
+                "prompt": "0.000001122",
+                "completion": "0.000003366",
+                "input_cache_read": "0.0000001122"
+              },
+              {
+                "utc_start": 1400,
+                "utc_end": 0,
+                "prompt": "0.0000005808",
+                "completion": "0.0000017424",
+                "input_cache_read": "0.00000005808"
+              }
+            ]
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1000000,
             "max_completion_tokens": 393216,
             "is_moderated": false
           },
@@ -18419,9 +18435,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000001975",
-            "completion": "0.00001106",
-            "input_cache_read": "0.0000002291"
+            "prompt": "0.0000021",
+            "completion": "0.00001095",
+            "input_cache_read": "0.00000023"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -19069,12 +19085,12 @@
           },
           "pricing": {
             "prompt": "0.0000009",
-            "completion": "0.000003069",
-            "input_cache_read": "0.00000018"
+            "completion": "0.000003",
+            "input_cache_read": "0.00000009"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25618,9 +25634,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007938",
-            "completion": "0.00000015876",
-            "input_cache_read": "0.000000015876"
+            "prompt": "0.00000007476",
+            "completion": "0.00000014952",
+            "input_cache_read": "0.000000014952"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26316,13 +26332,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000057948",
-            "completion": "0.00000173844",
-            "input_cache_read": "0.000000018438"
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 393216,
+            "context_length": 1024000,
+            "max_completion_tokens": 384000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -27321,83 +27337,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/google/gemini-2.5-pro-preview-06-05/endpoints"
-          },
-          "reasoning": {
-            "mandatory": true
-          }
-        },
-        {
-          "id": "google/gemini-2.5-pro-preview-05-06",
-          "name": "Google: Gemini 2.5 Pro Preview 05-06",
-          "canonical_slug": "google/gemini-2.5-pro-preview-03-25",
-          "hugging_face_id": "",
-          "description": "Gemini 2.5 Pro is Google’s state-of-the-art AI model designed for advanced reasoning, coding, mathematics, and scientific tasks. It employs “thinking” capabilities, enabling it to reason through responses with enhanced accuracy...",
-          "context_length": 1048576,
-          "architecture": {
-            "modality": "text+image+file+audio+video->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "file",
-              "audio",
-              "video"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Gemini",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000125",
-            "completion": "0.00001",
-            "image": "0.00000125",
-            "audio": "0.00000125",
-            "input_audio_cache": "0.000000125",
-            "web_search": "0.014",
-            "internal_reasoning": "0.00001",
-            "input_cache_read": "0.000000125",
-            "input_cache_write": "0.000000375",
-            "overrides": [
-              {
-                "min_prompt_tokens": 200000,
-                "prompt": "0.0000025",
-                "completion": "0.000015",
-                "audio": "0.0000025",
-                "input_audio_cache": "0.00000025",
-                "input_cache_read": "0.00000025"
-              }
-            ]
-          },
-          "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 65535,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/google/gemini-2.5-pro-preview-03-25/endpoints"
           },
           "reasoning": {
             "mandatory": true
@@ -31921,7 +31860,6 @@
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
-            "response_format",
             "seed",
             "stop",
             "structured_outputs",
@@ -33131,7 +33069,6 @@
             "min_p",
             "presence_penalty",
             "repetition_penalty",
-            "response_format",
             "seed",
             "stop",
             "temperature",
@@ -38602,7 +38539,6 @@
             "min_p",
             "presence_penalty",
             "repetition_penalty",
-            "response_format",
             "seed",
             "stop",
             "structured_outputs",
@@ -39274,7 +39210,6 @@
             "presence_penalty",
             "reasoning",
             "repetition_penalty",
-            "response_format",
             "seed",
             "stop",
             "temperature",
@@ -39878,58 +39813,6 @@
               "coding_index": 21.5,
               "agentic_index": null
             }
-          }
-        },
-        {
-          "id": "openai/gpt-4-turbo-preview",
-          "name": "OpenAI: GPT-4 Turbo Preview",
-          "canonical_slug": "openai/gpt-4-turbo-preview",
-          "hugging_face_id": null,
-          "description": "The preview GPT-4 model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Training data: up to Dec 2023. **Note:** heavily rate limited by OpenAI while...",
-          "context_length": 128000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "GPT",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00001",
-            "completion": "0.00003"
-          },
-          "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": 4096,
-            "is_moderated": true
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "logprobs",
-            "max_tokens",
-            "presence_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/openai/gpt-4-turbo-preview/endpoints"
           }
         },
         {
@@ -53550,7 +53433,6 @@
             "min_p",
             "presence_penalty",
             "repetition_penalty",
-            "response_format",
             "seed",
             "stop",
             "structured_outputs",
@@ -54472,7 +54354,6 @@
             "reasoning",
             "reasoning_effort",
             "repetition_penalty",
-            "response_format",
             "seed",
             "stop",
             "temperature",
