@@ -1946,6 +1946,20 @@
           "display_name": "Gemini 3.8 Flash"
         },
         {
+          "id": "models/gemini-3.8-live",
+          "name": "models/gemini-3.8-live",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.8 Live"
+        },
+        {
+          "id": "models/gemini-3.8-live-extended-thinking",
+          "name": "models/gemini-3.8-live-extended-thinking",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.8 Live Extended Thinking"
+        },
+        {
           "id": "models/gemini-embedding-001",
           "name": "models/gemini-embedding-001",
           "owned_by": "google",
@@ -5527,36 +5541,6 @@
             "transcribe": 0,
             "image": 0,
             "video": 0
-          }
-        },
-        {
-          "id": "minimax/h3",
-          "name": "minimax/h3",
-          "uuid": "endpoint-c1f311c6-4308-4a5c-b047-a1f782fc9c06",
-          "object": "model",
-          "type": "video",
-          "running": false,
-          "display_name": "MiniMax H3",
-          "organization": "MiniMaxAI",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": {
-              "example_price": 0.1391,
-              "example_description": "$0.1391 per second of generated output video at 2k"
-            }
           }
         },
         {
@@ -18021,11 +18005,27 @@
           "pricing": {
             "prompt": "0.00000015",
             "completion": "0.0000006",
-            "input_cache_read": "0.000000015"
+            "input_cache_read": "0.000000015",
+            "overrides": [
+              {
+                "utc_start": 0,
+                "utc_end": 1400,
+                "prompt": "0.0000003",
+                "completion": "0.0000012",
+                "input_cache_read": "0.00000003"
+              },
+              {
+                "utc_start": 1400,
+                "utc_end": 0,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000015"
+              }
+            ]
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "context_length": 1000000,
+            "max_completion_tokens": 393216,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -18092,9 +18092,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000065868",
-            "completion": "0.00000197604",
-            "input_cache_read": "0.000000020958"
+            "prompt": "0.00000057948",
+            "completion": "0.00000173844",
+            "input_cache_read": "0.000000018438"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25609,9 +25609,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008708",
-            "completion": "0.00000017416",
-            "input_cache_read": "0.000000017416"
+            "prompt": "0.00000008246",
+            "completion": "0.00000016492",
+            "input_cache_read": "0.000000016492"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26307,9 +26307,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000065868",
-            "completion": "0.00000197604",
-            "input_cache_read": "0.000000020958"
+            "prompt": "0.00000057948",
+            "completion": "0.00000173844",
+            "input_cache_read": "0.000000018438"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -52719,13 +52719,10 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
             "logprobs",
             "max_tokens",
-            "min_p",
             "presence_penalty",
             "reasoning",
-            "repetition_penalty",
             "response_format",
             "seed",
             "stop",
@@ -53872,9 +53869,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
