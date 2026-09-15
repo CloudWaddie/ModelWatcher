@@ -4701,38 +4701,6 @@
           }
         },
         {
-          "id": "intfloat/multilingual-e5-large-instruct",
-          "name": "intfloat/multilingual-e5-large-instruct",
-          "uuid": "endpoint-b1b563e5-5ec2-4577-9017-16b52ac5c841",
-          "object": "model",
-          "type": "embedding",
-          "running": false,
-          "display_name": "Multilingual E5 Large Instruct",
-          "organization": "Intfloat",
-          "link": "https://huggingface.co/api/models/intfloat/multilingual-e5-large-instruct",
-          "license": "mit",
-          "context_length": 514,
-          "config": {
-            "chat_template": null,
-            "stop": [
-              "</s>"
-            ],
-            "bos_token": "<s>",
-            "eos_token": "</s>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.02,
-            "output": 0.02,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "kwaivgI/kling-1.6-standard",
           "name": "kwaivgI/kling-1.6-standard",
           "uuid": "endpoint-9f6794ed-52f7-414f-8974-d3b1ffb8702f",
@@ -9655,35 +9623,6 @@
             "base": 0,
             "finetune": 0,
             "cached_input": 0.17,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
-          "id": "thinkingmachines/Inkling-Small",
-          "name": "thinkingmachines/Inkling-Small",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Inkling Small",
-          "organization": "Thinking Machines",
-          "link": "https://huggingface.co/api/models/thinkingmachines/Inkling-Small",
-          "context_length": 524288,
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.5,
-            "output": 1.2,
-            "base": 0,
-            "finetune": 0,
-            "cached_input": 0.1,
             "image_pixel": 0,
             "transcribe": 0,
             "image": 0,
@@ -18092,12 +18031,28 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000057948",
-            "completion": "0.00000173844",
-            "input_cache_read": "0.000000018438"
+            "prompt": "0.0000005808",
+            "completion": "0.0000017424",
+            "input_cache_read": "0.00000005808",
+            "overrides": [
+              {
+                "utc_start": 0,
+                "utc_end": 1400,
+                "prompt": "0.000001122",
+                "completion": "0.000003366",
+                "input_cache_read": "0.0000001122"
+              },
+              {
+                "utc_start": 1400,
+                "utc_end": 0,
+                "prompt": "0.0000005808",
+                "completion": "0.0000017424",
+                "input_cache_read": "0.00000005808"
+              }
+            ]
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1000000,
             "max_completion_tokens": 393216,
             "is_moderated": false
           },
@@ -25609,9 +25564,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007784",
-            "completion": "0.00000015568",
-            "input_cache_read": "0.000000015568"
+            "prompt": "0.000000088606",
+            "completion": "0.000000177212",
+            "input_cache_read": "0.0000000177212"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25743,9 +25698,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000006",
-            "completion": "0.00000012",
-            "input_cache_read": "0.000000012"
+            "prompt": "0.000000055",
+            "completion": "0.00000011",
+            "input_cache_read": "0.000000011"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26307,13 +26262,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000057948",
-            "completion": "0.00000173844",
-            "input_cache_read": "0.000000018438"
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 393216,
+            "context_length": 1024000,
+            "max_completion_tokens": 384000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -31070,81 +31025,6 @@
             "tools",
             "top_k",
             "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 1,
-            "top_p": 0.95,
-            "top_k": 64,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/google/gemma-4-31b-it-20260402/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": 15.4,
-              "coding_index": 43.4,
-              "agentic_index": 6.7
-            }
-          },
-          "reasoning": {
-            "mandatory": false,
-            "default_enabled": false
-          }
-        },
-        {
-          "id": "google/gemma-4-31b-it:batch",
-          "name": "Google: Gemma 4 31B (batch)",
-          "canonical_slug": "google/gemma-4-31b-it-20260402",
-          "hugging_face_id": "google/gemma-4-31B-it",
-          "description": "Gemma 4 31B Instruct is Google DeepMind's 30.7B dense multimodal model supporting text and image input with text output. Features a 256K token context window, configurable thinking/reasoning mode, native function...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+image+video->text",
-            "input_modalities": [
-              "image",
-              "text",
-              "video"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Gemma",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000039",
-            "completion": "0.00000097"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 235929,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "response_format",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
             "top_p"
           ],
           "default_parameters": {
@@ -46809,95 +46689,6 @@
           }
         },
         {
-          "id": "openai/gpt-oss-20b:batch",
-          "name": "OpenAI: gpt-oss-20b (batch)",
-          "canonical_slug": "openai/gpt-oss-20b",
-          "hugging_face_id": "openai/gpt-oss-20b",
-          "description": "gpt-oss-20b is an open-weight 21B parameter model released by OpenAI under the Apache 2.0 license. It uses a Mixture-of-Experts (MoE) architecture with 3.6B active parameters per forward pass, optimized for...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "GPT",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000005",
-            "completion": "0.0000002"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 117964,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "reasoning",
-            "reasoning_effort",
-            "repetition_penalty",
-            "response_format",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-06-30",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/openai/gpt-oss-20b/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 947,
-                "win_rate": 39.7,
-                "rank": 112
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 865,
-                "win_rate": 27.9,
-                "rank": 126
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": 9,
-              "coding_index": 20.7,
-              "agentic_index": 1.4
-            }
-          },
-          "reasoning": {
-            "mandatory": true,
-            "supported_efforts": [
-              "high",
-              "medium",
-              "low"
-            ],
-            "default_effort": "medium"
-          }
-        },
-        {
           "id": "openai/gpt-oss-safeguard-20b",
           "name": "OpenAI: gpt-oss-safeguard-20b",
           "canonical_slug": "openai/gpt-oss-safeguard-20b",
@@ -54469,92 +54260,6 @@
             "reasoning_effort",
             "repetition_penalty",
             "seed",
-            "stop",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/thinkingmachines/inkling-small-20260730/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": 26.1,
-              "coding_index": 52.9,
-              "agentic_index": 25
-            }
-          },
-          "reasoning": {
-            "mandatory": false,
-            "default_enabled": true,
-            "supported_efforts": [
-              "max",
-              "high",
-              "medium",
-              "low",
-              "minimal",
-              "none"
-            ],
-            "default_effort": "high"
-          }
-        },
-        {
-          "id": "thinkingmachines/inkling-small:batch",
-          "name": "Thinking Machines: Inkling Small (batch)",
-          "canonical_slug": "thinkingmachines/inkling-small-20260730",
-          "hugging_face_id": "thinkingmachines/Inkling-Small",
-          "description": "Inkling Small is an open-weight multimodal mixture-of-experts model from Thinking Machines Lab, with 12B active parameters out of 276B total. It is positioned as the smaller, more efficient member of...",
-          "context_length": 524288,
-          "architecture": {
-            "modality": "text+image+audio->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "audio"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000005",
-            "completion": "0.0000012",
-            "input_cache_read": "0.0000001"
-          },
-          "top_provider": {
-            "context_length": 524288,
-            "max_completion_tokens": 471859,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logit_bias",
-            "logprobs",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "reasoning",
-            "reasoning_effort",
-            "repetition_penalty",
             "stop",
             "temperature",
             "tool_choice",
