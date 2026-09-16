@@ -17944,11 +17944,27 @@
           "pricing": {
             "prompt": "0.00000015",
             "completion": "0.0000006",
-            "input_cache_read": "0.000000015"
+            "input_cache_read": "0.000000015",
+            "overrides": [
+              {
+                "utc_start": 0,
+                "utc_end": 1400,
+                "prompt": "0.0000003",
+                "completion": "0.0000012",
+                "input_cache_read": "0.00000003"
+              },
+              {
+                "utc_start": 1400,
+                "utc_end": 0,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000015"
+              }
+            ]
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "context_length": 1000000,
+            "max_completion_tokens": 393216,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -18015,94 +18031,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000066",
-            "completion": "0.00000198",
-            "input_cache_read": "0.000000022",
-            "overrides": [
-              {
-                "utc_days": [
-                  "saturday",
-                  "sunday"
-                ],
-                "prompt": "0.00000066",
-                "completion": "0.00000198",
-                "input_cache_read": "0.000000022"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 0,
-                "utc_end": 100,
-                "prompt": "0.00000066",
-                "completion": "0.00000198",
-                "input_cache_read": "0.000000022"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 100,
-                "utc_end": 400,
-                "prompt": "0.00000132",
-                "completion": "0.00000396",
-                "input_cache_read": "0.000000044"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 400,
-                "utc_end": 600,
-                "prompt": "0.00000066",
-                "completion": "0.00000198",
-                "input_cache_read": "0.000000022"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 600,
-                "utc_end": 1000,
-                "prompt": "0.00000132",
-                "completion": "0.00000396",
-                "input_cache_read": "0.000000044"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 1000,
-                "utc_end": 0,
-                "prompt": "0.00000066",
-                "completion": "0.00000198",
-                "input_cache_read": "0.000000022"
-              }
-            ]
+            "prompt": "0.00000057948",
+            "completion": "0.00000173844",
+            "input_cache_read": "0.000000018438"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 384000,
+            "max_completion_tokens": 393216,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -19004,6 +18939,7 @@
             "logprobs",
             "max_tokens",
             "min_p",
+            "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
             "reasoning_effort",
@@ -25627,9 +25563,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008708",
-            "completion": "0.00000017416",
-            "input_cache_read": "0.000000017416"
+            "prompt": "0.00000008554",
+            "completion": "0.00000017108",
+            "input_cache_read": "0.000000017108"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26325,13 +26261,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000009834",
-            "completion": "0.0000029502",
-            "input_cache_read": "0.00000003278"
+            "prompt": "0.00000057948",
+            "completion": "0.00000173844",
+            "input_cache_read": "0.000000018438"
           },
           "top_provider": {
-            "context_length": 1024000,
-            "max_completion_tokens": 384000,
+            "context_length": 1048576,
+            "max_completion_tokens": 393216,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -53333,6 +53269,51 @@
           }
         },
         {
+          "id": "stealth/union-alpha",
+          "name": "Union Alpha",
+          "canonical_slug": "stealth/union-alpha",
+          "hugging_face_id": null,
+          "description": "Union Alpha is a multimodal model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks. Union Alpha is a stealth model....",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "max_tokens",
+            "response_format",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": "2098-12-31",
+          "links": {
+            "details": "/api/v1/models/stealth/union-alpha/endpoints"
+          }
+        },
+        {
           "id": "stepfun/step-3.5-flash",
           "name": "StepFun: Step 3.5 Flash",
           "canonical_slug": "stepfun/step-3.5-flash",
@@ -53730,9 +53711,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -57770,7 +57751,7 @@
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 128000,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -58514,6 +58495,7 @@
             "logprobs",
             "max_tokens",
             "min_p",
+            "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
             "reasoning_effort",
