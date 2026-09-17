@@ -18031,12 +18031,28 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000057948",
-            "completion": "0.00000173844",
-            "input_cache_read": "0.000000018438"
+            "prompt": "0.0000005808",
+            "completion": "0.0000017424",
+            "input_cache_read": "0.00000005808",
+            "overrides": [
+              {
+                "utc_start": 0,
+                "utc_end": 1400,
+                "prompt": "0.000001122",
+                "completion": "0.000003366",
+                "input_cache_read": "0.0000001122"
+              },
+              {
+                "utc_start": 1400,
+                "utc_end": 0,
+                "prompt": "0.0000005808",
+                "completion": "0.0000017424",
+                "input_cache_read": "0.00000005808"
+              }
+            ]
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1000000,
             "max_completion_tokens": 393216,
             "is_moderated": false
           },
@@ -18106,8 +18122,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000003",
-            "completion": "0.00000013",
+            "prompt": "0.00000004",
+            "completion": "0.0000001",
             "input_cache_read": "0.00000001"
           },
           "top_provider": {
@@ -25562,9 +25578,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007",
-            "completion": "0.00000014",
-            "input_cache_read": "0.000000014"
+            "prompt": "0.000000088606",
+            "completion": "0.000000177212",
+            "input_cache_read": "0.0000000177212"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26260,12 +26276,28 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000057948",
-            "completion": "0.00000173844",
-            "input_cache_read": "0.000000018438"
+            "prompt": "0.0000005808",
+            "completion": "0.0000017424",
+            "input_cache_read": "0.00000005808",
+            "overrides": [
+              {
+                "utc_start": 0,
+                "utc_end": 1400,
+                "prompt": "0.000001122",
+                "completion": "0.000003366",
+                "input_cache_read": "0.0000001122"
+              },
+              {
+                "utc_start": 1400,
+                "utc_end": 0,
+                "prompt": "0.0000005808",
+                "completion": "0.0000017424",
+                "input_cache_read": "0.00000005808"
+              }
+            ]
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1000000,
             "max_completion_tokens": 393216,
             "is_moderated": false
           },
@@ -53358,51 +53390,6 @@
           }
         },
         {
-          "id": "stealth/union-alpha",
-          "name": "Union Alpha",
-          "canonical_slug": "stealth/union-alpha",
-          "hugging_face_id": null,
-          "description": "Union Alpha is a multimodal model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks. Union Alpha is a stealth model....",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 131072,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "response_format",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": "2098-12-31",
-          "links": {
-            "details": "/api/v1/models/stealth/union-alpha/endpoints"
-          }
-        },
-        {
           "id": "stepfun/step-3.5-flash",
           "name": "StepFun: Step 3.5 Flash",
           "canonical_slug": "stepfun/step-3.5-flash",
@@ -54795,6 +54782,51 @@
               "none"
             ],
             "default_effort": "high"
+          }
+        },
+        {
+          "id": "unbiased/pareto",
+          "name": "Pareto",
+          "canonical_slug": "unbiased/pareto-20260917",
+          "hugging_face_id": null,
+          "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks.",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000025",
+            "completion": "0.0000075",
+            "input_cache_read": "0.00000025"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "max_tokens",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/unbiased/pareto-20260917/endpoints"
           }
         },
         {
