@@ -1,5 +1,5 @@
 {
-  "timestamp": 1789740995627,
+  "timestamp": 1789755262630,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9321,6 +9321,34 @@
           "svg"
         ]
       }
+    },
+    {
+      "id": "p-video-2-pro-speed",
+      "displayName": "P-Video-2-Pro (Speed)",
+      "provider": "pruna",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo"
+        ]
+      }
+    },
+    {
+      "id": "p-video-2-pro-quality",
+      "displayName": "P-Video-2-Pro (Quality)",
+      "provider": "pruna",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo"
+        ]
+      }
     }
   ],
   "providers": [
@@ -13727,6 +13755,18 @@
       "text": {
         "input": 4,
         "output": 20
+      }
+    },
+    {
+      "id": "p-video-2-pro-speed",
+      "video": {
+        "perSecond": 0.035
+      }
+    },
+    {
+      "id": "p-video-2-pro-quality",
+      "video": {
+        "perSecond": 0.075
       }
     }
   ]
