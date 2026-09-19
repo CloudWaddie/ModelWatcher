@@ -1,5 +1,5 @@
 {
-  "timestamp": 1789767174203,
+  "timestamp": 1789776212003,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9264,6 +9264,19 @@
       }
     },
     {
+      "id": "kestrel",
+      "displayName": "Freya TTS Adam V1",
+      "provider": "freya",
+      "active": false,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
       "id": "deca-2.6-pro",
       "displayName": "Deca 2.6 Pro",
       "provider": "genlabs",
@@ -9347,6 +9360,19 @@
         "models": [
           "video",
           "imagetovideo"
+        ]
+      }
+    },
+    {
+      "id": "magpie-tts-multilingual",
+      "displayName": "Magpie TTS Multilingual",
+      "provider": "nvidia",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
         ]
       }
     }
@@ -10981,6 +11007,11 @@
       "id": "hampshire",
       "displayName": "hampshire",
       "logoName": "private.png"
+    },
+    {
+      "id": "freya",
+      "displayName": "Freya",
+      "logoName": "freya_logo.svg"
     }
   ],
   "pricing": [
