@@ -17900,9 +17900,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000135",
-            "completion": "0.00000054",
-            "input_cache_read": "0.00000000405"
+            "prompt": "0.00000013",
+            "completion": "0.00000052",
+            "input_cache_read": "0.0000000026"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18048,13 +18048,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000484",
-            "completion": "0.0000001452",
-            "input_cache_read": "0.00000000154"
+            "prompt": "0.00000004",
+            "completion": "0.00000008",
+            "input_cache_read": "0.000000016"
           },
           "top_provider": {
-            "context_length": 1024000,
-            "max_completion_tokens": 384000,
+            "context_length": 1048576,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -18291,9 +18291,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000020695",
-            "completion": "0.0000115892",
-            "input_cache_read": "0.000000240062"
+            "prompt": "0.0000017",
+            "completion": "0.0000085",
+            "input_cache_read": "0.00000017"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25504,9 +25504,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000476",
-            "completion": "0.0000000952",
-            "input_cache_read": "0.00000000952"
+            "prompt": "0.00000004508",
+            "completion": "0.00000009016",
+            "input_cache_read": "0.000000009016"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25638,8 +25638,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000065",
-            "completion": "0.00000018",
+            "prompt": "0.00000004",
+            "completion": "0.00000008",
             "input_cache_read": "0.000000016"
           },
           "top_provider": {
@@ -26176,9 +26176,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000594558",
-            "completion": "0.000001189116",
-            "input_cache_read": "0.0000000495465"
+            "prompt": "0.00000049329",
+            "completion": "0.00000098658",
+            "input_cache_read": "0.0000000411075"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -37710,9 +37710,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000020695",
-            "completion": "0.0000115892",
-            "input_cache_read": "0.000000240062"
+            "prompt": "0.0000017",
+            "completion": "0.0000085",
+            "input_cache_read": "0.00000017"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -60588,7 +60588,17 @@
           "prompt_text_token_price_long_context": 25000,
           "cached_prompt_text_token_price_long_context": 4000,
           "completion_text_token_price_long_context": 50000,
-          "long_context_threshold": 200000
+          "long_context_threshold": 200000,
+          "capabilities": {
+            "reasoning_effort": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ],
+            "default_reasoning_effort": "low"
+          }
         },
         {
           "id": "grok-4.5",
@@ -60607,7 +60617,16 @@
           "prompt_text_token_price_long_context": 40000,
           "cached_prompt_text_token_price_long_context": 6000,
           "completion_text_token_price_long_context": 120000,
-          "long_context_threshold": 200000
+          "long_context_threshold": 200000,
+          "capabilities": {
+            "reasoning_effort": [
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ],
+            "default_reasoning_effort": "high"
+          }
         },
         {
           "id": "grok-4.6",
@@ -60623,7 +60642,16 @@
           "prompt_text_token_price_long_context": 40000,
           "cached_prompt_text_token_price_long_context": 10000,
           "completion_text_token_price_long_context": 120000,
-          "long_context_threshold": 200000
+          "long_context_threshold": 200000,
+          "capabilities": {
+            "reasoning_effort": [
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ],
+            "default_reasoning_effort": "high"
+          }
         },
         {
           "id": "grok-build-0.1",
