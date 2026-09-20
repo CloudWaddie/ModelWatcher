@@ -17973,9 +17973,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000057684",
-            "completion": "0.00000173052",
-            "input_cache_read": "0.000000019228"
+            "prompt": "0.00000057156",
+            "completion": "0.00000171468",
+            "input_cache_read": "0.000000019052"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -18870,7 +18870,7 @@
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -23824,7 +23824,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null,
+          "expiration_date": "2026-10-08",
           "links": {
             "details": "/api/v1/models/baidu/ernie-4.5-vl-424b-a47b/endpoints"
           },
@@ -25119,7 +25119,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2024-07-31",
-          "expiration_date": null,
+          "expiration_date": "2026-09-28",
           "links": {
             "details": "/api/v1/models/deepseek/deepseek-r1-distill-llama-70b/endpoints"
           },
@@ -25182,7 +25182,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null,
+          "expiration_date": "2026-09-28",
           "links": {
             "details": "/api/v1/models/deepseek/deepseek-v3.1-terminus/endpoints"
           },
@@ -25308,7 +25308,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-09-28",
           "links": {
             "details": "/api/v1/models/deepseek/deepseek-v3.2-20251201/endpoints"
           },
@@ -25438,7 +25438,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-07-31",
-          "expiration_date": null,
+          "expiration_date": "2026-09-28",
           "links": {
             "details": "/api/v1/models/deepseek/deepseek-v3.2-exp/endpoints"
           },
@@ -25518,9 +25518,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000003724",
-            "completion": "0.00000007448",
-            "input_cache_read": "0.000000007448"
+            "prompt": "0.00000003668",
+            "completion": "0.00000007336",
+            "input_cache_read": "0.000000007336"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25817,137 +25817,6 @@
             "tools",
             "top_k",
             "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": [],
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/deepseek/deepseek-v4-flash-20260731/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 1237,
-                "win_rate": 48.6,
-                "rank": 37
-              },
-              {
-                "arena": "models",
-                "category": "asciiart",
-                "elo": 1111,
-                "win_rate": 33.3,
-                "rank": 59
-              },
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1245,
-                "win_rate": 46.5,
-                "rank": 40
-              },
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 1197,
-                "win_rate": 41.1,
-                "rank": 54
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 1233,
-                "win_rate": 44.6,
-                "rank": 38
-              },
-              {
-                "arena": "models",
-                "category": "svg",
-                "elo": 1212,
-                "win_rate": 45.2,
-                "rank": 25
-              },
-              {
-                "arena": "models",
-                "category": "uicomponent",
-                "elo": 1253,
-                "win_rate": 47,
-                "rank": 35
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1251,
-                "win_rate": 46.8,
-                "rank": 38
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": 34.3,
-              "coding_index": 69.1,
-              "agentic_index": 41
-            }
-          },
-          "reasoning": {
-            "mandatory": false,
-            "default_enabled": true,
-            "supported_efforts": [
-              "max",
-              "high",
-              "low"
-            ],
-            "default_effort": "high"
-          }
-        },
-        {
-          "id": "deepseek/deepseek-v4-flash-0731:free",
-          "name": "DeepSeek: DeepSeek V4 Flash 0731 (free)",
-          "canonical_slug": "deepseek/deepseek-v4-flash-20260731",
-          "hugging_face_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
-          "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows....",
-          "context_length": 1048576,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "DeepSeek",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 393216,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "reasoning",
-            "reasoning_effort",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
             "top_p"
           ],
           "default_parameters": {},
@@ -33140,13 +33009,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000035",
-            "completion": "0.0000015",
+            "prompt": "0.0000003",
+            "completion": "0.0000012",
             "input_cache_read": "0.00000004"
           },
           "top_provider": {
             "context_length": 131072,
-            "max_completion_tokens": 117964,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -34343,7 +34212,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-10-08",
           "links": {
             "details": "/api/v1/models/minimax/minimax-m2.1/endpoints"
           },
@@ -36734,6 +36603,8 @@
             "seed",
             "stop",
             "temperature",
+            "tool_choice",
+            "tools",
             "top_k",
             "top_logprobs",
             "top_p"
@@ -47832,7 +47703,6 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
-            "logit_bias",
             "logprobs",
             "max_completion_tokens",
             "max_tokens",
@@ -57982,9 +57852,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000005544",
-            "completion": "0.0000017424",
-            "input_cache_read": "0.00000010296"
+            "prompt": "0.0000006496",
+            "completion": "0.0000020416",
+            "input_cache_read": "0.00000012064"
           },
           "top_provider": {
             "context_length": 1048576,
