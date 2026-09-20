@@ -1,5 +1,5 @@
 {
-  "timestamp": 1789883791333,
+  "timestamp": 1789902592857,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9375,6 +9375,34 @@
           "tts"
         ]
       }
+    },
+    {
+      "id": "gpt-6-astra-max",
+      "displayName": "GPT-6 Astra (max)",
+      "provider": "openai",
+      "active": false,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "fullstack"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -13798,6 +13826,15 @@
       "id": "p-video-2-pro-quality",
       "video": {
         "perSecond": 0.075
+      }
+    },
+    {
+      "id": "gpt-6-astra-max",
+      "text": {
+        "input": 10,
+        "output": 50,
+        "cachedInput": 1,
+        "cacheWrite": 12.5
       }
     }
   ]
