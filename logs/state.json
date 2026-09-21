@@ -1708,6 +1708,13 @@
           "display_name": "Antigravity Agent Preview"
         },
         {
+          "id": "models/antigravity-preview-latest",
+          "name": "models/antigravity-preview-latest",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Antigravity Agent Preview Latest"
+        },
+        {
           "id": "models/aqa",
           "name": "models/aqa",
           "owned_by": "google",
@@ -4698,96 +4705,6 @@
               "example_description": "per image price ranging from 0.03 - 0.10 per based on size and quality"
             },
             "video": 0
-          }
-        },
-        {
-          "id": "kwaivgI/kling-1.6-standard",
-          "name": "kwaivgI/kling-1.6-standard",
-          "uuid": "endpoint-9f6794ed-52f7-414f-8974-d3b1ffb8702f",
-          "object": "model",
-          "type": "video",
-          "running": false,
-          "display_name": "Kling 1.6 Standard",
-          "organization": "kwaivgI",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": {
-              "example_price": 0.185,
-              "example_description": "720p / 5s"
-            }
-          }
-        },
-        {
-          "id": "kwaivgI/kling-2.1-master",
-          "name": "kwaivgI/kling-2.1-master",
-          "uuid": "endpoint-5e489acf-5401-4843-97b7-8a830648bd3c",
-          "object": "model",
-          "type": "video",
-          "running": false,
-          "display_name": "Kling 2.1 Master",
-          "organization": "kwaivgI",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": {
-              "example_price": 0.924,
-              "example_description": "1080p / 5s"
-            }
-          }
-        },
-        {
-          "id": "kwaivgI/kling-2.1-pro",
-          "name": "kwaivgI/kling-2.1-pro",
-          "uuid": "endpoint-8fa3e87a-9f35-45fc-8157-8ed046498ba6",
-          "object": "model",
-          "type": "video",
-          "running": false,
-          "display_name": "Kling 2.1 Pro",
-          "organization": "kwaivgI",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": {
-              "example_price": 0.3234,
-              "example_description": "1080p / 5s"
-            }
           }
         },
         {
@@ -15469,9 +15386,9 @@
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
-              "input_tokens": 0.14,
-              "output_tokens": 0.58,
-              "cache_read_tokens": 0.035
+              "input_tokens": 0.13,
+              "output_tokens": 0.53,
+              "cache_read_tokens": 0.0329999995
             },
             "discount": null,
             "tags": [
@@ -17974,9 +17891,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000057024",
-            "completion": "0.00000171072",
-            "input_cache_read": "0.000000019008"
+            "prompt": "0.00000054648",
+            "completion": "0.00000163944",
+            "input_cache_read": "0.000000018216"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -18050,7 +17967,7 @@
           },
           "pricing": {
             "prompt": "0.00000004",
-            "completion": "0.00000016",
+            "completion": "0.00000032",
             "input_cache_read": "0.000000016"
           },
           "top_provider": {
@@ -18868,11 +18785,11 @@
           "pricing": {
             "prompt": "0.000000075",
             "completion": "0.00000025",
-            "input_cache_read": "0.000000015"
+            "input_cache_read": "0.00000002"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 102400,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25542,7 +25459,7 @@
           },
           "pricing": {
             "prompt": "0.00000004",
-            "completion": "0.00000016",
+            "completion": "0.00000032",
             "input_cache_read": "0.000000016"
           },
           "top_provider": {
@@ -25947,9 +25864,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000927768",
-            "completion": "0.000001855536",
-            "input_cache_read": "0.000000077314"
+            "prompt": "0.000000900798",
+            "completion": "0.000001801596",
+            "input_cache_read": "0.0000000750665"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26104,12 +26021,93 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000057024",
-            "completion": "0.00000171072",
-            "input_cache_read": "0.000000019008"
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022",
+            "overrides": [
+              {
+                "utc_days": [
+                  "saturday",
+                  "sunday"
+                ],
+                "prompt": "0.00000066",
+                "completion": "0.00000198",
+                "input_cache_read": "0.000000022"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 0,
+                "utc_end": 100,
+                "prompt": "0.00000066",
+                "completion": "0.00000198",
+                "input_cache_read": "0.000000022"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 100,
+                "utc_end": 400,
+                "prompt": "0.00000132",
+                "completion": "0.00000396",
+                "input_cache_read": "0.000000044"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 400,
+                "utc_end": 600,
+                "prompt": "0.00000066",
+                "completion": "0.00000198",
+                "input_cache_read": "0.000000022"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 600,
+                "utc_end": 1000,
+                "prompt": "0.00000132",
+                "completion": "0.00000396",
+                "input_cache_read": "0.000000044"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 1000,
+                "utc_end": 0,
+                "prompt": "0.00000066",
+                "completion": "0.00000198",
+                "input_cache_read": "0.000000022"
+              }
+            ]
           },
           "top_provider": {
-            "context_length": 1024000,
+            "context_length": 1048576,
             "max_completion_tokens": 384000,
             "is_moderated": false
           },
@@ -37866,8 +37864,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000006",
-            "completion": "0.00000024"
+            "prompt": "0.00000005",
+            "completion": "0.0000002",
+            "input_cache_read": "0.00000003"
           },
           "top_provider": {
             "context_length": 262144,
@@ -55656,6 +55655,189 @@
           }
         },
         {
+          "id": "xiaomi/mimo-v2.6-flash",
+          "name": "Xiaomi: MiMo-V2.6-Flash",
+          "canonical_slug": "xiaomi/mimo-v2.6-flash-20260921",
+          "hugging_face_id": null,
+          "description": "MiMo-V2.6-Flash is an open-source foundation model developed by Xiaomi. Built on a Mixture-of-Experts architecture with 309B total parameters and 15B activated per token, it employs a hybrid attention mechanism for...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+audio+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video",
+              "audio"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000014",
+            "completion": "0.00000028",
+            "input_cache_read": "0.0000000028"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "frequency_penalty": 0
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/xiaomi/mimo-v2.6-flash-20260921/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
+          }
+        },
+        {
+          "id": "xiaomi/mimo-v2.6-pro",
+          "name": "Xiaomi: MiMo-V2.6-Pro",
+          "canonical_slug": "xiaomi/mimo-v2.6-pro-20260921",
+          "hugging_face_id": null,
+          "description": "MiMo-V2.6-Pro is the flagship foundation model developed by Xiaomi. Built at a scale of over 1T parameters, it is designed to push the ceiling of capability for the most demanding...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+audio+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video",
+              "audio"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000435",
+            "completion": "0.00000087",
+            "input_cache_read": "0.0000000036"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "frequency_penalty": 0
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/xiaomi/mimo-v2.6-pro-20260921/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
+          }
+        },
+        {
+          "id": "xiaomi/mimo-v2.6-pro-ultraspeed",
+          "name": "Xiaomi: MiMo-V2.6-Pro-UltraSpeed",
+          "canonical_slug": "xiaomi/mimo-v2.6-pro-ultraspeed-20260921",
+          "hugging_face_id": null,
+          "description": "MiMo-V2.6-Pro-UltraSpeed is the fast speed edition of Xiaomi's flagship foundation model, MiMo-V2.6-Pro. Built from the same 1T MiMo-V2.6-Pro checkpoint, it matches the original model in quality while delivering roughly 10x...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+audio+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video",
+              "audio"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000435",
+            "completion": "0.0000087",
+            "input_cache_read": "0.000000036"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "frequency_penalty": 0
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/xiaomi/mimo-v2.6-pro-ultraspeed-20260921/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
+          }
+        },
+        {
           "id": "z-ai/glm-4.5",
           "name": "Z.ai: GLM 4.5",
           "canonical_slug": "z-ai/glm-4.5",
@@ -57691,13 +57873,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.0000003",
-            "input_cache_read": "0.000000018"
+            "prompt": "0.000000075",
+            "completion": "0.00000025",
+            "input_cache_read": "0.00000002"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": 102400,
             "is_moderated": false
           },
           "per_request_limits": null,
