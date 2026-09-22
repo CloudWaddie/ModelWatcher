@@ -1,5 +1,5 @@
 {
-  "timestamp": 1790102424015,
+  "timestamp": 1790114110071,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9432,6 +9432,88 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "claude-opus-5-5",
+      "displayName": "Claude Opus 5.5",
+      "provider": "anthropic",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "gpt-6-sol",
+      "displayName": "GPT-6 Sol",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "fullstack",
+          "agon_godot"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "gpt-6-luna",
+      "displayName": "GPT-6 Luna",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "fullstack",
+          "agon_godot"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -11056,6 +11138,11 @@
       "logoName": "private.png"
     },
     {
+      "id": "manitoba",
+      "displayName": "manitoba",
+      "logoName": "private.png"
+    },
+    {
       "id": "vermont",
       "displayName": "vermont",
       "logoName": "private.png"
@@ -11073,6 +11160,11 @@
     {
       "id": "york",
       "displayName": "york",
+      "logoName": "private.png"
+    },
+    {
+      "id": "colorado",
+      "displayName": "colorado",
       "logoName": "private.png"
     }
   ],
@@ -13876,6 +13968,31 @@
         "output": 50,
         "cachedInput": 1,
         "cacheWrite": 12.5
+      }
+    },
+    {
+      "id": "claude-opus-5-5",
+      "text": {
+        "input": 4,
+        "output": 20
+      }
+    },
+    {
+      "id": "gpt-6-sol",
+      "text": {
+        "input": 2,
+        "output": 10,
+        "cachedInput": 0.2,
+        "cacheWrite": 2.5
+      }
+    },
+    {
+      "id": "gpt-6-luna",
+      "text": {
+        "input": 0.1,
+        "output": 0.5,
+        "cachedInput": 0.01,
+        "cacheWrite": 0.125
       }
     }
   ]
