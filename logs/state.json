@@ -15648,6 +15648,35 @@
           }
         },
         {
+          "id": "XiaomiMiMo/MiMo-V2.6-Pro",
+          "name": "XiaomiMiMo/MiMo-V2.6-Pro",
+          "owned_by": "deepinfra",
+          "root": "XiaomiMiMo/MiMo-V2.6-Pro",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "",
+            "context_length": 1048576,
+            "max_tokens": 1048576,
+            "pricing": {
+              "input_tokens": 0.435,
+              "output_tokens": 0.87,
+              "cache_read_tokens": 0.0035999990999999996
+            },
+            "discount": null,
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "zai-org/GLM-4.6",
           "name": "zai-org/GLM-4.6",
           "owned_by": "deepinfra",
@@ -17862,9 +17891,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000638616",
-            "completion": "0.000001915848",
-            "input_cache_read": "0.0000000212872"
+            "prompt": "0.00000059862",
+            "completion": "0.00000179586",
+            "input_cache_read": "0.000000019954"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -17938,7 +17967,7 @@
           },
           "pricing": {
             "prompt": "0.00000003",
-            "completion": "0.0000008",
+            "completion": "0.000001",
             "input_cache_read": "0.000000008"
           },
           "top_provider": {
@@ -25992,93 +26021,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000066",
-            "completion": "0.00000198",
-            "input_cache_read": "0.000000022",
-            "overrides": [
-              {
-                "utc_days": [
-                  "saturday",
-                  "sunday"
-                ],
-                "prompt": "0.00000066",
-                "completion": "0.00000198",
-                "input_cache_read": "0.000000022"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 0,
-                "utc_end": 100,
-                "prompt": "0.00000066",
-                "completion": "0.00000198",
-                "input_cache_read": "0.000000022"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 100,
-                "utc_end": 400,
-                "prompt": "0.00000132",
-                "completion": "0.00000396",
-                "input_cache_read": "0.000000044"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 400,
-                "utc_end": 600,
-                "prompt": "0.00000066",
-                "completion": "0.00000198",
-                "input_cache_read": "0.000000022"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 600,
-                "utc_end": 1000,
-                "prompt": "0.00000132",
-                "completion": "0.00000396",
-                "input_cache_read": "0.000000044"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 1000,
-                "utc_end": 0,
-                "prompt": "0.00000066",
-                "completion": "0.00000198",
-                "input_cache_read": "0.000000022"
-              }
-            ]
+            "prompt": "0.00000059862",
+            "completion": "0.00000179586",
+            "input_cache_read": "0.000000019954"
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 1024000,
             "max_completion_tokens": 384000,
             "is_moderated": false
           },
@@ -31913,75 +31861,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/inference-net/schematron-v2-turbo-20260902/endpoints"
-          }
-        },
-        {
-          "id": "kwaipilot/kat-coder-pro-v2",
-          "name": "Kwaipilot: KAT-Coder-Pro V2",
-          "canonical_slug": "kwaipilot/kat-coder-pro-v2-20260327",
-          "hugging_face_id": "",
-          "description": "KAT-Coder-Pro V2 is the latest high-performance model in KwaiKAT’s KAT-Coder series, designed for complex enterprise-grade software engineering and SaaS integration. It builds on the agentic coding strengths of earlier versions,...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000003",
-            "completion": "0.0000012",
-            "input_cache_read": "0.00000006"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 144000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logit_bias",
-            "max_tokens",
-            "min_p",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/kwaipilot/kat-coder-pro-v2-20260327/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": null,
-              "coding_index": 59.5,
-              "agentic_index": null
-            }
           }
         },
         {
@@ -49582,8 +49461,8 @@
             "completion": "0.0000012"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 32768,
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
             "is_moderated": false
           },
           "per_request_limits": null,
