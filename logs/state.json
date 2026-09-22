@@ -15601,62 +15601,6 @@
           }
         },
         {
-          "id": "XiaomiMiMo/MiMo-V2.5",
-          "name": "XiaomiMiMo/MiMo-V2.5",
-          "owned_by": "deepinfra",
-          "root": "XiaomiMiMo/MiMo-V2.5",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "MiMo-V2.5 is a native omnimodal model with strong agentic capabilities, supporting text, image, video, and audio understanding within a unified architecture. Built upon the MiMo-V2-Flash backbone and extended with dedicated vision and audio encoders, it delivers robust performance across multimodal perception, long-context reasoning, and agentic workflows.",
-            "context_length": 262144,
-            "max_tokens": 262144,
-            "pricing": {
-              "input_tokens": 0.14,
-              "output_tokens": 0.28,
-              "cache_read_tokens": 0.0028000000000000004
-            },
-            "discount": 0.05,
-            "tags": [
-              "chat",
-              "vlm",
-              "vision",
-              "prompt_cache",
-              "reasoning"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
-          "id": "XiaomiMiMo/MiMo-V2.5-Pro",
-          "name": "XiaomiMiMo/MiMo-V2.5-Pro",
-          "owned_by": "deepinfra",
-          "root": "XiaomiMiMo/MiMo-V2.5-Pro",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "MiMo-V2.5-Pro is an open-source Mixture-of-Experts (MoE) language model with 1.02T total parameters and 42B active parameters. It utilizes the hybrid attention architecture and 3-layers Multi-Token Prediction (MTP) introduced in [MiMo-V2-Flash](https://github.com/XiaomiMiMo/MiMo-V2-Flash).",
-            "context_length": 1048576,
-            "max_tokens": 1048576,
-            "pricing": {
-              "input_tokens": 1,
-              "output_tokens": 2.9999999999999996,
-              "cache_read_tokens": 0.2
-            },
-            "discount": 0.61,
-            "tags": [
-              "chat",
-              "prompt_cache",
-              "reasoning"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
           "id": "XiaomiMiMo/MiMo-V2.5-tts",
           "name": "XiaomiMiMo/MiMo-V2.5-tts",
           "owned_by": "deepinfra",
@@ -15710,7 +15654,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "",
+            "description": "MiMo-V2.6-Flash is the efficiency-balanced model in Xiaomi's MiMo-V2.6 series: a sparse Mixture-of-Experts model with 309B total and 15B activated parameters, natively omnimodal across text, image, video and audio, with a 1M-token context window. Trained with large-scale mixed reinforcement learning across coding, general agents, visual and cybersecurity tasks, it is built for agentic workloads such as long-horizon coding, tool use and computer use.",
             "context_length": 1048576,
             "max_tokens": 1048576,
             "pricing": {
@@ -15739,7 +15683,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "",
+            "description": "MiMo-V2.6-Pro is the flagship of Xiaomi's MiMo-V2.6 series: a sparse Mixture-of-Experts model with 1.02T total and 42B activated parameters, natively omnimodal across text, image, video and audio, with a 1M-token context window. Trained with large-scale mixed reinforcement learning and groupwise agentic grading, it is built for demanding agentic work including long-horizon coding, multi-tool agents and cybersecurity tasks.",
             "context_length": 1048576,
             "max_tokens": 1048576,
             "pricing": {
@@ -15880,11 +15824,11 @@
             "context_length": 1048576,
             "max_tokens": 1048576,
             "pricing": {
-              "input_tokens": 1.2,
+              "input_tokens": 0.9,
               "output_tokens": 4,
-              "cache_read_tokens": 0.20000000399999998
+              "cache_read_tokens": 0.199999998
             },
-            "discount": 0.25,
+            "discount": 0.375,
             "tags": [
               "chat",
               "prompt_cache",
@@ -17901,9 +17845,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000012",
-            "completion": "0.00000048",
-            "input_cache_read": "0.0000000036"
+            "prompt": "0.0000001",
+            "completion": "0.0000005",
+            "input_cache_read": "0.00000001"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17974,13 +17918,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000004",
-            "completion": "0.0000043",
-            "input_cache_read": "0.000000033"
+            "prompt": "0.00000039996",
+            "completion": "0.00000119988",
+            "input_cache_read": "0.000000012726"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 384000,
+            "max_completion_tokens": 393216,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -18292,9 +18236,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000014989",
-            "completion": "0.000010758",
-            "input_cache_read": "0.0000003"
+            "prompt": "0.0000015",
+            "completion": "0.0000075",
+            "input_cache_read": "0.00000015"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18941,9 +18885,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006538",
-            "completion": "0.0000020548",
-            "input_cache_read": "0.00000012142"
+            "prompt": "0.0000005614",
+            "completion": "0.0000017644",
+            "input_cache_read": "0.00000010426"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -19001,7 +18945,7 @@
           "canonical_slug": "aion-labs/aion-2.0-20260223",
           "hugging_face_id": null,
           "description": "Aion-2.0 is a variant of DeepSeek V3.2 optimized for immersive roleplaying and storytelling. It is particularly strong at introducing tension, crises, and conflict into stories, making narratives feel more engaging....",
-          "context_length": 1048576,
+          "context_length": 131072,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -19019,7 +18963,7 @@
             "input_cache_read": "0.0000002"
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 131072,
             "max_completion_tokens": 32768,
             "is_moderated": false
           },
@@ -19055,7 +18999,7 @@
           "canonical_slug": "aion-labs/aion-3.0-20260707",
           "hugging_face_id": null,
           "description": "Aion-3.0 is a multi-model roleplaying and storytelling system from AionLabs, built on the GLM family of models. It uses a collaborative generation process in which multiple specialized models each contribute...",
-          "context_length": 1048576,
+          "context_length": 131072,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -19073,7 +19017,7 @@
             "input_cache_read": "0.00000075"
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 131072,
             "max_completion_tokens": 32768,
             "is_moderated": false
           },
@@ -19105,7 +19049,7 @@
           "canonical_slug": "aion-labs/aion-3.0-mini-20260707",
           "hugging_face_id": null,
           "description": "Aion-3.0 Mini is a multi-model roleplaying and storytelling system from AionLabs, built on the DeepSeek family of models. It uses a collaborative generation process in which multiple specialized models each...",
-          "context_length": 1048576,
+          "context_length": 131072,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -19123,7 +19067,7 @@
             "input_cache_read": "0.00000018"
           },
           "top_provider": {
-            "context_length": 1048576,
+            "context_length": 131072,
             "max_completion_tokens": 32768,
             "is_moderated": false
           },
@@ -25877,9 +25821,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000895578",
-            "completion": "0.000001791156",
-            "input_cache_read": "0.0000000746315"
+            "prompt": "0.000000865302",
+            "completion": "0.000001730604",
+            "input_cache_read": "0.0000000721085"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26195,94 +26139,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000003",
-            "overrides": [
-              {
-                "utc_days": [
-                  "saturday",
-                  "sunday"
-                ],
-                "prompt": "0.00000015",
-                "completion": "0.0000006",
-                "input_cache_read": "0.000000003"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 0,
-                "utc_end": 100,
-                "prompt": "0.00000015",
-                "completion": "0.0000006",
-                "input_cache_read": "0.000000003"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 100,
-                "utc_end": 400,
-                "prompt": "0.0000003",
-                "completion": "0.0000012",
-                "input_cache_read": "0.000000006"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 400,
-                "utc_end": 600,
-                "prompt": "0.00000015",
-                "completion": "0.0000006",
-                "input_cache_read": "0.000000003"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 600,
-                "utc_end": 1000,
-                "prompt": "0.0000003",
-                "completion": "0.0000012",
-                "input_cache_read": "0.000000006"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 1000,
-                "utc_end": 0,
-                "prompt": "0.00000015",
-                "completion": "0.0000006",
-                "input_cache_read": "0.000000003"
-              }
-            ]
+            "prompt": "0.0000001",
+            "completion": "0.0000005",
+            "input_cache_read": "0.00000001"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 384000,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -52799,6 +52662,69 @@
           }
         },
         {
+          "id": "qwen/qwen3.8-omni-flash",
+          "name": "Qwen: Qwen3.8 Omni Flash",
+          "canonical_slug": "qwen/qwen3.8-omni-flash-20260918",
+          "hugging_face_id": null,
+          "description": "Qwen3.8 Omni Flash is an omni-modal reasoning model from Alibaba, the first Qwen model built around agentic capabilities with native audio-video understanding. It is suited for audio-video analysis and summarization,...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+audio+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "audio",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000015",
+            "completion": "0.00000047",
+            "input_cache_read": "0.000000016"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.8-omni-flash-20260918/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supports_max_tokens": true
+          }
+        },
+        {
           "id": "rekaai/reka-edge",
           "name": "Reka Edge",
           "canonical_slug": "rekaai/reka-edge-2603",
@@ -58470,9 +58396,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006538",
-            "completion": "0.0000020548",
-            "input_cache_read": "0.00000012142"
+            "prompt": "0.0000005614",
+            "completion": "0.0000017644",
+            "input_cache_read": "0.00000010426"
           },
           "top_provider": {
             "context_length": 1048576,
