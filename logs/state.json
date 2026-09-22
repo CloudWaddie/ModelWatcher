@@ -10402,64 +10402,6 @@
           }
         },
         {
-          "id": "groq/compound",
-          "name": "Compound",
-          "owned_by": "Groq",
-          "object": "model",
-          "active": true,
-          "context_window": 131072,
-          "public_apps": null,
-          "max_completion_tokens": 8192,
-          "hugging_face_id": "groq/compound-beta",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "context_length": 131072,
-          "max_output_length": 8192,
-          "supported_sampling_parameters": [
-            "temperature",
-            "top_p",
-            "stop",
-            "seed",
-            "max_tokens"
-          ],
-          "supported_features": [
-            "json_mode"
-          ]
-        },
-        {
-          "id": "groq/compound-mini",
-          "name": "Compound Mini",
-          "owned_by": "Groq",
-          "object": "model",
-          "active": true,
-          "context_window": 131072,
-          "public_apps": null,
-          "max_completion_tokens": 8192,
-          "hugging_face_id": "groq/compound-beta-mini",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "context_length": 131072,
-          "max_output_length": 8192,
-          "supported_sampling_parameters": [
-            "temperature",
-            "top_p",
-            "stop",
-            "seed",
-            "max_tokens"
-          ],
-          "supported_features": [
-            "json_mode"
-          ]
-        },
-        {
           "id": "meta-llama/llama-prompt-guard-2-22m",
           "name": "Llama Prompt Guard 2 22M",
           "owned_by": "Meta",
@@ -15677,6 +15619,35 @@
           }
         },
         {
+          "id": "XiaomiMiMo/MiMo-V2.6-Flash",
+          "name": "XiaomiMiMo/MiMo-V2.6-Flash",
+          "owned_by": "deepinfra",
+          "root": "XiaomiMiMo/MiMo-V2.6-Flash",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "",
+            "context_length": 1048576,
+            "max_tokens": 1048576,
+            "pricing": {
+              "input_tokens": 0.14,
+              "output_tokens": 0.28,
+              "cache_read_tokens": 0.0028000000000000004
+            },
+            "discount": null,
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "zai-org/GLM-4.6",
           "name": "zai-org/GLM-4.6",
           "owned_by": "deepinfra",
@@ -17891,9 +17862,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000558624",
-            "completion": "0.000001675872",
-            "input_cache_read": "0.0000000186208"
+            "prompt": "0.000000638616",
+            "completion": "0.000001915848",
+            "input_cache_read": "0.0000000212872"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -17966,9 +17937,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000004",
-            "completion": "0.0000004",
-            "input_cache_read": "0.00000001"
+            "prompt": "0.00000003",
+            "completion": "0.0000008",
+            "input_cache_read": "0.000000008"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18785,11 +18756,11 @@
           "pricing": {
             "prompt": "0.000000075",
             "completion": "0.00000025",
-            "input_cache_read": "0.00000002"
+            "input_cache_read": "0.000000015"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 102400,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -18860,13 +18831,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000007839",
-            "completion": "0.0000026532",
-            "input_cache_read": "0.00000015678"
+            "prompt": "0.0000006545",
+            "completion": "0.000002057",
+            "input_cache_read": "0.000000107525"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 235929,
+            "context_length": 1048576,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -37564,6 +37535,69 @@
           }
         },
         {
+          "id": "nex-agi/nex-n2.5-mini",
+          "name": "Nex AGI: Nex-N2.5-Mini",
+          "canonical_slug": "nex-agi/nex-n2.5-mini-20260908",
+          "hugging_face_id": "nex-agi/Nex-N2.5-mini",
+          "description": "Nex-N2.5 is an agentic model built to turn goals into working, verified outcomes. Its core strength is agentic coding within a visual feedback loop: it can explore codebases, implement multi-file...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen3",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000025",
+            "completion": "0.0000001",
+            "input_cache_read": "0.0000000025"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "structured_outputs",
+            "temperature",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.7,
+            "top_p": 0.95,
+            "top_k": 40
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nex-agi/nex-n2.5-mini-20260908/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "none"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
           "id": "nex-agi/nex-n2.5-mini:free",
           "name": "Nex AGI: Nex-N2.5-Mini (free)",
           "canonical_slug": "nex-agi/nex-n2.5-mini-20260908",
@@ -37614,9 +37648,74 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-09-25",
           "links": {
             "details": "/api/v1/models/nex-agi/nex-n2.5-mini-20260908/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "none"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
+          "id": "nex-agi/nex-n2.5-pro",
+          "name": "Nex AGI: Nex-N2.5-Pro",
+          "canonical_slug": "nex-agi/nex-n2.5-pro-20260907",
+          "hugging_face_id": "nex-agi/Nex-N2.5-Pro",
+          "description": "Nex-N2.5 is an agentic model built to turn goals into working, verified outcomes. Its core strength is agentic coding within a visual feedback loop: it can explore codebases, implement multi-file...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen3",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000075",
+            "completion": "0.00000025",
+            "input_cache_read": "0.000000015"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.7,
+            "top_p": 0.95,
+            "top_k": 40
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nex-agi/nex-n2.5-pro-20260907/endpoints"
           },
           "reasoning": {
             "mandatory": false,
@@ -37679,7 +37778,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-09-25",
           "links": {
             "details": "/api/v1/models/nex-agi/nex-n2.5-pro-20260907/endpoints"
           },
