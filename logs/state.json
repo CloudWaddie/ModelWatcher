@@ -17790,9 +17790,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.0000005",
-            "input_cache_read": "0.00000001"
+            "prompt": "0.00000004",
+            "completion": "0.00000064",
+            "input_cache_read": "0.000000016"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18181,9 +18181,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000145",
-            "completion": "0.0000117",
-            "input_cache_read": "0.0000003"
+            "prompt": "0.00000119",
+            "completion": "0.0000145",
+            "input_cache_read": "0.00000021"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26158,9 +26158,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.0000005",
-            "input_cache_read": "0.00000001"
+            "prompt": "0.00000004",
+            "completion": "0.00000064",
+            "input_cache_read": "0.000000016"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -31945,7 +31945,8 @@
             "tool_choice",
             "tools",
             "top_k",
-            "top_logprobs"
+            "top_logprobs",
+            "top_p"
           ],
           "default_parameters": {
             "temperature": 0.1,
@@ -54043,6 +54044,7 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "frequency_penalty",
             "include_reasoning",
             "max_completion_tokens",
             "max_tokens",
@@ -54053,7 +54055,9 @@
             "structured_outputs",
             "temperature",
             "tool_choice",
-            "tools"
+            "tools",
+            "top_k",
+            "top_p"
           ],
           "default_parameters": {},
           "supported_voices": null,
