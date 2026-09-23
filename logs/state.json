@@ -2037,6 +2037,20 @@
           "display_name": "Gemini 3.8 Flash"
         },
         {
+          "id": "models/gemini-3.8-flash-lite-tts",
+          "name": "models/gemini-3.8-flash-lite-tts",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.8 Flash Lite TTS"
+        },
+        {
+          "id": "models/gemini-3.8-flash-tts",
+          "name": "models/gemini-3.8-flash-tts",
+          "owned_by": "google",
+          "object": "model",
+          "display_name": "Gemini 3.8 Flash TTS"
+        },
+        {
           "id": "models/gemini-3.8-live",
           "name": "models/gemini-3.8-live",
           "owned_by": "google",
@@ -10675,7 +10689,7 @@
           "owned_by": "Alibaba Cloud",
           "object": "model",
           "active": true,
-          "context_window": 131042,
+          "context_window": 131072,
           "public_apps": null,
           "max_completion_tokens": 16384,
           "input_modalities": [
@@ -10685,7 +10699,7 @@
           "output_modalities": [
             "text"
           ],
-          "context_length": 131042,
+          "context_length": 131072,
           "max_output_length": 16384,
           "pricing": {
             "prompt": "0.0000008",
@@ -11171,6 +11185,36 @@
               "chat",
               "vlm",
               "vision",
+              "reasoning_effort",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
+          "id": "anthropic/claude-opus-5-5",
+          "name": "anthropic/claude-opus-5-5",
+          "owned_by": "deepinfra",
+          "root": "anthropic/claude-opus-5-5",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Claude Opus 5.5 is Anthropic's most capable Opus model. Better at coding, knowledge work, and long-running tasks. It's easier to collaborate with and more cost efficient than ever.",
+            "context_length": 1000000,
+            "max_tokens": 1000000,
+            "pricing": {
+              "input_tokens": 4,
+              "output_tokens": 20,
+              "cache_read_tokens": 0.2
+            },
+            "discount": null,
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "prompt_cache",
               "reasoning_effort",
               "reasoning"
             ],
@@ -19041,6 +19085,120 @@
           }
         },
         {
+          "id": "aion-labs/aion-3.5",
+          "name": "AionLabs: Aion 3.5",
+          "canonical_slug": "aion-labs/aion-3.5-20260923",
+          "hugging_face_id": null,
+          "description": "Aion 3.5 is a multi-model roleplaying and storytelling system from AionLabs, built on the GLM family of models. It uses a collaborative generation process in which multiple specialized models each...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000003",
+            "completion": "0.000006",
+            "input_cache_read": "0.00000075"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 32768,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/aion-labs/aion-3.5-20260923/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "max",
+              "high",
+              "low"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
+          "id": "aion-labs/aion-3.5-mini",
+          "name": "AionLabs: Aion 3.5 Mini",
+          "canonical_slug": "aion-labs/aion-3.5-mini-20260923",
+          "hugging_face_id": null,
+          "description": "Aion 3.5 Mini is a multi-model roleplaying and storytelling system from AionLabs, built on the GLM family of models. It is the smaller, lower-cost sibling of Aion 3.5 and uses...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000007",
+            "completion": "0.0000014",
+            "input_cache_read": "0.00000018"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 32768,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/aion-labs/aion-3.5-mini-20260923/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "max",
+              "high",
+              "low"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
           "id": "aion-labs/aion-rp-llama-3.1-8b",
           "name": "AionLabs: Aion-RP 1.0 (8B)",
           "canonical_slug": "aion-labs/aion-rp-llama-3.1-8b",
@@ -25500,9 +25658,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008708",
-            "completion": "0.00000017416",
-            "input_cache_read": "0.000000017416"
+            "prompt": "0.00000008246",
+            "completion": "0.00000016492",
+            "input_cache_read": "0.000000016492"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25840,9 +25998,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000095526",
-            "completion": "0.00000191052",
-            "input_cache_read": "0.000000079605"
+            "prompt": "0.000000948126",
+            "completion": "0.000001896252",
+            "input_cache_read": "0.0000000790105"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26077,94 +26235,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000003",
-            "overrides": [
-              {
-                "utc_days": [
-                  "saturday",
-                  "sunday"
-                ],
-                "prompt": "0.00000015",
-                "completion": "0.0000006",
-                "input_cache_read": "0.000000003"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 0,
-                "utc_end": 100,
-                "prompt": "0.00000015",
-                "completion": "0.0000006",
-                "input_cache_read": "0.000000003"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 100,
-                "utc_end": 400,
-                "prompt": "0.0000003",
-                "completion": "0.0000012",
-                "input_cache_read": "0.000000006"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 400,
-                "utc_end": 600,
-                "prompt": "0.00000015",
-                "completion": "0.0000006",
-                "input_cache_read": "0.000000003"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 600,
-                "utc_end": 1000,
-                "prompt": "0.0000003",
-                "completion": "0.0000012",
-                "input_cache_read": "0.000000006"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 1000,
-                "utc_end": 0,
-                "prompt": "0.00000015",
-                "completion": "0.0000006",
-                "input_cache_read": "0.000000003"
-              }
-            ]
+            "prompt": "0.0000001",
+            "completion": "0.0000005",
+            "input_cache_read": "0.00000001"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 384000,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -31605,7 +31682,7 @@
           "canonical_slug": "inclusionai/ling-3.0-flash-vl-20260910",
           "hugging_face_id": "inclusionAI/Ling-3.0-flash-VL",
           "description": "Ling 3.0 Flash VL builds on Ling 3.0 Flash (124B total / 5.5B active MoE from InclusionAI), further strengthening its language capabilities while adding native visual perception and advanced visual...",
-          "context_length": 131072,
+          "context_length": 262144,
           "architecture": {
             "modality": "text+image+video->text",
             "input_modalities": [
@@ -31634,6 +31711,7 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -31643,72 +31721,6 @@
             "seed",
             "stop",
             "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/inclusionai/ling-3.0-flash-vl-20260910/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": 24.6,
-              "coding_index": 57,
-              "agentic_index": 28.7
-            }
-          },
-          "reasoning": {
-            "mandatory": false,
-            "default_enabled": true
-          }
-        },
-        {
-          "id": "inclusionai/ling-3.0-flash-vl:free",
-          "name": "inclusionAI: Ling 3.0 Flash VL (free)",
-          "canonical_slug": "inclusionai/ling-3.0-flash-vl-20260910",
-          "hugging_face_id": "inclusionAI/Ling-3.0-flash-VL",
-          "description": "Ling 3.0 Flash VL builds on Ling 3.0 Flash (124B total / 5.5B active MoE from InclusionAI), further strengthening its language capabilities while adding native visual perception and advanced visual...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+image+video->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "video"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 32768,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "seed",
-            "stop",
             "temperature",
             "tool_choice",
             "tools",
@@ -34466,69 +34478,6 @@
                 "rank": 98
               }
             ]
-          }
-        },
-        {
-          "id": "mistralai/devstral-2512",
-          "name": "Mistral: Devstral 2 2512",
-          "canonical_slug": "mistralai/devstral-2512",
-          "hugging_face_id": "mistralai/Devstral-2-123B-Instruct-2512",
-          "description": "Devstral 2 is a state-of-the-art open-source model by Mistral AI specializing in agentic coding. It is a 123B-parameter dense transformer model supporting a 256K context window. Devstral 2 supports exploring...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+file->text",
-            "input_modalities": [
-              "text",
-              "file"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000004",
-            "completion": "0.000002",
-            "input_cache_read": "0.00000004"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 209715,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "presence_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.3,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/mistralai/devstral-2512/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": 8.6,
-              "coding_index": 31.3,
-              "agentic_index": 2.3
-            }
           }
         },
         {
@@ -53426,6 +53375,66 @@
           }
         },
         {
+          "id": "stealth/space-bunny-alpha",
+          "name": "Space Bunny Alpha",
+          "canonical_slug": "stealth/space-bunny-alpha",
+          "hugging_face_id": null,
+          "description": "Space Bunny Alpha is an anonymous large model with blazing-fast inference, strong coding capabilities and native multimodal input support. It delivers adjustable reasoning effort, and a 1M-token context window. Space...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 524288,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": "2098-12-31",
+          "links": {
+            "details": "/api/v1/models/stealth/space-bunny-alpha/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "max"
+          }
+        },
+        {
           "id": "stepfun/step-3.5-flash",
           "name": "StepFun: Step 3.5 Flash",
           "canonical_slug": "stepfun/step-3.5-flash",
@@ -53823,9 +53832,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -58574,9 +58583,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000005614",
-            "completion": "0.0000017644",
-            "input_cache_read": "0.00000010426"
+            "prompt": "0.00000084",
+            "completion": "0.00000264",
+            "input_cache_read": "0.000000156"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -59014,7 +59023,7 @@
           "pricing": {
             "prompt": "0.00000037",
             "completion": "0.00000125",
-            "input_cache_read": "0.000000075"
+            "input_cache_read": "0.00000009"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -59040,7 +59049,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2098-12-31",
           "links": {
             "details": "/api/v1/models/z-ai/glm-5.3-flashx-20260918/endpoints"
           },
@@ -59074,9 +59083,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000072",
-            "completion": "0.0000024",
-            "input_cache_read": "0.00000012"
+            "prompt": "0.00000045",
+            "completion": "0.000002",
+            "input_cache_read": "0.0000001"
           },
           "top_provider": {
             "context_length": 1048576,
