@@ -9645,6 +9645,35 @@
           }
         },
         {
+          "id": "together/Tev1-4B-experimental",
+          "name": "together/Tev1-4B-experimental",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Tev1 4B Experimental",
+          "organization": "Together AI",
+          "context_length": 32768,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null,
+            "max_output_length": 8
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0.041999999999999996,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "cached_input": 0.041999999999999996,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "togethercomputer/EssentialAI-RNJ-1-Instruct",
           "name": "togethercomputer/EssentialAI-RNJ-1-Instruct",
           "object": "model",
@@ -10811,6 +10840,17 @@
         {
           "id": "accounts/fireworks/models/deepseek-v4p1-flash",
           "name": "accounts/fireworks/models/deepseek-v4p1-flash",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/ember-1",
+          "name": "accounts/fireworks/models/ember-1",
           "owned_by": "fireworks",
           "object": "model",
           "kind": "HF_BASE_MODEL",
@@ -17834,9 +17874,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.0000005",
-            "input_cache_read": "0.00000001"
+            "prompt": "0.000000099",
+            "completion": "0.0000006",
+            "input_cache_read": "0.00000006"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17907,9 +17947,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000039996",
-            "completion": "0.00000119988",
-            "input_cache_read": "0.000000012726"
+            "prompt": "0.00000038544",
+            "completion": "0.00000115632",
+            "input_cache_read": "0.000000012264"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25658,9 +25698,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008246",
-            "completion": "0.00000016492",
-            "input_cache_read": "0.000000016492"
+            "prompt": "0.00000007476",
+            "completion": "0.00000014952",
+            "input_cache_read": "0.000000014952"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25998,9 +26038,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000948126",
-            "completion": "0.000001896252",
-            "input_cache_read": "0.0000000790105"
+            "prompt": "0.000000946386",
+            "completion": "0.000001892772",
+            "input_cache_read": "0.0000000788655"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26235,13 +26275,94 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.0000005",
-            "input_cache_read": "0.00000001"
+            "prompt": "0.00000015",
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000003",
+            "overrides": [
+              {
+                "utc_days": [
+                  "saturday",
+                  "sunday"
+                ],
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 0,
+                "utc_end": 100,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 100,
+                "utc_end": 400,
+                "prompt": "0.0000003",
+                "completion": "0.0000012",
+                "input_cache_read": "0.000000006"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 400,
+                "utc_end": 600,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 600,
+                "utc_end": 1000,
+                "prompt": "0.0000003",
+                "completion": "0.0000012",
+                "input_cache_read": "0.000000006"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 1000,
+                "utc_end": 0,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              }
+            ]
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 393216,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -52652,6 +52773,76 @@
               "coding_index": 76.2,
               "agentic_index": 56
             }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "minimal"
+            ],
+            "default_effort": "xhigh"
+          }
+        },
+        {
+          "id": "qwen/qwen3.8-max-prime",
+          "name": "Qwen: Qwen3.8 Max Prime",
+          "canonical_slug": "qwen/qwen3.8-max-prime-20260923",
+          "hugging_face_id": null,
+          "description": "Qwen3.8 Max Prime is a higher-throughput variant of Qwen3.8 Max from Alibaba's Qwen team, served as a separate SKU at a higher price point. It accepts text, image, and video...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000004",
+            "completion": "0.000012",
+            "input_cache_read": "0.0000005"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/qwen/qwen3.8-max-prime-20260923/endpoints"
           },
           "reasoning": {
             "mandatory": true,
