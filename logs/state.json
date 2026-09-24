@@ -17873,9 +17873,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000005",
-            "completion": "0.00000025",
-            "input_cache_read": "0.000000005"
+            "prompt": "0.00000004",
+            "completion": "0.000001",
+            "input_cache_read": "0.00000001"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18021,9 +18021,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000038",
-            "completion": "0.00000055",
-            "input_cache_read": "0.0000000228"
+            "prompt": "0.00000003",
+            "completion": "0.00000032",
+            "input_cache_read": "0.000000016"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25845,7 +25845,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000004",
+            "prompt": "0.00000003",
             "completion": "0.00000032",
             "input_cache_read": "0.000000016"
           },
@@ -26471,6 +26471,74 @@
           },
           "reasoning": {
             "mandatory": false
+          }
+        },
+        {
+          "id": "fireworks/ember-1",
+          "name": "Fireworks: Ember-1",
+          "canonical_slug": "fireworks/ember-1-20260923",
+          "hugging_face_id": null,
+          "description": "Ember-1 is a specialized reasoning model from Fireworks Research, built on [Kimi K3](https://openrouter.ai/moonshotai/kimi-k3). It is designed to make every token go further: it produces shorter reasoning traces, using roughly 40%...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000003",
+            "completion": "0.000015",
+            "input_cache_read": "0.0000003"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 943718,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "repetition_penalty",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/fireworks/ember-1-20260923/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "high",
+              "low"
+            ],
+            "default_effort": "max"
           }
         },
         {
@@ -36875,7 +36943,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000007062",
+            "prompt": "0.0000006562",
             "completion": "0.0000033",
             "input_cache_read": "0.00000018"
           },
@@ -49415,12 +49483,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000004815",
-            "completion": "0.00000019305"
+            "prompt": "0.0000001",
+            "completion": "0.0000003"
           },
           "top_provider": {
-            "context_length": 128000,
-            "max_completion_tokens": 32000,
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -53861,7 +53929,7 @@
           "canonical_slug": "tencent/hy-mt2-30b-a3b-20260521",
           "hugging_face_id": "tencent/Hy-MT2-30B-A3B",
           "description": "Hy-MT2-30B-A3B is Tencent's flagship translation model in the Hy-MT2 family. It supports 33 language pairs and five Chinese dialect and minority-language pairs, with workflows for structured, delimiter-based, contextual, glossary-based, and...",
-          "context_length": 32768,
+          "context_length": 8192,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -53884,19 +53952,12 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
-            "frequency_penalty",
-            "logprobs",
             "max_completion_tokens",
             "max_tokens",
-            "presence_penalty",
             "response_format",
-            "seed",
             "stop",
             "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_logprobs",
-            "top_p"
+            "temperature"
           ],
           "default_parameters": {},
           "supported_voices": null,
