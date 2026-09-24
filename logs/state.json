@@ -18264,9 +18264,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000135",
-            "completion": "0.0000115",
-            "input_cache_read": "0.0000003"
+            "prompt": "0.0000013",
+            "completion": "0.0000114",
+            "input_cache_read": "0.0000013"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25711,9 +25711,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007168",
-            "completion": "0.00000014336",
-            "input_cache_read": "0.000000014336"
+            "prompt": "0.000000049",
+            "completion": "0.000000098",
+            "input_cache_read": "0.0000000098"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26051,9 +26051,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000088044",
-            "completion": "0.00000176088",
-            "input_cache_read": "0.00000007337"
+            "prompt": "0.00000085347",
+            "completion": "0.00000170694",
+            "input_cache_read": "0.0000000711225"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26546,7 +26546,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2026-12-31",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/dots-studio/dots-3-note-preview-20260813/endpoints"
           },
@@ -26799,7 +26799,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": "2027-03-15",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/google/gemini-2.5-flash-image/endpoints"
           },
@@ -34711,6 +34711,69 @@
           }
         },
         {
+          "id": "mistralai/devstral-2512",
+          "name": "Mistral: Devstral 2 2512",
+          "canonical_slug": "mistralai/devstral-2512",
+          "hugging_face_id": "mistralai/Devstral-2-123B-Instruct-2512",
+          "description": "Devstral 2 is a state-of-the-art open-source model by Mistral AI specializing in agentic coding. It is a 123B-parameter dense transformer model supporting a 256K context window. Devstral 2 supports exploring...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+file->text",
+            "input_modalities": [
+              "text",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Mistral",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000004",
+            "completion": "0.000002",
+            "input_cache_read": "0.00000004"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 209715,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "max_tokens",
+            "presence_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.3,
+            "top_p": null,
+            "frequency_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/devstral-2512/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [],
+            "artificial_analysis": {
+              "intelligence_index": 8.6,
+              "coding_index": 31.3,
+              "agentic_index": 2.3
+            }
+          }
+        },
+        {
           "id": "mistralai/ministral-14b-2512",
           "name": "Mistral: Ministral 3 14B 2512",
           "canonical_slug": "mistralai/ministral-14b-2512",
@@ -35182,6 +35245,127 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/mistralai/mistral-large-2407/endpoints"
+          }
+        },
+        {
+          "id": "mistralai/mistral-large-2512",
+          "name": "Mistral: Mistral Large 3 2512",
+          "canonical_slug": "mistralai/mistral-large-2512",
+          "hugging_face_id": "",
+          "description": "Mistral Large 3 2512 is Mistral’s most capable model to date, featuring a sparse mixture-of-experts architecture with 41B active parameters (675B total), and released under the Apache 2.0 license.",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Mistral",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000005",
+            "completion": "0.0000015",
+            "input_cache_read": "0.00000005"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 209715,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "max_tokens",
+            "presence_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.0645,
+            "top_p": null,
+            "frequency_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/mistralai/mistral-large-2512/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "3d",
+                "elo": 1125,
+                "win_rate": 46.9,
+                "rank": 78
+              },
+              {
+                "arena": "models",
+                "category": "asciiart",
+                "elo": 1082,
+                "win_rate": 40.3,
+                "rank": 62
+              },
+              {
+                "arena": "models",
+                "category": "codecategories",
+                "elo": 1151,
+                "win_rate": 47.6,
+                "rank": 78
+              },
+              {
+                "arena": "models",
+                "category": "dataviz",
+                "elo": 1147,
+                "win_rate": 45.7,
+                "rank": 76
+              },
+              {
+                "arena": "models",
+                "category": "gamedev",
+                "elo": 1096,
+                "win_rate": 41.5,
+                "rank": 88
+              },
+              {
+                "arena": "models",
+                "category": "svg",
+                "elo": 1008,
+                "win_rate": 38,
+                "rank": 81
+              },
+              {
+                "arena": "models",
+                "category": "uicomponent",
+                "elo": 1116,
+                "win_rate": 43,
+                "rank": 82
+              },
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1170,
+                "win_rate": 49.5,
+                "rank": 74
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 9.3,
+              "coding_index": 20.1,
+              "agentic_index": 1
+            }
           }
         },
         {
@@ -53711,7 +53895,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2098-12-31",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/stealth/space-bunny-alpha/endpoints"
           },
@@ -57249,7 +57433,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2024-12-31",
-          "expiration_date": "2026-12-31",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/z-ai/glm-4.5/endpoints"
           },
@@ -58185,7 +58369,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2098-12-31",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/z-ai/glm-5-turbo-20260315/endpoints"
           },
@@ -59349,7 +59533,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2098-12-31",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/z-ai/glm-5.3-flashx-20260918/endpoints"
           },
@@ -59640,7 +59824,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2098-12-31",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/z-ai/glm-5v-turbo-20260401/endpoints"
           },
