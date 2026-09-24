@@ -17873,9 +17873,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000099",
-            "completion": "0.0000006",
-            "input_cache_read": "0.00000006"
+            "prompt": "0.00000005",
+            "completion": "0.00000025",
+            "input_cache_read": "0.000000005"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17946,7 +17946,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000003865",
+            "prompt": "0.00000039",
             "completion": "0.0000029",
             "input_cache_read": "0.00000025"
           },
@@ -18264,8 +18264,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000014989",
-            "completion": "0.000010758",
+            "prompt": "0.0000014",
+            "completion": "0.00001075",
             "input_cache_read": "0.0000003"
           },
           "top_provider": {
@@ -18838,13 +18838,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000075",
-            "completion": "0.00000025",
-            "input_cache_read": "0.000000015"
+            "prompt": "0.000000045",
+            "completion": "0.00000014",
+            "input_cache_read": "0.00000001"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": 128000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25846,7 +25846,7 @@
           },
           "pricing": {
             "prompt": "0.00000004",
-            "completion": "0.00000064",
+            "completion": "0.00000032",
             "input_cache_read": "0.000000016"
           },
           "top_provider": {
@@ -37524,69 +37524,6 @@
           }
         },
         {
-          "id": "nex-agi/nex-n2.5-mini",
-          "name": "Nex AGI: Nex-N2.5-Mini",
-          "canonical_slug": "nex-agi/nex-n2.5-mini-20260908",
-          "hugging_face_id": "nex-agi/Nex-N2.5-mini",
-          "description": "Nex-N2.5 is an agentic model built to turn goals into working, verified outcomes. Its core strength is agentic coding within a visual feedback loop: it can explore codebases, implement multi-file...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Qwen3",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000000025",
-            "completion": "0.0000001",
-            "input_cache_read": "0.0000000025"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 235929,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "reasoning",
-            "reasoning_effort",
-            "structured_outputs",
-            "temperature",
-            "top_k",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.7,
-            "top_p": 0.95,
-            "top_k": 40
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/nex-agi/nex-n2.5-mini-20260908/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false,
-            "supported_efforts": [
-              "high",
-              "medium",
-              "none"
-            ],
-            "default_effort": "high"
-          }
-        },
-        {
           "id": "nex-agi/nex-n2.5-mini:free",
           "name": "Nex AGI: Nex-N2.5-Mini (free)",
           "canonical_slug": "nex-agi/nex-n2.5-mini-20260908",
@@ -37640,71 +37577,6 @@
           "expiration_date": "2026-09-25",
           "links": {
             "details": "/api/v1/models/nex-agi/nex-n2.5-mini-20260908/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false,
-            "supported_efforts": [
-              "high",
-              "medium",
-              "none"
-            ],
-            "default_effort": "high"
-          }
-        },
-        {
-          "id": "nex-agi/nex-n2.5-pro",
-          "name": "Nex AGI: Nex-N2.5-Pro",
-          "canonical_slug": "nex-agi/nex-n2.5-pro-20260907",
-          "hugging_face_id": "nex-agi/Nex-N2.5-Pro",
-          "description": "Nex-N2.5 is an agentic model built to turn goals into working, verified outcomes. Its core strength is agentic coding within a visual feedback loop: it can explore codebases, implement multi-file...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Qwen3",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000000075",
-            "completion": "0.00000025",
-            "input_cache_read": "0.000000015"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 235929,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "reasoning",
-            "reasoning_effort",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.7,
-            "top_p": 0.95,
-            "top_k": 40
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/nex-agi/nex-n2.5-pro-20260907/endpoints"
           },
           "reasoning": {
             "mandatory": false,
@@ -53989,7 +53861,7 @@
           "canonical_slug": "tencent/hy-mt2-30b-a3b-20260521",
           "hugging_face_id": "tencent/Hy-MT2-30B-A3B",
           "description": "Hy-MT2-30B-A3B is Tencent's flagship translation model in the Hy-MT2 family. It supports 33 language pairs and five Chinese dialect and minority-language pairs, with workflows for structured, delimiter-based, contextual, glossary-based, and...",
-          "context_length": 8192,
+          "context_length": 32768,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -54012,12 +53884,19 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "frequency_penalty",
+            "logprobs",
             "max_completion_tokens",
             "max_tokens",
+            "presence_penalty",
             "response_format",
+            "seed",
             "stop",
             "structured_outputs",
-            "temperature"
+            "temperature",
+            "top_k",
+            "top_logprobs",
+            "top_p"
           ],
           "default_parameters": {},
           "supported_voices": null,
