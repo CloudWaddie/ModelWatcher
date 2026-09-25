@@ -1,5 +1,5 @@
 {
-  "timestamp": 1790360651146,
+  "timestamp": 1790374109060,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9538,6 +9538,19 @@
           "svg"
         ]
       }
+    },
+    {
+      "id": "google_gemini_3_8_flash_tts",
+      "displayName": "Google Gemini 3.8 Flash TTS",
+      "provider": "google",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
     }
   ],
   "providers": [
@@ -14024,6 +14037,13 @@
       "text": {
         "input": 6,
         "output": 30
+      }
+    },
+    {
+      "id": "google_gemini_3_8_flash_tts",
+      "text": {
+        "input": 0.5,
+        "output": 9
       }
     }
   ]
