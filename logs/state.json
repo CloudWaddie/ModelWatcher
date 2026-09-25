@@ -15347,6 +15347,33 @@
           }
         },
         {
+          "id": "tencent/Hy4-preview",
+          "name": "tencent/Hy4-preview",
+          "owned_by": "deepinfra",
+          "root": "tencent/Hy4-preview",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "",
+            "context_length": 1048576,
+            "max_tokens": 1048576,
+            "pricing": {
+              "input_tokens": 0.834,
+              "output_tokens": 2.5010000000000003,
+              "cache_read_tokens": 0.04199999814
+            },
+            "discount": null,
+            "tags": [
+              "chat",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "thenlper/gte-base",
           "name": "thenlper/gte-base",
           "owned_by": "deepinfra",
@@ -15581,7 +15608,7 @@
               "output_tokens": 0.28,
               "cache_read_tokens": 0.0028000000000000004
             },
-            "discount": null,
+            "discount": 0.05,
             "tags": [
               "chat",
               "vlm",
@@ -15610,7 +15637,7 @@
               "output_tokens": 0.87,
               "cache_read_tokens": 0.0035999990999999996
             },
-            "discount": null,
+            "discount": 0.05,
             "tags": [
               "chat",
               "vlm",
@@ -17737,13 +17764,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000099",
-            "completion": "0.0000006",
-            "input_cache_read": "0.00000006"
+            "prompt": "0.000000035",
+            "completion": "0.00000029",
+            "input_cache_read": "0.000000001"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "context_length": 1040000,
+            "max_completion_tokens": 384000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -17885,7 +17912,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000003",
+            "prompt": "0.000000022",
             "completion": "0.00000032",
             "input_cache_read": "0.000000016"
           },
@@ -25725,7 +25752,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000003",
+            "prompt": "0.000000022",
             "completion": "0.00000032",
             "input_cache_read": "0.000000016"
           },
@@ -25931,9 +25958,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000570894",
-            "completion": "0.000001141788",
-            "input_cache_read": "0.0000000475745"
+            "prompt": "0.000000469626",
+            "completion": "0.000000939252",
+            "input_cache_read": "0.0000000391355"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26168,13 +26195,94 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000099",
+            "prompt": "0.00000015",
             "completion": "0.0000006",
-            "input_cache_read": "0.00000006"
+            "input_cache_read": "0.000000003",
+            "overrides": [
+              {
+                "utc_days": [
+                  "saturday",
+                  "sunday"
+                ],
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 0,
+                "utc_end": 100,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 100,
+                "utc_end": 400,
+                "prompt": "0.0000003",
+                "completion": "0.0000012",
+                "input_cache_read": "0.000000006"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 400,
+                "utc_end": 600,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 600,
+                "utc_end": 1000,
+                "prompt": "0.0000003",
+                "completion": "0.0000012",
+                "input_cache_read": "0.000000006"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 1000,
+                "utc_end": 0,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              }
+            ]
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 393216,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -51619,12 +51727,11 @@
           },
           "pricing": {
             "prompt": "0.00000032",
-            "completion": "0.0000027",
-            "input_cache_read": "0.00000015"
+            "completion": "0.0000032"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 262140,
+            "max_completion_tokens": 81920,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -54908,6 +55015,47 @@
               "none"
             ],
             "default_effort": "high"
+          }
+        },
+        {
+          "id": "typesafe/jev-router",
+          "name": "TypeSafe: Jev Router",
+          "canonical_slug": "typesafe/jev-router",
+          "hugging_face_id": null,
+          "description": "Jev Router picks the best model and reasoning effort for each request, balancing quality, speed, and cost. It runs on [Jev](https://openrouter.ai/~typesafe/jev-latest), TypeSafe's first System One model, and adapts as your...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+file+audio+video->text",
+            "input_modalities": [
+              "audio",
+              "file",
+              "image",
+              "text",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Router",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "-1",
+            "completion": "-1"
+          },
+          "top_provider": {
+            "context_length": null,
+            "max_completion_tokens": null,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/typesafe/jev-router/endpoints"
           }
         },
         {
