@@ -17739,8 +17739,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000004",
-            "completion": "0.00000049",
+            "prompt": "0.0000001",
+            "completion": "0.0000005",
             "input_cache_read": "0.00000001"
           },
           "top_provider": {
@@ -17813,7 +17813,7 @@
           },
           "pricing": {
             "prompt": "0.0000002528",
-            "completion": "0.00000288",
+            "completion": "0.0000019584",
             "input_cache_read": "0.00000008832"
           },
           "top_provider": {
@@ -18130,9 +18130,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000008845",
+            "prompt": "0.0000012",
             "completion": "0.0000105346",
-            "input_cache_read": "0.00000033"
+            "input_cache_read": "0.0000003"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25593,9 +25593,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000049",
-            "completion": "0.000000098",
-            "input_cache_read": "0.0000000098"
+            "prompt": "0.00000004732",
+            "completion": "0.00000009464",
+            "input_cache_read": "0.000000009464"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25933,9 +25933,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000783",
-            "completion": "0.000001566",
-            "input_cache_read": "0.00000006525"
+            "prompt": "0.000000682428",
+            "completion": "0.000001364856",
+            "input_cache_read": "0.000000056869"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26090,9 +26090,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000462",
-            "completion": "0.000001386",
-            "input_cache_read": "0.0000000154"
+            "prompt": "0.00000034584",
+            "completion": "0.00000103752",
+            "input_cache_read": "0.000000011528"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -30777,9 +30777,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.0000000675",
+            "completion": "0.000000225",
+            "input_cache_read": "0.0000000375"
           },
           "top_provider": {
             "context_length": 262144,
@@ -31817,12 +31817,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000006",
-            "completion": "0.00000018",
-            "input_cache_read": "0.000000012"
+            "prompt": "0.000000021",
+            "completion": "0.0000000616",
+            "input_cache_read": "0.0000000042"
           },
           "top_provider": {
-            "context_length": 131072,
+            "context_length": 262144,
             "max_completion_tokens": 32768,
             "is_moderated": false
           },
@@ -37758,136 +37758,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/morph/morph-v3-large/endpoints"
-          }
-        },
-        {
-          "id": "nex-agi/nex-n2.5-mini:free",
-          "name": "Nex AGI: Nex-N2.5-Mini (free)",
-          "canonical_slug": "nex-agi/nex-n2.5-mini-20260908",
-          "hugging_face_id": "nex-agi/Nex-N2.5-mini",
-          "description": "Nex-N2.5 is an agentic model built to turn goals into working, verified outcomes. Its core strength is agentic coding within a visual feedback loop: it can explore codebases, implement multi-file...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Qwen3",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 235929,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "reasoning",
-            "reasoning_effort",
-            "response_format",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.7,
-            "top_p": 0.95,
-            "top_k": 40
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": "2026-09-25",
-          "links": {
-            "details": "/api/v1/models/nex-agi/nex-n2.5-mini-20260908/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false,
-            "supported_efforts": [
-              "high",
-              "medium",
-              "none"
-            ],
-            "default_effort": "high"
-          }
-        },
-        {
-          "id": "nex-agi/nex-n2.5-pro:free",
-          "name": "Nex AGI: Nex-N2.5-Pro (free)",
-          "canonical_slug": "nex-agi/nex-n2.5-pro-20260907",
-          "hugging_face_id": "nex-agi/Nex-N2.5-Pro",
-          "description": "Nex-N2.5 is an agentic model built to turn goals into working, verified outcomes. Its core strength is agentic coding within a visual feedback loop: it can explore codebases, implement multi-file...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Qwen3",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 235929,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "reasoning",
-            "reasoning_effort",
-            "response_format",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.7,
-            "top_p": 0.95,
-            "top_k": 40
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": "2026-09-25",
-          "links": {
-            "details": "/api/v1/models/nex-agi/nex-n2.5-pro-20260907/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false,
-            "supported_efforts": [
-              "high",
-              "medium",
-              "none"
-            ],
-            "default_effort": "high"
           }
         },
         {
@@ -49087,7 +48957,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen-plus-2025-07-28/endpoints"
           },
@@ -49263,7 +49133,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-235b-a22b-04-28/endpoints"
           },
@@ -49472,7 +49342,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-235b-a22b-thinking-2507/endpoints"
           },
@@ -49733,7 +49603,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-30b-a3b-thinking-2507/endpoints"
           },
@@ -49883,7 +49753,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-8b-04-28/endpoints"
           },
@@ -50282,7 +50152,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-coder-plus/endpoints"
           }
@@ -50356,7 +50226,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-max/endpoints"
           },
@@ -50489,7 +50359,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-max-thinking-20260123/endpoints"
           },
@@ -50742,7 +50612,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-vl-235b-a22b-thinking/endpoints"
           },
@@ -50870,7 +50740,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-vl-30b-a3b-thinking/endpoints"
           },
@@ -50933,7 +50803,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-vl-32b-instruct/endpoints"
           }
@@ -50992,7 +50862,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-vl-8b-instruct/endpoints"
           }
@@ -51050,7 +50920,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3-vl-8b-thinking/endpoints"
           },
@@ -52027,7 +51897,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-10-09",
           "links": {
             "details": "/api/v1/models/qwen/qwen3.6-max-preview-20260420/endpoints"
           },
@@ -54199,9 +54069,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -58756,7 +58626,7 @@
           "canonical_slug": "z-ai/glm-5.2-20260616",
           "hugging_face_id": "zai-org/GLM-5.2",
           "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,...",
-          "context_length": 32768,
+          "context_length": 131072,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -58773,8 +58643,8 @@
             "completion": "0"
           },
           "top_provider": {
-            "context_length": 32768,
-            "max_completion_tokens": 29491,
+            "context_length": 131072,
+            "max_completion_tokens": 117964,
             "is_moderated": false
           },
           "per_request_limits": null,
