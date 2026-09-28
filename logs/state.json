@@ -1771,6 +1771,76 @@
               }
             }
           }
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "claude-sonnet-5-5",
+          "type": "model",
+          "display_name": "Claude Sonnet 5.5",
+          "created_at": "2026-09-28T00:00:00Z",
+          "max_input_tokens": 1000000,
+          "max_tokens": 128000,
+          "capabilities": {
+            "batch": {
+              "supported": true
+            },
+            "citations": {
+              "supported": true
+            },
+            "code_execution": {
+              "supported": true
+            },
+            "context_management": {
+              "supported": true,
+              "clear_tool_uses_20250919": {
+                "supported": true
+              },
+              "clear_thinking_20251015": {
+                "supported": true
+              },
+              "compact_20260112": {
+                "supported": true
+              }
+            },
+            "effort": {
+              "supported": true,
+              "low": {
+                "supported": true
+              },
+              "medium": {
+                "supported": true
+              },
+              "high": {
+                "supported": true
+              },
+              "xhigh": {
+                "supported": true
+              },
+              "max": {
+                "supported": true
+              }
+            },
+            "image_input": {
+              "supported": true
+            },
+            "pdf_input": {
+              "supported": true
+            },
+            "structured_outputs": {
+              "supported": true
+            },
+            "thinking": {
+              "supported": true,
+              "types": {
+                "enabled": {
+                  "supported": false
+                },
+                "adaptive": {
+                  "supported": true
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -4422,96 +4492,6 @@
           }
         },
         {
-          "id": "google/imagen-4.0-fast",
-          "name": "google/imagen-4.0-fast",
-          "uuid": "endpoint-3ba3bc6f-fe2b-4446-9ec0-71e82ac3348d",
-          "object": "model",
-          "type": "image",
-          "running": false,
-          "display_name": "Google Imagen 4.0 Fast",
-          "organization": "Google",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": {
-              "example_price": 0.02,
-              "example_description": "720x1280"
-            },
-            "video": 0
-          }
-        },
-        {
-          "id": "google/imagen-4.0-preview",
-          "name": "google/imagen-4.0-preview",
-          "uuid": "endpoint-b6561013-bc17-4aa3-9a76-89174973977b",
-          "object": "model",
-          "type": "image",
-          "running": false,
-          "display_name": "Google Imagen 4.0 Preview",
-          "organization": "Google",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": {
-              "example_price": 0.04,
-              "example_description": "720x1280"
-            },
-            "video": 0
-          }
-        },
-        {
-          "id": "google/imagen-4.0-ultra",
-          "name": "google/imagen-4.0-ultra",
-          "uuid": "endpoint-40d2690e-57a7-4e89-987d-2a3e44c1302d",
-          "object": "model",
-          "type": "image",
-          "running": false,
-          "display_name": "Google Imagen 4.0 Ultra",
-          "organization": "Google",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": {
-              "example_price": 0.06,
-              "example_description": "720x1280"
-            },
-            "video": 0
-          }
-        },
-        {
           "id": "google/medgemma-27b-text-it",
           "name": "google/medgemma-27b-text-it",
           "object": "model",
@@ -4538,36 +4518,6 @@
             "transcribe": 0,
             "image": 0,
             "video": 0
-          }
-        },
-        {
-          "id": "google/veo-2.0",
-          "name": "google/veo-2.0",
-          "uuid": "endpoint-ad40ee70-5f82-4283-b2d8-2813a2773022",
-          "object": "model",
-          "type": "video",
-          "running": false,
-          "display_name": "Google Veo 2.0",
-          "organization": "Google",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": {
-              "example_price": 2.5,
-              "example_description": "720p / 5s"
-            }
           }
         },
         {
@@ -4627,36 +4577,6 @@
             "video": {
               "example_price": 0.05,
               "example_description": "0.05/s at 1080p without audio. 0.80/s with audio."
-            }
-          }
-        },
-        {
-          "id": "google/veo-3.1-test-debug",
-          "name": "google/veo-3.1-test-debug",
-          "uuid": "endpoint-test-debug-001",
-          "object": "model",
-          "type": "video",
-          "running": false,
-          "display_name": "Veo 3.1 Debug Test",
-          "organization": "Google",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": {
-              "example_price": 0.08,
-              "example_description": "test"
             }
           }
         },
@@ -4803,36 +4723,6 @@
               "example_description": "per image price ranging from 0.03 - 0.10 per based on size and quality"
             },
             "video": 0
-          }
-        },
-        {
-          "id": "kwaivgI/kling-2.1-standard",
-          "name": "kwaivgI/kling-2.1-standard",
-          "uuid": "endpoint-09e526e5-8428-4841-8242-c883b8600a8c",
-          "object": "model",
-          "type": "video",
-          "running": false,
-          "display_name": "Kling 2.1 Standard",
-          "organization": "kwaivgI",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": {
-              "example_price": 0.1848,
-              "example_description": "720p / 5s"
-            }
           }
         },
         {
@@ -7084,36 +6974,6 @@
             "transcribe": 0,
             "image": 0,
             "video": 0
-          }
-        },
-        {
-          "id": "openai/sora-2",
-          "name": "openai/sora-2",
-          "uuid": "endpoint-c4adc1b3-6ac2-491a-b4b0-e0c3b3fea40f",
-          "object": "model",
-          "type": "video",
-          "running": false,
-          "display_name": "Sora 2",
-          "organization": "OpenAI",
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": {
-              "example_price": 0.8,
-              "example_description": "720p / 8s"
-            }
           }
         },
         {
@@ -17644,8 +17504,8 @@
           "name": "Anthropic: Claude Sonnet Latest",
           "canonical_slug": "~anthropic/claude-sonnet-latest",
           "alias_target": {
-            "name": "Anthropic: Claude Sonnet 5",
-            "slug": "anthropic/claude-sonnet-5"
+            "name": "Anthropic: Claude Sonnet 5.5",
+            "slug": "anthropic/claude-sonnet-5.5"
           },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the Claude Sonnet family.",
@@ -17674,7 +17534,7 @@
           "top_provider": {
             "context_length": 1000000,
             "max_completion_tokens": 128000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -17686,6 +17546,7 @@
             "response_format",
             "stop",
             "structured_outputs",
+            "temperature",
             "tool_choice",
             "tools",
             "verbosity"
@@ -17698,8 +17559,7 @@
             "details": "/api/v1/models/~anthropic/claude-sonnet-latest/endpoints"
           },
           "reasoning": {
-            "mandatory": false,
-            "default_enabled": true,
+            "mandatory": true,
             "supported_efforts": [
               "max",
               "xhigh",
@@ -17734,13 +17594,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000014",
-            "completion": "0.0000004",
-            "input_cache_read": "0.000000004"
+            "prompt": "0.000000035",
+            "completion": "0.00000029",
+            "input_cache_read": "0.000000001"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "context_length": 1040000,
+            "max_completion_tokens": 384000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -17882,9 +17742,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000021",
-            "completion": "0.00000032",
-            "input_cache_read": "0.000000016"
+            "prompt": "0.000000019",
+            "completion": "0.0000003",
+            "input_cache_read": "0.000000014"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18125,9 +17985,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000001",
-            "completion": "0.000009",
-            "input_cache_read": "0.0000003"
+            "prompt": "0.000000875",
+            "completion": "0.0000112",
+            "input_cache_read": "0.00000029"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18618,16 +18478,16 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000016",
-            "completion": "0.0000048",
+            "prompt": "0.000002",
+            "completion": "0.000006",
             "web_search": "0.005",
-            "input_cache_read": "0.0000004",
+            "input_cache_read": "0.0000005",
             "overrides": [
               {
                 "min_prompt_tokens": 200000,
-                "prompt": "0.0000032",
-                "completion": "0.0000096",
-                "input_cache_read": "0.0000008"
+                "prompt": "0.000004",
+                "completion": "0.000012",
+                "input_cache_read": "0.000001"
               }
             ]
           },
@@ -18776,13 +18636,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001785",
-            "completion": "0.000002805",
-            "input_cache_read": "0.000000146625"
+            "prompt": "0.00000015",
+            "completion": "0.0000033",
+            "input_cache_read": "0.0000001"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -23692,6 +23552,138 @@
           }
         },
         {
+          "id": "anthropic/claude-sonnet-5.5",
+          "name": "Anthropic: Claude Sonnet 5.5",
+          "canonical_slug": "anthropic/claude-sonnet-5.5-20260928",
+          "hugging_face_id": null,
+          "description": "Claude Sonnet 5.5 is Anthropic's Sonnet-class model for well-scoped everyday work, succeeding Claude Sonnet 5 as a direct upgrade. It is especially strong at building features, fixing bugs, and producing...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Claude",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.00001",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000002",
+            "input_cache_write": "0.0000025",
+            "input_cache_write_1h": "0.000004"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-sonnet-5.5-20260928/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
+          "id": "anthropic/claude-sonnet-5.5:batch",
+          "name": "Anthropic: Claude Sonnet 5.5 (batch)",
+          "canonical_slug": "anthropic/claude-sonnet-5.5-20260928",
+          "hugging_face_id": null,
+          "description": "Claude Sonnet 5.5 is Anthropic's Sonnet-class model for well-scoped everyday work, succeeding Claude Sonnet 5 as a direct upgrade. It is especially strong at building features, fixing bugs, and producing...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "file"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Claude",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000001",
+            "completion": "0.000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000001",
+            "input_cache_write": "0.00000125",
+            "input_cache_write_1h": "0.000002"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/anthropic/claude-sonnet-5.5-20260928/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
           "id": "arcee-ai/trinity-large-thinking",
           "name": "Arcee AI: Trinity Large Thinking",
           "canonical_slug": "arcee-ai/trinity-large-thinking",
@@ -25167,58 +25159,6 @@
           }
         },
         {
-          "id": "deepseek/deepseek-r1-distill-llama-70b",
-          "name": "DeepSeek: R1 Distill Llama 70B",
-          "canonical_slug": "deepseek/deepseek-r1-distill-llama-70b",
-          "hugging_face_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
-          "description": "DeepSeek R1 Distill Llama 70B is a distilled large language model based on [Llama-3.3-70B-Instruct](/meta-llama/llama-3.3-70b-instruct), using outputs from [DeepSeek R1](/deepseek/deepseek-r1). The model combines advanced distillation techniques to achieve high performance across...",
-          "context_length": 8192,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Llama3",
-            "instruct_type": "deepseek-r1"
-          },
-          "pricing": {
-            "prompt": "0.0000008",
-            "completion": "0.0000008"
-          },
-          "top_provider": {
-            "context_length": 8192,
-            "max_completion_tokens": 7372,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-07-31",
-          "expiration_date": "2026-09-28",
-          "links": {
-            "details": "/api/v1/models/deepseek/deepseek-r1-distill-llama-70b/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
           "id": "deepseek/deepseek-v3.1-terminus",
           "name": "DeepSeek: DeepSeek V3.1 Terminus",
           "canonical_slug": "deepseek/deepseek-v3.1-terminus",
@@ -25238,12 +25178,11 @@
           },
           "pricing": {
             "prompt": "0.00000027",
-            "completion": "0.000001",
-            "input_cache_read": "0.000000135"
+            "completion": "0.000001"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 32768,
+            "context_length": 163840,
+            "max_completion_tokens": 147456,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25273,7 +25212,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": "2026-09-28",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/deepseek/deepseek-v3.1-terminus/endpoints"
           },
@@ -25492,12 +25431,13 @@
             "instruct_type": "deepseek-v3.1"
           },
           "pricing": {
-            "prompt": "0.00000027",
-            "completion": "0.00000041"
+            "prompt": "0.0000001344",
+            "completion": "0.0000002016",
+            "input_cache_read": "0.0000000672"
           },
           "top_provider": {
             "context_length": 163840,
-            "max_completion_tokens": 65536,
+            "max_completion_tokens": 147456,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25529,7 +25469,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-07-31",
-          "expiration_date": "2026-09-28",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/deepseek/deepseek-v3.2-exp/endpoints"
           },
@@ -25609,9 +25549,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007924",
-            "completion": "0.00000015848",
-            "input_cache_read": "0.000000015848"
+            "prompt": "0.00000005306",
+            "completion": "0.00000010612",
+            "input_cache_read": "0.000000010612"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25949,9 +25889,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000942906",
-            "completion": "0.000001885812",
-            "input_cache_read": "0.0000000785755"
+            "prompt": "0.000000783",
+            "completion": "0.000001566",
+            "input_cache_read": "0.00000006525"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26106,9 +26046,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000003995",
+            "prompt": "0.0000003955",
             "completion": "0.0000042",
-            "input_cache_read": "0.000000399"
+            "input_cache_read": "0.0000003164"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26186,9 +26126,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000014",
-            "completion": "0.0000004",
-            "input_cache_read": "0.000000004"
+            "prompt": "0.0000003",
+            "completion": "0.0000012",
+            "input_cache_read": "0.000000006"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -30740,9 +30680,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.0000000765",
+            "completion": "0.000000255",
+            "input_cache_read": "0.0000000425"
           },
           "top_provider": {
             "context_length": 262144,
@@ -31603,6 +31543,7 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -31611,70 +31552,6 @@
             "seed",
             "stop",
             "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/inclusionai/ling-3.0-flash-fin-20260827/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": 22.6,
-              "coding_index": 55.6,
-              "agentic_index": 27.9
-            }
-          },
-          "reasoning": {
-            "mandatory": false,
-            "default_enabled": true
-          }
-        },
-        {
-          "id": "inclusionai/ling-3.0-flash-fin:free",
-          "name": "inclusionAI: Ling 3.0 Flash Fin (free)",
-          "canonical_slug": "inclusionai/ling-3.0-flash-fin-20260827",
-          "hugging_face_id": null,
-          "description": "Ling 3.0 Flash Fin is a finance-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for real-world investment...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 32768,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "seed",
-            "stop",
             "temperature",
             "tool_choice",
             "tools",
@@ -37717,6 +37594,134 @@
           }
         },
         {
+          "id": "nex-agi/nex-n2.5-mini",
+          "name": "Nex AGI: Nex-N2.5-Mini",
+          "canonical_slug": "nex-agi/nex-n2.5-mini-20260908",
+          "hugging_face_id": "nex-agi/Nex-N2.5-mini",
+          "description": "Nex-N2.5 is an agentic model built to turn goals into working, verified outcomes. Its core strength is agentic coding within a visual feedback loop: it can explore codebases, implement multi-file...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen3",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000025",
+            "completion": "0.0000001",
+            "input_cache_read": "0.0000000025"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "structured_outputs",
+            "temperature",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.7,
+            "top_p": 0.95,
+            "top_k": 40
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nex-agi/nex-n2.5-mini-20260908/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "none"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
+          "id": "nex-agi/nex-n2.5-pro",
+          "name": "Nex AGI: Nex-N2.5-Pro",
+          "canonical_slug": "nex-agi/nex-n2.5-pro-20260907",
+          "hugging_face_id": "nex-agi/Nex-N2.5-Pro",
+          "description": "Nex-N2.5 is an agentic model built to turn goals into working, verified outcomes. Its core strength is agentic coding within a visual feedback loop: it can explore codebases, implement multi-file...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen3",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000000075",
+            "completion": "0.00000025",
+            "input_cache_read": "0.000000015"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.7,
+            "top_p": 0.95,
+            "top_k": 40
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nex-agi/nex-n2.5-pro-20260907/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "none"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
           "id": "nousresearch/hermes-3-llama-3.1-405b",
           "name": "Nous: Hermes 3 405B Instruct",
           "canonical_slug": "nousresearch/hermes-3-llama-3.1-405b",
@@ -38579,7 +38584,7 @@
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": 32768,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -44702,25 +44707,25 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000002",
-            "completion": "0.00001",
+            "prompt": "0.000004",
+            "completion": "0.00002",
             "web_search": "0.01",
-            "input_cache_read": "0.0000002",
-            "input_cache_write": "0.0000025",
+            "input_cache_read": "0.0000004",
+            "input_cache_write": "0.000005",
             "overrides": [
               {
                 "min_prompt_tokens": 272000,
-                "prompt": "0.000004",
-                "completion": "0.000015",
-                "input_cache_read": "0.0000004",
-                "input_cache_write": "0.000005"
+                "prompt": "0.000008",
+                "completion": "0.00003",
+                "input_cache_read": "0.0000008",
+                "input_cache_write": "0.00001"
               }
             ]
           },
           "top_provider": {
             "context_length": 1050000,
             "max_completion_tokens": 128000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -46707,7 +46712,8 @@
           },
           "pricing": {
             "prompt": "0.000000018",
-            "completion": "0.00000009"
+            "completion": "0.00000009",
+            "input_cache_read": "0.000000009"
           },
           "top_provider": {
             "context_length": 131072,
@@ -48648,7 +48654,8 @@
           },
           "pricing": {
             "prompt": "0.000000075",
-            "completion": "0.0000005"
+            "completion": "0.0000005",
+            "input_cache_read": "0.0000000375"
           },
           "top_provider": {
             "context_length": 262144,
@@ -54087,9 +54094,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -54310,8 +54317,10 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "max_completion_tokens",
             "max_tokens",
+            "min_p",
             "presence_penalty",
             "reasoning",
             "reasoning_effort",
@@ -56543,16 +56552,16 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000016",
-            "completion": "0.0000048",
+            "prompt": "0.000002",
+            "completion": "0.000006",
             "web_search": "0.005",
-            "input_cache_read": "0.0000004",
+            "input_cache_read": "0.0000005",
             "overrides": [
               {
                 "min_prompt_tokens": 200000,
-                "prompt": "0.0000032",
-                "completion": "0.0000096",
-                "input_cache_read": "0.0000008"
+                "prompt": "0.000004",
+                "completion": "0.000012",
+                "input_cache_read": "0.000001"
               }
             ]
           },
@@ -60822,7 +60831,7 @@
           "can_use_speaker_boost": false,
           "serves_pro_voices": false,
           "token_cost_factor": 1,
-          "description": "The most expressive model. Supports 90+ languages.",
+          "description": "Our fastest and most emotive model. Supports 90+ languages.",
           "requires_alpha_access": false,
           "max_characters_request_free_user": 10000,
           "max_characters_request_subscribed_user": 10000,
@@ -61186,7 +61195,7 @@
           "can_use_speaker_boost": false,
           "serves_pro_voices": false,
           "token_cost_factor": 1,
-          "description": "The most expressive model, optimized for low latency. Supports 90+ languages.",
+          "description": "Our fastest and most emotive model, optimized for low latency. Supports 90+ languages.",
           "requires_alpha_access": false,
           "max_characters_request_free_user": 10000,
           "max_characters_request_subscribed_user": 10000,
@@ -61534,7 +61543,7 @@
             }
           ],
           "model_rates": {
-            "character_cost_multiplier": 1,
+            "character_cost_multiplier": 0.5,
             "cost_discount_multiplier": 1
           },
           "concurrency_group": "standard_eleven_v4"
