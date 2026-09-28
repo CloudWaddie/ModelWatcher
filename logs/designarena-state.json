@@ -1,5 +1,5 @@
 {
-  "timestamp": 1790608345078,
+  "timestamp": 1790631939380,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9569,6 +9569,69 @@
           "tts"
         ]
       }
+    },
+    {
+      "id": "claude-sonnet-5-5",
+      "displayName": "Claude Sonnet 5.5",
+      "provider": "anthropic",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "agon_slides",
+          "agon_slides_html",
+          "agon_dataviz",
+          "agon_godot",
+          "agentic_gamedev",
+          "agentic_3d",
+          "fullstack",
+          "fullstack_gamedev",
+          "mobileapps",
+          "nativeapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "elevenlabs_eleven_v4",
+      "displayName": "Eleven v4",
+      "provider": "elevenlabs",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
+    },
+    {
+      "id": "elevenlabs_eleven_v4_turbo",
+      "displayName": "Eleven v4 Turbo",
+      "provider": "elevenlabs",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
     }
   ],
   "providers": [
@@ -10029,8 +10092,8 @@
     },
     {
       "id": "quiver",
-      "displayName": "Quiver",
-      "logoName": "quiver-logo.png",
+      "displayName": "QuiverAI",
+      "logoName": "quiverai-logo.png",
       "website": "https://quiver.ai"
     },
     {
@@ -13775,7 +13838,7 @@
     {
       "id": "fig",
       "video": {
-        "perSecond": 0.04
+        "perSecond": 0.08
       }
     },
     {
@@ -14074,6 +14137,27 @@
       "text": {
         "input": 0.5,
         "output": 9
+      }
+    },
+    {
+      "id": "claude-sonnet-5-5",
+      "text": {
+        "input": 2,
+        "output": 10
+      }
+    },
+    {
+      "id": "elevenlabs_eleven_v4",
+      "text": {
+        "input": 100,
+        "output": 0
+      }
+    },
+    {
+      "id": "elevenlabs_eleven_v4_turbo",
+      "text": {
+        "input": 50,
+        "output": 0
       }
     }
   ]
