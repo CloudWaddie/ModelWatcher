@@ -1,5 +1,5 @@
 {
-  "timestamp": 1790555519784,
+  "timestamp": 1790577237864,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -4334,7 +4334,8 @@
       "router": false,
       "arenas": {
         "agents": [
-          "webapps"
+          "webapps",
+          "agon_blender"
         ]
       },
       "inputModalities": [
@@ -5803,7 +5804,8 @@
           "agon_webapps",
           "fullstack",
           "mobileapps",
-          "nativeapps"
+          "nativeapps",
+          "agon_blender"
         ]
       },
       "inputModalities": [
@@ -6585,6 +6587,7 @@
           "agon_slides",
           "agon_webapps",
           "agentic_3d",
+          "agon_blender",
           "agentic_gamedev",
           "nativeapps",
           "agon_godot"
@@ -9505,6 +9508,19 @@
       ]
     },
     {
+      "id": "meshy-7.1",
+      "displayName": "Meshy 7.1",
+      "provider": "meshy",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_blender"
+        ]
+      }
+    },
+    {
       "id": "grok-4.7",
       "displayName": "Grok 4.7",
       "provider": "xai",
@@ -11206,6 +11222,12 @@
       "id": "colorado",
       "displayName": "colorado",
       "logoName": "private.png"
+    },
+    {
+      "id": "meshy",
+      "displayName": "Meshy",
+      "logoName": "meshy.png",
+      "website": "https://www.meshy.ai"
     }
   ],
   "pricing": [
