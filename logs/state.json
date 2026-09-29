@@ -578,6 +578,13 @@
           "shutdown_date": null
         },
         {
+          "id": "gpt-6.1-sol",
+          "name": "gpt-6.1-sol",
+          "owned_by": "system",
+          "object": "model",
+          "shutdown_date": null
+        },
+        {
           "id": "gpt-audio",
           "name": "gpt-audio",
           "owned_by": "system",
@@ -17667,13 +17674,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000096",
-            "completion": "0.0000019584",
-            "input_cache_read": "0.00000007488"
+            "prompt": "0.00000015",
+            "completion": "0.0000035",
+            "input_cache_read": "0.00000015"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 393216,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -17986,7 +17993,7 @@
           },
           "pricing": {
             "prompt": "0.0000004",
-            "completion": "0.00001",
+            "completion": "0.000009",
             "input_cache_read": "0.0000004"
           },
           "top_provider": {
@@ -18286,8 +18293,8 @@
           "name": "OpenAI: GPT Sol Latest",
           "canonical_slug": "~openai/gpt-sol-latest",
           "alias_target": {
-            "name": "OpenAI: GPT-6 Sol",
-            "slug": "openai/gpt-6-sol"
+            "name": "OpenAI: GPT-6.1 Sol",
+            "slug": "openai/gpt-6.1-sol"
           },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the GPT Sol family.",
@@ -18309,14 +18316,14 @@
             "prompt": "0.000002",
             "completion": "0.00001",
             "web_search": "0.01",
-            "input_cache_read": "0.0000002",
+            "input_cache_read": "0.0000001",
             "input_cache_write": "0.0000025",
             "overrides": [
               {
                 "min_prompt_tokens": 272000,
                 "prompt": "0.000004",
                 "completion": "0.000015",
-                "input_cache_read": "0.0000004",
+                "input_cache_read": "0.0000002",
                 "input_cache_write": "0.000005"
               }
             ]
@@ -18324,7 +18331,7 @@
           "top_provider": {
             "context_length": 1050000,
             "max_completion_tokens": 128000,
-            "is_moderated": true
+            "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
@@ -18339,14 +18346,7 @@
             "tool_choice",
             "tools"
           ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
+          "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": null,
           "expiration_date": null,
@@ -18354,15 +18354,14 @@
             "details": "/api/v1/models/~openai/gpt-sol-latest/endpoints"
           },
           "reasoning": {
-            "mandatory": false,
+            "mandatory": true,
             "default_enabled": true,
             "supported_efforts": [
               "max",
               "xhigh",
               "high",
               "medium",
-              "low",
-              "none"
+              "low"
             ],
             "default_effort": "medium"
           }
@@ -18636,13 +18635,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001849",
-            "completion": "0.0000044",
-            "input_cache_read": "0.000000148"
+            "prompt": "0.00000015",
+            "completion": "0.000004",
+            "input_cache_read": "0.00000015"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25574,9 +25573,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008092",
-            "completion": "0.00000016184",
-            "input_cache_read": "0.000000016184"
+            "prompt": "0.0000000763",
+            "completion": "0.0000001526",
+            "input_cache_read": "0.00000001526"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25914,9 +25913,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000946386",
-            "completion": "0.000001892772",
-            "input_cache_read": "0.0000000788655"
+            "prompt": "0.000000924462",
+            "completion": "0.000001848924",
+            "input_cache_read": "0.0000000770385"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26071,9 +26070,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000048",
-            "completion": "0.0000042",
-            "input_cache_read": "0.000000384"
+            "prompt": "0.0000003949",
+            "completion": "0.00000349",
+            "input_cache_read": "0.0000003159"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -46310,6 +46309,314 @@
           }
         },
         {
+          "id": "openai/gpt-6.1-sol",
+          "name": "OpenAI: GPT-6.1 Sol",
+          "canonical_slug": "openai/gpt-6.1-sol-20260929",
+          "hugging_face_id": null,
+          "description": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, positioned below the flagship GPT-6 Astra in the GPT-6 series. It is suited for agentic coding, computer use, document-heavy professional...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.00001",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000001",
+            "input_cache_write": "0.0000025",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.000004",
+                "completion": "0.000015",
+                "input_cache_read": "0.0000002",
+                "input_cache_write": "0.000005"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-6.1-sol-20260929/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-6.1-sol-pro",
+          "name": "OpenAI: GPT-6.1 Sol Pro",
+          "canonical_slug": "openai/gpt-6.1-sol-pro-20260929",
+          "hugging_face_id": null,
+          "description": "GPT-6.1 Sol Pro is the same underlying model as [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.00001",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000001",
+            "input_cache_write": "0.0000025",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.000004",
+                "completion": "0.000015",
+                "input_cache_read": "0.0000002",
+                "input_cache_write": "0.000005"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-6.1-sol-pro-20260929/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-6.1-sol-pro:batch",
+          "name": "OpenAI: GPT-6.1 Sol Pro (batch)",
+          "canonical_slug": "openai/gpt-6.1-sol-pro-20260929",
+          "hugging_face_id": null,
+          "description": "GPT-6.1 Sol Pro is the same underlying model as [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000001",
+            "completion": "0.000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000005",
+            "input_cache_write": "0.00000125",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.000002",
+                "completion": "0.0000075",
+                "input_cache_read": "0.0000001",
+                "input_cache_write": "0.0000025"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-6.1-sol-pro-20260929/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-6.1-sol:batch",
+          "name": "OpenAI: GPT-6.1 Sol (batch)",
+          "canonical_slug": "openai/gpt-6.1-sol-20260929",
+          "hugging_face_id": null,
+          "description": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, positioned below the flagship GPT-6 Astra in the GPT-6 series. It is suited for agentic coding, computer use, document-heavy professional...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000001",
+            "completion": "0.000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000005",
+            "input_cache_write": "0.00000125",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.000002",
+                "completion": "0.0000075",
+                "input_cache_read": "0.0000001",
+                "input_cache_write": "0.0000025"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-6.1-sol-20260929/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
           "id": "openai/gpt-audio",
           "name": "OpenAI: GPT Audio",
           "canonical_slug": "openai/gpt-audio",
@@ -52616,9 +52923,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000349",
+            "prompt": "0.0000000249",
             "completion": "0.0000044",
-            "input_cache_read": "0.0000000279"
+            "input_cache_read": "0.0000000199"
           },
           "top_provider": {
             "context_length": 262144,
@@ -54132,9 +54439,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -58567,9 +58874,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001949",
-            "completion": "0.0000044",
-            "input_cache_read": "0.0000001559"
+            "prompt": "0.0000002339",
+            "completion": "0.00000399",
+            "input_cache_read": "0.0000001871"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -58764,13 +59071,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001849",
+            "prompt": "0.0000014",
             "completion": "0.0000044",
-            "input_cache_read": "0.000000148"
+            "input_cache_read": "0.00000026"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "context_length": 1048575,
+            "max_completion_tokens": 943717,
             "is_moderated": false
           },
           "per_request_limits": null,
