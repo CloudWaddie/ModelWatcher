@@ -1,5 +1,5 @@
 {
-  "timestamp": 1790727264443,
+  "timestamp": 1790749835953,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9646,6 +9646,35 @@
           "tts"
         ]
       }
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "displayName": "GPT-6.1 Sol",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "fullstack",
+          "agon_godot"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -14183,6 +14212,15 @@
       "text": {
         "input": 50,
         "output": 0
+      }
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "text": {
+        "input": 2,
+        "output": 10,
+        "cachedInput": 0.1,
+        "cacheWrite": 2.5
       }
     }
   ]
