@@ -1,5 +1,5 @@
 {
-  "timestamp": 1790794856496,
+  "timestamp": 1790811385005,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9425,6 +9425,34 @@
       }
     },
     {
+      "id": "gpt-6-astra-max",
+      "displayName": "GPT-6 Astra (max)",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "fullstack"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
       "id": "york",
       "displayName": "Recraft V4.1 Flash",
       "provider": "recraft",
@@ -14138,6 +14166,15 @@
       "id": "p-video-2-pro-cost",
       "video": {
         "perSecond": 0.025
+      }
+    },
+    {
+      "id": "gpt-6-astra-max",
+      "text": {
+        "input": 10,
+        "output": 50,
+        "cachedInput": 1,
+        "cacheWrite": 12.5
       }
     },
     {
