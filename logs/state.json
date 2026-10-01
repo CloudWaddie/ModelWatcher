@@ -17602,9 +17602,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000198",
-            "completion": "0.000000396",
-            "input_cache_read": "0.00000000291"
+            "prompt": "0.000000027",
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000027"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17675,9 +17675,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000123",
+            "prompt": "0.0000002413",
             "completion": "0.0000035",
-            "input_cache_read": "0.000000123"
+            "input_cache_read": "0.0000002413"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17750,9 +17750,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000008811",
-            "completion": "0.00000013068",
-            "input_cache_read": "0.000000001386"
+            "prompt": "0.000000012",
+            "completion": "0.00000125",
+            "input_cache_read": "0.00000001"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17993,9 +17993,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000028",
+            "prompt": "0.0000007249",
             "completion": "0.00001",
-            "input_cache_read": "0.00000027"
+            "input_cache_read": "0.0000007249"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18560,7 +18560,7 @@
           },
           "pricing": {
             "prompt": "0.00000002",
-            "completion": "0.0000002475",
+            "completion": "0.0000003",
             "input_cache_read": "0.00000001"
           },
           "top_provider": {
@@ -18636,9 +18636,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000163",
-            "completion": "0.000004",
-            "input_cache_read": "0.000000163"
+            "prompt": "0.000000189",
+            "completion": "0.000000594",
+            "input_cache_read": "0.0000000351"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25594,9 +25594,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000007854",
-            "completion": "0.00000015708",
-            "input_cache_read": "0.000000015708"
+            "prompt": "0.000000042",
+            "completion": "0.000000084",
+            "input_cache_read": "0.0000000084"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -25728,9 +25728,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000094",
+            "prompt": "0.0000000171",
             "completion": "0.00000128",
-            "input_cache_read": "0.0000000094"
+            "input_cache_read": "0.0000000171"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25934,9 +25934,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000783",
-            "completion": "0.000001566",
-            "input_cache_read": "0.00000006525"
+            "prompt": "0.000000241686",
+            "completion": "0.000000483372",
+            "input_cache_read": "0.0000000201405"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26091,9 +26091,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000066",
-            "completion": "0.00000198",
-            "input_cache_read": "0.000000022",
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000044",
             "overrides": [
               {
                 "utc_days": [
@@ -26252,9 +26252,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000198",
-            "completion": "0.000000396",
-            "input_cache_read": "0.00000000291"
+            "prompt": "0.000000027",
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000027"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -37293,9 +37293,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000028",
+            "prompt": "0.0000007249",
             "completion": "0.00001",
-            "input_cache_read": "0.00000027"
+            "input_cache_read": "0.0000007249"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -46589,167 +46589,6 @@
           }
         },
         {
-          "id": "openai/gpt-6.1-sol-pro:batch",
-          "name": "OpenAI: GPT-6.1 Sol Pro (batch)",
-          "canonical_slug": "openai/gpt-6.1-sol-pro-20260929",
-          "hugging_face_id": null,
-          "description": "GPT-6.1 Sol Pro is the same underlying model as [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
-          "context_length": 1050000,
-          "architecture": {
-            "modality": "text+image+file->text",
-            "input_modalities": [
-              "file",
-              "image",
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "GPT",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000001",
-            "completion": "0.000005",
-            "web_search": "0.01",
-            "input_cache_read": "0.00000005",
-            "input_cache_write": "0.00000125",
-            "overrides": [
-              {
-                "min_prompt_tokens": 272000,
-                "prompt": "0.000002",
-                "completion": "0.0000075",
-                "input_cache_read": "0.0000001",
-                "input_cache_write": "0.0000025"
-              }
-            ]
-          },
-          "top_provider": {
-            "context_length": 1050000,
-            "max_completion_tokens": 128000,
-            "is_moderated": true
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "reasoning_effort",
-            "response_format",
-            "seed",
-            "structured_outputs",
-            "tool_choice",
-            "tools"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/openai/gpt-6.1-sol-pro-20260929/endpoints"
-          },
-          "reasoning": {
-            "mandatory": true,
-            "default_enabled": true,
-            "supported_efforts": [
-              "max",
-              "xhigh",
-              "high",
-              "medium",
-              "low"
-            ],
-            "default_effort": "medium"
-          }
-        },
-        {
-          "id": "openai/gpt-6.1-sol:batch",
-          "name": "OpenAI: GPT-6.1 Sol (batch)",
-          "canonical_slug": "openai/gpt-6.1-sol-20260929",
-          "hugging_face_id": null,
-          "description": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, positioned below the flagship GPT-6 Astra in the GPT-6 series. It is suited for agentic coding, computer use, document-heavy professional...",
-          "context_length": 1050000,
-          "architecture": {
-            "modality": "text+image+file->text",
-            "input_modalities": [
-              "file",
-              "image",
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "GPT",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000001",
-            "completion": "0.000005",
-            "web_search": "0.01",
-            "input_cache_read": "0.00000005",
-            "input_cache_write": "0.00000125",
-            "overrides": [
-              {
-                "min_prompt_tokens": 272000,
-                "prompt": "0.000002",
-                "completion": "0.0000075",
-                "input_cache_read": "0.0000001",
-                "input_cache_write": "0.0000025"
-              }
-            ]
-          },
-          "top_provider": {
-            "context_length": 1050000,
-            "max_completion_tokens": 128000,
-            "is_moderated": true
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "reasoning_effort",
-            "response_format",
-            "seed",
-            "structured_outputs",
-            "tool_choice",
-            "tools"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/openai/gpt-6.1-sol-20260929/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": 51.8,
-              "coding_index": null,
-              "agentic_index": null
-            }
-          },
-          "reasoning": {
-            "mandatory": true,
-            "default_enabled": true,
-            "supported_efforts": [
-              "max",
-              "xhigh",
-              "high",
-              "medium",
-              "low"
-            ],
-            "default_effort": "medium"
-          }
-        },
-        {
           "id": "openai/gpt-audio",
           "name": "OpenAI: GPT Audio",
           "canonical_slug": "openai/gpt-audio",
@@ -49925,12 +49764,12 @@
             "instruct_type": "qwen3"
           },
           "pricing": {
-            "prompt": "0.00000013",
-            "completion": "0.00000052"
+            "prompt": "0.00000012",
+            "completion": "0.0000005"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 8192,
+            "context_length": 40960,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -49960,7 +49799,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-03-31",
-          "expiration_date": "2026-10-09",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/qwen/qwen3-30b-a3b-04-28/endpoints"
           },
@@ -59071,8 +58910,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000003249",
-            "completion": "0.00000399",
+            "prompt": "0.0000014",
+            "completion": "0.0000044",
             "input_cache_read": "0.00000026"
           },
           "top_provider": {
@@ -59268,9 +59107,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000002663",
-            "completion": "0.00000761",
-            "input_cache_read": "0.0000002661"
+            "prompt": "0.0000003",
+            "completion": "0.0000044",
+            "input_cache_read": "0.00000024"
           },
           "top_provider": {
             "context_length": 1048576,
