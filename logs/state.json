@@ -945,6 +945,7 @@
           "type": "model",
           "display_name": "Claude Fable 5",
           "created_at": "2026-06-07T00:00:00Z",
+          "line": "fable",
           "max_input_tokens": 1000000,
           "max_tokens": 128000,
           "capabilities": {
@@ -1015,6 +1016,7 @@
           "type": "model",
           "display_name": "Claude Fable 5.1",
           "created_at": "2026-08-28T00:00:00Z",
+          "line": "fable",
           "max_input_tokens": 1000000,
           "max_tokens": 128000,
           "capabilities": {
@@ -1085,6 +1087,7 @@
           "type": "model",
           "display_name": "Claude Haiku 4.5",
           "created_at": "2025-10-15T00:00:00Z",
+          "line": "haiku",
           "max_input_tokens": 200000,
           "max_tokens": 64000,
           "capabilities": {
@@ -1155,6 +1158,7 @@
           "type": "model",
           "display_name": "Claude Opus 4.5",
           "created_at": "2025-11-24T00:00:00Z",
+          "line": "opus",
           "max_input_tokens": 200000,
           "max_tokens": 64000,
           "capabilities": {
@@ -1225,6 +1229,7 @@
           "type": "model",
           "display_name": "Claude Opus 4.6",
           "created_at": "2026-02-04T00:00:00Z",
+          "line": "opus",
           "max_input_tokens": 1000000,
           "max_tokens": 128000,
           "capabilities": {
@@ -1295,6 +1300,7 @@
           "type": "model",
           "display_name": "Claude Opus 4.7",
           "created_at": "2026-04-14T00:00:00Z",
+          "line": "opus",
           "max_input_tokens": 1000000,
           "max_tokens": 128000,
           "capabilities": {
@@ -1365,6 +1371,7 @@
           "type": "model",
           "display_name": "Claude Opus 4.8",
           "created_at": "2026-05-28T00:00:00Z",
+          "line": "opus",
           "max_input_tokens": 1000000,
           "max_tokens": 128000,
           "capabilities": {
@@ -1435,6 +1442,7 @@
           "type": "model",
           "display_name": "Claude Opus 5",
           "created_at": "2026-07-24T00:00:00Z",
+          "line": "opus",
           "max_input_tokens": 1000000,
           "max_tokens": 128000,
           "capabilities": {
@@ -1505,6 +1513,7 @@
           "type": "model",
           "display_name": "Claude Opus 5.5",
           "created_at": "2026-09-21T16:24:00Z",
+          "line": "opus",
           "max_input_tokens": 1000000,
           "max_tokens": 128000,
           "capabilities": {
@@ -1575,6 +1584,7 @@
           "type": "model",
           "display_name": "Claude Sonnet 4.5",
           "created_at": "2025-09-29T00:00:00Z",
+          "line": "sonnet",
           "max_input_tokens": 1000000,
           "max_tokens": 64000,
           "capabilities": {
@@ -1645,6 +1655,7 @@
           "type": "model",
           "display_name": "Claude Sonnet 4.6",
           "created_at": "2026-02-17T00:00:00Z",
+          "line": "sonnet",
           "max_input_tokens": 1000000,
           "max_tokens": 128000,
           "capabilities": {
@@ -1715,6 +1726,7 @@
           "type": "model",
           "display_name": "Claude Sonnet 5",
           "created_at": "2026-06-29T00:00:00Z",
+          "line": "sonnet",
           "max_input_tokens": 1000000,
           "max_tokens": 128000,
           "capabilities": {
@@ -1785,6 +1797,7 @@
           "type": "model",
           "display_name": "Claude Sonnet 5.5",
           "created_at": "2026-09-28T00:00:00Z",
+          "line": "sonnet",
           "max_input_tokens": 1000000,
           "max_tokens": 128000,
           "capabilities": {
@@ -8998,11 +9011,11 @@
           },
           "pricing": {
             "hourly": 0,
-            "input": 1.5,
-            "output": 4.5,
+            "input": 2.5,
+            "output": 7.5,
             "base": 0,
             "finetune": 0,
-            "cached_input": 0.3,
+            "cached_input": 0.5,
             "image_pixel": 0,
             "transcribe": 0,
             "image": 0,
@@ -9086,8 +9099,8 @@
           },
           "pricing": {
             "hourly": 0,
-            "input": 0.09000000000000001,
-            "output": 0.28200000000000003,
+            "input": 0.15,
+            "output": 0.47,
             "base": 0,
             "finetune": 0,
             "image_pixel": 0,
@@ -12583,8 +12596,8 @@
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
-              "input_tokens": 0.13,
-              "output_tokens": 0.38
+              "input_tokens": 0.15,
+              "output_tokens": 0.4
             },
             "discount": null,
             "tags": [
@@ -13583,33 +13596,6 @@
             "discount": null,
             "tags": [
               "embed"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
-          "id": "nvidia/Nemotron-3-Nano-30B-A3B",
-          "name": "nvidia/Nemotron-3-Nano-30B-A3B",
-          "owned_by": "deepinfra",
-          "root": "nvidia/Nemotron-3-Nano-30B-A3B",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "NVIDIA Nemotron 3 Nano is an open small reasoning model optimized for fast, cost-efficient inference in agentic and production workloads. Built with a hybrid Mixture-of-Experts (MoE) and Mamba-Transformer architecture, it delivers strong multi-step reasoning, high token throughput, stable latency with predictable cost, and efficient deployment for agent-based systems. Designed for real-world AI systems where reasoning can generate significantly more tokens per prompt, Nemotron Nano reduces compute cost while maintaining strong reasoning quality.",
-            "context_length": 262144,
-            "max_tokens": 262144,
-            "pricing": {
-              "input_tokens": 0.05,
-              "output_tokens": 0.2,
-              "cache_read_tokens": 0.025
-            },
-            "discount": null,
-            "tags": [
-              "chat",
-              "prompt_cache",
-              "reasoning"
             ],
             "default_width": null,
             "default_height": null,
@@ -15109,33 +15095,6 @@
             "default_width": 1024,
             "default_height": 1024,
             "default_iterations": 5
-          }
-        },
-        {
-          "id": "tencent/Hy3",
-          "name": "tencent/Hy3",
-          "owned_by": "deepinfra",
-          "root": "tencent/Hy3",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "Hy3 is a 295B-parameter Mixture-of-Experts (MoE) model with 21B active parameters and 3.8B MTP layer parameters, developed by the Tencent Hy Team. Following the Hy3 Preview launch in late April, we gathered feedback from 50+ products and scaled up post-training with higher quality data. Today, we introduce Hy3, which outperforms similar-size models and rivals flagship open-source models with 2-5x parameters. It also shows significant gains in utility across various products and productivity tasks.",
-            "context_length": 262144,
-            "max_tokens": 262144,
-            "pricing": {
-              "input_tokens": 0.13,
-              "output_tokens": 0.53,
-              "cache_read_tokens": 0.0329999995
-            },
-            "discount": null,
-            "tags": [
-              "chat",
-              "prompt_cache",
-              "reasoning"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
           }
         },
         {
@@ -17556,9 +17515,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000259",
+            "prompt": "0.0000000264",
             "completion": "0.0000006",
-            "input_cache_read": "0.0000000259"
+            "input_cache_read": "0.0000000264"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17629,9 +17588,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015312",
-            "completion": "0.00000045936",
-            "input_cache_read": "0.000000004872"
+            "prompt": "0.0000001431",
+            "completion": "0.0000035",
+            "input_cache_read": "0.0000001431"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17947,9 +17906,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000375",
-            "completion": "0.000009107",
-            "input_cache_read": "0.00000029"
+            "prompt": "0.0000004357",
+            "completion": "0.00001",
+            "input_cache_read": "0.0000004357"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18139,7 +18098,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -18380,7 +18340,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -24887,8 +24848,8 @@
             "input_cache_read": "0.00000011"
           },
           "top_provider": {
-            "context_length": 163840,
-            "max_completion_tokens": 147456,
+            "context_length": 128000,
+            "max_completion_tokens": 115200,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -34117,7 +34078,6 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
-            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -34126,12 +34086,10 @@
             "response_format",
             "seed",
             "stop",
-            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
             "top_k",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -37305,9 +37263,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000375",
-            "completion": "0.000009107",
-            "input_cache_read": "0.00000029"
+            "prompt": "0.0000004357",
+            "completion": "0.00001",
+            "input_cache_read": "0.0000004357"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -44512,7 +44470,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -44762,7 +44721,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -44852,7 +44812,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -45106,7 +45067,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -45196,7 +45158,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -45446,7 +45409,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -45850,7 +45814,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -46104,7 +46069,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
