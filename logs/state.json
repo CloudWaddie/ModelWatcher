@@ -6236,11 +6236,11 @@
           },
           "pricing": {
             "hourly": 0,
-            "input": 3,
-            "output": 15,
+            "input": 2.7,
+            "output": 13.5,
             "base": 0,
             "finetune": 0,
-            "cached_input": 0.3,
+            "cached_input": 0.27,
             "image_pixel": 0,
             "transcribe": 0,
             "image": 0,
@@ -11552,29 +11552,6 @@
           }
         },
         {
-          "id": "black-forest-labs/FLUX.1-Kontext-dev",
-          "name": "black-forest-labs/FLUX.1-Kontext-dev",
-          "owned_by": "deepinfra",
-          "root": "black-forest-labs/FLUX.1-Kontext-dev",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "FLUX.1 Kontext [dev] is a 12-billion-parameter image editing model that transforms visuals based on natural language instructions. It allows highly consistent, multi-step edits and is released with open weights under a non-commercial license to empower artists and researchers.",
-            "context_length": null,
-            "max_tokens": null,
-            "pricing": {
-              "per_image_unit": 0.01
-            },
-            "discount": null,
-            "tags": [
-              "image-gen"
-            ],
-            "default_width": 1024,
-            "default_height": 1024,
-            "default_iterations": 25
-          }
-        },
-        {
           "id": "bosonai/HiggsAudioV2.5",
           "name": "bosonai/HiggsAudioV2.5",
           "owned_by": "deepinfra",
@@ -14029,29 +14006,6 @@
           }
         },
         {
-          "id": "Qwen/Qwen-Image-Edit",
-          "name": "Qwen/Qwen-Image-Edit",
-          "owned_by": "deepinfra",
-          "root": "Qwen/Qwen-Image-Edit",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "Qwen-Image-Edit is a next-generation image editing model built on top of Qwen-Image, designed for both semantic and appearance-level edits. It excels at tasks like precise text modifications, style transfers, viewpoint transformations, and element adjustments while preserving overall visual consistency.",
-            "context_length": null,
-            "max_tokens": null,
-            "pricing": {
-              "per_image_unit": 0.025
-            },
-            "discount": null,
-            "tags": [
-              "image-gen"
-            ],
-            "default_width": 1024,
-            "default_height": 1024,
-            "default_iterations": 25
-          }
-        },
-        {
           "id": "Qwen/Qwen-Image-Max",
           "name": "Qwen/Qwen-Image-Max",
           "owned_by": "deepinfra",
@@ -15192,7 +15146,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "",
+            "description": "Hy4 preview is a 770B-parameter Mixture-of-Experts flagship model from the Tencent Hy Team, with 49B parameters activated per token and a 1M-token context window. It uses Gated DeepSeek Sparse Attention with IndexCache, and is post-trained for software engineering, office and data analysis, game development, and scientific research.",
             "context_length": 1048576,
             "max_tokens": 1048576,
             "pricing": {
@@ -17602,9 +17556,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000243",
+            "prompt": "0.0000000259",
             "completion": "0.0000006",
-            "input_cache_read": "0.0000000243"
+            "input_cache_read": "0.0000000259"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17675,9 +17629,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001848",
-            "completion": "0.0000005544",
-            "input_cache_read": "0.00000000588"
+            "prompt": "0.00000015312",
+            "completion": "0.00000045936",
+            "input_cache_read": "0.000000004872"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17993,9 +17947,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006629",
-            "completion": "0.00001",
-            "input_cache_read": "0.0000006629"
+            "prompt": "0.000000375",
+            "completion": "0.000009107",
+            "input_cache_read": "0.00000029"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18106,7 +18060,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {},
           "supported_voices": null,
@@ -18260,7 +18215,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -18345,7 +18301,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {},
           "supported_voices": null,
@@ -18636,13 +18593,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000006",
-            "completion": "0.000002694",
-            "input_cache_read": "0.000000176"
+            "prompt": "0.00000012",
+            "completion": "0.00000114",
+            "input_cache_read": "0.000000067"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -23739,6 +23696,62 @@
               "low"
             ],
             "default_effort": "high"
+          }
+        },
+        {
+          "id": "apodex/apodex-1.1-mini:free",
+          "name": "Apodex: Apodex 1.1 Mini (free)",
+          "canonical_slug": "apodex/apodex-1.1-mini-20261001",
+          "hugging_face_id": null,
+          "description": "Apodex 1.1 Mini is a reasoning-first model from Apodex, built for complex, long-horizon research and forecasting tasks. It works directly with files, data, code, and tools to produce verifiable results,...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/apodex/apodex-1.1-mini-20261001/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
           }
         },
         {
@@ -30834,9 +30847,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.0000000765",
+            "completion": "0.000000255",
+            "input_cache_read": "0.0000000425"
           },
           "top_provider": {
             "context_length": 262144,
@@ -37292,9 +37305,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006629",
-            "completion": "0.00001",
-            "input_cache_read": "0.0000006629"
+            "prompt": "0.000000375",
+            "completion": "0.000009107",
+            "input_cache_read": "0.00000029"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -40517,7 +40530,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -40657,7 +40671,8 @@
             "structured_outputs",
             "temperature",
             "top_logprobs",
-            "top_p"
+            "top_p",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -40747,7 +40762,8 @@
             "structured_outputs",
             "temperature",
             "top_logprobs",
-            "top_p"
+            "top_p",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -40831,7 +40847,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -40964,7 +40981,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -41098,7 +41116,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -41212,7 +41231,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -41325,7 +41345,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -41386,7 +41407,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -41448,7 +41470,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -41582,7 +41605,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -41715,7 +41739,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -41841,7 +41866,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -41908,7 +41934,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -42035,7 +42062,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -42170,7 +42198,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -42331,7 +42360,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -42385,7 +42415,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -42488,7 +42519,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -42551,7 +42583,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -42615,7 +42648,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -42780,7 +42814,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -42953,7 +42988,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -43129,7 +43165,8 @@
             "seed",
             "stop",
             "structured_outputs",
-            "top_logprobs"
+            "top_logprobs",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -43200,7 +43237,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -43278,7 +43316,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -43357,7 +43396,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -43435,7 +43475,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -43520,7 +43561,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -43593,7 +43635,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -43668,7 +43711,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -43847,7 +43891,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -44079,7 +44124,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -44152,7 +44198,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -44227,7 +44274,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -44554,7 +44602,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -44633,7 +44682,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -44892,7 +44942,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -44973,7 +45024,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -45234,7 +45286,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -45313,7 +45366,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -45482,7 +45536,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {},
           "supported_voices": null,
@@ -45564,7 +45619,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {},
           "supported_voices": null,
@@ -45637,7 +45693,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {},
           "supported_voices": null,
@@ -45710,7 +45767,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {},
           "supported_voices": null,
@@ -45882,7 +45940,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -45963,7 +46022,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -46134,7 +46194,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -46224,7 +46285,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -46305,7 +46367,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -46386,7 +46449,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -46476,7 +46540,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {},
           "supported_voices": null,
@@ -46558,7 +46623,8 @@
             "seed",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "verbosity"
           ],
           "default_parameters": {
             "temperature": null,
@@ -54408,9 +54474,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -54618,9 +54684,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000834",
-            "completion": "0.000002501",
-            "input_cache_read": "0.000000042",
+            "prompt": "0.0000007506",
+            "completion": "0.0000022509",
+            "input_cache_read": "0.0000000378",
             "overrides": [
               {
                 "utc_start": 0,
@@ -55396,6 +55462,51 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/unbiased/pareto-20260917/endpoints"
+          }
+        },
+        {
+          "id": "unbiased/pareto-26.10-preview",
+          "name": "Pareto 26.10 Preview",
+          "canonical_slug": "unbiased/pareto-26.10-preview-20260929",
+          "hugging_face_id": null,
+          "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks. This is a preview of the...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000008",
+            "completion": "0.0000032",
+            "input_cache_read": "0.00000003"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "max_tokens",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/unbiased/pareto-26.10-preview-20260929/endpoints"
           }
         },
         {
@@ -62214,6 +62325,13 @@
             "grok-imagine-video-1.5-preview",
             "grok-imagine-video-1.5-2026-05-30"
           ]
+        },
+        {
+          "id": "grok-imagine-video-1.5-lite",
+          "name": "grok-imagine-video-1.5-lite",
+          "owned_by": "xai",
+          "object": "model",
+          "aliases": []
         }
       ]
     }
