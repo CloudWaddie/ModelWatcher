@@ -10643,50 +10643,6 @@
       "success": true,
       "models": [
         {
-          "id": "accounts/fireworks/models/deepseek-v4-flash-0731",
-          "name": "accounts/fireworks/models/deepseek-v4-flash-0731",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 1048576
-        },
-        {
-          "id": "accounts/fireworks/models/deepseek-v4-flash-vision-exp",
-          "name": "accounts/fireworks/models/deepseek-v4-flash-vision-exp",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": true,
-          "supports_tools": true,
-          "context_length": 1048576
-        },
-        {
-          "id": "accounts/fireworks/models/deepseek-v4-pro",
-          "name": "accounts/fireworks/models/deepseek-v4-pro",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 1048576
-        },
-        {
-          "id": "accounts/fireworks/models/deepseek-v4-pro-0813",
-          "name": "accounts/fireworks/models/deepseek-v4-pro-0813",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 1048576
-        },
-        {
           "id": "accounts/fireworks/models/deepseek-v4p1-flash",
           "name": "accounts/fireworks/models/deepseek-v4p1-flash",
           "owned_by": "fireworks",
@@ -10764,28 +10720,6 @@
           "context_length": 1048576
         },
         {
-          "id": "accounts/fireworks/models/kimi-k2p6",
-          "name": "accounts/fireworks/models/kimi-k2p6",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": true,
-          "supports_tools": true,
-          "context_length": 262144
-        },
-        {
-          "id": "accounts/fireworks/models/kimi-k2p7-code",
-          "name": "accounts/fireworks/models/kimi-k2p7-code",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": true,
-          "supports_tools": true,
-          "context_length": 262144
-        },
-        {
           "id": "accounts/fireworks/models/kimi-k3",
           "name": "accounts/fireworks/models/kimi-k3",
           "owned_by": "fireworks",
@@ -10797,17 +10731,6 @@
           "context_length": 1048576
         },
         {
-          "id": "accounts/fireworks/models/minimax-m2p7",
-          "name": "accounts/fireworks/models/minimax-m2p7",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": true,
-          "context_length": 196608
-        },
-        {
           "id": "accounts/fireworks/models/minimax-m3",
           "name": "accounts/fireworks/models/minimax-m3",
           "owned_by": "fireworks",
@@ -10817,17 +10740,6 @@
           "supports_image_input": false,
           "supports_tools": true,
           "context_length": 512000
-        },
-        {
-          "id": "accounts/fireworks/models/muse-glimmer-30b",
-          "name": "accounts/fireworks/models/muse-glimmer-30b",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "HF_BASE_MODEL",
-          "supports_chat": true,
-          "supports_image_input": true,
-          "supports_tools": true,
-          "context_length": 131072
         },
         {
           "id": "accounts/fireworks/models/nemotron-3-ultra-nvfp4",
@@ -10872,16 +10784,6 @@
           "supports_image_input": false,
           "supports_tools": false,
           "context_length": 40960
-        },
-        {
-          "id": "accounts/fireworks/models/qwen3p7-plus",
-          "name": "accounts/fireworks/models/qwen3p7-plus",
-          "owned_by": "fireworks",
-          "object": "model",
-          "kind": "CUSTOM_MODEL",
-          "supports_chat": true,
-          "supports_image_input": true,
-          "supports_tools": true
         },
         {
           "id": "accounts/fireworks/models/qwen3p8-2p4t-a95b",
@@ -17928,7 +17830,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000005914",
+            "prompt": "0.0000006803",
             "completion": "0.000013",
             "input_cache_read": "0.00000045"
           },
@@ -18576,13 +18478,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000005",
-            "completion": "0.000005",
-            "input_cache_read": "0.00000004"
+            "prompt": "0.00000008",
+            "completion": "0.0000044",
+            "input_cache_read": "0.0000000528"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -26101,9 +26003,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000085",
-            "completion": "0.000005",
-            "input_cache_read": "0.0000007"
+            "prompt": "0.00000055",
+            "completion": "0.0000042",
+            "input_cache_read": "0.00000045"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -36203,6 +36105,7 @@
             "repetition_penalty",
             "seed",
             "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
@@ -54483,9 +54386,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -54693,9 +54596,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000834",
-            "completion": "0.000002501",
-            "input_cache_read": "0.000000042",
+            "prompt": "0.0000007506",
+            "completion": "0.0000022509",
+            "input_cache_read": "0.0000000378",
             "overrides": [
               {
                 "utc_start": 0,
@@ -59029,13 +58932,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000038",
-            "completion": "0.00000349",
-            "input_cache_read": "0.00000026"
+            "prompt": "0.0000000504",
+            "completion": "0.000008",
+            "input_cache_read": "0.0000000504"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
