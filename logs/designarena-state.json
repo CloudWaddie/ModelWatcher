@@ -1,5 +1,5 @@
 {
-  "timestamp": 1791304890161,
+  "timestamp": 1791322301509,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9734,7 +9734,7 @@
       "id": "nevada",
       "displayName": "Ling-3.1-flash",
       "provider": "antgroup",
-      "active": true,
+      "active": false,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -9784,6 +9784,49 @@
           "imagetoimage"
         ]
       }
+    },
+    {
+      "id": "nano-banana-2.1",
+      "displayName": "Nano Banana 2.1",
+      "provider": "google",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "logo",
+          "image",
+          "graphicdesign"
+        ]
+      },
+      "inputModalities": [
+        "image",
+        "text"
+      ]
+    },
+    {
+      "id": "mistral-large-4-0",
+      "displayName": "Mistral Large 4",
+      "provider": "mistral",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -11442,6 +11485,11 @@
     {
       "id": "salvador",
       "displayName": "salvador",
+      "logoName": "private.png"
+    },
+    {
+      "id": "new-mexico",
+      "displayName": "new-mexico",
       "logoName": "private.png"
     }
   ],
@@ -14360,6 +14408,19 @@
       "id": "flux-3-image-edit",
       "image": {
         "perImage": 0.048
+      }
+    },
+    {
+      "id": "nano-banana-2.1",
+      "image": {
+        "perImage": 0.08
+      }
+    },
+    {
+      "id": "mistral-large-4-0",
+      "text": {
+        "input": 0.68,
+        "output": 2.09
       }
     }
   ]
