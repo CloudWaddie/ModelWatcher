@@ -10896,8 +10896,8 @@
           "object": "model",
           "kind": "ROUTER",
           "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": false
+          "supports_image_input": true,
+          "supports_tools": true
         },
         {
           "id": "firerouter/auto",
@@ -10906,8 +10906,8 @@
           "object": "model",
           "kind": "ROUTER",
           "supports_chat": true,
-          "supports_image_input": false,
-          "supports_tools": false
+          "supports_image_input": true,
+          "supports_tools": true
         }
       ]
     },
@@ -16057,70 +16057,6 @@
           "type": "base"
         },
         {
-          "id": "mistral-large-4",
-          "name": "mistral-large-4",
-          "owned_by": "mistralai",
-          "object": "model",
-          "capabilities": {
-            "completion_chat": true,
-            "function_calling": true,
-            "reasoning": true,
-            "completion_fim": false,
-            "fine_tuning": false,
-            "vision": true,
-            "ocr": false,
-            "classification": false,
-            "moderation": false,
-            "audio": false,
-            "audio_transcription": false,
-            "audio_transcription_realtime": false,
-            "audio_speech": false,
-            "unified_resources": true
-          },
-          "description": "Official mistral-large-4 Mistral AI model",
-          "max_context_length": 524288,
-          "aliases": [
-            "mistral-large-4-0"
-          ],
-          "deprecation": null,
-          "deprecation_replacement_model": null,
-          "default_model_temperature": 1,
-          "billing_model_name": "mistral-large-4-0-launch-discount",
-          "type": "base"
-        },
-        {
-          "id": "mistral-large-4-0",
-          "name": "mistral-large-4",
-          "owned_by": "mistralai",
-          "object": "model",
-          "capabilities": {
-            "completion_chat": true,
-            "function_calling": true,
-            "reasoning": true,
-            "completion_fim": false,
-            "fine_tuning": false,
-            "vision": true,
-            "ocr": false,
-            "classification": false,
-            "moderation": false,
-            "audio": false,
-            "audio_transcription": false,
-            "audio_transcription_realtime": false,
-            "audio_speech": false,
-            "unified_resources": true
-          },
-          "description": "Official mistral-large-4 Mistral AI model",
-          "max_context_length": 524288,
-          "aliases": [
-            "mistral-large-4"
-          ],
-          "deprecation": null,
-          "deprecation_replacement_model": null,
-          "default_model_temperature": 1,
-          "billing_model_name": "mistral-large-4-0-launch-discount",
-          "type": "base"
-        },
-        {
           "id": "mistral-medium",
           "name": "mistral-medium-latest",
           "owned_by": "mistralai",
@@ -17499,9 +17435,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000395",
-            "completion": "0.0000012",
-            "input_cache_read": "0.000000015"
+            "prompt": "0.0000000182",
+            "completion": "0.00000132",
+            "input_cache_read": "0.0000000165"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17572,13 +17508,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000002428",
-            "completion": "0.0000042",
-            "input_cache_read": "0.00000024"
+            "prompt": "0.0000004",
+            "completion": "0.0000043",
+            "input_cache_read": "0.000000033"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 393216,
+            "max_completion_tokens": 384000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -17647,9 +17583,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000009",
-            "completion": "0.00000128",
-            "input_cache_read": "0.000000009"
+            "prompt": "0.00000000605",
+            "completion": "0.000001408",
+            "input_cache_read": "0.00000000605"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17890,9 +17826,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000082",
-            "completion": "0.000013",
-            "input_cache_read": "0.00000045"
+            "prompt": "0.00000069",
+            "completion": "0.000015",
+            "input_cache_read": "0.00000023"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18461,13 +18397,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000214",
-            "completion": "0.0000005",
-            "input_cache_read": "0.0000000214"
+            "prompt": "0.0000000396",
+            "completion": "0.0000006875",
+            "input_cache_read": "0.0000000396"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -18538,13 +18474,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000003",
-            "completion": "0.000012",
-            "input_cache_read": "0.00000003"
+            "prompt": "0.00000007",
+            "completion": "0.000007",
+            "input_cache_read": "0.000000065"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -25633,9 +25569,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000027",
-            "completion": "0.00000128",
-            "input_cache_read": "0.0000000027"
+            "prompt": "0.000000033",
+            "completion": "0.000001408",
+            "input_cache_read": "0.000000033"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25767,9 +25703,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000009",
-            "completion": "0.00000128",
-            "input_cache_read": "0.000000009"
+            "prompt": "0.00000000605",
+            "completion": "0.000001408",
+            "input_cache_read": "0.00000000605"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26299,7 +26235,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000004345",
+            "prompt": "0.0000000182",
             "completion": "0.00000132",
             "input_cache_read": "0.0000000165"
           },
@@ -30658,6 +30594,68 @@
           }
         },
         {
+          "id": "google/gemini-nano-banana-2.1",
+          "name": "Google: Nano Banana 2.1",
+          "canonical_slug": "google/gemini-nano-banana-2.1-20261006",
+          "hugging_face_id": null,
+          "description": "Nano Banana 2.1 (Gemini Nano Banana 2.1) is Google's image generation and editing model on the Flash tier, succeeding Nano Banana 2 and Nano Banana Pro. It improves product recontextualization,...",
+          "context_length": 65536,
+          "architecture": {
+            "modality": "text+image->text+image",
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "image",
+              "text"
+            ],
+            "tokenizer": "Gemini",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000015",
+            "completion": "0.0000075",
+            "image_output": "0.00003",
+            "web_search": "0.014"
+          },
+          "top_provider": {
+            "context_length": 65536,
+            "max_completion_tokens": 58982,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-nano-banana-2.1-20261006/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "high",
+              "minimal"
+            ],
+            "default_effort": "minimal"
+          }
+        },
+        {
           "id": "google/gemma-2-27b-it",
           "name": "Google: Gemma 2 27B",
           "canonical_slug": "google/gemma-2-27b-it",
@@ -30917,9 +30915,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.0000000765",
+            "completion": "0.000000255",
+            "input_cache_read": "0.0000000425"
           },
           "top_provider": {
             "context_length": 262144,
@@ -35653,9 +35651,12 @@
           "per_request_limits": null,
           "supported_parameters": [
             "frequency_penalty",
+            "include_reasoning",
             "logprobs",
             "max_tokens",
             "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
             "response_format",
             "seed",
             "stop",
@@ -35672,6 +35673,14 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/mistralai/mistral-large-4-0-20261006/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "supported_efforts": [
+              "high",
+              "none"
+            ],
+            "default_effort": "high"
           }
         },
         {
@@ -37639,9 +37648,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000083",
-            "completion": "0.000014",
-            "input_cache_read": "0.00000027"
+            "prompt": "0.00000069",
+            "completion": "0.000015",
+            "input_cache_read": "0.00000023"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -55035,9 +55044,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -55245,9 +55254,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000834",
-            "completion": "0.000002501",
-            "input_cache_read": "0.000000042",
+            "prompt": "0.0000007506",
+            "completion": "0.0000022509",
+            "input_cache_read": "0.0000000378",
             "overrides": [
               {
                 "utc_start": 0,
@@ -59627,13 +59636,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000152",
-            "completion": "0.000012",
-            "input_cache_read": "0.00000015"
+            "prompt": "0.00000019",
+            "completion": "0.000008",
+            "input_cache_read": "0.00000018"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
