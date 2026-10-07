@@ -1,5 +1,5 @@
 {
-  "timestamp": 1791336037656,
+  "timestamp": 1791361572059,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -1274,7 +1274,7 @@
       "id": "gamma",
       "displayName": "Gamma",
       "provider": "gamma",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -9827,6 +9827,43 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "mistral-large-4-0-high",
+      "displayName": "Mistral Large 4 (High)",
+      "provider": "mistral",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "gamma-5",
+      "displayName": "Gamma 5",
+      "provider": "gamma",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "slides"
+        ]
+      }
     }
   ],
   "providers": [
@@ -14383,6 +14420,12 @@
       }
     },
     {
+      "id": "dragonfly",
+      "image": {
+        "perImage": 0.22
+      }
+    },
+    {
       "id": "gpt-6.1-sol",
       "text": {
         "input": 2,
@@ -14396,6 +14439,12 @@
       "text": {
         "input": 0.06,
         "output": 0.18
+      }
+    },
+    {
+      "id": "ladybug",
+      "image": {
+        "perImage": 0.008
       }
     },
     {
@@ -14418,6 +14467,13 @@
     },
     {
       "id": "mistral-large-4-0",
+      "text": {
+        "input": 0.68,
+        "output": 2.09
+      }
+    },
+    {
+      "id": "mistral-large-4-0-high",
       "text": {
         "input": 0.68,
         "output": 2.09
