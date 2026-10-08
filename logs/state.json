@@ -13026,7 +13026,7 @@
             "context_length": null,
             "max_tokens": null,
             "pricing": {
-              "input_characters": 0.62
+              "input_characters": 0.9899999999999999
             },
             "discount": null,
             "tags": [
@@ -13553,7 +13553,7 @@
             "context_length": 131072,
             "max_tokens": 131072,
             "pricing": {
-              "input_tokens": 0.019000000000000003,
+              "input_tokens": 0.029,
               "output_tokens": 0.030000000000000002
             },
             "discount": null,
@@ -17686,8 +17686,8 @@
           },
           "pricing": {
             "prompt": "0.0000000283",
-            "completion": "0.000001",
-            "input_cache_read": "0.00000001"
+            "completion": "0.0000008",
+            "input_cache_read": "0.000000005"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17758,9 +17758,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000108",
+            "prompt": "0.0000001271",
             "completion": "0.000008",
-            "input_cache_read": "0.000000081"
+            "input_cache_read": "0.0000000953"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17833,9 +17833,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000079",
-            "completion": "0.00000128",
-            "input_cache_read": "0.0000000079"
+            "prompt": "0.00000000632",
+            "completion": "0.000000489252",
+            "input_cache_read": "0.00000000632"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18076,9 +18076,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000045",
+            "prompt": "0.00000081",
             "completion": "0.000013",
-            "input_cache_read": "0.00000045"
+            "input_cache_read": "0.0000003"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18648,7 +18648,7 @@
           },
           "pricing": {
             "prompt": "0.000000032",
-            "completion": "0.000004440149",
+            "completion": "0.000002569689",
             "input_cache_read": "0.00000002"
           },
           "top_provider": {
@@ -18724,9 +18724,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000036",
+            "prompt": "0.00000006",
             "completion": "0.000012",
-            "input_cache_read": "0.0000000335"
+            "input_cache_read": "0.0000000558"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -24285,59 +24285,6 @@
           }
         },
         {
-          "id": "baidu/ernie-4.5-vl-424b-a47b",
-          "name": "Baidu: ERNIE 4.5 VL 424B A47B ",
-          "canonical_slug": "baidu/ernie-4.5-vl-424b-a47b",
-          "hugging_face_id": "baidu/ERNIE-4.5-VL-424B-A47B-PT",
-          "description": "ERNIE-4.5-VL-424B-A47B is a multimodal Mixture-of-Experts (MoE) model from Baidu’s ERNIE 4.5 series, featuring 424B total parameters with 47B active per token. It is trained jointly on text and image data...",
-          "context_length": 123000,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "image",
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000042",
-            "completion": "0.00000125"
-          },
-          "top_provider": {
-            "context_length": 123000,
-            "max_completion_tokens": 16000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-03-31",
-          "expiration_date": "2026-10-08",
-          "links": {
-            "details": "/api/v1/models/baidu/ernie-4.5-vl-424b-a47b/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
           "id": "bytedance-seed/seed-1.6",
           "name": "ByteDance Seed: Seed 1.6",
           "canonical_slug": "bytedance-seed/seed-1.6-20250625",
@@ -26024,9 +25971,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000131",
+            "prompt": "0.0000000173",
             "completion": "0.00000128",
-            "input_cache_read": "0.0000000131"
+            "input_cache_read": "0.0000000173"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26372,9 +26319,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000029232",
-            "completion": "0.00000058464",
-            "input_cache_read": "0.00000002436"
+            "prompt": "0.000000287274",
+            "completion": "0.000000574548",
+            "input_cache_read": "0.0000000239395"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -31370,9 +31317,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.0000000765",
+            "completion": "0.000000255",
+            "input_cache_read": "0.0000000425"
           },
           "top_provider": {
             "context_length": 262144,
@@ -32278,8 +32225,8 @@
           }
         },
         {
-          "id": "inclusionai/ling-3.0-flash-sante:free",
-          "name": "inclusionAI: Ling 3.0 Flash Sante (free)",
+          "id": "inclusionai/ling-3.0-flash-sante",
+          "name": "inclusionAI: Ling 3.0 Flash Sante",
           "canonical_slug": "inclusionai/ling-3.0-flash-sante-20260904",
           "hugging_face_id": null,
           "description": "Ling 3.0 Flash Sante is a health and medicine-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for...",
@@ -32296,8 +32243,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0",
-            "completion": "0"
+            "prompt": "0.000000042",
+            "completion": "0.0000001232",
+            "input_cache_read": "0.0000000084"
           },
           "top_provider": {
             "context_length": 262144,
@@ -34489,19 +34437,13 @@
           },
           "per_request_limits": null,
           "supported_parameters": [
-            "frequency_penalty",
             "include_reasoning",
             "max_tokens",
-            "presence_penalty",
             "reasoning",
-            "repetition_penalty",
             "response_format",
-            "seed",
-            "stop",
             "temperature",
             "tool_choice",
             "tools",
-            "top_k",
             "top_p"
           ],
           "default_parameters": {
@@ -36017,7 +35959,7 @@
           "name": "Mistral: Mistral Large 4",
           "canonical_slug": "mistralai/mistral-large-4-0-20261006",
           "hugging_face_id": null,
-          "description": "Mistral Large 4 is a frontier multimodal (text and image input) model from Mistral AI built for reasoning, coding, and agentic workloads. It offers a 512K-token context window with up...",
+          "description": "Mistral Large 4 is a frontier multimodal (text and image input) model from Mistral AI built for reasoning, coding, and agentic workloads. It offers a 1M-token context window with up...",
           "context_length": 1048576,
           "architecture": {
             "modality": "text+image->text",
@@ -36639,7 +36581,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000019",
+            "prompt": "0.000000029",
             "completion": "0.00000003"
           },
           "top_provider": {
@@ -37668,9 +37610,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000004375",
+            "prompt": "0.0000004348",
             "completion": "0.00000245",
-            "input_cache_read": "0.0000001211"
+            "input_cache_read": "0.0000001202"
           },
           "top_provider": {
             "context_length": 262144,
@@ -38088,9 +38030,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000062",
-            "completion": "0.0000123",
-            "input_cache_read": "0.00000043"
+            "prompt": "0.00000082",
+            "completion": "0.0000135",
+            "input_cache_read": "0.00000055"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -39006,12 +38948,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000085",
-            "completion": "0.0000004"
+            "prompt": "0.00000008",
+            "completion": "0.00000045"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 16384,
+            "max_completion_tokens": 235929,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -47566,6 +47508,177 @@
           }
         },
         {
+          "id": "openai/gpt-6.1-sol-pro:batch",
+          "name": "OpenAI: GPT-6.1 Sol Pro (batch)",
+          "canonical_slug": "openai/gpt-6.1-sol-pro-20260929",
+          "hugging_face_id": null,
+          "description": "GPT-6.1 Sol Pro is the same underlying model as [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000001",
+            "completion": "0.000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000005",
+            "input_cache_write": "0.00000125",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.000002",
+                "completion": "0.0000075",
+                "input_cache_read": "0.0000001",
+                "input_cache_write": "0.0000025"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-6.1-sol-pro-20260929/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-6.1-sol:batch",
+          "name": "OpenAI: GPT-6.1 Sol (batch)",
+          "canonical_slug": "openai/gpt-6.1-sol-20260929",
+          "hugging_face_id": null,
+          "description": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, positioned below the flagship GPT-6 Astra in the GPT-6 series. It is suited for agentic coding, computer use, document-heavy professional...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000001",
+            "completion": "0.000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000005",
+            "input_cache_write": "0.00000125",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.000002",
+                "completion": "0.0000075",
+                "input_cache_read": "0.0000001",
+                "input_cache_write": "0.0000025"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-6.1-sol-20260929/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [
+              {
+                "arena": "models",
+                "category": "website",
+                "elo": 1312,
+                "win_rate": 54.7,
+                "rank": 9
+              }
+            ],
+            "artificial_analysis": {
+              "intelligence_index": 51.8,
+              "coding_index": null,
+              "agentic_index": null
+            }
+          },
+          "reasoning": {
+            "mandatory": true,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
           "id": "openai/gpt-audio",
           "name": "OpenAI: GPT Audio",
           "canonical_slug": "openai/gpt-audio",
@@ -50742,11 +50855,9 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
-            "logprobs",
             "max_tokens",
             "presence_penalty",
             "reasoning",
-            "repetition_penalty",
             "response_format",
             "seed",
             "stop",
@@ -50754,7 +50865,6 @@
             "tool_choice",
             "tools",
             "top_k",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {
@@ -51101,6 +51211,7 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -51113,7 +51224,9 @@
             "temperature",
             "tool_choice",
             "tools",
+            "top_a",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -51338,7 +51451,6 @@
             "logprobs",
             "max_tokens",
             "presence_penalty",
-            "repetition_penalty",
             "response_format",
             "seed",
             "stop",
@@ -51844,12 +51956,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.0000015"
+            "prompt": "0.00000009",
+            "completion": "0.0000011"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 32768,
+            "context_length": 262144,
+            "max_completion_tokens": 16384,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -51875,7 +51987,7 @@
           "default_parameters": {},
           "supported_voices": null,
           "knowledge_cutoff": "2025-09-30",
-          "expiration_date": "2026-10-08",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/qwen/qwen3-next-80b-a3b-instruct-2509/endpoints"
           },
@@ -52063,7 +52175,6 @@
             "max_tokens",
             "presence_penalty",
             "reasoning",
-            "repetition_penalty",
             "response_format",
             "seed",
             "stop",
@@ -53166,8 +53277,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000045",
-            "completion": "0.0000027"
+            "prompt": "0.0000003",
+            "completion": "0.000002",
+            "input_cache_read": "0.00000003"
           },
           "top_provider": {
             "context_length": 262144,
@@ -55018,8 +55130,6 @@
             "stop",
             "structured_outputs",
             "temperature",
-            "tool_choice",
-            "tools",
             "top_k",
             "top_p"
           ],
@@ -55555,9 +55665,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -55765,9 +55875,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000834",
-            "completion": "0.000002501",
-            "input_cache_read": "0.000000042",
+            "prompt": "0.0000007506",
+            "completion": "0.0000022509",
+            "input_cache_read": "0.0000000378",
             "overrides": [
               {
                 "utc_start": 0,
@@ -60161,9 +60271,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000003",
-            "completion": "0.00001",
-            "input_cache_read": "0.00000003"
+            "prompt": "0.00000007",
+            "completion": "0.0000043",
+            "input_cache_read": "0.00000007"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -60358,7 +60468,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000059",
+            "prompt": "0.00000008",
             "completion": "0.00000339",
             "input_cache_read": "0.000000048"
           },
