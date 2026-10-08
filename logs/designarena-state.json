@@ -1,5 +1,5 @@
 {
-  "timestamp": 1791476212750,
+  "timestamp": 1791496528714,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9266,7 +9266,7 @@
       "id": "replit-slides",
       "displayName": "Replit",
       "provider": "replit",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -9864,6 +9864,51 @@
           "slides"
         ]
       }
+    },
+    {
+      "id": "claude-haiku-5-5",
+      "displayName": "Claude Haiku 5.5",
+      "provider": "anthropic",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "solar-mini4",
+      "displayName": "Solar Mini 4",
+      "provider": "upstage",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "gamedev"
+        ]
+      },
+      "vision": false,
+      "inputModalities": [
+        "text"
+      ]
     }
   ],
   "providers": [
@@ -14477,6 +14522,20 @@
       "text": {
         "input": 0.68,
         "output": 2.09
+      }
+    },
+    {
+      "id": "claude-haiku-5-5",
+      "text": {
+        "input": 0.1,
+        "output": 0.5
+      }
+    },
+    {
+      "id": "solar-mini4",
+      "text": {
+        "input": 0.1,
+        "output": 0.4
       }
     }
   ]
