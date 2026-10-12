@@ -1,5 +1,5 @@
 {
-  "timestamp": 1791767208616,
+  "timestamp": 1791795365534,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9923,6 +9923,19 @@
       "inputModalities": [
         "text"
       ]
+    },
+    {
+      "id": "heygen-voice",
+      "displayName": "HeyGen Voice",
+      "provider": "heygen",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
     }
   ],
   "providers": [
@@ -11586,6 +11599,17 @@
     {
       "id": "goldfish",
       "displayName": "goldfish",
+      "logoName": "private.png"
+    },
+    {
+      "id": "heygen",
+      "displayName": "HeyGen",
+      "logoName": "heygen.png",
+      "website": "https://www.heygen.com"
+    },
+    {
+      "id": "dakota",
+      "displayName": "dakota",
       "logoName": "private.png"
     }
   ],
@@ -14560,6 +14584,13 @@
       "text": {
         "input": 0.1,
         "output": 0.4
+      }
+    },
+    {
+      "id": "heygen-voice",
+      "text": {
+        "input": 30,
+        "output": 0
       }
     }
   ]
