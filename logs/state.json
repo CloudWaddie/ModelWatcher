@@ -17612,7 +17612,7 @@
           },
           "pricing": {
             "prompt": "0.0000000441",
-            "completion": "0.00000063",
+            "completion": "0.000000765",
             "input_cache_read": "0.0000000054"
           },
           "top_provider": {
@@ -18002,9 +18002,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000073",
-            "completion": "0.00001",
-            "input_cache_read": "0.00000055"
+            "prompt": "0.00000072",
+            "completion": "0.000024",
+            "input_cache_read": "0.0000003"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18650,9 +18650,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000055",
-            "completion": "0.000005",
-            "input_cache_read": "0.00000006"
+            "prompt": "0.000000079",
+            "completion": "0.0000048",
+            "input_cache_read": "0.000000059"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -24147,62 +24147,6 @@
           }
         },
         {
-          "id": "apodex/apodex-1.1-mini:free",
-          "name": "Apodex: Apodex 1.1 Mini (free)",
-          "canonical_slug": "apodex/apodex-1.1-mini-20261001",
-          "hugging_face_id": null,
-          "description": "Apodex 1.1 Mini is a reasoning-first model from Apodex, built for complex, long-horizon research and forecasting tasks. It works directly with files, data, code, and tools to produce verifiable results,...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0",
-            "completion": "0"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 235929,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/apodex/apodex-1.1-mini-20261001/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
           "id": "arcee-ai/trinity-large-thinking",
           "name": "Arcee AI: Trinity Large Thinking",
           "canonical_slug": "arcee-ai/trinity-large-thinking",
@@ -26359,9 +26303,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000436044",
-            "completion": "0.000000872088",
-            "input_cache_read": "0.000000036337"
+            "prompt": "0.000000400548",
+            "completion": "0.000000801096",
+            "input_cache_read": "0.000000033379"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26678,7 +26622,7 @@
           },
           "pricing": {
             "prompt": "0.0000000441",
-            "completion": "0.00000063",
+            "completion": "0.000000765",
             "input_cache_read": "0.0000000054"
           },
           "top_provider": {
@@ -31113,6 +31057,83 @@
           }
         },
         {
+          "id": "google/gemini-4-argon:batch",
+          "name": "Google: Gemini 4 Argon (batch)",
+          "canonical_slug": "google/gemini-4-argon-20261013",
+          "hugging_face_id": null,
+          "description": "Gemini 4 Argon is Google's flagship reasoning model, built for complex software engineering, deep mathematical and scientific problem solving, and autonomous multi-step agents. Google trained it to keep context across...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+file+audio+video->text",
+            "input_modalities": [
+              "audio",
+              "file",
+              "image",
+              "text",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Gemini",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000001",
+            "completion": "0.000005",
+            "image": "0.000001",
+            "audio": "0.000001",
+            "input_audio_cache": "0.00000005",
+            "web_search": "0.014",
+            "internal_reasoning": "0.000005",
+            "input_cache_read": "0.00000005",
+            "input_cache_write": "0.0000001875"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 943718,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": null,
+            "top_p": null,
+            "top_k": null,
+            "frequency_penalty": null,
+            "presence_penalty": null,
+            "repetition_penalty": null
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/google/gemini-4-argon-20261013/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
           "id": "google/gemini-nano-banana-2.1",
           "name": "Google: Nano Banana 2.1",
           "canonical_slug": "google/gemini-nano-banana-2.1-20261006",
@@ -31434,9 +31455,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.0000000765",
+            "completion": "0.000000255",
+            "input_cache_read": "0.0000000425"
           },
           "top_provider": {
             "context_length": 262144,
@@ -32273,136 +32294,12 @@
           }
         },
         {
-          "id": "inclusionai/ling-3.0-flash-fin",
-          "name": "inclusionAI: Ling 3.0 Flash Fin",
-          "canonical_slug": "inclusionai/ling-3.0-flash-fin-20260827",
-          "hugging_face_id": null,
-          "description": "Ling 3.0 Flash Fin is a finance-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for real-world investment...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000000042",
-            "completion": "0.0000001232",
-            "input_cache_read": "0.0000000084"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 32768,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/inclusionai/ling-3.0-flash-fin-20260827/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": 22.6,
-              "coding_index": 55.6,
-              "agentic_index": 27.9
-            }
-          },
-          "reasoning": {
-            "mandatory": false,
-            "default_enabled": true
-          }
-        },
-        {
-          "id": "inclusionai/ling-3.0-flash-sante",
-          "name": "inclusionAI: Ling 3.0 Flash Sante",
-          "canonical_slug": "inclusionai/ling-3.0-flash-sante-20260904",
-          "hugging_face_id": null,
-          "description": "Ling 3.0 Flash Sante is a health and medicine-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000000042",
-            "completion": "0.0000001232",
-            "input_cache_read": "0.0000000084"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 32768,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "logprobs",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "seed",
-            "stop",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/inclusionai/ling-3.0-flash-sante-20260904/endpoints"
-          },
-          "reasoning": {
-            "mandatory": false,
-            "default_enabled": true
-          }
-        },
-        {
           "id": "inclusionai/ling-3.0-flash-vl",
           "name": "inclusionAI: Ling 3.0 Flash VL",
           "canonical_slug": "inclusionai/ling-3.0-flash-vl-20260910",
           "hugging_face_id": "inclusionAI/Ling-3.0-flash-VL",
           "description": "Ling 3.0 Flash VL builds on Ling 3.0 Flash (124B total / 5.5B active MoE from InclusionAI), further strengthening its language capabilities while adding native visual perception and advanced visual...",
-          "context_length": 262144,
+          "context_length": 131072,
           "architecture": {
             "modality": "text+image+video->text",
             "input_modalities": [
@@ -32417,12 +32314,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000021",
-            "completion": "0.0000000616",
-            "input_cache_read": "0.0000000042"
+            "prompt": "0.00000006",
+            "completion": "0.00000018",
+            "input_cache_read": "0.000000012"
           },
           "top_provider": {
-            "context_length": 262144,
+            "context_length": 131072,
             "max_completion_tokens": 32768,
             "is_moderated": false
           },
@@ -32431,7 +32328,6 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
-            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -32445,7 +32341,6 @@
             "tool_choice",
             "tools",
             "top_k",
-            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -32487,8 +32382,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0",
-            "completion": "0"
+            "prompt": "0.000000075",
+            "completion": "0.000000225",
+            "input_cache_read": "0.000000015"
           },
           "top_provider": {
             "context_length": 262144,
@@ -32683,8 +32579,7 @@
             "tool_choice",
             "tools",
             "top_k",
-            "top_logprobs",
-            "top_p"
+            "top_logprobs"
           ],
           "default_parameters": {
             "temperature": 0.1,
@@ -32704,6 +32599,70 @@
               "coding_index": 7.7,
               "agentic_index": null
             }
+          },
+          "reasoning": {
+            "mandatory": true
+          }
+        },
+        {
+          "id": "liquid/lfm-2.5-24b-a2b",
+          "name": "LiquidAI: LFM2.5-24B-A2B",
+          "canonical_slug": "liquid/lfm-2.5-24b-a2b-20261012",
+          "hugging_face_id": "LiquidAI/LFM2.5-24B-A2B",
+          "description": "LFM2.5-24B-A2B is a mixture-of-experts reasoning model from Liquid AI with 24B total and 2.45B active parameters. It always reasons before answering and is built for agents that call tools. Liquid...",
+          "context_length": 128000,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000005",
+            "completion": "0.0000007",
+            "input_cache_read": "0.000000025"
+          },
+          "top_provider": {
+            "context_length": 128000,
+            "max_completion_tokens": 8192,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_completion_tokens",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs"
+          ],
+          "default_parameters": {
+            "temperature": 0.1,
+            "top_k": 50,
+            "repetition_penalty": 1.05
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/liquid/lfm-2.5-24b-a2b-20261012/endpoints"
           },
           "reasoning": {
             "mandatory": true
