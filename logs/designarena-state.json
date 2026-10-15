@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792087696971,
+  "timestamp": 1792101799745,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10076,6 +10076,113 @@
           "multimodaltovideo"
         ]
       }
+    },
+    {
+      "id": "nemotron-3.5-super-vl",
+      "displayName": "Nemotron 3.5 Super VL",
+      "provider": "nvidia",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video"
+      ]
+    },
+    {
+      "id": "flux-3-image-klein",
+      "displayName": "FLUX 3 Image Klein",
+      "provider": "black_forest_labs",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "logo",
+          "graphicdesign"
+        ]
+      }
+    },
+    {
+      "id": "flux-3-image-klein-edit",
+      "displayName": "FLUX 3 Image Klein Edit",
+      "provider": "black_forest_labs",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "imagetoimage"
+        ]
+      }
+    },
+    {
+      "id": "muse-spark-open",
+      "displayName": "Muse Spark Open (xhigh)",
+      "provider": "meta",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video"
+      ]
+    },
+    {
+      "id": "heygen-video-1",
+      "displayName": "HeyGen Video 1.0",
+      "provider": "heygen",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo",
+          "multitovideo",
+          "multimodaltovideo"
+        ]
+      }
+    },
+    {
+      "id": "ultramarine-1-flash",
+      "displayName": "Ultramarine 1 Flash",
+      "provider": "paperinstruments",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_slides"
+        ]
+      },
+      "vision": true
     }
   ],
   "providers": [
@@ -11771,6 +11878,12 @@
       "id": "hawaii",
       "displayName": "hawaii",
       "logoName": "private.png"
+    },
+    {
+      "id": "paperinstruments",
+      "displayName": "Paper Instruments",
+      "logoName": "paperinstruments.svg",
+      "website": "https://www.paperinstruments.com"
     }
   ],
   "pricing": [
@@ -14801,6 +14914,46 @@
       "id": "p-video-2-pro-reference-cost",
       "video": {
         "perSecond": 0.035
+      }
+    },
+    {
+      "id": "nemotron-3.5-super-vl",
+      "text": {
+        "input": 0.15,
+        "output": 0.5
+      }
+    },
+    {
+      "id": "flux-3-image-klein",
+      "image": {
+        "perImage": 0.009
+      }
+    },
+    {
+      "id": "flux-3-image-klein-edit",
+      "image": {
+        "perImage": 0.009
+      }
+    },
+    {
+      "id": "muse-spark-open",
+      "text": {
+        "input": 1.25,
+        "output": 4.25
+      }
+    },
+    {
+      "id": "heygen-video-1",
+      "video": {
+        "perSecond": 0.02
+      }
+    },
+    {
+      "id": "ultramarine-1-flash",
+      "text": {
+        "input": 0.15,
+        "output": 0.5,
+        "cachedInput": 0.03
       }
     }
   ]
