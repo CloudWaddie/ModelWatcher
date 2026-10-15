@@ -1017,6 +1017,9 @@
                 },
                 "disabled": {
                   "supported": false
+                },
+                "between_tools": {
+                  "supported": false
                 }
               }
             }
@@ -1102,6 +1105,9 @@
                   "supported": true
                 },
                 "disabled": {
+                  "supported": false
+                },
+                "between_tools": {
                   "supported": false
                 }
               }
@@ -1189,6 +1195,9 @@
                 },
                 "disabled": {
                   "supported": true
+                },
+                "between_tools": {
+                  "supported": false
                 }
               }
             }
@@ -1275,6 +1284,9 @@
                 },
                 "disabled": {
                   "supported": true
+                },
+                "between_tools": {
+                  "supported": false
                 }
               }
             }
@@ -1361,6 +1373,9 @@
                 },
                 "disabled": {
                   "supported": true
+                },
+                "between_tools": {
+                  "supported": false
                 }
               }
             }
@@ -1447,6 +1462,9 @@
                 },
                 "disabled": {
                   "supported": true
+                },
+                "between_tools": {
+                  "supported": false
                 }
               }
             }
@@ -1533,6 +1551,9 @@
                 },
                 "disabled": {
                   "supported": true
+                },
+                "between_tools": {
+                  "supported": false
                 }
               }
             }
@@ -1619,6 +1640,9 @@
                 },
                 "disabled": {
                   "supported": true
+                },
+                "between_tools": {
+                  "supported": false
                 }
               }
             }
@@ -1705,6 +1729,9 @@
                 },
                 "disabled": {
                   "supported": true
+                },
+                "between_tools": {
+                  "supported": false
                 }
               }
             }
@@ -1790,6 +1817,9 @@
                   "supported": true
                 },
                 "disabled": {
+                  "supported": false
+                },
+                "between_tools": {
                   "supported": false
                 }
               }
@@ -1877,6 +1907,9 @@
                 },
                 "disabled": {
                   "supported": true
+                },
+                "between_tools": {
+                  "supported": false
                 }
               }
             }
@@ -1963,6 +1996,9 @@
                 },
                 "disabled": {
                   "supported": true
+                },
+                "between_tools": {
+                  "supported": false
                 }
               }
             }
@@ -2049,6 +2085,9 @@
                 },
                 "disabled": {
                   "supported": true
+                },
+                "between_tools": {
+                  "supported": false
                 }
               }
             }
@@ -2135,6 +2174,9 @@
                 },
                 "disabled": {
                   "supported": false
+                },
+                "between_tools": {
+                  "supported": true
                 }
               }
             }
@@ -17745,9 +17787,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000216",
-            "completion": "0.00000072",
-            "input_cache_read": "0.0000000054"
+            "prompt": "0.0000000115",
+            "completion": "0.0000008",
+            "input_cache_read": "0.00000001"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17895,9 +17937,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000117",
+            "prompt": "0.0000000094",
             "completion": "0.00000064",
-            "input_cache_read": "0.0000000117"
+            "input_cache_read": "0.0000000094"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18129,9 +18171,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000034",
-            "completion": "0.000024",
-            "input_cache_read": "0.00000033"
+            "prompt": "0.00000031",
+            "completion": "0.000014",
+            "input_cache_read": "0.0000003"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18751,7 +18793,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000003204",
+            "prompt": "0.0000000225",
             "completion": "0.0000009",
             "input_cache_read": "0.00000001125"
           },
@@ -26154,9 +26196,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000117",
+            "prompt": "0.0000000094",
             "completion": "0.00000064",
-            "input_cache_read": "0.0000000117"
+            "input_cache_read": "0.0000000094"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26370,9 +26412,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000375144",
-            "completion": "0.000000750288",
-            "input_cache_read": "0.000000031262"
+            "prompt": "0.000000346434",
+            "completion": "0.000000692868",
+            "input_cache_read": "0.0000000288695"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26690,13 +26732,94 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000216",
-            "completion": "0.00000072",
-            "input_cache_read": "0.0000000054"
+            "prompt": "0.00000015",
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000003",
+            "overrides": [
+              {
+                "utc_days": [
+                  "saturday",
+                  "sunday"
+                ],
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 0,
+                "utc_end": 100,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 100,
+                "utc_end": 400,
+                "prompt": "0.0000003",
+                "completion": "0.0000012",
+                "input_cache_read": "0.000000006"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 400,
+                "utc_end": 600,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 600,
+                "utc_end": 1000,
+                "prompt": "0.0000003",
+                "completion": "0.0000012",
+                "input_cache_read": "0.000000006"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 1000,
+                "utc_end": 0,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              }
+            ]
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 393216,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -37626,6 +37749,110 @@
           }
         },
         {
+          "id": "moondream/moondream3-preview",
+          "name": "Moondream: Moondream 3 Preview",
+          "canonical_slug": "moondream/moondream3-preview-20261013",
+          "hugging_face_id": "moondream/moondream3-preview",
+          "description": "Moondream 3 Preview is a vision-language model from Moondream with 9B total parameters and 2B active (mixture-of-experts). It handles visual question answering, captioning, OCR, and visual reasoning over images, with...",
+          "context_length": 32000,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000003",
+            "completion": "0.0000025"
+          },
+          "top_provider": {
+            "context_length": 32000,
+            "max_completion_tokens": 4096,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "temperature",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.2,
+            "top_p": 0.9
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/moondream/moondream3-preview-20261013/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false
+          }
+        },
+        {
+          "id": "moondream/moondream3.1-9b-a2b",
+          "name": "Moondream: Moondream 3.1",
+          "canonical_slug": "moondream/moondream3.1-9b-a2b-20261013",
+          "hugging_face_id": "moondream/moondream3.1-9B-A2B",
+          "description": "Moondream 3.1 is a vision-language model from Moondream, the successor to Moondream 3 Preview, with 9B total parameters and 2B active (mixture-of-experts). It handles visual question answering, captioning, OCR, and...",
+          "context_length": 32000,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000003",
+            "completion": "0.0000025"
+          },
+          "top_provider": {
+            "context_length": 32000,
+            "max_completion_tokens": 4096,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_completion_tokens",
+            "max_tokens",
+            "reasoning",
+            "temperature",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 0.2,
+            "top_p": 0.9
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/moondream/moondream3.1-9b-a2b-20261013/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": false
+          }
+        },
+        {
           "id": "moonshotai/kimi-k2",
           "name": "MoonshotAI: Kimi K2 0711",
           "canonical_slug": "moonshotai/kimi-k2",
@@ -43070,14 +43297,14 @@
           },
           "reasoning": {
             "mandatory": false,
-            "default_enabled": true,
+            "default_enabled": false,
             "supported_efforts": [
               "high",
               "medium",
               "low",
               "none"
             ],
-            "default_effort": "none"
+            "default_effort": "medium"
           }
         },
         {
@@ -43537,14 +43764,14 @@
           },
           "reasoning": {
             "mandatory": false,
-            "default_enabled": true,
+            "default_enabled": false,
             "supported_efforts": [
               "high",
               "medium",
               "low",
               "none"
             ],
-            "default_effort": "none"
+            "default_effort": "medium"
           }
         },
         {
@@ -55255,7 +55482,7 @@
           "pricing": {
             "prompt": "0.000001",
             "completion": "0.0000027",
-            "input_cache_read": "0.00000005"
+            "input_cache_read": "0.0000001"
           },
           "top_provider": {
             "context_length": 1000000,
@@ -60115,9 +60342,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
+            "prompt": "0.000000037",
             "completion": "0.000007",
-            "input_cache_read": "0.000000099"
+            "input_cache_read": "0.000000036"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -60313,9 +60540,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000011",
-            "completion": "0.000006",
-            "input_cache_read": "0.000000109"
+            "prompt": "0.0000004",
+            "completion": "0.000008",
+            "input_cache_read": "0.000000399"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -60474,13 +60701,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.0000005",
-            "input_cache_read": "0.00000003"
+            "prompt": "0.0000000225",
+            "completion": "0.0000009",
+            "input_cache_read": "0.00000001125"
           },
           "top_provider": {
-            "context_length": 1048575,
-            "max_completion_tokens": 943717,
+            "context_length": 1048576,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
