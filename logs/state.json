@@ -15225,6 +15225,35 @@
           }
         },
         {
+          "id": "stepfun-ai/Step-5-Preview",
+          "name": "stepfun-ai/Step-5-Preview",
+          "owned_by": "deepinfra",
+          "root": "stepfun-ai/Step-5-Preview",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "Step 5 Preview is StepFun's flagship model for agentic work. It is a sparse Mixture-of-Experts model with 600B total parameters and 27B active per token, a 1M-token context window, and text and image input. It delivers frontier-level performance in software engineering, long-horizon agentic execution with repeated tool calls, and professional knowledge work, with particular strength in finance.",
+            "context_length": 1048576,
+            "max_tokens": 1048576,
+            "pricing": {
+              "input_tokens": 1,
+              "output_tokens": 2.7,
+              "cache_read_tokens": 0.05
+            },
+            "discount": null,
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "tencent/Hy4-preview",
           "name": "tencent/Hy4-preview",
           "owned_by": "deepinfra",
@@ -17620,7 +17649,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000001584",
+            "prompt": "0.00000001368",
             "completion": "0.000000891",
             "input_cache_read": "0.0000000054"
           },
@@ -17900,8 +17929,8 @@
           "name": "Google: Gemini Pro Latest",
           "canonical_slug": "~google/gemini-pro-latest",
           "alias_target": {
-            "name": "Google: Gemini 3.1 Pro Preview",
-            "slug": "google/gemini-3.1-pro-preview"
+            "name": "Google: Gemini 4 Argon",
+            "slug": "google/gemini-4-argon"
           },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the Gemini Pro family.",
@@ -17923,24 +17952,14 @@
           },
           "pricing": {
             "prompt": "0.000002",
-            "completion": "0.000012",
+            "completion": "0.00001",
             "image": "0.000002",
             "audio": "0.000002",
-            "input_audio_cache": "0.0000002",
+            "input_audio_cache": "0.0000001",
             "web_search": "0.014",
-            "internal_reasoning": "0.000012",
-            "input_cache_read": "0.0000002",
-            "input_cache_write": "0.000000375",
-            "overrides": [
-              {
-                "min_prompt_tokens": 200000,
-                "prompt": "0.000004",
-                "completion": "0.000018",
-                "audio": "0.000004",
-                "input_audio_cache": "0.0000004",
-                "input_cache_read": "0.0000004"
-              }
-            ]
+            "internal_reasoning": "0.00001",
+            "input_cache_read": "0.0000001",
+            "input_cache_write": "0.0000001875"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18011,9 +18030,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000042",
-            "completion": "0.000014",
-            "input_cache_read": "0.0000003"
+            "prompt": "0.00000029",
+            "completion": "0.000024",
+            "input_cache_read": "0.00000028"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18709,9 +18728,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000608",
+            "prompt": "0.00000006",
             "completion": "0.0000044",
-            "input_cache_read": "0.0000000565"
+            "input_cache_read": "0.0000000558"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26680,7 +26699,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000001584",
+            "prompt": "0.00000001368",
             "completion": "0.000000891",
             "input_cache_read": "0.0000000054"
           },
@@ -31604,9 +31623,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000765",
-            "completion": "0.000000255",
-            "input_cache_read": "0.0000000425"
+            "prompt": "0.00000009",
+            "completion": "0.0000003",
+            "input_cache_read": "0.00000005"
           },
           "top_provider": {
             "context_length": 262144,
@@ -33141,12 +33160,12 @@
             "instruct_type": "llama3"
           },
           "pricing": {
-            "prompt": "0.00000005",
-            "completion": "0.00000033"
+            "prompt": "0.0000000509",
+            "completion": "0.000000335"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 117964,
+            "context_length": 80000,
+            "max_completion_tokens": 72000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -38390,7 +38409,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000048",
+            "prompt": "0.00000045",
             "completion": "0.000015",
             "input_cache_read": "0.00000028"
           },
@@ -55016,9 +55035,9 @@
           "id": "stepfun/step-5-preview",
           "name": "StepFun: Step 5 Preview",
           "canonical_slug": "stepfun/step-5-preview-20261008",
-          "hugging_face_id": null,
+          "hugging_face_id": "stepfun-ai/Step-5-Preview",
           "description": "Step 5 Preview is StepFun's flagship model for agentic work, built on a sparse Mixture-of-Experts architecture (27B active / 600B total parameters). It performs strongly in software engineering and professional...",
-          "context_length": 1000000,
+          "context_length": 1048576,
           "architecture": {
             "modality": "text+image+video->text",
             "input_modalities": [
@@ -55046,15 +55065,22 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
             "logprobs",
             "max_tokens",
+            "min_p",
+            "presence_penalty",
             "reasoning",
             "reasoning_effort",
+            "repetition_penalty",
             "response_format",
+            "seed",
             "stop",
             "structured_outputs",
             "temperature",
+            "tool_choice",
             "tools",
+            "top_k",
             "top_logprobs",
             "top_p"
           ],
@@ -59934,7 +59960,7 @@
           },
           "pricing": {
             "prompt": "0.000000037",
-            "completion": "0.0000044",
+            "completion": "0.000007",
             "input_cache_read": "0.000000036"
           },
           "top_provider": {
