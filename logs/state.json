@@ -106,7 +106,7 @@
           "name": "gpt-4.1",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-14"
         },
         {
           "id": "gpt-4.1-2025-04-14",
@@ -120,7 +120,7 @@
           "name": "gpt-4.1-mini",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-14"
         },
         {
           "id": "gpt-4.1-mini-2025-04-14",
@@ -148,7 +148,7 @@
           "name": "gpt-4o",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-14"
         },
         {
           "id": "gpt-4o-2024-05-13",
@@ -176,7 +176,7 @@
           "name": "gpt-4o-mini",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-14"
         },
         {
           "id": "gpt-4o-mini-2024-07-18",
@@ -5732,6 +5732,62 @@
           }
         },
         {
+          "id": "meta-models/Muse-Spark-Open-816B-A42B",
+          "name": "meta-models/Muse-Spark-Open-816B-A42B",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Muse Spark Open 816B A42B",
+          "organization": "Meta",
+          "context_length": 1048576,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 1.25,
+            "output": 4.25,
+            "base": 0,
+            "finetune": 0,
+            "cached_input": 0.15,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
+          "id": "meta-models/Muse-Spark-Open-816B-A42B-promo",
+          "name": "meta-models/Muse-Spark-Open-816B-A42B-promo",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Muse Spark Open 816B A42B Promo (Free until 10/18)",
+          "organization": "Meta",
+          "context_length": 1048576,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0,
+            "output": 0,
+            "base": 0,
+            "finetune": 0,
+            "cached_input": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "minimax/hailuo-02",
           "name": "minimax/hailuo-02",
           "uuid": "endpoint-68520084-c967-42b6-bff4-a63b660bd0cf",
@@ -11084,6 +11140,17 @@
           "context_length": 512000
         },
         {
+          "id": "accounts/fireworks/models/muse-spark-open",
+          "name": "accounts/fireworks/models/muse-spark-open",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": false,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
           "id": "accounts/fireworks/models/nemotron-3-ultra-nvfp4",
           "name": "accounts/fireworks/models/nemotron-3-ultra-nvfp4",
           "owned_by": "fireworks",
@@ -13209,7 +13276,7 @@
               "output_tokens": 0.9,
               "cache_read_tokens": 0.06
             },
-            "discount": null,
+            "discount": 0.3,
             "tags": [
               "chat",
               "prompt_cache",
@@ -17508,7 +17575,8 @@
               "xhigh",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -17722,7 +17790,8 @@
             "supported_efforts": [
               "max",
               "high",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -17797,7 +17866,8 @@
             "supported_efforts": [
               "max",
               "high",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -17825,9 +17895,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000144",
-            "completion": "0.000000576",
-            "input_cache_read": "0.0000000108"
+            "prompt": "0.0000000117",
+            "completion": "0.00000064",
+            "input_cache_read": "0.0000000117"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17872,7 +17942,8 @@
             "supported_efforts": [
               "max",
               "high",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -18058,9 +18129,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000041",
-            "completion": "0.0000149",
-            "input_cache_read": "0.0000004"
+            "prompt": "0.00000034",
+            "completion": "0.000024",
+            "input_cache_read": "0.00000033"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18110,7 +18181,8 @@
             "supported_efforts": [
               "max",
               "high",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "max"
           }
@@ -18679,7 +18751,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000036",
+            "prompt": "0.00000003204",
             "completion": "0.0000009",
             "input_cache_read": "0.00000001125"
           },
@@ -20599,7 +20671,8 @@
               "xhigh",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -20725,7 +20798,8 @@
               "xhigh",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -21453,7 +21527,8 @@
               "max",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -21621,7 +21696,8 @@
               "max",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -21696,7 +21772,8 @@
               "xhigh",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -21770,7 +21847,8 @@
               "xhigh",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -21993,7 +22071,8 @@
               "xhigh",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -22215,7 +22294,8 @@
               "xhigh",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -22396,7 +22476,8 @@
               "xhigh",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -22576,7 +22657,8 @@
               "xhigh",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -23335,7 +23417,8 @@
               "max",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -23508,7 +23591,8 @@
               "max",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -23696,7 +23780,8 @@
               "xhigh",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -23883,7 +23968,8 @@
               "xhigh",
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -24490,7 +24576,8 @@
             "supported_efforts": [
               "high",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -24566,7 +24653,8 @@
               "high",
               "medium",
               "low",
-              "minimal"
+              "minimal",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -24639,7 +24727,8 @@
               "high",
               "medium",
               "low",
-              "minimal"
+              "minimal",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -26040,7 +26129,8 @@
             "mandatory": false,
             "supported_efforts": [
               "xhigh",
-              "high"
+              "high",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -26064,9 +26154,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000016",
+            "prompt": "0.0000000117",
             "completion": "0.00000064",
-            "input_cache_read": "0.000000016"
+            "input_cache_read": "0.0000000117"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26176,7 +26266,8 @@
             "supported_efforts": [
               "max",
               "high",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -26254,7 +26345,8 @@
             "supported_efforts": [
               "max",
               "high",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -26278,9 +26370,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000041064",
-            "completion": "0.00000082128",
-            "input_cache_read": "0.00000003422"
+            "prompt": "0.000000375144",
+            "completion": "0.000000750288",
+            "input_cache_read": "0.000000031262"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26411,7 +26503,8 @@
             "mandatory": false,
             "supported_efforts": [
               "xhigh",
-              "high"
+              "high",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -26571,7 +26664,8 @@
             "supported_efforts": [
               "max",
               "high",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -26649,7 +26743,8 @@
             "supported_efforts": [
               "max",
               "high",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -26725,7 +26820,8 @@
             "supported_efforts": [
               "max",
               "high",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -26844,7 +26940,8 @@
             "supported_efforts": [
               "max",
               "high",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "max"
           }
@@ -27830,7 +27927,8 @@
               "high",
               "medium",
               "low",
-              "minimal"
+              "minimal",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -27998,7 +28096,8 @@
               "high",
               "medium",
               "low",
-              "minimal"
+              "minimal",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -28216,7 +28315,8 @@
             "default_enabled": true,
             "supported_efforts": [
               "high",
-              "minimal"
+              "minimal",
+              "none"
             ],
             "default_effort": "minimal"
           }
@@ -28308,7 +28408,8 @@
             "default_enabled": true,
             "supported_efforts": [
               "high",
-              "minimal"
+              "minimal",
+              "none"
             ],
             "default_effort": "minimal"
           }
@@ -28387,7 +28488,8 @@
               "high",
               "medium",
               "low",
-              "minimal"
+              "minimal",
+              "none"
             ],
             "default_effort": "minimal"
           }
@@ -28446,7 +28548,8 @@
             "default_enabled": true,
             "supported_efforts": [
               "high",
-              "minimal"
+              "minimal",
+              "none"
             ],
             "default_effort": "minimal"
           }
@@ -28589,7 +28692,8 @@
               "high",
               "medium",
               "low",
-              "minimal"
+              "minimal",
+              "none"
             ],
             "default_effort": "minimal"
           }
@@ -28667,7 +28771,8 @@
               "high",
               "medium",
               "low",
-              "minimal"
+              "minimal",
+              "none"
             ],
             "default_effort": "minimal"
           }
@@ -30623,14 +30728,14 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000075",
-            "completion": "0.00000375",
-            "image": "0.00000075",
-            "audio": "0.00000075",
-            "input_audio_cache": "0.000000075",
+            "prompt": "0.000000825",
+            "completion": "0.000004125",
+            "image": "0.000000825",
+            "audio": "0.000000825",
+            "input_audio_cache": "0.0000000825",
             "web_search": "0.014",
-            "internal_reasoning": "0.00000375",
-            "input_cache_read": "0.000000075",
+            "internal_reasoning": "0.000004125",
+            "input_cache_read": "0.0000000825",
             "input_cache_write": "0.0000000416666666666667"
           },
           "top_provider": {
@@ -31253,7 +31358,8 @@
             "default_enabled": true,
             "supported_efforts": [
               "high",
-              "minimal"
+              "minimal",
+              "none"
             ],
             "default_effort": "minimal"
           }
@@ -31520,9 +31626,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.0000000765",
+            "completion": "0.000000255",
+            "input_cache_read": "0.0000000425"
           },
           "top_provider": {
             "context_length": 262144,
@@ -34160,6 +34266,79 @@
               "medium",
               "low",
               "minimal"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "meta/muse-spark-open",
+          "name": "Meta: Muse Spark Open",
+          "canonical_slug": "meta/muse-spark-open-20261015",
+          "hugging_face_id": "meta-models/Muse-Spark-Open-816B-A42B",
+          "description": "Muse Spark Open is a coding-optimized open-weight model. Trained specifically for agentic coding workflows, it delivers higher first-attempt accuracy, reliable tool calling, and deep codebase understanding across the repos developers...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+file+audio+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video",
+              "file",
+              "audio"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000125",
+            "completion": "0.00000425",
+            "input_cache_read": "0.00000015"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 943718,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "logprobs",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/meta/muse-spark-open-20261015/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true,
+            "supported_efforts": [
+              "xhigh",
+              "high",
+              "medium",
+              "low"
             ],
             "default_effort": "medium"
           }
@@ -38306,8 +38485,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000045",
-            "completion": "0.0000165",
+            "prompt": "0.000000405",
+            "completion": "0.000015",
             "input_cache_read": "0.00000028"
           },
           "top_provider": {
@@ -38472,7 +38651,8 @@
             "supported_efforts": [
               "max",
               "high",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "max"
           }
@@ -38662,7 +38842,8 @@
             "supported_efforts": [
               "max",
               "high",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "max"
           }
@@ -39275,7 +39456,8 @@
             "supports_max_tokens": true,
             "supported_efforts": [
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -39349,7 +39531,8 @@
             "supports_max_tokens": true,
             "supported_efforts": [
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "medium"
           }
@@ -39488,7 +39671,8 @@
             "supports_max_tokens": true,
             "supported_efforts": [
               "high",
-              "medium"
+              "medium",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -39617,7 +39801,8 @@
             "supports_max_tokens": true,
             "supported_efforts": [
               "high",
-              "medium"
+              "medium",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -43218,7 +43403,7 @@
             }
           },
           "reasoning": {
-            "mandatory": false,
+            "mandatory": true,
             "supported_efforts": [
               "high",
               "medium",
@@ -48859,7 +49044,7 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": true
           }
         },
         {
@@ -48917,7 +49102,7 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": true
           }
         },
         {
@@ -49014,7 +49199,7 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": true
           }
         },
         {
@@ -49081,7 +49266,7 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": true
           }
         },
         {
@@ -49217,7 +49402,7 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": true
           }
         },
         {
@@ -49281,7 +49466,7 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": true
           }
         },
         {
@@ -49378,7 +49563,7 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": true
           }
         },
         {
@@ -49482,7 +49667,7 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": true
           }
         },
         {
@@ -49648,7 +49833,7 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": true
           }
         },
         {
@@ -50227,7 +50412,7 @@
             "details": "/api/v1/models/perplexity/sonar-deep-research/endpoints"
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": true
           }
         },
         {
@@ -50399,7 +50584,7 @@
             }
           },
           "reasoning": {
-            "mandatory": false
+            "mandatory": true
           }
         },
         {
@@ -50662,7 +50847,8 @@
             "default_enabled": true,
             "supported_efforts": [
               "xhigh",
-              "medium"
+              "medium",
+              "none"
             ],
             "default_effort": "xhigh"
           }
@@ -53829,7 +54015,8 @@
             "supported_efforts": [
               "xhigh",
               "medium",
-              "low"
+              "low",
+              "none"
             ],
             "default_effort": "xhigh"
           }
@@ -60101,7 +60288,8 @@
             "default_enabled": true,
             "supported_efforts": [
               "xhigh",
-              "high"
+              "high",
+              "none"
             ],
             "default_effort": "high"
           }
@@ -60125,9 +60313,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.0000048",
-            "input_cache_read": "0.000000099"
+            "prompt": "0.00000011",
+            "completion": "0.000006",
+            "input_cache_read": "0.000000109"
           },
           "top_provider": {
             "context_length": 1048576,
