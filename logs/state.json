@@ -113,7 +113,7 @@
           "name": "gpt-4.1-2025-04-14",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-14"
         },
         {
           "id": "gpt-4.1-mini",
@@ -127,7 +127,7 @@
           "name": "gpt-4.1-mini-2025-04-14",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-14"
         },
         {
           "id": "gpt-4.1-nano",
@@ -162,14 +162,14 @@
           "name": "gpt-4o-2024-08-06",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-14"
         },
         {
           "id": "gpt-4o-2024-11-20",
           "name": "gpt-4o-2024-11-20",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-14"
         },
         {
           "id": "gpt-4o-mini",
@@ -183,7 +183,7 @@
           "name": "gpt-4o-mini-2024-07-18",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-14"
         },
         {
           "id": "gpt-4o-mini-search-preview",
@@ -232,14 +232,14 @@
           "name": "gpt-4o-mini-tts-2025-03-20",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": "2026-07-23"
+          "shutdown_date": "2027-01-06"
         },
         {
           "id": "gpt-4o-mini-tts-2025-12-15",
           "name": "gpt-4o-mini-tts-2025-12-15",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-06"
         },
         {
           "id": "gpt-4o-search-preview",
@@ -358,7 +358,7 @@
           "name": "gpt-5.1",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-04-01"
         },
         {
           "id": "gpt-5.1-2025-11-13",
@@ -449,7 +449,7 @@
           "name": "gpt-5.3-codex",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-04-01"
         },
         {
           "id": "gpt-5.4",
@@ -484,7 +484,7 @@
           "name": "gpt-5.4-nano",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-04-01"
         },
         {
           "id": "gpt-5.4-nano-2026-03-17",
@@ -904,7 +904,7 @@
           "name": "tts-1",
           "owned_by": "openai-internal",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-06"
         },
         {
           "id": "tts-1-1106",
@@ -918,7 +918,7 @@
           "name": "tts-1-hd",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-06"
         },
         {
           "id": "tts-1-hd-1106",
@@ -7099,6 +7099,34 @@
             "output": 0,
             "base": 0,
             "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
+          "id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+          "name": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "NVIDIA Nemotron 3.5 Super VL",
+          "organization": "NVIDIA",
+          "context_length": 262144,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0.15,
+            "output": 0.5,
+            "base": 0,
+            "finetune": 0,
+            "cached_input": 0.02,
             "image_pixel": 0,
             "transcribe": 0,
             "image": 0,
@@ -13937,6 +13965,35 @@
           }
         },
         {
+          "id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+          "name": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+          "owned_by": "deepinfra",
+          "root": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "NVIDIA Nemotron 3.5 Super VL is an open multimodal model for agents that see, reason, and act. Its 120B-parameter Mixture-of-Experts design (12B active) understands text, images, documents, GUIs, and video, and adds reasoning and tool use on top.",
+            "context_length": 262144,
+            "max_tokens": 262144,
+            "pricing": {
+              "input_tokens": 0.2,
+              "output_tokens": 1,
+              "cache_read_tokens": 0.1
+            },
+            "discount": null,
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "openai/gpt-oss-120b",
           "name": "openai/gpt-oss-120b",
           "owned_by": "deepinfra",
@@ -17620,7 +17677,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000002376",
+            "prompt": "0.0000000216",
             "completion": "0.00000072",
             "input_cache_read": "0.0000000054"
           },
@@ -17693,9 +17750,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000225",
+            "prompt": "0.0000001307",
             "completion": "0.000008",
-            "input_cache_read": "0.00000023"
+            "input_cache_read": "0.00000013"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18001,9 +18058,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000029",
-            "completion": "0.000024",
-            "input_cache_read": "0.00000028"
+            "prompt": "0.00000041",
+            "completion": "0.0000149",
+            "input_cache_read": "0.0000004"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18699,9 +18756,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000063",
+            "prompt": "0.0000000608",
             "completion": "0.0000044",
-            "input_cache_read": "0.0000000586"
+            "input_cache_read": "0.0000000565"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -22786,137 +22843,6 @@
           }
         },
         {
-          "id": "anthropic/claude-sonnet-4",
-          "name": "Anthropic: Claude Sonnet 4",
-          "canonical_slug": "anthropic/claude-4-sonnet-20250522",
-          "hugging_face_id": "",
-          "description": "Claude Sonnet 4 significantly enhances the capabilities of its predecessor, Sonnet 3.7, excelling in both coding and reasoning tasks with improved precision and controllability. Achieving state-of-the-art performance on SWE-bench (72.7%),...",
-          "context_length": 200000,
-          "architecture": {
-            "modality": "text+image+file->text",
-            "input_modalities": [
-              "image",
-              "text",
-              "file"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Claude",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000003",
-            "completion": "0.000015",
-            "web_search": "0.01",
-            "input_cache_read": "0.0000003",
-            "input_cache_write": "0.00000375",
-            "input_cache_write_1h": "0.000006",
-            "overrides": [
-              {
-                "min_prompt_tokens": 200000,
-                "prompt": "0.000006",
-                "completion": "0.0000225",
-                "input_cache_read": "0.0000006",
-                "input_cache_write": "0.0000075",
-                "input_cache_write_1h": "0.000012"
-              }
-            ]
-          },
-          "top_provider": {
-            "context_length": 200000,
-            "max_completion_tokens": 64000,
-            "is_moderated": true
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "stop",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-01-31",
-          "expiration_date": "2026-10-15",
-          "links": {
-            "details": "/api/v1/models/anthropic/claude-4-sonnet-20250522/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 1140,
-                "win_rate": 57.8,
-                "rank": 70
-              },
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1143,
-                "win_rate": 53.4,
-                "rank": 88
-              },
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 1159,
-                "win_rate": 56.5,
-                "rank": 77
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 1142,
-                "win_rate": 54.8,
-                "rank": 75
-              },
-              {
-                "arena": "models",
-                "category": "svg",
-                "elo": 1078,
-                "win_rate": 51.1,
-                "rank": 66
-              },
-              {
-                "arena": "models",
-                "category": "uicomponent",
-                "elo": 1128,
-                "win_rate": 57.9,
-                "rank": 84
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1147,
-                "win_rate": 52.4,
-                "rank": 89
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": 18.9,
-              "coding_index": 37.6,
-              "agentic_index": null
-            }
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
           "id": "anthropic/claude-sonnet-4.5",
           "name": "Anthropic: Claude Sonnet 4.5",
           "canonical_slug": "anthropic/claude-4.5-sonnet-20250929",
@@ -26352,9 +26278,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000095526",
-            "completion": "0.00000191052",
-            "input_cache_read": "0.000000079605"
+            "prompt": "0.00000041064",
+            "completion": "0.00000082128",
+            "input_cache_read": "0.00000003422"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26670,7 +26596,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000002376",
+            "prompt": "0.0000000216",
             "completion": "0.00000072",
             "input_cache_read": "0.0000000054"
           },
@@ -37325,11 +37251,11 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000075",
-            "completion": "0.0000002"
+            "prompt": "0.00000009375",
+            "completion": "0.00000025"
           },
           "top_provider": {
-            "context_length": 128000,
+            "context_length": 256000,
             "max_completion_tokens": 16384,
             "is_moderated": false
           },
@@ -38381,7 +38307,7 @@
           },
           "pricing": {
             "prompt": "0.00000045",
-            "completion": "0.000015",
+            "completion": "0.0000165",
             "input_cache_read": "0.00000028"
           },
           "top_provider": {
@@ -39936,6 +39862,122 @@
               "coding_index": 26.8,
               "agentic_index": 3.5
             }
+          },
+          "reasoning": {
+            "mandatory": false
+          }
+        },
+        {
+          "id": "nvidia/nemotron-3.5-super-vl",
+          "name": "NVIDIA: Nemotron 3.5 Super VL",
+          "canonical_slug": "nvidia/nemotron-3.5-super-vl-20261015",
+          "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+          "description": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model from NVIDIA, with 12B active parameters out of 120B total. It takes text, images, documents, GUI screenshots, and video...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000015",
+            "completion": "0.0000005",
+            "input_cache_read": "0.00000002"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "logprobs",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/nemotron-3.5-super-vl-20261015/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
+          }
+        },
+        {
+          "id": "nvidia/nemotron-3.5-super-vl:free",
+          "name": "NVIDIA: Nemotron 3.5 Super VL (free)",
+          "canonical_slug": "nvidia/nemotron-3.5-super-vl-20261015",
+          "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+          "description": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model from NVIDIA, with 12B active parameters out of 120B total. It takes text, images, documents, GUI screenshots, and video...",
+          "context_length": 1000000,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 1000000,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/nvidia/nemotron-3.5-super-vl-20261015/endpoints"
           },
           "reasoning": {
             "mandatory": false
@@ -52880,12 +52922,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000032",
-            "completion": "0.0000032"
+            "prompt": "0.00000025",
+            "completion": "0.000002",
+            "input_cache_read": "0.000000025"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 81920,
+            "max_completion_tokens": 65536,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -55286,9 +55329,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -55496,9 +55539,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000834",
-            "completion": "0.000002501",
-            "input_cache_read": "0.000000042",
+            "prompt": "0.0000007506",
+            "completion": "0.0000022509",
+            "input_cache_read": "0.0000000378",
             "overrides": [
               {
                 "utc_start": 0,
@@ -56244,51 +56287,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/typesafe/jev-router/endpoints"
-          }
-        },
-        {
-          "id": "unbiased/pareto-26.10-preview",
-          "name": "Pareto 26.10 Preview",
-          "canonical_slug": "unbiased/pareto-26.10-preview-20260929",
-          "hugging_face_id": null,
-          "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks. This is a preview of the...",
-          "context_length": 1048576,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Other",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000008",
-            "completion": "0.0000032",
-            "input_cache_read": "0.00000003"
-          },
-          "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 131072,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "max_tokens",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": "2026-10-15",
-          "links": {
-            "details": "/api/v1/models/unbiased/pareto-26.10-preview-20260929/endpoints"
           }
         },
         {
@@ -59930,9 +59928,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000002",
+            "prompt": "0.0000001",
             "completion": "0.000007",
-            "input_cache_read": "0.000000019"
+            "input_cache_read": "0.000000099"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -60127,9 +60125,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000079",
+            "prompt": "0.0000001",
             "completion": "0.0000048",
-            "input_cache_read": "0.000000078"
+            "input_cache_read": "0.000000099"
           },
           "top_provider": {
             "context_length": 1048576,
