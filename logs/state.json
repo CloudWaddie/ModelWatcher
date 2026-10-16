@@ -13346,7 +13346,7 @@
               "output_tokens": 0.9,
               "cache_read_tokens": 0.06
             },
-            "discount": 0.3,
+            "discount": null,
             "tags": [
               "chat",
               "prompt_cache",
@@ -14113,9 +14113,9 @@
             "context_length": 262144,
             "max_tokens": 262144,
             "pricing": {
-              "input_tokens": 0.2,
-              "output_tokens": 1,
-              "cache_read_tokens": 0.1
+              "input_tokens": 0.1,
+              "output_tokens": 0.4,
+              "cache_read_tokens": 0.08000000000000002
             },
             "discount": null,
             "tags": [
@@ -15432,9 +15432,9 @@
             "pricing": {
               "input_tokens": 1,
               "output_tokens": 2.7,
-              "cache_read_tokens": 0.05
+              "cache_read_tokens": 0.1
             },
-            "discount": 0.05,
+            "discount": null,
             "tags": [
               "chat",
               "vlm",
@@ -17816,7 +17816,7 @@
           },
           "pricing": {
             "prompt": "0.000000036",
-            "completion": "0.0000006633",
+            "completion": "0.0000006435",
             "input_cache_read": "0.0000000054"
           },
           "top_provider": {
@@ -17965,9 +17965,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000000522",
-            "completion": "0.000001152",
-            "input_cache_read": "0.00000000522"
+            "prompt": "0.0000000131",
+            "completion": "0.00000128",
+            "input_cache_read": "0.0000000131"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18200,7 +18200,7 @@
           },
           "pricing": {
             "prompt": "0.000000294",
-            "completion": "0.000028",
+            "completion": "0.000024",
             "input_cache_read": "0.000000284"
           },
           "top_provider": {
@@ -18821,8 +18821,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000002772",
-            "completion": "0.0000009",
+            "prompt": "0.00000001494",
+            "completion": "0.00000070272",
             "input_cache_read": "0.00000001125"
           },
           "top_provider": {
@@ -26224,9 +26224,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000058",
+            "prompt": "0.0000000131",
             "completion": "0.00000128",
-            "input_cache_read": "0.0000000058"
+            "input_cache_read": "0.0000000131"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26440,9 +26440,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000327642",
-            "completion": "0.000000655284",
-            "input_cache_read": "0.0000000273035"
+            "prompt": "0.000000297192",
+            "completion": "0.000000594384",
+            "input_cache_read": "0.000000024766"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26761,7 +26761,7 @@
           },
           "pricing": {
             "prompt": "0.000000036",
-            "completion": "0.0000006633",
+            "completion": "0.0000006435",
             "input_cache_read": "0.0000000054"
           },
           "top_provider": {
@@ -26839,13 +26839,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000112",
-            "completion": "0.000000336",
-            "input_cache_read": "0.00000000336"
+            "prompt": "0.00000005",
+            "completion": "0.00000015",
+            "input_cache_read": "0.000000004"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": 384000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -26853,6 +26853,7 @@
             "frequency_penalty",
             "include_reasoning",
             "logit_bias",
+            "logprobs",
             "max_tokens",
             "min_p",
             "presence_penalty",
@@ -26867,6 +26868,7 @@
             "tool_choice",
             "tools",
             "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -31710,9 +31712,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.0000000675",
+            "completion": "0.000000225",
+            "input_cache_read": "0.0000000375"
           },
           "top_provider": {
             "context_length": 262144,
@@ -38673,7 +38675,7 @@
           },
           "pricing": {
             "prompt": "0.000000304",
-            "completion": "0.000012533",
+            "completion": "0.000011936",
             "input_cache_read": "0.00000021"
           },
           "top_provider": {
@@ -54577,6 +54579,7 @@
             "logit_bias",
             "logprobs",
             "max_tokens",
+            "min_p",
             "presence_penalty",
             "reasoning",
             "reasoning_effort",
@@ -59094,6 +59097,68 @@
           }
         },
         {
+          "id": "xingchen-agi/xing4.0-29b-a4b:free",
+          "name": "XingChen: Xing4.0 29B A4B (free)",
+          "canonical_slug": "xingchen-agi/xing4.0-29b-a4b-20261015",
+          "hugging_face_id": "XingChen-AGI/Xing4.0-29B-A4B",
+          "description": "Xing4.0-29B-A4B is an open-weight mixture-of-experts language model from China Telecom's AI team (TeleAI) and the successor to the TeleChat series. It has 29B total parameters with 4B active per token...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "repetition_penalty": 1.05
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/xingchen-agi/xing4.0-29b-a4b-20261015/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
+          }
+        },
+        {
           "id": "z-ai/glm-4.5",
           "name": "Z.ai: GLM 4.5",
           "canonical_slug": "z-ai/glm-4.5",
@@ -60789,8 +60854,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000002772",
-            "completion": "0.0000009",
+            "prompt": "0.00000001494",
+            "completion": "0.00000070272",
             "input_cache_read": "0.00000001125"
           },
           "top_provider": {
