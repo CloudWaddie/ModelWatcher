@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792112714369,
+  "timestamp": 1792133757627,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10183,6 +10183,19 @@
         ]
       },
       "vision": true
+    },
+    {
+      "id": "ultramarine-slides",
+      "displayName": "Ultramarine",
+      "provider": "paperinstruments",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "slides"
+        ]
+      }
     }
   ],
   "providers": [
@@ -14954,6 +14967,12 @@
         "input": 0.15,
         "output": 0.5,
         "cachedInput": 0.03
+      }
+    },
+    {
+      "id": "ultramarine-slides",
+      "slides": {
+        "perDeck": 0.07
       }
     }
   ]
