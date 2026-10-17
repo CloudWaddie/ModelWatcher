@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792192976085,
+  "timestamp": 1792209256123,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -461,7 +461,7 @@
       "id": "claude-pptx-opus",
       "displayName": "Claude Opus 4.6 (PPTX)",
       "provider": "claude_pptx",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -10219,6 +10219,19 @@
       "inputModalities": [
         "text"
       ]
+    },
+    {
+      "id": "claude-code-opus-5-5",
+      "displayName": "Claude Opus 5.5 (Claude Code)",
+      "provider": "claude_code",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "slides"
+        ]
+      }
     }
   ],
   "providers": [
@@ -11936,6 +11949,12 @@
       "displayName": "Reflection",
       "logoName": "reflection.png",
       "website": "https://reflection.ai"
+    },
+    {
+      "id": "claude_code",
+      "displayName": "Claude Code",
+      "logoName": "anthropic-1.svg",
+      "website": "https://www.anthropic.com/claude-code"
     }
   ],
   "pricing": [
@@ -15019,6 +15038,12 @@
       "text": {
         "input": 0.25,
         "output": 1
+      }
+    },
+    {
+      "id": "claude-code-opus-5-5",
+      "slides": {
+        "perDeck": 1.5
       }
     }
   ]
