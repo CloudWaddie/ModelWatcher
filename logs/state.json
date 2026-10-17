@@ -9117,6 +9117,38 @@
           }
         },
         {
+          "id": "Qwen/Qwen3-VL-8B-Instruct",
+          "name": "Qwen/Qwen3-VL-8B-Instruct",
+          "uuid": "endpoint-b3429766-6305-438b-9811-0cdf45318b15",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "Qwen3-VL-8B-Instruct",
+          "organization": "Qwen",
+          "link": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
+          "license": "apache-2.0",
+          "context_length": 262144,
+          "config": {
+            "chat_template": null,
+            "stop": [
+              "<|im_end|>"
+            ],
+            "bos_token": null,
+            "eos_token": "<|im_end|>"
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0.18000000000000002,
+            "output": 0.68,
+            "base": 0,
+            "finetune": 0,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "Qwen/Qwen3.5-122B-A10B-FP8",
           "name": "Qwen/Qwen3.5-122B-A10B-FP8",
           "object": "model",
@@ -17962,9 +17994,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000052",
+            "prompt": "0.0000000146",
             "completion": "0.00000128",
-            "input_cache_read": "0.0000000052"
+            "input_cache_read": "0.0000000146"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18667,12 +18699,12 @@
           "name": "Pareto Latest",
           "canonical_slug": "~unbiased/pareto-latest",
           "alias_target": {
-            "name": "Pareto 26.9",
-            "slug": "unbiased/pareto-26.9"
+            "name": "Pareto 26.10",
+            "slug": "unbiased/pareto-26.10"
           },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the Pareto family.",
-          "context_length": 262144,
+          "context_length": 1048576,
           "architecture": {
             "modality": "text+image->text",
             "input_modalities": [
@@ -18686,19 +18718,18 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000025",
-            "completion": "0.0000075",
-            "input_cache_read": "0.00000025"
+            "prompt": "0.0000008",
+            "completion": "0.0000032",
+            "input_cache_read": "0.00000003"
           },
           "top_provider": {
-            "context_length": 262144,
+            "context_length": 1048576,
             "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
             "max_tokens",
-            "response_format",
             "temperature",
             "tool_choice",
             "tools",
@@ -26221,9 +26252,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000052",
+            "prompt": "0.0000000146",
             "completion": "0.00000128",
-            "input_cache_read": "0.0000000052"
+            "input_cache_read": "0.0000000146"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26757,94 +26788,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000003",
-            "overrides": [
-              {
-                "utc_days": [
-                  "saturday",
-                  "sunday"
-                ],
-                "prompt": "0.00000015",
-                "completion": "0.0000006",
-                "input_cache_read": "0.000000003"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 0,
-                "utc_end": 100,
-                "prompt": "0.00000015",
-                "completion": "0.0000006",
-                "input_cache_read": "0.000000003"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 100,
-                "utc_end": 400,
-                "prompt": "0.0000003",
-                "completion": "0.0000012",
-                "input_cache_read": "0.000000006"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 400,
-                "utc_end": 600,
-                "prompt": "0.00000015",
-                "completion": "0.0000006",
-                "input_cache_read": "0.000000003"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 600,
-                "utc_end": 1000,
-                "prompt": "0.0000003",
-                "completion": "0.0000012",
-                "input_cache_read": "0.000000006"
-              },
-              {
-                "utc_days": [
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday"
-                ],
-                "utc_start": 1000,
-                "utc_end": 0,
-                "prompt": "0.00000015",
-                "completion": "0.0000006",
-                "input_cache_read": "0.000000003"
-              }
-            ]
+            "prompt": "0.000000076",
+            "completion": "0.00000055",
+            "input_cache_read": "0.000000005"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 393216,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -40565,9 +40515,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.0000004",
-            "input_cache_read": "0.00000008"
+            "prompt": "0.00000015",
+            "completion": "0.0000005",
+            "input_cache_read": "0.00000002"
           },
           "top_provider": {
             "context_length": 262144,
@@ -57235,6 +57185,51 @@
           }
         },
         {
+          "id": "unbiased/pareto-26.10",
+          "name": "Pareto 26.10",
+          "canonical_slug": "unbiased/pareto-26.10-20261015",
+          "hugging_face_id": null,
+          "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks.",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000008",
+            "completion": "0.0000032",
+            "input_cache_read": "0.00000003"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 131072,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "max_tokens",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/unbiased/pareto-26.10-20261015/endpoints"
+          }
+        },
+        {
           "id": "unbiased/pareto-26.9",
           "name": "Pareto 26.9",
           "canonical_slug": "unbiased/pareto-26.9-20260917",
@@ -60138,12 +60133,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006",
-            "completion": "0.0000022",
-            "input_cache_read": "0.00000011"
+            "prompt": "0.00000054",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000099"
           },
           "top_provider": {
-            "context_length": 202752,
+            "context_length": 204800,
             "max_completion_tokens": 131072,
             "is_moderated": false
           },
@@ -60178,7 +60173,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": "2026-12-31",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/z-ai/glm-4.7-20251222/endpoints"
           },
