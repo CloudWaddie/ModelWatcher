@@ -12692,6 +12692,35 @@
           }
         },
         {
+          "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "name": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "owned_by": "deepinfra",
+          "root": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "parent": null,
+          "object": "model",
+          "metadata": {
+            "description": "DeepSeek-V4.1-Flash-1017 is a minor update to DeepSeek-V4.1-Flash, delivering substantial improvements across reasoning, coding, agentic tasks, and visual benchmarks. Alongside these gains, the model reduces task execution time and output length, enabling users to complete tasks faster and at lower cost and advancing the performance–cost Pareto frontier across multiple agent harnesses.",
+            "context_length": 1048576,
+            "max_tokens": 1048576,
+            "pricing": {
+              "input_tokens": 0.2,
+              "output_tokens": 0.6,
+              "cache_read_tokens": 0.006
+            },
+            "discount": 0.3,
+            "tags": [
+              "chat",
+              "vlm",
+              "vision",
+              "prompt_cache",
+              "reasoning"
+            ],
+            "default_width": null,
+            "default_height": null,
+            "default_iterations": null
+          }
+        },
+        {
           "id": "google/embeddinggemma-300m",
           "name": "google/embeddinggemma-300m",
           "owned_by": "deepinfra",
@@ -17796,8 +17825,8 @@
           "name": "DeepSeek: DeepSeek Flash Latest",
           "canonical_slug": "~deepseek/deepseek-flash-latest",
           "alias_target": {
-            "name": "DeepSeek: DeepSeek V4.1 Flash",
-            "slug": "deepseek/deepseek-v4.1-flash"
+            "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
+            "slug": "deepseek/deepseek-v4.1-flash-1017"
           },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the DeepSeek Flash family.",
@@ -17815,13 +17844,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000284",
-            "completion": "0.0000004026",
-            "input_cache_read": "0.0000000284"
+            "prompt": "0.0000001",
+            "completion": "0.0000005",
+            "input_cache_read": "0.000000002"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "context_length": 262144,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -17889,9 +17918,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000019668",
-            "completion": "0.00000059004",
-            "input_cache_read": "0.000000006258"
+            "prompt": "0.00000012",
+            "completion": "0.000008",
+            "input_cache_read": "0.00000012"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17965,9 +17994,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000146",
-            "completion": "0.0000009653",
-            "input_cache_read": "0.0000000146"
+            "prompt": "0.0000000061",
+            "completion": "0.00000128",
+            "input_cache_read": "0.0000000061"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18199,9 +18228,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000025",
-            "completion": "0.0000085378",
-            "input_cache_read": "0.00000025"
+            "prompt": "0.00000027",
+            "completion": "0.000014",
+            "input_cache_read": "0.00000027"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18821,9 +18850,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000441",
-            "completion": "0.0000005578",
-            "input_cache_read": "0.0000000441"
+            "prompt": "0.00000006",
+            "completion": "0.0000016",
+            "input_cache_read": "0.00000004"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18898,9 +18927,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000069",
-            "completion": "0.0000022044",
-            "input_cache_read": "0.000000069"
+            "prompt": "0.0000000632",
+            "completion": "0.0000044",
+            "input_cache_read": "0.0000000588"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26224,9 +26253,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000146",
-            "completion": "0.0000009653",
-            "input_cache_read": "0.0000000146"
+            "prompt": "0.0000000061",
+            "completion": "0.00000128",
+            "input_cache_read": "0.0000000061"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26887,6 +26916,158 @@
               "coding_index": null,
               "agentic_index": null
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "high",
+              "low",
+              "none"
+            ],
+            "default_effort": "high"
+          }
+        },
+        {
+          "id": "deepseek/deepseek-v4.1-flash-1017",
+          "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
+          "canonical_slug": "deepseek/deepseek-v4.1-flash-20261017",
+          "hugging_face_id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "DeepSeek",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000015",
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000003",
+            "overrides": [
+              {
+                "utc_days": [
+                  "saturday",
+                  "sunday"
+                ],
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 0,
+                "utc_end": 100,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 100,
+                "utc_end": 400,
+                "prompt": "0.0000003",
+                "completion": "0.0000012",
+                "input_cache_read": "0.000000006"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 400,
+                "utc_end": 600,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 600,
+                "utc_end": 1000,
+                "prompt": "0.0000003",
+                "completion": "0.0000012",
+                "input_cache_read": "0.000000006"
+              },
+              {
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "utc_start": 1000,
+                "utc_end": 0,
+                "prompt": "0.00000015",
+                "completion": "0.0000006",
+                "input_cache_read": "0.000000003"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 393216,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logit_bias",
+            "logprobs",
+            "max_tokens",
+            "min_p",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/deepseek/deepseek-v4.1-flash-20261017/endpoints"
           },
           "reasoning": {
             "mandatory": false,
@@ -61123,13 +61304,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000441",
-            "completion": "0.0000005578",
-            "input_cache_read": "0.0000000441"
+            "prompt": "0.00000015",
+            "completion": "0.0000005",
+            "input_cache_read": "0.00000003"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "context_length": 1048575,
+            "max_completion_tokens": 943717,
             "is_moderated": false
           },
           "per_request_limits": null,
