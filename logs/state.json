@@ -9117,38 +9117,6 @@
           }
         },
         {
-          "id": "Qwen/Qwen3-VL-8B-Instruct",
-          "name": "Qwen/Qwen3-VL-8B-Instruct",
-          "uuid": "endpoint-b3429766-6305-438b-9811-0cdf45318b15",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Qwen3-VL-8B-Instruct",
-          "organization": "Qwen",
-          "link": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
-          "license": "apache-2.0",
-          "context_length": 262144,
-          "config": {
-            "chat_template": null,
-            "stop": [
-              "<|im_end|>"
-            ],
-            "bos_token": null,
-            "eos_token": "<|im_end|>"
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0.18000000000000002,
-            "output": 0.68,
-            "base": 0,
-            "finetune": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "Qwen/Qwen3.5-122B-A10B-FP8",
           "name": "Qwen/Qwen3.5-122B-A10B-FP8",
           "object": "model",
@@ -12707,7 +12675,7 @@
               "output_tokens": 0.6,
               "cache_read_tokens": 0.006
             },
-            "discount": 0.3,
+            "discount": 0.51,
             "tags": [
               "chat",
               "vlm",
@@ -17844,13 +17812,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.00000055",
+            "prompt": "0.00000008",
+            "completion": "0.0000005",
             "input_cache_read": "0.000000008"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "context_length": 262144,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -17994,9 +17962,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000079",
+            "prompt": "0.0000000052",
             "completion": "0.00000128",
-            "input_cache_read": "0.0000000079"
+            "input_cache_read": "0.0000000052"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26253,9 +26221,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000079",
+            "prompt": "0.0000000052",
             "completion": "0.00000128",
-            "input_cache_read": "0.0000000079"
+            "input_cache_read": "0.0000000052"
           },
           "top_provider": {
             "context_length": 1048576,
