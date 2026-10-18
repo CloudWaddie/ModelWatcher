@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792355323255,
+  "timestamp": 1792364128050,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10234,6 +10234,22 @@
       }
     },
     {
+      "id": "oregon",
+      "displayName": "HeyGen Video 1.0 (1080p, Ultraquality)",
+      "provider": "heygen",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo",
+          "multitovideo",
+          "multimodaltovideo"
+        ]
+      }
+    },
+    {
       "id": "deepseek-v4-1-flash-1017",
       "displayName": "DeepSeek-V4.1-Flash-1017",
       "provider": "deepseek",
@@ -11979,11 +11995,6 @@
       "displayName": "Claude Code",
       "logoName": "anthropic-1.svg",
       "website": "https://www.anthropic.com/claude-code"
-    },
-    {
-      "id": "oregon",
-      "displayName": "oregon",
-      "logoName": "private.png"
     },
     {
       "id": "maple",
@@ -15104,6 +15115,13 @@
       "id": "claude-code-opus-5-5",
       "slides": {
         "perDeck": 1.5
+      }
+    },
+    {
+      "id": "oregon",
+      "video": {
+        "perSecond": 0.09,
+        "perSecondReferenceToVideo": 0.18
       }
     },
     {
