@@ -5802,34 +5802,6 @@
           }
         },
         {
-          "id": "meta-models/Muse-Spark-Open-816B-A42B-promo",
-          "name": "meta-models/Muse-Spark-Open-816B-A42B-promo",
-          "object": "model",
-          "type": "chat",
-          "running": false,
-          "display_name": "Muse Spark Open 816B A42B Promo (Free until 10/18)",
-          "organization": "Meta",
-          "context_length": 1048576,
-          "config": {
-            "chat_template": null,
-            "stop": [],
-            "bos_token": null,
-            "eos_token": null
-          },
-          "pricing": {
-            "hourly": 0,
-            "input": 0,
-            "output": 0,
-            "base": 0,
-            "finetune": 0,
-            "cached_input": 0,
-            "image_pixel": 0,
-            "transcribe": 0,
-            "image": 0,
-            "video": 0
-          }
-        },
-        {
           "id": "minimax/hailuo-02",
           "name": "minimax/hailuo-02",
           "uuid": "endpoint-68520084-c967-42b6-bff4-a63b660bd0cf",
@@ -15856,11 +15828,11 @@
             "context_length": 1048576,
             "max_tokens": 1048576,
             "pricing": {
-              "input_tokens": 0.15,
-              "output_tokens": 0.5,
-              "cache_read_tokens": 0.03
+              "input_tokens": 0.075,
+              "output_tokens": 0.25,
+              "cache_read_tokens": 0.015
             },
-            "discount": 0.5,
+            "discount": null,
             "tags": [
               "chat",
               "vlm",
@@ -17981,9 +17953,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000049",
-            "completion": "0.00000045",
-            "input_cache_read": "0.0000000049"
+            "prompt": "0.0000000052",
+            "completion": "0.00000012",
+            "input_cache_read": "0.000000001523"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18215,8 +18187,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000025",
-            "completion": "0.000014",
+            "prompt": "0.000000249",
+            "completion": "0.000011936",
             "input_cache_read": "0.00000021"
           },
           "top_provider": {
@@ -26239,9 +26211,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000049",
+            "prompt": "0.0000000065",
             "completion": "0.00000045",
-            "input_cache_read": "0.0000000049"
+            "input_cache_read": "0.0000000065"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26694,8 +26666,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000004",
-            "completion": "0.000000144",
+            "prompt": "0.00000006",
+            "completion": "0.00000012",
             "input_cache_read": "0.0000000016"
           },
           "top_provider": {
@@ -33407,12 +33379,12 @@
             "instruct_type": "llama3"
           },
           "pricing": {
-            "prompt": "0.00000005",
-            "completion": "0.00000033"
+            "prompt": "0.0000000509",
+            "completion": "0.000000335"
           },
           "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 117964,
+            "context_length": 80000,
+            "max_completion_tokens": 72000,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -38843,7 +38815,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000279",
+            "prompt": "0.000000249",
             "completion": "0.000011936",
             "input_cache_read": "0.00000021"
           },
@@ -39212,7 +39184,7 @@
           "canonical_slug": "morph/morph-v3-fast",
           "hugging_face_id": "",
           "description": "Morph's fastest apply model for code edits. ~10,500 tokens/sec with 96% accuracy for rapid code transformations. The model requires the prompt to be in the following format: <instruction>{instruction}</instruction> <code>{initial_code}</code> <update>{edit_snippet}</update>...",
-          "context_length": 81920,
+          "context_length": 262144,
           "architecture": {
             "modality": "text->text",
             "input_modalities": [
@@ -39229,15 +39201,19 @@
             "completion": "0.0000012"
           },
           "top_provider": {
-            "context_length": 81920,
-            "max_completion_tokens": 38000,
+            "context_length": 262144,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "logprobs",
             "max_tokens",
+            "response_format",
             "stop",
-            "temperature"
+            "structured_outputs",
+            "temperature",
+            "top_logprobs"
           ],
           "default_parameters": {
             "temperature": null,
