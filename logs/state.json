@@ -11133,6 +11133,17 @@
           "context_length": 1048576
         },
         {
+          "id": "accounts/fireworks/models/deepseek-v4p1-flash-1017",
+          "name": "accounts/fireworks/models/deepseek-v4p1-flash-1017",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": false,
+          "context_length": 1048576
+        },
+        {
           "id": "accounts/fireworks/models/ember-1",
           "name": "accounts/fireworks/models/ember-1",
           "owned_by": "fireworks",
@@ -14173,32 +14184,6 @@
             "pricing": {
               "input_tokens": 0.037,
               "output_tokens": 0.16999999999999998
-            },
-            "discount": null,
-            "tags": [
-              "chat",
-              "reasoning_effort",
-              "reasoning"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
-          "id": "openai/gpt-oss-120b-Turbo",
-          "name": "openai/gpt-oss-120b-Turbo",
-          "owned_by": "deepinfra",
-          "root": "openai/gpt-oss-120b-Turbo",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "",
-            "context_length": 131072,
-            "max_tokens": 131072,
-            "pricing": {
-              "input_tokens": 0.15,
-              "output_tokens": 0.6
             },
             "discount": null,
             "tags": [
@@ -17844,13 +17829,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008",
-            "completion": "0.0000005",
+            "prompt": "0.00000005",
+            "completion": "0.0000006",
             "input_cache_read": "0.000000008"
           },
           "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 131072,
+            "context_length": 1048576,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -17859,8 +17844,10 @@
             "include_reasoning",
             "logit_bias",
             "logprobs",
+            "max_completion_tokens",
             "max_tokens",
             "min_p",
+            "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
             "reasoning_effort",
@@ -17994,7 +17981,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000052",
+            "prompt": "0.00000001592",
             "completion": "0.000000143616",
             "input_cache_read": "0.000000001523"
           },
@@ -26252,9 +26239,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000003"
+            "prompt": "0.0000000199",
+            "completion": "0.00000045",
+            "input_cache_read": "0.0000000199"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26707,7 +26694,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000072",
+            "prompt": "0.0000000648",
             "completion": "0.000000144",
             "input_cache_read": "0.0000000016"
           },
@@ -26882,8 +26869,10 @@
             "include_reasoning",
             "logit_bias",
             "logprobs",
+            "max_completion_tokens",
             "max_tokens",
             "min_p",
+            "parallel_tool_calls",
             "presence_penalty",
             "reasoning",
             "reasoning_effort",
@@ -61073,7 +61062,7 @@
           },
           "pricing": {
             "prompt": "0.000000079",
-            "completion": "0.0000032",
+            "completion": "0.0000048",
             "input_cache_read": "0.000000078"
           },
           "top_provider": {
