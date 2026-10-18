@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792346188822,
+  "timestamp": 1792355323255,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9229,7 +9229,7 @@
       "id": "deepseek-v4-1-flash",
       "displayName": "DeepSeek-V4.1-Flash",
       "provider": "deepseek",
-      "active": true,
+      "active": false,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -10232,6 +10232,30 @@
           "slides"
         ]
       }
+    },
+    {
+      "id": "deepseek-v4-1-flash-1017",
+      "displayName": "DeepSeek-V4.1-Flash-1017",
+      "provider": "deepseek",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "ascii",
+          "svg"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -11974,6 +11998,21 @@
     {
       "id": "cypress",
       "displayName": "cypress",
+      "logoName": "private.png"
+    },
+    {
+      "id": "redwood",
+      "displayName": "redwood",
+      "logoName": "private.png"
+    },
+    {
+      "id": "spruce",
+      "displayName": "spruce",
+      "logoName": "private.png"
+    },
+    {
+      "id": "sequoia",
+      "displayName": "sequoia",
       "logoName": "private.png"
     }
   ],
@@ -15065,6 +15104,14 @@
       "id": "claude-code-opus-5-5",
       "slides": {
         "perDeck": 1.5
+      }
+    },
+    {
+      "id": "deepseek-v4-1-flash-1017",
+      "text": {
+        "input": 0.3,
+        "output": 1.2,
+        "cachedInput": 0.006
       }
     }
   ]
