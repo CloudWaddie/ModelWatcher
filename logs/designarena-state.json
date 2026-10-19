@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792420248170,
+  "timestamp": 1792441738245,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9962,6 +9962,20 @@
       ]
     },
     {
+      "id": "arkansas",
+      "displayName": "FLUX 3 Max",
+      "provider": "fal",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo"
+        ]
+      }
+    },
+    {
       "id": "gemini-4-argon",
       "displayName": "Gemini 4 Argon",
       "provider": "google",
@@ -10271,6 +10285,29 @@
       "inputModalities": [
         "text",
         "image"
+      ]
+    },
+    {
+      "id": "mercury-3",
+      "displayName": "Mercury 3",
+      "provider": "inception",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": false,
+      "inputModalities": [
+        "text"
       ]
     }
   ],
@@ -11946,11 +11983,6 @@
     {
       "id": "dakota",
       "displayName": "dakota",
-      "logoName": "private.png"
-    },
-    {
-      "id": "arkansas",
-      "displayName": "arkansas",
       "logoName": "private.png"
     },
     {
@@ -15130,6 +15162,13 @@
         "input": 0.3,
         "output": 1.2,
         "cachedInput": 0.006
+      }
+    },
+    {
+      "id": "mercury-3",
+      "text": {
+        "input": 0.1,
+        "output": 0.35
       }
     }
   ]
