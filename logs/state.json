@@ -13386,7 +13386,7 @@
               "output_tokens": 0.9,
               "cache_read_tokens": 0.06
             },
-            "discount": 0.3,
+            "discount": 0.5,
             "tags": [
               "chat",
               "prompt_cache",
@@ -17829,9 +17829,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000058",
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000007"
+            "prompt": "0.00000005",
+            "completion": "0.00000015",
+            "input_cache_read": "0.000000012"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17981,7 +17981,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000000392",
+            "prompt": "0.00000000912",
             "completion": "0.00000012",
             "input_cache_read": "0.00000000336"
           },
@@ -18215,9 +18215,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000239",
-            "completion": "0.000011936",
-            "input_cache_read": "0.00000021"
+            "prompt": "0.000000238",
+            "completion": "0.000013",
+            "input_cache_read": "0.000000228"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18837,7 +18837,7 @@
           },
           "pricing": {
             "prompt": "0.000000048",
-            "completion": "0.0000002",
+            "completion": "0.00000016",
             "input_cache_read": "0.000000006"
           },
           "top_provider": {
@@ -18913,9 +18913,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000079",
-            "completion": "0.0000014",
-            "input_cache_read": "0.000000078"
+            "prompt": "0.000000047",
+            "completion": "0.000006",
+            "input_cache_read": "0.000000029"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -25558,76 +25558,6 @@
           }
         },
         {
-          "id": "deepseek/deepseek-r1",
-          "name": "DeepSeek: R1",
-          "canonical_slug": "deepseek/deepseek-r1",
-          "hugging_face_id": "deepseek-ai/DeepSeek-R1",
-          "description": "DeepSeek R1 is here: Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens. It's 671B parameters in size, with 37B active in an inference pass....",
-          "context_length": 64000,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "DeepSeek",
-            "instruct_type": "deepseek-r1"
-          },
-          "pricing": {
-            "prompt": "0.0000007",
-            "completion": "0.0000025"
-          },
-          "top_provider": {
-            "context_length": 64000,
-            "max_completion_tokens": 16000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-07-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/deepseek/deepseek-r1/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": 11.4,
-              "coding_index": 24.6,
-              "agentic_index": 1.1
-            }
-          },
-          "reasoning": {
-            "mandatory": true
-          }
-        },
-        {
           "id": "deepseek/deepseek-r1-0528",
           "name": "DeepSeek: R1 0528",
           "canonical_slug": "deepseek/deepseek-r1-0528",
@@ -26722,8 +26652,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000464",
-            "completion": "0.00000012",
+            "prompt": "0.00000004",
+            "completion": "0.00000008",
             "input_cache_read": "0.0000000016"
           },
           "top_provider": {
@@ -31940,9 +31870,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000675",
-            "completion": "0.000000225",
-            "input_cache_read": "0.0000000375"
+            "prompt": "0.00000009",
+            "completion": "0.0000003",
+            "input_cache_read": "0.00000005"
           },
           "top_provider": {
             "context_length": 262144,
@@ -33587,7 +33517,7 @@
           "canonical_slug": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "hugging_face_id": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
           "description": "Llama 4 Maverick 17B Instruct (128E) is a high-capacity multimodal language model from Meta, built on a mixture-of-experts (MoE) architecture with 128 experts and 17 billion active parameters per forward...",
-          "context_length": 1048576,
+          "context_length": 524288,
           "architecture": {
             "modality": "text+image->text",
             "input_modalities": [
@@ -34845,54 +34775,6 @@
               "coding_index": null,
               "agentic_index": null
             }
-          }
-        },
-        {
-          "id": "microsoft/wizardlm-2-8x22b",
-          "name": "WizardLM-2 8x22B",
-          "canonical_slug": "microsoft/wizardlm-2-8x22b",
-          "hugging_face_id": "microsoft/WizardLM-2-8x22B",
-          "description": "WizardLM-2 8x22B is Microsoft AI's most advanced Wizard model. It demonstrates highly competitive performance compared to leading proprietary models, and it consistently outperforms all existing state-of-the-art opensource models. It is...",
-          "context_length": 65535,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": "vicuna"
-          },
-          "pricing": {
-            "prompt": "0.00000062",
-            "completion": "0.00000062"
-          },
-          "top_provider": {
-            "context_length": 65535,
-            "max_completion_tokens": 8000,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "temperature",
-            "top_k",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2024-04-30",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/microsoft/wizardlm-2-8x22b/endpoints"
           }
         },
         {
@@ -53033,8 +52915,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000195",
-            "completion": "0.00000156"
+            "prompt": "0.00000027",
+            "completion": "0.00000216",
+            "input_cache_read": "0.00000027"
           },
           "top_provider": {
             "context_length": 262144,
@@ -55631,56 +55514,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/sao10k/l3.1-euryale-70b/endpoints"
-          }
-        },
-        {
-          "id": "sao10k/l3.3-euryale-70b",
-          "name": "Sao10K: Llama 3.3 Euryale 70B",
-          "canonical_slug": "sao10k/l3.3-euryale-70b-v2.3",
-          "hugging_face_id": "Sao10K/L3.3-70B-Euryale-v2.3",
-          "description": "Euryale L3.3 70B is a model focused on creative roleplay from [Sao10k](https://ko-fi.com/sao10k). It is the successor of [Euryale L3 70B v2.2](/models/sao10k/l3-euryale-70b).",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text->text",
-            "input_modalities": [
-              "text"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Llama3",
-            "instruct_type": "llama3"
-          },
-          "pricing": {
-            "prompt": "0.00000065",
-            "completion": "0.00000075"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 16384,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "logprobs",
-            "max_tokens",
-            "presence_penalty",
-            "repetition_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "top_logprobs",
-            "top_p"
-          ],
-          "default_parameters": {},
-          "supported_voices": null,
-          "knowledge_cutoff": "2023-12-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/sao10k/l3.3-euryale-70b-v2.3/endpoints"
           }
         },
         {
@@ -59939,12 +59772,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000005",
-            "completion": "0.000002",
-            "input_cache_read": "0.0000001"
+            "prompt": "0.00000055",
+            "completion": "0.0000022",
+            "input_cache_read": "0.00000011"
           },
           "top_provider": {
-            "context_length": 202752,
+            "context_length": 204800,
             "max_completion_tokens": 131072,
             "is_moderated": false
           },
@@ -61325,7 +61158,7 @@
           },
           "pricing": {
             "prompt": "0.000000048",
-            "completion": "0.0000002",
+            "completion": "0.00000016",
             "input_cache_read": "0.000000006"
           },
           "top_provider": {
