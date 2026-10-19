@@ -4184,6 +4184,34 @@
           }
         },
         {
+          "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "name": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "DeepSeek V4.1 Flash 1017",
+          "organization": "DeepSeek",
+          "context_length": 1048576,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0.3,
+            "output": 1.2,
+            "base": 0,
+            "finetune": 0,
+            "cached_input": 0.006,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "facebook/cwm",
           "name": "facebook/cwm",
           "object": "model",
@@ -15828,11 +15856,11 @@
             "context_length": 1048576,
             "max_tokens": 1048576,
             "pricing": {
-              "input_tokens": 0.075,
-              "output_tokens": 0.25,
-              "cache_read_tokens": 0.015
+              "input_tokens": 0.15,
+              "output_tokens": 0.5,
+              "cache_read_tokens": 0.03
             },
-            "discount": null,
+            "discount": 0.5,
             "tags": [
               "chat",
               "vlm",
@@ -17801,9 +17829,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000005",
+            "prompt": "0.000000058",
             "completion": "0.0000006",
-            "input_cache_read": "0.000000008"
+            "input_cache_read": "0.000000007"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -17953,9 +17981,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000000912",
+            "prompt": "0.00000000392",
             "completion": "0.00000012",
-            "input_cache_read": "0.00000000224"
+            "input_cache_read": "0.00000000336"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18187,7 +18215,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000249",
+            "prompt": "0.000000239",
             "completion": "0.000011936",
             "input_cache_read": "0.00000021"
           },
@@ -18885,13 +18913,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000075",
-            "completion": "0.0000022",
-            "input_cache_read": "0.00000007"
+            "prompt": "0.000000079",
+            "completion": "0.0000014",
+            "input_cache_read": "0.000000078"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "max_completion_tokens": 943718,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -26455,9 +26483,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000009483",
-            "completion": "0.0000018966",
-            "input_cache_read": "0.000000079025"
+            "prompt": "0.00000095526",
+            "completion": "0.00000191052",
+            "input_cache_read": "0.000000079605"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26694,7 +26722,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000624",
+            "prompt": "0.0000000464",
             "completion": "0.00000012",
             "input_cache_read": "0.0000000016"
           },
@@ -38906,7 +38934,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000249",
+            "prompt": "0.000000239",
             "completion": "0.000011936",
             "input_cache_read": "0.00000021"
           },
