@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792441738245,
+  "timestamp": 1792455081147,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10309,6 +10309,29 @@
       "inputModalities": [
         "text"
       ]
+    },
+    {
+      "id": "muse-glimmer-30b",
+      "displayName": "Muse Glimmer 30B (xhigh)",
+      "provider": "meta",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -15169,6 +15192,13 @@
       "text": {
         "input": 0.1,
         "output": 0.35
+      }
+    },
+    {
+      "id": "muse-glimmer-30b",
+      "text": {
+        "input": 0.35,
+        "output": 1.5
       }
     }
   ]
