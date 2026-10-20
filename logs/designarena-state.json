@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792527723645,
+  "timestamp": 1792539771251,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -2063,7 +2063,7 @@
       "id": "kling-v2.5-turbo-pro",
       "displayName": "Kling v2.5 Turbo Pro",
       "provider": "klingai",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -2380,7 +2380,7 @@
       "id": "krea-wan-14b",
       "displayName": "Krea Wan 14b",
       "provider": "krea",
-      "active": true,
+      "active": false,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -2795,7 +2795,7 @@
       "id": "hailuo-2.3-standard",
       "displayName": "MiniMax Hailuo-2.3 (Standard)",
       "provider": "minimax",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -2809,7 +2809,7 @@
       "id": "hailuo-2.3-pro",
       "displayName": "MiniMax Hailuo-2.3 (Pro)",
       "provider": "minimax",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -3466,7 +3466,7 @@
       "id": "kandinsky-5.0",
       "displayName": "Kandinsky 5.0",
       "provider": "ai_forever",
-      "active": true,
+      "active": false,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -3479,7 +3479,7 @@
       "id": "kandinsky-5.0-pro",
       "displayName": "Kandinsky 5.0 Pro",
       "provider": "ai_forever",
-      "active": true,
+      "active": false,
       "openSource": true,
       "router": false,
       "arenas": {
@@ -5689,7 +5689,7 @@
       "id": "kling-o1-ref",
       "displayName": "Kling O1",
       "provider": "klingai",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -5715,7 +5715,7 @@
       "id": "vidu-q2-ref",
       "displayName": "Vidu Q2 Pro",
       "provider": "vidu",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -7445,8 +7445,7 @@
         "models": [
           "image",
           "logo",
-          "graphicdesign",
-          "imagetovideo"
+          "graphicdesign"
         ]
       }
     },
@@ -7932,7 +7931,7 @@
       "id": "lucy-2.5",
       "displayName": "Lucy 2.5",
       "provider": "decart",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -9135,7 +9134,7 @@
       "id": "aleph2",
       "displayName": "Aleph 2.0",
       "provider": "runwayml",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -9574,6 +9573,106 @@
           "agon_blender"
         ]
       }
+    },
+    {
+      "id": "tripo-h3.1",
+      "displayName": "Tripo H3.1",
+      "provider": "tripo",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_blender"
+        ]
+      },
+      "inputModalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "tripo-p2",
+      "displayName": "Tripo P2",
+      "provider": "tripo",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_blender"
+        ]
+      },
+      "inputModalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "hunyuan-3d-v3.1-pro",
+      "displayName": "Hunyuan 3D v3.1 Pro",
+      "provider": "tencent",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_blender"
+        ]
+      },
+      "inputModalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "rodin-gen-2.5",
+      "displayName": "Rodin Gen-2.5",
+      "provider": "hyper3d",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_blender"
+        ]
+      },
+      "inputModalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "trellis-2",
+      "displayName": "TRELLIS 2",
+      "provider": "microsoft",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_blender"
+        ]
+      },
+      "inputModalities": [
+        "image"
+      ]
+    },
+    {
+      "id": "hi3d-v3.0",
+      "displayName": "Hi3D v3.0",
+      "provider": "hitem3d",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_blender"
+        ]
+      },
+      "inputModalities": [
+        "image"
+      ]
     },
     {
       "id": "grok-4.7",
@@ -10332,6 +10431,19 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "voxtral-mini-tts-3-0",
+      "displayName": "Voxtral TTS 3",
+      "provider": "mistral",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "tts"
+        ]
+      }
     }
   ],
   "providers": [
@@ -11986,6 +12098,24 @@
       "displayName": "Meshy",
       "logoName": "meshy.png",
       "website": "https://www.meshy.ai"
+    },
+    {
+      "id": "tripo",
+      "displayName": "Tripo AI",
+      "logoName": "mysterylogo.png",
+      "website": "https://www.tripo3d.ai"
+    },
+    {
+      "id": "hyper3d",
+      "displayName": "Hyper3D",
+      "logoName": "mysterylogo.png",
+      "website": "https://hyper3d.ai"
+    },
+    {
+      "id": "hitem3d",
+      "displayName": "Hitem3D",
+      "logoName": "mysterylogo.png",
+      "website": "https://www.hitem3d.ai"
     },
     {
       "id": "salvador",
@@ -15204,6 +15334,13 @@
       "text": {
         "input": 0.35,
         "output": 1.5
+      }
+    },
+    {
+      "id": "voxtral-mini-tts-3-0",
+      "text": {
+        "input": 13,
+        "output": 0
       }
     }
   ]
