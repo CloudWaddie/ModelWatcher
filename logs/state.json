@@ -12126,29 +12126,6 @@
           }
         },
         {
-          "id": "Bria/fibo",
-          "name": "Bria/fibo",
-          "owned_by": "deepinfra",
-          "root": "Bria/fibo",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "FIBO is an open-source, JSON-native text-to-image model trained on detailed structured descriptions (over 1,000+ words per image), providing fine-grained control over light, composition, and camera parameters.",
-            "context_length": null,
-            "max_tokens": null,
-            "pricing": {
-              "per_image_unit": 0.04
-            },
-            "discount": null,
-            "tags": [
-              "image-gen"
-            ],
-            "default_width": 0,
-            "default_height": 0,
-            "default_iterations": 0
-          }
-        },
-        {
           "id": "Bria/fibo_edit",
           "name": "Bria/fibo_edit",
           "owned_by": "deepinfra",
@@ -12195,14 +12172,14 @@
           }
         },
         {
-          "id": "Bria/fibo-1.5",
-          "name": "Bria/fibo-1.5",
+          "id": "Bria/fibo-2.0",
+          "name": "Bria/fibo-2.0",
           "owned_by": "deepinfra",
-          "root": "Bria/fibo-1.5",
+          "root": "Bria/fibo-2.0",
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "FIBO 1.5 is Bria's JSON-native text-to-image model, distilled to a few sampling steps and post-trained for sharper realism and texture, with structured-prompt control over lighting, composition and camera.",
+            "description": "FIBO 2.0 is Bria's latest JSON-native text-to-image model, the successor to FIBO 1.0 and 1.5, with structured-prompt control over lighting, composition and camera. Trained only on licensed data for commercially safe output.",
             "context_length": null,
             "max_tokens": null,
             "pricing": {
@@ -17383,6 +17360,218 @@
           "audio_speech_capabilities": null
         },
         {
+          "id": "voxtral-mini-transcribe-3",
+          "name": "Voxtral Mini Transcribe 3.0",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": true,
+            "audio_transcription_realtime": false,
+            "audio_speech": false,
+            "unified_resources": false
+          },
+          "description": "Fast, cost-effective transcription with diarization in 40+ languages - ideal for high-volume audio processing at scale.",
+          "max_context_length": 65536,
+          "aliases": [
+            "voxtral-mini-transcribe-3-0"
+          ],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0,
+          "billing_model_name": "voxtral-stt-3-preview",
+          "type": "base",
+          "audio_transcription_capabilities": {
+            "modes": [
+              "offline"
+            ],
+            "diarization": true,
+            "speaker_references": true,
+            "context_bias": true,
+            "turn_detection": false,
+            "timestamp_granularities": [
+              "segment"
+            ],
+            "languages": [
+              "ar",
+              "en",
+              "de",
+              "es",
+              "fr",
+              "hi",
+              "it",
+              "nl",
+              "pt",
+              "zh",
+              "ru",
+              "ko",
+              "ja",
+              "id",
+              "tr",
+              "vi",
+              "sv",
+              "pl",
+              "th",
+              "tl",
+              "no",
+              "da",
+              "hu",
+              "cs",
+              "uk",
+              "ro",
+              "ms",
+              "ca",
+              "el",
+              "sk",
+              "fi",
+              "lv",
+              "km",
+              "pa",
+              "ta",
+              "my",
+              "bg",
+              "mr",
+              "ur",
+              "et",
+              "te",
+              "gu",
+              "kn",
+              "fa",
+              "sl",
+              "ml",
+              "is",
+              "bn",
+              "hr",
+              "mk",
+              "eu",
+              "sr",
+              "ps",
+              "lb",
+              "ga",
+              "or",
+              "lt",
+              "mt"
+            ],
+            "streaming_delays_ms": []
+          },
+          "audio_speech_capabilities": null
+        },
+        {
+          "id": "voxtral-mini-transcribe-3-0",
+          "name": "Voxtral Mini Transcribe 3.0",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": true,
+            "audio_transcription_realtime": false,
+            "audio_speech": false,
+            "unified_resources": false
+          },
+          "description": "Fast, cost-effective transcription with diarization in 40+ languages - ideal for high-volume audio processing at scale.",
+          "max_context_length": 65536,
+          "aliases": [
+            "voxtral-mini-transcribe-3"
+          ],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0,
+          "billing_model_name": "voxtral-stt-3-preview",
+          "type": "base",
+          "audio_transcription_capabilities": {
+            "modes": [
+              "offline"
+            ],
+            "diarization": true,
+            "speaker_references": true,
+            "context_bias": true,
+            "turn_detection": false,
+            "timestamp_granularities": [
+              "segment"
+            ],
+            "languages": [
+              "ar",
+              "en",
+              "de",
+              "es",
+              "fr",
+              "hi",
+              "it",
+              "nl",
+              "pt",
+              "zh",
+              "ru",
+              "ko",
+              "ja",
+              "id",
+              "tr",
+              "vi",
+              "sv",
+              "pl",
+              "th",
+              "tl",
+              "no",
+              "da",
+              "hu",
+              "cs",
+              "uk",
+              "ro",
+              "ms",
+              "ca",
+              "el",
+              "sk",
+              "fi",
+              "lv",
+              "km",
+              "pa",
+              "ta",
+              "my",
+              "bg",
+              "mr",
+              "ur",
+              "et",
+              "te",
+              "gu",
+              "kn",
+              "fa",
+              "sl",
+              "ml",
+              "is",
+              "bn",
+              "hr",
+              "mk",
+              "eu",
+              "sr",
+              "ps",
+              "lb",
+              "ga",
+              "or",
+              "lt",
+              "mt"
+            ],
+            "streaming_delays_ms": []
+          },
+          "audio_speech_capabilities": null
+        },
+        {
           "id": "voxtral-mini-transcribe-realtime-2602",
           "name": "Voxtral Mini Transcribe Realtime",
           "owned_by": "mistralai",
@@ -17438,6 +17627,232 @@
           "audio_speech_capabilities": null
         },
         {
+          "id": "voxtral-mini-transcribe-realtime-3",
+          "name": "Voxtral Mini Transcribe Realtime 3.0",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": true,
+            "audio_speech": false,
+            "unified_resources": false
+          },
+          "description": "Fast, cost-effective streaming transcription with diarization in 40+ languages - ideal for high-volume audio processing at scale.",
+          "max_context_length": 65536,
+          "aliases": [
+            "voxtral-mini-transcribe-realtime-3-0"
+          ],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0,
+          "billing_model_name": "voxtral-stt-3-preview",
+          "type": "base",
+          "audio_transcription_capabilities": {
+            "modes": [
+              "realtime"
+            ],
+            "diarization": true,
+            "speaker_references": true,
+            "context_bias": true,
+            "turn_detection": true,
+            "timestamp_granularities": [],
+            "languages": [
+              "ar",
+              "en",
+              "de",
+              "es",
+              "fr",
+              "hi",
+              "it",
+              "nl",
+              "pt",
+              "zh",
+              "ru",
+              "ko",
+              "ja",
+              "id",
+              "tr",
+              "vi",
+              "sv",
+              "pl",
+              "th",
+              "tl",
+              "no",
+              "da",
+              "hu",
+              "cs",
+              "uk",
+              "ro",
+              "ms",
+              "ca",
+              "el",
+              "sk",
+              "fi",
+              "lv",
+              "km",
+              "pa",
+              "ta",
+              "my",
+              "bg",
+              "mr",
+              "ur",
+              "et",
+              "te",
+              "gu",
+              "kn",
+              "fa",
+              "sl",
+              "ml",
+              "is",
+              "bn",
+              "hr",
+              "mk",
+              "eu",
+              "sr",
+              "ps",
+              "lb",
+              "ga",
+              "or",
+              "lt",
+              "mt"
+            ],
+            "streaming_delays_ms": [
+              {
+                "min": 80,
+                "max": 1200
+              },
+              {
+                "min": 2400,
+                "max": 2400
+              }
+            ]
+          },
+          "audio_speech_capabilities": null
+        },
+        {
+          "id": "voxtral-mini-transcribe-realtime-3-0",
+          "name": "Voxtral Mini Transcribe Realtime 3.0",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": true,
+            "audio_speech": false,
+            "unified_resources": false
+          },
+          "description": "Fast, cost-effective streaming transcription with diarization in 40+ languages - ideal for high-volume audio processing at scale.",
+          "max_context_length": 65536,
+          "aliases": [
+            "voxtral-mini-transcribe-realtime-3"
+          ],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0,
+          "billing_model_name": "voxtral-stt-3-preview",
+          "type": "base",
+          "audio_transcription_capabilities": {
+            "modes": [
+              "realtime"
+            ],
+            "diarization": true,
+            "speaker_references": true,
+            "context_bias": true,
+            "turn_detection": true,
+            "timestamp_granularities": [],
+            "languages": [
+              "ar",
+              "en",
+              "de",
+              "es",
+              "fr",
+              "hi",
+              "it",
+              "nl",
+              "pt",
+              "zh",
+              "ru",
+              "ko",
+              "ja",
+              "id",
+              "tr",
+              "vi",
+              "sv",
+              "pl",
+              "th",
+              "tl",
+              "no",
+              "da",
+              "hu",
+              "cs",
+              "uk",
+              "ro",
+              "ms",
+              "ca",
+              "el",
+              "sk",
+              "fi",
+              "lv",
+              "km",
+              "pa",
+              "ta",
+              "my",
+              "bg",
+              "mr",
+              "ur",
+              "et",
+              "te",
+              "gu",
+              "kn",
+              "fa",
+              "sl",
+              "ml",
+              "is",
+              "bn",
+              "hr",
+              "mk",
+              "eu",
+              "sr",
+              "ps",
+              "lb",
+              "ga",
+              "or",
+              "lt",
+              "mt"
+            ],
+            "streaming_delays_ms": [
+              {
+                "min": 80,
+                "max": 1200
+              },
+              {
+                "min": 2400,
+                "max": 2400
+              }
+            ]
+          },
+          "audio_speech_capabilities": null
+        },
+        {
           "id": "voxtral-mini-tts-2603",
           "name": "Voxtral Mini TTS",
           "owned_by": "mistralai",
@@ -17475,6 +17890,102 @@
             ],
             "instruction": false,
             "conversation_history": false,
+            "response_formats": [
+              "pcm",
+              "wav",
+              "mp3",
+              "flac",
+              "opus"
+            ]
+          }
+        },
+        {
+          "id": "voxtral-mini-tts-3",
+          "name": "Voxtral Mini TTS 3.0",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": true,
+            "unified_resources": false
+          },
+          "description": "Text-to-speech model that generates natural, expressive speech with controllable emotion and pace in 35+ languages and 50+ dialects.",
+          "max_context_length": 4096,
+          "aliases": [
+            "voxtral-mini-tts-3-0"
+          ],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.3,
+          "billing_model_name": "voxtral-tts-3-preview",
+          "type": "base",
+          "audio_transcription_capabilities": null,
+          "audio_speech_capabilities": {
+            "modes": [
+              "offline",
+              "realtime"
+            ],
+            "instruction": false,
+            "conversation_history": true,
+            "response_formats": [
+              "pcm",
+              "wav",
+              "mp3",
+              "flac",
+              "opus"
+            ]
+          }
+        },
+        {
+          "id": "voxtral-mini-tts-3-0",
+          "name": "Voxtral Mini TTS 3.0",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": false,
+            "audio_transcription_realtime": false,
+            "audio_speech": true,
+            "unified_resources": false
+          },
+          "description": "Text-to-speech model that generates natural, expressive speech with controllable emotion and pace in 35+ languages and 50+ dialects.",
+          "max_context_length": 4096,
+          "aliases": [
+            "voxtral-mini-tts-3"
+          ],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0.3,
+          "billing_model_name": "voxtral-tts-3-preview",
+          "type": "base",
+          "audio_transcription_capabilities": null,
+          "audio_speech_capabilities": {
+            "modes": [
+              "offline",
+              "realtime"
+            ],
+            "instruction": false,
+            "conversation_history": true,
             "response_formats": [
               "pcm",
               "wav",
@@ -17597,6 +18108,218 @@
           "billing_model_name": "voxtral-small-2507",
           "type": "base",
           "audio_transcription_capabilities": null,
+          "audio_speech_capabilities": null
+        },
+        {
+          "id": "voxtral-small-transcribe-3",
+          "name": "Voxtral Small Transcribe 3.0",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": true,
+            "audio_transcription_realtime": false,
+            "audio_speech": false,
+            "unified_resources": false
+          },
+          "description": "Our most accurate transcription model, with state-of-the-art multilingual transcription, diarization and context-biasing in 40+ languages.",
+          "max_context_length": 65536,
+          "aliases": [
+            "voxtral-small-transcribe-3-0"
+          ],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0,
+          "billing_model_name": "voxtral-stt-3-preview",
+          "type": "base",
+          "audio_transcription_capabilities": {
+            "modes": [
+              "offline"
+            ],
+            "diarization": true,
+            "speaker_references": true,
+            "context_bias": true,
+            "turn_detection": false,
+            "timestamp_granularities": [
+              "segment"
+            ],
+            "languages": [
+              "ar",
+              "en",
+              "de",
+              "es",
+              "fr",
+              "hi",
+              "it",
+              "nl",
+              "pt",
+              "zh",
+              "ru",
+              "ko",
+              "ja",
+              "id",
+              "tr",
+              "vi",
+              "sv",
+              "pl",
+              "th",
+              "tl",
+              "no",
+              "da",
+              "hu",
+              "cs",
+              "uk",
+              "ro",
+              "ms",
+              "ca",
+              "el",
+              "sk",
+              "fi",
+              "lv",
+              "km",
+              "pa",
+              "ta",
+              "my",
+              "bg",
+              "mr",
+              "ur",
+              "et",
+              "te",
+              "gu",
+              "kn",
+              "fa",
+              "sl",
+              "ml",
+              "is",
+              "bn",
+              "hr",
+              "mk",
+              "eu",
+              "sr",
+              "ps",
+              "lb",
+              "ga",
+              "or",
+              "lt",
+              "mt"
+            ],
+            "streaming_delays_ms": []
+          },
+          "audio_speech_capabilities": null
+        },
+        {
+          "id": "voxtral-small-transcribe-3-0",
+          "name": "Voxtral Small Transcribe 3.0",
+          "owned_by": "mistralai",
+          "object": "model",
+          "capabilities": {
+            "completion_chat": false,
+            "function_calling": false,
+            "reasoning": false,
+            "completion_fim": false,
+            "fine_tuning": false,
+            "vision": false,
+            "ocr": false,
+            "classification": false,
+            "moderation": false,
+            "audio": false,
+            "audio_transcription": true,
+            "audio_transcription_realtime": false,
+            "audio_speech": false,
+            "unified_resources": false
+          },
+          "description": "Our most accurate transcription model, with state-of-the-art multilingual transcription, diarization and context-biasing in 40+ languages.",
+          "max_context_length": 65536,
+          "aliases": [
+            "voxtral-small-transcribe-3"
+          ],
+          "deprecation": null,
+          "deprecation_replacement_model": null,
+          "default_model_temperature": 0,
+          "billing_model_name": "voxtral-stt-3-preview",
+          "type": "base",
+          "audio_transcription_capabilities": {
+            "modes": [
+              "offline"
+            ],
+            "diarization": true,
+            "speaker_references": true,
+            "context_bias": true,
+            "turn_detection": false,
+            "timestamp_granularities": [
+              "segment"
+            ],
+            "languages": [
+              "ar",
+              "en",
+              "de",
+              "es",
+              "fr",
+              "hi",
+              "it",
+              "nl",
+              "pt",
+              "zh",
+              "ru",
+              "ko",
+              "ja",
+              "id",
+              "tr",
+              "vi",
+              "sv",
+              "pl",
+              "th",
+              "tl",
+              "no",
+              "da",
+              "hu",
+              "cs",
+              "uk",
+              "ro",
+              "ms",
+              "ca",
+              "el",
+              "sk",
+              "fi",
+              "lv",
+              "km",
+              "pa",
+              "ta",
+              "my",
+              "bg",
+              "mr",
+              "ur",
+              "et",
+              "te",
+              "gu",
+              "kn",
+              "fa",
+              "sl",
+              "ml",
+              "is",
+              "bn",
+              "hr",
+              "mk",
+              "eu",
+              "sr",
+              "ps",
+              "lb",
+              "ga",
+              "or",
+              "lt",
+              "mt"
+            ],
+            "streaming_delays_ms": []
+          },
           "audio_speech_capabilities": null
         }
       ]
@@ -18100,9 +18823,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000225",
+            "prompt": "0.0000001307",
             "completion": "0.000008",
-            "input_cache_read": "0.00000023"
+            "input_cache_read": "0.00000013"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18176,9 +18899,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000000392",
+            "prompt": "0.00000000912",
             "completion": "0.00000012",
-            "input_cache_read": "0.00000000336"
+            "input_cache_read": "0.000000003304"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18411,7 +19134,7 @@
           },
           "pricing": {
             "prompt": "0.000000238",
-            "completion": "0.000016",
+            "completion": "0.000024",
             "input_cache_read": "0.000000228"
           },
           "top_provider": {
@@ -19031,7 +19754,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000047076",
+            "prompt": "0.000000048",
             "completion": "0.00000016",
             "input_cache_read": "0.000000006"
           },
@@ -19110,7 +19833,7 @@
           "pricing": {
             "prompt": "0.000000079",
             "completion": "0.0000014",
-            "input_cache_read": "0.000000055"
+            "input_cache_read": "0.000000078"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26448,9 +27171,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000044",
-            "completion": "0.00000132",
-            "input_cache_read": "0.000000014"
+            "prompt": "0.0000001298",
+            "completion": "0.0000003894",
+            "input_cache_read": "0.00000000413"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -26664,9 +27387,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000095526",
-            "completion": "0.00000191052",
-            "input_cache_read": "0.000000079605"
+            "prompt": "0.000000392022",
+            "completion": "0.000000784044",
+            "input_cache_read": "0.0000000326685"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -26903,9 +27626,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000056",
+            "prompt": "0.00000002832",
             "completion": "0.00000012",
-            "input_cache_read": "0.0000000016"
+            "input_cache_read": "0.000000000566"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -27490,7 +28213,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": "2026-10-20",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/google/gemini-2.5-flash/endpoints"
           },
@@ -27699,7 +28422,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": "2026-10-20",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/google/gemini-2.5-flash-lite/endpoints"
           },
@@ -27790,133 +28513,6 @@
           }
         },
         {
-          "id": "google/gemini-2.5-flash:batch",
-          "name": "Google: Gemini 2.5 Flash (batch)",
-          "canonical_slug": "google/gemini-2.5-flash",
-          "hugging_face_id": "",
-          "description": "Gemini 2.5 Flash is Google's state-of-the-art workhorse model, specifically designed for advanced reasoning, coding, mathematics, and scientific tasks. It includes built-in \"thinking\" capabilities, enabling it to provide responses with greater...",
-          "context_length": 1048576,
-          "architecture": {
-            "modality": "text+image+file+audio+video->text",
-            "input_modalities": [
-              "file",
-              "image",
-              "text",
-              "audio",
-              "video"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Gemini",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.00000125",
-            "image": "0.00000015",
-            "audio": "0.0000005",
-            "input_audio_cache": "0.0000001",
-            "web_search": "0.014",
-            "internal_reasoning": "0.00000125",
-            "input_cache_read": "0.00000003"
-          },
-          "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 65535,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-01-31",
-          "expiration_date": "2026-10-20",
-          "links": {
-            "details": "/api/v1/models/google/gemini-2.5-flash/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 1071,
-                "win_rate": 47.4,
-                "rank": 101
-              },
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1104,
-                "win_rate": 46.9,
-                "rank": 102
-              },
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 1133,
-                "win_rate": 49.1,
-                "rank": 87
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 1065,
-                "win_rate": 44.3,
-                "rank": 109
-              },
-              {
-                "arena": "models",
-                "category": "uicomponent",
-                "elo": 1094,
-                "win_rate": 48.9,
-                "rank": 97
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1115,
-                "win_rate": 47.1,
-                "rank": 103
-              },
-              {
-                "arena": "models",
-                "category": "svg",
-                "elo": 1018,
-                "win_rate": 43.1,
-                "rank": 81
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": 15.5,
-              "coding_index": null,
-              "agentic_index": null
-            }
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
           "id": "google/gemini-2.5-pro",
           "name": "Google: Gemini 2.5 Pro",
           "canonical_slug": "google/gemini-2.5-pro",
@@ -27971,7 +28567,6 @@
             "reasoning",
             "response_format",
             "seed",
-            "stop",
             "structured_outputs",
             "temperature",
             "tool_choice",
@@ -27985,7 +28580,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": "2025-01-31",
-          "expiration_date": "2026-10-20",
+          "expiration_date": null,
           "links": {
             "details": "/api/v1/models/google/gemini-2.5-pro/endpoints"
           },
@@ -28111,133 +28706,6 @@
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/google/gemini-2.5-pro-preview-06-05/endpoints"
-          },
-          "reasoning": {
-            "mandatory": true
-          }
-        },
-        {
-          "id": "google/gemini-2.5-pro:batch",
-          "name": "Google: Gemini 2.5 Pro (batch)",
-          "canonical_slug": "google/gemini-2.5-pro",
-          "hugging_face_id": "",
-          "description": "Gemini 2.5 Pro is Google’s state-of-the-art AI model designed for advanced reasoning, coding, mathematics, and scientific tasks. It employs “thinking” capabilities, enabling it to reason through responses with enhanced accuracy...",
-          "context_length": 1048576,
-          "architecture": {
-            "modality": "text+image+file+audio+video->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "file",
-              "audio",
-              "video"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Gemini",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000000625",
-            "completion": "0.000005",
-            "image": "0.000000625",
-            "audio": "0.000000625",
-            "input_audio_cache": "0.000000125",
-            "web_search": "0.014",
-            "internal_reasoning": "0.000005",
-            "input_cache_read": "0.000000125",
-            "overrides": [
-              {
-                "min_prompt_tokens": 200000,
-                "prompt": "0.00000125",
-                "completion": "0.0000075",
-                "audio": "0.00000125",
-                "input_audio_cache": "0.00000025",
-                "input_cache_read": "0.00000025"
-              }
-            ]
-          },
-          "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 65536,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-01-31",
-          "expiration_date": "2026-10-20",
-          "links": {
-            "details": "/api/v1/models/google/gemini-2.5-pro/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 1081,
-                "win_rate": 50.6,
-                "rank": 95
-              },
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1154,
-                "win_rate": 57.5,
-                "rank": 82
-              },
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 1221,
-                "win_rate": 68.2,
-                "rank": 49
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 1111,
-                "win_rate": 54.2,
-                "rank": 92
-              },
-              {
-                "arena": "models",
-                "category": "uicomponent",
-                "elo": 1141,
-                "win_rate": 57.5,
-                "rank": 80
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1167,
-                "win_rate": 58.4,
-                "rank": 81
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": 16.1,
-              "coding_index": 33.3,
-              "agentic_index": 1.6
-            }
           },
           "reasoning": {
             "mandatory": true
@@ -37098,9 +37566,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000068",
-            "completion": "0.00000209",
-            "input_cache_read": "0.00000007"
+            "prompt": "0.00000136",
+            "completion": "0.00000418",
+            "input_cache_read": "0.00000014"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -52938,12 +53406,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.0000011"
+            "prompt": "0.0000001",
+            "completion": "0.0000011",
+            "input_cache_read": "0.00000007"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 16384,
+            "max_completion_tokens": 235929,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -56608,9 +57077,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -56818,9 +57287,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000834",
-            "completion": "0.000002501",
-            "input_cache_read": "0.000000042",
+            "prompt": "0.0000007506",
+            "completion": "0.0000022509",
+            "input_cache_read": "0.0000000378",
             "overrides": [
               {
                 "utc_start": 0,
@@ -61519,7 +61988,7 @@
           "pricing": {
             "prompt": "0.000000079",
             "completion": "0.0000014",
-            "input_cache_read": "0.000000055"
+            "input_cache_read": "0.000000078"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -61678,7 +62147,7 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000047076",
+            "prompt": "0.000000048",
             "completion": "0.00000016",
             "input_cache_read": "0.000000006"
           },
