@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792612776935,
+  "timestamp": 1792624343164,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10037,6 +10037,19 @@
       }
     },
     {
+      "id": "dakota",
+      "displayName": "Krea 3",
+      "provider": "krea",
+      "active": false,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "imagetoimage"
+        ]
+      }
+    },
+    {
       "id": "muse-wonder-1.0",
       "displayName": "Muse Wonder (max)",
       "provider": "meta",
@@ -10191,6 +10204,19 @@
       }
     },
     {
+      "id": "hawaii",
+      "displayName": "Krea 3 (Ultra Thinking)",
+      "provider": "krea",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "imagetoimage"
+        ]
+      }
+    },
+    {
       "id": "nemotron-3.5-super-vl",
       "displayName": "Nemotron 3.5 Super VL",
       "provider": "nvidia",
@@ -10309,6 +10335,29 @@
           "slides"
         ]
       }
+    },
+    {
+      "id": "flint",
+      "displayName": "Flint",
+      "provider": "recursive",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": false,
+      "inputModalities": [
+        "text"
+      ]
     },
     {
       "id": "beam-1.0",
@@ -12152,11 +12201,6 @@
       "website": "https://www.heygen.com"
     },
     {
-      "id": "dakota",
-      "displayName": "dakota",
-      "logoName": "private.png"
-    },
-    {
       "id": "pelican",
       "displayName": "pelican",
       "logoName": "private.png"
@@ -12172,11 +12216,6 @@
       "logoName": "private.png"
     },
     {
-      "id": "hawaii",
-      "displayName": "hawaii",
-      "logoName": "private.png"
-    },
-    {
       "id": "paperinstruments",
       "displayName": "Paper Instruments",
       "logoName": "paperinstruments.svg",
@@ -12186,6 +12225,12 @@
       "id": "lithium-1015",
       "displayName": "lithium-1015",
       "logoName": "private.png"
+    },
+    {
+      "id": "recursive",
+      "displayName": "Recursive",
+      "logoName": "recursive.png",
+      "website": "https://www.recursive.com"
     },
     {
       "id": "reflection",
@@ -15375,6 +15420,13 @@
       "id": "ultramarine-slides",
       "slides": {
         "perDeck": 0.07
+      }
+    },
+    {
+      "id": "flint",
+      "text": {
+        "input": 0,
+        "output": 0
       }
     },
     {
