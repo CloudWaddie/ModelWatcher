@@ -11308,6 +11308,17 @@
           "supports_tools": true
         },
         {
+          "id": "accounts/fireworks/routers/deepseek-v4p1-flash-spot",
+          "name": "accounts/fireworks/routers/deepseek-v4p1-flash-spot",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
           "id": "accounts/fireworks/routers/glm-5p2-fast",
           "name": "accounts/fireworks/routers/glm-5p2-fast",
           "owned_by": "fireworks",
@@ -11330,6 +11341,17 @@
           "context_length": 1048576
         },
         {
+          "id": "accounts/fireworks/routers/glm-5p3-spot",
+          "name": "accounts/fireworks/routers/glm-5p3-spot",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
           "id": "accounts/fireworks/routers/kimi-k3-fast",
           "name": "accounts/fireworks/routers/kimi-k3-fast",
           "owned_by": "fireworks",
@@ -11337,6 +11359,28 @@
           "kind": "HF_BASE_MODEL",
           "supports_chat": true,
           "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/routers/kimi-k3-spot",
+          "name": "accounts/fireworks/routers/kimi-k3-spot",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/routers/spot-deepseek-v4-flash",
+          "name": "accounts/fireworks/routers/spot-deepseek-v4-flash",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
           "supports_tools": true,
           "context_length": 1048576
         },
@@ -18747,9 +18791,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000049",
-            "completion": "0.000000375",
-            "input_cache_read": "0.000000001176"
+            "prompt": "0.00000007",
+            "completion": "0.0000005",
+            "input_cache_read": "0.000000008"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -19754,13 +19798,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000001001",
-            "completion": "0.00000005385",
-            "input_cache_read": "0.00000000435"
+            "prompt": "0.0000000413",
+            "completion": "0.0000000773",
+            "input_cache_read": "0.00000003"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 131072,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -27415,9 +27459,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000040716",
-            "completion": "0.00000081432",
-            "input_cache_read": "0.00000003393"
+            "prompt": "0.000000386976",
+            "completion": "0.000000773952",
+            "input_cache_read": "0.000000032248"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -27735,13 +27779,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000002394",
-            "completion": "0.000000375",
-            "input_cache_read": "0.000000000342"
+            "prompt": "0.0000000342",
+            "completion": "0.0000001368",
+            "input_cache_read": "0.000000000684"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 393216,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -28518,80 +28562,6 @@
             "internal_reasoning": "0.0000004",
             "input_cache_read": "0.00000001",
             "input_cache_write": "0.0000000833333333333333"
-          },
-          "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 65535,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "include_reasoning",
-            "max_tokens",
-            "reasoning",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-01-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/google/gemini-2.5-flash-lite/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": 10.4,
-              "coding_index": null,
-              "agentic_index": null
-            }
-          },
-          "reasoning": {
-            "mandatory": false
-          }
-        },
-        {
-          "id": "google/gemini-2.5-flash-lite:batch",
-          "name": "Google: Gemini 2.5 Flash Lite (batch)",
-          "canonical_slug": "google/gemini-2.5-flash-lite",
-          "hugging_face_id": "",
-          "description": "Gemini 2.5 Flash-Lite is a lightweight reasoning model in the Gemini 2.5 family, optimized for ultra-low latency and cost efficiency. It offers improved throughput, faster token generation, and better performance...",
-          "context_length": 1048576,
-          "architecture": {
-            "modality": "text+image+file+audio+video->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "file",
-              "audio",
-              "video"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Gemini",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000005",
-            "completion": "0.0000002",
-            "image": "0.00000005",
-            "audio": "0.00000015",
-            "input_audio_cache": "0.00000003",
-            "web_search": "0.014",
-            "internal_reasoning": "0.0000002",
-            "input_cache_read": "0.00000001"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -55970,6 +55940,60 @@
           }
         },
         {
+          "id": "recursive/flint-v1.0:free",
+          "name": "Recursive: Flint (free)",
+          "canonical_slug": "recursive/flint-v1.0-20261021",
+          "hugging_face_id": "RecursiveSI/flint",
+          "description": "Flint is an open-weight mixture-of-experts model from Recursive, with about 2.5B active parameters out of 40B total, built by Recursive's autoresearch system Eureka Machine for coding agents. It is suited...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "reasoning",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/recursive/flint-v1.0-20261021/endpoints"
+          },
+          "reasoning": {
+            "mandatory": true
+          }
+        },
+        {
           "id": "reflection/beam-1.0-501b-a23b",
           "name": "Reflection: Beam 1.0 501B A23B",
           "canonical_slug": "reflection/beam-1.0-501b-a23b-20261016",
@@ -62138,13 +62162,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000079",
-            "completion": "0.0000014",
-            "input_cache_read": "0.000000078"
+            "prompt": "0.0000007",
+            "completion": "0.0000022",
+            "input_cache_read": "0.00000013"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 262144,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -62299,13 +62323,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000001001",
-            "completion": "0.00000005385",
-            "input_cache_read": "0.00000000435"
+            "prompt": "0.00000015",
+            "completion": "0.0000005",
+            "input_cache_read": "0.00000003"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "context_length": 1048575,
+            "max_completion_tokens": 943717,
             "is_moderated": false
           },
           "per_request_limits": null,
