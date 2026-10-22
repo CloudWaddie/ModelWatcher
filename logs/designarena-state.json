@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792681291771,
+  "timestamp": 1792698763198,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10217,6 +10217,19 @@
       }
     },
     {
+      "id": "pelican",
+      "displayName": "Canva Craft",
+      "provider": "canva",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image"
+        ]
+      }
+    },
+    {
       "id": "snowhare",
       "displayName": "MiniMax M3.1 Flash",
       "provider": "minimax",
@@ -10232,6 +10245,20 @@
           "uicomponent",
           "svg",
           "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "agon_html",
+          "fullstack",
+          "fullstack_gamedev",
+          "nativeapps",
+          "mobileapps",
+          "agentic_gamedev",
+          "agon_godot",
+          "agentic_3d",
+          "agon_dataviz",
+          "agon_slides",
+          "agon_slides_html"
         ]
       },
       "vision": true,
@@ -12237,11 +12264,6 @@
       "displayName": "HeyGen",
       "logoName": "heygen.png",
       "website": "https://www.heygen.com"
-    },
-    {
-      "id": "pelican",
-      "displayName": "pelican",
-      "logoName": "private.png"
     },
     {
       "id": "mousey",
@@ -15413,6 +15435,12 @@
       "id": "p-video-2-pro-reference-cost",
       "video": {
         "perSecond": 0.035
+      }
+    },
+    {
+      "id": "pelican",
+      "image": {
+        "perImage": 0.05
       }
     },
     {
