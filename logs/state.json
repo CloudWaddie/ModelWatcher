@@ -6135,6 +6135,34 @@
           }
         },
         {
+          "id": "MiniMaxAI/MiniMax-M3.1-Flash",
+          "name": "MiniMaxAI/MiniMax-M3.1-Flash",
+          "object": "model",
+          "type": "chat",
+          "running": false,
+          "display_name": "MiniMax M3.1 Flash",
+          "organization": "MiniMaxAI",
+          "context_length": 1048576,
+          "config": {
+            "chat_template": null,
+            "stop": [],
+            "bos_token": null,
+            "eos_token": null
+          },
+          "pricing": {
+            "hourly": 0,
+            "input": 0.15,
+            "output": 0.6,
+            "base": 0,
+            "finetune": 0,
+            "cached_input": 0.015000000000000001,
+            "image_pixel": 0,
+            "transcribe": 0,
+            "image": 0,
+            "video": 0
+          }
+        },
+        {
           "id": "mistralai/Devstral-Small-2505",
           "name": "mistralai/Devstral-Small-2505",
           "object": "model",
@@ -11286,6 +11314,17 @@
           "supports_tools": true
         },
         {
+          "id": "accounts/fireworks/routers/deepseek-v4p1-flash-1017-spot",
+          "name": "accounts/fireworks/routers/deepseek-v4p1-flash-1017-spot",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
           "id": "accounts/fireworks/routers/deepseek-v4p1-flash-spot",
           "name": "accounts/fireworks/routers/deepseek-v4p1-flash-spot",
           "owned_by": "fireworks",
@@ -15415,7 +15454,7 @@
               "output_tokens": 2.5010000000000003,
               "cache_read_tokens": 0.04199999814
             },
-            "discount": null,
+            "discount": 0.05,
             "tags": [
               "chat",
               "prompt_cache",
@@ -15509,7 +15548,7 @@
           "parent": null,
           "object": "model",
           "metadata": {
-            "description": "The Wan2.2 T2V A14B is a next-generation 14B-parameter video foundation model by Wan-AI featuring a novel two-stage denoising architecture. It produces 480P videos with improved visual coherence and detail, generating 2 or 5 second clips at 16fps from text prompts.",
+            "description": "Wan2.2 T2V A14B is a 14B-parameter text-to-video model by Wan-AI with a Mixture-of-Experts design: a high-noise expert lays out the scene and motion, and a low-noise expert refines the detail. It generates 5-second 720p (1280×720) clips at 16 fps from text prompts.",
             "context_length": null,
             "max_tokens": null,
             "pricing": {
@@ -18821,9 +18860,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000225",
+            "prompt": "0.0000002247",
             "completion": "0.000008",
-            "input_cache_read": "0.00000023"
+            "input_cache_read": "0.00000022"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18898,7 +18937,7 @@
           },
           "pricing": {
             "prompt": "0.0000000475",
-            "completion": "0.0000001602",
+            "completion": "0.0000001568",
             "input_cache_read": "0.000000028"
           },
           "top_provider": {
@@ -36741,9 +36780,9 @@
           "id": "minimax/minimax-m3.1-flash",
           "name": "MiniMax: MiniMax M3.1 Flash",
           "canonical_slug": "minimax/minimax-m3.1-flash-20261019",
-          "hugging_face_id": null,
+          "hugging_face_id": "MiniMaxAI/MiniMax-M3.1-Flash",
           "description": "MiniMax-M3.1-Flash is a multimodal model from MiniMax. Compared with M3, it delivers significant improvements across multiple benchmarks, particularly in complex agentic tasks, coding, and cybersecurity. It is built for complex,...",
-          "context_length": 1000000,
+          "context_length": 1048576,
           "architecture": {
             "modality": "text+image+video->text",
             "input_modalities": [
@@ -36763,20 +36802,31 @@
             "input_cache_read": "0.000000015"
           },
           "top_provider": {
-            "context_length": 1000000,
+            "context_length": 1048576,
             "max_completion_tokens": 524288,
             "is_moderated": false
           },
           "per_request_limits": null,
           "supported_parameters": [
+            "frequency_penalty",
             "include_reasoning",
+            "logit_bias",
+            "logprobs",
             "max_tokens",
+            "min_p",
+            "presence_penalty",
             "reasoning",
             "reasoning_effort",
+            "repetition_penalty",
             "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
             "temperature",
             "tool_choice",
             "tools",
+            "top_k",
+            "top_logprobs",
             "top_p"
           ],
           "default_parameters": {},
@@ -54478,13 +54528,12 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008",
-            "completion": "0.00000013",
-            "input_cache_read": "0.00000004"
+            "prompt": "0.00000017",
+            "completion": "0.00000025"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 65536,
+            "max_completion_tokens": 235929,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -55788,13 +55837,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000004",
-            "completion": "0.00000135",
-            "input_cache_read": "0.000000018"
+            "prompt": "0.0000002",
+            "completion": "0.0000025",
+            "input_cache_read": "0.00000009"
           },
           "top_provider": {
             "context_length": 262144,
-            "max_completion_tokens": 65536,
+            "max_completion_tokens": 235929,
             "is_moderated": false
           },
           "per_request_limits": null,
