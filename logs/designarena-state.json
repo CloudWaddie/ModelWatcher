@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792766952651,
+  "timestamp": 1792781980516,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10576,6 +10576,43 @@
           "multitovideo"
         ]
       }
+    },
+    {
+      "id": "kimi-k3.1-pro",
+      "displayName": "Kimi K3.1 Pro",
+      "provider": "moonshot",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg"
+        ],
+        "agents": [
+          "agon_webapps",
+          "agon_slides",
+          "agon_slides_html",
+          "agon_dataviz",
+          "agon_godot",
+          "agentic_gamedev",
+          "agentic_3d",
+          "fullstack",
+          "fullstack_gamedev",
+          "mobileapps",
+          "nativeapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video"
+      ]
     }
   ],
   "providers": [
@@ -15562,6 +15599,13 @@
       "text": {
         "input": 13,
         "output": 0
+      }
+    },
+    {
+      "id": "kimi-k3.1-pro",
+      "text": {
+        "input": 2,
+        "output": 10
       }
     }
   ]
