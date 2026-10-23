@@ -11865,29 +11865,6 @@
           }
         },
         {
-          "id": "black-forest-labs/FLUX-1-Redux-dev",
-          "name": "black-forest-labs/FLUX-1-Redux-dev",
-          "owned_by": "deepinfra",
-          "root": "black-forest-labs/FLUX-1-Redux-dev",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "FLUX.1 Redux [dev] is an image variation generation adapter for all FLUX.1 base models. It enables users to refine images with slight variations and supports text-based restyling via API. Integrated with FLUX1.1 [pro] Ultra, it allows for high-quality 4-megapixel outputs. The model can be used with Diffusers in Python for efficient image generation. While powerful, it has ethical and factual limitations and is governed by a non-commercial license.",
-            "context_length": null,
-            "max_tokens": null,
-            "pricing": {
-              "per_image_unit": 0.012
-            },
-            "discount": null,
-            "tags": [
-              "image-gen"
-            ],
-            "default_width": 1024,
-            "default_height": 1024,
-            "default_iterations": 25
-          }
-        },
-        {
           "id": "black-forest-labs/FLUX-1-schnell",
           "name": "black-forest-labs/FLUX-1-schnell",
           "owned_by": "deepinfra",
@@ -15671,7 +15648,7 @@
               "output_tokens": 0.28,
               "cache_read_tokens": 0.0028000000000000004
             },
-            "discount": 0.05,
+            "discount": 0.35,
             "tags": [
               "chat",
               "vlm",
@@ -18784,9 +18761,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000022",
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000003"
+            "prompt": "0.00000007",
+            "completion": "0.0000005",
+            "input_cache_read": "0.000000008"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -19171,7 +19148,7 @@
           },
           "pricing": {
             "prompt": "0.000000238",
-            "completion": "0.000016",
+            "completion": "0.000024",
             "input_cache_read": "0.000000228"
           },
           "top_provider": {
@@ -27538,9 +27515,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000885312",
-            "completion": "0.000001770624",
-            "input_cache_read": "0.000000073776"
+            "prompt": "0.00000078387",
+            "completion": "0.00000156774",
+            "input_cache_read": "0.0000000653225"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -32890,9 +32867,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.0000000675",
+            "completion": "0.000000225",
+            "input_cache_read": "0.0000000375"
           },
           "top_provider": {
             "context_length": 262144,
@@ -40101,7 +40078,7 @@
           },
           "pricing": {
             "prompt": "0.000000239",
-            "completion": "0.000011936",
+            "completion": "0.0000108",
             "input_cache_read": "0.00000021"
           },
           "top_provider": {
@@ -40480,6 +40457,71 @@
               "coding_index": 76.2,
               "agentic_index": 50
             }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "high",
+              "low",
+              "none"
+            ],
+            "default_effort": "max"
+          }
+        },
+        {
+          "id": "moonshotai/kimi-k3.1-pro",
+          "name": "MoonshotAI: Kimi K3.1 Pro",
+          "canonical_slug": "moonshotai/kimi-k3.1-pro-20261023",
+          "hugging_face_id": null,
+          "description": "Kimi K3.1 Pro is Moonshot AI's flagship open-weight multimodal reasoning model and a post-trained successor to Kimi K3, with a 1M-token context window. It is built for long-horizon coding, 3D...",
+          "context_length": 1048576,
+          "architecture": {
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.00001",
+            "input_cache_read": "0.0000002"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 943718,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "stop",
+            "structured_outputs",
+            "tool_choice",
+            "tools"
+          ],
+          "default_parameters": {
+            "top_p": 0.95
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/moonshotai/kimi-k3.1-pro-20261023/endpoints"
           },
           "reasoning": {
             "mandatory": false,
@@ -57528,9 +57570,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000132",
-            "completion": "0.000000528",
-            "input_cache_read": "0.000000033",
+            "prompt": "0.0000000825",
+            "completion": "0.00000033",
+            "input_cache_read": "0.000000020625",
             "overrides": [
               {
                 "utc_start": 0,
@@ -57738,9 +57780,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000834",
-            "completion": "0.000002501",
-            "input_cache_read": "0.000000042",
+            "prompt": "0.0000007506",
+            "completion": "0.0000022509",
+            "input_cache_read": "0.0000000378",
             "overrides": [
               {
                 "utc_start": 0,
