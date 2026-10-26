@@ -1,5 +1,5 @@
 {
-  "timestamp": 1793034814218,
+  "timestamp": 1793053874974,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10659,6 +10659,35 @@
         "image",
         "video"
       ]
+    },
+    {
+      "id": "gpt-6.1-terra",
+      "displayName": "GPT-6.1 Terra",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "fullstack",
+          "agon_godot"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -15652,6 +15681,15 @@
       "text": {
         "input": 2,
         "output": 10
+      }
+    },
+    {
+      "id": "gpt-6.1-terra",
+      "text": {
+        "input": 1,
+        "output": 5,
+        "cachedInput": 0.05,
+        "cacheWrite": 1.25
       }
     }
   ]
