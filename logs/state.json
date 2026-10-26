@@ -218,14 +218,14 @@
           "name": "gpt-4o-mini-transcribe-2025-12-15",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-02-26"
         },
         {
           "id": "gpt-4o-mini-tts",
           "name": "gpt-4o-mini-tts",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-06"
         },
         {
           "id": "gpt-4o-mini-tts-2025-03-20",
@@ -274,7 +274,7 @@
           "name": "gpt-5",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2026-12-11"
         },
         {
           "id": "gpt-5-2025-08-07",
@@ -302,7 +302,7 @@
           "name": "gpt-5-mini",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2026-12-11"
         },
         {
           "id": "gpt-5-mini-2025-08-07",
@@ -316,7 +316,7 @@
           "name": "gpt-5-nano",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2026-12-11"
         },
         {
           "id": "gpt-5-nano-2025-08-07",
@@ -330,7 +330,7 @@
           "name": "gpt-5-pro",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2026-12-11"
         },
         {
           "id": "gpt-5-pro-2025-10-06",
@@ -365,7 +365,7 @@
           "name": "gpt-5.1-2025-11-13",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-04-01"
         },
         {
           "id": "gpt-5.1-chat-latest",
@@ -491,7 +491,7 @@
           "name": "gpt-5.4-nano-2026-03-17",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-04-01"
         },
         {
           "id": "gpt-5.4-pro",
@@ -610,7 +610,7 @@
           "name": "gpt-audio-2025-08-28",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-20"
         },
         {
           "id": "gpt-audio-mini",
@@ -631,7 +631,7 @@
           "name": "gpt-audio-mini-2025-12-15",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-20"
         },
         {
           "id": "gpt-image-1",
@@ -750,7 +750,7 @@
           "name": "gpt-realtime-2025-08-28",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-20"
         },
         {
           "id": "gpt-realtime-mini",
@@ -764,7 +764,7 @@
           "name": "gpt-realtime-mini-2025-12-15",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2027-01-20"
         },
         {
           "id": "gpt-realtime-translate",
@@ -820,7 +820,7 @@
           "name": "o3",
           "owned_by": "system",
           "object": "model",
-          "shutdown_date": null
+          "shutdown_date": "2026-12-11"
         },
         {
           "id": "o3-2025-04-16",
@@ -18737,13 +18737,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000002",
-            "completion": "0.000001",
-            "input_cache_read": "0.000000015"
+            "prompt": "0.00000004",
+            "completion": "0.0000005",
+            "input_cache_read": "0.00000003"
           },
           "top_provider": {
             "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "max_completion_tokens": 393216,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -19123,9 +19123,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000017",
-            "completion": "0.0000076972",
-            "input_cache_read": "0.00000017"
+            "prompt": "0.000000189",
+            "completion": "0.00002",
+            "input_cache_read": "0.000000179"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -19509,8 +19509,8 @@
           "name": "OpenAI: GPT Terra Latest",
           "canonical_slug": "~openai/gpt-terra-latest",
           "alias_target": {
-            "name": "OpenAI: GPT-5.6 Terra",
-            "slug": "openai/gpt-5.6-terra"
+            "name": "OpenAI: GPT-6.1 Terra",
+            "slug": "openai/gpt-6.1-terra"
           },
           "hugging_face_id": null,
           "description": "This model always redirects to the latest model in the GPT Terra family.",
@@ -19529,30 +19529,29 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000002",
-            "completion": "0.000012",
+            "prompt": "0.000001",
+            "completion": "0.000005",
             "web_search": "0.01",
-            "input_cache_read": "0.0000002",
-            "input_cache_write": "0.0000025",
+            "input_cache_read": "0.00000005",
+            "input_cache_write": "0.00000125",
             "overrides": [
               {
                 "min_prompt_tokens": 272000,
-                "prompt": "0.000004",
-                "completion": "0.000018",
-                "input_cache_read": "0.0000004",
-                "input_cache_write": "0.000005"
+                "prompt": "0.000002",
+                "completion": "0.0000075",
+                "input_cache_read": "0.0000001",
+                "input_cache_write": "0.0000025"
               }
             ]
           },
           "top_provider": {
             "context_length": 1050000,
             "max_completion_tokens": 128000,
-            "is_moderated": false
+            "is_moderated": true
           },
           "per_request_limits": null,
           "supported_parameters": [
             "include_reasoning",
-            "max_completion_tokens",
             "max_tokens",
             "reasoning",
             "reasoning_effort",
@@ -19563,16 +19562,9 @@
             "tools",
             "verbosity"
           ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
+          "default_parameters": {},
           "supported_voices": null,
-          "knowledge_cutoff": "2026-02-16",
+          "knowledge_cutoff": null,
           "expiration_date": null,
           "links": {
             "details": "/api/v1/models/~openai/gpt-terra-latest/endpoints"
@@ -27397,9 +27389,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000748548",
-            "completion": "0.000001497096",
-            "input_cache_read": "0.000000062379"
+            "prompt": "0.000000709746",
+            "completion": "0.000001419492",
+            "input_cache_read": "0.0000000591455"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -27717,9 +27709,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000002",
-            "completion": "0.000001",
-            "input_cache_read": "0.000000015"
+            "prompt": "0.0000003",
+            "completion": "0.0000012",
+            "input_cache_read": "0.000000006"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -32785,9 +32777,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000009",
-            "completion": "0.0000003",
-            "input_cache_read": "0.00000005"
+            "prompt": "0.0000000765",
+            "completion": "0.000000255",
+            "input_cache_read": "0.0000000425"
           },
           "top_provider": {
             "context_length": 262144,
@@ -36988,106 +36980,6 @@
           }
         },
         {
-          "id": "mistralai/codestral-2508:batch",
-          "name": "Mistral: Codestral 2508 (batch)",
-          "canonical_slug": "mistralai/codestral-2508",
-          "hugging_face_id": "",
-          "description": "Mistral's cutting-edge language model for coding released end of July 2025. Codestral specializes in low-latency, high-frequency tasks such as fill-in-the-middle (FIM), code correction and test generation.\n\n[Blog Post](https://mistral.ai/news/codestral-25-08)",
-          "context_length": 256000,
-          "architecture": {
-            "modality": "text+file->text",
-            "input_modalities": [
-              "text",
-              "file"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000015",
-            "completion": "0.00000045",
-            "input_cache_read": "0.000000015"
-          },
-          "top_provider": {
-            "context_length": 256000,
-            "max_completion_tokens": 204800,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "prediction",
-            "presence_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.3
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-03-31",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/mistralai/codestral-2508/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1007,
-                "win_rate": 38.5,
-                "rank": 127
-              },
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 1017,
-                "win_rate": 41.1,
-                "rank": 115
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 968,
-                "win_rate": 36.3,
-                "rank": 129
-              },
-              {
-                "arena": "models",
-                "category": "uicomponent",
-                "elo": 1012,
-                "win_rate": 46.7,
-                "rank": 115
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1011,
-                "win_rate": 37.8,
-                "rank": 131
-              },
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 1017,
-                "win_rate": 45.4,
-                "rank": 111
-              }
-            ]
-          }
-        },
-        {
           "id": "mistralai/devstral-2512",
           "name": "Mistral: Devstral 2 2512",
           "canonical_slug": "mistralai/devstral-2512",
@@ -37427,98 +37319,6 @@
           }
         },
         {
-          "id": "mistralai/ministral-8b-2512:batch",
-          "name": "Mistral: Ministral 3 8B 2512 (batch)",
-          "canonical_slug": "mistralai/ministral-8b-2512",
-          "hugging_face_id": "mistralai/Ministral-3-8B-Instruct-2512",
-          "description": "A balanced model in the Ministral 3 family, Ministral 3 8B is a powerful, efficient tiny language model with vision capabilities.",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000000075",
-            "completion": "0.000000075",
-            "input_cache_read": "0.0000000075"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 209715,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "presence_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.3,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/mistralai/ministral-8b-2512/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 1027,
-                "win_rate": 46.2,
-                "rank": 110
-              },
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1053,
-                "win_rate": 42.9,
-                "rank": 117
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 990,
-                "win_rate": 38.7,
-                "rank": 125
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1063,
-                "win_rate": 42.9,
-                "rank": 118
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": 5.5,
-              "coding_index": 9.7,
-              "agentic_index": 0.6
-            }
-          }
-        },
-        {
           "id": "mistralai/mistral-large",
           "name": "Mistral Large",
           "canonical_slug": "mistralai/mistral-large",
@@ -37664,127 +37464,6 @@
             "prompt": "0.0000005",
             "completion": "0.0000015",
             "input_cache_read": "0.00000005"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 209715,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "presence_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.0645,
-            "top_p": null,
-            "frequency_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/mistralai/mistral-large-2512/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 1096,
-                "win_rate": 46.9,
-                "rank": 90
-              },
-              {
-                "arena": "models",
-                "category": "asciiart",
-                "elo": 1066,
-                "win_rate": 40.3,
-                "rank": 66
-              },
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1140,
-                "win_rate": 47.6,
-                "rank": 94
-              },
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 1136,
-                "win_rate": 45.7,
-                "rank": 88
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 1080,
-                "win_rate": 41.5,
-                "rank": 106
-              },
-              {
-                "arena": "models",
-                "category": "svg",
-                "elo": 991,
-                "win_rate": 38,
-                "rank": 88
-              },
-              {
-                "arena": "models",
-                "category": "uicomponent",
-                "elo": 1097,
-                "win_rate": 43,
-                "rank": 95
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1162,
-                "win_rate": 49.5,
-                "rank": 86
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": 9.3,
-              "coding_index": 20.1,
-              "agentic_index": 1
-            }
-          }
-        },
-        {
-          "id": "mistralai/mistral-large-2512:batch",
-          "name": "Mistral: Mistral Large 3 2512 (batch)",
-          "canonical_slug": "mistralai/mistral-large-2512",
-          "hugging_face_id": "",
-          "description": "Mistral Large 3 2512 is Mistral’s most capable model to date, featuring a sparse mixture-of-experts architecture with 41B active parameters (675B total), and released under the Apache 2.0 license.",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+image+file->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "file"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.00000025",
-            "completion": "0.00000075",
-            "input_cache_read": "0.000000025"
           },
           "top_provider": {
             "context_length": 262144,
@@ -38391,125 +38070,6 @@
           }
         },
         {
-          "id": "mistralai/mistral-medium-3.1:batch",
-          "name": "Mistral: Mistral Medium 3.1 (batch)",
-          "canonical_slug": "mistralai/mistral-medium-3.1",
-          "hugging_face_id": "",
-          "description": "Mistral Medium 3.1 is an updated version of Mistral Medium 3, which is a high-performance enterprise-grade language model designed to deliver frontier-level capabilities at significantly reduced operational cost. It balances...",
-          "context_length": 131072,
-          "architecture": {
-            "modality": "text+image+file->text",
-            "input_modalities": [
-              "text",
-              "image",
-              "file"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.000001",
-            "input_cache_read": "0.00000002"
-          },
-          "top_provider": {
-            "context_length": 131072,
-            "max_completion_tokens": 104857,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "max_tokens",
-            "presence_penalty",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": 0.3
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": "2025-06-30",
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/mistralai/mistral-medium-3.1/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [
-              {
-                "arena": "models",
-                "category": "3d",
-                "elo": 1078,
-                "win_rate": 44.6,
-                "rank": 96
-              },
-              {
-                "arena": "models",
-                "category": "asciiart",
-                "elo": 995,
-                "win_rate": 30.8,
-                "rank": 70
-              },
-              {
-                "arena": "models",
-                "category": "codecategories",
-                "elo": 1120,
-                "win_rate": 45.1,
-                "rank": 99
-              },
-              {
-                "arena": "models",
-                "category": "dataviz",
-                "elo": 1144,
-                "win_rate": 47.2,
-                "rank": 84
-              },
-              {
-                "arena": "models",
-                "category": "gamedev",
-                "elo": 1074,
-                "win_rate": 40.8,
-                "rank": 108
-              },
-              {
-                "arena": "models",
-                "category": "svg",
-                "elo": 991,
-                "win_rate": 38.2,
-                "rank": 89
-              },
-              {
-                "arena": "models",
-                "category": "uicomponent",
-                "elo": 1094,
-                "win_rate": 43.6,
-                "rank": 97
-              },
-              {
-                "arena": "models",
-                "category": "website",
-                "elo": 1131,
-                "win_rate": 46,
-                "rank": 101
-              }
-            ],
-            "artificial_analysis": {
-              "intelligence_index": 9.2,
-              "coding_index": 20.5,
-              "agentic_index": 1.9
-            }
-          }
-        },
-        {
           "id": "mistralai/mistral-nemo",
           "name": "Mistral: Mistral Nemo",
           "canonical_slug": "mistralai/mistral-nemo",
@@ -38713,84 +38273,6 @@
             "prompt": "0.00000015",
             "completion": "0.0000006",
             "input_cache_read": "0.000000015"
-          },
-          "top_provider": {
-            "context_length": 262144,
-            "max_completion_tokens": 209715,
-            "is_moderated": false
-          },
-          "per_request_limits": null,
-          "supported_parameters": [
-            "frequency_penalty",
-            "include_reasoning",
-            "max_tokens",
-            "presence_penalty",
-            "reasoning",
-            "reasoning_effort",
-            "response_format",
-            "seed",
-            "stop",
-            "structured_outputs",
-            "temperature",
-            "tool_choice",
-            "tools",
-            "top_p"
-          ],
-          "default_parameters": {
-            "temperature": null,
-            "top_p": null,
-            "top_k": null,
-            "frequency_penalty": null,
-            "presence_penalty": null,
-            "repetition_penalty": null
-          },
-          "supported_voices": null,
-          "knowledge_cutoff": null,
-          "expiration_date": null,
-          "links": {
-            "details": "/api/v1/models/mistralai/mistral-small-2603/endpoints"
-          },
-          "benchmarks": {
-            "design_arena": [],
-            "artificial_analysis": {
-              "intelligence_index": 11.3,
-              "coding_index": 26.6,
-              "agentic_index": 0.8
-            }
-          },
-          "reasoning": {
-            "mandatory": false,
-            "default_enabled": false,
-            "supported_efforts": [
-              "high",
-              "none"
-            ],
-            "default_effort": "high"
-          }
-        },
-        {
-          "id": "mistralai/mistral-small-2603:batch",
-          "name": "Mistral: Mistral Small 4 (batch)",
-          "canonical_slug": "mistralai/mistral-small-2603",
-          "hugging_face_id": "mistralai/Mistral-Small-4-119B-2603",
-          "description": "Mistral Small 4 is the next major release in the Mistral Small family, unifying the capabilities of several flagship Mistral models into a single system. It combines strong reasoning from...",
-          "context_length": 262144,
-          "architecture": {
-            "modality": "text+image->text",
-            "input_modalities": [
-              "text",
-              "image"
-            ],
-            "output_modalities": [
-              "text"
-            ],
-            "tokenizer": "Mistral",
-            "instruct_type": null
-          },
-          "pricing": {
-            "prompt": "0.000000075",
-            "completion": "0.0000003",
-            "input_cache_read": "0.0000000075"
           },
           "top_provider": {
             "context_length": 262144,
@@ -39896,8 +39378,8 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000006712",
-            "completion": "0.00000335",
+            "prompt": "0.00000056",
+            "completion": "0.0000031",
             "input_cache_read": "0.00000015"
           },
           "top_provider": {
@@ -40089,9 +39571,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000179",
+            "prompt": "0.000000189",
             "completion": "0.00002",
-            "input_cache_read": "0.000000169"
+            "input_cache_read": "0.000000179"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -40516,6 +39998,7 @@
           "supported_parameters": [
             "frequency_penalty",
             "include_reasoning",
+            "logprobs",
             "max_tokens",
             "presence_penalty",
             "reasoning",
@@ -40524,7 +40007,8 @@
             "stop",
             "structured_outputs",
             "tool_choice",
-            "tools"
+            "tools",
+            "top_logprobs"
           ],
           "default_parameters": {
             "top_p": 0.95
@@ -50056,6 +49540,156 @@
           }
         },
         {
+          "id": "openai/gpt-6.1-terra",
+          "name": "OpenAI: GPT-6.1 Terra",
+          "canonical_slug": "openai/gpt-6.1-terra-20261026",
+          "hugging_face_id": null,
+          "description": "GPT-6.1 Terra is the mid-tier model in OpenAI's GPT-6.1 series, priced below GPT-6.1 Sol. It is suited for everyday agentic, coding, and writing work, is particularly strong at understanding screenshots...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.000001",
+            "completion": "0.000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000005",
+            "input_cache_write": "0.00000125",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.000002",
+                "completion": "0.0000075",
+                "input_cache_read": "0.0000001",
+                "input_cache_write": "0.0000025"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-6.1-terra-20261026/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
+          "id": "openai/gpt-6.1-terra:batch",
+          "name": "OpenAI: GPT-6.1 Terra (batch)",
+          "canonical_slug": "openai/gpt-6.1-terra-20261026",
+          "hugging_face_id": null,
+          "description": "GPT-6.1 Terra is the mid-tier model in OpenAI's GPT-6.1 series, priced below GPT-6.1 Sol. It is suited for everyday agentic, coding, and writing work, is particularly strong at understanding screenshots...",
+          "context_length": 1050000,
+          "architecture": {
+            "modality": "text+image+file->text",
+            "input_modalities": [
+              "file",
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "GPT",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.0000005",
+            "completion": "0.0000025",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000025",
+            "input_cache_write": "0.000000625",
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.000001",
+                "completion": "0.00000375",
+                "input_cache_read": "0.00000005",
+                "input_cache_write": "0.00000125"
+              }
+            ]
+          },
+          "top_provider": {
+            "context_length": 1050000,
+            "max_completion_tokens": 128000,
+            "is_moderated": true
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "include_reasoning",
+            "max_tokens",
+            "reasoning",
+            "reasoning_effort",
+            "response_format",
+            "seed",
+            "structured_outputs",
+            "tool_choice",
+            "tools",
+            "verbosity"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/openai/gpt-6.1-terra-20261026/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true,
+            "supported_efforts": [
+              "max",
+              "xhigh",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "default_effort": "medium"
+          }
+        },
+        {
           "id": "openai/gpt-audio",
           "name": "OpenAI: GPT Audio",
           "canonical_slug": "openai/gpt-audio",
@@ -54927,8 +54561,8 @@
           },
           "pricing": {
             "prompt": "0.0000001",
-            "completion": "0.00000095",
-            "input_cache_read": "0.00000005"
+            "completion": "0.0000009",
+            "input_cache_read": "0.00000003"
           },
           "top_provider": {
             "context_length": 262144,
@@ -58752,7 +58386,7 @@
           },
           "supported_voices": null,
           "knowledge_cutoff": null,
-          "expiration_date": null,
+          "expiration_date": "2026-10-30",
           "links": {
             "details": "/api/v1/models/upstage/solar-pro-3/endpoints"
           },
