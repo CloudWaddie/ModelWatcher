@@ -12545,8 +12545,8 @@
           "object": "model",
           "metadata": {
             "description": "DeepSeek-V3.2 is a large language model designed to harmonize high computational efficiency with strong reasoning and agentic tool-use performance. It introduces DeepSeek Sparse Attention (DSA), a fine-grained sparse attention mechanism that reduces training and inference cost while preserving quality in long-context scenarios. A scalable reinforcement learning post-training framework further improves reasoning, with reported performance in the GPT-5 class, and the model has demonstrated gold-medal results on the 2025 IMO and IOI. V3.2 also uses a large-scale agentic task synthesis pipeline to better integrate reasoning into tool-use settings, boosting compliance and generalization in interactive environments.",
-            "context_length": 16384,
-            "max_tokens": 16384,
+            "context_length": 163840,
+            "max_tokens": 163840,
             "pricing": {
               "input_tokens": 0.26,
               "output_tokens": 0.38,
@@ -18735,9 +18735,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000022",
-            "completion": "0.00000146",
-            "input_cache_read": "0.000000015"
+            "prompt": "0.0000000182",
+            "completion": "0.0000018",
+            "input_cache_read": "0.0000000165"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -19121,9 +19121,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000115",
-            "input_cache_read": "0.00000019"
+            "prompt": "0.000000159",
+            "completion": "0.00002",
+            "input_cache_read": "0.000000149"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -19737,9 +19737,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000363",
-            "completion": "0.000000133",
-            "input_cache_read": "0.000000036299"
+            "prompt": "0.0000000399",
+            "completion": "0.00000016",
+            "input_cache_read": "0.0000000363"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -27424,9 +27424,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000877134",
-            "completion": "0.000001754268",
-            "input_cache_read": "0.0000000730945"
+            "prompt": "0.000000875394",
+            "completion": "0.000001750788",
+            "input_cache_read": "0.0000000729495"
           },
           "top_provider": {
             "context_length": 1024000,
@@ -39563,9 +39563,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000002",
-            "completion": "0.0000115",
-            "input_cache_read": "0.00000019"
+            "prompt": "0.000000159",
+            "completion": "0.00002",
+            "input_cache_read": "0.000000149"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -52325,6 +52325,71 @@
           }
         },
         {
+          "id": "prism-ml/ternary-bonsai-2-9b",
+          "name": "PrismML: Ternary Bonsai 2 9B",
+          "canonical_slug": "prism-ml/ternary-bonsai-2-9b-20261015",
+          "hugging_face_id": "prism-ml/Ternary-Bonsai-2-9B-gguf",
+          "description": "Ternary Bonsai 2 9B is PrismML’s compact, open-weight language model for conversational AI, reasoning, and tool use. Built on Qwen3.5, it uses ternary weights packed into 2 bits for efficient...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text+image->text",
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Qwen",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0.00000008",
+            "completion": "0.00000013",
+            "input_cache_read": "0.00000004"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 65536,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 20
+          },
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/prism-ml/ternary-bonsai-2-9b-20261015/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
+          }
+        },
+        {
           "id": "qwen/qwen-2.5-72b-instruct",
           "name": "Qwen2.5 72B Instruct",
           "canonical_slug": "qwen/qwen-2.5-72b-instruct",
@@ -61987,9 +62052,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000319",
+            "prompt": "0.0000000341",
             "completion": "0.000007",
-            "input_cache_read": "0.0000000309"
+            "input_cache_read": "0.000000033"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -62346,13 +62411,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000363",
-            "completion": "0.000000133",
-            "input_cache_read": "0.000000036299"
+            "prompt": "0.00000015",
+            "completion": "0.0000005",
+            "input_cache_read": "0.00000003"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 943718,
+            "context_length": 1048575,
+            "max_completion_tokens": 943717,
             "is_moderated": false
           },
           "per_request_limits": null,
