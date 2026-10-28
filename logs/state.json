@@ -15361,35 +15361,6 @@
           }
         },
         {
-          "id": "stepfun-ai/Step-5-Preview",
-          "name": "stepfun-ai/Step-5-Preview",
-          "owned_by": "deepinfra",
-          "root": "stepfun-ai/Step-5-Preview",
-          "parent": null,
-          "object": "model",
-          "metadata": {
-            "description": "Step 5 Preview is StepFun's flagship model for agentic work. It is a sparse Mixture-of-Experts model with 600B total parameters and 27B active per token, a 1M-token context window, and text and image input. It delivers frontier-level performance in software engineering, long-horizon agentic execution with repeated tool calls, and professional knowledge work, with particular strength in finance.",
-            "context_length": 1048576,
-            "max_tokens": 1048576,
-            "pricing": {
-              "input_tokens": 1,
-              "output_tokens": 2.7,
-              "cache_read_tokens": 0.1
-            },
-            "discount": null,
-            "tags": [
-              "chat",
-              "vlm",
-              "vision",
-              "prompt_cache",
-              "reasoning"
-            ],
-            "default_width": null,
-            "default_height": null,
-            "default_iterations": null
-          }
-        },
-        {
           "id": "tencent/Hy4-preview",
           "name": "tencent/Hy4-preview",
           "owned_by": "deepinfra",
@@ -15622,7 +15593,7 @@
               "output_tokens": 0.28,
               "cache_read_tokens": 0.0028000000000000004
             },
-            "discount": 0,
+            "discount": 0.1,
             "tags": [
               "chat",
               "vlm",
@@ -18735,9 +18706,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000151",
+            "prompt": "0.0000000115",
             "completion": "0.0000018",
-            "input_cache_read": "0.000000015"
+            "input_cache_read": "0.0000000114"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -19121,9 +19092,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000151",
-            "completion": "0.00000894",
-            "input_cache_read": "0.00000015"
+            "prompt": "0.00000015",
+            "completion": "0.00002",
+            "input_cache_read": "0.00000014"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -19737,9 +19708,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000453",
-            "completion": "0.0000000745",
-            "input_cache_read": "0.00000003"
+            "prompt": "0.0000000237",
+            "completion": "0.0000001042",
+            "input_cache_read": "0.0000000237"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -27101,13 +27072,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000014",
-            "completion": "0.00000028",
-            "input_cache_read": "0.000000028"
+            "prompt": "0.000000091",
+            "completion": "0.000000182",
+            "input_cache_read": "0.0000000182"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "context_length": 1048575,
+            "max_completion_tokens": 943717,
             "is_moderated": false
           },
           "per_request_limits": null,
@@ -27610,9 +27581,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000132",
-            "completion": "0.00000396",
-            "input_cache_read": "0.000000044",
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022",
             "overrides": [
               {
                 "utc_days": [
@@ -27853,9 +27824,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000003",
-            "completion": "0.0000012",
-            "input_cache_read": "0.000000006",
+            "prompt": "0.00000015",
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000003",
             "overrides": [
               {
                 "utc_days": [
@@ -32853,9 +32824,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000765",
-            "completion": "0.000000255",
-            "input_cache_read": "0.0000000425"
+            "prompt": "0.00000009",
+            "completion": "0.0000003",
+            "input_cache_read": "0.00000005"
           },
           "top_provider": {
             "context_length": 262144,
@@ -39597,9 +39568,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000189",
-            "completion": "0.0000115",
-            "input_cache_read": "0.000000179"
+            "prompt": "0.00000015",
+            "completion": "0.00002",
+            "input_cache_read": "0.00000014"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -40673,8 +40644,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.00000008",
-            "completion": "0.00000045"
+            "prompt": "0.0000003",
+            "completion": "0.0000024",
+            "input_cache_read": "0.00000015"
           },
           "top_provider": {
             "context_length": 262144,
@@ -62092,9 +62064,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000341",
+            "prompt": "0.000000014",
             "completion": "0.000007",
-            "input_cache_read": "0.0000000331"
+            "input_cache_read": "0.000000013"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -62451,13 +62423,13 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000000453",
-            "completion": "0.0000000745",
+            "prompt": "0.00000015",
+            "completion": "0.0000005",
             "input_cache_read": "0.00000003"
           },
           "top_provider": {
-            "context_length": 1048576,
-            "max_completion_tokens": 131072,
+            "context_length": 1048575,
+            "max_completion_tokens": 943717,
             "is_moderated": false
           },
           "per_request_limits": null,
