@@ -11102,9 +11102,325 @@
       ]
     },
     "Fireworks AI": {
-      "success": false,
-      "models": [],
-      "error": "HTTP 500: Internal Server Error"
+      "success": true,
+      "models": [
+        {
+          "id": "accounts/fireworks/models/deepseek-v4p1-flash",
+          "name": "accounts/fireworks/models/deepseek-v4p1-flash",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/deepseek-v4p1-flash-1017",
+          "name": "accounts/fireworks/models/deepseek-v4p1-flash-1017",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/ember-1",
+          "name": "accounts/fireworks/models/ember-1",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/glm-5p3",
+          "name": "accounts/fireworks/models/glm-5p3",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/glm-5p3-flash",
+          "name": "accounts/fireworks/models/glm-5p3-flash",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/gpt-oss-120b",
+          "name": "accounts/fireworks/models/gpt-oss-120b",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 131072
+        },
+        {
+          "id": "accounts/fireworks/models/inkling",
+          "name": "accounts/fireworks/models/inkling",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/kimi-k3",
+          "name": "accounts/fireworks/models/kimi-k3",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/minimax-m3",
+          "name": "accounts/fireworks/models/minimax-m3",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 512000
+        },
+        {
+          "id": "accounts/fireworks/models/minimax-m3p1-flash",
+          "name": "accounts/fireworks/models/minimax-m3p1-flash",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/muse-spark-open",
+          "name": "accounts/fireworks/models/muse-spark-open",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": false,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/models/nemotron-3-ultra-nvfp4",
+          "name": "accounts/fireworks/models/nemotron-3-ultra-nvfp4",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 262144
+        },
+        {
+          "id": "accounts/fireworks/models/nemotron-lightning-3p5-30b-a3b",
+          "name": "accounts/fireworks/models/nemotron-lightning-3p5-30b-a3b",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 262144
+        },
+        {
+          "id": "accounts/fireworks/models/qwen3-embedding-8b",
+          "name": "accounts/fireworks/models/qwen3-embedding-8b",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "EMBEDDING_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": false,
+          "context_length": 40960
+        },
+        {
+          "id": "accounts/fireworks/models/qwen3-reranker-8b",
+          "name": "accounts/fireworks/models/qwen3-reranker-8b",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "EMBEDDING_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": false,
+          "context_length": 40960
+        },
+        {
+          "id": "accounts/fireworks/models/qwen3p8-2p4t-a95b",
+          "name": "accounts/fireworks/models/qwen3p8-2p4t-a95b",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 262144
+        },
+        {
+          "id": "accounts/fireworks/models/qwen3p8-max",
+          "name": "accounts/fireworks/models/qwen3p8-max",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true
+        },
+        {
+          "id": "accounts/fireworks/models/rune",
+          "name": "accounts/fireworks/models/rune",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": false,
+          "supports_image_input": false,
+          "supports_tools": false,
+          "context_length": 262144
+        },
+        {
+          "id": "accounts/fireworks/routers/deepseek-v4p1-flash-1017-spot",
+          "name": "accounts/fireworks/routers/deepseek-v4p1-flash-1017-spot",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/routers/deepseek-v4p1-flash-spot",
+          "name": "accounts/fireworks/routers/deepseek-v4p1-flash-spot",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/routers/glm-5p2-fast",
+          "name": "accounts/fireworks/routers/glm-5p2-fast",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/routers/glm-5p3-fast",
+          "name": "accounts/fireworks/routers/glm-5p3-fast",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/routers/glm-5p3-spot",
+          "name": "accounts/fireworks/routers/glm-5p3-spot",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/routers/kimi-k3-fast",
+          "name": "accounts/fireworks/routers/kimi-k3-fast",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/routers/kimi-k3-spot",
+          "name": "accounts/fireworks/routers/kimi-k3-spot",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "accounts/fireworks/routers/rune",
+          "name": "accounts/fireworks/routers/rune",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": false,
+          "supports_image_input": false,
+          "supports_tools": false,
+          "context_length": 262144
+        },
+        {
+          "id": "accounts/fireworks/routers/spot-deepseek-v4-flash",
+          "name": "accounts/fireworks/routers/spot-deepseek-v4-flash",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "HF_BASE_MODEL",
+          "supports_chat": true,
+          "supports_image_input": false,
+          "supports_tools": true,
+          "context_length": 1048576
+        },
+        {
+          "id": "auto",
+          "name": "auto",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "ROUTER",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true
+        },
+        {
+          "id": "firerouter/auto",
+          "name": "firerouter/auto",
+          "owned_by": "fireworks",
+          "object": "model",
+          "kind": "ROUTER",
+          "supports_chat": true,
+          "supports_image_input": true,
+          "supports_tools": true
+        }
+      ]
     },
     "DeepInfra": {
       "success": true,
@@ -18647,9 +18963,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.000000056",
-            "completion": "0.0000003",
-            "input_cache_read": "0.000000055"
+            "prompt": "0.0000000398",
+            "completion": "0.0000001518",
+            "input_cache_read": "0.000000028"
           },
           "top_provider": {
             "context_length": 1048576,
@@ -18899,9 +19215,9 @@
             "instruct_type": null
           },
           "pricing": {
-            "prompt": "0.0000001529",
-            "completion": "0.0000105572",
-            "input_cache_read": "0.00000015"
+            "prompt": "0.000000171",
+            "completion": "0.00000975",
+            "input_cache_read": "0.00000017"
           },
           "top_provider": {
             "context_length": 1048576,
