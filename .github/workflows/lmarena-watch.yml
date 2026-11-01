@@ -10,6 +10,8 @@ permissions:
 
 jobs:
   scan:
+    # Disabled - LM Arena watcher is no longer in use
+    if: false
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
