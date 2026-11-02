@@ -23,8 +23,10 @@ A comprehensive monitoring suite for the AI ecosystem. ModelWatcher tracks chang
 ### 🌐 Gemini Web App Tracker
 - **Unauthenticated scan of `gemini.google.com/app`** (`npm run gemini-web`, config in `gemini-web-config.json`, uses `TOMBSTONE_WEBHOOK`).
 - **Trackers**: server build (`cfb2h`, e.g. `boq_gemini-web-uiserver_20261102.01_p0`), JS/CSS/islands build keys, `WIZ_global_data` flags/config/routes/API-key rotation, experiment IDs, lazy pages ("islands"), per-component i18n bundles, and every UI string in them (announcement banners, Labs experiments, upsells, new features).
+- **Targets**: Gemini Web App (`gemini.google.com/app`) and AI Studio (`aistudio.google.com/welcome` — `/app` redirects to sign-in). AI Studio additionally tracks feature-toggle bitmasks and its public docs (`llms.txt` page index, changelog, deprecations, pricing, rate limits, model lists).
+- **Backend version alert**: a change in the server build (`cfb2h`, e.g. `boq_gemini-web-uiserver_…` / `boq_alkali-makersuite_…`) sends its own dedicated alert first, ahead of any detailed report.
 - **Noise handling**: the page is fetched several times per run; keys that differ between samples are treated as bucketed/volatile. Experiment IDs are accumulated and alert only on bursts.
-- The first run is not seeded silently: everything is reported as new.
+- The first run is not seeded silently: banners, strings, docs, islands and toggles are reported as new; flags/config/experiment IDs are only counted in the summary. Flags and config are reported only when an existing value changes.
 
 ### 🏆 Leaderboard & Community Watch
 - **LM Arena (Chatbot Arena)**: Tracks ELO, rankings, and specific model metadata updates.

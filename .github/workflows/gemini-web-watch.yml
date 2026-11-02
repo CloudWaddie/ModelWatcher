@@ -47,6 +47,7 @@ jobs:
           git config --global user.email "modelwatcher@github.com"
 
           cp logs/gemini-web-state.json /tmp/gemini-web-state-new.json 2>/dev/null || true
+          cp logs/aistudio-web-state.json /tmp/aistudio-web-state-new.json 2>/dev/null || true
 
           git fetch origin master
           git reset --hard origin/master
@@ -56,7 +57,11 @@ jobs:
             cp /tmp/gemini-web-state-new.json logs/gemini-web-state.json
           fi
 
-          git add -f logs/gemini-web-state.json || true
+          if [ -f /tmp/aistudio-web-state-new.json ]; then
+            cp /tmp/aistudio-web-state-new.json logs/aistudio-web-state.json
+          fi
+
+          git add -f logs/gemini-web-state.json logs/aistudio-web-state.json || true
           if ! git diff --quiet --staged; then
             git commit -m "Update Gemini Web App state - $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push origin master

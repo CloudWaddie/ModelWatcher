@@ -3,8 +3,6 @@
     "enabled": true,
     "webhookEnv": "TOMBSTONE_WEBHOOK"
   },
-  "targetUrl": "https://gemini.google.com/app",
-  "stateFile": "./logs/gemini-web-state.json",
   "samples": 6,
   "sampleDelayMs": 1500,
   "trackers": {
@@ -16,9 +14,42 @@
     "experiments": true,
     "islands": true,
     "bundles": true,
-    "strings": true
+    "strings": true,
+    "toggles": true,
+    "docs": true
   },
   "highlightComponentPattern": "Banner|Disclaimer|Upsell|Upgrade|Waitlist|Consent|Quota|Labs|Referral|Onboarding",
   "experimentAlertMin": 150,
-  "maxItemsPerSection": 25
+  "maxItemsPerSection": 25,
+  "targets": [
+    {
+      "name": "gemini",
+      "label": "Gemini Web App",
+      "targetUrl": "https://gemini.google.com/app",
+      "stateFile": "./logs/gemini-web-state.json"
+    },
+    {
+      "name": "aistudio",
+      "label": "AI Studio",
+      "targetUrl": "https://aistudio.google.com/welcome",
+      "stateFile": "./logs/aistudio-web-state.json",
+      "experimentKey": "goX6ee",
+      "docs": {
+        "base": "https://aistudio.google.com",
+        "index": "/llms.txt",
+        "pages": [
+          "/docs/changelog.md",
+          "/docs/deprecations.md",
+          "/docs/models.md",
+          "/docs/latest-model.md",
+          "/docs/pricing.md",
+          "/docs/rate-limits.md"
+        ]
+      }
+    }
+  ],
+  "ignoreKeys": [
+    "vXmutd",
+    "rtQCxc"
+  ]
 }

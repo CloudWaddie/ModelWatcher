@@ -36,11 +36,16 @@ const clip = (s, n = 160) => (s.length > n ? s.slice(0, n - 1) + '…' : s);
 
 export function parseWiz(html) {
   const m = html.match(/WIZ_global_data = (\{.*?\});<\/script>/s);
-  if (!m) throw new Error('WIZ_global_data not found in page');
-  return JSON.parse(m[1]);
+  if (m) return JSON.parse(m[1]);
+  // AI Studio ships the same data as a bare JSON <script type="application/json">.
+  for (const j of html.matchAll(/<script type="application\/json"[^>]*>(\{.*?\})<\/script>/gs)) {
+    try { const o = JSON.parse(j[1]); if (VERSION_KEY in o) return o; } catch { /* next */ }
+  }
+  throw new Error('WIZ_global_data not found in page');
 }
 
 export function parseExperimentIds(raw) {
+  if (Array.isArray(raw)) return raw.filter(n => Number.isInteger(n) && n >= 1e6);
   if (typeof raw !== 'string') return [];
   const i = raw.indexOf('[');
   if (i < 0) return [];
@@ -48,10 +53,24 @@ export function parseExperimentIds(raw) {
 }
 
 export function parseBuildKeys(html) {
-  const js = html.match(/boq-gemini-web-uiserver\.BardChatUi\.[a-z_A-Z]+\.([A-Za-z0-9_-]+)\.\d+\.O\/am=/)?.[1] ?? null;
-  const css = html.match(/boq-gemini-web-uiserver\.BardChatUi\.([A-Za-z0-9_-]+)\.L\.X/)?.[1] ?? null;
+  const js = html.match(/boq-[a-z-]+\.[A-Za-z]+\.[a-z_A-Z]+\.([A-Za-z0-9_-]+)\.\d+\.O\/am=/)?.[1] ?? null;
+  const css = html.match(/boq-[a-z-]+\.[A-Za-z]+\.([A-Za-z0-9_-]+)\.L\.[A-Za-z0-9]+/)?.[1] ?? null;
   const islands = html.match(/islands\/assets\/(islands-[A-Za-z0-9_-]+\.js)/)?.[1] ?? null;
   return { js, css, islands };
+}
+
+/** Feature-toggle bitmask words, e.g. window["_F_toggles_default_MakerSuite"] = [0x8005101, ...]. */
+export function parseToggles(html) {
+  const m = html.match(/_F_toggles_[A-Za-z0-9_]+"\]\s*=\s*\[([^\]]*)\]/);
+  if (!m) return null;
+  return m[1].split(',').map(x => x.trim()).filter(Boolean).map(x => '0x' + parseInt(x, 16).toString(16));
+}
+
+/** Parse llms.txt into { url -> title } for every docs link. */
+export function parseLlmsIndex(text) {
+  const out = {};
+  for (const m of text.matchAll(/^- \[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/gm)) out[m[2]] = m[1];
+  return out;
 }
 
 export function parseBundleUrls(html) {
@@ -98,11 +117,11 @@ export function parseBundle(text) {
  * Compare N WIZ samples. Keys identical across samples are stable; differing
  * bool/number keys are "bucketed"; differing strings are volatile (tokens).
  */
-export function classifyWiz(samples) {
+export function classifyWiz(samples, skipKeys = [EXPERIMENT_KEY, ISLANDS_KEY]) {
   const flags = {}, config = {}, bucketed = [], volatile = [];
   const keys = new Set(samples.flatMap(s => Object.keys(s)));
   for (const k of keys) {
-    if (k === EXPERIMENT_KEY || k === ISLANDS_KEY) continue;
+    if (skipKeys.includes(k)) continue;
     const vals = samples.map(s => JSON.stringify(s[k]));
     const same = vals.every(v => v === vals[0]);
     const v = samples[0][k];
@@ -173,18 +192,27 @@ export async function takeSnapshot(cfg, prev = {}) {
   }
   const wizSamples = pages.map(parseWiz);
 
-  const { flags, config, bucketed, volatile } = classifyWiz(wizSamples);
+  const expKey = cfg.experimentKey ?? EXPERIMENT_KEY;
+  const { flags, config, bucketed, volatile } = classifyWiz(wizSamples, [expKey, ISLANDS_KEY, ...(cfg.ignoreKeys ?? [])]);
   const version = wizSamples[0][VERSION_KEY] ?? null;
-  const buildKeys = { js: null, css: null, islands: null };
+  // css key omitted on purpose: it varies by user-agent variant and moves with the js key.
+  const buildKeys = { js: null, islands: null };
   for (const p of pages) { const b = parseBuildKeys(p); for (const k of Object.keys(buildKeys)) buildKeys[k] ??= b[k]; }
 
   const seenExp = new Set(prev.experiments ?? []);
   const expNow = new Set();
-  for (const w of wizSamples) for (const id of parseExperimentIds(w[EXPERIMENT_KEY])) expNow.add(id);
+  for (const w of wizSamples) for (const id of parseExperimentIds(w[expKey])) expNow.add(id);
   const experiments = [...new Set([...seenExp, ...expNow])].sort((a, b) => a - b);
 
   const islandNames = new Set(prev.islands?.names ?? []);
   for (const w of wizSamples) for (const x of w[ISLANDS_KEY] ?? []) islandNames.add(x);
+
+  // Keys that ever flapped between samples stay ignored, so a flag that happened
+  // to look stable this run doesn't surface as "new".
+  const bucketedEver = [...new Set([...(prev.bucketedEver ?? prev.bucketed ?? []), ...bucketed])].sort();
+  for (const k of bucketedEver) delete flags[k];
+
+  const toggles = pages.map(parseToggles).find(Boolean) ?? null;
 
   let chunks = {};
   if (buildKeys.islands) {
@@ -209,19 +237,47 @@ export async function takeSnapshot(cfg, prev = {}) {
   });
   for (const name of failed) if (prev.strings?.[name]) { strings[name] = prev.strings[name]; bundles[name] = prev.bundles?.[name] ?? bundles[name]; }
 
+  const docs = cfg.docs ? await snapshotDocs(cfg.docs, prev.docs) : undefined;
+
   return {
     timestamp: Date.now(),
     version, buildKeys, flags, config,
-    bucketed, volatile,
+    bucketed, bucketedEver, volatile,
     experiments,
     islands: { names: [...islandNames].sort(), chunks },
     bundles, strings,
+    ...(toggles ? { toggles } : {}),
+    ...(docs ? { docs } : {}),
   };
+}
+
+const DOC_NOISE = /^> (##? )?(AI Agent Context|Get the complete|Use this file|For the full documentation)/;
+
+/**
+ * Snapshot public docs: the llms.txt page index (new model/doc pages appear
+ * here first) plus the line content of selected pages (changelog,
+ * deprecations, pricing, rate limits, model lists).
+ */
+export async function snapshotDocs(docs, prev = {}) {
+  let index = prev.index ?? {};
+  try { index = parseLlmsIndex(await fetchText(docs.base + docs.index)); }
+  catch (e) { console.error('docs index fetch failed:', e.message); }
+  const pages = {};
+  await mapLimit(docs.pages ?? [], 4, async (path) => {
+    try {
+      const text = await fetchText(docs.base + path);
+      pages[path] = text.split('\n').map(l => l.trim()).filter(l => l && !DOC_NOISE.test(l));
+    } catch (e) {
+      console.error(`docs page ${path} failed:`, e.message);
+      if (prev.pages?.[path]) pages[path] = prev.pages[path];
+    }
+  });
+  return { index, pages };
 }
 
 // ---------------------------------------------------------------------- diff
 
-export const EMPTY_SNAPSHOT = { version: null, buildKeys: {}, flags: {}, config: {}, experiments: [], islands: { names: [], chunks: {} }, bundles: {}, strings: {} };
+export const EMPTY_SNAPSHOT = { version: null, buildKeys: {}, flags: {}, config: {}, toggles: [], experiments: [], islands: { names: [], chunks: {} }, bundles: {}, strings: {} };
 
 const setDiff = (a, b) => [...b].filter(x => !a.has(x));
 
@@ -231,9 +287,11 @@ export function diffSnapshots(prev, curr, { experimentAlertMin = 150 } = {}) {
   d.buildKeys = Object.keys(curr.buildKeys).filter(k => prev.buildKeys?.[k] !== curr.buildKeys[k])
     .map(k => ({ key: k, from: prev.buildKeys?.[k] ?? null, to: curr.buildKeys[k] }));
 
+  // Flags: only report a real flip of an existing value. Keys appearing/vanishing
+  // are almost always bucketing noise, and the first run has nothing to flip from.
   d.flags = [];
-  for (const k of new Set([...Object.keys(prev.flags ?? {}), ...Object.keys(curr.flags)])) {
-    if (prev.flags?.[k] !== curr.flags[k]) d.flags.push({ key: k, from: prev.flags?.[k], to: curr.flags[k] });
+  for (const k of Object.keys(curr.flags)) {
+    if (k in (prev.flags ?? {}) && prev.flags[k] !== curr.flags[k]) d.flags.push({ key: k, from: prev.flags[k], to: curr.flags[k] });
   }
 
   d.config = [];
@@ -241,6 +299,13 @@ export function diffSnapshots(prev, curr, { experimentAlertMin = 150 } = {}) {
   for (const k of new Set([...Object.keys(prev.config ?? {}), ...Object.keys(curr.config)])) {
     const a = prev.config?.[k], b = curr.config[k];
     if (a?.hash === b?.hash) continue;
+    if (!b) continue; // vanished keys are not interesting
+    // New keys are noise, except a brand-new backend URL once we have a baseline.
+    if (!a) {
+      const seeded = Object.keys(prev.config ?? {}).length > 0;
+      if (seeded && b.kind === 'value' && typeof b.value === 'string' && /^https?:\/\//.test(b.value)) d.config.push({ key: k, kind: 'url', from: a, to: b });
+      continue;
+    }
     if (a?.kind === 'value' && b?.kind === 'value' && Array.isArray(a.value) && Array.isArray(b.value)
         && [...a.value, ...b.value].every(x => typeof x === 'string')) {
       const added = setDiff(new Set(a.value), new Set(b.value)), removed = setDiff(new Set(b.value), new Set(a.value));
@@ -251,7 +316,7 @@ export function diffSnapshots(prev, curr, { experimentAlertMin = 150 } = {}) {
   }
 
   const prevExp = new Set(prev.experiments ?? []);
-  d.newExperiments = curr.experiments.filter(x => !prevExp.has(x));
+  d.newExperiments = prevExp.size ? curr.experiments.filter(x => !prevExp.has(x)) : []; // first run: baseline only
 
   d.newIslands = setDiff(new Set(prev.islands?.names ?? []), new Set(curr.islands.names));
   d.islandChunks = [];
@@ -275,7 +340,32 @@ export function diffSnapshots(prev, curr, { experimentAlertMin = 150 } = {}) {
     if (added.length || removed.length || changed.length) d.strings[comp] = { added, removed, changed, isNew: !(comp in (prev.strings ?? {})) };
   }
 
-  d.hasChanges = !!(d.version || d.buildKeys.length || d.flags.length || d.config.length || d.routes.length
+  d.toggles = null;
+  if (curr.toggles) {
+    const a = prev.toggles ?? [];
+    const idx = Math.max(a.length, curr.toggles.length);
+    const changed = [];
+    for (let i = 0; i < idx; i++) if (a[i] !== curr.toggles[i]) changed.push({ word: i, from: a[i] ?? null, to: curr.toggles[i] ?? null });
+    if (changed.length && Array.isArray(prev.toggles)) d.toggles = changed; // old state without toggles: seed silently
+  }
+
+  d.docs = null;
+  if (curr.docs) {
+    const pi = prev.docs?.index ?? {}, ci = curr.docs.index;
+    const newPages = Object.keys(ci).filter(u => !(u in pi)).map(u => ({ url: u, title: ci[u] }));
+    const removedPages = Object.keys(pi).filter(u => !(u in ci)).map(u => ({ url: u, title: pi[u] }));
+    const pageDiffs = [];
+    for (const [path, lines] of Object.entries(curr.docs.pages)) {
+      const before = new Set(prev.docs?.pages?.[path] ?? []), after = new Set(lines);
+      const added = lines.filter(l => !before.has(l));
+      const removed = [...before].filter(l => !after.has(l));
+      if ((added.length || removed.length) && (path in (prev.docs?.pages ?? {}))) pageDiffs.push({ path, added, removed });
+      else if (added.length && !(path in (prev.docs?.pages ?? {}))) pageDiffs.push({ path, added, removed: [], isNew: true });
+    }
+    if (newPages.length || removedPages.length || pageDiffs.length) d.docs = { newPages, removedPages, pageDiffs };
+  }
+
+  d.hasChanges = !!(d.toggles || d.docs || d.version || d.buildKeys.length || d.flags.length || d.config.length || d.routes.length
     || d.newExperiments.length >= experimentAlertMin || d.newIslands.length || d.islandChunks.length
     || d.newBundles.length || d.removedBundles.length || Object.keys(d.strings).length);
   return d;
@@ -288,6 +378,7 @@ const code = (s) => '`' + String(s).replace(/`/g, "'") + '`';
 
 export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = false } = {}) {
   const max = cfg.maxItemsPerSection ?? 25;
+  const label = cfg.label ?? 'Gemini Web App';
   const hl = new RegExp(cfg.highlightComponentPattern || '(?!)', 'i');
   const T = cfg.trackers ?? {};
   const on = (k) => T[k] !== false;
@@ -296,7 +387,7 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
 
   if (firstRun) {
     segs.push([
-      '# 🌱 Gemini Web App — initial baseline',
+      `# 🌱 ${label} — initial baseline`,
       `Server version: ${code(curr.version)}`,
       `**${Object.keys(curr.flags).length}** flags · **${Object.keys(curr.config).length}** config values · **${curr.experiments.length}** experiment IDs`,
       `**${Object.keys(curr.bundles).length}** string bundles (**${stringCount}** strings) · **${curr.islands.names.length}** islands · **${Object.keys(curr.islands.chunks).length}** page chunks`,
@@ -304,11 +395,10 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
       'First run — everything below is reported as new.',
     ].join('\n'));
   } else {
-    segs.push(`# 🌐 Gemini Web App\n${code(curr.version)}${diff.version ? '' : ' (unchanged)'}`);
+    segs.push(`# 🌐 ${label}\n${code(curr.version)}${diff.version ? ' *(new build — see alert above)*' : ' (unchanged)'}`);
   }
 
-  if (on('version') && diff.version) segs.push(`### 🚀 New server build\n${code(diff.version.from)} → ${code(diff.version.to)}`);
-  if (on('buildKeys') && diff.buildKeys.length) {
+  if (on('buildKeys') && diff.buildKeys.length && (firstRun || !diff.version)) {
     segs.push(`### 🔧 Build keys\n${diff.buildKeys.map(b => `**${b.key}**: ${code(b.from ?? '∅')} → ${code(b.to ?? '∅')}`).join('\n')}`);
   }
   if (on('flags') && diff.flags.length) {
@@ -338,6 +428,20 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
     const lines = [...diff.newBundles.map(b => `🟢 ${code(b)}${hl.test(b) ? ' 🚩' : ''}`), ...diff.removedBundles.map(b => `🔴 ${code(b)}`)];
     segs.push(`### 📦 String bundles\n${lines.slice(0, max * 2).join('\n')}`);
   }
+  if (on('toggles') && diff.toggles?.length) {
+    segs.push(`### 🎚️ Feature toggles changed\n*Bitmask words — a flipped bit is a feature gate change.*\n${diff.toggles.map(t => `word ${t.word}: ${code(t.from ?? '∅')} → ${code(t.to ?? '∅')}`).join('\n')}`);
+  }
+  if (on('docs') && diff.docs) {
+    const dd = diff.docs;
+    if (dd.newPages.length) segs.push(`### 📚 New doc pages (${dd.newPages.length})\n${dd.newPages.slice(0, max * 2).map(p => `🟢 [${clip(p.title, 70)}](${p.url})`).join('\n')}${dd.newPages.length > max * 2 ? `\n*…and ${dd.newPages.length - max * 2} more*` : ''}`);
+    if (dd.removedPages.length) segs.push(`### 📕 Removed doc pages (${dd.removedPages.length})\n${dd.removedPages.slice(0, max).map(p => `🔴 ${clip(p.title, 70)} ${code(p.url.replace(/^https?:\/\/[^/]+/, ''))}`).join('\n')}`);
+    for (const pd of dd.pageDiffs) {
+      if (pd.isNew && firstRun) continue;
+      const lines = [...pd.added.slice(0, max).map(l => `🟢 ${clip(l, 220)}`), ...pd.removed.slice(0, Math.floor(max / 2)).map(l => `🔴 ${clip(l, 220)}`)];
+      const extra = pd.added.length + pd.removed.length - lines.length;
+      segs.push(`### 📄 ${code(pd.path)} updated\n${lines.join('\n')}${extra > 0 ? `\n*…and ${extra} more lines*` : ''}`);
+    }
+  }
   if (on('strings')) {
     const comps = Object.entries(diff.strings).sort(([a], [b]) => (hl.test(b) - hl.test(a)) || a.localeCompare(b));
     if (comps.length) segs.push(`### 📝 UI string changes (${comps.length} components)`);
@@ -354,7 +458,15 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
   return segs;
 }
 
-export function buildPayloads(segments) {
+/** Standalone, attention-grabbing alert for a backend/server build change. */
+export function buildVersionAlert(label, diff, curr) {
+  const keys = diff.buildKeys.length
+    ? '\n' + diff.buildKeys.filter(b => b.from && b.to).map(b => `${b.key}: ${code(b.from)} → ${code(b.to)}`).join('\n')
+    : '';
+  return buildPayloads([`# 🚀 ${label} — backend version updated\n${code(diff.version.from)}\n⬇️\n${code(diff.version.to)}${keys}\n*Detailed change report follows if anything else moved.*`], 'Gemini Web Watcher')[0];
+}
+
+export function buildPayloads(segments, username = 'Gemini Web Watcher') {
   // Hard-split any single oversized segment so Discord never rejects a message.
   const safe = segments.flatMap(s => {
     if (s.length <= TEXT_CHAR_LIMIT) return [s];
@@ -372,7 +484,7 @@ export function buildPayloads(segments) {
     const comps = segs.map(c => ({ type: 10, content: c }));
     if (packed.length > 1) comps[comps.length - 1].content += `\n*— part ${i + 1}/${packed.length} —*`;
     return {
-      username: 'Gemini Web Watcher',
+      username,
       avatar_url: LOGO_URL,
       flags: 32768,
       components: [{ type: 17, components: comps.flatMap((c, j) => (j ? [{ type: 14 }, c] : [c])) }],
@@ -387,39 +499,64 @@ function saveState(path, state) {
   writeFileSync(path, JSON.stringify(state));
 }
 
-export async function main() {
-  const cfg = JSON.parse(readFileSync(join(__dirname, '../gemini-web-config.json'), 'utf8'));
-  const webhookUrl = process.env[cfg.webhook.webhookEnv];
-  const webhookOn = cfg.webhook.enabled !== false && !!webhookUrl;
-  const statePath = join(__dirname, '..', cfg.stateFile);
+async function runTarget(t, cfg, webhookUrl, webhookOn) {
+  const tag = `[${t.name}]`;
+  const tcfg = { ...cfg, ...t, trackers: { ...cfg.trackers, ...t.trackers } };
+  const statePath = join(__dirname, '..', tcfg.stateFile);
 
   let prev = null;
   if (existsSync(statePath)) {
     try { prev = JSON.parse(readFileSync(statePath, 'utf8')); }
-    catch (e) { console.error('Failed to parse state, starting fresh:', e.message); }
+    catch (e) { console.error(`${tag} Failed to parse state, starting fresh:`, e.message); }
   }
   const firstRun = !prev?.version;
 
-  console.log(`[gemini-web] Taking ${cfg.samples} samples of ${cfg.targetUrl}...`);
-  const curr = await takeSnapshot(cfg, prev ?? {});
-  if (!curr.version) throw new Error(`Server version (${VERSION_KEY}) missing — page format changed?`);
-  console.log(`[gemini-web] version ${curr.version} · ${Object.keys(curr.flags).length} flags · ${curr.experiments.length} experiments · ${Object.keys(curr.bundles).length} bundles`);
+  console.log(`${tag} Taking ${tcfg.samples} samples of ${tcfg.targetUrl}...`);
+  const curr = await takeSnapshot(tcfg, prev ?? {});
+  if (!curr.version) throw new Error(`${tag} Server version (${VERSION_KEY}) missing — page format changed?`);
+  console.log(`${tag} version ${curr.version} · ${Object.keys(curr.flags).length} flags · ${curr.experiments.length} experiments · ${Object.keys(curr.bundles).length} bundles`);
 
-  const diff = diffSnapshots(firstRun ? EMPTY_SNAPSHOT : prev, curr, { experimentAlertMin: cfg.experimentAlertMin });
-  if (firstRun || diff.hasChanges) {
-    const segs = buildReportSegments(prev, curr, diff, cfg, { firstRun });
+  const diff = diffSnapshots(firstRun ? EMPTY_SNAPSHOT : prev, curr, { experimentAlertMin: tcfg.experimentAlertMin });
+  const label = tcfg.label ?? tcfg.name;
+
+  // 1) Dedicated backend-version alert, sent first and on its own.
+  if (!firstRun && diff.version) {
+    const alert = buildVersionAlert(label, diff, curr);
+    if (webhookOn) { await postPayload(webhookUrl, alert, tcfg.name); await sleep(1500); }
+    else console.log(`${tag} VERSION CHANGED ${diff.version.from} -> ${diff.version.to} (no webhook configured)`);
+  }
+
+  // 2) Full change report (everything else), or the whole thing as new on first run.
+  const segs = (firstRun || diff.hasChanges) ? buildReportSegments(prev, curr, diff, tcfg, { firstRun }) : [];
+  // A version-only bump yields just the header segment; the alert already covered it.
+  if (segs.length > (firstRun ? 0 : 1)) {
     if (webhookOn) {
       const payloads = buildPayloads(segs);
-      console.log(`[gemini-web] Sending ${payloads.length} Discord message(s)...`);
-      for (const p of payloads) { await postPayload(webhookUrl, p, 'gemini-web'); await sleep(1500); }
+      console.log(`${tag} Sending ${payloads.length} Discord message(s)...`);
+      for (const p of payloads) { await postPayload(webhookUrl, p, tcfg.name); await sleep(1500); }
     } else {
-      console.log('[gemini-web] No webhook configured; report:\n' + segs.join('\n\n'));
+      console.log(`${tag} No webhook configured; report:\n` + segs.join('\n\n'));
     }
   } else {
-    console.log('[gemini-web] No changes detected.');
+    console.log(`${tag} No changes detected.`);
   }
   saveState(statePath, curr);
-  console.log('[gemini-web] State saved.');
+  console.log(`${tag} State saved.`);
+}
+
+export async function main() {
+  const cfg = JSON.parse(readFileSync(join(__dirname, '../gemini-web-config.json'), 'utf8'));
+  const webhookUrl = process.env[cfg.webhook.webhookEnv];
+  const webhookOn = cfg.webhook.enabled !== false && !!webhookUrl;
+  const targets = cfg.targets ?? [{ name: 'gemini', targetUrl: cfg.targetUrl, stateFile: cfg.stateFile }];
+
+  // One target failing must not stop the others; fail the job at the end.
+  const errors = [];
+  for (const t of targets) {
+    try { await runTarget(t, cfg, webhookUrl, webhookOn); }
+    catch (e) { console.error(`[${t.name}] FAILED:`, e); errors.push(t.name); }
+  }
+  if (errors.length) { console.error(`Targets failed: ${errors.join(', ')}`); process.exit(1); }
 }
 
 const isCli = process.argv[1] && /gemini-web-watch\.js$/.test(process.argv[1]);
