@@ -1,5 +1,5 @@
 {
-  "timestamp": 1793596330451,
+  "timestamp": 1793600735291,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10985,6 +10985,71 @@
           "svg"
         ]
       }
+    },
+    {
+      "id": "claude-opus-5-5-max",
+      "displayName": "Claude Opus 5.5 (max)",
+      "provider": "anthropic",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_blender"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ],
+      "modeOf": "claude-opus-5-5"
+    },
+    {
+      "id": "claude-opus-5-5-high",
+      "displayName": "Claude Opus 5.5 (high)",
+      "provider": "anthropic",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_slides",
+          "agon_slides_html",
+          "agon_blender",
+          "agentic_gamedev",
+          "agon_webapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ],
+      "modeOf": "claude-opus-5-5"
+    },
+    {
+      "id": "gpt-6.1-sol-max",
+      "displayName": "GPT-6.1 Sol (max)",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_slides",
+          "agon_slides_html",
+          "agon_blender",
+          "agentic_gamedev",
+          "agon_webapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ],
+      "modeOf": "gpt-6.1-sol"
     }
   ],
   "providers": [
@@ -16031,6 +16096,29 @@
       "id": "ideogram-vector-1",
       "image": {
         "perImage": 0.2
+      }
+    },
+    {
+      "id": "claude-opus-5-5-max",
+      "text": {
+        "input": 4,
+        "output": 20
+      }
+    },
+    {
+      "id": "claude-opus-5-5-high",
+      "text": {
+        "input": 4,
+        "output": 20
+      }
+    },
+    {
+      "id": "gpt-6.1-sol-max",
+      "text": {
+        "input": 2,
+        "output": 10,
+        "cachedInput": 0.1,
+        "cacheWrite": 2.5
       }
     }
   ]
