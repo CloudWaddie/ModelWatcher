@@ -1,0 +1,24 @@
+{
+  "webhook": {
+    "enabled": true,
+    "webhookEnv": "TOMBSTONE_WEBHOOK"
+  },
+  "targetUrl": "https://gemini.google.com/app",
+  "stateFile": "./logs/gemini-web-state.json",
+  "samples": 6,
+  "sampleDelayMs": 1500,
+  "trackers": {
+    "version": true,
+    "buildKeys": true,
+    "flags": true,
+    "config": true,
+    "routes": true,
+    "experiments": true,
+    "islands": true,
+    "bundles": true,
+    "strings": true
+  },
+  "highlightComponentPattern": "Banner|Disclaimer|Upsell|Upgrade|Waitlist|Consent|Quota|Labs|Referral|Onboarding",
+  "experimentAlertMin": 150,
+  "maxItemsPerSection": 25
+}

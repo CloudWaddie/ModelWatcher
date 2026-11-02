@@ -20,6 +20,12 @@ A comprehensive monitoring suite for the AI ecosystem. ModelWatcher tracks chang
 - **Trademark Monitoring**: Scans USPTO filings for new AI-related trademarks from major labs.
 - **Filing Details**: Captures serial numbers, dates, and trademark images.
 
+### 🌐 Gemini Web App Tracker
+- **Unauthenticated scan of `gemini.google.com/app`** (`npm run gemini-web`, config in `gemini-web-config.json`, uses `TOMBSTONE_WEBHOOK`).
+- **Trackers**: server build (`cfb2h`, e.g. `boq_gemini-web-uiserver_20261102.01_p0`), JS/CSS/islands build keys, `WIZ_global_data` flags/config/routes/API-key rotation, experiment IDs, lazy pages ("islands"), per-component i18n bundles, and every UI string in them (announcement banners, Labs experiments, upsells, new features).
+- **Noise handling**: the page is fetched several times per run; keys that differ between samples are treated as bucketed/volatile. Experiment IDs are accumulated and alert only on bursts.
+- The first run is not seeded silently: everything is reported as new.
+
 ### 🏆 Leaderboard & Community Watch
 - **LM Arena (Chatbot Arena)**: Tracks ELO, rankings, and specific model metadata updates.
 - **Design Arena**: Monitoring for design-related AI benchmarks.

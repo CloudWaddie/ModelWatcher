@@ -1,0 +1,66 @@
+name: Gemini Web App Tracker
+
+on:
+  schedule:
+    - cron: '17 */3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gemini-web-watch
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Ensure logs folder exists
+        run: mkdir -p logs
+
+      - name: Run Gemini Web App tracker
+        env:
+          TOMBSTONE_WEBHOOK: ${{ secrets.TOMBSTONE_WEBHOOK }}
+        run: npm run gemini-web
+
+      - name: Commit results to master
+        run: |
+          git config --global user.name "ModelWatcher"
+          git config --global user.email "modelwatcher@github.com"
+
+          cp logs/gemini-web-state.json /tmp/gemini-web-state-new.json 2>/dev/null || true
+
+          git fetch origin master
+          git reset --hard origin/master
+
+          mkdir -p logs
+          if [ -f /tmp/gemini-web-state-new.json ]; then
+            cp /tmp/gemini-web-state-new.json logs/gemini-web-state.json
+          fi
+
+          git add -f logs/gemini-web-state.json || true
+          if ! git diff --quiet --staged; then
+            git commit -m "Update Gemini Web App state - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push origin master
+            echo "Updated Gemini Web App state on master branch"
+          else
+            echo "No changes to commit"
+          fi

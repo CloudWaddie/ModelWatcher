@@ -88,7 +88,7 @@ function chunkEntries(entries, limit) {
 }
 
 /** Greedily pack text segments into messages that respect per-message limits. */
-function packMessages(segments, limit) {
+export function packMessages(segments, limit) {
   const messages = [];
   let cur = [];
   let total = 0;
@@ -192,7 +192,7 @@ export function buildReport(prev, curr, types, options = {}) {
   return buildReportMessages(prev, curr, types, options)[0];
 }
 
-async function postPayload(webhookUrl, payload, label) {
+export async function postPayload(webhookUrl, payload, label) {
   const res = await fetch(`${webhookUrl}?with_components=true`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
