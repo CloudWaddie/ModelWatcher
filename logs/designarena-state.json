@@ -1,5 +1,5 @@
 {
-  "timestamp": 1793574541954,
+  "timestamp": 1793579504059,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10972,6 +10972,19 @@
       "video": {
         "generatesAudio": false
       }
+    },
+    {
+      "id": "ideogram-vector-1",
+      "displayName": "Ideogram Vector",
+      "provider": "ideogram",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "svg"
+        ]
+      }
     }
   ],
   "providers": [
@@ -16012,6 +16025,12 @@
       "id": "mischief-1",
       "video": {
         "perSecond": 0.01
+      }
+    },
+    {
+      "id": "ideogram-vector-1",
+      "image": {
+        "perImage": 0.2
       }
     }
   ]
