@@ -21,12 +21,19 @@ A comprehensive monitoring suite for the AI ecosystem. ModelWatcher tracks chang
 - **Filing Details**: Captures serial numbers, dates, and trademark images.
 
 ### 🌐 Gemini Web App Tracker
-- **Unauthenticated scan of `gemini.google.com/app`** (`npm run gemini-web`, config in `gemini-web-config.json`, uses `TOMBSTONE_WEBHOOK`).
-- **Trackers**: server build (`cfb2h`, e.g. `boq_gemini-web-uiserver_20261102.01_p0`), JS/CSS/islands build keys, `WIZ_global_data` flags/config/routes/API-key rotation, experiment IDs, lazy pages ("islands"), per-component i18n bundles, and every UI string in them (announcement banners, Labs experiments, upsells, new features).
-- **Targets**: Gemini Web App (`gemini.google.com/app`) and AI Studio (`aistudio.google.com/welcome` — `/app` redirects to sign-in). AI Studio additionally tracks feature-toggle bitmasks and its public docs (`llms.txt` page index, changelog, deprecations, pricing, rate limits, model lists).
-- **Backend version alert**: a change in the server build (`cfb2h`, e.g. `boq_gemini-web-uiserver_…` / `boq_alkali-makersuite_…`) sends its own dedicated alert first, ahead of any detailed report.
-- **Noise handling**: the page is fetched several times per run; keys that differ between samples are treated as bucketed/volatile. Experiment IDs are accumulated and alert only on bursts.
-- The first run is not seeded silently: banners, strings, docs, islands and toggles are reported as new; flags/config/experiment IDs are only counted in the summary. Flags and config are reported only when an existing value changes.
+`npm run gemini-web` · config: `gemini-web-config.json` · webhook: `TOMBSTONE_WEBHOOK` · workflow: `gemini-web-watch.yml` (every 3h)
+
+Unauthenticated multi-target scanner. A change in a site's **backend build** (`boq_…_YYYYMMDD.NN_pN`) always sends its own alert first.
+
+| Target | What is tracked |
+|---|---|
+| **Gemini Web App** (`gemini.google.com/app`) | server build + JS/islands build keys · **code identifiers** crawled from the ~390 island chunks (capability/tier gates like `CAN_USE_SKILLS`/`USER_SUBSCRIPTION_TIER_*`, feature-mode codenames, model-picker tiers, GraphQL operations, routes, internal hosts, banner/upsell IDs, server-driven response node types) · ~140 UI string bundles + Gemini-in-Chrome (`glic/`) bundles (banners, Labs, upsells) · lazy pages · feature toggles · official **release notes**, **Gemini Drops**, **latest news**, **plans & prices**, **usage limits** page, and both sitemaps |
+| **AI Studio** (`aistudio.google.com/welcome` — `/app` redirects to sign-in) | server build · feature toggles · **RPC methods / backend services / routes / model IDs / announcement-like strings** from the main bundle · docs index (`llms.txt`) + changelog, deprecations, pricing, rate limits, model lists |
+| **Google Flow** (`flow.google.com`; Whisk/ImageFX/VideoFX redirect here) | server build · feature toggles |
+| **Google Labs** (`labs.google`) | experiment cards (CTA changes such as *Join Waitlist → Try it now*), featured and "graduated" products · sitemaps · build |
+| **Labs FX** (`labs.google/fx`), **Flow Music** (`flowmusic.app`) | Next.js build ID · route table (incl. `/admin/*`) · i18n strings |
+
+**Noise control**: the page is fetched several times per run; keys that differ between samples are ignored. Generic WIZ flags/config are *not* reported. Experiment IDs only alert on bursts (`experimentAlertMin`). The first run reports everything as new (capped); later runs report only real changes.
 
 ### 🏆 Leaderboard & Community Watch
 - **LM Arena (Chatbot Arena)**: Tracks ELO, rankings, and specific model metadata updates.

@@ -15,7 +15,7 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
 
     steps:
       - name: Checkout code
@@ -42,30 +42,32 @@ jobs:
         run: npm run gemini-web
 
       - name: Commit results to master
+        if: ${{ !cancelled() }}
         run: |
           git config --global user.name "ModelWatcher"
           git config --global user.email "modelwatcher@github.com"
 
-          cp logs/gemini-web-state.json /tmp/gemini-web-state-new.json 2>/dev/null || true
-          cp logs/aistudio-web-state.json /tmp/aistudio-web-state-new.json 2>/dev/null || true
+          # Stash fresh state, sync to master (other bots push here too), restore, commit.
+          mkdir -p /tmp/web-state
+          cp logs/*-web-state.json /tmp/web-state/ 2>/dev/null || true
 
-          git fetch origin master
-          git reset --hard origin/master
-
-          mkdir -p logs
-          if [ -f /tmp/gemini-web-state-new.json ]; then
-            cp /tmp/gemini-web-state-new.json logs/gemini-web-state.json
-          fi
-
-          if [ -f /tmp/aistudio-web-state-new.json ]; then
-            cp /tmp/aistudio-web-state-new.json logs/aistudio-web-state.json
-          fi
-
-          git add -f logs/gemini-web-state.json logs/aistudio-web-state.json || true
-          if ! git diff --quiet --staged; then
-            git commit -m "Update Gemini Web App state - $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git push origin master
-            echo "Updated Gemini Web App state on master branch"
-          else
-            echo "No changes to commit"
-          fi
+          for attempt in 1 2 3; do
+            git fetch origin master
+            git reset --hard origin/master
+            mkdir -p logs
+            cp /tmp/web-state/*-web-state.json logs/ 2>/dev/null || true
+            git add -f logs/*-web-state.json || true
+            if git diff --quiet --staged; then
+              echo "No changes to commit"
+              exit 0
+            fi
+            git commit -m "Update Gemini web trackers state - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            if git push origin master; then
+              echo "Pushed (attempt $attempt)"
+              exit 0
+            fi
+            echo "Push raced with another commit, retrying..."
+            sleep $((attempt * 3))
+          done
+          echo "Failed to push state after retries" >&2
+          exit 1

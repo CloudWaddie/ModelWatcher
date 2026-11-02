@@ -8,15 +8,18 @@
   "trackers": {
     "version": true,
     "buildKeys": true,
-    "flags": true,
-    "config": true,
+    "flags": false,
+    "config": false,
     "routes": true,
     "experiments": true,
     "islands": true,
     "bundles": true,
     "strings": true,
     "toggles": true,
-    "docs": true
+    "docs": true,
+    "code": true,
+    "web": true,
+    "cards": true
   },
   "highlightComponentPattern": "Banner|Disclaimer|Upsell|Upgrade|Waitlist|Consent|Quota|Labs|Referral|Onboarding",
   "experimentAlertMin": 150,
@@ -26,7 +29,56 @@
       "name": "gemini",
       "label": "Gemini Web App",
       "targetUrl": "https://gemini.google.com/app",
-      "stateFile": "./logs/gemini-web-state.json"
+      "stateFile": "./logs/gemini-web-state.json",
+      "code": {},
+      "web": {
+        "pages": [
+          {
+            "id": "release-notes",
+            "label": "Gemini Apps release notes (gemini.google/release-notes)",
+            "url": "https://gemini.google/release-notes/",
+            "start": "^20\\d\\d\\.\\d\\d\\.\\d\\d$"
+          },
+          {
+            "id": "limits",
+            "label": "Gemini Apps limits & feature availability (support page)",
+            "url": "https://support.google.com/gemini/answer/16275805",
+            "start": "^Gemini Apps have compute-based"
+          },
+          {
+            "id": "subscriptions",
+            "label": "Gemini subscriptions & plans",
+            "url": "https://gemini.google/subscriptions/",
+            "start": "^Get more out of Gemini$",
+            "keepHead": 2
+          },
+          {
+            "id": "gemini-drops",
+            "label": "Gemini Drops (gemini.google/gemini-drops)",
+            "url": "https://gemini.google/gemini-drops/",
+            "start": "^Gemini gets better every month|^Gemini is constantly evolving",
+            "keepHead": 1
+          },
+          {
+            "id": "latest-news",
+            "label": "Gemini latest news (gemini.google/latest-news)",
+            "url": "https://gemini.google/latest-news/",
+            "start": "^Try Gemini$"
+          }
+        ],
+        "sitemaps": [
+          {
+            "id": "gemini.google",
+            "url": "https://gemini.google/sitemap.xml",
+            "stripCountry": true
+          },
+          {
+            "id": "gemini.google.com",
+            "url": "https://gemini.google.com/sitemap.xml",
+            "exclude": "^/images/"
+          }
+        ]
+      }
     },
     {
       "name": "aistudio",
@@ -45,7 +97,53 @@
           "/docs/pricing.md",
           "/docs/rate-limits.md"
         ]
+      },
+      "code": {
+        "kind": "bundle"
       }
+    },
+    {
+      "name": "flow",
+      "label": "Google Flow (Whisk / ImageFX / VideoFX)",
+      "targetUrl": "https://flow.google.com/",
+      "stateFile": "./logs/flow-web-state.json"
+    },
+    {
+      "name": "labs",
+      "label": "Google Labs (labs.google)",
+      "mode": "static",
+      "targetUrl": "https://labs.google/",
+      "stateFile": "./logs/labs-web-state.json",
+      "cards": true,
+      "versionRegex": "src=\"(main-[A-Z0-9]+\\.js)\"",
+      "web": {
+        "sitemaps": [
+          {
+            "id": "labs.google",
+            "url": "https://labs.google/sitemap.xml"
+          },
+          {
+            "id": "labs.google/fx",
+            "url": "https://labs.google/fx/sitemap.xml"
+          }
+        ]
+      }
+    },
+    {
+      "name": "labs-fx",
+      "label": "Labs FX tools (labs.google/fx)",
+      "mode": "static",
+      "targetUrl": "https://labs.google/fx",
+      "stateFile": "./logs/labs-fx-web-state.json",
+      "nextBase": "/fx"
+    },
+    {
+      "name": "flowmusic",
+      "label": "Google Flow Music (flowmusic.app)",
+      "mode": "static",
+      "targetUrl": "https://www.flowmusic.app/",
+      "stateFile": "./logs/flowmusic-web-state.json",
+      "nextBase": ""
     }
   ],
   "ignoreKeys": [

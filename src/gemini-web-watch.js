@@ -3,6 +3,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createHash } from 'crypto';
 import https from 'https';
+import zlib from 'zlib';
 import { packMessages, postPayload } from './gemini-watch.js';
 
 /**
@@ -75,8 +76,9 @@ export function parseLlmsIndex(text) {
 
 export function parseBundleUrls(html) {
   const out = {};
-  const re = /https:\/\/www\.gstatic\.com\/bg3\/boq-bard-web\/full\/client\/assets\/en\/([A-Za-z0-9_]+)-messages-([A-Za-z0-9_-]+)\.js/g;
-  for (const m of html.matchAll(re)) out[m[1]] = { hash: m[2], url: m[0] };
+  // full/client = main app; glic = the embedded Gemini-in-Chrome surface (namespaced "glic/").
+  const re = /https:\/\/www\.gstatic\.com\/bg3\/boq-bard-web\/(full\/client|glic)\/assets\/en\/([A-Za-z0-9_.]+)-messages-([A-Za-z0-9_-]+)\.js/g;
+  for (const m of html.matchAll(re)) out[(m[1] === 'glic' ? 'glic/' : '') + m[2]] = { hash: m[3], url: m[0] };
   return out;
 }
 
@@ -145,7 +147,7 @@ function httpsGet(url, redirects = 5) {
   return new Promise((resolve, reject) => {
     const req = https.get(url, {
       maxHeaderSize: 1024 * 1024,
-      headers: { 'User-Agent': UA, 'Accept-Language': 'en-US,en;q=0.9', 'Accept-Encoding': 'identity' },
+      headers: { 'User-Agent': UA, 'Accept': 'text/html,application/xhtml+xml,*/*', 'Accept-Language': 'en-US,en;q=0.9', 'Accept-Encoding': 'gzip, deflate, br' },
     }, (res) => {
       const { statusCode, headers } = res;
       if (statusCode >= 300 && statusCode < 400 && headers.location) {
@@ -154,9 +156,15 @@ function httpsGet(url, redirects = 5) {
         return resolve(httpsGet(new URL(headers.location, url).toString(), redirects - 1));
       }
       if (statusCode !== 200) { res.resume(); return reject(new Error(`HTTP ${statusCode}`)); }
+      // Some hosts (labs.google) compress even when identity is requested, so always decode.
+      const enc = String(headers['content-encoding'] ?? '').toLowerCase();
+      const stream = enc === 'gzip' ? res.pipe(zlib.createGunzip())
+        : enc === 'br' ? res.pipe(zlib.createBrotliDecompress())
+        : enc === 'deflate' ? res.pipe(zlib.createInflate()) : res;
       const chunks = [];
-      res.on('data', c => chunks.push(c));
-      res.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
+      stream.on('data', c => chunks.push(c));
+      stream.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
+      stream.on('error', reject);
       res.on('error', reject);
     });
     req.setTimeout(30000, () => req.destroy(new Error('timeout')));
@@ -190,6 +198,7 @@ export async function takeSnapshot(cfg, prev = {}) {
     pages.push(await fetchText(cfg.targetUrl));
     if (i < n - 1) await sleep(cfg.sampleDelayMs ?? 1500);
   }
+  if (cfg.mode === 'static') return takeStaticSnapshot(cfg, prev, pages);
   const wizSamples = pages.map(parseWiz);
 
   const expKey = cfg.experimentKey ?? EXPERIMENT_KEY;
@@ -212,7 +221,21 @@ export async function takeSnapshot(cfg, prev = {}) {
   const bucketedEver = [...new Set([...(prev.bucketedEver ?? prev.bucketed ?? []), ...bucketed])].sort();
   for (const k of bucketedEver) delete flags[k];
 
-  const toggles = pages.map(parseToggles).find(Boolean) ?? null;
+  // Toggle bitmasks: individual bits flip per request (A/B buckets). Mask out any bit that
+  // ever differs between samples (cumulatively), so only stable gates are compared.
+  let toggles = null, togglesNoise;
+  const tg = pages.map(parseToggles).filter(Boolean);
+  if (tg.length) {
+    const hex = (n) => '0x' + (n >>> 0).toString(16);
+    const prevNoise = prev.togglesNoise ?? [];
+    const noise = tg[0].map((w, i) => {
+      let nz = parseInt(prevNoise[i] ?? '0x0', 16) >>> 0;
+      for (const t of tg) nz = (nz | (parseInt(t[i] ?? '0x0', 16) ^ parseInt(w, 16))) >>> 0;
+      return nz;
+    });
+    toggles = tg[0].map((w, i) => hex(parseInt(w, 16) & ~noise[i]));
+    togglesNoise = noise.map(hex);
+  }
 
   let chunks = {};
   if (buildKeys.islands) {
@@ -237,7 +260,26 @@ export async function takeSnapshot(cfg, prev = {}) {
   });
   for (const name of failed) if (prev.strings?.[name]) { strings[name] = prev.strings[name]; bundles[name] = prev.bundles?.[name] ?? bundles[name]; }
 
+  let code, codeFiles, codeKeyOut;
+  if (cfg.code?.kind === 'bundle') {
+    const url = pages.map(p => p.match(/https:\/\/www\.gstatic\.com\/_\/mss\/[^"']+\/m=_b/)?.[0]).find(Boolean);
+    if (url && prev.codeKey === url && prev.code) { code = prev.code; }
+    else if (url) {
+      try { code = extractBundleIds(await fetchText(url)); console.log(`  bundle code: ${Object.entries(code).map(([k, v]) => `${k}=${v.length}`).join(' ')}`); }
+      catch (e) { console.error('bundle fetch failed:', e.message); code = prev.code; }
+    }
+    codeKeyOut = url ?? prev.codeKey;
+  } else if (cfg.code && buildKeys.islands) {
+    try {
+      const base = 'https://www.gstatic.com/bg3/boq-bard-web/islands/assets/';
+      const res = await crawlCode(base, buildKeys.islands, prev.codeVersion === CODE_VERSION ? (prev.codeFiles ?? {}) : {}, cfg.code.routePrefixes);
+      console.log(`  code crawl: ${Object.keys(res.files).length} chunks (${res.fetched} fetched, ${res.failed} failed)`);
+      if (res.failed && res.fetched === 0 && prev.code) { code = prev.code; codeFiles = prev.codeFiles; }
+      else { code = res.code; codeFiles = res.files; }
+    } catch (e) { console.error('code crawl failed:', e.message); code = prev.code; codeFiles = prev.codeFiles; }
+  }
   const docs = cfg.docs ? await snapshotDocs(cfg.docs, prev.docs) : undefined;
+  const web = cfg.web ? await snapshotWeb(cfg.web, prev.web) : undefined;
 
   return {
     timestamp: Date.now(),
@@ -246,8 +288,204 @@ export async function takeSnapshot(cfg, prev = {}) {
     experiments,
     islands: { names: [...islandNames].sort(), chunks },
     bundles, strings,
-    ...(toggles ? { toggles } : {}),
+    ...(toggles ? { toggles, togglesNoise } : {}),
     ...(docs ? { docs } : {}),
+    ...(code ? { code, codeVersion: CODE_VERSION, ...(codeFiles ? { codeFiles } : {}), ...(codeKeyOut ? { codeKey: codeKeyOut } : {}) } : {}),
+    ...(web ? { web } : {}),
+  };
+}
+
+// ------------------------------------------------------------- code identifiers
+
+const LIB_CHUNK = /^(katex|react|relay|dist|jsx|compiler|Icon|Button|Text|Pressable|Snackbar)/i;
+const DEFAULT_ROUTE_PREFIXES = ['app', 'apps', 'gem', 'gems', 'u', 'share', 'notebook', 'notebooks', 'project', 'projects',
+  'library', 'labs', 'usage', 'settings', 'canvas', 'live', 'scheduled-tasks', 'activity', 'extensions', 'mystuff', 'your-day',
+  'shopping', 'avatar', 'public-links', 'gemini-spark', 'saved', 'search', 'agent', 'agents', 'skills', 'memory', 'discover'];
+export const emptyCode = () => ({ components: [], nodeTypes: [], enums: [], ops: [], routes: [], hosts: [], banners: [] });
+
+/** Pull trackable identifiers out of one minified chunk. */
+export function extractCodeIds(text, routePrefixes = DEFAULT_ROUTE_PREFIXES) {
+  const uniq = (a) => [...new Set(a)].sort();
+  const routeRe = new RegExp('["`\'](/(?:' + routePrefixes.map(x => x.replace(/[-/]/g, '\\$&')).join('|') + ')[a-zA-Z0-9_/\\-:{}$.]*)["`\']', 'g');
+  return {
+    enums: uniq((text.match(/\b[A-Z][A-Z0-9]*(?:_[A-Z0-9]+){2,}\b/g) ?? []).filter(e => e.length >= 14)),
+    ops: uniq(text.match(/\b[A-Z][A-Za-z0-9]{6,}(?:Query|Mutation|Subscription)\b/g) ?? []),
+    routes: uniq([...text.matchAll(routeRe)].map(m => m[1]).filter(r => !r.includes('${'))),
+    hosts: uniq([...text.matchAll(/["`']((?:[a-z0-9-]+\.)+(?:corp\.google\.com|google\.com|googleapis\.com|goog|withgoogle\.com|googleusercontent\.com|sandbox\.google\.com))["`'\/]/g)].map(m => m[1])),
+    // lowercase snake/kebab ids only (UPPER_SNAKE are already in enums, Camel_x are relay fragments)
+    banners: uniq([...text.matchAll(/["`']([a-z0-9]+(?:[_-][a-z0-9]+)+)["`']/g)].map(m => m[1])
+      .filter(v => v.length <= 70 && /(banner|upsell|promo|announce|nudge|coachmark|whats_?new|spotlight|waitlist)/.test(v))),
+  };
+}
+
+export const CODE_VERSION = 2; // bump when extraction regexes change: invalidates cached per-chunk extraction
+
+/** Extract identifiers from AI Studio's single large MakerSuite bundle (Angular + protobuf RPC). */
+export function extractBundleIds(text) {
+  const uniq = (a) => [...new Set(a)].sort();
+  const short = (full) => full.replace(/^google\.internal\.alkali\.applications\.makersuite\.v1\./, '');
+  const rpcMethods = uniq([...text.matchAll(/google\.internal\.alkali\.[A-Za-z0-9.]+?\.([A-Za-z0-9]+Service)\/([A-Za-z0-9]+)/g)].map(m => `${m[1]}/${m[2]}`));
+  const services = uniq([...text.matchAll(/google\.internal\.alkali\.[A-Za-z0-9.]+/g)].map(m => short(m[0])).filter(x => /Service$|Details$/.test(x)));
+  const routes = uniq([...text.matchAll(/path:\s*"([A-Za-z0-9_\/:\-.*]{2,60})"/g)].map(m => m[1]));
+  const modelIds = uniq([...text.matchAll(/["']((?:models\/)?(?:gemini|veo|imagen|lyria|gemma|nano-banana|learnlm|deep-research|antigravity|gemini-robotics|omni)[a-z0-9._-]{2,50})["']/gi)].map(m => m[1]));
+  const KW = /\b(introducing|now available|coming soon|preview|beta|experimental|deprecat\w*|shut ?down|sunset|will be (?:removed|retired|discontinued)|waitlist|early access|rolling out|upgrade to|free tier|limited time|announc\w+)\b/i;
+  const notes = uniq([...text.matchAll(/"((?:[^"\\\n]|\\.){28,260})"/g)].map(m => m[1])
+    .filter(x => x.split(' ').length > 4 && /^[A-Za-z0-9 ,.'’:;!?()\/&%-]+$/.test(x) && KW.test(x)));
+  return { rpcMethods, services, routes, modelIds, notes };
+}
+
+const chunkStem = (file) => file.replace(/-[A-Za-z0-9_-]{6,12}\.js$/, '');
+
+/**
+ * Crawl the island chunk import graph from the islands entry file. Extraction
+ * is cached per content-hashed filename, so unchanged chunks are never refetched.
+ */
+export async function crawlCode(base, entryFile, prevFiles = {}, routePrefixes) {
+  const refs = (t) => new Set([...t.matchAll(/from"\.\/([^"]+\.js)"|import\(`\.\/([^`]+\.js)`\)|import"\.\/([^"]+\.js)"/g)].map(m => m[1] || m[2] || m[3]));
+  const files = {};
+  const seen = new Set([entryFile]);
+  let frontier = [entryFile];
+  let fetched = 0, failed = 0;
+  while (frontier.length) {
+    const next = new Set();
+    await mapLimit(frontier, 16, async (f) => {
+      let ids = prevFiles[f];
+      let text = null;
+      if (!ids || !ids.refs) {
+        try { text = await fetchText(base + f); fetched++; } catch { failed++; return; }
+        ids = { ...(LIB_CHUNK.test(f) ? emptyCode() : extractCodeIds(text, routePrefixes)), refs: [...refs(text)].sort() };
+        delete ids.components;
+      }
+      files[f] = ids;
+    });
+    for (const f of frontier) for (const r of files[f]?.refs ?? []) if (!seen.has(r)) { seen.add(r); next.add(r); }
+    frontier = [...next];
+  }
+  const agg = emptyCode();
+  const stems = [...new Set(Object.keys(files).map(chunkStem))];
+  // Relay artifacts: "XNodeView_card_normalization.graphql" names a server-driven response node type.
+  agg.nodeTypes = [...new Set(stems.map(x => x.match(/^[A-Za-z0-9]+_([A-Za-z0-9]+)_normalization\.graphql$/)?.[1]).filter(Boolean))].sort();
+  agg.components = stems.filter(x => !/\.graphql$|_parameters$/.test(x)).sort();
+  for (const k of ['enums', 'ops', 'routes', 'hosts', 'banners']) agg[k] = [...new Set(Object.values(files).flatMap(f => f[k] ?? []))].sort();
+  return { code: agg, files, fetched, failed };
+}
+
+// ------------------------------------------------------------- static sites (Labs)
+
+const stripTags = (x) => x.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&#39;|&#x27;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
+
+/** Experiment cards on labs.google: hero carousel, experiment carousel and "graduated" cards. */
+export function parseLabsCards(rawHtml) {
+  const html = rawHtml.replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>/g, '');
+  const cards = {};
+  const put = (kind, name, desc, cta, href) => { name = stripTags(name ?? ''); if (name) cards[`${kind}:${name}`] = { desc: stripTags(desc ?? ''), cta: stripTags(cta ?? ''), href: href ?? '' }; };
+  for (const m of html.matchAll(/carousel-card__content__title[^>]*>([^<]+)<\/h2>\s*<h3[^>]*carousel-card__content__subtitle[^>]*>([^<]+)<\/h3>\s*<a[^>]*carousel-card__cta[^>]*href="([^"]*)"[^>]*>\s*<span[^>]*carousel-card__cta__label[^>]*>([^<]+)/g)) put('experiment', m[1], m[2], m[4], m[3]);
+  for (const m of html.matchAll(/featured-hero__heading[^>]*>([^<]+)<\/h2>\s*<small[^>]*featured-hero__subheading[^>]*>([^<]*)<\/small>\s*<a[^>]*featured-hero__cta[^>]*href="([^"]*)"[^>]*>\s*<span[^>]*>([^<]+)/g)) put('featured', m[1], m[2], m[4], m[3]);
+  for (const m of html.matchAll(/graduation-card__headline[^>]*>([^<]+)<\/h3>\s*<p[^>]*graduation-card__description[^>]*>\s*<span[^>]*>([^<]*)<\/span>\s*<\/p>\s*<a[^>]*graduation-card__cta[^>]*href="([^"]*)"/g)) put('graduated', m[1], m[2], '', m[3]);
+  return cards;
+}
+
+/** Next.js build info: buildId, route table (from _buildManifest) and the en i18n store. */
+export function parseNextData(html) {
+  const m = html.match(/<script id="__NEXT_DATA__" type="application\/json">([\s\S]*?)<\/script>/);
+  if (!m) return null;
+  try {
+    const d = JSON.parse(m[1]);
+    const store = d.props?.pageProps?._nextI18Next?.initialI18nStore?.en ?? {};
+    const strings = {};
+    const flat = (o, pre, out) => { for (const [k, v] of Object.entries(o ?? {})) { if (v && typeof v === 'object') flat(v, pre + k + '.', out); else out[pre + k] = String(v); } };
+    for (const [ns, tree] of Object.entries(store)) { strings[ns] = {}; flat(tree, '', strings[ns]); }
+    return { buildId: d.buildId ?? null, strings };
+  } catch { return null; }
+}
+
+export function parseNextRoutes(manifestJs) {
+  return [...new Set([...manifestJs.matchAll(/"(\/[A-Za-z0-9_\-/\[\]\.\.]*)":\[/g)].map(m => m[1]))].filter(r => !/^\/(_|404|sitemap)/.test(r)).sort();
+}
+
+// ---------------------------------------------------------------- web content
+
+export function htmlToLines(html) {
+  const t = html
+    .replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<noscript[\s\S]*?<\/noscript>/g, '')
+    .replace(/<\/?(?:br|p|li|h[1-6]|tr|div|td|th|section|article|header|footer)[^>]*>/g, '\n')
+    .replace(/<[^>]+>/g, '');
+  const decode = (x) => x.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;|&#x27;/g, "'").replace(/&nbsp;/g, ' ')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n));
+  // Drop volatile page furniture: bare numeric session ids, language-picker blobs, long tracking tokens.
+  const NOISE = /^\d{10,}$|^Language\s.*(?:&lrm;|Afrikaans)|^[A-Za-z0-9_-]{32,}$/;
+  return t.split('\n').map(l => decode(l).replace(/&[lr]rm;|[\s\u200e\u200f]+/g, ' ').trim()).filter(l => l && !NOISE.test(l));
+}
+
+/** Normalise sitemap URLs: drop query, optional country prefix (/xx/...), optional exclude pattern. */
+export function normalizeSitemapUrl(u, opts = {}) {
+  let url; try { url = new URL(u); } catch { return null; }
+  let path = url.pathname;
+  if (opts.stripCountry) path = path.replace(/^\/[a-z]{2}(?=\/)/, '');
+  if (opts.exclude && new RegExp(opts.exclude).test(path)) return null;
+  return url.origin + path;
+}
+
+async function fetchSitemap(url, depth = 0) {
+  const xml = await fetchText(url);
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].trim());
+  if (/<sitemapindex/.test(xml) && depth < 2) {
+    const kids = await mapLimit(locs, 4, async (u) => { try { return await fetchSitemap(u, depth + 1); } catch { return []; } });
+    return kids.flat();
+  }
+  return locs;
+}
+
+/**
+ * Snapshot arbitrary public web pages (line-diffed after an optional start marker)
+ * and sitemaps (normalised URL sets). Used for release notes, limits, pricing.
+ */
+export async function snapshotWeb(web, prev = {}) {
+  const pages = {}, sitemaps = {};
+  await mapLimit(web.pages ?? [], 4, async (pg) => {
+    try {
+      let lines = htmlToLines(await fetchText(pg.url));
+      if (pg.start) {
+        const re = new RegExp(pg.start); const i = lines.findIndex(l => re.test(l));
+        // keepHead: retain the first N lines (page title / promo banner) ahead of the cut.
+        if (i >= 0) lines = [...lines.slice(0, Math.min(pg.keepHead ?? 0, i)), ...lines.slice(i)];
+      }
+      if (pg.end) { const re = new RegExp(pg.end); const i = lines.findIndex(l => re.test(l)); if (i > 0) lines = lines.slice(0, i); }
+      pages[pg.id] = lines;
+    } catch (e) { console.error(`web page ${pg.id} failed:`, e.message); if (prev.pages?.[pg.id]) pages[pg.id] = prev.pages[pg.id]; }
+  });
+  await mapLimit(web.sitemaps ?? [], 2, async (sm) => {
+    try {
+      const urls = (await fetchSitemap(sm.url)).map(u => normalizeSitemapUrl(u, sm)).filter(Boolean);
+      sitemaps[sm.id] = [...new Set(urls)].sort();
+    } catch (e) { console.error(`sitemap ${sm.id} failed:`, e.message); if (prev.sitemaps?.[sm.id]) sitemaps[sm.id] = prev.sitemaps[sm.id]; }
+  });
+  return { pages, sitemaps };
+}
+
+/** Snapshot for sites without WIZ data (Labs home = Angular SSR, /fx and Flow Music = Next.js). */
+async function takeStaticSnapshot(cfg, prev, pages) {
+  const html = pages[0];
+  const next = parseNextData(html);
+  const versionRe = cfg.versionRegex ? new RegExp(cfg.versionRegex) : null;
+  const version = (versionRe && html.match(versionRe)?.[1]) || next?.buildId || null;
+
+  let routes = prev.code?.routes ?? [];
+  const base = new URL(cfg.targetUrl).origin;
+  if (next?.buildId && cfg.nextBase !== undefined) {
+    try { routes = parseNextRoutes(await fetchText(`${base}${cfg.nextBase}/_next/static/${next.buildId}/_buildManifest.js`)); }
+    catch (e) { console.error('route manifest failed:', e.message); }
+  }
+  const strings = next?.strings && Object.keys(next.strings).length ? next.strings : (prev.strings ?? {});
+  const cards = cfg.cards ? parseLabsCards(html) : undefined;
+  const ngVersion = html.match(/ng-version="([^"]+)"/)?.[1];
+  const web = cfg.web ? await snapshotWeb(cfg.web, prev.web) : undefined;
+  return {
+    timestamp: Date.now(), version, buildKeys: { js: ngVersion ? `angular ${ngVersion}` : null },
+    flags: {}, config: {}, bucketed: [], volatile: [], experiments: [],
+    islands: { names: [], chunks: {} }, bundles: {}, strings,
+    code: { ...emptyCode(), routes }, codeVersion: CODE_VERSION,
+    ...(cards ? { cards } : {}), ...(web ? { web } : {}),
   };
 }
 
@@ -277,7 +515,7 @@ export async function snapshotDocs(docs, prev = {}) {
 
 // ---------------------------------------------------------------------- diff
 
-export const EMPTY_SNAPSHOT = { version: null, buildKeys: {}, flags: {}, config: {}, toggles: [], experiments: [], islands: { names: [], chunks: {} }, bundles: {}, strings: {} };
+export const EMPTY_SNAPSHOT = { version: null, buildKeys: {}, flags: {}, config: {}, toggles: [], code: emptyCode(), experiments: [], islands: { names: [], chunks: {} }, bundles: {}, strings: {} };
 
 const setDiff = (a, b) => [...b].filter(x => !a.has(x));
 
@@ -345,7 +583,8 @@ export function diffSnapshots(prev, curr, { experimentAlertMin = 150 } = {}) {
     const a = prev.toggles ?? [];
     const idx = Math.max(a.length, curr.toggles.length);
     const changed = [];
-    for (let i = 0; i < idx; i++) if (a[i] !== curr.toggles[i]) changed.push({ word: i, from: a[i] ?? null, to: curr.toggles[i] ?? null });
+    const mk = (v, i) => (v == null ? null : '0x' + ((parseInt(v, 16) & ~parseInt(curr.togglesNoise?.[i] ?? '0x0', 16)) >>> 0).toString(16));
+    for (let i = 0; i < idx; i++) if (mk(a[i], i) !== mk(curr.toggles[i], i)) changed.push({ word: i, from: mk(a[i], i), to: mk(curr.toggles[i], i) });
     if (changed.length && Array.isArray(prev.toggles)) d.toggles = changed; // old state without toggles: seed silently
   }
 
@@ -365,7 +604,49 @@ export function diffSnapshots(prev, curr, { experimentAlertMin = 150 } = {}) {
     if (newPages.length || removedPages.length || pageDiffs.length) d.docs = { newPages, removedPages, pageDiffs };
   }
 
-  d.hasChanges = !!(d.toggles || d.docs || d.version || d.buildKeys.length || d.flags.length || d.config.length || d.routes.length
+  d.code = null;
+  if (curr.code) {
+    const pc = prev.code ?? emptyCode();
+    const out = {};
+    for (const k of new Set([...Object.keys(pc), ...Object.keys(curr.code)])) {
+      const before = new Set(pc[k] ?? []), after = new Set(curr.code[k] ?? []);
+      const added = [...after].filter(x => !before.has(x)), removed = [...before].filter(x => !after.has(x));
+      if (added.length || removed.length) out[k] = { added, removed };
+    }
+    if (Object.keys(out).length) d.code = out;
+  }
+
+  d.cards = null;
+  if (curr.cards) {
+    const pc = prev.cards ?? {};
+    const added = [], removed = [], changed = [];
+    for (const [k, v] of Object.entries(curr.cards)) {
+      if (!(k in pc)) added.push({ key: k, ...v });
+      else if (pc[k].cta !== v.cta || pc[k].desc !== v.desc || pc[k].href !== v.href) changed.push({ key: k, from: pc[k], to: v });
+    }
+    for (const k of Object.keys(pc)) if (!(k in curr.cards)) removed.push({ key: k, ...pc[k] });
+    if (added.length || removed.length || changed.length) d.cards = { added, removed, changed };
+  }
+
+  d.web = null;
+  if (curr.web) {
+    const pagesD = [];
+    for (const [id, lines] of Object.entries(curr.web.pages)) {
+      const had = prev.web?.pages && id in prev.web.pages;
+      const before = new Set(prev.web?.pages?.[id] ?? []), after = new Set(lines);
+      const added = lines.filter(l => !before.has(l)), removed = [...before].filter(l => !after.has(l));
+      if (added.length || removed.length) pagesD.push({ id, added, removed, isNew: !had });
+    }
+    const maps = [];
+    for (const [id, urls] of Object.entries(curr.web.sitemaps)) {
+      const before = new Set(prev.web?.sitemaps?.[id] ?? []), after = new Set(urls);
+      const added = urls.filter(u => !before.has(u)), removed = [...before].filter(u => !after.has(u));
+      if (added.length || removed.length) maps.push({ id, added, removed, isNew: !(prev.web?.sitemaps && id in prev.web.sitemaps) });
+    }
+    if (pagesD.length || maps.length) d.web = { pages: pagesD, sitemaps: maps };
+  }
+
+  d.hasChanges = !!(d.toggles || d.docs || d.code || d.web || d.cards || d.version || d.buildKeys.length || d.flags.length || d.config.length || d.routes.length
     || d.newExperiments.length >= experimentAlertMin || d.newIslands.length || d.islandChunks.length
     || d.newBundles.length || d.removedBundles.length || Object.keys(d.strings).length);
   return d;
@@ -414,7 +695,7 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
       : `${code(c.key)}: ${code(fmtCfg(c.from))} → ${code(fmtCfg(c.to))}`);
     segs.push(`### ⚙️ Config changed (${diff.config.length})\n${lines.join('\n')}`);
   }
-  if (on('experiments') && diff.newExperiments.length) {
+  if (on('experiments') && diff.newExperiments.length >= (cfg.experimentAlertMin ?? 150)) {
     segs.push(`### 🧪 New experiment IDs (${diff.newExperiments.length})\n*Sampled per request — a few may be bucket noise.*\n${diff.newExperiments.slice(0, max * 2).map(code).join(' ')}${diff.newExperiments.length > max * 2 ? ' …' : ''}`);
   }
   if (on('islands') && (diff.newIslands.length || diff.islandChunks.length)) {
@@ -440,6 +721,56 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
       const lines = [...pd.added.slice(0, max).map(l => `🟢 ${clip(l, 220)}`), ...pd.removed.slice(0, Math.floor(max / 2)).map(l => `🔴 ${clip(l, 220)}`)];
       const extra = pd.added.length + pd.removed.length - lines.length;
       segs.push(`### 📄 ${code(pd.path)} updated\n${lines.join('\n')}${extra > 0 ? `\n*…and ${extra} more lines*` : ''}`);
+    }
+  }
+  if (on('cards') && diff.cards) {
+    const c = diff.cards;
+    const nm = (k) => k.replace(/^[a-z]+:/, '');
+    const kindIcon = (k) => ({ experiment: '🧪', featured: '⭐', graduated: '🎓' }[k.split(':')[0]] ?? '•');
+    const lines = [
+      ...c.added.map(x => `🟢 ${kindIcon(x.key)} **${nm(x.key)}** — ${clip(x.desc, 160)} ${x.cta ? `[${x.cta}]` : ''} ${x.href ? code(x.href) : ''}`),
+      ...c.changed.map(x => `🟡 **${nm(x.key)}**: ${x.from.cta !== x.to.cta ? `CTA ${code(x.from.cta || '∅')} → ${code(x.to.cta || '∅')}` : ''}${x.from.href !== x.to.href ? ` link ${code(x.from.href)} → ${code(x.to.href)}` : ''}${x.from.desc !== x.to.desc ? ` desc: ${clip(x.to.desc, 140)}` : ''}`),
+      ...c.removed.map(x => `🔴 ${kindIcon(x.key)} **${nm(x.key)}**`),
+    ];
+    segs.push(`### 🧪 Labs experiments (${c.added.length} new · ${c.changed.length} changed · ${c.removed.length} removed)\n${lines.slice(0, max * 2).join('\n')}`);
+  }
+  if (on('web') && diff.web) {
+    const labels = Object.fromEntries((cfg.web?.pages ?? []).map(p => [p.id, p.label ?? p.id]));
+    for (const pg of diff.web.pages) {
+      // Pages list newest-first (release notes), so the head of "added" is the freshest content.
+      const cap = pg.isNew ? Math.min(max * 2, 40) : max * 2;
+      const lines = [...pg.added.slice(0, cap).map(l => `🟢 ${clip(l, 300)}`), ...(pg.isNew ? [] : pg.removed.slice(0, Math.floor(max / 2)).map(l => `🔴 ${clip(l, 200)}`))];
+      const extra = pg.added.length + (pg.isNew ? 0 : pg.removed.length) - lines.length;
+      segs.push(`### 📰 ${labels[pg.id] ?? pg.id}${pg.isNew ? ' — latest content' : ' updated'}\n${lines.join('\n')}${extra > 0 ? `\n*…and ${extra} more lines*` : ''}`);
+    }
+    for (const sm of diff.web.sitemaps) {
+      const lines = [...sm.added.slice(0, max).map(u => `🟢 ${u}`), ...(sm.isNew ? [] : sm.removed.slice(0, max).map(u => `🔴 ${u}`))];
+      const extra = sm.added.length + (sm.isNew ? 0 : sm.removed.length) - lines.length;
+      segs.push(`### 🗺️ Sitemap ${code(sm.id)} (+${sm.added.length}${sm.isNew ? '' : ` −${sm.removed.length}`})\n${lines.join('\n')}${extra > 0 ? `\n*…and ${extra} more*` : ''}`);
+    }
+  }
+  if (on('code') && diff.code) {
+    const HOT = /^(CAN_|IS_|HAS_|FEATURE_MODE_|MODE_CATEGORY_|MODE_PICKER|USER_SUBSCRIPTION|ENABLE_|CLIENT_CONVERSATION_TYPE|CLIENT_CHANNEL|.*(?:TIER|QUOTA|UPSELL|CODENAME).*)/;
+    const names = { rpcMethods: '🔌 RPC methods', services: '🧰 Backend services', modelIds: '🤖 Model IDs', notes: '💬 Announcement-like strings', components: '🧩 Components', nodeTypes: '🧱 Response node types (server-driven UI)', enums: '🏷️ Feature / capability identifiers', ops: '🔌 GraphQL operations', routes: '🛣️ Routes', hosts: '🌍 Hosts', banners: '📢 Banner / upsell IDs' };
+    segs.push(`### 🧬 Code changes (island chunks)`);
+    for (const k of Object.keys(diff.code)) {
+      const title = names[k] ?? k;
+      const c = diff.code[k]; if (!c) continue;
+      let added = c.added;
+      let note = '';
+      if (k === 'enums') {
+        // Seed / big batches: lead with the gating & tier identifiers, summarise the rest.
+        const hot = added.filter(e => HOT.test(e)), rest = added.filter(e => !HOT.test(e));
+        added = (firstRun || rest.length > max * 2) ? hot : added;
+        if (added.length < c.added.length) note = `\n*+${c.added.length - added.length} other identifiers not listed*`;
+      }
+      const lines = [
+        ...added.slice(0, max * 2).map(x => `🟢 ${code(x)}`),
+        ...(firstRun ? [] : c.removed.slice(0, max).map(x => `🔴 ${code(x)}`)),
+      ];
+      const more = added.length + (firstRun ? 0 : c.removed.length) - lines.length;
+      if (!lines.length && !note) continue;
+      segs.push(`**${title}** (+${c.added.length}${firstRun ? '' : ` −${c.removed.length}`})\n${lines.join('\n')}${more > 0 ? `\n*…and ${more} more*` : ''}${note}`);
     }
   }
   if (on('strings')) {
