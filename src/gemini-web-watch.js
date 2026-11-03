@@ -304,9 +304,20 @@ const LIB_CHUNK = /^(katex|react|relay|dist|jsx|compiler|Icon|Button|Text|Pressa
 const DEFAULT_ROUTE_PREFIXES = ['app', 'apps', 'gem', 'gems', 'u', 'share', 'notebook', 'notebooks', 'project', 'projects',
   'library', 'labs', 'usage', 'settings', 'canvas', 'live', 'scheduled-tasks', 'activity', 'extensions', 'mystuff', 'your-day',
   'shopping', 'avatar', 'public-links', 'gemini-spark', 'saved', 'search', 'agent', 'agents', 'skills', 'memory', 'discover'];
-export const emptyCode = () => ({ components: [], nodeTypes: [], enums: [], ops: [], routes: [], hosts: [], banners: [], gqlTypes: [], gqlFields: [], gqlOps: [], clientFlags: [] });
+export const emptyCode = () => ({ components: [], nodeTypes: [], enums: [], ops: [], routes: [], hosts: [], banners: [], gqlTypes: [], gqlFields: [], gqlOps: [], clientFlags: [], links: [], featureModeIds: [] });
 
 /** Pull trackable identifiers out of one minified chunk. */
+const LINK_HOSTS = /^(support\.google\.com|labs\.google(\.com)?|g\.co|goo\.gle|one\.google\.com|miro\.com|ai\.google\.dev|deepmind\.google|blog\.google|[a-z0-9-]+\.withgoogle\.com|store\.google\.com|chromewebstore\.google\.com|workspace\.google\.com|cloud\.google\.com|gemini\.google(\.com)?|myaccount\.google\.com|policies\.google\.com|github\.com|colab\.research\.google\.com|notebooklm\.google(\.com)?|jules\.google|opal\.google)$/;
+const ASSET_EXT = /\.(png|webp|svg|jpe?g|gif|mp4|webm|woff2?|css|js|ico)(\?|$)/i;
+/** Normalise an outbound link: allow-listed product/help hosts only, tracking params dropped. */
+export function normalizeLink(u) {
+  u = u.replace(/[.,);'"`]+$/, '');
+  const m = u.match(/^https?:\/\/([^/?#]+)([^?#]*)(\?[^#]*)?/);
+  if (!m || !LINK_HOSTS.test(m[1]) || ASSET_EXT.test(m[2])) return null;
+  const q = (m[3] ?? '').replace(/^\?/, '').split('&').filter(x => x && !/^(utm_|hl=|lfhs|source=|authuser=)/.test(x));
+  return m[1] + m[2].replace(/\/$/, '') + (q.length ? '?' + q.join('&') : '');
+}
+
 export function extractCodeIds(text, routePrefixes = DEFAULT_ROUTE_PREFIXES, stem = '') {
   const uniq = (a) => [...new Set(a)].sort();
   const routeRe = new RegExp('["`\'](/(?:' + routePrefixes.map(x => x.replace(/[-/]/g, '\\$&')).join('|') + ')[a-zA-Z0-9_/\\-:{}$.]*)["`\']', 'g');
@@ -320,6 +331,11 @@ export function extractCodeIds(text, routePrefixes = DEFAULT_ROUTE_PREFIXES, ste
     gqlOps: uniq([...text.matchAll(/params:\{id:`([^`]+)`[\s\S]*?name:`([^`]+)`/g)].map(m => `${m[2]}#${m[1].replace(/^\d+\//, '').slice(0, 10)}`)),
     // Server flags the client actually reads, by owning module: a new id = a newly gated feature.
     clientFlags: uniq([...text.matchAll(/get(Boolean|String|Int|Number|Double|Long|Float)Value\(`(\d{6,})`/g)].map(m => `${stem || 'chunk'}:${m[2]}:${m[1][0].toLowerCase()}`)),
+    // Help-center topics (support.google.com/gemini?p=lm_agent_browser_data...), Labs products and
+    // partner integrations the UI links to: help pages exist before the feature does.
+    links: uniq([...text.matchAll(/https?:\/\/[a-zA-Z0-9./_#?=&%:+~-]{6,200}/g)].map(m => normalizeLink(m[0])).filter(Boolean)),
+    // Numeric ids of tool modes (VESPER=35, REMY=40...): a new mode or a re-numbering shows up here.
+    featureModeIds: uniq([...text.matchAll(/\b(FEATURE_MODE_[A-Z0-9_]+):(\d{1,4})\b/g)].map(m => `${m[1]}=${m[2]}`)),
     enums: uniq((text.match(/\b[A-Z][A-Z0-9]*(?:_[A-Z0-9]+){2,}\b/g) ?? []).filter(e => e.length >= 14)),
     ops: uniq(text.match(/\b[A-Z][A-Za-z0-9]{6,}(?:Query|Mutation|Subscription)\b/g) ?? []),
     routes: uniq([...text.matchAll(routeRe)].map(m => m[1]).filter(r => !r.includes('${'))),
@@ -351,7 +367,7 @@ export function darkFeatures(enums, strings) {
   return [...out].sort();
 }
 
-export const CODE_VERSION = 3; // bump when extraction regexes change: invalidates cached per-chunk extraction
+export const CODE_VERSION = 4; // bump when extraction regexes change: invalidates cached per-chunk extraction
 
 /** Extract identifiers from AI Studio's single large MakerSuite bundle (Angular + protobuf RPC). */
 export function extractBundleIds(text) {
@@ -800,7 +816,7 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
   }
   if (on('code') && diff.code) {
     const HOT = /^(CAN_|IS_|HAS_|FEATURE_MODE_|MODE_CATEGORY_|MODE_PICKER|USER_SUBSCRIPTION|ENABLE_|CLIENT_CONVERSATION_TYPE|CLIENT_CHANNEL|.*(?:TIER|QUOTA|UPSELL|CODENAME).*)/;
-    const names = { darkFeatures: '🕶️ Dark features (in code, no UI text yet)', clientFlags: '🚩 Client feature-flag reads (gated features)', gqlTypes: '🧬 GraphQL types (backend schema)', gqlFields: '🧩 GraphQL fields', gqlOps: '🔌 GraphQL queries changed (persisted id)', rpcMethods: '🔌 RPC methods', services: '🧰 Backend services', modelIds: '🤖 Model IDs', notes: '💬 Announcement-like strings', components: '🧩 Components', nodeTypes: '🧱 Response node types (server-driven UI)', enums: '🏷️ Feature / capability identifiers', ops: '🔌 GraphQL operations', routes: '🛣️ Routes', hosts: '🌍 Hosts', banners: '📢 Banner / upsell IDs' };
+    const names = { links: '🔗 Outbound links (help topics / Labs products / partners)', featureModeIds: '🎛️ Tool-mode IDs', darkFeatures: '🕶️ Dark features (in code, no UI text yet)', clientFlags: '🚩 Client feature-flag reads (gated features)', gqlTypes: '🧬 GraphQL types (backend schema)', gqlFields: '🧩 GraphQL fields', gqlOps: '🔌 GraphQL queries changed (persisted id)', rpcMethods: '🔌 RPC methods', services: '🧰 Backend services', modelIds: '🤖 Model IDs', notes: '💬 Announcement-like strings', components: '🧩 Components', nodeTypes: '🧱 Response node types (server-driven UI)', enums: '🏷️ Feature / capability identifiers', ops: '🔌 GraphQL operations', routes: '🛣️ Routes', hosts: '🌍 Hosts', banners: '📢 Banner / upsell IDs' };
     segs.push(`### 🧬 Code changes (island chunks)`);
     for (const k of Object.keys(diff.code)) {
       const title = names[k] ?? k;
