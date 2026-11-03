@@ -757,7 +757,7 @@ export function createAppVersionEmbed(appInfo) {
     username: 'App Version Watcher',
     avatar_url: LOGO_URL,
     embeds: [{
-      title: `${platformEmoji} ${appInfo.title} — v${appInfo.version}`,
+      title: `${platformEmoji} ${appInfo.title} — v${appInfo.version}${appInfo.sameVersion ? ' · rebuilt (same version)' : ''}`,
       url: appInfo.url,
       description: description.length > 300 ? description.substring(0, 297) + '...' : description,
       color,

@@ -202,6 +202,25 @@ async function compareAndroidStrings(appId) {
 
 // --- App version checking ---
 
+// Play reports "Varies with device" for some apps; that tells us nothing about the version.
+const versionKnown = (v) => !!v && !/^vary$|varies/i.test(String(v));
+
+/**
+ * Decide what a store update means.
+ *  - 'first'        : no previous state
+ *  - 'none'         : store timestamp did not advance
+ *  - 'new-version'  : version string changed (or can't be compared) and timestamp advanced
+ *  - 'republished'  : timestamp advanced but the version string is identical. Historically 59 of
+ *                     69 such events were pure noise (identical strings) but 10 were real silent
+ *                     rebuilds with changed strings, so these need a strings check, not a report.
+ */
+export function classifyUpdate(previous, lastUpdated, version) {
+  if (!previous) return 'first';
+  if (!(lastUpdated > previous.lastUpdated)) return 'none';
+  if (versionKnown(version) && versionKnown(previous.version) && version === previous.version) return 'republished';
+  return 'new-version';
+}
+
 async function checkAndroidApp(appId, state) {
   const previous = state[appId] || null;
   const appDetails = await gplay.app({ appId });
@@ -211,20 +230,31 @@ async function checkAndroidApp(appId, state) {
     throw new Error('No updated timestamp from Google Play');
   }
 
-  const isFirstRun = !previous;
-  const isNewVersion = previous && lastUpdated > previous.lastUpdated;
+  const kind = classifyUpdate(previous, lastUpdated, appDetails.version);
+  const isFirstRun = kind === 'first';
 
-  if (isFirstRun || isNewVersion) {
-    console.log(`[Android] ${isFirstRun ? 'First run' : 'New version'} for ${appId}: ${appDetails.version}`);
+  if (kind !== 'none') {
+    console.log(`[Android] ${{ first: 'First run', 'new-version': 'New version', republished: 'Republished (same version)' }[kind]} for ${appId}: ${appDetails.version}`);
 
     let stringsResult = { changed: false };
+    let stringsOk = true;
     try {
       stringsResult = await compareAndroidStrings(appId);
       if (stringsResult.newStrings) {
         saveStrings(appId, stringsResult.newStrings);
       }
     } catch (e) {
+      stringsOk = false;
       console.error(`[Android] Strings check failed for ${appId}:`, e.message);
+    }
+
+    if (kind === 'republished') {
+      // Same version number: only worth a report if the APK's strings really changed.
+      if (!stringsOk) return { isNew: false }; // retry next run rather than losing a possible rebuild
+      if (!stringsResult.changed) {
+        console.log(`  ${appId}: store re-published ${appDetails.version} with identical strings — no report`);
+        return { isNew: false, silentRefresh: { lastUpdated, version: appDetails.version } };
+      }
     }
 
     return {
@@ -241,7 +271,8 @@ async function checkAndroidApp(appId, state) {
       lastUpdated,
       stringsDiff: stringsResult.diff || null,
       stringsChanged: stringsResult.changed,
-      isFirstRun
+      isFirstRun,
+      sameVersion: kind === 'republished'
     };
   }
 
@@ -268,7 +299,13 @@ async function checkIosApp(appId, state) {
     throw new Error('Invalid date from App Store');
   }
 
-  if (!previous || lastUpdated > previous.lastUpdated) {
+  const kind = classifyUpdate(previous, lastUpdated, appDetails.version);
+  if (kind === 'republished') {
+    // No APK strings to compare on iOS: a same-version re-release is not a new version.
+    console.log(`  ${appId}: App Store date moved but version ${appDetails.version} is unchanged — no report`);
+    return { isNew: false, silentRefresh: { lastUpdated, version: appDetails.version } };
+  }
+  if (kind === 'first' || kind === 'new-version') {
     console.log(`[iOS] New version for ${appId}: ${appDetails.version}`);
 
     return {
@@ -336,6 +373,9 @@ async function main() {
           const stringsPayload = createStringsDiffEmbed(app.id, result.stringsDiff);
           await sendRawDiffWebhook(appWebhookUrl, stringsPayload);
         }
+      } else if (result.silentRefresh) {
+        // Advance the stored timestamp so the APK isn't re-downloaded every run; nothing to announce.
+        state[app.id] = { ...state[app.id], ...result.silentRefresh };
       } else {
         console.log(`  No update for ${app.id}`);
       }
