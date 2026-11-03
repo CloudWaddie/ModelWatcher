@@ -17,6 +17,9 @@ import { postPayload } from './gemini-watch.js';
  * Public docs never name these, but the shipped binaries do.
  */
 
+// Bump when the extracted classes change: prior analysis becomes non-comparable and is re-baselined silently.
+export const ANALYSIS_VERSION = 2;
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 const clip = (s, n = 160) => (s.length > n ? s.slice(0, n - 1) + '…' : s);
@@ -79,13 +82,12 @@ export function extractBinarySignals(text) {
     ...all(/\bclaude-(?:opus|sonnet|haiku)-\d+(?:-\d+)?/g),
     ...all(/\bnano-banana-\d+(?:\.\d+)?(?:-(?:pro|lite|flash))?/g),
     ...all(/\bgpt-oss-\d+b(?:-maas)?/g),
-    ...all(/gemini_api_[a-z0-9_]*(?:rev\d+|v\d[a-z0-9]*)[a-z0-9_]*/g),   // no \b: Go packs it onto the preceding string
     ...all(/\bgemini-v\d[a-z0-9]*-[a-z0-9]+(?:-[a-z0-9]+)?/g),
   ]);
-  const env = uniqSorted(all(/\b(?:JETSKI|ANTIGRAVITY)_[A-Z0-9_]{3,80}/g).flatMap(v => v.split(/(?=(?:JETSKI|ANTIGRAVITY)_)/)).filter(v => v.length > 8));
-  const protos = uniqSorted(all(/\bgemini_coder\.[A-Z][A-Za-z0-9_]{2,60}/g));
+  // JETSKI_* are internal feature/test switches; ANTIGRAVITY_* is plumbing (tokens, ports, telemetry) and is ignored.
+  const env = uniqSorted(all(/\bJETSKI_[A-Z0-9_]{3,80}/g).flatMap(v => v.split(/(?=JETSKI_)/)).filter(v => v.length > 8));
   const providers = uniqSorted(all(/\b(?:gemini-api|blade|evergreen):(?:\/\/)?/g));
-  return { modelEnums, modelIds, env, protos, providers, _placeholders: placeholders };
+  return { modelEnums, modelIds, env, providers, _placeholders: placeholders };
 }
 
 function withTemp(fn) {
@@ -130,8 +132,8 @@ export async function takeSnapshot(cfg, prev = {}) {
   const prevCli = prev.versions?.cli?.linux_amd64;
 
   let cli = prev.analysis?.cli ?? null;
-  if (cfg.analyze?.cli && cliEntry && (!cli || cliEntry.version !== prevCli?.version || cliEntry.sha512 !== prevCli?.sha512)) {
-    try { cli = await analyzeCli(cliEntry); console.log(`  analysed CLI ${cliEntry.version}: ${cli.modelEnums.length} model enums, ${cli.env.length} env flags`); }
+  if (cfg.analyze?.cli && cliEntry && (!cli || prev.analysisVersion !== ANALYSIS_VERSION || cliEntry.version !== prevCli?.version || cliEntry.sha512 !== prevCli?.sha512)) {
+    try { cli = await analyzeCli(cliEntry); console.log(`  analysed CLI ${cliEntry.version}: ${cli.modelEnums.length} model enums, ${cli.env.length} JETSKI flags`); }
     catch (e) { console.error('CLI analysis failed:', e.message); }
   }
   let vsix = prev.analysis?.vsix ?? null;
@@ -154,7 +156,7 @@ export async function takeSnapshot(cfg, prev = {}) {
     })).filter(p => p.title);
   } catch (e) { console.error('blog rss failed:', e.message); }
 
-  return { timestamp: Date.now(), versions, analysis: { cli, vsix }, web, docsIndex, blog };
+  return { timestamp: Date.now(), analysisVersion: ANALYSIS_VERSION, versions, analysis: { cli, vsix }, web, docsIndex, blog };
 }
 
 // ----------------------------------------------------------------------- diff
@@ -171,11 +173,12 @@ export function diffSnapshots(prev, curr) {
   }
   if (cv.vscode && cv.vscode.version !== pv.vscode?.version) d.versions.push({ product: 'VS Code extension', from: pv.vscode?.version, to: cv.vscode.version });
 
-  const classes = { modelEnums: 'Internal model enums', modelIds: 'Model IDs', env: 'Env flags', protos: 'Protobuf types', providers: 'Model providers' };
+  const comparable = prev.analysisVersion === ANALYSIS_VERSION || prev === EMPTY;
+  const classes = { modelEnums: 'Internal model enums', modelIds: 'Model IDs', env: 'JETSKI flags', providers: 'Model providers' };
   const pa = prev.analysis?.cli ?? {}, ca = curr.analysis?.cli ?? {};
-  for (const k of Object.keys(classes)) { const x = setDelta(pa[k], ca[k]); if (x.added.length || x.removed.length) d.analysis[k] = { ...x, label: classes[k], source: 'CLI' }; }
+  for (const k of comparable ? Object.keys(classes) : []) { const x = setDelta(pa[k], ca[k]); if (x.added.length || x.removed.length) d.analysis[k] = { ...x, label: classes[k], source: 'CLI' }; }
   const pe = prev.analysis?.vsix ?? {}, ce = curr.analysis?.vsix ?? {};
-  for (const [k, label] of [['commands', 'Extension commands'], ['settings', 'Extension settings'], ['changelog', 'Extension changelog']]) {
+  for (const [k, label] of comparable ? [['commands', 'Extension commands'], ['settings', 'Extension settings'], ['changelog', 'Extension changelog']] : []) {
     const x = setDelta(pe[k], ce[k]); if (x.added.length || x.removed.length) d.analysis[`vsix_${k}`] = { ...x, label, source: 'VSIX' };
   }
 
@@ -195,29 +198,48 @@ export const EMPTY = { versions: { cli: {} }, analysis: {}, web: { pages: {} }, 
 
 // --------------------------------------------------------------------- report
 
+// Pure-letter Gemini suffixes (COSMICFORGE, RIFTRUNNER...) are internal codenames, not versioned releases.
+const enumRank = (e) => (/^MODEL_GOOGLE_GEMINI_[A-Z]+(?:_THINKING_(?:HIGH|LOW))?$/.test(e) && !/(TRAINING|EXAMPLE|FOR_GOOGLE|INTERNAL)/.test(e) ? 0
+  : /JARVIS|COMPUTER_USE|BYOM|ALIAS_(SHAMU|VISTA)/.test(e) ? 1 : /^MODEL_(GOOGLE|OPENAI)/.test(e) ? 2 : 3);
+
 export function buildSegments(curr, d, { firstRun = false, max = 25 } = {}) {
   const segs = [];
   const cv = curr.versions;
-  segs.push(firstRun
-    ? `# 🌱 Google Antigravity — initial baseline\nCLI ${code(cv.cli.linux_amd64?.version)} · App ${code(cv.hub?.version)} · IDE ${code(cv.ide?.version)} · VS Code ext ${code(cv.vscode?.version)}`
-    : '# 🛸 Google Antigravity');
-  if (!firstRun && d.versions.length) segs.push(`### 🚀 New releases\n${d.versions.map(v => `**${v.product}**: ${code(v.from ?? '∅')} → ${code(v.to)}${v.build ? ` (build ${v.build})` : ''}`).join('\n')}`);
-  const hot = /MODEL_(GOOGLE|OPENAI|CLAUDE|ALIAS)|JARVIS|COMPUTER_USE|BYOM/;
-  // Pure-letter Gemini suffixes (COSMICFORGE, RIFTRUNNER...) are internal codenames, not versioned releases.
-  const rank = (e) => (/^MODEL_GOOGLE_GEMINI_[A-Z]+(?:_THINKING_(?:HIGH|LOW))?$/.test(e) && !/(TRAINING|EXAMPLE|FOR_GOOGLE|INTERNAL)/.test(e) ? 0 : /JARVIS|COMPUTER_USE|BYOM|ALIAS_(SHAMU|VISTA)/.test(e) ? 1 : /^MODEL_(GOOGLE|OPENAI)/.test(e) ? 2 : 3);
+  const an = curr.analysis?.cli;
+
+  if (firstRun) {
+    // The baseline is one compact message: what we track, the current releases, and the few
+    // signals worth a human's eyes. Everything bulky is summarised as a count, never dumped.
+    const codenames = (an?.modelEnums ?? []).filter(e => enumRank(e) <= 1).sort((a, b) => enumRank(a) - enumRank(b) || a.localeCompare(b));
+    const lines = [
+      '# 🌱 Google Antigravity — baseline',
+      `CLI ${code(cv.cli.linux_amd64?.version)} · App ${code(cv.hub?.version)} · IDE ${code(cv.ide?.version)} · VS Code ext ${code(cv.vscode?.version)}`,
+      '',
+      `**🧬 Internal model codenames in the CLI** (${codenames.length})`,
+      codenames.length ? codenames.map(e => code(e.replace(/^MODEL_(GOOGLE_GEMINI_)?/, ''))).join(' ') : '*none*',
+      '',
+      `**🤖 Model IDs** (${an?.modelIds?.length ?? 0})`,
+      (an?.modelIds ?? []).map(code).join(' ') || '*none*',
+      '',
+      `*Also tracking: ${an?.modelEnums?.length ?? 0} model enums · ${an?.env?.length ?? 0} JETSKI flags · ${curr.analysis?.vsix?.commands?.length ?? 0} extension commands · ${Object.keys(curr.docsIndex).length} docs pages · ${curr.blog.length} blog posts. Only changes are reported from here on.*`,
+    ];
+    return [lines.join('\n')];
+  }
+
+  segs.push('# 🛸 Google Antigravity');
+  if (d.versions.length) segs.push(`### 🚀 New releases\n${d.versions.map(v => `**${v.product}**: ${code(v.from ?? '∅')} → ${code(v.to)}${v.build ? ` (build ${v.build})` : ''}`).join('\n')}`);
   for (const [k, c] of Object.entries(d.analysis)) {
-    if (k === 'modelEnums') c.added.sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
-    const lines = c.added.slice(0, max * 2).map(x => `🟢 ${code(clip(x, 140))}`)
-      .concat(firstRun ? [] : c.removed.slice(0, max).map(x => `🔴 ${code(clip(x, 140))}`));
-    if (k === 'modelEnums' && firstRun) { const h = c.added.filter(x => hot.test(x)); lines.splice(0, lines.length, ...h.slice(0, max * 2).map(x => `🟢 ${code(x)}`)); }
-    const extra = c.added.length + (firstRun ? 0 : c.removed.length) - lines.length;
-    segs.push(`### 🔬 ${c.label} — from ${c.source} binary (+${c.added.length}${firstRun ? '' : ` −${c.removed.length}`})\n${lines.join('\n')}${extra > 0 ? `\n*…and ${extra} more*` : ''}`);
+    if (k === 'modelEnums') c.added.sort((a, b) => enumRank(a) - enumRank(b) || a.localeCompare(b));
+    const lines = c.added.slice(0, max * 2).map(x => `🟢 ${code(clip(x, 140))}`).concat(c.removed.slice(0, max).map(x => `🔴 ${code(clip(x, 140))}`));
+    const extra = c.added.length + c.removed.length - lines.length;
+    segs.push(`### 🔬 ${c.label} — ${c.source} (+${c.added.length} −${c.removed.length})\n${lines.join('\n')}${extra > 0 ? `\n*…and ${extra} more*` : ''}`);
   }
   if (d.blog.length) segs.push(`### 📝 Blog\n${d.blog.slice(0, max).map(p => `🟢 [${clip(p.title, 90)}](${p.link})`).join('\n')}`);
   if (d.docs) segs.push(`### 📚 Docs pages (+${d.docs.added.length} −${d.docs.removed.length})\n${d.docs.added.slice(0, max).map(p => `🟢 [${clip(p.title, 70)}](${p.url})`).join('\n')}${d.docs.removed.length ? '\n' + d.docs.removed.slice(0, 10).map(u => `🔴 ${u}`).join('\n') : ''}`);
   for (const p of d.web) {
-    const lines = p.added.slice(0, p.isNew ? 20 : max * 2).map(l => `🟢 ${clip(l, 260)}`).concat(p.removed.slice(0, 10).map(l => `🔴 ${clip(l, 200)}`));
-    segs.push(`### 📰 ${p.id}${p.isNew ? ' — current content' : ' updated'}\n${lines.join('\n')}`);
+    if (p.isNew) continue; // a page we haven't seen before is a baseline, not news
+    const lines = p.added.slice(0, max * 2).map(l => `🟢 ${clip(l, 260)}`).concat(p.removed.slice(0, 10).map(l => `🔴 ${clip(l, 200)}`));
+    segs.push(`### 📰 ${p.id} updated\n${lines.join('\n')}`);
   }
   return segs;
 }
@@ -245,7 +267,7 @@ export async function main() {
     else console.log('[antigravity] RELEASE:', d.versions.map(v => `${v.product} ${v.from} -> ${v.to}`).join('; '));
   }
   const segs = (firstRun || d.hasChanges) ? buildSegments(curr, d, { firstRun, max: cfg.maxItemsPerSection }) : [];
-  const worthSending = firstRun ? segs.length > 0 : segs.length > 1 && (Object.keys(d.analysis).length || d.web.length || d.docs || d.blog.length);
+  const worthSending = firstRun ? segs.length > 0 : segs.length > 1 && (Object.keys(d.analysis).length || d.web.some(p => !p.isNew) || d.docs || d.blog.length);
   if (worthSending) {
     if (webhookOn) {
       const payloads = buildPayloads(segs, 'Antigravity Watcher');

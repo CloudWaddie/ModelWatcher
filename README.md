@@ -38,7 +38,7 @@ Unauthenticated multi-target scanner. A change in a site's **backend build** (`b
 ### 🛸 Antigravity Tracker
 `npm run antigravity` · config: `antigravity-config.json` · webhook: `TOMBSTONE_WEBHOOK` · runs in `gemini-web-watch.yml`
 - **Releases** (dedicated alert): CLI `agy` (public manifest API, all platforms), desktop app, IDE (from the download page's storage URLs), VS Code extension (Marketplace API). The Android app is in `app-version-config.json`.
-- **Static scan of each new CLI / extension build** (downloaded, checksum-verified against the manifest, never executed): internal model enums (e.g. `MODEL_GOOGLE_GEMINI_<CODENAME>`), model IDs, `JETSKI_*` / `ANTIGRAVITY_*` env flags, protobuf types, extension commands/settings/changelog. Public docs don't name these; the binaries do.
+- **Static scan of each new CLI / extension build** (downloaded, checksum-verified against the manifest, never executed): internal model enums (e.g. `MODEL_GOOGLE_GEMINI_<CODENAME>`), model IDs, `JETSKI_*` internal switches, extension commands/settings/changelog. The first run posts one compact baseline message; afterwards only changes are reported. Public docs don't name these; the binaries do.
 - **Docs / blog**: `llms.txt` page index, changelog, models, plans, releases, sitemap, blog RSS.
 
 ### 🏆 Leaderboard & Community Watch

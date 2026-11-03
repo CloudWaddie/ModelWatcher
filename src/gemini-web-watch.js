@@ -192,7 +192,8 @@ export async function mapLimit(items, limit, fn) {
 
 /** Take a full snapshot of the live app. `prev` supplies carried-over unions. */
 export async function takeSnapshot(cfg, prev = {}) {
-  const n = Math.max(1, cfg.samples ?? 6);
+  // Static sites (Labs, Flow Music) serve the same page every time: one fetch is enough.
+  const n = cfg.mode === 'static' ? 1 : Math.max(1, cfg.samples ?? 6);
   const pages = [];
   for (let i = 0; i < n; i++) {
     pages.push(await fetchText(cfg.targetUrl));
@@ -913,10 +914,14 @@ async function runTarget(t, cfg, webhookUrl, webhookOn) {
   }
   const firstRun = !prev?.version;
 
-  console.log(`${tag} Taking ${tcfg.samples} samples of ${tcfg.targetUrl}...`);
+  console.log(`${tag} Fetching ${tcfg.targetUrl} (${tcfg.mode === 'static' ? 1 : tcfg.samples} sample${tcfg.mode === 'static' ? '' : 's'})...`);
   const curr = await takeSnapshot(tcfg, prev ?? {});
   if (!curr.version) throw new Error(`${tag} Server version (${VERSION_KEY}) missing — page format changed?`);
-  console.log(`${tag} version ${curr.version} · ${Object.keys(curr.flags).length} flags · ${curr.experiments.length} experiments · ${Object.keys(curr.bundles).length} bundles`);
+  const nStrings = Object.values(curr.strings).reduce((n, c) => n + Object.keys(c).length, 0);
+  const facts = tcfg.mode === 'static'
+    ? [curr.cards && `${Object.keys(curr.cards).length} cards`, curr.code?.routes?.length && `${curr.code.routes.length} routes`, nStrings && `${nStrings} strings`]
+    : [`${Object.keys(curr.bundles).length} string bundles`, curr.code && `${curr.code.components?.length ?? 0} components`, curr.toggles && `${curr.toggles.length} toggle words`, curr.web && `${Object.keys(curr.web.pages).length} pages`];
+  console.log(`${tag} ${curr.version} · ${facts.filter(Boolean).join(' · ')}`);
 
   const diff = diffSnapshots(firstRun ? EMPTY_SNAPSHOT : prev, curr, { experimentAlertMin: tcfg.experimentAlertMin });
   const label = tcfg.label ?? tcfg.name;
