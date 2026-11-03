@@ -275,7 +275,10 @@ export async function takeSnapshot(cfg, prev = {}) {
       const res = await crawlCode(base, buildKeys.islands, prev.codeVersion === CODE_VERSION ? (prev.codeFiles ?? {}) : {}, cfg.code.routePrefixes);
       console.log(`  code crawl: ${Object.keys(res.files).length} chunks (${res.fetched} fetched, ${res.failed} failed)`);
       if (res.failed && res.fetched === 0 && prev.code) { code = prev.code; codeFiles = prev.codeFiles; }
-      else { code = res.code; codeFiles = res.files; }
+      else {
+        code = res.code; codeFiles = res.files;
+        code.darkFeatures = darkFeatures(code.enums, strings);
+      }
     } catch (e) { console.error('code crawl failed:', e.message); code = prev.code; codeFiles = prev.codeFiles; }
   }
   const docs = cfg.docs ? await snapshotDocs(cfg.docs, prev.docs) : undefined;
@@ -301,13 +304,22 @@ const LIB_CHUNK = /^(katex|react|relay|dist|jsx|compiler|Icon|Button|Text|Pressa
 const DEFAULT_ROUTE_PREFIXES = ['app', 'apps', 'gem', 'gems', 'u', 'share', 'notebook', 'notebooks', 'project', 'projects',
   'library', 'labs', 'usage', 'settings', 'canvas', 'live', 'scheduled-tasks', 'activity', 'extensions', 'mystuff', 'your-day',
   'shopping', 'avatar', 'public-links', 'gemini-spark', 'saved', 'search', 'agent', 'agents', 'skills', 'memory', 'discover'];
-export const emptyCode = () => ({ components: [], nodeTypes: [], enums: [], ops: [], routes: [], hosts: [], banners: [] });
+export const emptyCode = () => ({ components: [], nodeTypes: [], enums: [], ops: [], routes: [], hosts: [], banners: [], gqlTypes: [], gqlFields: [], gqlOps: [], clientFlags: [] });
 
 /** Pull trackable identifiers out of one minified chunk. */
-export function extractCodeIds(text, routePrefixes = DEFAULT_ROUTE_PREFIXES) {
+export function extractCodeIds(text, routePrefixes = DEFAULT_ROUTE_PREFIXES, stem = '') {
   const uniq = (a) => [...new Set(a)].sort();
   const routeRe = new RegExp('["`\'](/(?:' + routePrefixes.map(x => x.replace(/[-/]/g, '\\$&')).join('|') + ')[a-zA-Z0-9_/\\-:{}$.]*)["`\']', 'g');
   return {
+    // Backend schema as compiled into Relay artifacts: types the UI can render, their fields,
+    // and persisted-query ids (an id change for the same operation = that query changed).
+    gqlTypes: uniq([...text.matchAll(/concreteType:`([^`]+)`/g)].map(m => m[1])),
+    gqlFields: /normalization\.graphql|SplitOperation|ReaderFragment|ConcreteRequest/.test(stem + text.slice(0, 4000))
+      ? uniq([...text.matchAll(/kind:`(?:ScalarField|LinkedField)`,name:`([^`]+)`/g)].map(m => m[1]).filter(f => !/^__/.test(f)).map(f => `${stem.replace(/\.graphql$/, '').replace(/_normalization$/, '')}.${f}`))
+      : [],
+    gqlOps: uniq([...text.matchAll(/params:\{id:`([^`]+)`[\s\S]*?name:`([^`]+)`/g)].map(m => `${m[2]}#${m[1].replace(/^\d+\//, '').slice(0, 10)}`)),
+    // Server flags the client actually reads, by owning module: a new id = a newly gated feature.
+    clientFlags: uniq([...text.matchAll(/get(Boolean|String|Int|Number|Double|Long|Float)Value\(`(\d{6,})`/g)].map(m => `${stem || 'chunk'}:${m[2]}:${m[1][0].toLowerCase()}`)),
     enums: uniq((text.match(/\b[A-Z][A-Z0-9]*(?:_[A-Z0-9]+){2,}\b/g) ?? []).filter(e => e.length >= 14)),
     ops: uniq(text.match(/\b[A-Z][A-Za-z0-9]{6,}(?:Query|Mutation|Subscription)\b/g) ?? []),
     routes: uniq([...text.matchAll(routeRe)].map(m => m[1]).filter(r => !r.includes('${'))),
@@ -318,7 +330,28 @@ export function extractCodeIds(text, routePrefixes = DEFAULT_ROUTE_PREFIXES) {
   };
 }
 
-export const CODE_VERSION = 2; // bump when extraction regexes change: invalidates cached per-chunk extraction
+/**
+ * "Dark" features: feature-mode / capability codenames that exist in the code (FEATURE_MODE_BLUEDOG,
+ * CAN_ENROLL_IN_AUREUS...) but whose name appears in no user-facing string — i.e. gated or
+ * unreleased. Released features (deep research, image generation...) have UI text and drop out.
+ */
+export function darkFeatures(enums, strings) {
+  const text = Object.values(strings).flatMap(c => Object.values(c)).join('\n').toLowerCase();
+  const GENERIC = new Set(['in', 'to', 'the', 'tool', 'menu', 'upsell', 'logo', 'quota', 'subscription', 'tier', 'tier1', 'tier2', 'free', 'premium', 'ui', 'by', 'default', 'mode', 'unspecified', 'for', 'of', 'a', 'and']);
+  const out = new Set();
+  for (const e of enums) {
+    let m = e.match(/^FEATURE_MODE_([A-Z0-9_]+)$/);
+    const words = m ? m[1].split('_') : (e.match(/^CAN_(?:ENROLL_IN|SEE|USE|ACCESS)_([A-Z0-9_]+?)(?:_IN_TOOL_MENU|_QUOTA|_LOGO|_UPSELL|_SUBSCRIPTION)?$/)?.[1].split('_') ?? null);
+    if (!words) continue;
+    const key = words.filter(w => !GENERIC.has(w.toLowerCase())).map(w => w.toLowerCase());
+    if (!key.length || key.join('').length < 4) continue;
+    const phrase = key.join(' ');
+    if (!text.includes(phrase) && !key.every(w => text.includes(w))) out.add(`${e} → "${phrase}"`);
+  }
+  return [...out].sort();
+}
+
+export const CODE_VERSION = 3; // bump when extraction regexes change: invalidates cached per-chunk extraction
 
 /** Extract identifiers from AI Studio's single large MakerSuite bundle (Angular + protobuf RPC). */
 export function extractBundleIds(text) {
@@ -353,7 +386,7 @@ export async function crawlCode(base, entryFile, prevFiles = {}, routePrefixes) 
       let text = null;
       if (!ids || !ids.refs) {
         try { text = await fetchText(base + f); fetched++; } catch { failed++; return; }
-        ids = { ...(LIB_CHUNK.test(f) ? emptyCode() : extractCodeIds(text, routePrefixes)), refs: [...refs(text)].sort() };
+        ids = { ...(LIB_CHUNK.test(f) ? emptyCode() : extractCodeIds(text, routePrefixes, chunkStem(f))), refs: [...refs(text)].sort() };
         delete ids.components;
       }
       files[f] = ids;
@@ -366,7 +399,7 @@ export async function crawlCode(base, entryFile, prevFiles = {}, routePrefixes) 
   // Relay artifacts: "XNodeView_card_normalization.graphql" names a server-driven response node type.
   agg.nodeTypes = [...new Set(stems.map(x => x.match(/^[A-Za-z0-9]+_([A-Za-z0-9]+)_normalization\.graphql$/)?.[1]).filter(Boolean))].sort();
   agg.components = stems.filter(x => !/\.graphql$|_parameters$/.test(x)).sort();
-  for (const k of ['enums', 'ops', 'routes', 'hosts', 'banners']) agg[k] = [...new Set(Object.values(files).flatMap(f => f[k] ?? []))].sort();
+  for (const k of Object.keys(agg)) if (k !== 'components' && k !== 'nodeTypes') agg[k] = [...new Set(Object.values(files).flatMap(f => f[k] ?? []))].sort();
   return { code: agg, files, fetched, failed };
 }
 
@@ -404,6 +437,9 @@ export function parseNextRoutes(manifestJs) {
 }
 
 // ---------------------------------------------------------------- web content
+
+/** Footnote superscripts arrive glued to words ("Genie7", "limits2") and their numbering shuffles per request. */
+export const stripFootnotes = (l) => l.replace(/([a-z]{3,})\d{1,2}(?=$|[\s,.;:)])/g, '$1');
 
 export function htmlToLines(html) {
   const t = html
@@ -444,7 +480,7 @@ export async function snapshotWeb(web, prev = {}) {
   const pages = {}, sitemaps = {};
   await mapLimit(web.pages ?? [], 4, async (pg) => {
     try {
-      let lines = htmlToLines(await fetchText(pg.url));
+      let lines = htmlToLines(await fetchText(pg.url)).map(stripFootnotes);
       if (pg.start) {
         const re = new RegExp(pg.start); const i = lines.findIndex(l => re.test(l));
         // keepHead: retain the first N lines (page title / promo banner) ahead of the cut.
@@ -460,6 +496,19 @@ export async function snapshotWeb(web, prev = {}) {
       sitemaps[sm.id] = [...new Set(urls)].sort();
     } catch (e) { console.error(`sitemap ${sm.id} failed:`, e.message); if (prev.sitemaps?.[sm.id]) sitemaps[sm.id] = prev.sitemaps[sm.id]; }
   });
+  // Pages discovered from a sitemap, keeping only lines that match a pattern. Used for
+  // "roadmap language" ("rolling out", "coming months", "beta"...) across marketing pages.
+  for (const sp of web.sitemapPages ?? []) {
+    const inc = sp.include ? new RegExp(sp.include) : null, exc = sp.exclude ? new RegExp(sp.exclude) : null, keep = new RegExp(sp.keep, 'i');
+    const urls = (sitemaps[sp.sitemap] ?? []).filter(u => { const path = new URL(u).pathname; return (!inc || inc.test(path)) && !(exc && exc.test(path)); });
+    await mapLimit(urls, 5, async (u) => {
+      const id = `${sp.idPrefix ?? 'fwd:'}${new URL(u).pathname}`;
+      try {
+        const lines = htmlToLines(await fetchText(u)).map(stripFootnotes).filter(l => l.length >= 20 && l.length <= 400 && keep.test(l));
+        pages[id] = [...new Set(lines)];
+      } catch (e) { console.error(`sitemap page ${id} failed:`, e.message); if (prev.pages?.[id]) pages[id] = prev.pages[id]; }
+    });
+  }
   return { pages, sitemaps };
 }
 
@@ -741,7 +790,7 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
       const cap = pg.isNew ? Math.min(max * 2, 40) : max * 2;
       const lines = [...pg.added.slice(0, cap).map(l => `🟢 ${clip(l, 300)}`), ...(pg.isNew ? [] : pg.removed.slice(0, Math.floor(max / 2)).map(l => `🔴 ${clip(l, 200)}`))];
       const extra = pg.added.length + (pg.isNew ? 0 : pg.removed.length) - lines.length;
-      segs.push(`### 📰 ${labels[pg.id] ?? pg.id}${pg.isNew ? ' — latest content' : ' updated'}\n${lines.join('\n')}${extra > 0 ? `\n*…and ${extra} more lines*` : ''}`);
+      segs.push(`### ${pg.id.startsWith('fwd:') ? `🔭 Roadmap language · ${code(pg.id.slice(4))}` : `📰 ${labels[pg.id] ?? pg.id}`}${pg.isNew ? ' — current statements' : ' updated'}\n${lines.join('\n')}${extra > 0 ? `\n*…and ${extra} more lines*` : ''}`);
     }
     for (const sm of diff.web.sitemaps) {
       const lines = [...sm.added.slice(0, max).map(u => `🟢 ${u}`), ...(sm.isNew ? [] : sm.removed.slice(0, max).map(u => `🔴 ${u}`))];
@@ -751,13 +800,16 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
   }
   if (on('code') && diff.code) {
     const HOT = /^(CAN_|IS_|HAS_|FEATURE_MODE_|MODE_CATEGORY_|MODE_PICKER|USER_SUBSCRIPTION|ENABLE_|CLIENT_CONVERSATION_TYPE|CLIENT_CHANNEL|.*(?:TIER|QUOTA|UPSELL|CODENAME).*)/;
-    const names = { rpcMethods: '🔌 RPC methods', services: '🧰 Backend services', modelIds: '🤖 Model IDs', notes: '💬 Announcement-like strings', components: '🧩 Components', nodeTypes: '🧱 Response node types (server-driven UI)', enums: '🏷️ Feature / capability identifiers', ops: '🔌 GraphQL operations', routes: '🛣️ Routes', hosts: '🌍 Hosts', banners: '📢 Banner / upsell IDs' };
+    const names = { darkFeatures: '🕶️ Dark features (in code, no UI text yet)', clientFlags: '🚩 Client feature-flag reads (gated features)', gqlTypes: '🧬 GraphQL types (backend schema)', gqlFields: '🧩 GraphQL fields', gqlOps: '🔌 GraphQL queries changed (persisted id)', rpcMethods: '🔌 RPC methods', services: '🧰 Backend services', modelIds: '🤖 Model IDs', notes: '💬 Announcement-like strings', components: '🧩 Components', nodeTypes: '🧱 Response node types (server-driven UI)', enums: '🏷️ Feature / capability identifiers', ops: '🔌 GraphQL operations', routes: '🛣️ Routes', hosts: '🌍 Hosts', banners: '📢 Banner / upsell IDs' };
     segs.push(`### 🧬 Code changes (island chunks)`);
     for (const k of Object.keys(diff.code)) {
       const title = names[k] ?? k;
       const c = diff.code[k]; if (!c) continue;
       let added = c.added;
       let note = '';
+      // A class we've never tracked before arrives as one huge "new" batch: show a sample + the count.
+      const seedClass = !(k in (prev?.code ?? {})) || ((prev?.code?.[k] ?? []).length === 0 && c.added.length > max * 4);
+      if (seedClass && !firstRun && added.length > 20) { note = `\n*first sighting of this tracker — ${added.length - 20} more not listed*`; added = added.slice(0, 20); }
       if (k === 'enums') {
         // Seed / big batches: lead with the gating & tier identifiers, summarise the rest.
         const hot = added.filter(e => HOT.test(e)), rest = added.filter(e => !HOT.test(e));

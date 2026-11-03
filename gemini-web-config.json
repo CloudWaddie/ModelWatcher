@@ -77,6 +77,20 @@
             "url": "https://gemini.google.com/sitemap.xml",
             "exclude": "^/images/"
           }
+        ],
+        "sitemapPages": [
+          {
+            "sitemap": "gemini.google",
+            "idPrefix": "fwd:",
+            "exclude": "^/(release-notes|subscriptions|gemini-drops|latest-news|policy-guidelines)/",
+            "keep": "coming soon|preview|beta|experimental|waitlist|rolling out|early access|not yet available|will be available|coming (weeks|months)|later this|starting soon|\\\\bsoon\\\\b|eligible|select (regions|countries)|now available|launch"
+          },
+          {
+            "sitemap": "gemini.google.com",
+            "idPrefix": "fwd:",
+            "include": "^/(faq|updates)",
+            "keep": "coming soon|preview|beta|experimental|waitlist|rolling out|early access|not yet available|will be available|coming (weeks|months)|later this|starting soon|\\\\bsoon\\\\b|eligible|select (regions|countries)|now available|launch"
+          }
         ]
       }
     },
