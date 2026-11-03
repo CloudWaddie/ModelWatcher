@@ -35,7 +35,7 @@ function saveState(path, state) {
  * " Imagen 4 fast Generation (output)" -> "imagen 4 fast"
  * "Embed content input token count gemini embedding 2 image batch" -> "gemini embedding 2"
  */
-function modelKeyFromName(name) {
+export function modelKeyFromName(name) {
   if (SUBSCRIPTION_RE.test(name)) return null;
   const lower = name.toLowerCase().replace(/[_-]/g, ' ');
   // Prefer "gemini" as anchor when present (covers "gemini omni flash", "gemini robotics er 2",
@@ -62,19 +62,49 @@ function modelKeyFromName(name) {
  * Parse a price string like "2.50 USD per 1,000,000 count" -> { amount, per }
  * Handles tiered strings by taking the first rate.
  */
-function parsePrice(priceStr) {
+export function parsePrice(priceStr) {
   const m = String(priceStr || '').match(/([\d.]+)\s+USD per\s+([\d,]+)\s+(\w+)/);
   if (!m) return null;
   return { amount: parseFloat(m[1]), per: parseInt(m[2].replace(/,/g, ''), 10), unit: m[3] };
 }
 
-function formatPrice(price) {
+export function formatPrice(price) {
   if (!price) return 'n/a';
   const amt = price.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
   if (price.per === 1000000) return `${amt}/1M`;
   if (price.per === 1000) return `${amt}/1K`;
   if (price.per === 1) return `${amt}/unit`;
   return `${amt}/per ${price.per.toLocaleString('en-US')}`;
+}
+
+/**
+ * One model key covers dozens of SKUs (audio/image/video, batch, flex, priority, cached,
+ * contributor, Live...). Picking "the last row seen" made the displayed price depend on
+ * the API's row order, which changes between runs. Instead score every candidate SKU and
+ * pick the plain standard-tier text one, with a stable tie-break.
+ */
+export function skuPenalty(name) {
+  const n = name.toLowerCase();
+  let p = 0;
+  if (/\bcach(?:ed|ing)\b/.test(n)) p += 100;                      // cached-input / caching discounts
+  if (/batch|\b(flex|priority|contributor|regional)\b/.test(n)) p += 50; // non-standard tiers ("BatchGenerateContent" is one word)
+  if (/\b(live|tts|translate)\b|bidi/.test(n)) p += 50;                  // different product sharing the key
+  if (/\b(audio|image|video)\b/.test(n) && !/\btext\b/.test(n)) p += 10;  // prefer the text modality
+  if (/\b(over|longer|long)\b/.test(n)) p += 20;                   // long-context tier
+  return p;
+}
+
+/** Keep the best (lowest penalty, then name, then price) candidate per kind, order-independently. */
+export function betterCandidate(cur, cand) {
+  if (!cur) return cand;
+  if (cand.penalty !== cur.penalty) return cand.penalty < cur.penalty ? cand : cur;
+  if (cand.name !== cur.name) return cand.name < cur.name ? cand : cur;
+  return cand.formatted < cur.formatted ? cand : cur;
+}
+
+/** Same data, stable JSON, so unchanged scans produce byte-identical state. */
+function modelsEqual(a, b) {
+  return JSON.stringify(a ?? {}) === JSON.stringify(b ?? {});
 }
 
 function buildNotification(newModels) {
@@ -141,8 +171,9 @@ async function main() {
   });
 
   // New models discovered on this run, keyed by model key for dedupe across filters
-  const newModelsByKey = new Map();
-  const currentModels = new Map(); // key -> { name, family, input, output }
+  const candidates = new Map(); // key -> { input: cand|null, output: cand|null }
+  const seenSkuIds = new Set();
+  let scanComplete = true; // false if any page errored / ended early: a partial scan must never delete or re-price
 
   console.log('Scanning Google Cloud SKU catalog...');
   for (const filter of config.scan.filters) {
@@ -159,43 +190,65 @@ async function main() {
         const groups = r?.[1];
         if (!Array.isArray(groups) || groups.length === 0) {
           console.log(`[${filter}] page ${page + 1}: empty response, stopping`);
+          if (page === 0) scanComplete = false; // a first page with nothing is a failed scan, not an empty catalog
           break;
         }
         const rows = groups.flatMap(g => g[2]);
         for (const row of rows) {
           const [skuId, name, , priceStr] = row;
+          if (skuId != null) { if (seenSkuIds.has(skuId)) continue; seenSkuIds.add(skuId); }  // 'gemini' and 'generate' filters overlap
           const key = modelKeyFromName(name);
           if (!key) continue;
           const price = parsePrice(priceStr);
           const isInput = /input token count/i.test(name);
           const isOutput = /output token count/i.test(name);
-          const existing = currentModels.get(key) || { name: key, family: key.split(' ')[0], input: null, output: null };
-          if (isInput && price) existing.input = formatPrice(price);
-          if (isOutput && price) existing.output = formatPrice(price);
-          currentModels.set(key, existing);
-          if (!prevState.models[key]) {
-            newModelsByKey.set(key, existing);
+          const entry = candidates.get(key) || { input: null, output: null };
+          if (price && (isInput || isOutput)) {
+            const kind = isOutput && !isInput ? 'output' : 'input';
+            entry[kind] = betterCandidate(entry[kind], { penalty: skuPenalty(name), name, formatted: formatPrice(price) });
           }
+          candidates.set(key, entry);
           total++;
         }
         cursor = typeof r?.[0] === 'string' ? r[0] : null;
         if (!cursor || rows.length < config.scan.pageSize) break;
       } catch (e) {
         console.error(`[${filter}] page ${page + 1} failed:`, e.message);
+        scanComplete = false;
         break;
       }
     }
     console.log(`[${filter}] scanned ${total} SKUs`);
   }
 
-  const newModels = [...newModelsByKey.values()];
-  console.log(`Scanned ${currentModels.size} unique models, ${newModels.length} new`);
+  const scanned = new Map();
+  for (const [key, c] of candidates) {
+    scanned.set(key, { name: key, family: key.split(' ')[0], input: c.input?.formatted ?? null, output: c.output?.formatted ?? null });
+  }
+  const prevModels = prevState.models ?? {};
+  const prevCount = Object.keys(prevModels).length;
+  // Suspiciously small scans (rate limit / partial pagination) are treated as incomplete too.
+  if (prevCount > 0 && scanned.size < prevCount * 0.9) {
+    console.warn(`Scan returned ${scanned.size} models vs ${prevCount} known — treating as incomplete`);
+    scanComplete = false;
+  }
 
-  if (prevState.models && Object.keys(prevState.models).length === 0) {
+  if (prevCount === 0) {
+    if (!scanComplete || scanned.size === 0) { console.error('First run scan incomplete — not saving a baseline'); process.exit(1); }
     console.log('First run — saving baseline');
-    saveState(statePath, { models: Object.fromEntries(currentModels), timestamp: Date.now() });
+    saveState(statePath, { models: Object.fromEntries(scanned), timestamp: Date.now() });
     return;
   }
+
+  // State is "every model ever seen": absence never deletes (retired models stay known), so a
+  // flaky scan can never make a known model look new again. Prices only update on complete scans.
+  const merged = { ...prevModels };
+  const newModels = [];
+  for (const [key, model] of scanned) {
+    if (!prevModels[key]) { merged[key] = model; newModels.push(model); }
+    else if (scanComplete) merged[key] = model;
+  }
+  console.log(`Scanned ${scanned.size} unique models (${scanComplete ? 'complete' : 'INCOMPLETE'}), ${newModels.length} new`);
 
   if (newModels.length > 0 && webhookUrl) {
     const payload = buildNotification(newModels);
@@ -205,14 +258,21 @@ async function main() {
       body: JSON.stringify(payload),
     });
     if (res.ok) console.log('Discord notification sent');
-    else console.error('Discord send failed:', res.status, await res.text());
+    else { console.error('Discord send failed:', res.status, await res.text()); }
   }
 
-  saveState(statePath, { models: Object.fromEntries(currentModels), timestamp: Date.now() });
-  console.log(`=== SKU scan complete: ${currentModels.size} models ===`);
+  // Only touch the state file when something changed: a rewrite every run (new timestamp) made
+  // 832 of 867 historical commits no-ops.
+  if (modelsEqual(prevModels, merged)) {
+    console.log(`=== SKU scan complete: ${Object.keys(merged).length} models, no changes (state untouched) ===`);
+    return;
+  }
+  saveState(statePath, { models: merged, timestamp: Date.now() });
+  console.log(`=== SKU scan complete: ${Object.keys(merged).length} models, state updated ===`);
 }
 
-main().catch(err => {
+const isCli = process.argv[1] && /sku-watch\.js$/.test(process.argv[1]);
+if (isCli) main().catch(err => {
   console.error(err);
   process.exit(1);
 });

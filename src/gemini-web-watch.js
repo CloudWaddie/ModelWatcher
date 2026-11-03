@@ -676,7 +676,7 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
       'First run — everything below is reported as new.',
     ].join('\n'));
   } else {
-    segs.push(`# 🌐 ${label}\n${code(curr.version)}${diff.version ? ' *(new build — see alert above)*' : ' (unchanged)'}`);
+    segs.push(`# 🌐 ${label}\n${code(curr.version)}${diff.version ? (isBackendVersion(curr.version) ? ' *(new backend build — see alert above)*' : ' *(frontend build changed)*') : ' (unchanged)'}`);
   }
 
   if (on('buildKeys') && diff.buildKeys.length && (firstRun || !diff.version)) {
@@ -790,11 +790,14 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
 }
 
 /** Standalone, attention-grabbing alert for a backend/server build change. */
+/** True for real server build labels (boq_<app>_<date>.<n>_p<n>); frontend hashes/buildIds are not backend versions. */
+export const isBackendVersion = (v) => typeof v === 'string' && /^boq_/.test(v);
+
 export function buildVersionAlert(label, diff, curr) {
   const keys = diff.buildKeys.length
     ? '\n' + diff.buildKeys.filter(b => b.from && b.to).map(b => `${b.key}: ${code(b.from)} → ${code(b.to)}`).join('\n')
     : '';
-  return buildPayloads([`# 🚀 ${label} — backend version updated\n${code(diff.version.from)}\n⬇️\n${code(diff.version.to)}${keys}\n*Detailed change report follows if anything else moved.*`], 'Gemini Web Watcher')[0];
+  return buildPayloads([`# 🚀 ${label} — backend version updated\n${code(diff.version.from)}\n⬇️\n${code(diff.version.to)}${keys}`], 'Gemini Web Watcher')[0];
 }
 
 export function buildPayloads(segments, username = 'Gemini Web Watcher') {
@@ -851,7 +854,7 @@ async function runTarget(t, cfg, webhookUrl, webhookOn) {
   const label = tcfg.label ?? tcfg.name;
 
   // 1) Dedicated backend-version alert, sent first and on its own.
-  if (!firstRun && diff.version) {
+  if (!firstRun && diff.version && isBackendVersion(diff.version.to)) {
     const alert = buildVersionAlert(label, diff, curr);
     if (webhookOn) { await postPayload(webhookUrl, alert, tcfg.name); await sleep(1500); }
     else console.log(`${tag} VERSION CHANGED ${diff.version.from} -> ${diff.version.to} (no webhook configured)`);
