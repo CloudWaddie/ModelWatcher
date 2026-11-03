@@ -35,6 +35,12 @@ Unauthenticated multi-target scanner. A change in a site's **backend build** (`b
 
 **Noise control**: the page is fetched several times per run; keys that differ between samples are ignored. Generic WIZ flags/config are *not* reported. Experiment IDs only alert on bursts (`experimentAlertMin`). The first run reports everything as new (capped); later runs report only real changes.
 
+### 🛸 Antigravity Tracker
+`npm run antigravity` · config: `antigravity-config.json` · webhook: `TOMBSTONE_WEBHOOK` · runs in `gemini-web-watch.yml`
+- **Releases** (dedicated alert): CLI `agy` (public manifest API, all platforms), desktop app, IDE (from the download page's storage URLs), VS Code extension (Marketplace API). The Android app is in `app-version-config.json`.
+- **Static scan of each new CLI / extension build** (downloaded, checksum-verified against the manifest, never executed): internal model enums (e.g. `MODEL_GOOGLE_GEMINI_<CODENAME>`), model IDs, `JETSKI_*` / `ANTIGRAVITY_*` env flags, protobuf types, extension commands/settings/changelog. Public docs don't name these; the binaries do.
+- **Docs / blog**: `llms.txt` page index, changelog, models, plans, releases, sitemap, blog RSS.
+
 ### 🏆 Leaderboard & Community Watch
 - **LM Arena (Chatbot Arena)**: Tracks ELO, rankings, and specific model metadata updates.
 - **Design Arena**: Monitoring for design-related AI benchmarks.

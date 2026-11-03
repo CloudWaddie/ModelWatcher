@@ -1,0 +1,22 @@
+{
+  "webhook": { "enabled": true, "webhookEnv": "TOMBSTONE_WEBHOOK" },
+  "stateFile": "./logs/antigravity-web-state.json",
+  "maxItemsPerSection": 25,
+  "cli": {
+    "manifestBase": "https://antigravity-cli-auto-updater-974169037036.us-central1.run.app",
+    "platforms": ["linux_amd64", "linux_arm64", "linux_amd64_musl", "linux_arm64_musl", "darwin_amd64", "darwin_arm64", "windows_amd64", "windows_arm64", "android_arm64"]
+  },
+  "downloadPage": "https://antigravity.google/download",
+  "vscode": { "itemName": "Google.google-antigravity" },
+  "analyze": { "cli": true, "vsix": true },
+  "docs": { "base": "https://antigravity.google", "llms": "/llms.txt", "rss": "/blog/rss.xml" },
+  "web": {
+    "pages": [
+      { "id": "changelog", "url": "https://antigravity.google/docs/changelog" },
+      { "id": "models", "url": "https://antigravity.google/docs/models" },
+      { "id": "plans", "url": "https://antigravity.google/docs/plans" },
+      { "id": "releases", "url": "https://antigravity.google/releases" }
+    ],
+    "sitemaps": [{ "id": "antigravity.google", "url": "https://antigravity.google/sitemap.xml" }]
+  }
+}

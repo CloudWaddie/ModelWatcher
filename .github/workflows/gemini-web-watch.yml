@@ -41,6 +41,12 @@ jobs:
           TOMBSTONE_WEBHOOK: ${{ secrets.TOMBSTONE_WEBHOOK }}
         run: npm run gemini-web
 
+      - name: Run Antigravity tracker
+        if: ${{ !cancelled() }}
+        env:
+          TOMBSTONE_WEBHOOK: ${{ secrets.TOMBSTONE_WEBHOOK }}
+        run: npm run antigravity
+
       - name: Commit results to master
         if: ${{ !cancelled() }}
         run: |

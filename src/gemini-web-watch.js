@@ -172,7 +172,7 @@ function httpsGet(url, redirects = 5) {
   });
 }
 
-async function fetchText(url, retries = 3) {
+export async function fetchText(url, retries = 3) {
   let err;
   for (let i = 0; i < retries; i++) {
     try { return await httpsGet(url); }
@@ -181,7 +181,7 @@ async function fetchText(url, retries = 3) {
   throw new Error(`fetch ${url} failed: ${err.message}`);
 }
 
-async function mapLimit(items, limit, fn) {
+export async function mapLimit(items, limit, fn) {
   const out = new Array(items.length);
   let next = 0;
   await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => {
