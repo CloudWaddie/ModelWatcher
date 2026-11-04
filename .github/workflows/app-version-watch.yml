@@ -130,3 +130,15 @@ jobs:
           else
             echo "No changes to commit"
           fi
+
+      - name: Notify on failure
+        if: failure()
+        env:
+          ERROR_WEBHOOK: ${{ secrets.ERROR_WEBHOOK }}
+          WORKFLOW_NAME: ${{ github.workflow }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$ERROR_WEBHOOK" ]; then echo "ERROR_WEBHOOK not set - skipping failure ping"; exit 0; fi
+          jq -n --arg c "<@1366222155720687646> ❌ **$WORKFLOW_NAME** failed: $RUN_URL" \
+            '{content: $c, allowed_mentions: {users: ["1366222155720687646"]}}' \
+            | curl -sS -X POST -H 'Content-Type: application/json' -d @- "$ERROR_WEBHOOK" || true

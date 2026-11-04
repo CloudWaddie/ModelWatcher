@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, mkdtempSync, rmSync } from 'fs';
+import { saveStateIfChanged } from './state-file.js';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { tmpdir } from 'os';
@@ -412,8 +413,7 @@ export async function main() {
     } else console.log('[antigravity] report (no webhook):\n' + segs.join('\n\n'));
   } else console.log('[antigravity] no changes');
 
-  mkdirSync(dirname(statePath), { recursive: true });
-  writeFileSync(statePath, JSON.stringify(curr));
+  saveStateIfChanged(statePath, curr);
   console.log('[antigravity] state saved');
 }
 

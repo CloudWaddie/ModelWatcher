@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { saveStateIfChanged } from './state-file.js';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
@@ -40,11 +41,7 @@ function loadState(statePath) {
  * @param {Object} state - State object to save
  */
 function saveState(statePath, state) {
-  const dir = dirname(statePath);
-  if (!existsSync(dir)) {
-    mkdirSync(dir, { recursive: true });
-  }
-  writeFileSync(statePath, JSON.stringify(state, null, 2));
+  saveStateIfChanged(statePath, state, 2);
 }
 
 /**

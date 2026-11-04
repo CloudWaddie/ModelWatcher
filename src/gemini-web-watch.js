@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { saveStateIfChanged } from './state-file.js';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createHash } from 'crypto';
@@ -898,8 +899,7 @@ export function buildPayloads(segments, username = 'Gemini Web Watcher') {
 // ---------------------------------------------------------------------- main
 
 function saveState(path, state) {
-  mkdirSync(dirname(path), { recursive: true });
-  writeFileSync(path, JSON.stringify(state));
+  saveStateIfChanged(path, state);
 }
 
 async function runTarget(t, cfg, webhookUrl, webhookOn) {
