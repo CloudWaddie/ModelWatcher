@@ -586,6 +586,9 @@ export const EMPTY_SNAPSHOT = { version: null, buildKeys: {}, flags: {}, config:
 
 const setDiff = (a, b) => [...b].filter(x => !a.has(x));
 
+// Copy tweaks like "Try It Now" -> "Try it now" are casing/whitespace noise, not changes.
+const sameText = (a, b) => (a ?? '').replace(/\s+/g, ' ').trim().toLowerCase() === (b ?? '').replace(/\s+/g, ' ').trim().toLowerCase();
+
 export function diffSnapshots(prev, curr, { experimentAlertMin = 150 } = {}) {
   const d = {};
   d.version = prev.version !== curr.version ? { from: prev.version, to: curr.version } : null;
@@ -689,7 +692,7 @@ export function diffSnapshots(prev, curr, { experimentAlertMin = 150 } = {}) {
     const added = [], removed = [], changed = [];
     for (const [k, v] of Object.entries(curr.cards)) {
       if (!(k in pc)) added.push({ key: k, ...v });
-      else if (pc[k].cta !== v.cta || pc[k].desc !== v.desc || pc[k].href !== v.href) changed.push({ key: k, from: pc[k], to: v });
+      else if (!sameText(pc[k].cta, v.cta) || !sameText(pc[k].desc, v.desc) || pc[k].href !== v.href) changed.push({ key: k, from: pc[k], to: v });
     }
     for (const k of Object.keys(pc)) if (!(k in curr.cards)) removed.push({ key: k, ...pc[k] });
     if (added.length || removed.length || changed.length) d.cards = { added, removed, changed };
@@ -796,7 +799,7 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
     const kindIcon = (k) => ({ experiment: '🧪', featured: '⭐', graduated: '🎓' }[k.split(':')[0]] ?? '•');
     const lines = [
       ...c.added.map(x => `🟢 ${kindIcon(x.key)} **${nm(x.key)}** — ${clip(x.desc, 160)} ${x.cta ? `[${x.cta}]` : ''} ${x.href ? code(x.href) : ''}`),
-      ...c.changed.map(x => `🟡 **${nm(x.key)}**: ${x.from.cta !== x.to.cta ? `CTA ${code(x.from.cta || '∅')} → ${code(x.to.cta || '∅')}` : ''}${x.from.href !== x.to.href ? ` link ${code(x.from.href)} → ${code(x.to.href)}` : ''}${x.from.desc !== x.to.desc ? ` desc: ${clip(x.to.desc, 140)}` : ''}`),
+      ...c.changed.map(x => `🟡 **${nm(x.key)}**: ${!sameText(x.from.cta, x.to.cta) ? `CTA ${code(x.from.cta || '∅')} → ${code(x.to.cta || '∅')}` : ''}${x.from.href !== x.to.href ? ` link ${code(x.from.href)} → ${code(x.to.href)}` : ''}${!sameText(x.from.desc, x.to.desc) ? ` desc: ${clip(x.to.desc, 140)}` : ''}`),
       ...c.removed.map(x => `🔴 ${kindIcon(x.key)} **${nm(x.key)}**`),
     ];
     segs.push(`### 🧪 Labs experiments (${c.added.length} new · ${c.changed.length} changed · ${c.removed.length} removed)\n${lines.slice(0, max * 2).join('\n')}`);
