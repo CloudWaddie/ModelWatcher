@@ -19,7 +19,9 @@
     "docs": true,
     "code": true,
     "web": true,
-    "cards": true
+    "cards": true,
+    "boq": true,
+    "desktop": true
   },
   "highlightComponentPattern": "Banner|Disclaimer|Upsell|Upgrade|Waitlist|Consent|Quota|Labs|Referral|Onboarding",
   "experimentAlertMin": 150,
@@ -31,6 +33,16 @@
       "targetUrl": "https://gemini.google.com/app",
       "stateFile": "./logs/gemini-web-state.json",
       "code": {},
+      "boq": {},
+      "desktop": {
+        "windows": {
+          "appid": "{533DD80C-942A-4464-B6A9-2E59428D784E}",
+          "ap": "prod"
+        },
+        "mac": {
+          "url": "https://dl.google.com/release2/j33ro/release/Gemini.dmg"
+        }
+      },
       "web": {
         "pages": [
           {
@@ -64,6 +76,34 @@
             "label": "Gemini latest news (gemini.google/latest-news)",
             "url": "https://gemini.google/latest-news/",
             "start": "^Try Gemini$"
+          },
+          {
+            "id": "availability",
+            "label": "Where you can use Gemini — languages & countries (support page)",
+            "url": "https://support.google.com/gemini/answer/13575153",
+            "start": "^Where you can use the Gemini web app$",
+            "end": "^Need more help\\?$"
+          },
+          {
+            "id": "privacy-hub",
+            "label": "Gemini Apps Privacy Hub (support page)",
+            "url": "https://support.google.com/gemini/answer/13594961",
+            "start": "^Gemini Apps Privacy Hub$",
+            "end": "^Need more help\\?$"
+          },
+          {
+            "id": "desktop-windows",
+            "label": "Gemini app for Windows (support page)",
+            "url": "https://support.google.com/gemini/answer/18263854",
+            "start": "^Use the Gemini app for Windows$",
+            "end": "^Need more help\\?$"
+          },
+          {
+            "id": "desktop-mac",
+            "label": "Gemini app on Mac (support page)",
+            "url": "https://support.google.com/gemini/answer/17011627",
+            "start": "^Use the Gemini app on Mac$",
+            "end": "^Need more help\\?$"
           }
         ],
         "sitemaps": [

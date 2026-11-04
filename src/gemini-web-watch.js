@@ -182,6 +182,22 @@ export async function fetchText(url, retries = 3) {
   throw new Error(`fetch ${url} failed: ${err.message}`);
 }
 
+/** Minimal HEAD/POST helper: resolves { status, headers, body } without following redirects. */
+function httpsRequest(method, url, { body, headers = {} } = {}) {
+  return new Promise((resolve, reject) => {
+    const req = https.request(url, { method, headers: { 'User-Agent': UA, ...headers } }, (res) => {
+      const chunks = [];
+      res.on('data', c => chunks.push(c));
+      res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, body: Buffer.concat(chunks).toString('utf8') }));
+      res.on('error', reject);
+    });
+    req.setTimeout(30000, () => req.destroy(new Error('timeout')));
+    req.on('error', reject);
+    if (body) req.write(body);
+    req.end();
+  });
+}
+
 export async function mapLimit(items, limit, fn) {
   const out = new Array(items.length);
   let next = 0;
@@ -283,6 +299,13 @@ export async function takeSnapshot(cfg, prev = {}) {
       }
     } catch (e) { console.error('code crawl failed:', e.message); code = prev.code; codeFiles = prev.codeFiles; }
   }
+  const boq = cfg.boq ? await snapshotBoq(pages, buildKeys.js, prev.boq) : undefined;
+  // Dark features: judge codenames from both code sources against all UI text we know.
+  if (code && boq) {
+    code.darkFeatures = darkFeatures([...new Set([...(code.enums ?? []), ...boq.enums])],
+      { ...strings, __boq: Object.fromEntries(boq.strings.map((s, i) => [i, s])) });
+  }
+  const desktop = cfg.desktop ? await snapshotDesktop(cfg.desktop, prev.desktop) : undefined;
   const docs = cfg.docs ? await snapshotDocs(cfg.docs, prev.docs) : undefined;
   const web = cfg.web ? await snapshotWeb(cfg.web, prev.web) : undefined;
 
@@ -297,6 +320,8 @@ export async function takeSnapshot(cfg, prev = {}) {
     ...(docs ? { docs } : {}),
     ...(code ? { code, codeVersion: CODE_VERSION, ...(codeFiles ? { codeFiles } : {}), ...(codeKeyOut ? { codeKey: codeKeyOut } : {}) } : {}),
     ...(web ? { web } : {}),
+    ...(boq ? { boq } : {}),
+    ...(desktop ? { desktop } : {}),
   };
 }
 
@@ -419,6 +444,95 @@ export async function crawlCode(base, entryFile, prevFiles = {}, routePrefixes) 
   agg.components = stems.filter(x => !/\.graphql$|_parameters$/.test(x)).sort();
   for (const k of Object.keys(agg)) if (k !== 'components' && k !== 'nodeTypes') agg[k] = [...new Set(Object.values(files).flatMap(f => f[k] ?? []))].sort();
   return { code: agg, files, fetched, failed };
+}
+
+// ------------------------------------------------------- main app bundle (boq)
+
+/**
+ * The Closure-compiled app bundle on gemini.gstatic.com holds most of the app (the islands
+ * are only a slice). Its bootstrap module (m=_b) picks one of several app "variants" per
+ * request — (0,_.xd)("vLefie") — so every variant is fetched and unioned for a stable result.
+ */
+export function parseBoqVariants(js) {
+  return [...new Set([...js.matchAll(/\(0,_\.[\w$]{1,4}\)\("([A-Za-z0-9]{5,8})"\)/g)].map(m => m[1]))].sort();
+}
+
+/** Server flag definitions with their compiled-in defaults: new _.Tr("45799999",!1). */
+export function extractBoqFlags(text) {
+  const out = {};
+  for (const m of text.matchAll(/new _\.[\w$]{1,4}\("(\d{8,9})",(!0|!1|-?\d+(?:\.\d+)?(?:e[-+]?\d+)?(?=[,)])|"(?:[^"\\]|\\.){0,80}"(?=[,)]))?/g)) {
+    const raw = m[2];
+    const v = raw === '!0' ? true : raw === '!1' ? false : raw === undefined ? 'obj' : raw.startsWith('"') ? raw.slice(1, -1) : Number(raw);
+    out[m[1]] = m[1] in out && out[m[1]] !== v ? 'conflict' : v;
+  }
+  return out;
+}
+
+const UI_TEXT = /^[A-Z][A-Za-z0-9 ,.'’:;!?()\/&%—-]+$/;
+export function extractBoqIds(text) {
+  const uniq = (a) => [...new Set(a)].sort();
+  const { enums, routes, hosts, links, banners } = extractCodeIds(text);
+  return {
+    flags: extractBoqFlags(text),
+    enums, routes, hosts, links, banners,
+    modelIds: uniq([...text.matchAll(/["'`]((?:models\/)?(?:gemini|veo|imagen|lyria|gemma|nano-banana|omni)-(?:\d|exp)[a-z0-9._-]{0,50})["'`]/g)].map(m => m[1])),
+    // English UI text compiled into the bundle (the islands' string bundles don't cover it).
+    strings: uniq([...text.matchAll(/"((?:[^"\\\n]|\\.){24,300})"/g)].map(m => m[1].replace(/\\u2019/g, '’').replace(/\\u2014/g, '—'))
+      .filter(x => x.split(' ').length >= 5 && UI_TEXT.test(x))),
+  };
+}
+
+export async function snapshotBoq(pages, key, prev) {
+  if (prev?.key && prev.key === key) return prev; // same JS build: nothing to refetch
+  const bootUrl = pages.map(p => p.match(/https:\/\/gemini\.gstatic\.com\/_\/mss\/[^"'\s]+?\/m=_b(?:\?[^"'\s]*)?(?=["'\s])/)?.[0]).find(Boolean)?.replace(/&amp;/g, '&');
+  if (!bootUrl) { console.error('boq: bootstrap bundle URL not found'); return prev; }
+  try {
+    const boot = await fetchText(bootUrl);
+    const variants = parseBoqVariants(boot);
+    if (!variants.length) throw new Error('no app variants found in bootstrap bundle');
+    const texts = await mapLimit(variants, 3, (v) => fetchText(bootUrl.replace('/m=_b', `/m=${v}`)));
+    const parts = [boot, ...texts].map(extractBoqIds);
+    const out = { key, variants, flags: {} };
+    for (const p of parts) for (const [id, v] of Object.entries(p.flags)) out.flags[id] = id in out.flags && out.flags[id] !== v ? 'conflict' : v;
+    for (const k of ['enums', 'modelIds', 'routes', 'hosts', 'links', 'banners', 'strings']) out[k] = [...new Set(parts.flatMap(p => p[k]))].sort();
+    console.log(`  boq: ${variants.length} variants · ${Object.keys(out.flags).length} flags · ${out.enums.length} ids · ${out.modelIds.length} models · ${out.strings.length} strings`);
+    return out;
+  } catch (e) {
+    console.error('boq fetch failed:', e.message);
+    return prev; // retry next run; never diff a partial scan
+  }
+}
+
+// ------------------------------------------------------------ desktop app builds
+
+/** Gemini desktop builds: Windows via Google's public update API (Omaha), macOS via the DMG's headers. */
+export async function snapshotDesktop(d, prev = {}) {
+  const out = {};
+  if (d.windows) {
+    try {
+      const body = JSON.stringify({ request: {
+        protocol: '3.1', '@os': 'win', '@updater': 'updater', ismachine: false, acceptformat: 'crx3,download,puff,run,xz,zucc',
+        os: { platform: 'Windows', version: '10.0.22631.0', arch: 'x86_64' }, arch: 'x64',
+        app: [{ appid: d.windows.appid, ap: d.windows.ap ?? 'prod', version: '0.0.0.0', enabled: true, updatecheck: {} }],
+      } });
+      const r = await httpsRequest('POST', 'https://update.googleapis.com/service/update2/json', { body, headers: { 'Content-Type': 'application/json' } });
+      const app = JSON.parse(r.body.replace(/^\)\]\}'\s*/, '')).response?.app?.[0];
+      const man = app?.updatecheck?.manifest;
+      if (!man?.version) throw new Error(`no version in update response (status ${app?.updatecheck?.status ?? r.status})`);
+      const pkg = man.packages?.package?.[0];
+      out.windows = { version: man.version, size: pkg?.size ?? null, sha256: pkg?.hash_sha256 ?? null };
+    } catch (e) { console.error('desktop windows check failed:', e.message); if (prev.windows) out.windows = prev.windows; }
+  }
+  if (d.mac) {
+    try {
+      const r = await httpsRequest('HEAD', d.mac.url);
+      if (r.status !== 200) throw new Error(`HTTP ${r.status}`);
+      const m = { lastModified: r.headers['last-modified'] ?? null, size: Number(r.headers['content-length']) || null };
+      // A lagging CDN edge can still serve the previous DMG: never step backwards.
+      out.mac = prev.mac && Date.parse(m.lastModified) < Date.parse(prev.mac.lastModified) ? prev.mac : m;
+    } catch (e) { console.error('desktop mac check failed:', e.message); if (prev.mac) out.mac = prev.mac; }
+  }
+  return out;
 }
 
 // ------------------------------------------------------------- static sites (Labs)
@@ -716,7 +830,41 @@ export function diffSnapshots(prev, curr, { experimentAlertMin = 150 } = {}) {
     if (pagesD.length || maps.length) d.web = { pages: pagesD, sitemaps: maps };
   }
 
-  d.hasChanges = !!(d.toggles || d.docs || d.code || d.web || d.cards || d.version || d.buildKeys.length || d.flags.length || d.config.length || d.routes.length
+  d.boq = null;
+  if (curr.boq && curr.boq !== prev.boq && curr.boq.key !== prev.boq?.key) {
+    if (!prev.boq) d.boq = { seed: true };
+    else {
+      const pf = prev.boq.flags ?? {}, cf = curr.boq.flags;
+      const scalar = (v) => typeof v === 'boolean' || typeof v === 'number';
+      const flips = Object.keys(cf).filter(id => id in pf && scalar(pf[id]) && scalar(cf[id]) && pf[id] !== cf[id]).map(id => ({ id, from: pf[id], to: cf[id] }));
+      const newFlags = Object.keys(cf).filter(id => !(id in pf));
+      const lists = {};
+      for (const k of ['modelIds', 'enums', 'routes', 'hosts', 'links', 'banners', 'strings']) {
+        const before = new Set(prev.boq[k] ?? []), after = new Set(curr.boq[k] ?? []);
+        const added = [...after].filter(x => !before.has(x)), removed = [...before].filter(x => !after.has(x));
+        if (added.length || removed.length) lists[k] = { added, removed };
+      }
+      const removedFlags = Object.keys(pf).filter(id => !(id in cf)).length;
+      if (flips.length || newFlags.length || removedFlags || Object.keys(lists).length) {
+        d.boq = { flips, newFlags, newFlagsOn: newFlags.filter(id => cf[id] === true), removedFlags, lists };
+      }
+    }
+  }
+
+  d.desktop = null;
+  if (curr.desktop) {
+    const p = prev.desktop, c = curr.desktop;
+    if (!p) d.desktop = { seed: true };
+    else {
+      const out = {};
+      if (c.windows && p.windows && c.windows.version !== p.windows.version) out.windows = { from: p.windows.version, to: c.windows.version };
+      // macOS: only a newer upload counts (CDN edges can briefly disagree during a rollout).
+      if (c.mac && p.mac && c.mac.size !== p.mac.size && Date.parse(c.mac.lastModified) > Date.parse(p.mac.lastModified)) out.mac = { from: p.mac, to: c.mac };
+      if (Object.keys(out).length) d.desktop = out;
+    }
+  }
+
+  d.hasChanges = !!(d.boq || d.desktop || d.toggles || d.docs || d.code || d.web || d.cards || d.version || d.buildKeys.length || d.flags.length || d.config.length || d.routes.length
     || d.newExperiments.length >= experimentAlertMin || d.newIslands.length || d.islandChunks.length
     || d.newBundles.length || d.removedBundles.length || Object.keys(d.strings).length);
   return d;
@@ -807,6 +955,8 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
   if (on('web') && diff.web) {
     const labels = Object.fromEntries((cfg.web?.pages ?? []).map(p => [p.id, p.label ?? p.id]));
     for (const pg of diff.web.pages) {
+      // A page just added to the config: one line instead of dumping its whole text.
+      if (pg.isNew && !firstRun && !pg.id.startsWith('fwd:')) { segs.push(`### 📰 ${labels[pg.id] ?? pg.id} — now tracked (${pg.added.length} lines)`); continue; }
       // Pages list newest-first (release notes), so the head of "added" is the freshest content.
       const cap = pg.isNew ? Math.min(max * 2, 40) : max * 2;
       const lines = [...pg.added.slice(0, cap).map(l => `🟢 ${clip(l, 300)}`), ...(pg.isNew ? [] : pg.removed.slice(0, Math.floor(max / 2)).map(l => `🔴 ${clip(l, 200)}`))];
@@ -844,6 +994,43 @@ export function buildReportSegments(prev, curr, diff, cfg = {}, { firstRun = fal
       const more = added.length + (firstRun ? 0 : c.removed.length) - lines.length;
       if (!lines.length && !note) continue;
       segs.push(`**${title}** (+${c.added.length}${firstRun ? '' : ` −${c.removed.length}`})\n${lines.join('\n')}${more > 0 ? `\n*…and ${more} more*` : ''}${note}`);
+    }
+  }
+  if (on('desktop') && diff.desktop && curr.desktop) {
+    const c = curr.desktop, dd = diff.desktop;
+    const mb = (n) => (n ? `${Math.round(n / 1048576)} MB` : '?');
+    const macLine = (m) => `${m.lastModified ?? '?'} (${mb(m.size)})`;
+    if (dd.seed) {
+      segs.push(`### 🖥️ Gemini desktop app — now tracked\n${c.windows ? `🪟 Windows ${code(c.windows.version)}` : ''}${c.mac ? `\n🍎 macOS DMG uploaded ${macLine(c.mac)}` : ''}`.trim());
+    } else {
+      segs.push(`### 🖥️ Gemini desktop app updated${dd.windows ? `\n🪟 Windows ${code(dd.windows.from)} → ${code(dd.windows.to)}` : ''}${dd.mac ? `\n🍎 macOS new build: ${macLine(dd.mac.to)} — was ${macLine(dd.mac.from)}` : ''}`);
+    }
+  }
+  if (on('boq') && diff.boq && curr.boq) {
+    const b = curr.boq, db = diff.boq;
+    const nFlags = Object.keys(b.flags).length, nOn = Object.values(b.flags).filter(v => v === true).length;
+    if (db.seed) {
+      segs.push(`### 🧱 Main app bundle — now tracked\n**${nFlags}** server flags (**${nOn}** on by default) · **${b.enums.length}** identifiers · **${b.strings.length}** UI strings · ${b.variants.length} app variants\n🤖 Model IDs: ${b.modelIds.map(code).join(' ') || '∅'}`);
+    } else {
+      segs.push(`### 🧱 Main app bundle (${code(b.key)})`);
+      if (db.flips.length) {
+        const lines = db.flips.slice(0, max * 2).map(f => `${f.to === true ? '🟢' : f.to === false ? '🔴' : '🟡'} ${code(f.id)}: ${code(f.from)} → ${code(f.to)}`);
+        segs.push(`**🚩 Flag defaults changed** (${db.flips.length})\n${lines.join('\n')}${db.flips.length > lines.length ? `\n*…and ${db.flips.length - lines.length} more*` : ''}`);
+      }
+      if (db.newFlags.length || db.removedFlags) {
+        segs.push(`**🆕 Server flags** +${db.newFlags.length} −${db.removedFlags}${db.newFlagsOn.length ? `\nOn by default: ${db.newFlagsOn.slice(0, max).map(code).join(' ')}` : ''}`);
+      }
+      const HOT = /^(CAN_|IS_|HAS_|FEATURE_MODE_|MODE_CATEGORY_|ENABLE_|.*(?:TIER|QUOTA|UPSELL|CODENAME|IMMERSIVE|MODEL).*)/;
+      const titles = { modelIds: '🤖 Model IDs', enums: '🏷️ Feature / capability identifiers', strings: '💬 UI text', routes: '🛣️ Routes', hosts: '🌍 Hosts', links: '🔗 Outbound links', banners: '📢 Banner / promo keys' };
+      for (const [k, c] of Object.entries(db.lists)) {
+        let added = c.added, note = '';
+        if (k === 'enums') { added = c.added.filter(e => HOT.test(e)); if (added.length < c.added.length) note = `\n*+${c.added.length - added.length} other identifiers not listed*`; }
+        const showRemoved = k !== 'strings' && k !== 'enums';
+        const lines = [...added.slice(0, max * 2).map(x => `🟢 ${k === 'strings' ? clip(x, 200) : code(x)}`), ...(showRemoved ? c.removed.slice(0, max).map(x => `🔴 ${code(x)}`) : [])];
+        const more = added.length + (showRemoved ? c.removed.length : 0) - lines.length;
+        if (!lines.length && !note) continue;
+        segs.push(`**${titles[k] ?? k}** (+${c.added.length} −${c.removed.length})\n${lines.join('\n')}${more > 0 ? `\n*…and ${more} more*` : ''}${note}`);
+      }
     }
   }
   if (on('strings')) {

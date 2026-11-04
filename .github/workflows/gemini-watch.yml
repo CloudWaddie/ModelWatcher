@@ -39,6 +39,8 @@ jobs:
         run: npm run gemini
 
       - name: Commit results to master
+        # Runs even if one scan failed: a failed scan leaves its state file untouched.
+        if: ${{ !cancelled() }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

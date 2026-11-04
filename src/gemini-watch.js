@@ -203,6 +203,12 @@ export async function postPayload(webhookUrl, payload, label) {
   return res.ok;
 }
 
+/** Reason string when a scan returned far fewer RPCs than the saved baseline, else null. */
+export function collapsedScan(prevCount, currCount, minRatio = 0.5) {
+  if (prevCount < 20 || currCount >= prevCount * minRatio) return null;
+  return `scan collapsed: ${currCount} RPCs vs ${prevCount} last time`;
+}
+
 async function runScan(scan, webhookUrl, webhookEnabled) {
   const statePath = join(__dirname, '..', scan.stateFile);
   let prev = { mappings: {}, types: {}, timestamp: 0 };
@@ -253,6 +259,15 @@ async function runScan(scan, webhookUrl, webhookEnabled) {
   }
 
   console.log(`[${scan.name}] Scanned ${mappings.size} RPCs, ${mappingTypes.size} with known call types (${stats.elapsedMs}ms)`);
+
+  // A sudden collapse (e.g. the page now redirects to the Google sign-in page) is a broken
+  // scan, not 90% of the API being deleted: keep the old state and fail loudly instead.
+  const prevCount = Object.keys(prev.mappings ?? {}).length;
+  const collapse = collapsedScan(prevCount, mappings.size, scan.minRatio);
+  if (!firstRun && collapse) {
+    if (messageId && webhookUrl && webhookEnabled) await deleteMessage(webhookUrl, messageId);
+    throw new Error(`[${scan.name}] ${collapse} — state kept. Check that ${scan.targetUrl} still loads without sign-in.`);
+  }
 
   if (firstRun) {
     // No baseline yet — post the full mapping set as a report where every
@@ -326,10 +341,14 @@ async function main() {
 
   if (!scans.length) throw new Error('No scans configured in gemini-config.json');
 
+  // One scan failing must not skip the others; fail the job at the end.
+  const errors = [];
   for (const scan of scans) {
     if (!scan.targetUrl || !scan.stateFile) throw new Error(`Scan "${scan.name}" is missing targetUrl or stateFile`);
-    await runScan(scan, webhookUrl, webhookEnabled);
+    try { await runScan(scan, webhookUrl, webhookEnabled); }
+    catch (e) { console.error(`[${scan.name}] FAILED:`, e.message); errors.push(scan.name); }
   }
+  if (errors.length) throw new Error(`Scans failed: ${errors.join(', ')}`);
 }
 
 const isCli = process.argv[1] && /gemini-watch\.js$/.test(process.argv[1]);
