@@ -1,5 +1,5 @@
 {
-  "timestamp": 1793848409662,
+  "timestamp": 1793859538943,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -11157,6 +11157,20 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "qwen-image-3.0-pro",
+      "displayName": "Qwen Image 3.0 Pro",
+      "provider": "alibaba",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "imagetoimage"
+        ]
+      }
     }
   ],
   "providers": [
@@ -16238,6 +16252,12 @@
       "text": {
         "input": 0.834,
         "output": 2.501
+      }
+    },
+    {
+      "id": "qwen-image-3.0-pro",
+      "image": {
+        "perImage": 0.075
       }
     }
   ]
