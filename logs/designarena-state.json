@@ -1,5 +1,5 @@
 {
-  "timestamp": 1793862741367,
+  "timestamp": 1793909444913,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10693,6 +10693,24 @@
       }
     },
     {
+      "id": "lithium-1015",
+      "displayName": "Ling 3.2 Flash",
+      "provider": "antgroup",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_webapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
       "id": "flint",
       "displayName": "Flint",
       "provider": "recursive",
@@ -11170,6 +11188,26 @@
           "image",
           "imagetoimage"
         ]
+      }
+    },
+    {
+      "id": "gemini-omni-flash-1.2",
+      "displayName": "Gemini Omni 1.2 Flash",
+      "provider": "google",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "video",
+          "imagetovideo",
+          "multitovideo",
+          "videotovideo",
+          "multimodaltovideo"
+        ]
+      },
+      "video": {
+        "generatesAudio": true
       }
     }
   ],
@@ -12870,11 +12908,6 @@
       "displayName": "Paper Instruments",
       "logoName": "paperinstruments.svg",
       "website": "https://www.paperinstruments.com"
-    },
-    {
-      "id": "lithium-1015",
-      "displayName": "lithium-1015",
-      "logoName": "private.png"
     },
     {
       "id": "recursive",
@@ -16177,7 +16210,7 @@
         "cachedInput": 1.25
       },
       "image": {
-        "perImage": 0.006
+        "perImage": 0.025
       }
     },
     {
@@ -16248,7 +16281,7 @@
         "cachedInput": 1.25
       },
       "image": {
-        "perImage": 0.006
+        "perImage": 0.025
       }
     },
     {
@@ -16259,7 +16292,7 @@
         "cachedInput": 1.25
       },
       "image": {
-        "perImage": 0.053
+        "perImage": 0.211
       }
     },
     {
@@ -16313,6 +16346,12 @@
       "id": "qwen-image-3.0-pro",
       "image": {
         "perImage": 0.075
+      }
+    },
+    {
+      "id": "gemini-omni-flash-1.2",
+      "video": {
+        "perSecond": 0.07
       }
     }
   ]
