@@ -1,5 +1,5 @@
 {
-  "timestamp": 1794013871003,
+  "timestamp": 1794268936099,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -11177,6 +11177,31 @@
       "modeOf": "gpt-6.1-sol"
     },
     {
+      "id": "idaho",
+      "displayName": "Muse Ember",
+      "provider": "meta",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video"
+      ]
+    },
+    {
       "id": "hy4",
       "displayName": "Hy4",
       "provider": "tencent",
@@ -11232,6 +11257,43 @@
       "video": {
         "generatesAudio": true
       }
+    },
+    {
+      "id": "claude-fable-5-2",
+      "displayName": "Claude Fable 5.2",
+      "provider": "anthropic",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "agon_slides",
+          "agon_slides_html",
+          "agon_dataviz",
+          "agon_godot",
+          "agentic_gamedev",
+          "agentic_3d",
+          "fullstack",
+          "fullstack_gamedev",
+          "mobileapps",
+          "nativeapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -13019,11 +13081,6 @@
     {
       "id": "calfhollow",
       "displayName": "calfhollow",
-      "logoName": "private.png"
-    },
-    {
-      "id": "idaho",
-      "displayName": "idaho",
       "logoName": "private.png"
     },
     {
@@ -16377,6 +16434,14 @@
       }
     },
     {
+      "id": "idaho",
+      "text": {
+        "input": 0.1,
+        "output": 0.5,
+        "cachedInput": 0.004
+      }
+    },
+    {
       "id": "hy4",
       "text": {
         "input": 0.834,
@@ -16393,6 +16458,15 @@
       "id": "gemini-omni-flash-1.2",
       "video": {
         "perSecond": 0.07
+      }
+    },
+    {
+      "id": "claude-fable-5-2",
+      "text": {
+        "input": 8,
+        "output": 40,
+        "cachedInput": 0.2,
+        "cacheWrite": 10
       }
     }
   ]
