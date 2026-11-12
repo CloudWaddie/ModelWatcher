@@ -1,5 +1,5 @@
 {
-  "timestamp": 1794364705901,
+  "timestamp": 1794446663232,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -11143,7 +11143,9 @@
           "agon_slides_html",
           "agon_blender",
           "agentic_gamedev",
-          "agon_webapps"
+          "agon_webapps",
+          "fullstack",
+          "agon_godot"
         ]
       },
       "vision": true,
@@ -11166,7 +11168,9 @@
           "agon_slides_html",
           "agon_blender",
           "agentic_gamedev",
-          "agon_webapps"
+          "agon_webapps",
+          "fullstack",
+          "agon_godot"
         ]
       },
       "vision": true,
@@ -11347,6 +11351,34 @@
         "audio",
         "file"
       ]
+    },
+    {
+      "id": "seedream-5.5",
+      "displayName": "Seedream 5.5",
+      "provider": "bytedance",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "logo",
+          "image",
+          "graphicdesign"
+        ]
+      }
+    },
+    {
+      "id": "seedream-5.5-edit",
+      "displayName": "Seedream 5.5 Edit",
+      "provider": "bytedance",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "imagetoimage"
+        ]
+      }
     }
   ],
   "providers": [
@@ -16539,6 +16571,18 @@
         "input": 2,
         "output": 10,
         "cachedInput": 0.1
+      }
+    },
+    {
+      "id": "seedream-5.5",
+      "image": {
+        "perImage": 0.04
+      }
+    },
+    {
+      "id": "seedream-5.5-edit",
+      "image": {
+        "perImage": 0.04
       }
     }
   ]
