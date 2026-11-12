@@ -1,5 +1,5 @@
 {
-  "timestamp": 1794446663232,
+  "timestamp": 1794476053323,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -11379,6 +11379,44 @@
           "imagetoimage"
         ]
       }
+    },
+    {
+      "id": "wan-2.2-a14b",
+      "displayName": "Wan 2.2 A14B",
+      "provider": "alibaba",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "imagetovideo"
+        ]
+      },
+      "video": {
+        "generatesAudio": false
+      }
+    },
+    {
+      "id": "ernie-5-5-flash-preview",
+      "displayName": "ERNIE 5.5 Flash Preview",
+      "provider": "baidu",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "gamedev",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "svg"
+        ]
+      },
+      "vision": false,
+      "inputModalities": [
+        "text"
+      ]
     }
   ],
   "providers": [
@@ -13191,6 +13229,11 @@
     {
       "id": "arizona",
       "displayName": "arizona",
+      "logoName": "private.png"
+    },
+    {
+      "id": "plover",
+      "displayName": "plover",
       "logoName": "private.png"
     }
   ],
@@ -16583,6 +16626,19 @@
       "id": "seedream-5.5-edit",
       "image": {
         "perImage": 0.04
+      }
+    },
+    {
+      "id": "wan-2.2-a14b",
+      "video": {
+        "perSecond": 0.08
+      }
+    },
+    {
+      "id": "ernie-5-5-flash-preview",
+      "text": {
+        "input": 0,
+        "output": 0
       }
     }
   ]
