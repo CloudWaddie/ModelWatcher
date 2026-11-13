@@ -1,5 +1,5 @@
 {
-  "timestamp": 1794585662013,
+  "timestamp": 1794608769208,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -11449,6 +11449,19 @@
         "audio",
         "file"
       ]
+    },
+    {
+      "id": "wyoming",
+      "displayName": "Recraft V4.1 Flash V2",
+      "provider": "recraft",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image"
+        ]
+      }
     }
   ],
   "providers": [
@@ -13266,11 +13279,6 @@
     {
       "id": "plover",
       "displayName": "plover",
-      "logoName": "private.png"
-    },
-    {
-      "id": "wyoming",
-      "displayName": "wyoming",
       "logoName": "private.png"
     },
     {
@@ -15607,8 +15615,8 @@
     {
       "id": "gpt-5.6-sol",
       "text": {
-        "input": 5,
-        "output": 30,
+        "input": 4,
+        "output": 20,
         "cachedInput": 0.4,
         "cacheWrite": 5
       }
@@ -15616,8 +15624,8 @@
     {
       "id": "gpt-5.6-sol-xhigh",
       "text": {
-        "input": 5,
-        "output": 30,
+        "input": 4,
+        "output": 20,
         "cachedInput": 0.4,
         "cacheWrite": 5
       }
@@ -15713,9 +15721,9 @@
     {
       "id": "gemini-3.6-flash",
       "text": {
-        "input": 1.5,
-        "output": 7.5,
-        "cachedInput": 0.15
+        "input": 0.75,
+        "output": 3.75,
+        "cachedInput": 0.075
       }
     },
     {
@@ -15760,8 +15768,8 @@
     {
       "id": "magnesium",
       "text": {
-        "input": 5,
-        "output": 30,
+        "input": 4,
+        "output": 20,
         "cachedInput": 0.4,
         "cacheWrite": 5
       }
@@ -16696,6 +16704,12 @@
         "input": 1.5,
         "output": 7.5,
         "cachedInput": 0.075
+      }
+    },
+    {
+      "id": "wyoming",
+      "image": {
+        "perImage": 0.007
       }
     }
   ]
