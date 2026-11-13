@@ -1,5 +1,5 @@
 {
-  "timestamp": 1794506480909,
+  "timestamp": 1794528083141,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -9731,7 +9731,7 @@
       "id": "york",
       "displayName": "Recraft V4.1 Flash",
       "provider": "recraft",
-      "active": true,
+      "active": false,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -11416,6 +11416,46 @@
       "vision": false,
       "inputModalities": [
         "text"
+      ]
+    },
+    {
+      "id": "gemini-4-hydrogen",
+      "displayName": "Gemini 4 Hydrogen",
+      "provider": "google",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "uicomponent",
+          "gamedev",
+          "dataviz",
+          "3d",
+          "svg",
+          "ascii"
+        ],
+        "agents": [
+          "agon_webapps",
+          "agon_slides",
+          "agon_slides_html",
+          "agon_dataviz",
+          "agon_godot",
+          "agentic_gamedev",
+          "agentic_3d",
+          "fullstack",
+          "fullstack_gamedev",
+          "mobileapps",
+          "nativeapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "file"
       ]
     }
   ],
@@ -13234,6 +13274,11 @@
     {
       "id": "plover",
       "displayName": "plover",
+      "logoName": "private.png"
+    },
+    {
+      "id": "wyoming",
+      "displayName": "wyoming",
       "logoName": "private.png"
     }
   ],
@@ -16391,6 +16436,13 @@
       }
     },
     {
+      "id": "lithium-1015",
+      "text": {
+        "input": 0.3,
+        "output": 0.9
+      }
+    },
+    {
       "id": "flint",
       "text": {
         "input": 0,
@@ -16639,6 +16691,14 @@
       "text": {
         "input": 0,
         "output": 0
+      }
+    },
+    {
+      "id": "gemini-4-hydrogen",
+      "text": {
+        "input": 1.5,
+        "output": 7.5,
+        "cachedInput": 0.075
       }
     }
   ]
