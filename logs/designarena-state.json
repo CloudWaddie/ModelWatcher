@@ -1,5 +1,5 @@
 {
-  "timestamp": 1794886505391,
+  "timestamp": 1794920285666,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -11219,6 +11219,20 @@
       ]
     },
     {
+      "id": "alabama",
+      "displayName": "SenseNova U1 Pro",
+      "provider": "sensenova",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "imagetoimage"
+        ]
+      }
+    },
+    {
       "id": "hy4",
       "displayName": "Hy4",
       "provider": "tencent",
@@ -13301,9 +13315,10 @@
       "logoName": "private.png"
     },
     {
-      "id": "alabama",
-      "displayName": "alabama",
-      "logoName": "private.png"
+      "id": "sensenova",
+      "displayName": "SenseNova",
+      "logoName": "sensenova.png",
+      "website": "https://www.sensenova.ai"
     },
     {
       "id": "montana",
@@ -16680,6 +16695,12 @@
         "input": 1.5,
         "output": 4.5,
         "cachedInput": 0.075
+      }
+    },
+    {
+      "id": "alabama",
+      "image": {
+        "perImage": 0.08
       }
     },
     {
