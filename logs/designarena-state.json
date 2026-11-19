@@ -1,5 +1,5 @@
 {
-  "timestamp": 1795057380988,
+  "timestamp": 1795092143002,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -11735,6 +11735,36 @@
         "image"
       ],
       "modeOf": "hy4-flash"
+    },
+    {
+      "id": "gpt-6.2-astra-max",
+      "displayName": "GPT-6.2 Astra (max)",
+      "provider": "openai",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "agents": [
+          "agon_webapps",
+          "fullstack",
+          "agon_godot",
+          "agon_slides",
+          "agon_slides_html",
+          "agentic_gamedev",
+          "fullstack_gamedev",
+          "agentic_3d",
+          "agon_dataviz",
+          "agon_blender",
+          "nativeapps",
+          "mobileapps"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ],
+      "modeOf": "gpt-6.2-astra"
     }
   ],
   "providers": [
@@ -17064,6 +17094,15 @@
       "text": {
         "input": 0.07,
         "output": 0.281
+      }
+    },
+    {
+      "id": "gpt-6.2-astra-max",
+      "text": {
+        "input": 8,
+        "output": 40,
+        "cachedInput": 0.4,
+        "cacheWrite": 10
       }
     }
   ]
