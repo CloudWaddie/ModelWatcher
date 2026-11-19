@@ -1,5 +1,5 @@
 {
-  "timestamp": 1795092143002,
+  "timestamp": 1795122997189,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10112,6 +10112,20 @@
       "modeOf": "dragonfly"
     },
     {
+      "id": "ideogram-4.6-high",
+      "displayName": "Ideogram 4.6 (High)",
+      "provider": "ideogram",
+      "active": true,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "image",
+          "imagetoimage"
+        ]
+      }
+    },
+    {
       "id": "flux-3-image",
       "displayName": "FLUX 3 Image",
       "provider": "black_forest_labs",
@@ -16562,6 +16576,13 @@
       "id": "ladybug",
       "image": {
         "perImage": 0.008
+      }
+    },
+    {
+      "id": "ideogram-4.6-high",
+      "image": {
+        "perImage": 0.1,
+        "perImageEdit": 0.22
       }
     },
     {
