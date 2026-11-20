@@ -522,6 +522,13 @@
           "shutdown_date": null
         },
         {
+          "id": "gpt-live-1.1",
+          "name": "gpt-live-1.1",
+          "owned_by": "system",
+          "object": "model",
+          "shutdown_date": null
+        },
+        {
           "id": "gpt-live-transcribe",
           "name": "gpt-live-transcribe",
           "owned_by": "system",
@@ -4659,26 +4666,6 @@
             ],
             "default_reasoning_effort": "high"
           }
-        },
-        {
-          "id": "grok-build-0.1",
-          "name": "grok-build-0.1",
-          "owned_by": "xai",
-          "object": "model",
-          "aliases": [
-            "grok-code-fast-1",
-            "grok-code-fast",
-            "grok-code-fast-1-0825"
-          ],
-          "context_length": 256000,
-          "prompt_text_token_price": 10000,
-          "cached_prompt_text_token_price": 2000,
-          "prompt_image_token_price": 10000,
-          "completion_text_token_price": 20000,
-          "prompt_text_token_price_long_context": 20000,
-          "cached_prompt_text_token_price_long_context": 4000,
-          "completion_text_token_price_long_context": 40000,
-          "long_context_threshold": 200000
         },
         {
           "id": "grok-imagine-image",
