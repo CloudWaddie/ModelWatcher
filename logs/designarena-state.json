@@ -1,5 +1,5 @@
 {
-  "timestamp": 1795173075379,
+  "timestamp": 1795223710375,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -11779,6 +11779,28 @@
         "image"
       ],
       "modeOf": "gpt-6.2-astra"
+    },
+    {
+      "id": "inkling-2-mini",
+      "displayName": "Inkling 2 Mini",
+      "provider": "thinkingmachines",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "uicomponent",
+          "dataviz",
+          "svg"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
+      ]
     }
   ],
   "providers": [
@@ -17129,6 +17151,14 @@
         "output": 40,
         "cachedInput": 0.4,
         "cacheWrite": 10
+      }
+    },
+    {
+      "id": "inkling-2-mini",
+      "text": {
+        "input": 0.15,
+        "output": 0.5,
+        "cachedInput": 0.015
       }
     }
   ]
