@@ -1,5 +1,5 @@
 {
-  "timestamp": 1795540862233,
+  "timestamp": 1795572442436,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -11800,6 +11800,31 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "solar-mini4-5-preview",
+      "displayName": "Solar Mini 4.5 Preview",
+      "provider": "upstage",
+      "active": false,
+      "openSource": false,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "uicomponent",
+          "gamedev"
+        ],
+        "agents": [
+          "agon_webapps",
+          "fullstack"
+        ]
+      },
+      "vision": false,
+      "inputModalities": [
+        "text"
+      ]
     }
   ],
   "providers": [
@@ -17178,6 +17203,13 @@
         "input": 0.15,
         "output": 0.5,
         "cachedInput": 0.015
+      }
+    },
+    {
+      "id": "solar-mini4-5-preview",
+      "text": {
+        "input": 0.1,
+        "output": 0.4
       }
     }
   ]
