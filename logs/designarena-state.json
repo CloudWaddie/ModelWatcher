@@ -1,5 +1,5 @@
 {
-  "timestamp": 1795572442436,
+  "timestamp": 1795645028320,
   "models": [
     {
       "id": "qwen3-coder-480b-a35b-instruct",
@@ -10186,10 +10186,10 @@
     },
     {
       "id": "mistral-large-4-0",
-      "displayName": "Mistral Large 4 Preview",
+      "displayName": "Mistral Large 4 (Oct Preview)",
       "provider": "mistral",
       "active": false,
-      "openSource": true,
+      "openSource": false,
       "router": false,
       "arenas": {
         "models": [
@@ -10210,10 +10210,10 @@
     },
     {
       "id": "mistral-large-4-0-high",
-      "displayName": "Mistral Large 4 Preview",
+      "displayName": "Mistral Large 4 (Oct Preview)",
       "provider": "mistral",
       "active": false,
-      "openSource": true,
+      "openSource": false,
       "router": false,
       "arenas": {
         "models": [
@@ -11805,7 +11805,7 @@
       "id": "solar-mini4-5-preview",
       "displayName": "Solar Mini 4.5 Preview",
       "provider": "upstage",
-      "active": false,
+      "active": true,
       "openSource": false,
       "router": false,
       "arenas": {
@@ -11824,6 +11824,30 @@
       "vision": false,
       "inputModalities": [
         "text"
+      ]
+    },
+    {
+      "id": "mistral-large-4-oss",
+      "displayName": "Mistral Large 4 (OSS)",
+      "provider": "mistral",
+      "active": true,
+      "openSource": true,
+      "router": false,
+      "arenas": {
+        "models": [
+          "website",
+          "3d",
+          "dataviz",
+          "gamedev",
+          "uicomponent",
+          "svg",
+          "ascii"
+        ]
+      },
+      "vision": true,
+      "inputModalities": [
+        "text",
+        "image"
       ]
     }
   ],
@@ -17210,6 +17234,14 @@
       "text": {
         "input": 0.1,
         "output": 0.4
+      }
+    },
+    {
+      "id": "mistral-large-4-oss",
+      "text": {
+        "input": 0.7,
+        "output": 2.1,
+        "cachedInput": 0.07
       }
     }
   ]
