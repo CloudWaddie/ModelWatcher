@@ -21,8 +21,6 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    env:
-      SPARKLY_QUEUE: ${{ runner.temp }}/sparkly-reviews.jsonl
     timeout-minutes: 25
 
     steps:

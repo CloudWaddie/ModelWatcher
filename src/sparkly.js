@@ -1,4 +1,5 @@
 import { appendFileSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const MAX_EVIDENCE_CHARS = 24000;
@@ -14,8 +15,13 @@ no URLs or mentions. Return only a JSON object with one field, "summary".
 Use an empty string when there is nothing noteworthy. Otherwise use at most
 three short sentences and name the specific changes that make the update interesting.`;
 
+function getQueuePath() {
+  const { SPARKLY_QUEUE, RUNNER_TEMP } = process.env;
+  return SPARKLY_QUEUE || (RUNNER_TEMP && join(RUNNER_TEMP, 'sparkly-reviews.jsonl'));
+}
+
 export function queueSparklyReview(review) {
-  const queuePath = process.env.SPARKLY_QUEUE;
+  const queuePath = getQueuePath();
   if (!queuePath) return;
 
   try {
@@ -111,7 +117,7 @@ async function main() {
   }
 
   if (!process.env.SPARKLY_DATA || !process.env.SPARKLY_WEBHOOK) return;
-  const queuePath = process.env.SPARKLY_QUEUE;
+  const queuePath = getQueuePath();
   if (!queuePath) return;
 
   let queue;
