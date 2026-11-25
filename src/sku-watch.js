@@ -1,3 +1,4 @@
+import { queueSparklyReview } from './sparkly.js';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -259,6 +260,15 @@ async function main() {
     });
     if (res.ok) console.log('Discord notification sent');
     else { console.error('Discord send failed:', res.status, await res.text()); }
+  }
+
+  if (newModels.length > 0) {
+    queueSparklyReview({
+      tracker: 'Google Cloud SKU',
+      subject: 'New model SKUs',
+      changes: newModels,
+      sourceUrl: 'https://cloud.google.com/skus/'
+    });
   }
 
   // Only touch the state file when something changed: a rewrite every run (new timestamp) made

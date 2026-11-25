@@ -1,3 +1,4 @@
+import { queueSparklyReview } from './sparkly.js';
 import axios from 'axios';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
@@ -438,6 +439,16 @@ async function main() {
     for (const { id, data, diffs } of modelChanges.edited) {
       const embed = createEditedModelEmbed(id, data, diffs);
       await sendDiscordWebhook(webhookUrl, embed);
+    }
+
+    if (modelChanges.added.length || modelChanges.removed.length || modelChanges.edited.length) {
+      const { owner, repo } = config.file;
+      queueSparklyReview({
+        tracker: 'Tombstone',
+        subject: `${owner}/${repo}`,
+        changes: modelChanges,
+        sourceUrl: `https://github.com/${owner}/${repo}/commit/${commitInfo.sha}`
+      });
     }
   } else {
     // First run

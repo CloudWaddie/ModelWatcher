@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { saveStateIfChanged } from './state-file.js';
+import { queueSparklyReview } from './sparkly.js';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createHash } from 'crypto';
@@ -1137,6 +1138,32 @@ async function runTarget(t, cfg, webhookUrl, webhookOn) {
   } else {
     console.log(`${tag} No changes detected.`);
   }
+  if (!firstRun && diff.hasChanges && ['gemini', 'aistudio'].includes(tcfg.name)) {
+    const code = Object.fromEntries(
+      ['modelIds', 'featureModeIds', 'enums', 'notes'].filter(key => diff.code?.[key])
+        .map(key => [key, diff.code[key]])
+    );
+    const bundle = Object.fromEntries(
+      ['modelIds', 'enums', 'strings'].filter(key => diff.boq?.lists?.[key])
+        .map(key => [key, diff.boq.lists[key]])
+    );
+    const changes = {
+      ...Object.keys(code).length && { code },
+      ...Object.keys(bundle).length && { bundle },
+      ...Object.keys(diff.strings).length && { uiStrings: diff.strings },
+      ...diff.docs && { docs: diff.docs },
+      ...diff.web?.pages.some(page => !page.isNew) && { pages: diff.web.pages.filter(page => !page.isNew) }
+    };
+    if (Object.keys(changes).length) {
+      queueSparklyReview({
+        tracker: label,
+        subject: 'Product changes',
+        changes,
+        sourceUrl: tcfg.targetUrl
+      });
+    }
+  }
+
   saveState(statePath, curr);
   console.log(`${tag} State saved.`);
 }

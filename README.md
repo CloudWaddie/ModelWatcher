@@ -47,6 +47,30 @@ Unauthenticated multi-target scanner. A change in a site's **backend build** (`b
 
 ## 🛠️ Setup & Configuration
 
+### Sparkly summaries
+
+Sparkly reviews Android string diffs, Tombstone model changes, Amazon Bedrock model
+availability changes, new Google Cloud model SKUs, and product changes from Gemini
+Web, AI Studio, and Antigravity. It sends noteworthy changes
+to `#sparkly` alongside the existing tracker alerts. The configured provider receives
+the tracker change data for review. Baseline scans skip the review.
+
+Create a Discord webhook in `#sparkly` and add these repository secrets under
+**Settings → Secrets and variables → Actions**.
+
+| Secret | Value |
+|---|---|
+| `SPARKLY_WEBHOOK` | Discord webhook URL for `#sparkly` |
+| `SPARKLY_DATA` | OpenAI-compatible API settings in `baseurl:key:model` format, for example `https://api.openai.com/v1:your-key:your-model` |
+
+Sparkly skips the review if any secret is missing. Provider and delivery failures
+leave tracker runs running and appear as warnings in the Actions log. Sparkly reviews
+queued changes at the end of each supported tracker workflow.
+
+To test delivery, manually run **Gemini Web App Tracker** with `sparkly_test` enabled.
+The workflow sends a clearly labeled synthetic review to Discord and skips the scans
+and state commits.
+
 ### Environment Variables
 
 ModelWatcher requires the following environment variables to be configured as **GitHub Secrets** (Settings → Secrets and variables → Actions):

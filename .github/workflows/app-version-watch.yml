@@ -13,6 +13,8 @@ permissions:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    env:
+      SPARKLY_QUEUE: ${{ runner.temp }}/sparkly-reviews.jsonl
     timeout-minutes: 30
 
     steps:
@@ -131,6 +133,13 @@ jobs:
           else
             echo "No changes to commit"
           fi
+
+      - name: Run Sparkly review
+        if: ${{ !cancelled() }}
+        env:
+          SPARKLY_DATA: ${{ secrets.SPARKLY_DATA }}
+          SPARKLY_WEBHOOK: ${{ secrets.SPARKLY_WEBHOOK }}
+        run: node src/sparkly.js
 
       - name: Notify on failure
         if: failure()

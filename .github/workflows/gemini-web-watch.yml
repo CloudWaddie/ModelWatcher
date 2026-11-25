@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '17 */3 * * *'
   workflow_dispatch:
+    inputs:
+      sparkly_test:
+        description: Send a seeded Sparkly test to Discord
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -16,6 +21,8 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    env:
+      SPARKLY_QUEUE: ${{ runner.temp }}/sparkly-reviews.jsonl
     timeout-minutes: 25
 
     steps:
@@ -32,24 +39,27 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
+        if: ${{ !inputs.sparkly_test }}
         run: npm ci
 
       - name: Ensure logs folder exists
+        if: ${{ !inputs.sparkly_test }}
         run: mkdir -p logs
 
       - name: Run Gemini Web App tracker
+        if: ${{ !inputs.sparkly_test }}
         env:
           TOMBSTONE_WEBHOOK: ${{ secrets.TOMBSTONE_WEBHOOK }}
         run: npm run gemini-web
 
       - name: Run Antigravity tracker
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && !inputs.sparkly_test }}
         env:
           TOMBSTONE_WEBHOOK: ${{ secrets.TOMBSTONE_WEBHOOK }}
         run: npm run antigravity
 
       - name: Commit results to master
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && !inputs.sparkly_test }}
         run: |
           git config --global user.name "ModelWatcher"
           git config --global user.email "modelwatcher@github.com"
@@ -79,8 +89,21 @@ jobs:
           echo "Failed to push state after retries" >&2
           exit 1
 
+      - name: Run Sparkly review
+        if: ${{ !cancelled() }}
+        env:
+          SPARKLY_DATA: ${{ secrets.SPARKLY_DATA }}
+          SPARKLY_WEBHOOK: ${{ secrets.SPARKLY_WEBHOOK }}
+          SPARKLY_TEST: ${{ inputs.sparkly_test }}
+        run: |
+          if [ "$SPARKLY_TEST" = "true" ]; then
+            node src/sparkly.js --test
+          else
+            node src/sparkly.js
+          fi
+
       - name: Notify on failure
-        if: failure()
+        if: ${{ failure() && !inputs.sparkly_test }}
         env:
           ERROR_WEBHOOK: ${{ secrets.ERROR_WEBHOOK }}
           GITHUB_TOKEN: ${{ github.token }}

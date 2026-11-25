@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, mkdtempSync, rmSync } from 'fs';
 import { saveStateIfChanged } from './state-file.js';
+import { queueSparklyReview } from './sparkly.js';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { tmpdir } from 'os';
@@ -412,6 +413,15 @@ export async function main() {
       for (const p of payloads) { await postPayload(webhookUrl, p, 'antigravity'); await sleep(1500); }
     } else console.log('[antigravity] report (no webhook):\n' + segs.join('\n\n'));
   } else console.log('[antigravity] no changes');
+
+  if (!firstRun && worthSending) {
+    queueSparklyReview({
+      tracker: 'Antigravity',
+      subject: 'Product changes',
+      changes: segs.slice(1).join('\n\n'),
+      sourceUrl: cfg.docs.base
+    });
+  }
 
   saveStateIfChanged(statePath, curr);
   console.log('[antigravity] state saved');

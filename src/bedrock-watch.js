@@ -1,3 +1,4 @@
+import { queueSparklyReview } from './sparkly.js';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { saveStateIfChanged } from './state-file.js';
@@ -188,6 +189,13 @@ async function main() {
     if (res.ok) console.log('Discord notification sent');
     else console.error('Discord send failed:', res.status, await res.text());
   }
+
+  queueSparklyReview({
+    tracker: 'Bedrock',
+    subject: 'Model availability',
+    changes: diff,
+    sourceUrl: config.scan.url
+  });
 
   saveState(statePath, { models, timestamp: Date.now() });
   console.log(`=== Bedrock scan complete: ${models.length} models ===`);

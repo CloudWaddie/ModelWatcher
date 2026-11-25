@@ -1,3 +1,4 @@
+import { queueSparklyReview } from './sparkly.js';
 import gplay from 'google-play-scraper';
 import store from 'app-store-scraper';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync } from 'fs';
@@ -197,7 +198,7 @@ async function compareAndroidStrings(appId) {
     !line.includes('com.google.firebase.crashlytics.mapping_file_id')
   ).join('\n');
 
-  return { changed: true, diff: filteredDiff, newStrings };
+  return { changed: true, diff: filteredDiff, newStrings, hasBaseline: Boolean(oldStrings) };
 }
 
 // --- App version checking ---
@@ -271,6 +272,7 @@ async function checkAndroidApp(appId, state) {
       lastUpdated,
       stringsDiff: stringsResult.diff || null,
       stringsChanged: stringsResult.changed,
+      hasStringsBaseline: stringsResult.hasBaseline,
       isFirstRun,
       sameVersion: kind === 'republished'
     };
@@ -372,6 +374,14 @@ async function main() {
         if (result.platform === 'android' && result.stringsChanged && !result.isFirstRun) {
           const stringsPayload = createStringsDiffEmbed(app.id, result.stringsDiff);
           await sendRawDiffWebhook(appWebhookUrl, stringsPayload);
+          if (result.hasStringsBaseline) {
+            queueSparklyReview({
+              tracker: 'Android app strings',
+              subject: `${app.id} · ${result.version}`,
+              changes: result.stringsDiff,
+              sourceUrl: result.url
+            });
+          }
         }
       } else if (result.silentRefresh) {
         // Advance the stored timestamp so the APK isn't re-downloaded every run; nothing to announce.
