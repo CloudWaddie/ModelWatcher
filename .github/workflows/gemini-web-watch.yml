@@ -9,6 +9,10 @@ on:
         description: Send a seeded Sparkly test to Discord
         type: boolean
         default: false
+      sparkly_replay:
+        description: Review ten historical tracker changes without sending Discord alerts
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -20,6 +24,7 @@ concurrency:
 
 jobs:
   scan:
+    if: ${{ !inputs.sparkly_replay }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
 
@@ -92,6 +97,7 @@ jobs:
         env:
           SPARKLY_DATA: ${{ secrets.SPARKLY_DATA }}
           SPARKLY_WEBHOOK: ${{ secrets.SPARKLY_WEBHOOK }}
+          SPARKLY_ALERT_EMOJI: ${{ vars.SPARKLY_ALERT_EMOJI }}
           SPARKLY_TEST: ${{ inputs.sparkly_test }}
         run: |
           if [ "$SPARKLY_TEST" = "true" ]; then
@@ -113,3 +119,20 @@ jobs:
               -d "{\"content\":\"<@1366222155720687646> ❌ ${GITHUB_WORKFLOW} failed: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}\",\"allowed_mentions\":{\"users\":[\"1366222155720687646\"]}}" \
               "$ERROR_WEBHOOK" || true
           fi
+
+
+  sparkly-replay:
+    if: ${{ inputs.sparkly_replay }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Review historical fixtures
+        env:
+          SPARKLY_DATA: ${{ secrets.SPARKLY_DATA }}
+        run: node tests/sparkly-replay.js

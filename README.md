@@ -51,7 +51,7 @@ Unauthenticated multi-target scanner. A change in a site's **backend build** (`b
 
 Sparkly reviews Android string diffs, Tombstone model changes, Amazon Bedrock model
 availability changes, new Google Cloud model SKUs, and product changes from Gemini
-Web, AI Studio, and Antigravity. It sends noteworthy changes
+Web, AI Studio, and Antigravity. It sends change summaries
 to `#sparkly` alongside the existing tracker alerts. The configured provider receives
 the tracker change data for review. Baseline scans skip the review.
 
@@ -69,7 +69,12 @@ queued changes at the end of each supported tracker workflow.
 
 To test delivery, manually run **Gemini Web App Tracker** with `sparkly_test` enabled.
 The workflow sends a clearly labeled synthetic review to Discord and skips the scans
-and state commits.
+and state commits. Enable `sparkly_replay` to run ten historical cases through the
+configured model and read its verdicts in the Actions log.
+
+Sparkly posts a brief summary for routine changes. Important findings use 🚨 by
+default. To use the server's custom emoji, set the Actions variable
+`SPARKLY_ALERT_EMOJI` to `<:alert:YOUR_EMOJI_ID>`.
 
 ### Environment Variables
 

@@ -1,0 +1,185 @@
+[
+  {
+    "revision": "c4dfd01c",
+    "tracker": "Tombstone",
+    "subject": "Google Code Assist · initial snapshot",
+    "changes": {
+      "baseline": true,
+      "modelCount": 19,
+      "modelIds": [
+        "chat_23310",
+        "chat_20706",
+        "claude-opus-4-6-thinking",
+        "claude-sonnet-4-6",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite",
+        "gemini-2.5-flash-thinking",
+        "gemini-3.1-flash-lite",
+        "gemini-2.5-pro",
+        "gemini-3-flash",
+        "gemini-3-flash-agent",
+        "gemini-3.1-flash-image",
+        "gemini-3.1-pro-high",
+        "gemini-3.1-pro-low",
+        "gemini-3.5-flash-extra-low",
+        "gemini-3.5-flash-low",
+        "gemini-pro-agent",
+        "gpt-oss-120b-medium",
+        "tab_flash_lite_preview"
+      ]
+    }
+  },
+  {
+    "revision": "693c29568ad6e",
+    "tracker": "Tombstone",
+    "subject": "Google Code Assist · upstream fixture delta",
+    "changes": {
+      "added": [
+        {
+          "id": "chat_20706",
+          "data": {
+            "addCursorToFindReplaceTarget": true,
+            "apiProvider": "API_PROVIDER_INTERNAL",
+            "isInternal": true,
+            "maxTokens": 16384,
+            "model": "MODEL_CHAT_20706",
+            "modelProvider": "MODEL_PROVIDER_GOOGLE",
+            "promptTemplaterType": "PROMPT_TEMPLATER_TYPE_CHATML",
+            "quotaInfo": {
+              "remainingFraction": 1
+            },
+            "requiresLeadInGeneration": true,
+            "supportsCumulativeContext": true,
+            "supportsEstimateTokenCounter": true,
+            "tabJumpPrintLineRange": true,
+            "tokenizerType": "QWEN2",
+            "toolFormatterType": "TOOL_FORMATTER_TYPE_XML"
+          }
+        },
+        {
+          "id": "gemini-3.1-flash-lite",
+          "data": {
+            "apiProvider": "API_PROVIDER_GOOGLE_GEMINI",
+            "displayName": "Gemini 3.1 Flash Lite",
+            "maxOutputTokens": 65535,
+            "maxTokens": 1048576,
+            "model": "MODEL_PLACEHOLDER_M50",
+            "modelProvider": "MODEL_PROVIDER_GOOGLE",
+            "quotaInfo": {
+              "remainingFraction": 1,
+              "resetTime": "2026-06-18T20:03:23Z"
+            },
+            "tokenizerType": "LLAMA_WITH_SPECIAL"
+          }
+        },
+        {
+          "id": "gemini-3.5-flash-extra-low",
+          "data": {
+            "apiProvider": "API_PROVIDER_GOOGLE_GEMINI",
+            "displayName": "Gemini 3.5 Flash (Low)",
+            "maxOutputTokens": 65536,
+            "maxTokens": 1048576,
+            "minThinkingBudget": 32,
+            "model": "MODEL_PLACEHOLDER_M187",
+            "modelProvider": "MODEL_PROVIDER_GOOGLE",
+            "quotaInfo": {
+              "remainingFraction": 1,
+              "resetTime": "2026-06-18T20:03:23Z"
+            },
+            "recommended": true,
+            "supportsImages": true,
+            "supportsThinking": true,
+            "supportsVideo": true,
+            "tagDescription": "Limited time",
+            "tagTitle": "Fast",
+            "thinkingBudget": 1000,
+            "tokenizerType": "LLAMA_WITH_SPECIAL"
+          }
+        }
+      ],
+      "removed": [],
+      "edited": []
+    }
+  },
+  {
+    "revision": "c71bd6a6",
+    "tracker": "AI Studio",
+    "subject": "Product changes",
+    "changes": {
+      "bucketedKeysChanged": true
+    }
+  },
+  {
+    "revision": "459132fc",
+    "tracker": "AI Studio",
+    "subject": "Product changes",
+    "changes": {
+      "bucketedKeysChanged": true
+    }
+  },
+  {
+    "revision": "625d7732",
+    "tracker": "AI Studio",
+    "subject": "Product changes",
+    "changes": {
+      "modelIds": {
+        "added": [
+          "models/gemini-4-neon"
+        ],
+        "removed": []
+      },
+      "notes": {
+        "added": [],
+        "removed": [
+          "Cartwheel uses Gemini 2.5 Pro Preview to develop advanced animation algorithms and optimize its platform, empowering creators with intuitive, natural language-driven character animation.",
+          "Comparison of code review metrics across OpenAI GPT-4, Gemini 1.5 Pro, and Gemini 1.5 Experimental.",
+          "Harvey uses its BigLaw Bench to demonstrate Gemini 2.5 Pro Preview's exceptional ability to handle complex legal reasoning tasks like due diligence and litigation drafting.",
+          "Promise Studios leverages Gemini 2.5 Pro Preview and Veo 2 to transform filmmaking, enabling deep script analysis, AI-assisted storyboarding, and context-aware visual treatments.",
+          "Spline integrates Gemini 2.5 Pro Preview with its Hana editor, empowering users to generate entire interactive 2D and 3D experiences from simple text prompts.",
+          "Toonsutra brings comics to life: an immersive reading experience powered by the Gemini API, Gemini 2.5 Pro Preview & Lyria 2",
+          "Toonsutra uses Gemini 2.5 Pro Preview to power an immersive comic reading experience with adaptive AI narration, dynamic soundscapes, and enhanced interactivity.",
+          "User interface of VSTUDIO, a video editor on the fal.ai platform, showing an olive grove video preview. A left panel displays a gallery of assets, and below the preview is a multi-track timeline with video, audio, and voiceover clips."
+        ]
+      },
+      "build": {
+        "from": "boq_alkali-makersuite_20261123.09_p0",
+        "to": "boq_alkali-makersuite_20261124.02_p0"
+      }
+    }
+  },
+  {
+    "revision": "cc273dc2",
+    "tracker": "AI Studio",
+    "subject": "Product changes",
+    "changes": {
+      "build": {
+        "from": "boq_alkali-makersuite_20261120.10_p1",
+        "to": "boq_alkali-makersuite_20261123.09_p0"
+      }
+    }
+  },
+  {
+    "revision": "a2578fa5",
+    "tracker": "Android app strings",
+    "subject": "DeepSeek (com.deepseek.chat)",
+    "changes": "--- Previous\n\n+++ Current\n\n@@ -176,0 +177 @@\n\n+    <string name=\"copy_download_link\">Copy download link</string>\n@@ -215,0 +217,7 @@\n\n+    <string name=\"export_all_button\">Export</string>\n+    <string name=\"export_all_desc\">This data includes your account information and all chat history. Exporting may take some time. The download link will be valid for 7 days.</string>\n+    <string name=\"export_all_expiry_notice_desc\">Exported on %1$s, expires on %2$s. Re-exporting will update the download link. Paste the link into your browser to begin the download.</string>\n+    <string name=\"export_all_failed\">Export failed. Please retry later.</string>\n+    <string name=\"export_all_label\">Export data</string>\n+    <string name=\"export_all_rate_limit\">Exporting too frequently. Please try again later.</string>\n+    <string name=\"export_all_reexport_btn\">Re-export</string>\n@@ -743,0 +752 @@\n\n+    <string name=\"usage_limit_reached\">Usage limit reached. Please try again when your limit resets.</string>"
+  },
+  {
+    "revision": "c511b43f",
+    "tracker": "Android app strings",
+    "subject": "Gemini (com.google.android.apps.bard)",
+    "changes": "--- Previous\n\n+++ Current\n\n@@ -22,0 +23 @@\n\n+    <string name=\"add_to_chat_share_target_label\">Add to Chat</string>\n@@ -24,0 +26 @@\n\n+    <string name=\"asset_statements\">[{ \\\"relation\\\": [\\\"delegate_permission/common.handle_all_urls\\\"], \\\"target\\\": { \\\"namespace\\\": \\\"web\\\", \\\"site\\\": \\\"https://gemini.google.com\\\" } }, { \\\"relation\\\": [\\\"delegate_permission/common.handle_all_urls\\\"], \\\"target\\\": { \\\"namespace\\\": \\\"web\\\", \\\"site\\\": \\\"https://gemini-autopush.corp.google.com\\\" } }, { \\\"relation\\\": [\\\"delegate_permission/common.handle_all_urls\\\"], \\\"target\\\": { \\\"namespace\\\": \\\"web\\\", \\\"site\\\": \\\"https://gemini-staging.corp.google.com\\\" } }, { \\\"relation\\\": [\\\"delegate_permission/common.handle_all_urls\\\"], \\\"target\\\": { \\\"namespace\\\": \\\"web\\\", \\\"site\\\": \\\"https://gemini-preprod.corp.google.com\\\" } }]</string>\n@@ -75 +77,2 @@\n\n-    <string name=\"remember_this_share_target_label\">Remember this with Gemini</string>\n+    <string name=\"remember_this_share_target_label\">Remember with Gemini</string>\n+    <string name=\"remember_this_share_target_query\">\\@remember Remember this for me</string>"
+  },
+  {
+    "revision": "7434c522",
+    "tracker": "Android app strings",
+    "subject": "Grok (ai.x.grok)",
+    "changes": "--- Previous\n\n+++ Current\n\n@@ -100 +100 @@\n\n@@ -104 +104 @@\n\n-  revision: \\\"c7ffaa88c648277d985b050bd5302e0717192fae\\\"\n+  revision: \\\"da78ee6ee29088829a628edca713b54aa496fcdc\\\"\n@@ -173,0 +174 @@\n\n+    <string name=\"edit\">Edit</string>\n@@ -780 +781 @@\n\n-    <string name=\"grok_bots_app_publish_access_private\">Private</string>\n+    <string name=\"grok_bots_app_publish_access_private\">Private to you</string>\n@@ -782,3 +783,2 @@\n\n-    <string name=\"grok_bots_app_publish_access_team\">Team</string>\n-    <string name=\"grok_bots_app_publish_access_team_description\">Anyone on your team</string>\n-    <string name=\"grok_bots_app_publish_access_team_named_description\">Anyone on {team}</string>\n+    <string name=\"grok_bots_app_publish_access_team\">Your team</string>\n+    <string name=\"grok_bots_app_publish_access_team_named\">Everyone at {team}</string>\n@@ -789 +789 @@\n\n-    <string name=\"grok_bots_app_publish_auto_applied_note\">Applied without asking: your settings let updates ship on their own</string>\n+    <string name=\"grok_bots_app_publish_auto_applied_note\">Updated automatically</string>\n@@ -804,0 +805,3 @@\n\n+    <string name=\"grok_bots_app_publish_heading_live\">{name} is live</string>\n+    <string name=\"grok_bots_app_publish_heading_publish\">Publish {name}</string>\n+    <string name=\"grok_bots_app_publish_heading_republish\">Republish {name}</string>\n@@ -815 +817,0 @@\n\n-    <string name=\"grok_bots_app_publish_preview\">Preview</string>\n@@ -849 +851 @@\n\n-    <string name=\"grok_bots_app_publish_unpublish_body\">The app goes offline for everyone, and its link stops working. You can publish it again later.</string>\n+    <string name=\"grok_bots_app_publish_unpublish_offline_at\">The app goes offline at {host}. Its secrets stay bound and come back with the next publish.</string>\n@@ -856 +857,0 @@\n\n-    <string name=\"grok_bots_app_publish_update_title\">Update {slug}?</string>\n@@ -860 +861 @@\n\n-    <string name=\"grok_bots_app_publish_view\">View</string>\n+    <string name=\"grok_bots_app_publish_view\">View Agent</string>\n@@ -862 +862,0 @@\n\n-    <string name=\"grok_bots_app_publish_visibility_public\">Public</string>\n@@ -1082,0 +1083,5 @@\n\n+    <string name=\"grok_bots_car_rental_detail_book\">Book</string>\n+    <string name=\"grok_bots_car_rental_detail_book_prompt\">Book this rental, {stay}</string>\n+    <string name=\"grok_bots_car_rental_detail_book_shown\">Book the {car} from {company}, {stay}</string>\n+    <string name=\"grok_bots_car_rental_detail_book_shown_class\">Book the {car_class} from {company}, {stay}</string>\n+    <string name=\"grok_bots_car_rental_detail_book_stay\">{pick_up} – {drop_off}, {total} total</string>\n@@ -1178,0 +1184 @@\n\n+    <string name=\"grok_bots_car_rentals_radius_miles\">{distance} mi</string>\n@@ -1224 +1230 @@\n\n-    <string name=\"grok_bots_cart_checkout_failed\">Failed</string>\n+    <string name=\"grok_bots_cart_checkout_failed\">Failed, try again</string>\n@@ -1226 +1231,0 @@\n\n-    <string name=\"grok_bots_cart_checkout_skipped\">Not checked out</string>\n@@ -1227,0 +1233 @@\n\n+    <string name=\"grok_bots_cart_clear\">Clear cart</string>\n@@ -1306,3 +1312,3 @@\n\n-    <string name=\"grok_bots_computer_force_update_confirm\">Stop and Update</string>\n-    <string name=\"grok_bots_computer_force_update_title\">Stop Bots and Update?</string>\n-    <string name=\"grok_bots_computer_recover\">Recover Computer</string>\n+    <string name=\"grok_bots_computer_force_update_confirm\">Stop and update</string>\n+    <string name=\"grok_bots_computer_force_update_title\">Stop Bots and update?</string>\n+    <string name=\"grok_bots_computer_recover\">Recover computer</string>\n@@ -1316 +1322 @@\n\n-    <string name=\"grok_bots_computer_reset\">Reset Computer</string>\n+    <string name=\"grok_bots_computer_reset\">Reset computer</string>\n@@ -1329,3 +1335,3 @@\n\n-    <string name=\"grok_bots_computer_retry_recover\">Retry Recovery</string>\n-    <string name=\"grok_bots_computer_retry_reset\">Retry Reset</string>\n-    <string name=\"grok_bots_computer_retry_update\">Retry Update</string>\n+    <string name=\"grok_bots_computer_retry_recover\">Retry recovery</string>\n+    <string name=\"grok_bots_computer_retry_reset\">Retry reset</string>\n+    <string name=\"grok_bots_computer_retry_update\">Retry update</string>\n@@ -1333 +1339 @@\n\n-    <string name=\"grok_bots_computer_title\">Bot Computer</string>\n+    <string name=\"grok_bots_computer_title\">Bot computer</string>\n@@ -1335 +1341 @@\n\n-    <string name=\"grok_bots_computer_update\">Update Computer</string>\n+    <string name=\"grok_bots_computer_update\">Update computer</string>\n@@ -1510,0 +1517 @@\n\n+    <string name=\"grok_bots_configure_slack_outcome_rejected_unavailable\">\"Nothing's wrong on your side — Slack is having trouble right now. Try again in a few minutes.\"</string>\n@@ -1558 +1565 @@\n\n-    <string name=\"grok_bots_connect_card_blocked\">Disabled by team admin</string>\n+    <string name=\"grok_bots_connect_card_blocked\">Blocked by team admin</string>\n@@ -1797 +1804 @@\n\n-    <string name=\"grok_bots_device_remove\">Remove Computer</string>\n+    <string name=\"grok_bots_device_remove\">Remove computer</string>\n@@ -2017,0 +2025 @@\n\n+    <string name=\"grok_bots_flight_detail_book_on\">Book on {airline}</string>\n@@ -2035,0 +2044 @@\n\n+    <string name=\"grok_bots_flight_detail_price_may_have_changed\">Price may have changed</string>\n@@ -2086,0 +2096 @@\n\n+    <string name=\"grok_bots_flights_back\">Back</string>\n@@ -2088,0 +2099 @@\n\n+    <string name=\"grok_bots_flights_book_flights\">Book flights</string>\n@@ -2094,0 +2106,7 @@\n\n+    <string name=\"grok_bots_flights_chip_any_stops\">Any stops</string>\n+    <string name=\"grok_bots_flights_chip_cheapest\">Cheapest</string>\n+    <string name=\"grok_bots_flights_chip_from\">From {origin}</string>\n+    <string name=\"grok_bots_flights_chip_other_airports\">Other airports</string>\n+    <string name=\"grok_bots_flights_chip_recommended\">Recommended</string>\n+    <string name=\"grok_bots_flights_chip_to\">To {destination}</string>\n+    <string name=\"grok_bots_flights_choose_returning_flight\">Choose returning flight</string>\n@@ -2096,3 +2113,0 @@\n\n-    <string name=\"grok_bots_flights_label_best\">Best</string>\n-    <string name=\"grok_bots_flights_label_cheapest\">Cheapest</string>\n-    <string name=\"grok_bots_flights_label_fastest\">Fastest</string>\n@@ -2100 +2114,0 @@\n\n-    <string name=\"grok_bots_flights_more_flights_prompt\">Show me more flights</string>\n@@ -2116,0 +2131 @@\n\n+    <string name=\"grok_bots_flights_searches\">Searches</string>\n@@ -2137,0 +2153 @@\n\n+    <string name=\"grok_bots_hotel_detail_change_dates\">Change dates</string>\n@@ -2159,0 +2176,3 @@\n\n+    <string name=\"grok_bots_hotel_detail_not_available\">Not available for {dates}</string>\n+    <string name=\"grok_bots_hotel_detail_other_dates_prompt\">No rooms are left for {dates} at the hotel with ref {hotel_ref}. Ask me which other dates to check there.</string>\n+    <string name=\"grok_bots_hotel_detail_other_dates_shown\">Other dates at {hotel}</string>\n@@ -2163,0 +2183 @@\n\n+    <string name=\"grok_bots_hotel_detail_reviews\">Reviews</string>\n@@ -2184,0 +2205 @@\n\n+    <string name=\"grok_bots_hotels_radius_miles\">{distance} mi</string>\n@@ -2195,0 +2217 @@\n\n+    <string name=\"grok_bots_hotels_sold_out\">Not available</string>\n@@ -2244,0 +2267,4 @@\n\n+    <string name=\"grok_bots_link_order_approval_confirm\">Confirm in Link</string>\n+    <string name=\"grok_bots_link_order_approval_instruction_amount\">Confirm the {amount} payment in Link. Grok Bot continues as soon as you do.</string>\n+    <string name=\"grok_bots_link_order_approval_instruction_amount_merchant\">Confirm the {amount} payment for {merchant} in Link. Grok Bot continues as soon as you do.</string>\n+    <string name=\"grok_bots_link_order_approval_open_failed\">\"Couldn't open Link. Try again.\"</string>\n@@ -2357 +2383 @@\n\n-    <string name=\"grok_bots_mcp_status_detail_disabled_by_team_admin\">Disabled by team admin</string>\n+    <string name=\"grok_bots_mcp_status_detail_disabled_by_team_admin\">Blocked by team admin</string>\n@@ -2361 +2387 @@\n\n-    <string name=\"grok_bots_mcp_status_detail_not_reported_by_backend\">Backend did not report a status</string>\n+    <string name=\"grok_bots_mcp_status_detail_not_reported_by_backend\">\"Grok's servers did not report a status\"</string>\n@@ -2364 +2390 @@\n\n-    <string name=\"grok_bots_mcp_status_disabled_by_team_admin\">Disabled by team admin</string>\n+    <string name=\"grok_bots_mcp_status_disabled_by_team_admin\">Blocked by team admin</string>\n@@ -2558,0 +2585 @@\n\n+    <string name=\"grok_bots_order_manage_addresses\">Manage Addresses</string>\n@@ -2560 +2587 @@\n\n-    <string name=\"grok_bots_order_manage_contact_info\">Manage Contact Info</string>\n+    <string name=\"grok_bots_order_new_address\">New Address</string>\n@@ -2562 +2588,0 @@\n\n-    <string name=\"grok_bots_order_new_contact_info\">New Contact Info</string>\n@@ -2636 +2662 @@\n\n-    <string name=\"grok_bots_page_share_private\">Only you</string>\n+    <string name=\"grok_bots_page_share_private\">Private to you</string>\n@@ -2653 +2679 @@\n\n-    <string name=\"grok_bots_page_share_who_can_view\">Who can view</string>\n+    <string name=\"grok_bots_page_share_who_can_view\">Who can access</string>\n@@ -2683 +2709 @@\n\n-    <string name=\"grok_bots_phone_call_copy_conversation_id\">Copy Conversation ID</string>\n+    <string name=\"grok_bots_phone_call_copy_conversation_id\">Copy Call ID</string>\n@@ -2892,0 +2919 @@\n\n+    <string name=\"grok_bots_profile_appearance_section\">Appearance</string>\n@@ -2895,0 +2923 @@\n\n+    <string name=\"grok_bots_profile_avatar_row\">Avatar</string>\n@@ -2974,0 +3003 @@\n\n+    <string name=\"grok_bots_profile_name_section\">Name</string>\n@@ -3101,4 +3130,11 @@\n\n-    <string name=\"grok_bots_resources_no_connectors\">No connectors yet</string>\n-    <string name=\"grok_bots_resources_no_files\">No files yet</string>\n-    <string name=\"grok_bots_resources_no_skills\">No skills yet</string>\n-    <string name=\"grok_bots_resources_no_vault_logins\">No vault logins yet</string>"
+  },
+  {
+    "revision": "c8a32eb7",
+    "tracker": "Android app strings",
+    "subject": "Claude (com.anthropic.claude)",
+    "changes": "--- Previous\n\n+++ Current\n\n@@ -8,0 +9 @@\n\n+    <string name=\"memory_reset_unconfirmed_message\">Some memories may not have been deleted.</string>\n@@ -58,0 +60,64 @@\n\n+    <string name=\"thread_move_already_in_project\">Already in %1$s</string>\n+    <string name=\"thread_move_chat_confirm_button\">Move chat</string>\n+    <string name=\"thread_move_chat_confirm_message\">It will no longer appear in your chats. This can’t be undone.</string>\n+    <string name=\"thread_move_chat_confirm_title\">Move this chat to %1$s?</string>\n+    <string name=\"thread_move_chat_failed\">Couldn’t move this chat. Try again.</string>\n+    <string name=\"thread_move_chat_failed_already_moved\">This chat was already moved into another project.</string>\n+    <string name=\"thread_move_chat_failed_daily_limit\">You’ve reached today’s limit for moving chats. Try again tomorrow.</string>\n+    <string name=\"thread_move_chat_failed_not_found\">Couldn’t find that chat.</string>\n+    <string name=\"thread_move_chat_failed_unsure\">The move may not have finished. If this chat is still in your chats, try again.</string>\n+    <string name=\"thread_move_chat_failed_unsure_new_project\">The move may not have finished. If this chat is still in your chats, move it to %1$s.</string>\n+    <string name=\"thread_move_chat_moved_in_part\">Some of this chat didn’t move to %1$s. The original is still in your chats.</string>\n+    <string name=\"thread_move_chat_new_project_message\">This chat will move into the project and no longer appear in your chats. This can’t be undone.</string>\n+    <string name=\"thread_move_chat_new_project_title\">Start a project with this chat</string>\n+    <string name=\"thread_move_chat_refused_busy\">This chat can’t be moved while Claude is working on it.</string>\n+    <string name=\"thread_move_chat_refused_empty\">Send a message first, then move this chat.</string>\n+    <string name=\"thread_move_chat_refused_other\">This chat can’t be moved to a project.</string>\n+    <string name=\"thread_move_chat_refused_project_kind\">Chats can’t be moved into this project yet.</string>\n+    <string name=\"thread_move_chat_refused_shared_project\">This project is shared. Chats can only move into private projects for now.</string>\n+    <string name=\"thread_move_chat_refused_shared_with_people\">This chat is shared with other people, so it can’t be moved yet.</string>\n+    <string name=\"thread_move_chat_refused_sign_in\">Sign in again to move this chat.</string>\n+    <string name=\"thread_move_chat_refused_too_long\">This chat is too long to move.</string>\n+    <string name=\"thread_move_chat_refused_trusted_devices\">This chat requires trusted devices. Choose a project that does too.</string>\n+    <string name=\"thread_move_chat_setup_request\">I moved a chat into this new project as its first thread. Read that thread, then propose a project setup: concise project instructions drawn from it, and one or two optional scheduled tasks. Show me the proposal before changing anything.</string>\n+    <string name=\"thread_move_chat_share_still_on\">The chat you moved may still be shared. Turn it off in Settings → Sharing → Shared links.</string>\n+    <string name=\"thread_move_chat_sign_in_title\">Sign in again to move this chat</string>\n+    <string name=\"thread_move_failed_open_project\">Open %1$s once, then try again.</string>\n+    <string name=\"thread_move_failed_project_gone\">That project is no longer available.</string>\n+    <string name=\"thread_move_note_late_messages\">Anything you send before the move finishes may be left out</string>\n+    <string name=\"thread_move_note_latest_versions\">Only the latest version of each message and artifact will move</string>\n+    <string name=\"thread_move_note_no_longer_shared\">This chat will no longer be shared</string>\n+    <string name=\"thread_move_note_recent_files\">Only your most recent 200 files will move</string>\n+    <string name=\"thread_move_note_session_messages\">Only messages will move. Tool activity, attachments, and unpushed changes stay in the archived session.</string>\n+    <string name=\"thread_move_note_unpinned\">It will be unpinned</string>\n+    <string name=\"thread_move_open_thread\">Open thread</string>\n+    <string name=\"thread_move_project_name\">Project name</string>\n+    <string name=\"thread_move_refused_incognito\">Incognito chats can’t be moved.</string>\n+    <string name=\"thread_move_refused_project_paused\">This project is paused.</string>\n+    <string name=\"thread_move_session_confirm_button\">Move session</string>\n+    <string name=\"thread_move_session_confirm_message\">The conversation will continue in the project, and this session will be archived.</string>\n+    <string name=\"thread_move_session_confirm_title\">Move this session to %1$s?</string>\n+    <string name=\"thread_move_session_failed\">Couldn’t move this session. Try again.</string>\n+    <string name=\"thread_move_session_failed_already_moved\">This session was already moved into another project.</string>\n+    <string name=\"thread_move_session_failed_daily_limit\">You’ve reached today’s limit for moving sessions. Try again tomorrow.</string>\n+    <string name=\"thread_move_session_failed_not_found\">Couldn’t find that session.</string>\n+    <string name=\"thread_move_session_failed_unsure\">The move may not have finished. If this session is still in your sessions, try again.</string>\n+    <string name=\"thread_move_session_failed_unsure_new_project\">The move may not have finished. If this session is still in your sessions, move it to %1$s.</string>\n+    <string name=\"thread_move_session_moved\">Moved to %1$s</string>\n+    <string name=\"thread_move_session_moved_in_part\">Some of this session didn’t move to %1$s. The original is still in your sessions.</string>\n+    <string name=\"thread_move_session_new_project_title\">Start a project with this session</string>\n+    <string name=\"thread_move_session_refused_busy\">This session can’t be moved while Claude is working on it.</string>\n+    <string name=\"thread_move_session_refused_empty\">Send a message first, then move this session.</string>\n+    <string name=\"thread_move_session_refused_other\">This session can’t be moved to a project.</string>\n+    <string name=\"thread_move_session_refused_project_kind\">Sessions can’t be moved into this project yet.</string>\n+    <string name=\"thread_move_session_refused_shared_project\">This project is shared. Sessions can only move into private projects for now.</string>\n+    <string name=\"thread_move_session_refused_shared_with_people\">This session is shared with other people, so it can’t be moved yet.</string>\n+    <string name=\"thread_move_session_refused_sign_in\">Sign in again to move this session.</string>\n+    <string name=\"thread_move_session_refused_too_long\">This session is too long to move.</string>\n+    <string name=\"thread_move_session_refused_trusted_devices\">This session requires trusted devices. Choose a project that does too.</string>\n+    <string name=\"thread_move_session_setup_request\">I moved a session into this new project as its first thread. Read that thread, then propose a project setup: concise project instructions drawn from it, and one or two optional scheduled tasks. Show me the proposal before changing anything.</string>\n+    <string name=\"thread_move_session_sign_in_title\">Sign in again to move this session</string>\n+    <string name=\"thread_move_sign_in_again\">Sign in again</string>\n+    <string name=\"thread_move_start_project\">Start project</string>\n+    <string name=\"thread_move_title\">Move to project</string>\n+    <string name=\"thread_move_what_to_know\">What to know</string>\n@@ -83,0 +149 @@\n\n+    <string name=\"@auto\">\": \"</string>\n@@ -189,0 +256 @@\n\n+    <string name=\"@auto\">%1$s Any copies you made as new artifacts stay, and each copy’s own link keeps working.</string>\n@@ -191 +258 @@\n\n-    <string name=\"@auto\">%1$s This link still works, but new versions aren’t shared.</string>\n+    <string name=\"@auto\">%1$s This session can’t go on, so start a new one when you’re ready.</string>\n@@ -215,0 +283 @@\n\n+    <string name=\"@auto\">%1$s effort</string>\n@@ -300,0 +369 @@\n\n+    <string name=\"@auto\">%1$s ·</string>\n@@ -304,0 +374 @@\n\n+    <string name=\"@auto\">%1$s%2$d to %1$s%3$d</string>\n@@ -312,0 +383,2 @@\n\n+    <string name=\"@auto\">%1$s, %2$s, high %3$s, %4$s</string>\n+    <string name=\"@auto\">%1$s, %2$s, high %3$s</string>\n@@ -322,0 +395 @@\n\n+    <string name=\"@auto\">%1$s, approaching limit</string>\n@@ -401,0 +475 @@\n\n+    <string name=\"@auto\"><annotation link=\"fix\">Connect GitHub</annotation> to select repositories.</string>\n@@ -405,0 +480 @@\n\n+    <string name=\"@auto\"><b>Another dictation is still recording.</b> Try again when it ends.</string>\n@@ -486,0 +562 @@\n\n+    <string name=\"@auto\">About these sources</string>\n@@ -533,0 +610,2 @@\n\n+    <string name=\"@auto\">Add a passkey in Claude on the web to save logins privately.</string>\n+    <string name=\"@auto\">Add a passkey</string>\n@@ -557,0 +636 @@\n\n+    <string name=\"@auto\">Add on the web</string>\n@@ -567 +645,0 @@\n\n-    <string name=\"@auto\">Add shortcut</string>\n@@ -633 +711 @@\n\n-    <string name=\"@auto\">Allow Claude to generate interactive visualizations, charts, and diagrams directly in the conversation.</string>\n+    <string name=\"@auto\">Allow Claude to generate interactive visualizations, charts, and diagrams in its responses.</string>\n@@ -645,0 +724 @@\n\n+    <string name=\"@auto\">Allow during this call</string>\n@@ -697,0 +777 @@\n\n+    <string name=\"@auto\">An image of the place</string>\n@@ -705,0 +786 @@\n\n+    <string name=\"@auto\">Annotations</string>\n@@ -729,0 +811,2 @@\n\n+    <string name=\"@auto\">Anyone with an @%1$s email address can request to join these teams.</string>\n+    <string name=\"@auto\">Anyone with an @%1$s email address can request to join this team.</string>\n@@ -777 +859,0 @@\n\n-    <string name=\"@auto\">Are you sure you want to log out?</string>\n@@ -786,0 +869 @@\n\n+    <string name=\"@auto\">Artifact took too long to load</string>\n@@ -793 +875,0 @@\n"
+  }
+]
