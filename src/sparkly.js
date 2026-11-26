@@ -137,16 +137,13 @@ export async function reviewForSparkly({ tracker, subject, changes }) {
     const summary = verdict.summary.trim();
     if (!summary) return false;
     if (!Array.isArray(verdict.evidence)) throw new Error('Missing supporting changes');
-    const changedLines = tracker === 'Android app strings'
-      ? suppliedEvidence.split('\n').filter(line => /^[+-](?![+-])/.test(line))
-      : null;
-    const excerpts = [...new Set(verdict.evidence)]
-      .filter(line => typeof line === 'string' && line.length >= 5 && line.length <= 350
-        && !/[\r\n]/.test(line) && (changedLines
-          ? /^[+-]/.test(line) && changedLines.some(change => change.startsWith(line))
-          : suppliedEvidence.includes(line)))
-      .slice(0, 3);
-    if (!excerpts.length) throw new Error('No verifiable supporting changes');
+    const excerpts = verdict.evidence
+      .filter(excerpt => typeof excerpt === 'string')
+      .map(excerpt => excerpt.trim())
+      .filter(Boolean)
+      .slice(0, 3)
+      .map(excerpt => excerpt.length > 350 ? `${excerpt.slice(0, 349)}…` : excerpt);
+    if (!excerpts.length) throw new Error('Missing supporting changes');
 
     const webhookUrl = new URL(webhook);
     webhookUrl.searchParams.set('with_components', 'true');
