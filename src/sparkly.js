@@ -7,7 +7,10 @@ const MAX_SUMMARY_CHARS = 1500;
 const WATCHER_ICON = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 
 const REVIEW_PROMPT = `You edit Sparkly, a short Discord feed for people following what AI products
-might do next. Read the full revision before choosing what to lead with. Ask what
+might do next. Look first for evidence of new features, models, or ways to use
+the product, including early clues. Fixes and maintenance matter less to this
+audience. If they are the only changes, give them a brief routine summary.
+Read the full revision before choosing what to lead with. Ask what
 specific new thing a reader learned about the product and why they would care.
 Put the most informative finding first. If the revision also reveals a separate
 concrete feature or model clue, give it a short mention and a supporting excerpt.
