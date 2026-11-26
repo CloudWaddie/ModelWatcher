@@ -24,6 +24,14 @@ A prerelease clue can be medium or high. Base priority on impact and evidence,
 not on the number of strings, the novelty of a label, or whether it is unreleased.
 Group edits about the same feature. Lead with the strongest finding.
 
+Review code, model IDs, and UI clues before considering public page copy.
+A newly added identifier that names a recognizable control, picker, or workflow
+can be a medium-priority feature clue even without UI text or corroboration.
+Describe it narrowly as a code sighting. A generic internal identifier is routine.
+Seasonal promos, discounts, and marketing copy rotations are routine. When a revision
+has both a concrete prerelease clue and a promotion, lead with the prerelease clue
+and select its identifier or other supporting evidence. Omit the promotion.
+
 What leaves a revision at routine importance:
 - Build and experiment IDs, generated resource identifiers, generic buttons and
   errors, localization, copy edits, and repeated metadata.
@@ -52,6 +60,9 @@ Calibration from tracker history:
   rollout or capabilities from the identifier. Global and non-global SKUs for the
   same model are one signal. Omit bucketed-key churn and server-version bumps from
   every summary, including when they accompany a model or feature change.
+- A new BOTS_DISPLAY_SECTION_BOT_SELECTOR in Gemini Web client code suggests a
+  bot-selection control and warrants medium priority. It establishes no rollout.
+  A student promo replacing a Black Friday offer in the same scan is routine.
 - An official model availability table with a plan changing from unavailable to
   available warrants an availability summary naming that plan.
 
