@@ -100,13 +100,15 @@ export function queueSparklyReview(review) {
   }
 }
 
-async function readCompletion(response) {
+async function readCompletion(response, trace) {
   if (response.headers.get('content-type')?.includes('application/json')) {
+    trace('reading JSON response');
     const result = await response.json();
     return result.choices?.[0]?.message?.content;
   }
   if (!response.body) throw new Error('Missing AI response body');
 
+  trace('reading event stream');
   let buffer = '';
   let content = '';
   let finished = false;
@@ -120,21 +122,30 @@ async function readCompletion(response) {
         .map(line => line.slice(5).trimStart())
         .join('\n');
       if (!data) continue;
-      if (data === '[DONE]') return content;
+      if (data === '[DONE]') {
+        trace('stream received end marker');
+        return content;
+      }
 
       const update = JSON.parse(data);
       if (update.error) throw new Error('AI stream returned an error');
       const choice = update.choices?.find(item => item.index === 0) ?? update.choices?.[0];
       if (typeof choice?.delta?.content === 'string') content += choice.delta.content;
+      if (choice?.finish_reason) {
+        const reason = ['stop', 'length', 'tool_calls', 'content_filter'].includes(choice.finish_reason)
+          ? choice.finish_reason : 'other';
+        trace(`stream finish reason: ${reason}`);
+      }
       if (choice?.finish_reason === 'stop') finished = true;
       else if (choice?.finish_reason) throw new Error('AI completion ended early');
     }
   }
+  trace(`stream closed, finish received: ${finished}, output chars: ${content.length}`);
   if (!finished) throw new Error('AI stream ended without completion');
   return content;
 }
 
-export async function analyzeSparklyReview({ tracker, subject, changes }) {
+export async function analyzeSparklyReview({ tracker, subject, changes }, trace = () => {}) {
   let reviewChanges = changes;
   if (tracker === 'AI Studio' && changes && typeof changes === 'object' && !Array.isArray(changes)) {
     const { bucketedKeysChanged, build, ...productChanges } = changes;
@@ -153,6 +164,8 @@ export async function analyzeSparklyReview({ tracker, subject, changes }) {
 
   const evidence = typeof reviewChanges === 'string' ? reviewChanges : JSON.stringify(reviewChanges);
   const suppliedEvidence = evidence.slice(0, MAX_EVIDENCE_CHARS);
+  const started = Date.now();
+  trace(`requesting streaming review, evidence chars: ${suppliedEvidence.length}`);
   const response = await fetch(`${baseUrl.replace(/\/+$/, '')}/chat/completions`, {
     method: 'POST',
     redirect: 'error',
@@ -175,14 +188,17 @@ export async function analyzeSparklyReview({ tracker, subject, changes }) {
       ]
     })
   });
+  trace(`AI HTTP ${response.status} after ${Date.now() - started} ms`);
   if (!response.ok) throw new Error(`AI HTTP ${response.status}`);
 
-  const content = (await readCompletion(response))?.trim();
+  const content = (await readCompletion(response, trace))?.trim();
+  trace(`validating model output, chars: ${content?.length ?? 0}`);
   const verdict = JSON.parse(content?.replace(/^```(?:json)?\s*([\s\S]*?)\s*```$/i, '$1'));
   if (typeof verdict?.priority !== 'string' || !Object.hasOwn(PRIORITY_STYLES, verdict.priority) || typeof verdict.summary !== 'string'
       || !verdict.summary.trim() || !Array.isArray(verdict.evidence)) {
     throw new Error('Invalid Sparkly response');
   }
+  trace(`validated model verdict: ${verdict.priority}`);
   const summary = verdict.summary.trim();
   const excerpts = verdict.evidence
     .filter(excerpt => typeof excerpt === 'string')

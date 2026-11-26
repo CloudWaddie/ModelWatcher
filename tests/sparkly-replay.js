@@ -12,7 +12,9 @@ let skipped = 0;
 
 for (const fixture of cases) {
   try {
-    const verdict = await analyzeSparklyReview(fixture);
+    const verdict = await analyzeSparklyReview(fixture, message => {
+      console.log(`[Sparkly ${fixture.revision}] ${message}`);
+    });
     if (!verdict) {
       skipped++;
       console.log(JSON.stringify({ revision: fixture.revision, tracker: fixture.tracker, skipped: true }));
@@ -20,9 +22,10 @@ for (const fixture of cases) {
     }
     priorities[verdict.priority]++;
     console.log(JSON.stringify({ revision: fixture.revision, tracker: fixture.tracker, ...verdict }));
-  } catch {
+  } catch (error) {
     failures++;
-    console.error(`Sparkly review failed for ${fixture.tracker} at ${fixture.revision}`);
+    const type = ['TimeoutError', 'SyntaxError', 'TypeError'].includes(error?.name) ? error.name : 'Error';
+    console.error(`Sparkly review failed for ${fixture.tracker} at ${fixture.revision} (${type})`);
   }
 }
 
