@@ -149,7 +149,7 @@ export async function analyzeSparklyReview({ tracker, subject, changes }) {
   const response = await fetch(`${baseUrl.replace(/\/+$/, '')}/chat/completions`, {
     method: 'POST',
     redirect: 'error',
-    signal: AbortSignal.timeout(25000),
+    signal: AbortSignal.timeout(60000),
     headers: {
       Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json'
@@ -191,9 +191,17 @@ export async function reviewForSparkly(review) {
   const webhook = process.env.SPARKLY_WEBHOOK;
   if (!process.env.SPARKLY_DATA || !webhook) return false;
 
+  let verdict;
   try {
-    const verdict = await analyzeSparklyReview(review);
-    if (!verdict) return false;
+    verdict = await analyzeSparklyReview(review);
+  } catch (error) {
+    const reason = error?.name === 'TimeoutError' ? 'timed out' : 'failed';
+    console.warn(`[Sparkly] ${review.tracker} AI review ${reason}`);
+    return false;
+  }
+  if (!verdict) return false;
+
+  try {
     const webhookUrl = new URL(webhook);
     webhookUrl.searchParams.set('with_components', 'true');
     const discord = await fetch(webhookUrl, {
@@ -207,7 +215,7 @@ export async function reviewForSparkly(review) {
     return true;
   } catch {
     // Request errors can contain credentials or raw tracker data.
-    console.warn(`[Sparkly] ${review.tracker} review or delivery failed`);
+    console.warn(`[Sparkly] ${review.tracker} Discord delivery failed`);
     return false;
   }
 }
