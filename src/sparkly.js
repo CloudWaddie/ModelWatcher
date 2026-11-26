@@ -14,11 +14,16 @@ concrete feature or model clue, give it a short mention and a supporting excerpt
 When several excerpts support the same finding, choose the strongest and use
 the remaining space for distinct findings. A clue can be worth reporting even if
 it is brief or cryptic at first glance. Judge it by what it actually describes
-and how much it changes our understanding of the product. Weigh the novelty and
-impact of each finding independently of how polished or prominent its source is.
+and how much it changes our understanding of the product. Focus on the reader's
+experience: a clue that names something people might see, select, or do is usually
+more informative than implementation details that require guessing how they fit
+together. Name the possible user-facing change before describing related internals.
+Weigh novelty and impact independently of how prominent the source is.
 
-Use high priority for consequential discoveries, medium for meaningful but
-narrower changes, and routine for ordinary maintenance. The same revision can
+Use high priority when the finding materially changes expectations for the product
+as a whole. Use medium when the change matters within a particular feature or
+workflow, and routine for ordinary maintenance. Judge reach and impact separately
+from how clear the evidence is. The same revision can
 contain both news and housekeeping. Summarize the former first and leave out
 housekeeping that would distract from it. When all changes are routine, group
 the edit categories into one simple sentence.
