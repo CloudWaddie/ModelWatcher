@@ -127,6 +127,40 @@ export function queueSparklyReview(review) {
   }
 }
 
+async function readCompletion(response) {
+  if (response.headers.get('content-type')?.includes('application/json')) {
+    const result = await response.json();
+    return result.choices?.[0]?.message?.content;
+  }
+  if (!response.body) throw new Error('Missing AI response body');
+
+  let buffer = '';
+  let content = '';
+  let finished = false;
+  for await (const chunk of response.body.pipeThrough(new TextDecoderStream())) {
+    buffer += chunk;
+    const events = buffer.split(/\r?\n\r?\n/);
+    buffer = events.pop();
+    for (const event of events) {
+      const data = event.split(/\r?\n/)
+        .filter(line => line.startsWith('data:'))
+        .map(line => line.slice(5).trimStart())
+        .join('\n');
+      if (!data) continue;
+      if (data === '[DONE]') return content;
+
+      const update = JSON.parse(data);
+      if (update.error) throw new Error('AI stream returned an error');
+      const choice = update.choices?.find(item => item.index === 0) ?? update.choices?.[0];
+      if (typeof choice?.delta?.content === 'string') content += choice.delta.content;
+      if (choice?.finish_reason === 'stop') finished = true;
+      else if (choice?.finish_reason) throw new Error('AI completion ended early');
+    }
+  }
+  if (!finished) throw new Error('AI stream ended without completion');
+  return content;
+}
+
 export async function analyzeSparklyReview({ tracker, subject, changes }) {
   let reviewChanges = changes;
   if (tracker === 'AI Studio' && changes && typeof changes === 'object' && !Array.isArray(changes)) {
@@ -149,13 +183,15 @@ export async function analyzeSparklyReview({ tracker, subject, changes }) {
   const response = await fetch(`${baseUrl.replace(/\/+$/, '')}/chat/completions`, {
     method: 'POST',
     redirect: 'error',
-    signal: AbortSignal.timeout(60000),
+    signal: AbortSignal.timeout(120000),
     headers: {
       Authorization: `Bearer ${apiKey}`,
+      Accept: 'text/event-stream',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       model,
+      stream: true,
       messages: [
         { role: 'system', content: tracker === 'Android app strings'
           ? `${REVIEW_PROMPT}\n\n${ANDROID_REVIEW_GUIDANCE}`
@@ -170,8 +206,7 @@ export async function analyzeSparklyReview({ tracker, subject, changes }) {
   });
   if (!response.ok) throw new Error(`AI HTTP ${response.status}`);
 
-  const result = await response.json();
-  const content = result.choices?.[0]?.message?.content?.trim();
+  const content = (await readCompletion(response))?.trim();
   const verdict = JSON.parse(content?.replace(/^```(?:json)?\s*([\s\S]*?)\s*```$/i, '$1'));
   if (typeof verdict?.priority !== 'string' || !Object.hasOwn(PRIORITY_STYLES, verdict.priority) || typeof verdict.summary !== 'string'
       || !verdict.summary.trim() || !Array.isArray(verdict.evidence)) {

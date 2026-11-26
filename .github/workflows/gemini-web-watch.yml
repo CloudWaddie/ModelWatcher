@@ -13,6 +13,10 @@ on:
         description: Review ten historical tracker changes without sending Discord alerts
         type: boolean
         default: false
+      sparkly_replay_revision:
+        description: Optional captured revision to replay by itself
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -135,4 +139,5 @@ jobs:
       - name: Review historical fixtures
         env:
           SPARKLY_DATA: ${{ secrets.SPARKLY_DATA }}
+          SPARKLY_REPLAY_REVISION: ${{ inputs.sparkly_replay_revision }}
         run: node tests/sparkly-replay.js

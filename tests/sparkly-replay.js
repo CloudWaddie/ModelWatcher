@@ -1,7 +1,11 @@
 import { readFileSync } from 'node:fs';
 import { analyzeSparklyReview } from '../src/sparkly.js';
 
-const cases = JSON.parse(readFileSync(new URL('./fixtures/sparkly-history.json', import.meta.url), 'utf8'));
+const revision = process.env.SPARKLY_REPLAY_REVISION;
+const fixturePath = revision ? './fixtures/sparkly-captured.json' : './fixtures/sparkly-history.json';
+const fixtures = JSON.parse(readFileSync(new URL(fixturePath, import.meta.url), 'utf8'));
+const cases = revision ? fixtures.filter(fixture => fixture.revision === revision) : fixtures;
+if (!cases.length) throw new Error('No matching Sparkly replay fixture');
 let failures = 0;
 const priorities = { high: 0, medium: 0, routine: 0 };
 let skipped = 0;
