@@ -71,8 +71,8 @@ The workflow sends a clearly labeled synthetic review to Discord and skips the s
 and state commits. Enable `sparkly_replay` to run ten historical cases through the
 configured model and read its verdicts in the Actions log.
 
-Sparkly posts a brief summary for routine changes. Important findings use 🚨 by
-default. To use the server's custom emoji, set the Actions variable
+Sparkly uses 🚨 for high-priority findings, 🔎 for smaller feature changes, and ✨
+for routine summaries. To use the server's custom emoji, set the Actions variable
 `SPARKLY_ALERT_EMOJI` to `<:alert:YOUR_EMOJI_ID>`.
 
 ### Environment Variables

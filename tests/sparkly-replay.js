@@ -3,8 +3,7 @@ import { analyzeSparklyReview } from '../src/sparkly.js';
 
 const cases = JSON.parse(readFileSync(new URL('./fixtures/sparkly-history.json', import.meta.url), 'utf8'));
 let failures = 0;
-let important = 0;
-let routine = 0;
+const priorities = { high: 0, medium: 0, routine: 0 };
 let skipped = 0;
 
 for (const fixture of cases) {
@@ -15,8 +14,7 @@ for (const fixture of cases) {
       console.log(JSON.stringify({ revision: fixture.revision, tracker: fixture.tracker, skipped: true }));
       continue;
     }
-    if (verdict.important) important++;
-    else routine++;
+    priorities[verdict.priority]++;
     console.log(JSON.stringify({ revision: fixture.revision, tracker: fixture.tracker, ...verdict }));
   } catch {
     failures++;
@@ -24,5 +22,5 @@ for (const fixture of cases) {
   }
 }
 
-console.log(`Sparkly replay: ${cases.length} cases, ${important} important, ${routine} routine, ${skipped} skipped, ${failures} failed`);
+console.log(`Sparkly replay: ${cases.length} cases, ${priorities.high} high, ${priorities.medium} medium, ${priorities.routine} routine, ${skipped} skipped, ${failures} failed`);
 if (failures) process.exitCode = 1;
