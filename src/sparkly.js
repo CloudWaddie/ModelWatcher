@@ -52,10 +52,12 @@ Return only JSON with priority, headline, source, summary, findings, and evidenc
 Priority is high, medium, or routine. Give news a short headline naming the discovery
 and product. Signal uncertainty in the headline when the feature is only a clue.
 Source is app_strings, client_code, upstream_fixture, official_rollout, public_docs,
-or other. Use official_rollout only when the source explicitly confirms rollout.
-Summary is one short, self-contained sentence. Use findings for up to three short
-distinct discoveries only when more than one merits attention. Each should say what
-is new. If using findings, their first item should convey the main takeaway.
+or other. Label web bundle strings as client_code. Reserve app_strings for mobile
+app resource diffs and official_rollout for an explicitly confirmed rollout.
+Summary is one short, self-contained sentence. Use findings only for distinct new
+features, models, or capabilities, with up to three bullets of 120 characters each.
+Leave out promotional copy and maintenance when there is feature news.
+If using findings, their first item should convey the main takeaway.
 Evidence contains one to three short verbatim excerpts for the main finding, strongest
 first. A meaningful substring is enough. Preserve diff markers where helpful.
 For routine, use an empty headline, findings, and evidence, and put the roundup in
@@ -227,7 +229,9 @@ export async function analyzeSparklyReview({ tracker, subject, changes }, trace 
   trace(`validated model verdict: ${verdict.priority}`);
   const summary = compactText(verdict.summary, 350);
   const headline = compactText(verdict.headline, 100);
-  const source = Object.hasOwn(SOURCE_LABELS, verdict.source) ? verdict.source : undefined;
+  const source = verdict.source === 'app_strings' && tracker !== 'Android app strings'
+    ? undefined
+    : Object.hasOwn(SOURCE_LABELS, verdict.source) ? verdict.source : undefined;
   const findings = Array.isArray(verdict.findings)
     ? [...new Set(verdict.findings.map(finding => compactText(finding, 150)).filter(Boolean))].slice(0, 3)
     : [];
