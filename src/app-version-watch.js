@@ -377,9 +377,8 @@ async function main() {
           if (result.hasStringsBaseline) {
             queueSparklyReview({
               tracker: 'Android app strings',
-              subject: `${app.id} · ${result.version}`,
-              changes: result.stringsDiff,
-              sourceUrl: result.url
+              subject: `${result.title ? `${result.title} (${app.id})` : app.id} · ${result.version}`,
+              changes: result.stringsDiff
             });
           }
         }

@@ -1158,8 +1158,7 @@ async function runTarget(t, cfg, webhookUrl, webhookOn) {
       queueSparklyReview({
         tracker: label,
         subject: 'Product changes',
-        changes,
-        sourceUrl: tcfg.targetUrl
+        changes
       });
     }
   }

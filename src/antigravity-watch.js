@@ -418,8 +418,7 @@ export async function main() {
     queueSparklyReview({
       tracker: 'Antigravity',
       subject: 'Product changes',
-      changes: segs.slice(1).join('\n\n'),
-      sourceUrl: cfg.docs.base
+      changes: segs.slice(1).join('\n\n')
     });
   }
 

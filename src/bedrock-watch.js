@@ -193,8 +193,7 @@ async function main() {
   queueSparklyReview({
     tracker: 'Bedrock',
     subject: 'Model availability',
-    changes: diff,
-    sourceUrl: config.scan.url
+    changes: diff
   });
 
   saveState(statePath, { models, timestamp: Date.now() });

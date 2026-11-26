@@ -446,8 +446,7 @@ async function main() {
       queueSparklyReview({
         tracker: 'Tombstone',
         subject: `${owner}/${repo}`,
-        changes: modelChanges,
-        sourceUrl: `https://github.com/${owner}/${repo}/commit/${commitInfo.sha}`
+        changes: modelChanges
       });
     }
   } else {

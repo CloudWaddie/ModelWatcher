@@ -266,8 +266,7 @@ async function main() {
     queueSparklyReview({
       tracker: 'Google Cloud SKU',
       subject: 'New model SKUs',
-      changes: newModels,
-      sourceUrl: 'https://cloud.google.com/skus/'
+      changes: newModels
     });
   }
 
