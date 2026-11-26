@@ -5,10 +5,16 @@ const cases = JSON.parse(readFileSync(new URL('./fixtures/sparkly-history.json',
 let failures = 0;
 let important = 0;
 let routine = 0;
+let skipped = 0;
 
 for (const fixture of cases) {
   try {
     const verdict = await analyzeSparklyReview(fixture);
+    if (!verdict) {
+      skipped++;
+      console.log(JSON.stringify({ revision: fixture.revision, tracker: fixture.tracker, skipped: true }));
+      continue;
+    }
     if (verdict.important) important++;
     else routine++;
     console.log(JSON.stringify({ revision: fixture.revision, tracker: fixture.tracker, ...verdict }));
@@ -18,5 +24,5 @@ for (const fixture of cases) {
   }
 }
 
-console.log(`Sparkly replay: ${cases.length} cases, ${important} important, ${routine} routine, ${failures} failed`);
+console.log(`Sparkly replay: ${cases.length} cases, ${important} important, ${routine} routine, ${skipped} skipped, ${failures} failed`);
 if (failures) process.exitCode = 1;

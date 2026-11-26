@@ -50,7 +50,8 @@ How to report:
 Calibration from tracker history:
 - AI Studio adding models/gemini-4-neon is worth a model sighting. Do not predict
   rollout or capabilities from the identifier. Global and non-global SKUs for the
-  same model are one signal. A build key bump alone gets a routine summary.
+  same model are one signal. Omit bucketed-key churn and server-version bumps from
+  every summary, including when they accompany a model or feature change.
 - An official model availability table with a plan changing from unavailable to
   available warrants an availability summary naming that plan.
 
@@ -120,6 +121,12 @@ export function queueSparklyReview(review) {
 }
 
 export async function analyzeSparklyReview({ tracker, subject, changes }) {
+  let reviewChanges = changes;
+  if (tracker === 'AI Studio' && changes && typeof changes === 'object' && !Array.isArray(changes)) {
+    const { bucketedKeysChanged, build, ...productChanges } = changes;
+    if (!Object.keys(productChanges).length) return null;
+    reviewChanges = productChanges;
+  }
   const config = process.env.SPARKLY_DATA;
   if (!config) throw new Error('SPARKLY_DATA is missing');
 
@@ -130,7 +137,7 @@ export async function analyzeSparklyReview({ tracker, subject, changes }) {
   }
   const [, baseUrl, apiKey, model] = credentials;
 
-  const evidence = typeof changes === 'string' ? changes : JSON.stringify(changes);
+  const evidence = typeof reviewChanges === 'string' ? reviewChanges : JSON.stringify(reviewChanges);
   const suppliedEvidence = evidence.slice(0, MAX_EVIDENCE_CHARS);
   const response = await fetch(`${baseUrl.replace(/\/+$/, '')}/chat/completions`, {
     method: 'POST',
@@ -179,6 +186,7 @@ export async function reviewForSparkly(review) {
 
   try {
     const verdict = await analyzeSparklyReview(review);
+    if (!verdict) return false;
     const webhookUrl = new URL(webhook);
     webhookUrl.searchParams.set('with_components', 'true');
     const discord = await fetch(webhookUrl, {
