@@ -49,9 +49,8 @@ Unauthenticated multi-target scanner. A change in a site's **backend build** (`b
 
 ### Sparkly summaries
 
-Sparkly reviews Android string diffs, Tombstone model changes, Amazon Bedrock model
-availability changes, new Google Cloud model SKUs, and product changes from Gemini
-Web, AI Studio, and Antigravity. It sends change summaries
+Sparkly reviews Android string diffs, Tombstone model changes, and product changes
+from Gemini Web, AI Studio, and Antigravity. It sends change summaries
 to `#sparkly` alongside the existing tracker alerts. The configured provider receives
 the tracker change data for review. Baseline scans skip the review.
 

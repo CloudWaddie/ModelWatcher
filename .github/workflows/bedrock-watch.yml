@@ -73,14 +73,6 @@ jobs:
             echo "No changes to commit"
           fi
 
-      - name: Run Sparkly review
-        if: ${{ !cancelled() }}
-        env:
-          SPARKLY_DATA: ${{ secrets.SPARKLY_DATA }}
-          SPARKLY_WEBHOOK: ${{ secrets.SPARKLY_WEBHOOK }}
-          SPARKLY_ALERT_EMOJI: ${{ vars.SPARKLY_ALERT_EMOJI }}
-        run: node src/sparkly.js
-
       - name: Notify on failure
         if: failure()
         env:
