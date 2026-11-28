@@ -1,3 +1,4 @@
+import { withAlertFooter } from './alert-footer.js';
 import { Camoufox } from 'camoufox-js';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
@@ -360,7 +361,7 @@ async function sendDiscordWebhook(webhookUrl, payload) {
   const { default: axios } = await import('axios');
   
   try {
-    await axios.post(webhookUrl, payload, {
+    await axios.post(webhookUrl, withAlertFooter(payload), {
       headers: { 'Content-Type': 'application/json' }
     });
     return true;

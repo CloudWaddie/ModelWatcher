@@ -1,3 +1,4 @@
+import { withAlertFooter } from './alert-footer.js';
 import { queueSparklyReview } from './sparkly.js';
 import axios from 'axios';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
@@ -208,7 +209,7 @@ async function sendDiscordWebhook(webhookUrl, payload) {
       ...payload,
       embeds: (payload.embeds || []).map(safeEmbed)
     };
-    await axios.post(webhookUrl, safePayload, {
+    await axios.post(webhookUrl, withAlertFooter(safePayload), {
       headers: { 'Content-Type': 'application/json' }
     });
     return true;

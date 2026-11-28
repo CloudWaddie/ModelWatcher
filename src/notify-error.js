@@ -1,3 +1,4 @@
+import { withAlertFooter } from './alert-footer.js';
 // Posts a Components V2 failure report to ERROR_WEBHOOK from inside a GitHub Actions run.
 // Run from a final `if: failure()` step. Needs `actions: read` for step names + log excerpts.
 const USER_ID = '1366222155720687646';
@@ -71,7 +72,7 @@ function buildPayload(failed) {
 
 async function main() {
   if (!env.ERROR_WEBHOOK) { console.log('ERROR_WEBHOOK not set - skipping failure ping'); return; }
-  const payload = buildPayload(await collect());
+  const payload = withAlertFooter(buildPayload(await collect()));
   if (process.argv.includes('--dry-run')) { console.log(JSON.stringify(payload, null, 2)); return; }
   const res = await fetch(env.ERROR_WEBHOOK + '?with_components=true', {
     method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),

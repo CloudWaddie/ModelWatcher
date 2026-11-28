@@ -1,3 +1,4 @@
+import { withAlertFooter } from './alert-footer.js';
 import axios from 'axios';
 
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
@@ -141,7 +142,7 @@ export async function sendDiscordWebhook(webhookUrl, payload) {
   }
 
   try {
-    const rawEmbeds = payload.embeds || [];
+    const rawEmbeds = withAlertFooter({ embeds: payload.embeds || [] }).embeds;
     const processedEmbeds = [];
 
     // Split large embeds and ensure field name limits
@@ -662,7 +663,7 @@ export async function sendRawDiffWebhook(webhookUrl, payload) {
   }
 
   try {
-    const rawEmbeds = payload.embeds || [];
+    const rawEmbeds = withAlertFooter({ embeds: payload.embeds || [] }).embeds;
     const processedEmbeds = [];
 
     for (const embed of rawEmbeds) {

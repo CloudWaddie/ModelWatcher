@@ -1,3 +1,4 @@
+import { withAlertFooter } from './alert-footer.js';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -30,7 +31,7 @@ export async function patchMessage(webhookUrl, messageId, payload) {
   const res = await fetch(`${webhookUrl}/messages/${messageId}?with_components=true`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(withAlertFooter(payload)),
   });
   if (!res.ok) console.error('Discord PATCH failed:', res.status, await res.text());
   return res.ok;
@@ -196,7 +197,7 @@ export async function postPayload(webhookUrl, payload, label) {
   const res = await fetch(`${webhookUrl}?with_components=true`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(withAlertFooter(payload)),
   });
   if (res.ok) console.log(`[${label}] Discord notification sent`);
   else console.error(`[${label}] Discord send failed:`, res.status, await res.text());
@@ -234,7 +235,7 @@ async function runScan(scan, webhookUrl, webhookEnabled) {
       const res = await fetch(`${webhookUrl}?wait=true&with_components=true`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(buildProgressPayload(p, scan.targetUrl)),
+        body: JSON.stringify(withAlertFooter(buildProgressPayload(p, scan.targetUrl))),
       });
       if (res.ok) {
         const msg = await res.json();

@@ -1,3 +1,4 @@
+import { withAlertFooter } from './alert-footer.js';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { saveStateIfChanged } from './state-file.js';
@@ -183,7 +184,7 @@ async function main() {
     const res = await fetch(webhookUrl + '?with_components=true', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(withAlertFooter(payload)),
     });
     if (res.ok) console.log('Discord notification sent');
     else console.error('Discord send failed:', res.status, await res.text());

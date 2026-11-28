@@ -1,3 +1,4 @@
+import { withAlertFooter } from './alert-footer.js';
 import axios from 'axios';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
@@ -159,7 +160,7 @@ async function sendDiscordWebhook(webhookUrl, payload) {
   }
 
   try {
-    await axios.post(webhookUrl, payload, {
+    await axios.post(webhookUrl, withAlertFooter(payload), {
       headers: { 'Content-Type': 'application/json' }
     });
     return true;

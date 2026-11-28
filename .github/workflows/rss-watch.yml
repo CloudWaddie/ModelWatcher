@@ -91,6 +91,6 @@ jobs:
             node src/notify-error.js
           elif [ -n "$ERROR_WEBHOOK" ]; then
             curl -sS -X POST -H 'Content-Type: application/json' \
-              -d "{\"content\":\"<@1366222155720687646> ❌ ${GITHUB_WORKFLOW} failed: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}\",\"allowed_mentions\":{\"users\":[\"1366222155720687646\"]}}" \
+              -d "{\"content\":\"<@1366222155720687646> ❌ ${GITHUB_WORKFLOW} failed: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}\n\nAI Leaks · discord.gg/aileaks\",\"allowed_mentions\":{\"users\":[\"1366222155720687646\"]}}" \
               "$ERROR_WEBHOOK" || true
           fi

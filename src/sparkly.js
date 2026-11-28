@@ -1,3 +1,4 @@
+import { withAlertFooter } from './alert-footer.js';
 import { appendFileSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -266,7 +267,7 @@ export async function reviewForSparkly(review) {
       redirect: 'error',
       signal: AbortSignal.timeout(10000),
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(buildSparklyMessage({ ...review, ...verdict }))
+      body: JSON.stringify(withAlertFooter(buildSparklyMessage({ ...review, ...verdict })))
     });
     if (!discord.ok) throw new Error(`Discord HTTP ${discord.status}`);
     return true;
