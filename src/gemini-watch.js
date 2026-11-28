@@ -3,6 +3,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { scrapeRpcMappings } from '@cloudwaddie/googleinternal';
+import { queueSparklyReview } from './sparkly.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
@@ -131,6 +132,38 @@ function formatEntry(rpcid, path, type) {
   return `\`${rpcid}\` → \`${path}\`${t}`;
 }
 
+export function diffMappings(prev, curr, types) {
+  const previousMappings = prev.mappings ?? {};
+  const previousTypes = prev.types ?? {};
+  const added = [];
+  const removed = [];
+  const changed = [];
+
+  for (const [id, path] of curr) {
+    const type = types.get(id) ?? null;
+    if (!(id in previousMappings)) {
+      added.push({ id, path, type });
+      continue;
+    }
+
+    const previousPath = previousMappings[id];
+    const previousType = previousTypes[id] ?? null;
+    if (previousPath !== path || previousType !== type) {
+      changed.push({
+        id,
+        from: { path: previousPath, type: previousType },
+        to: { path, type },
+      });
+    }
+  }
+
+  for (const [id, path] of Object.entries(previousMappings)) {
+    if (!curr.has(id)) removed.push({ id, path, type: previousTypes[id] ?? null });
+  }
+
+  return { added, removed, changed };
+}
+
 /**
  * Build the diff report as an array of components-v2 payloads (one per Discord
  * message, chunked under the 4000-char display-component text limit).
@@ -141,15 +174,10 @@ function formatEntry(rpcid, path, type) {
  */
 export function buildReportMessages(prev, curr, types, options = {}) {
   const { firstRun = false } = options;
-  const newIds = [], removedIds = [], changedIds = [];
-
-  for (const [id, path] of curr) {
-    if (!(id in prev.mappings)) newIds.push(id);
-    else if (prev.mappings[id] !== path) changedIds.push(id);
-  }
-  for (const id of Object.keys(prev.mappings)) {
-    if (!curr.has(id)) removedIds.push(id);
-  }
+  const diff = diffMappings(prev, curr, types);
+  const newIds = diff.added.map(({ id }) => id);
+  const removedIds = diff.removed.map(({ id }) => id);
+  const changedIds = diff.changed.map(({ id }) => id);
 
   const header = firstRun
     ? `# 🌱 Gemini RPC Mappings — initial baseline`
@@ -170,7 +198,8 @@ export function buildReportMessages(prev, curr, types, options = {}) {
       const path = kind === 'removed' ? prev.mappings[id] : curr.get(id);
       const svc = serviceOf(path);
       if (!byService[svc]) byService[svc] = [];
-      byService[svc].push(formatEntry(id, path, types.get(id)));
+      const type = kind === 'removed' ? prev.types?.[id] : types.get(id);
+      byService[svc].push(formatEntry(id, path, type));
     }
     segments.push(`### ${label[kind]} (${ids.length})`);
     for (const [svc, entries] of Object.entries(byService)) {
@@ -297,9 +326,15 @@ async function runScan(scan, webhookUrl, webhookEnabled) {
     return;
   }
 
-  const hasChanges = [...mappings.keys()].some(id => prev.mappings[id] !== mappings.get(id)) ||
-    Object.keys(prev.mappings).some(id => !mappings.has(id)) ||
-    [...mappingTypes.keys()].some(id => prev.types?.[id] && prev.types[id] !== mappingTypes.get(id));
+  const diff = diffMappings(prev, mappings, mappingTypes);
+  const hasChanges = diff.added.length > 0 || diff.removed.length > 0 || diff.changed.length > 0;
+  if (hasChanges) {
+    queueSparklyReview({
+      tracker: scan.name === 'aistudio' ? 'AI Studio' : 'Gemini',
+      subject: 'RPC mappings',
+      changes: diff,
+    });
+  }
 
   if (messageId && webhookUrl && webhookEnabled) {
     if (hasChanges) {
