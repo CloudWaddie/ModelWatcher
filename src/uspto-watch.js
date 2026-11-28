@@ -1,132 +1,14 @@
 import { withAlertFooter } from './alert-footer.js';
-import { Camoufox } from 'camoufox-js';
+import { load } from 'cheerio';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import { execSync } from 'child_process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 
-/**
- * Get Webshare.io proxy configuration from environment
- * Format: username:password@hostname:port or full proxy URL
- */
-function getProxyConfig() {
-  const config = loadConfig();
-  if (!config.proxy?.enabled) {
-    return null;
-  }
-
-  const proxyUrl = process.env[config.proxy.urlEnv];
-  if (!proxyUrl) {
-    return null;
-  }
-  
-  // Parse proxy URL (supports: http://user:pass@host:port or socks5://user:pass@host:port)
-  try {
-    const url = new URL(proxyUrl);
-    // Convert socks5 to http for better browser compatibility
-    const protocol = url.protocol === 'socks5:' ? 'http:' : url.protocol;
-    return {
-      server: `${protocol}//${url.host}`,
-      username: url.username,
-      password: url.password
-    };
-  } catch (e) {
-    console.error('Invalid proxy URL format:', proxyUrl);
-    return null;
-  }
-}
-
-/**
- * Check if Xvfb is available (for virtual display)
- */
-function isXvfbAvailable() {
-  try {
-    execSync('which Xvfb', { stdio: 'ignore' });
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-async function waitForCloudflareChallenge(page, timeout = 30000) {
-  try {
-    await page.waitForFunction(
-      () => {
-        const body = document.body;
-        if (!body) return false;
-        const text = body.textContent || '';
-        if (text.includes('Just a moment') || text.includes('Cloudflare')) {
-          return false;
-        }
-        if (document.querySelector('#cf-ccsp') || document.querySelector('.cf-browser')) {
-          return false;
-        }
-        return true;
-      },
-      { timeout }
-    );
-    return { success: true };
-  } catch (e) {
-    try {
-      const bodyText = await page.evaluate(() => document.body?.textContent || '');
-      if (bodyText.includes('Just a moment')) {
-        return { success: false, reason: 'cloudflare_stuck' };
-      }
-    } catch (evalError) { console.log(`Could not evaluate page content after challenge timeout: ${evalError.message}`); }
-    return { success: false, reason: 'timeout' };
-  }
-}
-
-/**
- * Handle and click Turnstile CAPTCHA if present
- */
-async function handleCaptcha(page) {
-  try {
-    // Check for Turnstile (Cloudflare CAPTCHA)
-    try {
-      const turnstileFrame = page.frameLocator('iframe[src*="turnstile"]');
-      // The clickable element inside the Turnstile iframe. This may need adjustment.
-      const turnstileElement = turnstileFrame.locator('input[type="checkbox"], #challenge-stage');
-      if (await turnstileElement.count() > 0) {
-        console.log('Detected Turnstile CAPTCHA, attempting to click...');
-        await turnstileElement.first().click({ timeout: 5000 });
-        console.log('Clicked Turnstile element');
-        await page.waitForTimeout(2000);
-      }
-    } catch (e) {
-      // No Turnstile found or an error occurred, which is acceptable.
-    }
-    
-    // Check for hCaptcha
-    const hCaptchaFrame = page.frameLocator('iframe[src*="hcaptcha"], iframe[name*="hcaptcha"]');
-    try {
-      await hCaptchaFrame.locator('.hcaptcha-checkbox').click({ timeout: 3000 });
-      console.log('Clicked hCaptcha');
-      await page.waitForTimeout(2000);
-    } catch (e) {
-      // No hCaptcha found
-    }
-    
-    // Check for reCAPTCHA
-    const recaptchaFrame = page.frameLocator('iframe[src*="recaptcha"]');
-    try {
-      await recaptchaFrame.locator('.recaptcha-checkbox').click({ timeout: 3000 });
-      console.log('Clicked reCAPTCHA');
-      await page.waitForTimeout(2000);
-    } catch (e) {
-      // No reCAPTCHA found
-    }
-    
-    return true;
-  } catch (error) {
-    console.log('CAPTCHA handling error:', error.message);
-    return false;
-  }
-}
+const SOURCE_URL = 'https://uspto.report';
 
 /**
  * Load configuration from uspto-config.json
@@ -176,176 +58,66 @@ function saveState(statePath, state) {
   writeFileSync(statePath, JSON.stringify(stateToSave, null, 2));
 }
 
-/**
- * Fetch trademark filings using Camoufox browser with virtual display and CAPTCHA handling
- * Proxy is only used as fallback if Cloudflare challenge fails or no results returned
- */
-async function fetchCompanyFilings(companySlug, maxRetries = 2) {
-  console.log(`Fetching USPTO data for ${companySlug}...`);
+async function fetchPage(path, timeout) {
+  const response = await fetch(new URL(path, SOURCE_URL), {
+    signal: AbortSignal.timeout(timeout)
+  });
+  if (!response.ok) {
+    throw new Error(`${path} returned HTTP ${response.status}`);
+  }
+  return load(await response.text());
+}
 
-  const proxyConfig = getProxyConfig();
-  const proxyAvailable = proxyConfig !== null;
-  
-  let lastError;
-  let attempt = 0;
-  let needsProxyRetry = false;
-  let proxyRetryFailed = false;
-  
-  while (attempt < maxRetries) {
-    attempt++;
-    let browser;
-    
-    const shouldUseProxy = needsProxyRetry && proxyAvailable && !proxyRetryFailed;
-    
-    try {
-      const useVirtualDisplay = isXvfbAvailable();
-      
-      if (useVirtualDisplay) {
-        console.log('Using virtual display (Xvfb) for headless browser');
-      }
+async function fetchCompanyFilings(companySlug, seenSerials, timeout) {
+  const $ = await fetchPage(`/company/${encodeURIComponent(companySlug)}`, timeout);
+  const section = $('.company-section').filter((_, element) =>
+    $(element).find('h2').text().trim() === 'Trademarks'
+  );
+  const filings = new Map();
+  let hasTrademarkRecords = false;
 
-      if (shouldUseProxy) {
-        console.log(`Using Webshare.io proxy (fallback): ${proxyConfig.server}`);
-      } else if (needsProxyRetry && !proxyAvailable) {
-        console.log('No proxy available, proceeding without');
-      } else {
-        console.log('Attempting without proxy');
-      }
-
-      const camoufoxOptions = {
-        headless: useVirtualDisplay ? 'virtual' : true,
-        geoip: shouldUseProxy ? true : false,
-        args: [
-          '--no-sandbox',
-          '--disable-setuid-sandbox',
-          '--disable-dev-shm-usage',
-          '--disable-gpu'
-        ]
-      };
-
-      if (shouldUseProxy) {
-        camoufoxOptions.proxy = proxyConfig;
-      }
-
-      browser = await Camoufox(camoufoxOptions);
-
-      const page = await browser.newPage();
-      
-      await page.goto(`https://uspto.report/company/${companySlug}`, {
-        waitUntil: 'domcontentloaded',
-        timeout: 120000
+  for (const link of section.find('.company-list > a')) {
+    const path = $(link).attr('href');
+    const serial = path?.match(/^\/TM\/(\d+)\/?$/)?.[1];
+    if (!serial) continue;
+    hasTrademarkRecords = true;
+    if (!seenSerials.has(serial)) {
+      filings.set(serial, {
+        serial,
+        mark: $(link).find('strong').text().trim(),
+        url: new URL(path, SOURCE_URL).href,
+        imageUrl: `${SOURCE_URL}/TM/${serial}/mark.png`
       });
-
-      const challengeResult = await waitForCloudflareChallenge(page, 30000);
-      
-      if (!challengeResult.success) {
-        console.log(`Cloudflare challenge did not clear: ${challengeResult.reason || 'unknown'}`);
-        if (!needsProxyRetry && proxyAvailable) {
-          needsProxyRetry = true;
-          throw new Error(ERROR_REASONS.CLOUDFLARE_STUCK);
-        } else if (needsProxyRetry && !proxyRetryFailed) {
-          proxyRetryFailed = true;
-          throw new Error(ERROR_REASONS.PROXY_FAILED);
-        }
-        throw new Error(ERROR_REASONS.UNRECOVERABLE);
-      }
-      
-      await handleCaptcha(page);
-      
-      await page.waitForSelector('table', { timeout: 30000 });
-
-      await page.waitForTimeout(3000);
-
-      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-
-      await page.waitForTimeout(2000);
-
-      const filings = await page.evaluate(() => {
-        const results = [];
-        const rows = document.querySelectorAll('table.table tbody tr');
-
-        for (const row of rows) {
-          const cells = row.querySelectorAll('td');
-          if (cells.length < 2) continue;
-
-          const firstCell = cells[0];
-          const link = firstCell.querySelector('a[href*="/TM/"]');
-          if (!link) continue;
-
-          const href = link.getAttribute('href');
-          const serialMatch = href.match(/\/TM\/(\d+)/);
-          const serial = serialMatch ? serialMatch[1] : null;
-          if (!serial) continue;
-
-          const secondCell = cells[1];
-          const markDiv = secondCell.querySelector('div[style*="float: left"]');
-          let mark = markDiv ? markDiv.textContent.trim() : null;
-
-          if (!mark) {
-            const img = firstCell.querySelector('img');
-            if (img) mark = img.alt?.replace(/^"|"$/g, '').trim() || 'Symbol/Image';
-          }
-
-          const dateDiv = secondCell.querySelector('div[style*="float: right"]');
-          const dateMatch = dateDiv ? dateDiv.textContent.match(/(\d{4}-\d{2}-\d{2})/) : null;
-          const date = dateMatch ? dateMatch[1] : null;
-
-          const img = firstCell.querySelector('img');
-          const imageUrl = img && img.src ? 'https://uspto.report' + img.getAttribute('src') : null;
-
-          if (serial && mark && date) {
-            results.push({
-              serial,
-              mark,
-              date,
-              url: 'https://uspto.report' + href,
-              imageUrl: imageUrl || `https://uspto.report/TM/${serial}/mark.png`
-            });
-          }
-        }
-
-        results.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        return results;
-      });
-      
-      if (filings.length === 0 && !needsProxyRetry && proxyAvailable) {
-        console.log('No filings returned, will retry with proxy');
-        needsProxyRetry = true;
-        throw new Error('no_results');
-      }
-      
-      console.log(`Found ${filings.length} trademark filings for ${companySlug}`);
-      return filings;
-    
-    } catch (error) {
-      lastError = error;
-      const isUnrecoverable = error.message === 'unrecoverable';
-      
-      if (isUnrecoverable) {
-        console.error(`Failed to fetch ${companySlug} - unrecoverable error`);
-        break;
-      }
-      
-      if (needsProxyRetry && proxyRetryFailed) {
-        console.error(`Proxy retry failed for ${companySlug}:`, error.message);
-        break;
-      }
-      
-      if (attempt < maxRetries && !isUnrecoverable) {
-        const delay = Math.pow(2, attempt) * 2000;
-        console.log(`Retrying in ${delay/1000} seconds...`);
-        await new Promise(resolve => setTimeout(resolve, delay));
-      }
-    } finally {
-      if (browser) {
-        await browser.close();
-      }
     }
   }
-  
-  console.error(`All attempts failed for ${companySlug}:`, lastError?.message);
-  return [];
+
+  const trademarkCount = $('.counts .card').filter((_, element) =>
+    $(element).find('span').text().trim() === 'Trademark records'
+  ).find('strong').text().trim();
+  if (!hasTrademarkRecords && trademarkCount !== '0') {
+    throw new Error('No trademark records found on the company page');
+  }
+
+  for (const filing of filings.values()) {
+    const detail = await fetchPage(`/TM/${filing.serial}/`, timeout);
+    const heading = detail('main h1').first().text().trim();
+    const dateLabel = detail('dt').filter((_, element) =>
+      detail(element).text().trim() === 'Filing date'
+    );
+    if (heading && heading !== 'Untitled trademark' && heading !== filing.serial) {
+      filing.mark = heading;
+    } else if (!filing.mark || filing.mark === filing.serial) {
+      filing.mark = 'Symbol/Image';
+    }
+
+    const date = Date.parse(`${dateLabel.next('dd').text().trim()} UTC`);
+    if (Number.isNaN(date)) {
+      throw new Error(`Filing date missing or invalid for serial ${filing.serial}`);
+    }
+    filing.date = new Date(date).toISOString().slice(0, 10);
+  }
+
+  return [...filings.values()].sort((a, b) => b.date.localeCompare(a.date));
 }
 
 /**
@@ -463,40 +235,32 @@ async function main() {
   let totalNewFilings = 0;
 
   for (const company of companies) {
-    const filings = await fetchCompanyFilings(company.slug);
+    const seenSerials = state.companies[company.slug]?.seenSerials ?? new Set();
 
-    if (filings.length === 0) {
-      console.log(`No filings found for ${company.name}`);
-      continue;
-    }
+    try {
+      const newFilings = await fetchCompanyFilings(
+        company.slug, seenSerials, config.scan?.timeout ?? 30000
+      );
 
-    // Initialize company state if needed
-    if (!state.companies[company.slug]) {
-      state.companies[company.slug] = { seenSerials: new Set() };
-    }
+      if (newFilings.length === 0) {
+        console.log(`No new trademark filings for ${company.name}`);
+        continue;
+      }
 
-    // Find new filings using Set for O(1) lookup
-    const seenSerials = state.companies[company.slug].seenSerials;
-    const newFilings = filings.filter(filing => !seenSerials.has(filing.serial));
-
-    // Sort new filings by date (newest first)
-    newFilings.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-    if (newFilings.length > 0) {
-      console.log(`Found ${newFilings.length} new trademark filings for ${company.name}`);
-      
-      // Send webhook notification
       const message = createNewFilingsMessage(company, newFilings);
-      await sendDiscordWebhook(webhookUrl, message);
+      if (!await sendDiscordWebhook(webhookUrl, message)) {
+        throw new Error('Discord notification was not delivered');
+      }
 
-      totalNewFilings += newFilings.length;
-
-      // Update seen serials
       for (const filing of newFilings) {
         seenSerials.add(filing.serial);
       }
-    } else {
-      console.log(`No new trademark filings for ${company.name}`);
+      state.companies[company.slug] = { seenSerials };
+      totalNewFilings += newFilings.length;
+      console.log(`Sent ${newFilings.length} new trademark filings for ${company.name}`);
+    } catch (error) {
+      console.error(`USPTO scan failed for ${company.name}: ${error.message}`);
+      process.exitCode = 1;
     }
   }
 

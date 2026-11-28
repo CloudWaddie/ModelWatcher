@@ -112,11 +112,7 @@ ModelWatcher requires the following environment variables to be configured as **
 App version webhooks and which apps to monitor are configured in `app-version-config.json` (not env vars).
 
 #### USPTO Trademark Monitoring (Optional)
-| Variable | Purpose | Notes |
-|----------|---------|-------|
-| `WEBSHARE_PROXY_URL` (or custom) | Proxy URL for USPTO scraping | Optional - used if Cloudflare blocks direct access. Format: `http://user:pass@host:port` |
-
-Trademark webhook URLs and company slugs to monitor are configured in `uspto-config.json` (not env vars).
+Set the `USPTO_WEBHOOK` secret to the Discord webhook URL. Configure the company slugs in `uspto-config.json`. The watcher reads public trademark records from USPTO.report.
 
 ### Configuration Files
 
@@ -194,15 +190,11 @@ Edit to customize which OpenAI-compatible endpoints to scan:
 ```json
 {
   "companies": [
-    { "name": "OpenAI", "slug": "openai" },
-    { "name": "Anthropic", "slug": "anthropic" }
+    { "name": "OpenAI OpCo LLC", "slug": "Openai-Opco-L-L-C" },
+    { "name": "Anthropic PBC", "slug": "Anthropic-Pbc" }
   ],
   "webhook": {
     "webhookEnv": "USPTO_WEBHOOK"
-  },
-  "proxy": {
-    "enabled": false,
-    "urlEnv": "WEBSHARE_PROXY_URL"
   },
   "state": {
     "file": "logs/uspto-state.json"
