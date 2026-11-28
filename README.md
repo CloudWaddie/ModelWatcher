@@ -112,7 +112,7 @@ ModelWatcher requires the following environment variables to be configured as **
 App version webhooks and which apps to monitor are configured in `app-version-config.json` (not env vars).
 
 #### USPTO Trademark Monitoring (Optional)
-Set the `USPTO_WEBHOOK` secret to the Discord webhook URL. Configure the company slugs in `uspto-config.json`. The watcher reads public trademark records from USPTO.report.
+Set the `USPTO_WEBHOOK` secret to the Discord webhook URL. The watcher checks the 100 most recent results per owner from [USPTO Trademark Search](https://tmsearch.uspto.gov/). Configure each company in `uspto-config.json`. Use `ownerName` when the trademark owner differs from the display name, and keep each `slug` stable to preserve alert history.
 
 ### Configuration Files
 

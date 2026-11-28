@@ -1,5 +1,4 @@
 import { withAlertFooter } from './alert-footer.js';
-import { load } from 'cheerio';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
@@ -8,7 +7,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const LOGO_URL = 'https://raw.githubusercontent.com/CloudWaddie/ModelWatcher/master/logo.jpg';
 
-const SOURCE_URL = 'https://uspto.report';
+const SEARCH_URL = 'https://tmsearch.uspto.gov/prod-v1-0-0/tmsearch';
+const TSDR_URL = 'https://tsdr.uspto.gov/';
 
 /**
  * Load configuration from uspto-config.json
@@ -58,66 +58,66 @@ function saveState(statePath, state) {
   writeFileSync(statePath, JSON.stringify(stateToSave, null, 2));
 }
 
-async function fetchPage(path, timeout) {
-  const response = await fetch(new URL(path, SOURCE_URL), {
-    signal: AbortSignal.timeout(timeout)
-  });
-  if (!response.ok) {
-    throw new Error(`${path} returned HTTP ${response.status}`);
-  }
-  return load(await response.text());
+function normalizeOwner(name) {
+  return name.split(' (', 1)[0].toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
-async function fetchCompanyFilings(companySlug, seenSerials, timeout) {
-  const $ = await fetchPage(`/company/${encodeURIComponent(companySlug)}`, timeout);
-  const section = $('.company-section').filter((_, element) =>
-    $(element).find('h2').text().trim() === 'Trademarks'
-  );
+async function fetchCompanyFilings(company, seenSerials, timeout) {
+  const ownerName = company.ownerName ?? company.name;
+  const ownerQuery = ownerName.replace(/["\\]/g, '\\$&');
+  const response = await fetch(SEARCH_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    signal: AbortSignal.timeout(timeout),
+    body: JSON.stringify({
+      query: { query_string: { query: `ON:"${ownerQuery}"` } },
+      sort: [{ filedDate: 'desc' }],
+      size: 100,
+      _source: ['filedDate', 'ownerName', 'wordmark']
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error(`USPTO Trademark Search returned HTTP ${response.status}`);
+  }
+
+  const result = await response.json();
+  const hits = result.hits?.hits;
+  if (!Array.isArray(hits) || result.timedOut || result.shardsFailed > 0) {
+    throw new Error('USPTO Trademark Search returned incomplete results');
+  }
+
   const filings = new Map();
-  let hasTrademarkRecords = false;
+  const expectedOwner = normalizeOwner(ownerName);
+  let matched = 0;
 
-  for (const link of section.find('.company-list > a')) {
-    const path = $(link).attr('href');
-    const serial = path?.match(/^\/TM\/(\d+)\/?$/)?.[1];
-    if (!serial) continue;
-    hasTrademarkRecords = true;
-    if (!seenSerials.has(serial)) {
-      filings.set(serial, {
-        serial,
-        mark: $(link).find('strong').text().trim(),
-        url: new URL(path, SOURCE_URL).href,
-        imageUrl: `${SOURCE_URL}/TM/${serial}/mark.png`
-      });
+  for (const { id, source } of hits) {
+    if (!Array.isArray(source?.ownerName)) {
+      throw new Error('USPTO Trademark Search result is missing owner data');
     }
+    if (!source.ownerName.some(name => normalizeOwner(name) === expectedOwner)) continue;
+    matched++;
+
+    const serial = String(id);
+    if (!/^\d{8}$/.test(serial)) {
+      throw new Error('USPTO Trademark Search returned an invalid serial number');
+    }
+    if (seenSerials.has(serial)) continue;
+
+    const date = source.filedDate?.match(/^\d{4}-\d{2}-\d{2}(?=T|$)/)?.[0];
+    if (!date) throw new Error(`Filing date missing or invalid for serial ${serial}`);
+
+    filings.set(serial, {
+      serial,
+      date,
+      mark: String(source.wordmark ?? '').trim().slice(0, 256) || 'Symbol/Image',
+      url: `${TSDR_URL}#caseNumber=${serial}&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch`,
+      imageUrl: `${TSDR_URL}img/${serial}/large`
+    });
   }
 
-  const trademarkCount = $('.counts .card').filter((_, element) =>
-    $(element).find('span').text().trim() === 'Trademark records'
-  ).find('strong').text().trim();
-  if (!hasTrademarkRecords && trademarkCount !== '0') {
-    throw new Error('No trademark records found on the company page');
-  }
-
-  for (const filing of filings.values()) {
-    const detail = await fetchPage(`/TM/${filing.serial}/`, timeout);
-    const heading = detail('main h1').first().text().trim();
-    const dateLabel = detail('dt').filter((_, element) =>
-      detail(element).text().trim() === 'Filing date'
-    );
-    if (heading && heading !== 'Untitled trademark' && heading !== filing.serial) {
-      filing.mark = heading;
-    } else if (!filing.mark || filing.mark === filing.serial) {
-      filing.mark = 'Symbol/Image';
-    }
-
-    const date = Date.parse(`${dateLabel.next('dd').text().trim()} UTC`);
-    if (Number.isNaN(date)) {
-      throw new Error(`Filing date missing or invalid for serial ${filing.serial}`);
-    }
-    filing.date = new Date(date).toISOString().slice(0, 10);
-  }
-
-  return [...filings.values()].sort((a, b) => b.date.localeCompare(a.date));
+  console.log(`Matched ${matched} USPTO records for ${company.name}`);
+  return [...filings.values()];
 }
 
 /**
@@ -157,7 +157,6 @@ function getRelativeTimestamp() {
  */
 function createNewFilingsMessage(company, filings) {
   const embeds = [];
-  const companySlug = company.slug;
   const companyName = company.name;
   
   // If too many filings, just show summary
@@ -168,7 +167,7 @@ function createNewFilingsMessage(company, filings) {
       embeds: [{
         title: '🏛️ New Trademark Filings',
         description: `**${companyName}** filed **${filings.length}** new trademark applications ${getRelativeTimestamp()}!`,
-        url: `https://uspto.report/company/${companySlug}`,
+        url: filings[0].url,
         color: 0x2563EB,
         timestamp: new Date().toISOString(),
         footer: {
@@ -239,7 +238,7 @@ async function main() {
 
     try {
       const newFilings = await fetchCompanyFilings(
-        company.slug, seenSerials, config.scan?.timeout ?? 30000
+        company, seenSerials, config.scan?.timeout ?? 30000
       );
 
       if (newFilings.length === 0) {
